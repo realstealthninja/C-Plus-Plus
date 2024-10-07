@@ -5,14 +5,13 @@ var namespaces_dup =
     [ "activations", "d5/d39/namespaceactivations.html", null ],
     [ "atbash", "de/db3/namespaceatbash.html", null ],
     [ "aystar_search", "db/ddc/namespaceaystar__search.html", null ],
-    [ "backtracking", "db/dc0/namespacebacktracking.html", [
-      [ "minimax", "db/dc0/namespacebacktracking.html#a78540bcb5ef3473b2348cbc34748ec50", null ]
-    ] ],
+    [ "backtracking", "db/dc0/namespacebacktracking.html", "db/dc0/namespacebacktracking" ],
     [ "base64_encoding", "d9/dc9/namespacebase64__encoding.html", null ],
     [ "bidirectional_dijkstra", "d4/d13/namespacebidirectional__dijkstra.html", null ],
     [ "binomial", "d7/d7a/namespacebinomial.html", null ],
     [ "bit_manipulation", "d7/d81/namespacebit__manipulation.html", [
-      [ "isPowerOfTwo", "d7/d81/namespacebit__manipulation.html#a5032470c9974bbd6ec254bf296530a5f", null ]
+      [ "isPowerOfTwo", "d7/d81/namespacebit__manipulation.html#a5032470c9974bbd6ec254bf296530a5f", null ],
+      [ "next_higher_number", "d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e", null ]
     ] ],
     [ "boruvkas_minimum_spanning_tree", "d8/d64/namespaceboruvkas__minimum__spanning__tree.html", null ],
     [ "caesar", "dd/d81/namespacecaesar.html", null ],
@@ -32,18 +31,24 @@ var namespaces_dup =
     [ "double_hashing", "d0/d65/namespacedouble__hashing.html", "d0/d65/namespacedouble__hashing" ],
     [ "dp", "df/d88/namespacedp.html", null ],
     [ "dynamic_programming", "dd/d24/namespacedynamic__programming.html", [
+      [ "is_armstrong", "dd/d24/namespacedynamic__programming.html#af046365a8d77a1267acc082f86135a26", null ],
       [ "LIS", "dd/d24/namespacedynamic__programming.html#a0a2215194e58786c34db1ccaf8031079", null ],
-      [ "maxCircularSum", "dd/d24/namespacedynamic__programming.html#a5239174fa0d987f2c67edc1f2af82beb", null ]
+      [ "lps", "dd/d24/namespacedynamic__programming.html#afe9f45b6e30ee187509da2d1d0093412", null ],
+      [ "maxCircularSum", "dd/d24/namespacedynamic__programming.html#a5239174fa0d987f2c67edc1f2af82beb", null ],
+      [ "trappedRainwater", "dd/d24/namespacedynamic__programming.html#a066e0e739e7c276eee6e61d5b4d37ce8", null ]
     ] ],
     [ "false_position", "df/dea/namespacefalse__position.html", null ],
     [ "fibonacci_sum", "d3/dc9/namespacefibonacci__sum.html", null ],
     [ "find_non_repeating_integer", "d2/da7/namespacefind__non__repeating__integer.html", null ],
+    [ "games", "da/d9c/namespacegames.html", "da/d9c/namespacegames" ],
+    [ "gcd_of_n_numbers", "d2/ddb/namespacegcd__of__n__numbers.html", null ],
     [ "geometric_dist", "dd/d8a/namespacegeometric__dist.html", null ],
     [ "geometry", "d5/d5f/namespacegeometry.html", null ],
     [ "gram_schmidt", "d4/d0f/namespacegram__schmidt.html", null ],
     [ "graph", "df/dce/namespacegraph.html", "df/dce/namespacegraph" ],
     [ "graph_coloring", "d7/d08/namespacegraph__coloring.html", null ],
-    [ "greedy_algorithms", "d2/d90/namespacegreedy__algorithms.html", null ],
+    [ "gray_code", "de/d9b/namespacegray__code.html", null ],
+    [ "greedy_algorithms", "d2/d90/namespacegreedy__algorithms.html", "d2/d90/namespacegreedy__algorithms" ],
     [ "ground_to_ground_projectile_motion", "d0/d20/namespaceground__to__ground__projectile__motion.html", null ],
     [ "hamming_distance", "d4/d1c/namespacehamming__distance.html", null ],
     [ "hashing", "d6/d0c/namespacehashing.html", null ],
@@ -92,7 +97,7 @@ var namespaces_dup =
       [ "InverseFastFourierTransform", "d1/de0/namespacenumerical__methods.html#aee56dc85997b8cd42bad71a5d6bd2d93", null ]
     ] ],
     [ "operations_on_datastructures", "da/d6d/namespaceoperations__on__datastructures.html", "da/d6d/namespaceoperations__on__datastructures" ],
-    [ "others", "d0/d6f/namespaceothers.html", null ],
+    [ "others", "d0/d6f/namespaceothers.html", "d0/d6f/namespaceothers" ],
     [ "palindrome_partitioning", "d5/d89/namespacepalindrome__partitioning.html", null ],
     [ "pancake_sort", "df/d10/namespacepancake__sort.html", null ],
     [ "physics", "d5/dd0/namespacephysics.html", null ],
@@ -131,10 +136,12 @@ var namespaces_dup =
       [ "insertionSort", "d5/d91/namespacesorting.html#a8fe6bac9e03f58abcc2ce26ef3de1b5f", null ],
       [ "insertionSort", "d5/d91/namespacesorting.html#a78cb2f3b97b6db2c062b2a1df05c9ea9", null ],
       [ "insertionSort_binsrch", "d5/d91/namespacesorting.html#a5f4bc75cca6dd8294af2d0e328006c68", null ],
+      [ "iterativeQuickSort", "d5/d91/namespacesorting.html#a263595fd9a0163b5b997b89fab3a0dc5", null ],
       [ "merge", "d5/d91/namespacesorting.html#aa26de383227859210f14dcf12201a079", null ],
       [ "non_recursive_merge_sort", "d5/d91/namespacesorting.html#ae97f4dd815654c4682f564afd718e824", null ],
       [ "non_recursive_merge_sort", "d5/d91/namespacesorting.html#a140d913e42fb94176a0b2c8b29a80420", null ],
       [ "non_recursive_merge_sort", "d5/d91/namespacesorting.html#a27236b8d3df3832e1f1225576a122534", null ],
+      [ "partition", "d5/d91/namespacesorting.html#aac8f44b28b4aa96444383030b28f8b34", null ],
       [ "pigeonSort", "d5/d91/namespacesorting.html#a0e9e1b21a1684585e9e50f9afe4d53a3", null ],
       [ "quicksort", "d5/d91/namespacesorting.html#a9f59fe72dacc1f1218ef3c303d843168", null ],
       [ "quicksort", "d5/d91/namespacesorting.html#a6eb67c2f91c98cf4464f75b5882022de", null ],
@@ -155,16 +162,19 @@ var namespaces_dup =
     [ "std", "d8/dcc/namespacestd.html", "d8/dcc/namespacestd" ],
     [ "strand", "d8/d1d/namespacestrand.html", null ],
     [ "strassens_multiplication", "d3/d91/namespacestrassens__multiplication.html", null ],
+    [ "string", "d6/dd6/namespacestring.html", [
+      [ "duval", "d6/dd6/namespacestring.html#ac2a35302e6bed93c4b2c6f55a21a5632", null ]
+    ] ],
     [ "string_search", "d9/d03/namespacestring__search.html", [
       [ "brute_force", "d9/d03/namespacestring__search.html#aeb2cd81064717aedd62bfb096b1a73d8", null ],
       [ "check_if_equal", "d9/d03/namespacestring__search.html#aebe07cea289a13142503d98be7df11fd", null ],
       [ "create_hash", "d9/d03/namespacestring__search.html#a8fb0bc932ba8b582c9f4c71338d050f8", null ],
-      [ "getFailureArray", "d9/d03/namespacestring__search.html#a996573527312d5255e1495b879e8a34f", null ],
-      [ "kmp", "d9/d03/namespacestring__search.html#a26a58225ce7d3fa9d4c2f5349a65ed93", null ],
+      [ "getFailureArray", "d9/d03/namespacestring__search.html#a83c72ff237cdf623e42d4295e0029bf9", null ],
+      [ "kmp", "d9/d03/namespacestring__search.html#a1e37af2f023495129cb57338c801209e", null ],
       [ "rabin_karp", "d9/d03/namespacestring__search.html#a21c673d56cbf67b1d2ee4d869185b7d9", null ],
       [ "recalculate_hash", "d9/d03/namespacestring__search.html#aed769d565b705a9b3e0eb1ec74088893", null ]
     ] ],
-    [ "strings", "df/dcb/namespacestrings.html", null ],
+    [ "strings", "df/dcb/namespacestrings.html", "df/dcb/namespacestrings" ],
     [ "subarray_sum", "df/d74/namespacesubarray__sum.html", null ],
     [ "sublist_search", "d9/def/namespacesublist__search.html", null ],
     [ "subset_sum", "dc/d3a/namespacesubset__sum.html", null ],
@@ -183,6 +193,7 @@ var namespaces_dup =
     [ "trie_operations", "df/d8e/namespacetrie__operations.html", null ],
     [ "trie_using_hashmap", "d7/d0a/namespacetrie__using__hashmap.html", null ],
     [ "util_functions", "d3/d17/namespaceutil__functions.html", null ],
+    [ "utils", "d6/d84/namespaceutils.html", null ],
     [ "vector_cross", "d4/d91/namespacevector__cross.html", null ],
     [ "vigenere", "d6/da2/namespacevigenere.html", null ],
     [ "wave_sort", "d9/d21/namespacewave__sort.html", null ],
