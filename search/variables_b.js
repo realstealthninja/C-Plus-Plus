@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['label_0',['label',['../d2/d8a/classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d.html#a722cc7cf2c3e4d15583601a48b09776f',1,'range_queries::heavy_light_decomposition::HLD']]],
-  ['last_1',['last',['../d1/def/classdata__structures_1_1linked__list_1_1list.html#af39bcc08641ce0c813023f364a9a9015',1,'data_structures::linked_list::list']]],
-  ['left_2',['left',['../dd/db6/structbinary__search__tree_1_1bst__node.html#a55c165b9e0e5b50a23104e0604dcc788',1,'binary_search_tree::bst_node::left'],['../d5/db5/classoperations__on__datastructures_1_1inorder__traversal__of__bst_1_1_node.html#a9ccef4c746b7226488b014f5bac4789a',1,'operations_on_datastructures::inorder_traversal_of_bst::Node::left'],['../d8/dfd/structoperations__on__datastructures_1_1reverse__binary__tree_1_1_node.html#aeb01a65e51df1e3bc5296cde8477c352',1,'operations_on_datastructures::reverse_binary_tree::Node::left'],['../d2/d9a/structothers_1_1iterative__tree__traversals_1_1_node.html#a1dbaeff928e469a05251879568515b8e',1,'others::iterative_tree_traversals::Node::left'],['../d9/df7/structothers_1_1recursive__tree__traversals_1_1_node.html#a5a8a7bc2d2f847994220ae9e0b60fff3',1,'others::recursive_tree_traversals::Node::left']]],
-  ['level_3',['level',['../d4/d90/classdata__structures_1_1_skip_list.html#a3e249c2c35a8b7f5ffd2d77fee60d650',1,'data_structures::SkipList::level'],['../d0/d58/classgraph_1_1_rooted_tree.html#a2ee3ad1161ac2532da30c3e22c265ad3',1,'graph::RootedTree::level']]],
-  ['log_4',['LOG',['../da/d37/structdata__structures_1_1sparse__table_1_1_sparse__table.html#a6cf72f93b1551f0d943c585b4f173be3',1,'data_structures::sparse_table::Sparse_table']]]
+  ['m_0',['M',['../data__structures_2sparse__table_8cpp.html#af7db62f21983565c64d5d42d2a49888e',1,'data_structures::sparse_table']]],
+  ['main_5fq_1',['main_q',['../structdata__structures_1_1stack__using__queue_1_1_stack.html#acf8ca54d5dd6676f255fff3dedacc7c6',1,'data_structures::stack_using_queue::Stack']]],
+  ['mat_5fsize_2',['mat_size',['../matrix__exponentiation_8cpp.html#a9977ad12548c4a49dee9dc3f0685aa54',1,'matrix_exponentiation.cpp']]],
+  ['max_5fiter_3',['MAX_ITER',['../group__machine__learning.html#ga5118e5cbc4f0886e27b3a7a2544dded1',1,'adaline_learning.cpp']]],
+  ['max_5fiterations_4',['MAX_ITERATIONS',['../newton__raphson__method_8cpp.html#a5c5ff05b9f37ae59dad67e1d4f6cd51d',1,'newton_raphson_method.cpp']]],
+  ['max_5flevel_5',['MAX_LEVEL',['../namespacedata__structures.html#ac0d7e0be24da9f41bcb19745873c436a',1,'data_structures']]],
+  ['max_5fsize_6',['max_size',['../queue__using__array_8cpp.html#a2d49e79bd164c298912db252970520d8',1,'queue_using_array.cpp']]],
+  ['maxnode_7',['maxNode',['../namespacedata__structures_1_1treap.html#ad939ec178d0069aeea14b7d6d7d12099',1,'data_structures::treap']]],
+  ['min_5fdistance_8',['MIN_DISTANCE',['../namespacemachine__learning.html#a7220dbb7fa896d83bfb7a50e4fce1786',1,'machine_learning']]],
+  ['month_9',['month',['../class_easter_year_month_day.html#a01a068eae0b6fa8f86f5f60c2840bbde',1,'EasterYearMonthDay']]]
 ];

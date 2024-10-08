@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['up_0',['up',['../d9/d23/classgraph_1_1_lowest_common_ancestor.html#a46d10f669791e3da9a4809bd8ff8d3ad',1,'graph::LowestCommonAncestor']]]
+  ['white_0',['WHITE',['../depth__first__search__with__stack_8cpp.html#afb80b42b42381658a12a57a975ecd0c7',1,'depth_first_search_with_stack.cpp']]]
 ];

@@ -11,20 +11,11 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
-  jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -59,29 +50,19 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
+<div id="doc-content">
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('functions_b.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -107,27 +88,22 @@ $(function(){initNavTree('functions_b.html',''); initResizable(true); });
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>bad_char&#160;:&#160;<a class="el" href="dd/d5a/structstrings_1_1boyer__moore_1_1pattern.html#ae5ca7abf15e939eddc80542131de3645">strings::boyer_moore::pattern</a></li>
-<li>batch_predict()&#160;:&#160;<a class="el" href="d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a88bf9023ab3d4cdb61cf707c7cdfc86b">machine_learning::neural_network::NeuralNetwork</a></li>
-<li>bfs()&#160;:&#160;<a class="el" href="d8/d69/classgraph_1_1_h_k_graph.html#a7491add14d9fc04f679114ca6d6f0f93">graph::HKGraph</a></li>
-<li>binary_search_tree()&#160;:&#160;<a class="el" href="d9/dde/classbinary__search__tree.html#aa67321ed575ca313cd71d833d91234a6">binary_search_tree&lt; T &gt;</a></li>
-<li>BinarySearch()&#160;:&#160;<a class="el" href="d5/dab/structdata__structures_1_1list__array_1_1list.html#a412bdb3910181f3c384d86aee7e217cf">data_structures::list_array::list&lt; N &gt;</a></li>
-<li>BinaryTree()&#160;:&#160;<a class="el" href="de/dcf/classoperations__on__datastructures_1_1reverse__binary__tree_1_1_binary_tree.html#abcb1cc8da7b6759dc92cbe0254697c56">operations_on_datastructures::reverse_binary_tree::BinaryTree</a></li>
-<li>bit&#160;:&#160;<a class="el" href="de/d0d/classrange__queries_1_1fenwick__tree.html#af7b7a8c1c5724ed8683d7e28bef526e6">range_queries::fenwick_tree</a></li>
-<li>Bitset()&#160;:&#160;<a class="el" href="d9/dae/classdata__structures_1_1_bitset.html#a15b05aabb28f9b1896b0a61e8ef60130">data_structures::Bitset</a></li>
-<li>blockSize&#160;:&#160;<a class="el" href="d9/dae/classdata__structures_1_1_bitset.html#ad7f7d479079a95bcc9175465395fa23f">data_structures::Bitset</a></li>
-<li>BloomFilter()&#160;:&#160;<a class="el" href="dc/dd4/classdata__structures_1_1_bloom_filter.html#a6910d29951b57ab56e7a3db405aa1f1a">data_structures::BloomFilter&lt; T &gt;</a></li>
-<li>bottom()&#160;:&#160;<a class="el" href="d2/dc8/classdata__structures_1_1_stack.html#a2ac469fcc2229d273450e429139d90e6">data_structures::Stack&lt; T &gt;</a></li>
-<li>breadth_first_search()&#160;:&#160;<a class="el" href="dc/d61/classgraph_1_1_graph.html#a3755ec9e6a842238c7f4aac10b661981">graph::Graph&lt; T &gt;</a></li>
-<li>bst_node()&#160;:&#160;<a class="el" href="dd/db6/structbinary__search__tree_1_1bst__node.html#a51dd9bd6dd32bce3b74dd64557306778">binary_search_tree&lt; T &gt;::bst_node</a></li>
+<li>bad_char&#160;:&#160;<a class="el" href="structstrings_1_1boyer__moore_1_1pattern.html#ae5ca7abf15e939eddc80542131de3645">strings::boyer_moore::pattern</a></li>
+<li>batch_predict()&#160;:&#160;<a class="el" href="classmachine__learning_1_1neural__network_1_1_neural_network.html#a88bf9023ab3d4cdb61cf707c7cdfc86b">machine_learning::neural_network::NeuralNetwork</a></li>
+<li>bfs()&#160;:&#160;<a class="el" href="classgraph_1_1_h_k_graph.html#a7491add14d9fc04f679114ca6d6f0f93">graph::HKGraph</a></li>
+<li>binary_search_tree()&#160;:&#160;<a class="el" href="classbinary__search__tree.html#aa67321ed575ca313cd71d833d91234a6">binary_search_tree&lt; T &gt;</a></li>
+<li>BinarySearch()&#160;:&#160;<a class="el" href="structdata__structures_1_1list__array_1_1list.html#a412bdb3910181f3c384d86aee7e217cf">data_structures::list_array::list&lt; N &gt;</a></li>
+<li>BinaryTree()&#160;:&#160;<a class="el" href="classoperations__on__datastructures_1_1reverse__binary__tree_1_1_binary_tree.html#abcb1cc8da7b6759dc92cbe0254697c56">operations_on_datastructures::reverse_binary_tree::BinaryTree</a></li>
+<li>Bitset()&#160;:&#160;<a class="el" href="classdata__structures_1_1_bitset.html#a15b05aabb28f9b1896b0a61e8ef60130">data_structures::Bitset</a></li>
+<li>BloomFilter()&#160;:&#160;<a class="el" href="classdata__structures_1_1_bloom_filter.html#a6910d29951b57ab56e7a3db405aa1f1a">data_structures::BloomFilter&lt; T &gt;</a></li>
+<li>bottom()&#160;:&#160;<a class="el" href="classdata__structures_1_1_stack.html#a2ac469fcc2229d273450e429139d90e6">data_structures::Stack&lt; T &gt;</a></li>
+<li>breadth_first_search()&#160;:&#160;<a class="el" href="classgraph_1_1_graph.html#a3755ec9e6a842238c7f4aac10b661981">graph::Graph&lt; T &gt;</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

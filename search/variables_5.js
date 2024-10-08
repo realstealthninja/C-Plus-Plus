@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['end_0',['end',['../d8/d7c/classoperations__on__datastructures_1_1circular__linked__list_1_1_circular_linked_list.html#ab682f854f39582a20c9c4102f0482208',1,'operations_on_datastructures::circular_linked_list::CircularLinkedList']]],
-  ['epsilon_1',['EPSILON',['../de/dd3/newton__raphson__method_8cpp.html#a75f355966e0a97665eaf5a4c79baa7af',1,'newton_raphson_method.cpp']]],
-  ['eta_2',['eta',['../d6/d30/classmachine__learning_1_1adaline.html#a28160d17e492597a2f112e0d38551cda',1,'machine_learning::adaline']]]
+  ['factors_0',['factors',['../prime__factorization_8cpp.html#acfb0df439a4beae5a34ef131ce737c1b',1,'prime_factorization.cpp']]],
+  ['fib_5fb_1',['fib_b',['../matrix__exponentiation_8cpp.html#a35b7c98af53ad2ec18658679ad7d43de',1,'matrix_exponentiation.cpp']]],
+  ['forward_2',['forward',['../structdata__structures_1_1_node.html#ac916d833aad2b9c41f01a92db2f8c48e',1,'data_structures::Node']]]
 ];
