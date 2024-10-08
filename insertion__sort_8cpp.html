@@ -11,11 +11,29 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  loader: {
+    load: ['[tex]/ams']
+  },
+  tex: {
+    macros: {},
+    packages: ['base','configmacros','ams']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -51,17 +69,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('insertion__sort_8cpp.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,12 +113,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_bb1b521853a9c46347182a9d10420771.html">sorting</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
@@ -142,19 +166,19 @@ Functions</h2></td></tr>
 <p>It is based on the same idea that people use to sort the playing cards in their hands. the algorithms goes in the manner that we start iterating over the array of elements as soon as we find a unsorted element that is a misplaced element we place it at a sorted position.</p>
 <p>Example execution steps:</p><ol type="1">
 <li>Suppose initially we have <p class="formulaDsp">
-<picture><source srcset="form_262_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}4 &amp;3 &amp;2 &amp;5 &amp;1\end{bmatrix}" src="form_262.png"/></picture>
+\begin{bmatrix}4 &amp;3 &amp;2 &amp;5 &amp;1\end{bmatrix}
 </p>
 </li>
 <li>We start traversing from 4 till we reach 1 when we reach at 3 we find that it is misplaced so we take 3 and place it at a correct position thus the array will become <p class="formulaDsp">
-<picture><source srcset="form_263_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}3 &amp;4 &amp;2 &amp;5 &amp;1\end{bmatrix}" src="form_263.png"/></picture>
+\begin{bmatrix}3 &amp;4 &amp;2 &amp;5 &amp;1\end{bmatrix}
 </p>
 </li>
 <li>In the next iteration we are at 2 we find that this is also misplaced so we place it at the correct sorted position thus the array in this iteration becomes <p class="formulaDsp">
-<picture><source srcset="form_264_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}2 &amp;3 &amp;4 &amp;5 &amp;1\end{bmatrix}" src="form_264.png"/></picture>
+\begin{bmatrix}2 &amp;3 &amp;4 &amp;5 &amp;1\end{bmatrix}
 </p>
 </li>
 <li>We do not do anything with 5 and move on to the next iteration and select 1 which is misplaced and place it at correct position. Thus, we have <p class="formulaDsp">
-<picture><source srcset="form_265_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}1 &amp;2 &amp;3 &amp;4 &amp;5\end{bmatrix}" src="form_265.png"/></picture>
+\begin{bmatrix}1 &amp;2 &amp;3 &amp;4 &amp;5\end{bmatrix}
 </p>
  </li>
 </ol>
@@ -208,10 +232,13 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_bb1b521853a9c46347182a9d10420771.html">sorting</a></li><li class="navelem"><a class="el" href="insertion__sort_8cpp.html">insertion_sort.cpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

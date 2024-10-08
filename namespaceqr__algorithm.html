@@ -11,11 +11,29 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  loader: {
+    load: ['[tex]/ams']
+  },
+  tex: {
+    macros: {},
+    packages: ['base','configmacros','ams']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -51,17 +69,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('namespaceqr__algorithm.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,8 +113,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -140,24 +168,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Compute eigen values using iterative shifted QR decomposition algorithm as follows:</p><ol type="1">
-<li>Use last diagonal element of A as eigen value approximation <picture><source srcset="form_214_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c$" src="form_214.png"/></picture></li>
-<li>Shift diagonals of matrix <picture><source srcset="form_215_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A' = A - cI$" src="form_215.png"/></picture></li>
-<li>Decompose matrix <picture><source srcset="form_216_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A'=QR$" src="form_216.png"/></picture></li>
-<li>Compute next approximation <picture><source srcset="form_217_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A'_1 = RQ $" src="form_217.png"/></picture></li>
-<li>Shift diagonals back <picture><source srcset="form_218_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A_1 = A'_1 + cI$" src="form_218.png"/></picture></li>
+<li>Use last diagonal element of A as eigen value approximation \(c\)</li>
+<li>Shift diagonals of matrix \(A&#39; = A - cI\)</li>
+<li>Decompose matrix \(A&#39;=QR\)</li>
+<li>Compute next approximation \(A&#39;_1 = RQ \)</li>
+<li>Shift diagonals back \(A_1 = A&#39;_1 + cI\)</li>
 <li>Termination condition check: last element below diagonal is almost 0<ol type="a">
-<li>If not 0, go back to step 1 with the new approximation <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A_1$" src="form_219.png"/></picture></li>
+<li>If not 0, go back to step 1 with the new approximation \(A_1\)</li>
 <li>If 0, continue to step 7</li>
 </ol>
 </li>
-<li>Save last known <picture><source srcset="form_214_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c$" src="form_214.png"/></picture> as the eigen value.</li>
+<li>Save last known \(c\) as the eigen value.</li>
 <li>Are all eigen values found?<ol type="a">
-<li>If not, remove last row and column of <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A_1$" src="form_219.png"/></picture> and go back to step 1.</li>
+<li>If not, remove last row and column of \(A_1\) and go back to step 1.</li>
 <li>If yes, stop.</li>
 </ol>
 </li>
 </ol>
-<dl class="section note"><dt>Note</dt><dd>The matrix <picture><source srcset="form_210_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A$" src="form_210.png"/></picture> gets modified</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The matrix \(A\) gets modified</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">A</td><td>matrix to compute eigen values for </td></tr>
@@ -246,9 +274,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Decompose matrix <picture><source srcset="form_210_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A$" src="form_210.png"/></picture> using <a href="https://en.wikipedia.org/wiki/QR_decomposition">Gram-Schmidt process</a>.</p>
+<p>Decompose matrix \(A\) using <a href="https://en.wikipedia.org/wiki/QR_decomposition">Gram-Schmidt process</a>.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_211_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{eqnarray*}
+\begin{eqnarray*}
   \text{given that}\quad A &amp;=&amp;
 *\left[\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_{N-1},\right]\\
   \text{where}\quad\mathbf{a}_i &amp;=&amp;
@@ -267,7 +295,7 @@ template&lt;typename T &gt; </div>
                    0 &amp; 0 &amp; \langle\mathbf{e}_2\,,\mathbf{a}_2\rangle &amp;
   \dots\\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots
        \end{bmatrix}\\
-  \end{eqnarray*}" src="form_211.png"/></picture>
+  \end{eqnarray*}
 </p>
  <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -314,8 +342,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Compute dot product of two vectors of equal lengths</p>
-<p>If <picture><source srcset="form_201_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]$" src="form_201.png"/></picture> and <picture><source srcset="form_202_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{b}=\left[b_0,b_1,b_1,...,b_L\right]$" src="form_202.png"/></picture> then <picture><source srcset="form_203_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}\cdot\vec{b}=\displaystyle\sum_{i=0}^L a_i\times b_i$" src="form_203.png"/></picture></p>
-<dl class="section return"><dt>Returns</dt><dd><picture><source srcset="form_204_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}\cdot\vec{b}$" src="form_204.png"/></picture> </dd></dl>
+<p>If \(\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]\) and \(\vec{b}=\left[b_0,b_1,b_1,...,b_L\right]\) then \(\vec{a}\cdot\vec{b}=\displaystyle\sum_{i=0}^L a_i\times b_i\)</p>
+<dl class="section return"><dt>Returns</dt><dd>\(\vec{a}\cdot\vec{b}\) </dd></dl>
 
 </div>
 </div>
@@ -344,8 +372,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Compute magnitude of vector.</p>
-<p>If <picture><source srcset="form_201_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]$" src="form_201.png"/></picture> then <picture><source srcset="form_205_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\left|\vec{a}\right|=\sqrt{\displaystyle\sum_{i=0}^L a_i^2}$" src="form_205.png"/></picture></p>
-<dl class="section return"><dt>Returns</dt><dd><picture><source srcset="form_206_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\left|\vec{a}\right|$" src="form_206.png"/></picture> </dd></dl>
+<p>If \(\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]\) then \(\left|\vec{a}\right|=\sqrt{\displaystyle\sum_{i=0}^L a_i^2}\)</p>
+<dl class="section return"><dt>Returns</dt><dd>\(\left|\vec{a}\right|\) </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -374,8 +402,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Compute projection of vector <picture><source srcset="form_207_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}$" src="form_207.png"/></picture> on <picture><source srcset="form_208_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{b}$" src="form_208.png"/></picture> defined as </p><p class="formulaDsp">
-<picture><source srcset="form_209_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[\text{proj}_\vec{b}\vec{a}=\frac{\vec{a}\cdot\vec{b}}{\left|\vec{b}\right|^2}\vec{b}\]" src="form_209.png"/></picture>
+<p>Compute projection of vector \(\vec{a}\) on \(\vec{b}\) defined as </p><p class="formulaDsp">
+\[\text{proj}_\vec{b}\vec{a}=\frac{\vec{a}\cdot\vec{b}}{\left|\vec{b}\right|^2}\vec{b}\]
 </p>
 <dl class="section return"><dt>Returns</dt><dd>NULL if error, otherwise pointer to output </dd></dl>
 <p>check for division by zero using machine epsilon</p>
@@ -388,10 +416,13 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceqr__algorithm.html">qr_algorithm</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>
