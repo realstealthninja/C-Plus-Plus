@@ -139,7 +139,9 @@ Include dependency graph for gale_shapley.cpp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/dab/gale__shapley_8cpp__incl.svg" width="350" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../db/d80/gale__shapley_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d90/namespacegreedy__algorithms.html">greedy_algorithms</a></td></tr>
@@ -167,6 +169,8 @@ Functions</h2></td></tr>
 <p><b>Gale Shapley Algorithm</b> aims to find a stable matching between two equally sized sets of elements given an ordinal preference for each element. The algorithm was introduced by David Gale and Lloyd Shapley in 1962.</p>
 <p>Reference: <a href="https://en.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm" target="_blank">Wikipedia</a> <a href="https://en.wikipedia.org/wiki/Stable_matching_problem" target="_blank">Wikipedia</a></p>
 <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/BKarthik7" target="_blank">B Karthik</a> </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html">gale_shapley.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
@@ -185,11 +189,13 @@ Functions</h2></td></tr>
 
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html#l00126">126</a> of file <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html">gale_shapley.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  126</span>           {</div>
 <div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>(); <span class="comment">// Run self-test implementations</span></div>
 <div class="line"><span class="lineno">  128</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  129</span>}</div>
-<div class="ttc" id="agale__shapley_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> gale_shapley.cpp:100</div></div>
+<div class="ttc" id="agale__shapley_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d80/gale__shapley_8cpp_source.html#l00100">gale_shapley.cpp:100</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -218,6 +224,8 @@ Functions</h2></td></tr>
 
 <p>Self-test implementations. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html#l00100">100</a> of file <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html">gale_shapley.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  100</span>                    {</div>
 <div class="line"><span class="lineno">  101</span>    <span class="comment">// Test Case 1</span></div>
 <div class="line"><span class="lineno">  102</span>    std::vector&lt;std::vector&lt;std::uint32_t&gt;&gt; primary_preferences = {{0, 1, 2, 3}, {2, 1, 3, 0}, {1, 2, 0, 3}, {3, 0, 1, 2}};</div>
@@ -239,7 +247,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  118</span>    secondary_preferences = {};</div>
 <div class="line"><span class="lineno">  119</span>    assert(<a class="code hl_function" href="../../dd/d9a/namespacegreedy__algorithms_1_1stable__matching.html#a6d7e84df47dcf19e88f95f8f9040306c">greedy_algorithms::stable_matching::gale_shapley</a>(secondary_preferences, primary_preferences) == std::vector&lt;std::uint32_t&gt;({}));</div>
 <div class="line"><span class="lineno">  120</span>}</div>
-<div class="ttc" id="anamespacegreedy__algorithms_1_1stable__matching_html_a6d7e84df47dcf19e88f95f8f9040306c"><div class="ttname"><a href="../../dd/d9a/namespacegreedy__algorithms_1_1stable__matching.html#a6d7e84df47dcf19e88f95f8f9040306c">greedy_algorithms::stable_matching::gale_shapley</a></div><div class="ttdeci">std::vector&lt; std::uint32_t &gt; gale_shapley(const std::vector&lt; std::vector&lt; std::uint32_t &gt; &gt; &amp;secondary_preferences, const std::vector&lt; std::vector&lt; std::uint32_t &gt; &gt; &amp;primary_preferences)</div><div class="ttdoc">The main function that finds the stable matching between two sets of elements using the Gale-Shapley ...</div><div class="ttdef"><b>Definition</b> gale_shapley.cpp:42</div></div>
+<div class="ttc" id="anamespacegreedy__algorithms_1_1stable__matching_html_a6d7e84df47dcf19e88f95f8f9040306c"><div class="ttname"><a href="../../dd/d9a/namespacegreedy__algorithms_1_1stable__matching.html#a6d7e84df47dcf19e88f95f8f9040306c">greedy_algorithms::stable_matching::gale_shapley</a></div><div class="ttdeci">std::vector&lt; std::uint32_t &gt; gale_shapley(const std::vector&lt; std::vector&lt; std::uint32_t &gt; &gt; &amp;secondary_preferences, const std::vector&lt; std::vector&lt; std::uint32_t &gt; &gt; &amp;primary_preferences)</div><div class="ttdoc">The main function that finds the stable matching between two sets of elements using the Gale-Shapley ...</div><div class="ttdef"><b>Definition</b> <a href="../../db/d80/gale__shapley_8cpp_source.html#l00042">gale_shapley.cpp:42</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

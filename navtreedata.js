@@ -137,19 +137,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d9a/hopcroft__karp_8cpp.html",
-"d3/d22/quick__sort__iterative_8cpp.html#aac8f44b28b4aa96444383030b28f8b34",
-"d4/d7a/shell__sort2_8cpp.html#a7eb77daed2cf1513f6d68c47a1c2db1c",
-"d5/d91/namespacesorting.html#af2c5b92cbfe73f63f6074c61b0a45331",
-"d6/d84/classhashing_1_1sha256_1_1_hash.html#a4581f503a263d8e928e5716d54477e08",
-"d8/d69/classgraph_1_1_h_k_graph.html",
-"d9/d13/namespaceinversion.html",
-"da/d4b/depth__first__search__with__stack_8cpp.html#a330a2b0a904f01802ada1f8f3b28e76c",
-"db/d9a/classuint128__t.html#a0fd125cc2b7702370a4aefa740d57606",
-"dc/dfb/atbash__cipher_8cpp.html",
-"dd/dca/class_f_c_f_s.html#abb361a612b18bb189aa6d3c49288b793",
-"df/d6b/namespaceciphers_1_1elliptic__curve__key__exchange.html",
-"namespacemembers_func_b.html"
+"d1/d83/classuint256__t.html#ac6bdcf64653af8173987bf7217e99056",
+"d2/dc8/classdata__structures_1_1_stack.html#a61dc70e128ee64c9684f03a4c04818b0",
+"d4/d18/composite__simpson__rule_8cpp.html#a2f67508d5f392b0321772169342c98ad",
+"d5/d4c/group__sorting.html#ga0a9a57a1f1bbba3d4822531d002b7e07",
+"d6/d26/classciphers_1_1_hill_cipher.html#a7760f3665651a0a37937c79c62f219c0",
+"d7/d24/nqueen__print__all__solutions_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4",
+"d8/d7c/classoperations__on__datastructures_1_1circular__linked__list_1_1_circular_linked_list.html#a03a896b34d27fda69049827e0c4dab42",
+"d9/d35/classrange__queries_1_1heavy__light__decomposition_1_1_s_g.html#ad3b942be27a1b0fe3cff6cb6edf01294",
+"da/d5a/class_complex.html#a3cfc522c782726f49ee20af17b77f867",
+"db/d9a/classuint128__t.html#a0500a90bcde5a8254750c361eed9bc40",
+"dc/dc5/paranthesis__matching_8cpp.html#a6d25c7dfbfeb52c3cb9d1b56ab49b664",
+"dd/d95/classdata__structures_1_1_segment_tree.html#ad0e78179ab979ae2bc4304bdc181db17",
+"de/dd3/newton__raphson__method_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4",
+"functions_func_p.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

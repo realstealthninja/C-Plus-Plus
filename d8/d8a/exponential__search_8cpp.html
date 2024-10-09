@@ -138,7 +138,9 @@ Include dependency graph for exponential_search.cpp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d3c/exponential__search_8cpp__incl.svg" width="336" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../d8/d8a/exponential__search_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab06cedad209456eae95d37b7cd66acae" id="r_ab06cedad209456eae95d37b7cd66acae"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
@@ -154,6 +156,8 @@ Functions</h2></td></tr>
 <div class="textblock"><p><a href="https://en.wikipedia.org/wiki/Exponential_search" target="_blank">Exponential search algorithm</a> </p>
 <dl class="section copyright"><dt>Copyright</dt><dd>2020 Divide-et-impera-11</dd></dl>
 <p>The algorithm try to search the range where the key should be. If it has been found we do a binary search there. The range of the search grows by exponential every time. If the key is larger than the last element of array, the start of block(block_front) will be equal to the end of block(block_size) and the algorithm return null ponter, every other cases the algoritm return fom the loop. </p>
+
+<p class="definition">Definition in file <a class="el" href="../../d8/d8a/exponential__search_8cpp_source.html">exponential_search.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab06cedad209456eae95d37b7cd66acae" name="ab06cedad209456eae95d37b7cd66acae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab06cedad209456eae95d37b7cd66acae">&#9670;&#160;</a></span>binary_s()</h2>
@@ -199,6 +203,8 @@ template&lt;class Type &gt; </div>
 <code>nullptr</code> if value not found </dd></dl>
 </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d8a/exponential__search_8cpp_source.html#l00034">34</a> of file <a class="el" href="../../d8/d8a/exponential__search_8cpp_source.html">exponential_search.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   34</span>                                                          {</div>
 <div class="line"><span class="lineno">   35</span>    int32_t lower_index(0), upper_index(size - 1), middle_index;</div>
 <div class="line"><span class="lineno">   36</span> </div>
@@ -233,6 +239,8 @@ template&lt;class Type &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Main function </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d8a/exponential__search_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d8/d8a/exponential__search_8cpp_source.html">exponential_search.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   74</span>           {</div>
 <div class="line"><span class="lineno">   75</span>    <span class="comment">// TEST CASES</span></div>
 <div class="line"><span class="lineno">   76</span>    <span class="keywordtype">int</span>* sorted_array = <span class="keyword">new</span> <span class="keywordtype">int</span>[7]{7, 10, 15, 23, 70, 105, 203};</div>
@@ -244,7 +252,7 @@ template&lt;class Type &gt; </div>
 <div class="line"><span class="lineno">   82</span>    <span class="keyword">delete</span>[] sorted_array;</div>
 <div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">   84</span>}</div>
-<div class="ttc" id="aexponential__search_8cpp_html_af421bf4b7b95f20ac86c233adfdb9208"><div class="ttname"><a href="#af421bf4b7b95f20ac86c233adfdb9208">struzik_search</a></div><div class="ttdeci">Type * struzik_search(Type *array, size_t size, Type key)</div><div class="ttdef"><b>Definition</b> exponential_search.cpp:59</div></div>
+<div class="ttc" id="aexponential__search_8cpp_html_af421bf4b7b95f20ac86c233adfdb9208"><div class="ttname"><a href="#af421bf4b7b95f20ac86c233adfdb9208">struzik_search</a></div><div class="ttdeci">Type * struzik_search(Type *array, size_t size, Type key)</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d8a/exponential__search_8cpp_source.html#l00059">exponential_search.cpp:59</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -280,6 +288,8 @@ template&lt;class Type &gt; </div>
 <li>Space Complexity O(1)</li>
 <li>Auxiliary Space Complexity O(1) </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d8a/exponential__search_8cpp_source.html#l00059">59</a> of file <a class="el" href="../../d8/d8a/exponential__search_8cpp_source.html">exponential_search.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   59</span>                                                         {</div>
 <div class="line"><span class="lineno">   60</span>    uint32_t block_front(0), block_size = size == 0 ? 0 : 1;</div>
 <div class="line"><span class="lineno">   61</span>    <span class="keywordflow">while</span> (block_front != block_size) {</div>
@@ -293,7 +303,7 @@ template&lt;class Type &gt; </div>
 <div class="line"><span class="lineno">   69</span>    }</div>
 <div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><span class="lineno">   71</span>}</div>
-<div class="ttc" id="aexponential__search_8cpp_html_ab06cedad209456eae95d37b7cd66acae"><div class="ttname"><a href="#ab06cedad209456eae95d37b7cd66acae">binary_s</a></div><div class="ttdeci">Type * binary_s(Type *array, size_t size, Type key)</div><div class="ttdef"><b>Definition</b> exponential_search.cpp:34</div></div>
+<div class="ttc" id="aexponential__search_8cpp_html_ab06cedad209456eae95d37b7cd66acae"><div class="ttname"><a href="#ab06cedad209456eae95d37b7cd66acae">binary_s</a></div><div class="ttdeci">Type * binary_s(Type *array, size_t size, Type key)</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d8a/exponential__search_8cpp_source.html#l00034">exponential_search.cpp:34</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

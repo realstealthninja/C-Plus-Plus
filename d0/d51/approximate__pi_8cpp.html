@@ -140,7 +140,9 @@ Include dependency graph for approximate_pi.cpp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/d27/approximate__pi_8cpp__incl.svg" width="335" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../d0/d51/approximate__pi_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d47/namespacemath.html">math</a></td></tr>
@@ -169,6 +171,8 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Implementation to calculate an estimate of the <a href="https://en.wikipedia.org/wiki/File:Pi_30K.gif" target="_blank">number π (Pi)</a>. </p>
 <p>We take a random point P with coordinates (x, y) such that 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1. If x² + y² ≤ 1, then the point is inside the quarter disk of radius 1, else the point is outside. We know that the probability of the point being inside the quarter disk is equal to π/4 double approx(vector&lt;Point&gt; &amp;pts) which will use the points pts (drawn at random) to return an estimate of the number π </p><dl class="section note"><dt>Note</dt><dd>This implementation is better than naive recursive or iterative approach.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/Qannaf" target="_blank">Qannaf AL-SAHMI</a> </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="../../d0/d51/approximate__pi_8cpp_source.html">approximate_pi.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
@@ -187,11 +191,13 @@ Functions</h2></td></tr>
 
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d51/approximate__pi_8cpp_source.html#l00080">80</a> of file <a class="el" href="../../d0/d51/approximate__pi_8cpp_source.html">approximate_pi.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   80</span>           {</div>
 <div class="line"><span class="lineno">   81</span>    <a class="code hl_function" href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>();  <span class="comment">// run self-test implementations</span></div>
 <div class="line"><span class="lineno">   82</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">   83</span>}</div>
-<div class="ttc" id="aapproximate__pi_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> approximate_pi.cpp:62</div></div>
+<div class="ttc" id="aapproximate__pi_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d51/approximate__pi_8cpp_source.html#l00062">approximate_pi.cpp:62</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -220,6 +226,8 @@ Functions</h2></td></tr>
 
 <p>Self-test implementations. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d51/approximate__pi_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../d0/d51/approximate__pi_8cpp_source.html">approximate_pi.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   62</span>                    {</div>
 <div class="line"><span class="lineno">   63</span>    std::vector&lt;math::Point&gt; rands;</div>
 <div class="line"><span class="lineno">   64</span>    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; 100000; i++) {</div>
@@ -233,8 +241,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   72</span> </div>
 <div class="line"><span class="lineno">   73</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;All tests have successfully passed!&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">   74</span>}</div>
-<div class="ttc" id="anamespacemath_html_a006c8ebd11bb1e035815dc835a1a7a85"><div class="ttname"><a href="../../dd/d47/namespacemath.html#a006c8ebd11bb1e035815dc835a1a7a85">math::Point</a></div><div class="ttdeci">struct { double x; double y;} Point</div><div class="ttdoc">structure of points containing two numbers, x and y, such that 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1.</div><div class="ttdef"><b>Definition</b> approximate_pi.cpp:35</div></div>
-<div class="ttc" id="anamespacemath_html_abf7f2a6d91f1ca6c89698792aea3f188"><div class="ttname"><a href="../../dd/d47/namespacemath.html#abf7f2a6d91f1ca6c89698792aea3f188">math::approximate_pi</a></div><div class="ttdeci">double approximate_pi(const std::vector&lt; Point &gt; &amp;pts)</div><div class="ttdoc">This function uses the points in a given vector 'pts' (drawn at random) to return an approximation of...</div><div class="ttdef"><b>Definition</b> approximate_pi.cpp:47</div></div>
+<div class="ttc" id="anamespacemath_html_a006c8ebd11bb1e035815dc835a1a7a85"><div class="ttname"><a href="../../dd/d47/namespacemath.html#a006c8ebd11bb1e035815dc835a1a7a85">math::Point</a></div><div class="ttdeci">struct { double x; double y;} Point</div><div class="ttdoc">structure of points containing two numbers, x and y, such that 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d51/approximate__pi_8cpp_source.html#l00035">approximate_pi.cpp:35</a></div></div>
+<div class="ttc" id="anamespacemath_html_abf7f2a6d91f1ca6c89698792aea3f188"><div class="ttname"><a href="../../dd/d47/namespacemath.html#abf7f2a6d91f1ca6c89698792aea3f188">math::approximate_pi</a></div><div class="ttdeci">double approximate_pi(const std::vector&lt; Point &gt; &amp;pts)</div><div class="ttdoc">This function uses the points in a given vector 'pts' (drawn at random) to return an approximation of...</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d51/approximate__pi_8cpp_source.html#l00047">approximate_pi.cpp:47</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

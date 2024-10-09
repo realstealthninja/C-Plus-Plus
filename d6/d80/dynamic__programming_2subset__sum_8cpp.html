@@ -139,7 +139,9 @@ Include dependency graph for subset_sum.cpp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d53/dynamic__programming_2subset__sum_8cpp__incl.svg" width="387" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d24/namespacedynamic__programming.html">dynamic_programming</a></td></tr>
@@ -165,6 +167,8 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements [Sub-set sum problem] (<a href="https://en.wikipedia.org/wiki/Subset_sum_problem">https://en.wikipedia.org/wiki/Subset_sum_problem</a>) algorithm, which tells whether a subset with target sum exists or not. </p>
 <p>In this problem, we use dynamic programming to find if we can pull out a subset from an array whose sum is equal to a given target sum. The overall time complexity of the problem is O(n * targetSum) where n is the size of the array. For example, array = [1, -10, 2, 31, -6], targetSum = -14. Output: true =&gt; We can pick subset [-10, 2, -6] with sum as (-10) + 2 + (-6) = -14. </p><dl class="section author"><dt>Author</dt><dd><a href="https://github.com/KillerAV" target="_blank">KillerAV</a> </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html">subset_sum.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
@@ -183,11 +187,13 @@ Functions</h2></td></tr>
 
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html#l00120">120</a> of file <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html">subset_sum.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  120</span>           {</div>
 <div class="line"><span class="lineno">  121</span>    <a class="code hl_function" href="../../d0/dfe/backtracking_2subset__sum_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// execute the test</span></div>
 <div class="line"><span class="lineno">  122</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  123</span>}</div>
-<div class="ttc" id="abacktracking_2subset__sum_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="../../d0/dfe/backtracking_2subset__sum_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Test implementations.</div><div class="ttdef"><b>Definition</b> subset_sum.cpp:57</div></div>
+<div class="ttc" id="abacktracking_2subset__sum_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="../../d0/dfe/backtracking_2subset__sum_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dfe/backtracking_2subset__sum_8cpp_source.html#l00057">subset_sum.cpp:57</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -217,13 +223,15 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true/false based on if the target sum subset exists or not. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html#l00070">70</a> of file <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html">subset_sum.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   70</span>                                                                        {</div>
 <div class="line"><span class="lineno">   71</span>    <span class="keywordtype">size_t</span> n = arr.size();</div>
 <div class="line"><span class="lineno">   72</span>    std::vector&lt;std::unordered_map&lt;int, bool&gt;&gt; <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>(n);</div>
 <div class="line"><span class="lineno">   73</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a280fcfb2f6fe49a31c4da572e7032607">subset_sum_recursion</a>(arr, targetSum, &amp;<a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>);</div>
 <div class="line"><span class="lineno">   74</span>}</div>
-<div class="ttc" id="adynamic__programming_2subset__sum_8cpp_html_a280fcfb2f6fe49a31c4da572e7032607"><div class="ttname"><a href="#a280fcfb2f6fe49a31c4da572e7032607">dynamic_programming::subset_sum::subset_sum_recursion</a></div><div class="ttdeci">bool subset_sum_recursion(const std::vector&lt; int &gt; &amp;arr, int targetSum, std::vector&lt; std::unordered_map&lt; int, bool &gt; &gt; *dp, int index=0)</div><div class="ttdef"><b>Definition</b> subset_sum.cpp:43</div></div>
-<div class="ttc" id="anamespacedp_html"><div class="ttname"><a href="../../df/d88/namespacedp.html">dp</a></div><div class="ttdoc">for std::vector</div><div class="ttdef"><b>Definition</b> partition_problem.cpp:39</div></div>
+<div class="ttc" id="adynamic__programming_2subset__sum_8cpp_html_a280fcfb2f6fe49a31c4da572e7032607"><div class="ttname"><a href="#a280fcfb2f6fe49a31c4da572e7032607">dynamic_programming::subset_sum::subset_sum_recursion</a></div><div class="ttdeci">bool subset_sum_recursion(const std::vector&lt; int &gt; &amp;arr, int targetSum, std::vector&lt; std::unordered_map&lt; int, bool &gt; &gt; *dp, int index=0)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html#l00043">subset_sum.cpp:43</a></div></div>
+<div class="ttc" id="anamespacedp_html"><div class="ttname"><a href="../../df/d88/namespacedp.html">dp</a></div><div class="ttdoc">for std::vector</div><div class="ttdef"><b>Definition</b> <a href="../../de/d8c/partition__problem_8cpp_source.html#l00039">partition_problem.cpp:39</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,6 +272,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true/false based on if the target sum subset exists or not. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html#l00043">43</a> of file <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html">subset_sum.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   45</span>                                         {</div>
 <div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> (targetSum == 0) {  <span class="comment">// Found a valid subset with required sum.</span></div>
 <div class="line"><span class="lineno">   47</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -310,6 +320,8 @@ Functions</h2></td></tr>
 
 <p>Test Function. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html">subset_sum.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   82</span>                   {</div>
 <div class="line"><span class="lineno">   83</span>    <span class="comment">// custom input vector</span></div>
 <div class="line"><span class="lineno">   84</span>    std::vector&lt;std::vector&lt;int&gt;&gt; custom_input_arr(3);</div>
@@ -343,7 +355,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  112</span> </div>
 <div class="line"><span class="lineno">  113</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;All tests passed successfully!\n&quot;</span>;</div>
 <div class="line"><span class="lineno">  114</span>}</div>
-<div class="ttc" id="adynamic__programming_2subset__sum_8cpp_html_ac94e6c0dee11278ac0a5491f1b9a4a50"><div class="ttname"><a href="#ac94e6c0dee11278ac0a5491f1b9a4a50">dynamic_programming::subset_sum::subset_sum_problem</a></div><div class="ttdeci">bool subset_sum_problem(const std::vector&lt; int &gt; &amp;arr, const int targetSum)</div><div class="ttdef"><b>Definition</b> subset_sum.cpp:70</div></div>
+<div class="ttc" id="adynamic__programming_2subset__sum_8cpp_html_ac94e6c0dee11278ac0a5491f1b9a4a50"><div class="ttname"><a href="#ac94e6c0dee11278ac0a5491f1b9a4a50">dynamic_programming::subset_sum::subset_sum_problem</a></div><div class="ttdeci">bool subset_sum_problem(const std::vector&lt; int &gt; &amp;arr, const int targetSum)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d80/dynamic__programming_2subset__sum_8cpp_source.html#l00070">subset_sum.cpp:70</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

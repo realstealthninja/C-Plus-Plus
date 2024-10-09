@@ -178,13 +178,11 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac0d7e0be24da9f41bcb19745873c436a" id="r_ac0d7e0be24da9f41bcb19745873c436a"><td class="memItemLeft" align="right" valign="top"><a id="ac0d7e0be24da9f41bcb19745873c436a" name="ac0d7e0be24da9f41bcb19745873c436a"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_LEVEL</b> = 2</td></tr>
-<tr class="memdesc:ac0d7e0be24da9f41bcb19745873c436a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum level of skip list. <br /></td></tr>
+<tr class="memitem:ac0d7e0be24da9f41bcb19745873c436a" id="r_ac0d7e0be24da9f41bcb19745873c436a"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0d7e0be24da9f41bcb19745873c436a">MAX_LEVEL</a> = 2</td></tr>
+<tr class="memdesc:ac0d7e0be24da9f41bcb19745873c436a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum level of skip list.  <br /></td></tr>
 <tr class="separator:ac0d7e0be24da9f41bcb19745873c436a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a903639d8e6f955dd8d5c263781455d61" id="r_a903639d8e6f955dd8d5c263781455d61"><td class="memItemLeft" align="right" valign="top"><a id="a903639d8e6f955dd8d5c263781455d61" name="a903639d8e6f955dd8d5c263781455d61"></a>
-constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PROBABILITY</b> = 0.5</td></tr>
-<tr class="memdesc:a903639d8e6f955dd8d5c263781455d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current probability for "coin toss". <br /></td></tr>
+<tr class="memitem:a903639d8e6f955dd8d5c263781455d61" id="r_a903639d8e6f955dd8d5c263781455d61"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a903639d8e6f955dd8d5c263781455d61">PROBABILITY</a> = 0.5</td></tr>
+<tr class="memdesc:a903639d8e6f955dd8d5c263781455d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current probability for "coin toss".  <br /></td></tr>
 <tr class="separator:a903639d8e6f955dd8d5c263781455d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -250,6 +248,8 @@ constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PROBABILIT
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>hash for a string </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html#l00166">166</a> of file <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html">bloom_filter.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  166</span>                                              {</div>
 <div class="line"><span class="lineno">  167</span>    std::size_t hash = 5381;</div>
 <div class="line"><span class="lineno">  168</span>    <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : s) {</div>
@@ -283,6 +283,8 @@ constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PROBABILIT
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>hash for the <code>x</code> parameter </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html">bloom_filter.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  199</span>                           {</div>
 <div class="line"><span class="lineno">  200</span>    x = ((x &gt;&gt; 16) ^ x) * 0x45d9f3b;</div>
 <div class="line"><span class="lineno">  201</span>    x = ((x &gt;&gt; 16) ^ x) * 0x45d9f3b;</div>
@@ -315,6 +317,8 @@ constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PROBABILIT
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>hash for the <code>x</code> parameter </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html#l00213">213</a> of file <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html">bloom_filter.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  213</span>                           {</div>
 <div class="line"><span class="lineno">  214</span>    <span class="keyword">auto</span> y = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(x);</div>
 <div class="line"><span class="lineno">  215</span>    y = (y ^ (y &gt;&gt; 30)) * <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(0xbf58476d1ce4e5b9);</div>
@@ -356,6 +360,8 @@ constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PROBABILIT
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>hash for the given string </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html#l00182">182</a> of file <a class="el" href="../../d9/dab/bloom__filter_8cpp_source.html">bloom_filter.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  182</span>                                             {</div>
 <div class="line"><span class="lineno">  183</span>    std::size_t hash = 37;</div>
 <div class="line"><span class="lineno">  184</span>    std::size_t primeNum1 = 54059;</div>
@@ -366,6 +372,59 @@ constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PROBABILIT
 <div class="line"><span class="lineno">  189</span>    <span class="keywordflow">return</span> hash;</div>
 <div class="line"><span class="lineno">  190</span>}</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ac0d7e0be24da9f41bcb19745873c436a" name="ac0d7e0be24da9f41bcb19745873c436a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0d7e0be24da9f41bcb19745873c436a">&#9670;&#160;</a></span>MAX_LEVEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int data_structures::MAX_LEVEL = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum level of skip list. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d5a/skip__list_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d0/d5a/skip__list_8cpp_source.html">skip_list.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a903639d8e6f955dd8d5c263781455d61" name="a903639d8e6f955dd8d5c263781455d61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903639d8e6f955dd8d5c263781455d61">&#9670;&#160;</a></span>PROBABILITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float data_structures::PROBABILITY = 0.5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Current probability for "coin toss". </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d5a/skip__list_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../d0/d5a/skip__list_8cpp_source.html">skip_list.cpp</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

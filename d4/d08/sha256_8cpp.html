@@ -144,7 +144,9 @@ Include dependency graph for sha256.cpp:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dc/dd2/sha256_8cpp__incl.svg" width="100%" height="383"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../d4/d08/sha256_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d84/classhashing_1_1sha256_1_1_hash.html">hashing::sha256::Hash</a></td></tr>
@@ -202,6 +204,8 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Simple C++ implementation of the [SHA-256 Hashing Algorithm] (<a href="https://en.wikipedia.org/wiki/SHA-2">https://en.wikipedia.org/wiki/SHA-2</a>) </p>
 <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/mdanisulh" target="_blank">Md. Anisul Haque</a> </dd></dl>
 <p><a href="https://en.wikipedia.org/wiki/SHA-2" target="_blank">SHA-2</a> is a set of cryptographic hash functions that was designed by the <a href="https://en.wikipedia.org/wiki/National_Security_Agency" target="_blank">NSA</a> and first published in 2001. SHA-256 is a part of the SHA-2 family. SHA-256 is widely used for authenticating software packages and secure password hashing. </p>
+
+<p class="definition">Definition in file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a28c1c6724dc6bcf91a39818699bbec27" name="a28c1c6724dc6bcf91a39818699bbec27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28c1c6724dc6bcf91a39818699bbec27">&#9670;&#160;</a></span>compute_padded_size()</h2>
@@ -226,6 +230,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>size_t Size of the padded input </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  143</span>                                                          {</div>
 <div class="line"><span class="lineno">  144</span>    <span class="keywordflow">if</span> (input_size % 64 &lt; 56) {</div>
 <div class="line"><span class="lineno">  145</span>        <span class="keywordflow">return</span> input_size + 64 - (input_size % 64);</div>
@@ -263,6 +269,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::array&lt;uint32_t, 64&gt; Message schedule array </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00195">195</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  196</span>                                                                              {</div>
 <div class="line"><span class="lineno">  197</span>    std::array&lt;uint32_t, 64&gt; blocks{};</div>
 <div class="line"><span class="lineno">  198</span> </div>
@@ -293,8 +301,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  223</span> </div>
 <div class="line"><span class="lineno">  224</span>    <span class="keywordflow">return</span> blocks;</div>
 <div class="line"><span class="lineno">  225</span>}</div>
-<div class="ttc" id="asha256_8cpp_html_a9e98c180d32b04aab6f767cb0c13e1da"><div class="ttname"><a href="#a9e98c180d32b04aab6f767cb0c13e1da">hashing::sha256::get_char</a></div><div class="ttdeci">char get_char(const std::string &amp;input, std::size_t pos)</div><div class="ttdoc">Returns the character at pos after the input is padded.</div><div class="ttdef"><b>Definition</b> sha256.cpp:170</div></div>
-<div class="ttc" id="asha256_8cpp_html_adbcd504103c342a4da718f8fce6ff06c"><div class="ttname"><a href="#adbcd504103c342a4da718f8fce6ff06c">hashing::sha256::right_rotate</a></div><div class="ttdeci">uint32_t right_rotate(uint32_t n, size_t rotate)</div><div class="ttdoc">Rotates the bits of a 32-bit unsigned integer.</div><div class="ttdef"><b>Definition</b> sha256.cpp:58</div></div>
+<div class="ttc" id="asha256_8cpp_html_a9e98c180d32b04aab6f767cb0c13e1da"><div class="ttname"><a href="#a9e98c180d32b04aab6f767cb0c13e1da">hashing::sha256::get_char</a></div><div class="ttdeci">char get_char(const std::string &amp;input, std::size_t pos)</div><div class="ttdoc">Returns the character at pos after the input is padded.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d08/sha256_8cpp_source.html#l00170">sha256.cpp:170</a></div></div>
+<div class="ttc" id="asha256_8cpp_html_adbcd504103c342a4da718f8fce6ff06c"><div class="ttname"><a href="#adbcd504103c342a4da718f8fce6ff06c">hashing::sha256::right_rotate</a></div><div class="ttdeci">uint32_t right_rotate(uint32_t n, size_t rotate)</div><div class="ttdoc">Rotates the bits of a 32-bit unsigned integer.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d08/sha256_8cpp_source.html#l00058">sha256.cpp:58</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -328,6 +336,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t Byte at position byte_num </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00157">157</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  157</span>                                                                 {</div>
 <div class="line"><span class="lineno">  158</span>    <span class="keywordflow">if</span> (<span class="keyword">sizeof</span>(in_value) &lt;= byte_num) {</div>
 <div class="line"><span class="lineno">  159</span>        <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;Byte at index byte_num does not exist&quot;</span>);</div>
@@ -365,6 +375,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char Character at the index pos in the padded string </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00170">170</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  170</span>                                                     {</div>
 <div class="line"><span class="lineno">  171</span>    <span class="keyword">const</span> <span class="keyword">auto</span> input_size = input.length();</div>
 <div class="line"><span class="lineno">  172</span>    <span class="keywordflow">if</span> (pos &lt; input_size) {</div>
@@ -383,7 +395,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">  185</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(</div>
 <div class="line"><span class="lineno">  186</span>        extract_byte&lt;size_t&gt;(input_size * 8, padded_input_size - pos - 1));</div>
 <div class="line"><span class="lineno">  187</span>}</div>
-<div class="ttc" id="asha256_8cpp_html_a28c1c6724dc6bcf91a39818699bbec27"><div class="ttname"><a href="#a28c1c6724dc6bcf91a39818699bbec27">hashing::sha256::compute_padded_size</a></div><div class="ttdeci">std::size_t compute_padded_size(const std::size_t input_size)</div><div class="ttdoc">Computes size of the padded input.</div><div class="ttdef"><b>Definition</b> sha256.cpp:143</div></div>
+<div class="ttc" id="asha256_8cpp_html_a28c1c6724dc6bcf91a39818699bbec27"><div class="ttname"><a href="#a28c1c6724dc6bcf91a39818699bbec27">hashing::sha256::compute_padded_size</a></div><div class="ttdeci">std::size_t compute_padded_size(const std::size_t input_size)</div><div class="ttdoc">Computes size of the padded input.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d08/sha256_8cpp_source.html#l00143">sha256.cpp:143</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -404,11 +416,13 @@ template&lt;typename T &gt; </div>
 
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00326">326</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  326</span>           {</div>
 <div class="line"><span class="lineno">  327</span>    <a class="code hl_function" href="../../d6/d2c/caesar__cipher_8cpp.html#ae1a3968e7947464bee7714f6d43b7002">test</a>();  <span class="comment">// Run self-test implementations</span></div>
 <div class="line"><span class="lineno">  328</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  329</span>}</div>
-<div class="ttc" id="acaesar__cipher_8cpp_html_ae1a3968e7947464bee7714f6d43b7002"><div class="ttname"><a href="../../d6/d2c/caesar__cipher_8cpp.html#ae1a3968e7947464bee7714f6d43b7002">test</a></div><div class="ttdeci">void test()</div><div class="ttdef"><b>Definition</b> caesar_cipher.cpp:100</div></div>
+<div class="ttc" id="acaesar__cipher_8cpp_html_ae1a3968e7947464bee7714f6d43b7002"><div class="ttname"><a href="../../d6/d2c/caesar__cipher_8cpp.html#ae1a3968e7947464bee7714f6d43b7002">test</a></div><div class="ttdeci">void test()</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d2c/caesar__cipher_8cpp_source.html#l00100">caesar_cipher.cpp:100</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -440,6 +454,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t The rotated integer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   58</span>                                                 {</div>
 <div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> (n &gt;&gt; rotate) | (n &lt;&lt; (32 - rotate));</div>
 <div class="line"><span class="lineno">   60</span>}</div>
@@ -469,6 +485,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string The final hash value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00232">232</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  232</span>                                         {</div>
 <div class="line"><span class="lineno">  233</span>    Hash <a class="code hl_function" href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">h</a>;</div>
 <div class="line"><span class="lineno">  234</span>    <span class="comment">// Process message in successive 512-bit (64-byte) chunks</span></div>
@@ -478,8 +496,8 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">  238</span>    }</div>
 <div class="line"><span class="lineno">  239</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">h</a>.to_string();</div>
 <div class="line"><span class="lineno">  240</span>}</div>
-<div class="ttc" id="ahash__search_8cpp_html_a566eaf0ffafd50bc61e644561fd27001"><div class="ttname"><a href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">h</a></div><div class="ttdeci">int h(int key)</div><div class="ttdef"><b>Definition</b> hash_search.cpp:45</div></div>
-<div class="ttc" id="asha256_8cpp_html_a525531b3939ed44fbf01674e21931b3a"><div class="ttname"><a href="#a525531b3939ed44fbf01674e21931b3a">hashing::sha256::create_message_schedule_array</a></div><div class="ttdeci">std::array&lt; uint32_t, 64 &gt; create_message_schedule_array(const std::string &amp;input, const size_t byte_num)</div><div class="ttdoc">Creates the message schedule array.</div><div class="ttdef"><b>Definition</b> sha256.cpp:195</div></div>
+<div class="ttc" id="ahash__search_8cpp_html_a566eaf0ffafd50bc61e644561fd27001"><div class="ttname"><a href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">h</a></div><div class="ttdeci">int h(int key)</div><div class="ttdef"><b>Definition</b> <a href="../../d1/df3/hash__search_8cpp_source.html#l00045">hash_search.cpp:45</a></div></div>
+<div class="ttc" id="asha256_8cpp_html_a525531b3939ed44fbf01674e21931b3a"><div class="ttname"><a href="#a525531b3939ed44fbf01674e21931b3a">hashing::sha256::create_message_schedule_array</a></div><div class="ttdeci">std::array&lt; uint32_t, 64 &gt; create_message_schedule_array(const std::string &amp;input, const size_t byte_num)</div><div class="ttdoc">Creates the message schedule array.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d08/sha256_8cpp_source.html#l00195">sha256.cpp:195</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -505,6 +523,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00312">312</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  312</span>                   {</div>
 <div class="line"><span class="lineno">  313</span>    <a class="code hl_function" href="#af9b52eba85d23e309035354141259f27">test_compute_padded_size</a>();</div>
 <div class="line"><span class="lineno">  314</span>    test_extract_byte();</div>
@@ -514,7 +534,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">  318</span> </div>
 <div class="line"><span class="lineno">  319</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;All tests have successfully passed!\n&quot;</span>;</div>
 <div class="line"><span class="lineno">  320</span>}</div>
-<div class="ttc" id="asha256_8cpp_html_af9b52eba85d23e309035354141259f27"><div class="ttname"><a href="#af9b52eba85d23e309035354141259f27">test_compute_padded_size</a></div><div class="ttdeci">static void test_compute_padded_size()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> sha256.cpp:248</div></div>
+<div class="ttc" id="asha256_8cpp_html_af9b52eba85d23e309035354141259f27"><div class="ttname"><a href="#af9b52eba85d23e309035354141259f27">test_compute_padded_size</a></div><div class="ttdeci">static void test_compute_padded_size()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d08/sha256_8cpp_source.html#l00248">sha256.cpp:248</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -543,6 +563,8 @@ template&lt;typename T &gt; </div>
 
 <p>Self-test implementations. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00248">248</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  248</span>                                       {</div>
 <div class="line"><span class="lineno">  249</span>    assert(hashing::sha256::compute_padded_size(55) == 64);</div>
 <div class="line"><span class="lineno">  250</span>    assert(hashing::sha256::compute_padded_size(56) == 128);</div>
@@ -573,6 +595,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00254">254</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  254</span>                                {</div>
 <div class="line"><span class="lineno">  255</span>    assert(hashing::sha256::extract_byte&lt;uint32_t&gt;(512, 0) == 0);</div>
 <div class="line"><span class="lineno">  256</span>    assert(hashing::sha256::extract_byte&lt;uint32_t&gt;(512, 1) == 2);</div>
@@ -609,6 +633,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00266">266</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  266</span>                            {</div>
 <div class="line"><span class="lineno">  267</span>    assert(hashing::sha256::get_char(<span class="stringliteral">&quot;test&quot;</span>, 3) == <span class="charliteral">&#39;t&#39;</span>);</div>
 <div class="line"><span class="lineno">  268</span>    assert(hashing::sha256::get_char(<span class="stringliteral">&quot;test&quot;</span>, 4) == <span class="stringliteral">&#39;\x80&#39;</span>);</div>
@@ -647,6 +673,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00280">280</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  280</span>                                {</div>
 <div class="line"><span class="lineno">  281</span>    assert(hashing::sha256::right_rotate(128, 3) == 16);</div>
 <div class="line"><span class="lineno">  282</span>    assert(hashing::sha256::right_rotate(1, 30) == 4);</div>
@@ -677,6 +705,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/sha256_8cpp_source.html#l00286">286</a> of file <a class="el" href="../../d4/d08/sha256_8cpp_source.html">sha256.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  286</span>                          {</div>
 <div class="line"><span class="lineno">  287</span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../da/d86/struct_test_case.html">TestCase</a> {</div>
 <div class="line"><span class="lineno">  288</span>        <span class="keyword">const</span> std::string input;</div>
@@ -702,7 +732,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">  308</span>        assert(hashing::sha256::sha256(tc.input) == tc.expected_hash);</div>
 <div class="line"><span class="lineno">  309</span>    }</div>
 <div class="line"><span class="lineno">  310</span>}</div>
-<div class="ttc" id="astruct_test_case_html"><div class="ttname"><a href="../../da/d86/struct_test_case.html">TestCase</a></div><div class="ttdoc">represents single example inputs and expected output of the function longest_common_string_length</div><div class="ttdef"><b>Definition</b> longest_common_string.cpp:54</div></div>
+<div class="ttc" id="astruct_test_case_html"><div class="ttname"><a href="../../da/d86/struct_test_case.html">TestCase</a></div><div class="ttdoc">represents single example inputs and expected output of the function longest_common_string_length</div><div class="ttdef"><b>Definition</b> <a href="../../da/d0d/longest__common__string_8cpp_source.html#l00054">longest_common_string.cpp:54</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

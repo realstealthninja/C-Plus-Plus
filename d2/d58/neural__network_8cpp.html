@@ -147,7 +147,9 @@ Include dependency graph for neural_network.cpp:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/d23/neural__network_8cpp__incl.svg" width="100%" height="449"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../d2/d58/neural__network_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">machine_learning::neural_network::layers::DenseLayer</a></td></tr>
@@ -204,6 +206,8 @@ Functions</h2></td></tr>
 <p>An MLP consists of at least three layers of nodes: an input layer, a hidden layer and an output layer. Except for the input nodes, each node is a neuron that uses a nonlinear activation function. MLP utilizes a supervised learning technique called backpropagation for training. Its multiple layers and non-linear activation distinguish MLP from a linear perceptron. It can distinguish data that is not linearly separable.</p>
 <p>See <a href="https://en.wikipedia.org/wiki/Backpropagation" target="_blank">Backpropagation</a> for training algorithm.</p>
 <dl class="section note"><dt>Note</dt><dd>This implementation uses mini-batch gradient descent as optimizer and MSE as loss function. Bias is also not included. </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa69e95a34054d7989bf446f96b2ffaf9" name="aa69e95a34054d7989bf446f96b2ffaf9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa69e95a34054d7989bf446f96b2ffaf9">&#9670;&#160;</a></span>drelu()</h2>
@@ -226,6 +230,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>derivative of relu(x) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   81</span>{ <span class="keywordflow">return</span> x &gt;= 0.0 ? 1.0 : 0.0; }</div>
 </div><!-- fragment -->
 </div>
@@ -251,6 +257,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns derivative of sigmoid(x) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00067">67</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   67</span>{ <span class="keywordflow">return</span> x * (1 - x); }</div>
 </div><!-- fragment -->
 </div>
@@ -276,6 +284,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns derivative of tanh(x) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00095">95</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   95</span>{ <span class="keywordflow">return</span> 1 - x * x; }</div>
 </div><!-- fragment -->
 </div>
@@ -301,6 +311,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns x </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00112">112</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  112</span>{ <span class="keywordflow">return</span> x; }</div>
 </div><!-- fragment -->
 </div>
@@ -322,12 +334,14 @@ Functions</h2></td></tr>
 
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00833">833</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  833</span>           {</div>
 <div class="line"><span class="lineno">  834</span>    <span class="comment">// Testing</span></div>
 <div class="line"><span class="lineno">  835</span>    <a class="code hl_function" href="#aa8dca7b867074164d5f45b0f3851269d">test</a>();</div>
 <div class="line"><span class="lineno">  836</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  837</span>}</div>
-<div class="ttc" id="aneural__network_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdef"><b>Definition</b> neural_network.cpp:805</div></div>
+<div class="ttc" id="aneural__network_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d58/neural__network_8cpp_source.html#l00805">neural_network.cpp:805</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -352,6 +366,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>relu(x) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   74</span>{ <span class="keywordflow">return</span> std::max(0.0, x); }</div>
 </div><!-- fragment -->
 </div>
@@ -377,6 +393,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns sigmoid(x) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   60</span>{ <span class="keywordflow">return</span> 1.0 / (1.0 + std::exp(-x)); }</div>
 </div><!-- fragment -->
 </div>
@@ -402,6 +420,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns x * x </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00106">106</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  106</span>{ <span class="keywordflow">return</span> x * x; }</div>
 </div><!-- fragment -->
 </div>
@@ -427,6 +447,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns tanh(x) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   88</span>{ <span class="keywordflow">return</span> 2 / (1 + std::exp(-2 * x)) - 1; }</div>
 </div><!-- fragment -->
 </div>
@@ -454,6 +476,8 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Function to test neural network </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d58/neural__network_8cpp_source.html#l00805">805</a> of file <a class="el" href="../../d2/d58/neural__network_8cpp_source.html">neural_network.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  805</span>                   {</div>
 <div class="line"><span class="lineno">  806</span>    <span class="comment">// Creating network with 3 layers for &quot;iris.csv&quot;</span></div>
 <div class="line"><span class="lineno">  807</span>    <a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">machine_learning::neural_network::NeuralNetwork</a> myNN =</div>
@@ -477,11 +501,11 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  825</span>               myNN.<a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a3b9eac1824d365dce715fb17c33cb96f">single_predict</a>({{6.2, 3.4, 5.4, 2.3}})) == 2);</div>
 <div class="line"><span class="lineno">  826</span>    <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  827</span>}</div>
-<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">machine_learning::neural_network::NeuralNetwork</a></div><div class="ttdef"><b>Definition</b> neural_network.cpp:247</div></div>
-<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html_a3b9eac1824d365dce715fb17c33cb96f"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a3b9eac1824d365dce715fb17c33cb96f">machine_learning::neural_network::NeuralNetwork::single_predict</a></div><div class="ttdeci">std::vector&lt; std::valarray&lt; double &gt; &gt; single_predict(const std::vector&lt; std::valarray&lt; double &gt; &gt; &amp;X)</div><div class="ttdef"><b>Definition</b> neural_network.cpp:451</div></div>
-<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html_a5172a6791b9bd24f4232bab8d6b81fff"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a5172a6791b9bd24f4232bab8d6b81fff">machine_learning::neural_network::NeuralNetwork::fit_from_csv</a></div><div class="ttdeci">void fit_from_csv(const std::string &amp;file_name, const bool &amp;last_label, const int &amp;epochs, const double &amp;learning_rate, const bool &amp;normalize, const int &amp;slip_lines=1, const size_t &amp;batch_size=32, const bool &amp;shuffle=true)</div><div class="ttdef"><b>Definition</b> neural_network.cpp:587</div></div>
-<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html_a61d30113d13304c664057118b92a5931"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a61d30113d13304c664057118b92a5931">machine_learning::neural_network::NeuralNetwork::summary</a></div><div class="ttdeci">void summary()</div><div class="ttdef"><b>Definition</b> neural_network.cpp:773</div></div>
-<div class="ttc" id="anamespacemachine__learning_html_a50480fccfb39de20ca47f1bf51ecb6ec"><div class="ttname"><a href="../../d8/d77/namespacemachine__learning.html#a50480fccfb39de20ca47f1bf51ecb6ec">machine_learning::argmax</a></div><div class="ttdeci">size_t argmax(const std::vector&lt; std::valarray&lt; T &gt; &gt; &amp;A)</div><div class="ttdef"><b>Definition</b> vector_ops.hpp:307</div></div>
+<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">machine_learning::neural_network::NeuralNetwork</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/d58/neural__network_8cpp_source.html#l00247">neural_network.cpp:247</a></div></div>
+<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html_a3b9eac1824d365dce715fb17c33cb96f"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a3b9eac1824d365dce715fb17c33cb96f">machine_learning::neural_network::NeuralNetwork::single_predict</a></div><div class="ttdeci">std::vector&lt; std::valarray&lt; double &gt; &gt; single_predict(const std::vector&lt; std::valarray&lt; double &gt; &gt; &amp;X)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d58/neural__network_8cpp_source.html#l00451">neural_network.cpp:451</a></div></div>
+<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html_a5172a6791b9bd24f4232bab8d6b81fff"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a5172a6791b9bd24f4232bab8d6b81fff">machine_learning::neural_network::NeuralNetwork::fit_from_csv</a></div><div class="ttdeci">void fit_from_csv(const std::string &amp;file_name, const bool &amp;last_label, const int &amp;epochs, const double &amp;learning_rate, const bool &amp;normalize, const int &amp;slip_lines=1, const size_t &amp;batch_size=32, const bool &amp;shuffle=true)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d58/neural__network_8cpp_source.html#l00587">neural_network.cpp:587</a></div></div>
+<div class="ttc" id="aclassmachine__learning_1_1neural__network_1_1_neural_network_html_a61d30113d13304c664057118b92a5931"><div class="ttname"><a href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a61d30113d13304c664057118b92a5931">machine_learning::neural_network::NeuralNetwork::summary</a></div><div class="ttdeci">void summary()</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d58/neural__network_8cpp_source.html#l00773">neural_network.cpp:773</a></div></div>
+<div class="ttc" id="anamespacemachine__learning_html_a50480fccfb39de20ca47f1bf51ecb6ec"><div class="ttname"><a href="../../d8/d77/namespacemachine__learning.html#a50480fccfb39de20ca47f1bf51ecb6ec">machine_learning::argmax</a></div><div class="ttdeci">size_t argmax(const std::vector&lt; std::valarray&lt; T &gt; &gt; &amp;A)</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d95/vector__ops_8hpp_source.html#l00307">vector_ops.hpp:307</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

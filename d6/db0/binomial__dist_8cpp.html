@@ -136,7 +136,9 @@ Include dependency graph for binomial_dist.cpp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d56/binomial__dist_8cpp__incl.svg" width="163" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../d6/db0/binomial__dist_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4416a7bc7fa87201883c54cdc4c82813" id="r_a4416a7bc7fa87201883c54cdc4c82813"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4416a7bc7fa87201883c54cdc4c82813">binomial_expected</a> (double n, double p)</td></tr>
@@ -162,6 +164,8 @@ Functions</h2></td></tr>
 <li>p : probability of success</li>
 <li>x : desired successes </li>
 </ul>
+
+<p class="definition">Definition in file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4416a7bc7fa87201883c54cdc4c82813" name="a4416a7bc7fa87201883c54cdc4c82813"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4416a7bc7fa87201883c54cdc4c82813">&#9670;&#160;</a></span>binomial_expected()</h2>
@@ -189,6 +193,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>\(\mu=np\) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html#l00022">22</a> of file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   22</span>{ <span class="keywordflow">return</span> n * p; }</div>
 </div><!-- fragment -->
 </div>
@@ -224,6 +230,8 @@ Functions</h2></td></tr>
 <p>calculates the probability of a result within a range (inclusive, inclusive) </p><dl class="section return"><dt>Returns</dt><dd>\(\displaystyle \left.P(n,p)\right|_{x_0}^{x_1} =
 \sum_{i=x_0}^{x_1} P(i)
 =\sum_{i=x_0}^{x_1} {n\choose i} p^i (1-p)^{n-i}\) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   75</span>                                                    {</div>
 <div class="line"><span class="lineno">   76</span>    <span class="keywordtype">double</span> <a class="code hl_namespace" href="../../d4/ded/namespaceprobability.html">probability</a> = 0;</div>
 <div class="line"><span class="lineno">   77</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = lower_bound; i &lt;= upper_bound; i++) {</div>
@@ -231,7 +239,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   79</span>    }</div>
 <div class="line"><span class="lineno">   80</span>    <span class="keywordflow">return</span> <a class="code hl_namespace" href="../../d4/ded/namespaceprobability.html">probability</a>;</div>
 <div class="line"><span class="lineno">   81</span>}</div>
-<div class="ttc" id="abinomial__dist_8cpp_html_a78d36635232e54b5d71fcbf1eac9a49a"><div class="ttname"><a href="#a78d36635232e54b5d71fcbf1eac9a49a">nCr</a></div><div class="ttdeci">double nCr(double n, double r)</div><div class="ttdef"><b>Definition</b> binomial_dist.cpp:47</div></div>
+<div class="ttc" id="abinomial__dist_8cpp_html_a78d36635232e54b5d71fcbf1eac9a49a"><div class="ttname"><a href="#a78d36635232e54b5d71fcbf1eac9a49a">nCr</a></div><div class="ttdeci">double nCr(double n, double r)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/binomial__dist_8cpp_source.html#l00047">binomial_dist.cpp:47</a></div></div>
 <div class="ttc" id="anamespaceprobability_html"><div class="ttname"><a href="../../d4/ded/namespaceprobability.html">probability</a></div><div class="ttdoc">Probability algorithms.</div></div>
 </div><!-- fragment -->
 </div>
@@ -262,10 +270,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>\(\sigma = \sqrt{\sigma^2} = \sqrt{n\cdot p\cdot (1-p)}\) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   36</span>                                                       {</div>
 <div class="line"><span class="lineno">   37</span>    <span class="keywordflow">return</span> std::sqrt(<a class="code hl_function" href="#acd4dd4558031e4c5d045c801f73d8861">binomial_variance</a>(n, p));</div>
 <div class="line"><span class="lineno">   38</span>}</div>
-<div class="ttc" id="abinomial__dist_8cpp_html_acd4dd4558031e4c5d045c801f73d8861"><div class="ttname"><a href="#acd4dd4558031e4c5d045c801f73d8861">binomial_variance</a></div><div class="ttdeci">double binomial_variance(double n, double p)</div><div class="ttdef"><b>Definition</b> binomial_dist.cpp:29</div></div>
+<div class="ttc" id="abinomial__dist_8cpp_html_acd4dd4558031e4c5d045c801f73d8861"><div class="ttname"><a href="#acd4dd4558031e4c5d045c801f73d8861">binomial_variance</a></div><div class="ttdeci">double binomial_variance(double n, double p)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/binomial__dist_8cpp_source.html#l00029">binomial_dist.cpp:29</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -295,6 +305,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>\(\sigma^2 = n\cdot p\cdot (1-p)\) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   29</span>{ <span class="keywordflow">return</span> n * p * (1 - p); }</div>
 </div><!-- fragment -->
 </div>
@@ -323,6 +335,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>calculates the probability of exactly x successes </p><dl class="section return"><dt>Returns</dt><dd>\(\displaystyle P(n,p,x) = {n\choose x} p^x (1-p)^{n-x}\) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html#l00065">65</a> of file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   65</span>                                                          {</div>
 <div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a78d36635232e54b5d71fcbf1eac9a49a">nCr</a>(n, x) * std::pow(p, x) * std::pow(1 - p, n - x);</div>
 <div class="line"><span class="lineno">   67</span>}</div>
@@ -344,6 +358,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>main function </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   84</span>           {</div>
 <div class="line"><span class="lineno">   85</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;expected value : &quot;</span> &lt;&lt; <a class="code hl_function" href="#a4416a7bc7fa87201883c54cdc4c82813">binomial_expected</a>(100, 0.5)</div>
 <div class="line"><span class="lineno">   86</span>              &lt;&lt; std::endl;</div>
@@ -361,10 +377,10 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   98</span> </div>
 <div class="line"><span class="lineno">   99</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  100</span>}</div>
-<div class="ttc" id="abinomial__dist_8cpp_html_a19ae0a6a2bd200fd1eb0e31b2bf4cc76"><div class="ttname"><a href="#a19ae0a6a2bd200fd1eb0e31b2bf4cc76">binomial_x_successes</a></div><div class="ttdeci">double binomial_x_successes(double n, double p, double x)</div><div class="ttdef"><b>Definition</b> binomial_dist.cpp:65</div></div>
-<div class="ttc" id="abinomial__dist_8cpp_html_a4416a7bc7fa87201883c54cdc4c82813"><div class="ttname"><a href="#a4416a7bc7fa87201883c54cdc4c82813">binomial_expected</a></div><div class="ttdeci">double binomial_expected(double n, double p)</div><div class="ttdef"><b>Definition</b> binomial_dist.cpp:22</div></div>
-<div class="ttc" id="abinomial__dist_8cpp_html_a76ed6ce71415fb400b65f0656cef3d25"><div class="ttname"><a href="#a76ed6ce71415fb400b65f0656cef3d25">binomial_range_successes</a></div><div class="ttdeci">double binomial_range_successes(double n, double p, double lower_bound, double upper_bound)</div><div class="ttdef"><b>Definition</b> binomial_dist.cpp:74</div></div>
-<div class="ttc" id="abinomial__dist_8cpp_html_af09e51f513cee647d41192ab0a872cdc"><div class="ttname"><a href="#af09e51f513cee647d41192ab0a872cdc">binomial_standard_deviation</a></div><div class="ttdeci">double binomial_standard_deviation(double n, double p)</div><div class="ttdef"><b>Definition</b> binomial_dist.cpp:36</div></div>
+<div class="ttc" id="abinomial__dist_8cpp_html_a19ae0a6a2bd200fd1eb0e31b2bf4cc76"><div class="ttname"><a href="#a19ae0a6a2bd200fd1eb0e31b2bf4cc76">binomial_x_successes</a></div><div class="ttdeci">double binomial_x_successes(double n, double p, double x)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/binomial__dist_8cpp_source.html#l00065">binomial_dist.cpp:65</a></div></div>
+<div class="ttc" id="abinomial__dist_8cpp_html_a4416a7bc7fa87201883c54cdc4c82813"><div class="ttname"><a href="#a4416a7bc7fa87201883c54cdc4c82813">binomial_expected</a></div><div class="ttdeci">double binomial_expected(double n, double p)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/binomial__dist_8cpp_source.html#l00022">binomial_dist.cpp:22</a></div></div>
+<div class="ttc" id="abinomial__dist_8cpp_html_a76ed6ce71415fb400b65f0656cef3d25"><div class="ttname"><a href="#a76ed6ce71415fb400b65f0656cef3d25">binomial_range_successes</a></div><div class="ttdeci">double binomial_range_successes(double n, double p, double lower_bound, double upper_bound)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/binomial__dist_8cpp_source.html#l00074">binomial_dist.cpp:74</a></div></div>
+<div class="ttc" id="abinomial__dist_8cpp_html_af09e51f513cee647d41192ab0a872cdc"><div class="ttname"><a href="#af09e51f513cee647d41192ab0a872cdc">binomial_standard_deviation</a></div><div class="ttdeci">double binomial_standard_deviation(double n, double p)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/binomial__dist_8cpp_source.html#l00036">binomial_dist.cpp:36</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -396,6 +412,8 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>\(\displaystyle {n\choose r} =
 \frac{n!}{r!(n-r)!} = \frac{n\times(n-1)\times(n-2)\times\cdots(n-r)}{r!}
 \) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html#l00047">47</a> of file <a class="el" href="../../d6/db0/binomial__dist_8cpp_source.html">binomial_dist.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   47</span>                               {</div>
 <div class="line"><span class="lineno">   48</span>    <span class="keywordtype">double</span> numerator = n;</div>
 <div class="line"><span class="lineno">   49</span>    <span class="keywordtype">double</span> denominator = r;</div>

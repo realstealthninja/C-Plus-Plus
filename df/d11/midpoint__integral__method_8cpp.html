@@ -142,7 +142,9 @@ Include dependency graph for midpoint_integral_method.cpp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d1c/midpoint__integral__method_8cpp__incl.svg" width="592" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../df/d11/midpoint__integral__method_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/de0/namespacenumerical__methods.html">numerical_methods</a></td></tr>
@@ -182,6 +184,8 @@ Functions</h2></td></tr>
 <p>We create a table of the xi and their corresponding f(xi) values and we evaluate the integral by the formula: I = h * {f(x0+h/2) + f(x1+h/2) + ... + f(xN-1+h/2)}</p>
 <p>Arguments can be passed as parameters from the command line argv[1] = N, argv[2] = a, argv[3] = b. In this case if the default values N=16, a=1, b=3 are changed then the tests/assert are disabled.</p>
 <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/ggkogkou" target="_blank">ggkogkou</a> </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a7ee8e824ef3e138a9a21883b26d97226" name="a7ee8e824ef3e138a9a21883b26d97226"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ee8e824ef3e138a9a21883b26d97226">&#9670;&#160;</a></span>f()</h2>
@@ -206,6 +210,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the value of the dependent variable yi = f(xi) = sqrt(xi) + ln(xi) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   90</span>{ <span class="keywordflow">return</span> std::sqrt(x) + std::log(x); }</div>
 </div><!-- fragment -->
 </div>
@@ -233,6 +239,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the value of the dependent variable yi = g(xi) = e^(-xi) * (4 - xi^2) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00097">97</a> of file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   97</span>{ <span class="keywordflow">return</span> std::exp(-x) * (4 - std::pow(x, 2)); }</div>
 </div><!-- fragment -->
 </div>
@@ -260,6 +268,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the value of the dependent variable yi = k(xi) = sqrt(2*xi^3 + 3) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  103</span>{ <span class="keywordflow">return</span> std::sqrt(2 * std::pow(x, 3) + 3); }</div>
 </div><!-- fragment -->
 </div>
@@ -287,6 +297,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the value of the dependent variable yi = l(xi) = xi + ln(2*xi + 1) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00109">109</a> of file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  109</span>{ <span class="keywordflow">return</span> x + std::log(2 * x + 1); }</div>
 </div><!-- fragment -->
 </div>
@@ -324,6 +336,8 @@ Functions</h2></td></tr>
 <p>Starting and ending point of the integration in</p>
 <p>the real axis</p>
 <p>Step, calculated by a, b and N</p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00162">162</a> of file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  162</span>                                {</div>
 <div class="line"><span class="lineno">  163</span>    std::int32_t <a class="code hl_variable" href="../../d6/d42/data__structures_2sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">N</a> =</div>
 <div class="line"><span class="lineno">  164</span>        16;  <span class="comment">/// Number of intervals to divide the integration interval.</span><span class="comment"></span></div>
@@ -362,9 +376,9 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  197</span> </div>
 <div class="line"><span class="lineno">  198</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  199</span>}</div>
-<div class="ttc" id="adata__structures_2sparse__table_8cpp_html_a10f3ffb3f6f7e1b83d556b9c8de89a5d"><div class="ttname"><a href="../../d6/d42/data__structures_2sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">data_structures::sparse_table::N</a></div><div class="ttdeci">constexpr uint32_t N</div><div class="ttdoc">A struct to represent sparse table for min() as their invariant function, for the given array A....</div><div class="ttdef"><b>Definition</b> sparse_table.cpp:47</div></div>
-<div class="ttc" id="agenerate__parentheses_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> generate_parentheses.cpp:82</div></div>
-<div class="ttc" id="ahash__search_8cpp_html_a566eaf0ffafd50bc61e644561fd27001"><div class="ttname"><a href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">h</a></div><div class="ttdeci">int h(int key)</div><div class="ttdef"><b>Definition</b> hash_search.cpp:45</div></div>
+<div class="ttc" id="adata__structures_2sparse__table_8cpp_html_a10f3ffb3f6f7e1b83d556b9c8de89a5d"><div class="ttname"><a href="../../d6/d42/data__structures_2sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">data_structures::sparse_table::N</a></div><div class="ttdeci">constexpr uint32_t N</div><div class="ttdoc">A struct to represent sparse table for min() as their invariant function, for the given array A....</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d42/data__structures_2sparse__table_8cpp_source.html#l00047">sparse_table.cpp:47</a></div></div>
+<div class="ttc" id="agenerate__parentheses_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d1e/generate__parentheses_8cpp_source.html#l00082">generate_parentheses.cpp:82</a></div></div>
+<div class="ttc" id="ahash__search_8cpp_html_a566eaf0ffafd50bc61e644561fd27001"><div class="ttname"><a href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">h</a></div><div class="ttdeci">int h(int key)</div><div class="ttdef"><b>Definition</b> <a href="../../d1/df3/hash__search_8cpp_source.html#l00045">hash_search.cpp:45</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -408,6 +422,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the result of the integration </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00052">52</a> of file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   53</span>                                                         {</div>
 <div class="line"><span class="lineno">   54</span>    std::map&lt;int, double&gt;</div>
 <div class="line"><span class="lineno">   55</span>        data_table;  <span class="comment">// Contains the data points, key: i, value: f(xi)</span></div>
@@ -495,6 +511,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00123">123</a> of file <a class="el" href="../../df/d11/midpoint__integral__method_8cpp_source.html">midpoint_integral_method.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  124</span>                                            {</div>
 <div class="line"><span class="lineno">  125</span>    <span class="comment">// Call midpoint() for each of the test functions f, g, k, l</span></div>
 <div class="line"><span class="lineno">  126</span>    <span class="comment">// Assert with two decimal point precision</span></div>
@@ -526,7 +544,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  152</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;The result of integral l(x) on interval [&quot;</span> &lt;&lt; a &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; b</div>
 <div class="line"><span class="lineno">  153</span>              &lt;&lt; <span class="stringliteral">&quot;] is equal to: &quot;</span> &lt;&lt; result_l &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">  154</span>}</div>
-<div class="ttc" id="amidpoint__integral__method_8cpp_html_a7072493d1f0f8a91b2a71d4cc456c09c"><div class="ttname"><a href="#a7072493d1f0f8a91b2a71d4cc456c09c">numerical_methods::midpoint_rule::midpoint</a></div><div class="ttdeci">double midpoint(const std::int32_t N, const double h, const double a, const std::function&lt; double(double)&gt; &amp;func)</div><div class="ttdoc">Main function for implementing the Midpoint Integral Method implementation.</div><div class="ttdef"><b>Definition</b> midpoint_integral_method.cpp:52</div></div>
+<div class="ttc" id="amidpoint__integral__method_8cpp_html_a7072493d1f0f8a91b2a71d4cc456c09c"><div class="ttname"><a href="#a7072493d1f0f8a91b2a71d4cc456c09c">numerical_methods::midpoint_rule::midpoint</a></div><div class="ttdeci">double midpoint(const std::int32_t N, const double h, const double a, const std::function&lt; double(double)&gt; &amp;func)</div><div class="ttdoc">Main function for implementing the Midpoint Integral Method implementation.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d11/midpoint__integral__method_8cpp_source.html#l00052">midpoint_integral_method.cpp:52</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

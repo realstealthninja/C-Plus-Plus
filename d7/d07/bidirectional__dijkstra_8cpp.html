@@ -142,7 +142,9 @@ Include dependency graph for bidirectional_dijkstra.cpp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/df6/bidirectional__dijkstra_8cpp__incl.svg" width="486" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dce/namespacegraph.html">graph</a></td></tr>
@@ -179,6 +181,8 @@ Variables</h2></td></tr>
 <div class="textblock"><p>[Bidirectional Dijkstra Shortest Path Algorithm] (<a href="https://www.coursera.org/learn/algorithms-on-graphs/lecture/7ml18/bidirectional-dijkstra">https://www.coursera.org/learn/algorithms-on-graphs/lecture/7ml18/bidirectional-dijkstra</a>) </p>
 <dl class="section author"><dt>Author</dt><dd><a href="http://github.com/Marinovsky" target="_blank">Marinovksy</a></dd></dl>
 <p>This is basically the same Dijkstra Algorithm but faster because it goes from the source to the target and from target to the source and stops when finding a vertex visited already by the direct search or the reverse one. Here some simulations of it: <a href="https://www.youtube.com/watch?v=DINCL5cd_w0&t=24s">https://www.youtube.com/watch?v=DINCL5cd_w0&amp;t=24s</a> </p>
+
+<p class="definition">Definition in file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a69172365aebde9be1997157f6f80e0cf" name="a69172365aebde9be1997157f6f80e0cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a69172365aebde9be1997157f6f80e0cf">&#9670;&#160;</a></span>addEdge()</h2>
@@ -224,6 +228,8 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00045">45</a> of file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   47</span>                                                 {</div>
 <div class="line"><span class="lineno">   48</span>    (*adj1)[u - 1].push_back(std::make_pair(v - 1, w));</div>
 <div class="line"><span class="lineno">   49</span>    (*adj2)[v - 1].push_back(std::make_pair(u - 1, w));</div>
@@ -294,6 +300,8 @@ Variables</h2></td></tr>
 <p>for all the reachable vertex from the currently exploring vertex we will try to minimize the distance</p>
 <p>minimizing distances</p>
 <p>check if currentNode has already been visited</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   88</span>                                       {<span class="comment"></span></div>
 <div class="line"><span class="lineno">   89</span><span class="comment">    /// n denotes the number of vertices in graph</span></div>
 <div class="line"><span class="lineno">   90</span><span class="comment"></span>    uint64_t n = adj1-&gt;size();</div>
@@ -397,8 +405,8 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  188</span>    }</div>
 <div class="line"><span class="lineno">  189</span>    <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">  190</span>}</div>
-<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a22f1b7277e1dd4190f25014b48487ce6"><div class="ttname"><a href="#a22f1b7277e1dd4190f25014b48487ce6">graph::bidirectional_dijkstra::Shortest_Path_Distance</a></div><div class="ttdeci">uint64_t Shortest_Path_Distance(const std::vector&lt; uint64_t &gt; &amp;workset_, const std::vector&lt; std::vector&lt; uint64_t &gt; &gt; &amp;distance_)</div><div class="ttdoc">This function returns the shortest distance from the source to the target if there is path between ve...</div><div class="ttdef"><b>Definition</b> bidirectional_dijkstra.cpp:61</div></div>
-<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a330a2b0a904f01802ada1f8f3b28e76c"><div class="ttname"><a href="#a330a2b0a904f01802ada1f8f3b28e76c">INF</a></div><div class="ttdeci">constexpr int64_t INF</div><div class="ttdef"><b>Definition</b> bidirectional_dijkstra.cpp:23</div></div>
+<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a22f1b7277e1dd4190f25014b48487ce6"><div class="ttname"><a href="#a22f1b7277e1dd4190f25014b48487ce6">graph::bidirectional_dijkstra::Shortest_Path_Distance</a></div><div class="ttdeci">uint64_t Shortest_Path_Distance(const std::vector&lt; uint64_t &gt; &amp;workset_, const std::vector&lt; std::vector&lt; uint64_t &gt; &gt; &amp;distance_)</div><div class="ttdoc">This function returns the shortest distance from the source to the target if there is path between ve...</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00061">bidirectional_dijkstra.cpp:61</a></div></div>
+<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a330a2b0a904f01802ada1f8f3b28e76c"><div class="ttname"><a href="#a330a2b0a904f01802ada1f8f3b28e76c">INF</a></div><div class="ttdeci">constexpr int64_t INF</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00023">bidirectional_dijkstra.cpp:23</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -419,6 +427,8 @@ Variables</h2></td></tr>
 
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00248">248</a> of file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  248</span>           {</div>
 <div class="line"><span class="lineno">  249</span>    <a class="code hl_function" href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>();  <span class="comment">// running predefined tests</span></div>
 <div class="line"><span class="lineno">  250</span>    uint64_t vertices = uint64_t();</div>
@@ -465,9 +475,9 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  291</span> </div>
 <div class="line"><span class="lineno">  292</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  293</span>}</div>
-<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a1b2df3d52a403ad46523ab90d3a723c1"><div class="ttname"><a href="#a1b2df3d52a403ad46523ab90d3a723c1">graph::bidirectional_dijkstra::Bidijkstra</a></div><div class="ttdeci">int Bidijkstra(std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj1, std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj2, uint64_t s, uint64_t t)</div><div class="ttdoc">Function runs the dijkstra algorithm for some source vertex and target vertex in the graph and return...</div><div class="ttdef"><b>Definition</b> bidirectional_dijkstra.cpp:86</div></div>
-<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Function to test the provided algorithm above.</div><div class="ttdef"><b>Definition</b> bidirectional_dijkstra.cpp:199</div></div>
-<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a69172365aebde9be1997157f6f80e0cf"><div class="ttname"><a href="#a69172365aebde9be1997157f6f80e0cf">graph::bidirectional_dijkstra::addEdge</a></div><div class="ttdeci">void addEdge(std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj1, std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj2, uint64_t u, uint64_t v, uint64_t w)</div><div class="ttdoc">Function that add edge between two nodes or vertices of graph.</div><div class="ttdef"><b>Definition</b> bidirectional_dijkstra.cpp:45</div></div>
+<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a1b2df3d52a403ad46523ab90d3a723c1"><div class="ttname"><a href="#a1b2df3d52a403ad46523ab90d3a723c1">graph::bidirectional_dijkstra::Bidijkstra</a></div><div class="ttdeci">int Bidijkstra(std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj1, std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj2, uint64_t s, uint64_t t)</div><div class="ttdoc">Function runs the dijkstra algorithm for some source vertex and target vertex in the graph and return...</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00086">bidirectional_dijkstra.cpp:86</a></div></div>
+<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Function to test the provided algorithm above.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00199">bidirectional_dijkstra.cpp:199</a></div></div>
+<div class="ttc" id="abidirectional__dijkstra_8cpp_html_a69172365aebde9be1997157f6f80e0cf"><div class="ttname"><a href="#a69172365aebde9be1997157f6f80e0cf">graph::bidirectional_dijkstra::addEdge</a></div><div class="ttdeci">void addEdge(std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj1, std::vector&lt; std::vector&lt; std::pair&lt; uint64_t, uint64_t &gt; &gt; &gt; *adj2, uint64_t u, uint64_t v, uint64_t w)</div><div class="ttdoc">Function that add edge between two nodes or vertices of graph.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00045">bidirectional_dijkstra.cpp:45</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -498,6 +508,8 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   63</span>                                                     {</div>
 <div class="line"><span class="lineno">   64</span>    int64_t distance = <a class="code hl_variable" href="#a330a2b0a904f01802ada1f8f3b28e76c">INF</a>;</div>
 <div class="line"><span class="lineno">   65</span>    <span class="keywordflow">for</span> (uint64_t i : workset_) {</div>
@@ -535,6 +547,8 @@ Variables</h2></td></tr>
 
 <p>Function to test the provided algorithm above. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  199</span>                    {</div>
 <div class="line"><span class="lineno">  200</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiatinig Predefined Tests...&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">  201</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiating Test 1...&quot;</span> &lt;&lt; std::endl;</div>
@@ -603,6 +617,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>for assert for io operations for variable INF for the priority_queue of distances for make_pair function for store the graph, the distances, and the path </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
 
 </div>
 </div>
