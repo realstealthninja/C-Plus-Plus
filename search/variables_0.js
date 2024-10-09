@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['a_0',['A',['../structdata__structures_1_1sparse__table_1_1_sparse__table.html#ab78620742305a35ff2f8d61179f47d3e',1,'data_structures::sparse_table::Sparse_table']]],
-  ['auxiliary_5fq_1',['auxiliary_q',['../structdata__structures_1_1stack__using__queue_1_1_stack.html#a2f80f87fc6f6ded938426698bba89323',1,'data_structures::stack_using_queue::Stack']]],
-  ['availarray_2',['AvailArray',['../linkedlist__implentation__usingarray_8cpp.html#aed19b403f559fc5d5a4bce724f9e263c',1,'linkedlist_implentation_usingarray.cpp']]]
+  ['_5fcapacity_0',['_capacity',['../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5',1,'others::Cache::LFUCache']]],
+  ['_5fdigits_1',['_digits',['../db/d82/classlarge__number.html#af2b3ec9c35842d3a46ac7326f268af57',1,'large_number']]],
+  ['_5fitmedian_2',['_itMedian',['../df/d34/classprobability_1_1windowed__median_1_1_windowed_median.html#a55ae3543a76045dffcb5ec7904a32a20',1,'probability::windowed_median::WindowedMedian']]],
+  ['_5fmod_3',['_mod',['../dd/d1c/classhash__chain.html#ae9ddce410015ed8dda6380130d82d6c2',1,'hash_chain']]],
+  ['_5fsortedvalues_4',['_sortedValues',['../df/d34/classprobability_1_1windowed__median_1_1_windowed_median.html#aacd76f078632faee1a8788d031e6c2de',1,'probability::windowed_median::WindowedMedian']]],
+  ['_5fwindow_5',['_window',['../df/d34/classprobability_1_1windowed__median_1_1_windowed_median.html#a825a7aaef844c9f743a27b268e8569b2',1,'probability::windowed_median::WindowedMedian']]],
+  ['_5fwindowsize_6',['_windowSize',['../df/d34/classprobability_1_1windowed__median_1_1_windowed_median.html#aafda847b152684578dab891e5268d750',1,'probability::windowed_median::WindowedMedian']]]
 ];
