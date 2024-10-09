@@ -12,7 +12,7 @@ var searchData=
   ['fib_9',['fib',['../fibonacci__fast_8cpp.html#a5712edca101204eca8accdb1e096707f',1,'fib(uint64_t n):&#160;fibonacci_fast.cpp'],['../fibonacci__large_8cpp.html#adf3e906875ab257f7fab3bc1370aa2db',1,'fib(uint64_t n):&#160;fibonacci_large.cpp']]],
   ['fib_5faccurate_10',['fib_Accurate',['../string__fibonacci_8cpp.html#ad8055ee368a5d5b24de01bdde6bf8fca',1,'string_fibonacci.cpp']]],
   ['fibo_11',['fibo',['../fibonacci__matrix__exponentiation_8cpp.html#abc3bc08249058d57cfc8f54a29d9cf9f',1,'fibonacci_matrix_exponentiation.cpp']]],
-  ['fibonacci_12',['fibonacci',['../fibonacci_8cpp.html#aaf94f3212385cff0a5f19ff6b0cce8e7',1,'fibonacci.cpp']]],
+  ['fibonacci_12',['fibonacci',['../fibonacci_8cpp.html#aeaaf5439cb29de4630c7dff2fd914b28',1,'math::fibonacci']]],
   ['fibonacci_5fsearch_13',['fibonacci_search',['../fibonacci__search_8cpp.html#a0bc61b3903d9a53061bf31e5d110fe61',1,'fibonacci_search.cpp']]],
   ['fibosum_14',['fiboSum',['../fibonacci__sum_8cpp.html#a493fbaa7a94e3b7ca573111237bb3742',1,'math::fibonacci_sum']]],
   ['fill_15',['fill',['../decimal__to__roman__numeral_8cpp.html#a88203bd297e8405160c132faa1187780',1,'decimal_to_roman_numeral.cpp']]],

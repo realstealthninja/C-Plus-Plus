@@ -38,6 +38,7 @@ var namespaces_dup =
       [ "trappedRainwater", "namespacedynamic__programming.html#a066e0e739e7c276eee6e61d5b4d37ce8", null ]
     ] ],
     [ "false_position", "namespacefalse__position.html", null ],
+    [ "fibonacci", "namespacefibonacci.html", null ],
     [ "fibonacci_sum", "namespacefibonacci__sum.html", null ],
     [ "find_non_repeating_integer", "namespacefind__non__repeating__integer.html", null ],
     [ "games", "namespacegames.html", "namespacegames" ],
