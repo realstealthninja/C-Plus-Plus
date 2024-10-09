@@ -1,0 +1,151 @@
+\doxysection{search/floyd\+\_\+cycle\+\_\+detection\+\_\+algo.cpp File Reference}
+\hypertarget{floyd__cycle__detection__algo_8cpp}{}\label{floyd__cycle__detection__algo_8cpp}\index{search/floyd\_cycle\_detection\_algo.cpp@{search/floyd\_cycle\_detection\_algo.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Cycle_detection}{\texttt{ Floyd\textquotesingle{}s Cycle Detection}} algorithm.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesearch}{search}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecycle__detection}{cycle\+\_\+detection}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Cycle_detection}{\texttt{ Floyd\textquotesingle{}s Cycle Detection}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\int32\+\_\+t \mbox{\hyperlink{floyd__cycle__detection__algo_8cpp_a81ffc7a2c6bf530c8a496864e7a3ad88}{search\+::cycle\+\_\+detection\+::duplicate\+Number}} (const std\+::vector$<$ T $>$ \&in\+\_\+arr, const uint32\+\_\+t \&n)
+\begin{DoxyCompactList}\small\item\em The main function implements search algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{floyd__cycle__detection__algo_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{floyd__cycle__detection__algo_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Cycle_detection}{\texttt{ Floyd\textquotesingle{}s Cycle Detection}} algorithm. 
+
+Given an array of integers containing \textquotesingle{}n + 1\textquotesingle{} integers, where each integer is in the range \mbox{[}1, n\mbox{]} inclusive. If there is only one duplicate number in the input array, this algorithm returns the duplicate number in O(1) space and the time complexity is less than O(n\texorpdfstring{$^\wedge$}{\string^}2) without modifying the original array, otherwise, it returns -\/1. \begin{DoxyAuthor}{Author}
+\href{https://github.com/Swastyy}{\texttt{ Swastika Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{floyd__cycle__detection__algo_8cpp_a81ffc7a2c6bf530c8a496864e7a3ad88}\index{floyd\_cycle\_detection\_algo.cpp@{floyd\_cycle\_detection\_algo.cpp}!duplicateNumber@{duplicateNumber}}
+\index{duplicateNumber@{duplicateNumber}!floyd\_cycle\_detection\_algo.cpp@{floyd\_cycle\_detection\_algo.cpp}}
+\doxysubsubsection{\texorpdfstring{duplicateNumber()}{duplicateNumber()}}
+{\footnotesize\ttfamily \label{floyd__cycle__detection__algo_8cpp_a81ffc7a2c6bf530c8a496864e7a3ad88} 
+template$<$typename T $>$ \\
+int32\+\_\+t search\+::cycle\+\_\+detection\+::duplicate\+Number (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{in\+\_\+arr}{, }\item[{const uint32\+\_\+t \&}]{n}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements search algorithm. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+arr} & the input array \\
+\hline
+{\em n} & size of array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the duplicate number 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0\ ||}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ n\ ==\ 1)\ \{\ \ \textcolor{comment}{//\ to\ find\ duplicate\ in\ an\ array\ its\ size\ should\ be\ atleast\ 2}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ uint32\_t\ tortoise\ =\ in\_arr[0];\ \ \textcolor{comment}{//\ variable\ tortoise\ is\ used\ for\ the\ longer}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ jumps\ in\ the\ array}}
+\DoxyCodeLine{00044\ \ \ \ \ uint32\_t\ hare\ =}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ in\_arr[0];\ \ \textcolor{comment}{//\ variable\ hare\ is\ used\ for\ shorter\ jumps\ in\ the\ array}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ tortoise\ =\ in\_arr[tortoise];}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ hare\ =\ in\_arr[in\_arr[hare]];}
+\DoxyCodeLine{00049\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (tortoise\ !=\ hare);}
+\DoxyCodeLine{00050\ \ \ \ \ tortoise\ =\ in\_arr[0];}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{while}\ (tortoise\ !=\ hare)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ tortoise\ =\ in\_arr[tortoise];}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ hare\ =\ in\_arr[hare];}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ tortoise;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{floyd__cycle__detection__algo_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{floyd\_cycle\_detection\_algo.cpp@{floyd\_cycle\_detection\_algo.cpp}!main@{main}}
+\index{main@{main}!floyd\_cycle\_detection\_algo.cpp@{floyd\_cycle\_detection\_algo.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{floyd__cycle__detection__algo_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{floyd__cycle__detection__algo_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{floyd__cycle__detection__algo_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{floyd\_cycle\_detection\_algo.cpp@{floyd\_cycle\_detection\_algo.cpp}!test@{test}}
+\index{test@{test}!floyd\_cycle\_detection\_algo.cpp@{floyd\_cycle\_detection\_algo.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{floyd__cycle__detection__algo_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ [3,\ 4,\ 8,\ 5,\ 9,\ 1,\ 2,\ 6,\ 7,\ 4]\ return\ 4}}
+\DoxyCodeLine{00067\ \ \ \ \ std::vector<uint32\_t>\ array1\ =\ \{3,\ 4,\ 8,\ 5,\ 9,\ 1,\ 2,\ 6,\ 7,\ 4\};}
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...\ "{}};}
+\DoxyCodeLine{00069\ \ \ \ \ assert(search::cycle\_detection::duplicateNumber(array1,\ array1.size())\ ==}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ 4);\ \ \textcolor{comment}{//\ here\ the\ duplicate\ number\ is\ 4}}
+\DoxyCodeLine{00071\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ [1,\ 2,\ 3,\ 4,\ 2]\ return\ 2}}
+\DoxyCodeLine{00075\ \ \ \ \ std::vector<uint32\_t>\ array2\ =\ \{1,\ 2,\ 3,\ 4,\ 2\};}
+\DoxyCodeLine{00076\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...\ "{}};}
+\DoxyCodeLine{00077\ \ \ \ \ assert(search::cycle\_detection::duplicateNumber(array2,\ array2.size())\ ==}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ 2);\ \ \textcolor{comment}{//\ here\ the\ duplicate\ number\ is\ 2}}
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ []\ return\ -\/1}}
+\DoxyCodeLine{00083\ \ \ \ \ std::vector<uint32\_t>\ array3\ =\ \{\};}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...\ "{}};}
+\DoxyCodeLine{00085\ \ \ \ \ assert(search::cycle\_detection::duplicateNumber(array3,\ array3.size())\ ==}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ -\/1);\ \ \textcolor{comment}{//\ since\ the\ input\ array\ is\ empty\ no\ duplicate\ number\ exists\ in}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ case}}
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}

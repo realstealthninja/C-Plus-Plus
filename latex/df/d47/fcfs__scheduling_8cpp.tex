@@ -1,0 +1,198 @@
+\doxysection{cpu\+\_\+scheduling\+\_\+algorithms/fcfs\+\_\+scheduling.cpp File Reference}
+\hypertarget{fcfs__scheduling_8cpp}{}\label{fcfs__scheduling_8cpp}\index{cpu\_scheduling\_algorithms/fcfs\_scheduling.cpp@{cpu\_scheduling\_algorithms/fcfs\_scheduling.cpp}}
+
+
+Implementation of \doxylink{class_f_c_f_s}{FCFS} CPU scheduling algorithm.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_compare}{Compare$<$ S, T, E $>$}}
+\begin{DoxyCompactList}\small\item\em Comparator class for priority queue. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_f_c_f_s}{FCFS$<$ S, T, E $>$}}
+\begin{DoxyCompactList}\small\item\em Class which implements the \doxylink{class_f_c_f_s}{FCFS} scheduling algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename S , typename T , typename E $>$ }\\bool \mbox{\hyperlink{fcfs__scheduling_8cpp_a18920aa331faf4476b251c8cdb2c2bec}{sortcol}} (tuple$<$ S, T, E $>$ \&t1, tuple$<$ S, T, E $>$ \&t2)
+\begin{DoxyCompactList}\small\item\em Comparator function for sorting a vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename S , typename T , typename E $>$ }\\vector$<$ tuple$<$ S, T, E, double, double, double $>$ $>$ \mbox{\hyperlink{fcfs__scheduling_8cpp_a8f2b90cb64d63a7080965e66a05ccf86}{get\+\_\+final\+\_\+status}} (vector$<$ tuple$<$ uint32\+\_\+t, uint32\+\_\+t, uint32\+\_\+t $>$ $>$ input)
+\begin{DoxyCompactList}\small\item\em Function to be used for testing purposes. This function guarantees the correct solution for \doxylink{class_f_c_f_s}{FCFS} scheduling algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{fcfs__scheduling_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fcfs__scheduling_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Entry point of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \doxylink{class_f_c_f_s}{FCFS} CPU scheduling algorithm. 
+
+\doxylink{class_f_c_f_s}{FCFS} is a non-\/preemptive CPU scheduling algorithm in which whichever process arrives first, gets executed first. If two or more processes arrive simultaneously, the process with smaller process ID gets executed first. \doxylink{}{https\+://bit.\+ly/3\+ABNXOC}Pratyush Vatsa 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fcfs__scheduling_8cpp_a8f2b90cb64d63a7080965e66a05ccf86}\index{fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}!get\_final\_status@{get\_final\_status}}
+\index{get\_final\_status@{get\_final\_status}!fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_final\_status()}{get\_final\_status()}}
+{\footnotesize\ttfamily \label{fcfs__scheduling_8cpp_a8f2b90cb64d63a7080965e66a05ccf86} 
+template$<$typename S , typename T , typename E $>$ \\
+vector$<$ tuple$<$ S, T, E, double, double, double $>$ $>$ get\+\_\+final\+\_\+status (\begin{DoxyParamCaption}\item[{vector$<$ tuple$<$ uint32\+\_\+t, uint32\+\_\+t, uint32\+\_\+t $>$ $>$}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Function to be used for testing purposes. This function guarantees the correct solution for \doxylink{class_f_c_f_s}{FCFS} scheduling algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & the input data\\
+\hline
+\end{DoxyParams}
+Sorts the input vector according to arrival time. Processes whose arrival times are same get sorted according to process ID For each process, completion time, turnaround time and completion time are calculated, inserted in a tuple, which is added to the vector result. \begin{DoxyReturn}{Returns}
+A vector of tuples consisting of process ID, arrival time, burst time, completion time, turnaround time and waiting time for each process. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ sort(input.begin(),\ input.end(),\ \mbox{\hyperlink{fcfs__scheduling_8cpp_a18920aa331faf4476b251c8cdb2c2bec}{sortcol<S,\ T,\ E>}});}
+\DoxyCodeLine{00228\ \ \ \ \ vector<tuple<S,\ T,\ E,\ double,\ double,\ double>>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(input.size());}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{double}\ timeElapsed\ =\ 0;}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\{\};\ i\ <\ input.size();\ i++)\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ T\ arrival\ =\ get<1>(input[i]);}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ E\ burst\ =\ get<2>(input[i]);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arrival\ >\ timeElapsed)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ timeElapsed\ +=\ arrival\ -\/\ timeElapsed;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ timeElapsed\ +=\ burst;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ completion\ =\ timeElapsed;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ turnaround\ =\ completion\ -\/\ arrival;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ waiting\ =\ turnaround\ -\/\ burst;}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ get<0>(result[i])\ =\ get<0>(input[i]);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ get<1>(result[i])\ =\ arrival;}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ get<2>(result[i])\ =\ burst;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ get<3>(result[i])\ =\ completion;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ get<4>(result[i])\ =\ turnaround;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ get<5>(result[i])\ =\ waiting;}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00250\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fcfs__scheduling_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}!main@{main}}
+\index{main@{main}!fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fcfs__scheduling_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Entry point of the program. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \mbox{\hyperlink{fcfs__scheduling_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00290\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fcfs__scheduling_8cpp_a18920aa331faf4476b251c8cdb2c2bec}\index{fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}!sortcol@{sortcol}}
+\index{sortcol@{sortcol}!fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}}
+\doxysubsubsection{\texorpdfstring{sortcol()}{sortcol()}}
+{\footnotesize\ttfamily \label{fcfs__scheduling_8cpp_a18920aa331faf4476b251c8cdb2c2bec} 
+template$<$typename S , typename T , typename E $>$ \\
+bool sortcol (\begin{DoxyParamCaption}\item[{tuple$<$ S, T, E $>$ \&}]{t1}{, }\item[{tuple$<$ S, T, E $>$ \&}]{t2}{}\end{DoxyParamCaption})}
+
+
+
+Comparator function for sorting a vector. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & Data type of Process ID \\
+\hline
+{\em T} & Data type of Arrival time \\
+\hline
+{\em E} & Data type of Burst time \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em t1} & First tuple \\
+\hline
+{\em t2} & Second tuple \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if t1 and t2 are in the CORRECT order 
+
+false if t1 and t2 are in the INCORRECT order 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (get<1>(t1)\ <\ get<1>(t2))\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00048\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (get<1>(t1)\ ==\ get<1>(t2)\ \&\&\ get<0>(t1)\ <\ get<0>(t2))\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fcfs__scheduling_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}!test@{test}}
+\index{test@{test}!fcfs\_scheduling.cpp@{fcfs\_scheduling.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{fcfs__scheduling_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\{\};\ i\ <\ 1000;\ i++)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ srand(time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ uint32\_t\ n\ =\ 1\ +\ rand()\ \%\ 1000;}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_c_f_s}{FCFS<uint32\_t,\ uint32\_t,\ uint32\_t>}}\ readyQueue;}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ vector<tuple<uint32\_t,\ uint32\_t,\ uint32\_t>>\ input(n);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\{\};\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ get<0>(input[i])\ =\ i;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ srand(time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ get<1>(input[i])\ =\ 1\ +\ rand()\ \%\ 10000;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ srand(time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ get<2>(input[i])\ =\ 1\ +\ rand()\ \%\ 10000;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\{\};\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ readyQueue.\mbox{\hyperlink{class_f_c_f_s_a8fbfe4d85f7576b4a7aade07d29fbd69}{addProcess}}(get<0>(input[i]),\ get<1>(input[i]),}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ get<2>(input[i]));}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ vector<tuple<uint32\_t,\ uint32\_t,\ uint32\_t,\ double,\ double,\ double>>}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ \mbox{\hyperlink{fcfs__scheduling_8cpp_a8f2b90cb64d63a7080965e66a05ccf86}{get\_final\_status<uint32\_t,\ uint32\_t,\ uint32\_t>}}(input);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ assert(res\ ==\ readyQueue.\mbox{\hyperlink{class_f_c_f_s_aa25dbe30ba9930b5a7c1a6d11758bd91}{scheduleForFcfs}}());}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ readyQueue.printResult();}}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}All\ the\ tests\ have\ successfully\ passed!"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00281\ \}}
+
+\end{DoxyCode}

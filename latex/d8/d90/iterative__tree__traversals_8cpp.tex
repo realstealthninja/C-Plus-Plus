@@ -1,0 +1,401 @@
+\doxysection{others/iterative\+\_\+tree\+\_\+traversals.cpp File Reference}
+\hypertarget{iterative__tree__traversals_8cpp}{}\label{iterative__tree__traversals_8cpp}\index{others/iterative\_tree\_traversals.cpp@{others/iterative\_tree\_traversals.cpp}}
+
+
+Iterative version of Preorder, Postorder, and preorder \mbox{[}Traversal of the Tree\mbox{]} (\href{https://en.wikipedia.org/wiki/Tree_traversal}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Tree\+\_\+traversal}})  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}}
+\begin{DoxyCompactList}\small\item\em defines the structure of a node of the tree \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}}
+\begin{DoxyCompactList}\small\item\em defines the functions associated with the binary tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceothers}{others}}
+\begin{DoxyCompactList}\small\item\em for {\ttfamily vector} \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceiterative__tree__traversals}{iterative\+\_\+tree\+\_\+traversals}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Tree_traversal}{\texttt{ Traversal of the Tree}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{iterative__tree__traversals_8cpp_a0eec4455ee737c32976963e3aabb9d9f}{others\+::iterative\+\_\+tree\+\_\+traversals\+::delete\+All}} (\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}root)
+\item 
+static void \mbox{\hyperlink{iterative__tree__traversals_8cpp_a21d922dbb5905993960c6a7f0ba71ac0}{test1}} (\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}} binary\+Tree, \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Test the computed preorder with the actual preorder. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{iterative__tree__traversals_8cpp_ac35ae2868441f8a11c965b87b2494f21}{test2}} (\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}} binary\+Tree, \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Test the computed postorder with the actual postorder. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{iterative__tree__traversals_8cpp_a425c4c8520991999ee6dbe13d99b87f4}{test3}} (\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}} binary\+Tree, \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Test the computed inorder with the actual inorder. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{iterative__tree__traversals_8cpp_a038b236fe900f7bb7e57164f5bed66c2}{test4}} (\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}} binary\+Tree, \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Test the computed preorder with the actual preorder on negative value. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{iterative__tree__traversals_8cpp_aa9ef334cd7eb607f4eb8732566ea00b8}{test5}} (\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}} binary\+Tree, \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Test the computed postorder with the actual postorder on negative value. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{iterative__tree__traversals_8cpp_af727f920064f2b8f484b589b60d49b89}{test6}} (\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}} binary\+Tree, \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Test the computed inorder with the actual inorder on negative value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{iterative__tree__traversals_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Iterative version of Preorder, Postorder, and preorder \mbox{[}Traversal of the Tree\mbox{]} (\href{https://en.wikipedia.org/wiki/Tree_traversal}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Tree\+\_\+traversal}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/motasimmakki}{\texttt{ Motasim}}
+\end{DoxyAuthor}
+\hypertarget{iterative__tree__traversals_8cpp_autotoc_md92}{}\doxysubsubsubsection{\texorpdfstring{Iterative Preorder Traversal of a tree}{Iterative Preorder Traversal of a tree}}\label{iterative__tree__traversals_8cpp_autotoc_md92}
+Create a Stack that will store the \doxylink{struct_node}{Node} of Tree. Push the root node into the stack. Save the root into the variabe named as current, and pop and elemnt from the stack. Store the data of current into the result array, and start traversing from it. Push both the child node of the current node into the stack, first right child then left child. Repeat the same set of steps untill the Stack becomes empty. And return the result array as the preorder traversal of a tree.\hypertarget{iterative__tree__traversals_8cpp_autotoc_md93}{}\doxysubsubsubsection{\texorpdfstring{Iterative Postorder Traversal of a tree}{Iterative Postorder Traversal of a tree}}\label{iterative__tree__traversals_8cpp_autotoc_md93}
+Create a Stack that will store the \doxylink{struct_node}{Node} of Tree. Push the root node into the stack. Save the root into the variabe named as current, and pop and elemnt from the stack. Store the data of current into the result array, and start traversing from it. Push both the child node of the current node into the stack, first left child then right child. Repeat the same set of steps untill the Stack becomes empty. Now reverse the result array and then return it to the calling function as a postorder traversal of a tree.\hypertarget{iterative__tree__traversals_8cpp_autotoc_md94}{}\doxysubsubsubsection{\texorpdfstring{Iterative Inorder Traversal of a tree}{Iterative Inorder Traversal of a tree}}\label{iterative__tree__traversals_8cpp_autotoc_md94}
+Create a Stack that will store the \doxylink{struct_node}{Node} of Tree. Push the root node into the stack. Save the root into the variabe named as current. Now iterate and take the current to the extreme left of the tree by traversing only to its left. Pop the elemnt from the stack and assign it to the current. Store the data of current into the result array. Repeat the same set of steps until the Stack becomes empty or the current becomes NULL. And return the result array as the inorder traversal of a tree. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{iterative__tree__traversals_8cpp_a0eec4455ee737c32976963e3aabb9d9f}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!deleteAll@{deleteAll}}
+\index{deleteAll@{deleteAll}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteAll()}{deleteAll()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_a0eec4455ee737c32976963e3aabb9d9f} 
+void others\+::iterative\+\_\+tree\+\_\+traversals\+::delete\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{if}\ (root)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ std::stack<Node\ *>\ \mbox{\hyperlink{paranthesis__matching_8cpp_aa37d24a036d239b3b528f13b9de880c7}{stack}};}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_a90df277532c23519aa7ac3c08ed90a1d}{push}}(root);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{classstack}{stack}}.empty())\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\ *current\ =\ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_ae09630c4384903d187801921b2ddc709}{top}}();}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_a3647fb4418890f19e0dc414b8092b8b0}{pop}}();}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current-\/>right)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_a90df277532c23519aa7ac3c08ed90a1d}{push}}(current-\/>right);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current-\/>left)\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_a90df277532c23519aa7ac3c08ed90a1d}{push}}(current-\/>left);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ current;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \}}
+
+\end{DoxyCode}
+\Hypertarget{iterative__tree__traversals_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!main@{main}}
+\index{main@{main}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} instace of Binary\+Tree, used to access its members functions.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{comment}{//\ Creating\ a\ tree\ with\ the\ following\ structure,}}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1 }}
+\DoxyCodeLine{00376\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ /\ \ \ \(\backslash\) }}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ 3 }}
+\DoxyCodeLine{00378\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ /\ \ \ \(\backslash\) }}
+\DoxyCodeLine{00379\ \textcolor{comment}{\ \ \ \ \ \ \ \ 4\ \ \ \ \ 5 }}
+\DoxyCodeLine{00380\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others::iterative\_tree\_traversals::BinaryTree}}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ binaryTree;\ \ \textcolor{comment}{///<\ instace\ of\ BinaryTree,\ used\ to\ access\ its\ members }\textcolor{comment}{}}
+\DoxyCodeLine{00384\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ functions. }}
+\DoxyCodeLine{00385\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others::iterative\_tree\_traversals::Node}}\ *root\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a3078a5ccf45d6a7031dcf46e43de65b6}{createNewNode}}(1);}
+\DoxyCodeLine{00386\ \ \ \ \ root-\/>left\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a3078a5ccf45d6a7031dcf46e43de65b6}{createNewNode}}(2);}
+\DoxyCodeLine{00387\ \ \ \ \ root-\/>right\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a3078a5ccf45d6a7031dcf46e43de65b6}{createNewNode}}(3);}
+\DoxyCodeLine{00388\ \ \ \ \ root-\/>left-\/>left\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a3078a5ccf45d6a7031dcf46e43de65b6}{createNewNode}}(4);}
+\DoxyCodeLine{00389\ \ \ \ \ root-\/>left-\/>right\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a3078a5ccf45d6a7031dcf46e43de65b6}{createNewNode}}(5);}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n|\ Tests\ for\ positive\ data\ value\ |"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00392\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_ae7880ce913f3058a35ff106d5be9e243}{test1}}(binaryTree,\ root);\ \ \textcolor{comment}{//\ run\ preorder-\/iterative\ test}}
+\DoxyCodeLine{00393\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPre-\/order\ test\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}{test2}}(binaryTree,\ root);\ \ \textcolor{comment}{//\ run\ postorder-\/iterative\ test}}
+\DoxyCodeLine{00396\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPost-\/order\ test\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \mbox{\hyperlink{hamiltons__cycle_8cpp_a0cc94918b6831f308d4fe4fa27f08299}{test3}}(binaryTree,\ root);\ \ \textcolor{comment}{//\ run\ inorder-\/iterative\ test}}
+\DoxyCodeLine{00399\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIn-\/order\ test\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{comment}{//\ Modifying\ tree\ for\ negative\ values.}}
+\DoxyCodeLine{00402\ \ \ \ \ root-\/>data\ =\ -\/1;}
+\DoxyCodeLine{00403\ \ \ \ \ root-\/>left-\/>data\ =\ -\/2;}
+\DoxyCodeLine{00404\ \ \ \ \ root-\/>right-\/>data\ =\ -\/3;}
+\DoxyCodeLine{00405\ \ \ \ \ root-\/>left-\/>left-\/>data\ =\ -\/4;}
+\DoxyCodeLine{00406\ \ \ \ \ root-\/>left-\/>right-\/>data\ =\ -\/5;}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n|\ Tests\ for\ negative\ data\ values\ |"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00409\ \ \ \ \ \mbox{\hyperlink{iterative__tree__traversals_8cpp_a038b236fe900f7bb7e57164f5bed66c2}{test4}}(binaryTree,\ root);\ \ \textcolor{comment}{//\ run\ preorder-\/iterative\ test\ on\ negative\ values}}
+\DoxyCodeLine{00410\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPre-\/order\ test\ on-\/negative\ value\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \mbox{\hyperlink{iterative__tree__traversals_8cpp_aa9ef334cd7eb607f4eb8732566ea00b8}{test5}}(binaryTree,\ root);\ \ \textcolor{comment}{//\ run\ postorder-\/iterative\ test\ on\ negative\ values}}
+\DoxyCodeLine{00413\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPost-\/order\ test\ on-\/negative\ value\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \ \ \ \ \mbox{\hyperlink{iterative__tree__traversals_8cpp_af727f920064f2b8f484b589b60d49b89}{test6}}(binaryTree,\ root);\ \ \textcolor{comment}{//\ run\ inorder-\/iterative\ test\ on\ negative\ values}}
+\DoxyCodeLine{00416\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIn-\/order\ test\ on-\/negative\ value\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ deleteAll(root);}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00421\ \}}
+
+\end{DoxyCode}
+\Hypertarget{iterative__tree__traversals_8cpp_a21d922dbb5905993960c6a7f0ba71ac0}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!test1@{test1}}
+\index{test1@{test1}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_a21d922dbb5905993960c6a7f0ba71ac0} 
+static void test1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}}}]{binary\+Tree}{, }\item[{\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test the computed preorder with the actual preorder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+Tree} & instance of the Binary\+Tree class \\
+\hline
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} result stores the preorder traversal of the binary tree
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ std::vector<int64\_t>\ actual\_result\{1,\ 2,\ 4,\ 5,\ 3\};}
+\DoxyCodeLine{00213\ \ \ \ \ std::vector<int64\_t>}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};\ \ \textcolor{comment}{///<\ result\ stores\ the\ preorder\ traversal\ of\ the\ binary\ tree }}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{//\ Calling\ preOrderIterative()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ preorder\ traversal\ in\ result.}}
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_ad4c6a8e67fb8267a65439b035666b5ae}{preOrderIterative}}(root);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{comment}{//\ Self-\/testing\ the\ result\ using\ \`{}assert`}}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ i++)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ assert(actual\_result[i]\ ==\ result[i]);}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{comment}{//\ Printing\ the\ result\ storing\ preorder.}}
+\DoxyCodeLine{00226\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPreOrder\ Traversal\ Is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ :\ result)\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \}}
+
+\end{DoxyCode}
+\Hypertarget{iterative__tree__traversals_8cpp_ac35ae2868441f8a11c965b87b2494f21}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!test2@{test2}}
+\index{test2@{test2}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_ac35ae2868441f8a11c965b87b2494f21} 
+static void test2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}}}]{binary\+Tree}{, }\item[{\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test the computed postorder with the actual postorder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+Tree} & instance of Binary\+Tree class \\
+\hline
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} result stores the postorder traversal of the binary tree.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ std::vector<int64\_t>\ actual\_result\{4,\ 5,\ 2,\ 3,\ 1\};}
+\DoxyCodeLine{00240\ \ \ \ \ std::vector<int64\_t>}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};\ \ \textcolor{comment}{///<\ result\ stores\ the\ postorder\ traversal\ of\ the\ binary\ tree. }}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{comment}{//\ Calling\ postOrderIterative()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ postorder\ traversal\ in\ result.}}
+\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a636a07c90b7f312bb86d2ec104efca25}{postOrderIterative}}(root);}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{comment}{//\ Self-\/testing\ the\ result\ using\ \`{}assert`}}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ i++)\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ assert(actual\_result[i]\ ==\ result[i]);}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{comment}{//\ Printing\ the\ result\ storing\ postorder.}}
+\DoxyCodeLine{00253\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPostOrder\ Traversal\ Is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ :\ result)\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \}}
+
+\end{DoxyCode}
+\Hypertarget{iterative__tree__traversals_8cpp_a425c4c8520991999ee6dbe13d99b87f4}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!test3@{test3}}
+\index{test3@{test3}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_a425c4c8520991999ee6dbe13d99b87f4} 
+static void test3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}}}]{binary\+Tree}{, }\item[{\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test the computed inorder with the actual inorder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+Tree} & instance of Binary\+Tree class \\
+\hline
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} result stores the inorder traversal of the binary tree.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00266\ \ \ \ \ std::vector<int64\_t>\ actual\_result\{4,\ 2,\ 5,\ 1,\ 3\};}
+\DoxyCodeLine{00267\ \ \ \ \ std::vector<int64\_t>}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};\ \ \textcolor{comment}{///<\ result\ stores\ the\ inorder\ traversal\ of\ the\ binary\ tree. }}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ Calling\ inOrderIterative()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ inorder\ traversal\ in\ result.}}
+\DoxyCodeLine{00272\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a0c33f2c1a3a3deb486a1c33ee5239499}{inOrderIterative}}(root);}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{comment}{//\ Self-\/testing\ the\ result\ using\ \`{}assert`}}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ i++)\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ assert(actual\_result[i]\ ==\ result[i]);}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{comment}{//\ Printing\ the\ result\ storing\ inorder.}}
+\DoxyCodeLine{00280\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nInOrder\ Traversal\ Is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ :\ result)\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \}}
+
+\end{DoxyCode}
+\Hypertarget{iterative__tree__traversals_8cpp_a038b236fe900f7bb7e57164f5bed66c2}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!test4@{test4}}
+\index{test4@{test4}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{test4()}{test4()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_a038b236fe900f7bb7e57164f5bed66c2} 
+static void test4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}}}]{binary\+Tree}{, }\item[{\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test the computed preorder with the actual preorder on negative value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+Tree} & instance of Binary\+Tree class \\
+\hline
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} result stores the preorder traversal of the binary tree
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00293\ \ \ \ \ std::vector<int64\_t>\ actual\_result\{-\/1,\ -\/2,\ -\/4,\ -\/5,\ -\/3\};}
+\DoxyCodeLine{00294\ \ \ \ \ std::vector<int64\_t>}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};\ \ \textcolor{comment}{///<\ result\ stores\ the\ preorder\ traversal\ of\ the\ binary\ tree }}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{comment}{//\ Calling\ preOrderIterative()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ preorder\ traversal\ in\ result.}}
+\DoxyCodeLine{00299\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_ad4c6a8e67fb8267a65439b035666b5ae}{preOrderIterative}}(root);}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{comment}{//\ Self-\/testing\ the\ result\ using\ \`{}assert`}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ i++)\ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ assert(actual\_result[i]\ ==\ result[i]);}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{comment}{//\ Printing\ the\ result\ storing\ preorder.}}
+\DoxyCodeLine{00307\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPreOrder\ Traversal\ Is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ :\ result)\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00310\ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \}}
+
+\end{DoxyCode}
+\Hypertarget{iterative__tree__traversals_8cpp_aa9ef334cd7eb607f4eb8732566ea00b8}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!test5@{test5}}
+\index{test5@{test5}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{test5()}{test5()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_aa9ef334cd7eb607f4eb8732566ea00b8} 
+static void test5 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}}}]{binary\+Tree}{, }\item[{\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test the computed postorder with the actual postorder on negative value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+Tree} & instance of Binary\+Tree class \\
+\hline
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} result stores the postorder traversal of the binary tree.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ std::vector<int64\_t>\ actual\_result\{-\/4,\ -\/5,\ -\/2,\ -\/3,\ -\/1\};}
+\DoxyCodeLine{00322\ \ \ \ \ std::vector<int64\_t>}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};\ \ \textcolor{comment}{///<\ result\ stores\ the\ postorder\ traversal\ of\ the\ binary\ tree. }}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{comment}{//\ Calling\ postOrderIterative()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ postorder\ traversal\ in\ result.}}
+\DoxyCodeLine{00327\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a636a07c90b7f312bb86d2ec104efca25}{postOrderIterative}}(root);}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{comment}{//\ Self-\/testing\ the\ result\ using\ \`{}assert`}}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ i++)\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ assert(actual\_result[i]\ ==\ result[i]);}
+\DoxyCodeLine{00332\ \ \ \ \ \}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{comment}{//\ Printing\ the\ result\ storing\ postorder.}}
+\DoxyCodeLine{00335\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPostOrder\ Traversal\ Is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ :\ result)\ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00338\ \ \ \ \ \}}
+\DoxyCodeLine{00339\ \}}
+
+\end{DoxyCode}
+\Hypertarget{iterative__tree__traversals_8cpp_af727f920064f2b8f484b589b60d49b89}\index{iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}!test6@{test6}}
+\index{test6@{test6}!iterative\_tree\_traversals.cpp@{iterative\_tree\_traversals.cpp}}
+\doxysubsubsection{\texorpdfstring{test6()}{test6()}}
+{\footnotesize\ttfamily \label{iterative__tree__traversals_8cpp_af727f920064f2b8f484b589b60d49b89} 
+static void test6 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Binary\+Tree}}}]{binary\+Tree}{, }\item[{\mbox{\hyperlink{structothers_1_1iterative__tree__traversals_1_1_node}{others\+::iterative\+\_\+tree\+\_\+traversals\+::\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test the computed inorder with the actual inorder on negative value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+Tree} & instance of Binary\+Tree class \\
+\hline
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} result stores the inorder traversal of the binary tree.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ std::vector<int64\_t>\ actual\_result\{-\/4,\ -\/2,\ -\/5,\ -\/1,\ -\/3\};}
+\DoxyCodeLine{00349\ \ \ \ \ std::vector<int64\_t>}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};\ \ \textcolor{comment}{///<\ result\ stores\ the\ inorder\ traversal\ of\ the\ binary\ tree. }}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{comment}{//\ Calling\ inOrderIterative()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ inorder\ traversal\ in\ result.}}
+\DoxyCodeLine{00354\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ binaryTree.\mbox{\hyperlink{classothers_1_1iterative__tree__traversals_1_1_binary_tree_a0c33f2c1a3a3deb486a1c33ee5239499}{inOrderIterative}}(root);}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{comment}{//\ Self-\/testing\ the\ result\ using\ \`{}assert`}}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ i++)\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ assert(actual\_result[i]\ ==\ result[i]);}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{comment}{//\ Printing\ the\ result\ storing\ inorder.}}
+\DoxyCodeLine{00362\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nInOrder\ Traversal\ Is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ :\ result)\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00365\ \ \ \ \ \}}
+\DoxyCodeLine{00366\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,249 @@
+\doxysection{math/perimeter.cpp File Reference}
+\hypertarget{perimeter_8cpp}{}\label{perimeter_8cpp}\index{math/perimeter.cpp@{math/perimeter.cpp}}
+
+
+Implementations for the \href{https://en.wikipedia.org/wiki/Perimeter}{\texttt{ perimeter}} of various shapes.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a9236348755183644f1225e162d01ab14}{math\+::square\+\_\+perimeter}} (T length)
+\begin{DoxyCompactList}\small\item\em perimeter of a \href{https://en.wikipedia.org/wiki/Square}{\texttt{ square}} (4 \texorpdfstring{$\ast$}{*} l) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a428769a16e9525e56588d7c7709d25a6}{math\+::rect\+\_\+perimeter}} (T length, T width)
+\begin{DoxyCompactList}\small\item\em perimeter of a \href{https://en.wikipedia.org/wiki/Rectangle}{\texttt{ rectangle}} ( 2(l + w) ) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a3d1e4db743b189f309327572663415f3}{math\+::triangle\+\_\+perimeter}} (T base, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}, T hypotenuse)
+\begin{DoxyCompactList}\small\item\em perimeter of a \href{https://en.wikipedia.org/wiki/Triangle}{\texttt{ triangle}} (a + b + c) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_ad0acf82b7bc920182bf8322d1e103953}{math\+::circle\+\_\+perimeter}} (T radius)
+\begin{DoxyCompactList}\small\item\em perimeter of a \href{https://en.wikipedia.org/wiki/perimeter_of_a_circle}{\texttt{ circle}} (2 \texorpdfstring{$\ast$}{*} pi \texorpdfstring{$\ast$}{*} r) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a0efb235330ff48e14fd31faaccbcebb3}{math\+::parallelogram\+\_\+perimeter}} (T base, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em perimeter of a \href{https://en.wikipedia.org/wiki/Parallelogram}{\texttt{ parallelogram}} 2(b + h) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a8998ca7b1886d1d7d00aef3b457a9b1b}{math\+::cube\+\_\+surface\+\_\+perimeter}} (T length)
+\begin{DoxyCompactList}\small\item\em surface perimeter of a \href{https://en.wikipedia.org/wiki/Cube}{\texttt{ cube}} ( 12 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_aa8592c3279c41a2c6d4d64eeb488f63f}{math\+::n\+\_\+polygon\+\_\+surface\+\_\+perimeter}} (T sides, T length)
+\begin{DoxyCompactList}\small\item\em surface perimeter of a \href{https://www.cuemath.com/measurement/perimeter-of-polygon/}{\texttt{ n-\/polygon}} ( n \texorpdfstring{$\ast$}{*} l) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a1d4df7a4e43a2eac1acc0ac610487c73}{math\+::cylinder\+\_\+surface\+\_\+perimeter}} (T radius, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em surface perimeter of a \href{https://en.wikipedia.org/wiki/Cylinder}{\texttt{ cylinder}} (2 \texorpdfstring{$\ast$}{*} radius + 2 \texorpdfstring{$\ast$}{*} height) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{perimeter_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{perimeter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementations for the \href{https://en.wikipedia.org/wiki/Perimeter}{\texttt{ perimeter}} of various shapes. 
+
+The of a shape is the amount of 2D space it takes up. All shapes have a formula for their perimeter. These implementations support multiple return types.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/OGscorpion}{\texttt{ OGscorpion}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{perimeter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{perimeter.cpp@{perimeter.cpp}!main@{main}}
+\index{main@{main}!perimeter.cpp@{perimeter.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{perimeter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{perimeter_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00287\ \}}
+
+\end{DoxyCode}
+\Hypertarget{perimeter_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{perimeter.cpp@{perimeter.cpp}!test@{test}}
+\index{test@{test}!perimeter.cpp@{perimeter.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{perimeter_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ I/O\ variables\ for\ testing}}
+\DoxyCodeLine{00122\ \ \ \ \ uint16\_t\ int\_length\ =\ 0;\ \ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ length\ input}}
+\DoxyCodeLine{00123\ \ \ \ \ uint16\_t\ int\_width\ =\ 0;\ \ \ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ width\ input}}
+\DoxyCodeLine{00124\ \ \ \ \ uint16\_t\ int\_base\ =\ 0;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ base\ input}}
+\DoxyCodeLine{00125\ \ \ \ \ uint16\_t\ int\_height\ =\ 0;\ \ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ height\ input}}
+\DoxyCodeLine{00126\ \ \ \ \ uint16\_t\ int\_hypotenuse\ =\ 0;\ \ \textcolor{comment}{//\ 16\ bit\ integer\ hypotenuse\ input}}
+\DoxyCodeLine{00127\ \ \ \ \ uint16\_t\ int\_sides\ =\ 0;\ \ \ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ sides\ input}}
+\DoxyCodeLine{00128\ \ \ \ \ uint16\_t\ int\_expected\ =\ 0;\ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ expected\ output}}
+\DoxyCodeLine{00129\ \ \ \ \ uint16\_t\ int\_perimeter\ =\ 0;\ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ output}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{float}\ float\_length\ =\ NAN;\ \ \ \ \ \textcolor{comment}{//\ float\ length\ input}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{float}\ float\_expected\ =\ NAN;\ \ \ \textcolor{comment}{//\ float\ expected\ output}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{float}\ float\_perimeter\ =\ NAN;\ \ \textcolor{comment}{//\ float\ output}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_length\ =\ NAN;\ \ \ \ \ \textcolor{comment}{//\ double\ length\ input}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_width\ =\ NAN;\ \ \ \ \ \ \textcolor{comment}{//\ double\ width\ input}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_radius\ =\ NAN;\ \ \ \ \ \textcolor{comment}{//\ double\ radius\ input}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_height\ =\ NAN;\ \ \ \ \ \textcolor{comment}{//\ double\ height\ input}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_expected\ =\ NAN;\ \ \ \textcolor{comment}{//\ double\ expected\ output}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_perimeter\ =\ NAN;\ \ \textcolor{comment}{//\ double\ output}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00143\ \ \ \ \ int\_length\ =\ 5;}
+\DoxyCodeLine{00144\ \ \ \ \ int\_expected\ =\ 20;}
+\DoxyCodeLine{00145\ \ \ \ \ int\_perimeter\ =\ \mbox{\hyperlink{namespacemath_a9236348755183644f1225e162d01ab14}{math::square\_perimeter}}(int\_length);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}perimeter\ OF\ A\ SQUARE\ (int)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00148\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00149\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00150\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00151\ \ \ \ \ assert(int\_perimeter\ ==\ int\_expected);}
+\DoxyCodeLine{00152\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00155\ \ \ \ \ float\_length\ =\ 2.5;}
+\DoxyCodeLine{00156\ \ \ \ \ float\_expected\ =\ 10;}
+\DoxyCodeLine{00157\ \ \ \ \ float\_perimeter\ =\ \mbox{\hyperlink{namespacemath_a9236348755183644f1225e162d01ab14}{math::square\_perimeter}}(float\_length);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}perimeter\ OF\ A\ SQUARE\ (float)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00160\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ float\_length\ <<\ std::endl;}
+\DoxyCodeLine{00161\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ float\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00162\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ float\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00163\ \ \ \ \ assert(float\_perimeter\ ==\ float\_expected);}
+\DoxyCodeLine{00164\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00167\ \ \ \ \ int\_length\ =\ 4;}
+\DoxyCodeLine{00168\ \ \ \ \ int\_width\ =\ 7;}
+\DoxyCodeLine{00169\ \ \ \ \ int\_expected\ =\ 22;}
+\DoxyCodeLine{00170\ \ \ \ \ int\_perimeter\ =\ \mbox{\hyperlink{namespacemath_a428769a16e9525e56588d7c7709d25a6}{math::rect\_perimeter}}(int\_length,\ int\_width);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}perimeter\ OF\ A\ RECTANGLE\ (int)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00173\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00174\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Width:\ "{}}\ <<\ int\_width\ <<\ std::endl;}
+\DoxyCodeLine{00175\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00176\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00177\ \ \ \ \ assert(int\_perimeter\ ==\ int\_expected);}
+\DoxyCodeLine{00178\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ 4th\ test}}
+\DoxyCodeLine{00181\ \ \ \ \ double\_length\ =\ 2.5;}
+\DoxyCodeLine{00182\ \ \ \ \ double\_width\ =\ 5.7;}
+\DoxyCodeLine{00183\ \ \ \ \ double\_expected\ =\ 16.4;}
+\DoxyCodeLine{00184\ \ \ \ \ double\_perimeter\ =\ \mbox{\hyperlink{namespacemath_a428769a16e9525e56588d7c7709d25a6}{math::rect\_perimeter}}(double\_length,\ double\_width);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}perimeter\ OF\ A\ RECTANGLE\ (double)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00187\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ double\_length\ <<\ std::endl;}
+\DoxyCodeLine{00188\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Width:\ "{}}\ <<\ double\_width\ <<\ std::endl;}
+\DoxyCodeLine{00189\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00190\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00191\ \ \ \ \ assert(double\_perimeter\ ==\ double\_expected);}
+\DoxyCodeLine{00192\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ 5th\ test}}
+\DoxyCodeLine{00195\ \ \ \ \ int\_base\ =\ 10;}
+\DoxyCodeLine{00196\ \ \ \ \ int\_height\ =\ 3;}
+\DoxyCodeLine{00197\ \ \ \ \ int\_hypotenuse\ =\ 5;}
+\DoxyCodeLine{00198\ \ \ \ \ int\_expected\ =\ 18;}
+\DoxyCodeLine{00199\ \ \ \ \ int\_perimeter\ =}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_a3d1e4db743b189f309327572663415f3}{math::triangle\_perimeter}}(int\_base,\ int\_height,\ int\_hypotenuse);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}perimeter\ OF\ A\ TRIANGLE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00203\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Base:\ "{}}\ <<\ int\_base\ <<\ std::endl;}
+\DoxyCodeLine{00204\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ int\_height\ <<\ std::endl;}
+\DoxyCodeLine{00205\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00206\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00207\ \ \ \ \ assert(int\_perimeter\ ==\ int\_expected);}
+\DoxyCodeLine{00208\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ 6th\ test}}
+\DoxyCodeLine{00211\ \ \ \ \ double\_radius\ =\ 6;}
+\DoxyCodeLine{00212\ \ \ \ \ double\_expected\ =}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ 37.69911184307752;\ \ \textcolor{comment}{//\ rounded\ down\ because\ the\ double\ datatype}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ truncates\ after\ 14\ decimal\ places}}
+\DoxyCodeLine{00215\ \ \ \ \ double\_perimeter\ =\ \mbox{\hyperlink{namespacemath_ad0acf82b7bc920182bf8322d1e103953}{math::circle\_perimeter}}(double\_radius);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}perimeter\ OF\ A\ CIRCLE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00218\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00219\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00220\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00221\ \ \ \ \ assert(double\_perimeter\ ==\ double\_expected);}
+\DoxyCodeLine{00222\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ 7th\ test}}
+\DoxyCodeLine{00225\ \ \ \ \ int\_base\ =\ 6;}
+\DoxyCodeLine{00226\ \ \ \ \ int\_height\ =\ 7;}
+\DoxyCodeLine{00227\ \ \ \ \ int\_expected\ =\ 26;}
+\DoxyCodeLine{00228\ \ \ \ \ int\_perimeter\ =\ \mbox{\hyperlink{namespacemath_a0efb235330ff48e14fd31faaccbcebb3}{math::parallelogram\_perimeter}}(int\_base,\ int\_height);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}perimeter\ OF\ A\ PARALLELOGRAM"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00231\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Base:\ "{}}\ <<\ int\_base\ <<\ std::endl;}
+\DoxyCodeLine{00232\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ int\_height\ <<\ std::endl;}
+\DoxyCodeLine{00233\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00234\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00235\ \ \ \ \ assert(int\_perimeter\ ==\ int\_expected);}
+\DoxyCodeLine{00236\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ 8th\ test}}
+\DoxyCodeLine{00239\ \ \ \ \ double\_length\ =\ 5.5;}
+\DoxyCodeLine{00240\ \ \ \ \ double\_expected\ =\ 66.0;}
+\DoxyCodeLine{00241\ \ \ \ \ double\_perimeter\ =\ \mbox{\hyperlink{namespacemath_a8998ca7b1886d1d7d00aef3b457a9b1b}{math::cube\_surface\_perimeter}}(double\_length);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SURFACE\ perimeter\ OF\ A\ CUBE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00244\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ double\_length\ <<\ std::endl;}
+\DoxyCodeLine{00245\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00246\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00247\ \ \ \ \ assert(double\_perimeter\ ==\ double\_expected);}
+\DoxyCodeLine{00248\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{comment}{//\ 9th\ test}}
+\DoxyCodeLine{00251\ \ \ \ \ int\_sides\ =\ 7;}
+\DoxyCodeLine{00252\ \ \ \ \ int\_length\ =\ 10;}
+\DoxyCodeLine{00253\ \ \ \ \ int\_expected\ =\ 70;}
+\DoxyCodeLine{00254\ \ \ \ \ int\_perimeter\ =\ \mbox{\hyperlink{namespacemath_aa8592c3279c41a2c6d4d64eeb488f63f}{math::n\_polygon\_surface\_perimeter}}(int\_sides,\ int\_length);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SURFACE\ perimeter\ OF\ A\ N-\/POLYGON"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00257\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Sides:\ "{}}\ <<\ int\_sides\ <<\ std::endl;}
+\DoxyCodeLine{00258\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00259\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00260\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00261\ \ \ \ \ assert(int\_perimeter\ ==\ int\_expected);}
+\DoxyCodeLine{00262\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{//\ 10th\ test}}
+\DoxyCodeLine{00265\ \ \ \ \ double\_radius\ =\ 4.0;}
+\DoxyCodeLine{00266\ \ \ \ \ double\_height\ =\ 7.0;}
+\DoxyCodeLine{00267\ \ \ \ \ double\_expected\ =\ 22.0;}
+\DoxyCodeLine{00268\ \ \ \ \ double\_perimeter\ =}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_a1d4df7a4e43a2eac1acc0ac610487c73}{math::cylinder\_surface\_perimeter}}(double\_radius,\ double\_height);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SURFACE\ perimeter\ OF\ A\ CYLINDER"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00272\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00273\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ double\_height\ <<\ std::endl;}
+\DoxyCodeLine{00274\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00275\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_perimeter\ <<\ std::endl;}
+\DoxyCodeLine{00276\ \ \ \ \ assert(double\_perimeter\ ==\ double\_expected);}
+\DoxyCodeLine{00277\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00278\ \}}
+
+\end{DoxyCode}

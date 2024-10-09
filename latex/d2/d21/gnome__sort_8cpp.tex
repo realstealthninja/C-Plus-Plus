@@ -1,0 +1,107 @@
+\doxysection{sorting/gnome\+\_\+sort.cpp File Reference}
+\hypertarget{gnome__sort_8cpp}{}\label{gnome__sort_8cpp}\index{sorting/gnome\_sort.cpp@{sorting/gnome\_sort.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Gnome_sort}{\texttt{ gnome sort}} algorithm.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacesorting_a2f8bc626eb57acae24a94636a23af6a1}{sorting\+::gnome\+Sort}} (T \texorpdfstring{$\ast$}{*}arr, int size)
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t size$>$ }\\std\+::array$<$ T, size $>$ \mbox{\hyperlink{namespacesorting_aa3677f87b5b4756bc77e9e34c5f27935}{sorting\+::gnome\+Sort}} (std\+::array$<$ T, size $>$ arr)
+\item 
+static void \mbox{\hyperlink{gnome__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{gnome__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Gnome_sort}{\texttt{ gnome sort}} algorithm. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/beqakd}{\texttt{ beqakd}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}}
+\end{DoxyAuthor}
+Gnome sort algorithm is not the best one but it is widely used. The algorithm iteratively checks the order of pairs in the array. If they are on right order it moves to the next successive pair, otherwise it swaps elements. This operation is repeated until no more swaps are made thus indicating the values to be in ascending order.
+
+The time Complexity of the algorithm is $O(n^2)$ and in some cases it can be $O(n)$. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gnome__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{gnome\_sort.cpp@{gnome\_sort.cpp}!main@{main}}
+\index{main@{main}!gnome\_sort.cpp@{gnome\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{gnome__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Our main function with example of sort method. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{gnome__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gnome__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{gnome\_sort.cpp@{gnome\_sort.cpp}!test@{test}}
+\index{test@{test}!gnome\_sort.cpp@{gnome\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{gnome__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Example\ 1.\ Creating\ array\ of\ int,}}
+\DoxyCodeLine{00087\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ -\/\ as\ a\ C-\/array..."{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ 6;}
+\DoxyCodeLine{00089\ \ \ \ \ std::array<int,\ size>\ arr\ =\ \{-\/22,\ 100,\ 150,\ 35,\ -\/10,\ 99\};}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a2f8bc626eb57acae24a94636a23af6a1}{sorting::gnomeSort}}(arr.data(),}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size);\ \ \textcolor{comment}{//\ pass\ array\ data\ as\ a\ C-\/style\ array\ pointer}}
+\DoxyCodeLine{00092\ \ \ \ \ assert(std::is\_sorted(std::begin(arr),\ std::end(arr)));}
+\DoxyCodeLine{00093\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ Example\ 2.\ Creating\ array\ of\ doubles.}}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 2\ -\/\ as\ a\ std::array..."{}};}
+\DoxyCodeLine{00101\ \ \ \ \ std::array<double,\ size>\ double\_arr\ =\ \{-\/100.2,\ 10.2,\ 20.0,\ 9.0,\ 7.5,\ 7.2\};}
+\DoxyCodeLine{00102\ \ \ \ \ std::array<double,\ size>\ sorted\_arr\ =\ \mbox{\hyperlink{namespacesorting_a2f8bc626eb57acae24a94636a23af6a1}{sorting::gnomeSort}}(double\_arr);}
+\DoxyCodeLine{00103\ \ \ \ \ assert(std::is\_sorted(std::begin(sorted\_arr),\ std::end(sorted\_arr)));}
+\DoxyCodeLine{00104\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::cout\ <<\ double\_arr[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Example\ 3.\ Creating\ random\ array\ of\ float.}}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 3\ -\/\ 200\ random\ numbers\ as\ a\ std::array..."{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size2\ =\ 200;}
+\DoxyCodeLine{00113\ \ \ \ \ std::array<float,\ size2>\ rand\_arr\{\};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&a\ :\ rand\_arr)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ generate\ random\ numbers\ between\ -\/5.0\ and\ 4.99}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ a\ =\ float(std::rand()\ \%\ 1000\ -\/\ 500)\ /\ 100.f;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ std::array<float,\ size2>\ float\_arr\ =\ \mbox{\hyperlink{namespacesorting_a2f8bc626eb57acae24a94636a23af6a1}{sorting::gnomeSort}}(rand\_arr);}
+\DoxyCodeLine{00121\ \ \ \ \ assert(std::is\_sorted(std::begin(float\_arr),\ std::end(float\_arr)));}
+\DoxyCodeLine{00122\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ for\ (int\ i\ =\ 0;\ i\ <\ size;\ i++)\ std::cout\ <<\ double\_arr[i]\ <<\ "{},\ "{};}}
+\DoxyCodeLine{00124\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}

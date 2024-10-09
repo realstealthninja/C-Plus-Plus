@@ -1,0 +1,252 @@
+\doxysection{graph/connected\+\_\+components\+\_\+with\+\_\+dsu.cpp File Reference}
+\hypertarget{connected__components__with__dsu_8cpp}{}\label{connected__components__with__dsu_8cpp}\index{graph/connected\_components\_with\_dsu.cpp@{graph/connected\_components\_with\_dsu.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Disjoint_union}{\texttt{ Disjoint union}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacedisjoint__union}{disjoint\+\_\+union}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Disjoint_union}{\texttt{ Disjoint union}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{connected__components__with__dsu_8cpp_ae91ed94113c56191b75fe45f688d6e62}{graph\+::disjoint\+\_\+union\+::make\+\_\+set}} ()
+\begin{DoxyCompactList}\small\item\em function the initialize every node as it\textquotesingle{}s own parent \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{connected__components__with__dsu_8cpp_a469384d8a4197a9b24482ce7c321a85e}{graph\+::disjoint\+\_\+union\+::find\+\_\+set}} (int64\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Find the component where following node belongs to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{connected__components__with__dsu_8cpp_a67cb7472f310a798f555fe45cdf50145}{graph\+::disjoint\+\_\+union\+::union\+\_\+sets}} (int64\+\_\+t node1, int64\+\_\+t node2)
+\begin{DoxyCompactList}\small\item\em Merge 2 components to become one. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{connected__components__with__dsu_8cpp_ac2d6698b71384a352ec4b81b31b13141}{graph\+::disjoint\+\_\+union\+::no\+\_\+of\+\_\+connected\+\_\+components}} ()
+\begin{DoxyCompactList}\small\item\em Find total no. of connected components. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{connected__components__with__dsu_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test Implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{connected__components__with__dsu_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{connected__components__with__dsu_8cpp_a7ab30d5b9594d90071a53c6d147158ef}\label{connected__components__with__dsu_8cpp_a7ab30d5b9594d90071a53c6d147158ef} 
+uint32\+\_\+t {\bfseries graph\+::disjoint\+\_\+union\+::number\+\_\+of\+\_\+nodes} = 0
+\item 
+std\+::vector$<$ int64\+\_\+t $>$ \mbox{\hyperlink{connected__components__with__dsu_8cpp_aa93bd9d3409fe4eeb7e5658eddd75fa8}{graph\+::disjoint\+\_\+union\+::parent}} \{\}
+\item 
+std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{connected__components__with__dsu_8cpp_af675d8149b6a82cb7fa07f39210b8a2b}{graph\+::disjoint\+\_\+union\+::connected\+\_\+set\+\_\+size}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Disjoint_union}{\texttt{ Disjoint union}} 
+
+The Disjoint union is the technique to find connected component in graph efficiently.\hypertarget{connected__components__with__dsu_8cpp_autotoc_md75}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{connected__components__with__dsu_8cpp_autotoc_md75}
+In \doxylink{class_graph}{Graph}, if you have to find out the number of connected components, there are 2 options
+\begin{DoxyEnumerate}
+\item Depth first search
+\item Disjoint union 1st option is inefficient, Disjoint union is the most optimal way to find this.
+\end{DoxyEnumerate}
+
+\begin{DoxyAuthor}{Author}
+Unknown author 
+
+\href{https://github.com/sagarpandyansit}{\texttt{ Sagar Pandya}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{connected__components__with__dsu_8cpp_a469384d8a4197a9b24482ce7c321a85e}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!find\_set@{find\_set}}
+\index{find\_set@{find\_set}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_set()}{find\_set()}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_a469384d8a4197a9b24482ce7c321a85e} 
+int64\+\_\+t graph\+::disjoint\+\_\+union\+::find\+\_\+set (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{val}{}\end{DoxyParamCaption})}
+
+
+
+Find the component where following node belongs to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & parent of val should be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+parent of val 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{while}\ (parent[val]\ !=\ val)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ parent[val]\ =\ parent[parent[val]];}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ val\ =\ parent[val];}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ val;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+\Hypertarget{connected__components__with__dsu_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!main@{main}}
+\index{main@{main}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{connected__components__with__dsu_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ Execute\ the\ tests}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{connected__components__with__dsu_8cpp_ae91ed94113c56191b75fe45f688d6e62}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!make\_set@{make\_set}}
+\index{make\_set@{make\_set}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{make\_set()}{make\_set()}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_ae91ed94113c56191b75fe45f688d6e62} 
+void graph\+::disjoint\+\_\+union\+::make\+\_\+set (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+function the initialize every node as it\textquotesingle{}s own parent 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 1;\ i\ <=\ number\_of\_nodes;\ i++)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ parent[i]\ =\ i;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ connected\_set\_size[i]\ =\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{connected__components__with__dsu_8cpp_ac2d6698b71384a352ec4b81b31b13141}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!no\_of\_connected\_components@{no\_of\_connected\_components}}
+\index{no\_of\_connected\_components@{no\_of\_connected\_components}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{no\_of\_connected\_components()}{no\_of\_connected\_components()}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_ac2d6698b71384a352ec4b81b31b13141} 
+uint32\+\_\+t graph\+::disjoint\+\_\+union\+::no\+\_\+of\+\_\+connected\+\_\+components (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Find total no. of connected components. 
+
+\begin{DoxyReturn}{Returns}
+Number of connected components 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ std::set<int64\_t>\ temp;\ \ \textcolor{comment}{//\ temp\ set\ to\ count\ number\ of\ connected\ components}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 1;\ i\ <=\ number\_of\_nodes;\ i++)\ temp.insert(\mbox{\hyperlink{connected__components__with__dsu_8cpp_a469384d8a4197a9b24482ce7c321a85e}{find\_set}}(i));}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ temp.size();\ \ \textcolor{comment}{//\ return\ the\ size\ of\ temp\ set}}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{connected__components__with__dsu_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!test@{test}}
+\index{test@{test}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test Implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{classdsu}{dsu}}\ =\ graph::disjoint\_union;}
+\DoxyCodeLine{00094\ \ \ \ \ std::cin\ >>\ dsu::number\_of\_nodes;}
+\DoxyCodeLine{00095\ \ \ \ \ dsu::parent.resize(dsu::number\_of\_nodes\ +\ 1);}
+\DoxyCodeLine{00096\ \ \ \ \ dsu::connected\_set\_size.resize(dsu::number\_of\_nodes\ +\ 1);}
+\DoxyCodeLine{00097\ \ \ \ \ dsu::make\_set();}
+\DoxyCodeLine{00098\ \ \ \ \ uint32\_t\ edges\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \ std::cin\ >>\ edges;\ \ \textcolor{comment}{//\ no\ of\ edges\ in\ the\ graph}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges-\/-\/)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ int64\_t\ node\_a\ =\ 0,\ node\_b\ =\ 0;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ std::cin\ >>\ node\_a\ >>\ node\_b;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ dsu::union\_sets(node\_a,\ node\_b);}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout\ <<\ dsu::no\_of\_connected\_components()\ <<\ std::endl;}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{connected__components__with__dsu_8cpp_a67cb7472f310a798f555fe45cdf50145}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!union\_sets@{union\_sets}}
+\index{union\_sets@{union\_sets}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{union\_sets()}{union\_sets()}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_a67cb7472f310a798f555fe45cdf50145} 
+void graph\+::disjoint\+\_\+union\+::union\+\_\+sets (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{node1}{, }\item[{int64\+\_\+t}]{node2}{}\end{DoxyParamCaption})}
+
+
+
+Merge 2 components to become one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node1} & 1st component \\
+\hline
+{\em node2} & 2nd component \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ node1\ =\ \mbox{\hyperlink{connected__components__with__dsu_8cpp_a469384d8a4197a9b24482ce7c321a85e}{find\_set}}(node1);\ \ \textcolor{comment}{//\ find\ the\ parent\ of\ node1}}
+\DoxyCodeLine{00064\ \ \ \ \ node2\ =\ \mbox{\hyperlink{connected__components__with__dsu_8cpp_a469384d8a4197a9b24482ce7c321a85e}{find\_set}}(node2);\ \ \textcolor{comment}{//\ find\ the\ parent\ of\ node2}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ If\ parents\ of\ both\ nodes\ are\ not\ same,\ combine\ them}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (node1\ !=\ node2)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (connected\_set\_size[node1]\ <\ connected\_set\_size[node2])\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(node1,\ node2);\ \ \textcolor{comment}{//\ swap\ both\ components}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ parent[node2]\ =\ node1;\ \ \textcolor{comment}{//\ make\ node1\ as\ parent\ of\ node2.}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ connected\_set\_size[node1]\ +=}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ connected\_set\_size[node2];\ \ \textcolor{comment}{//\ sum\ the\ size\ of\ both\ as\ they\ combined}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{connected__components__with__dsu_8cpp_af675d8149b6a82cb7fa07f39210b8a2b}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!connected\_set\_size@{connected\_set\_size}}
+\index{connected\_set\_size@{connected\_set\_size}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{connected\_set\_size}{connected\_set\_size}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_af675d8149b6a82cb7fa07f39210b8a2b} 
+std\+::vector$<$uint32\+\_\+t$>$ graph\+::disjoint\+\_\+union\+::connected\+\_\+set\+\_\+size \{\}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{\};\ \ \textcolor{comment}{//\ size\ of\ each\ set}}
+
+\end{DoxyCode}
+\Hypertarget{connected__components__with__dsu_8cpp_aa93bd9d3409fe4eeb7e5658eddd75fa8}\index{connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}!parent@{parent}}
+\index{parent@{parent}!connected\_components\_with\_dsu.cpp@{connected\_components\_with\_dsu.cpp}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \label{connected__components__with__dsu_8cpp_aa93bd9d3409fe4eeb7e5658eddd75fa8} 
+std\+::vector$<$int64\+\_\+t$>$ graph\+::disjoint\+\_\+union\+::parent \{\}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ parent\ of\ each\ node}}
+
+\end{DoxyCode}

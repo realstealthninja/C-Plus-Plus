@@ -1,0 +1,145 @@
+\doxysection{graph/hopcroft\+\_\+karp.cpp File Reference}
+\hypertarget{hopcroft__karp_8cpp}{}\label{hopcroft__karp_8cpp}\index{graph/hopcroft\_karp.cpp@{graph/hopcroft\_karp.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Hopcroft\%E2\%80\%93Karp_algorithm}{\texttt{ Hopcroft–\+Karp}} algorithm.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgraph_1_1_h_k_graph}{graph\+::\+HKGraph}}
+\begin{DoxyCompactList}\small\item\em Represents Bipartite graph for Hopcroft Karp implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hopcroft__karp_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{hopcroft__karp_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Hopcroft\%E2\%80\%93Karp_algorithm}{\texttt{ Hopcroft–\+Karp}} algorithm. 
+
+The Hopcroft–\+Karp algorithm is an algorithm that takes as input a bipartite graph and produces as output a maximum cardinality matching, it runs in O(E√V) time in worst case.\hypertarget{hopcroft__karp_8cpp_autotoc_md76}{}\doxysubsubsubsection{\texorpdfstring{Bipartite graph}{Bipartite graph}}\label{hopcroft__karp_8cpp_autotoc_md76}
+A bipartite graph (or bigraph) is a graph whose vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V. Vertex sets U and V are usually called the parts of the graph. Equivalently, a bipartite graph is a graph that does not contain any odd-\/length cycles.\hypertarget{hopcroft__karp_8cpp_autotoc_md77}{}\doxysubsubsubsection{\texorpdfstring{Matching and Not-\/\+Matching edges}{Matching and Not-\/\+Matching edges}}\label{hopcroft__karp_8cpp_autotoc_md77}
+Given a matching M, edges that are part of matching are called Matching edges and edges that are not part of M (or connect free nodes) are called Not-\/\+Matching edges.\hypertarget{hopcroft__karp_8cpp_autotoc_md78}{}\doxysubsubsubsection{\texorpdfstring{Maximum cardinality matching}{Maximum cardinality matching}}\label{hopcroft__karp_8cpp_autotoc_md78}
+Given a bipartite graphs G = ( V = ( X , Y ) , E ) whose partition has the parts X and Y, with E denoting the edges of the graph, the goal is to find a matching with as many edges as possible. Equivalently, a matching that covers as many vertices as possible.\hypertarget{hopcroft__karp_8cpp_autotoc_md79}{}\doxysubsubsubsection{\texorpdfstring{Augmenting paths}{Augmenting paths}}\label{hopcroft__karp_8cpp_autotoc_md79}
+Given a matching M, an augmenting path is an alternating path that starts from and ends on free vertices. All single edge paths that start and end with free vertices are augmenting paths.\hypertarget{hopcroft__karp_8cpp_autotoc_md80}{}\doxysubsubsubsection{\texorpdfstring{Concept}{Concept}}\label{hopcroft__karp_8cpp_autotoc_md80}
+A matching M is not maximum if there exists an augmenting path. It is also true other way, i.\+e, a matching is maximum if no augmenting path exists.\hypertarget{hopcroft__karp_8cpp_autotoc_md81}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{hopcroft__karp_8cpp_autotoc_md81}
+1) Initialize the Maximal Matching M as empty. 2) While there exists an Augmenting Path P Remove matching edges of P from M and add not-\/matching edges of P to M (This increases size of M by 1 as P starts and ends with a free vertex i.\+e. a node that is not part of matching.) 3) Return M.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Krishnapal4050}{\texttt{ Krishna Pal Deora}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hopcroft__karp_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{hopcroft\_karp.cpp@{hopcroft\_karp.cpp}!main@{main}}
+\index{main@{main}!hopcroft\_karp.cpp@{hopcroft\_karp.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{hopcroft__karp_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00307\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \mbox{\hyperlink{hopcroft__karp_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();\ \ \textcolor{comment}{//\ perform\ self-\/tests}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordtype}{int}\ v1\ =\ 0,\ v2\ =\ 0,\ e\ =\ 0;}
+\DoxyCodeLine{00311\ \ \ \ \ std::cin\ >>\ v1\ >>\ v2\ >>\ e;\ \textcolor{comment}{//\ vertices\ of\ left\ side,\ right\ side\ and\ edges}}
+\DoxyCodeLine{00312\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph}{HKGraph}}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}(v1,\ v2);\ \ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ 0,\ v\ =\ 0;}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ e;\ ++i)}
+\DoxyCodeLine{00315\ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ std::cin\ >>\ u\ >>\ v;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.addEdge(u,\ v);}
+\DoxyCodeLine{00318\ \ \ \ \ \}}
+\DoxyCodeLine{00319\ \ \ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.hopcroftKarpAlgorithm();}
+\DoxyCodeLine{00321\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Maximum\ matching\ is\ "{}}\ <<\ res\ <<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hopcroft__karp_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{hopcroft\_karp.cpp@{hopcroft\_karp.cpp}!tests@{tests}}
+\index{tests@{tests}!hopcroft\_karp.cpp@{hopcroft\_karp.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{hopcroft__karp_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Self-\/test implementation \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \textcolor{comment}{//\ Sample\ test\ case\ 1}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ v1a\ =\ 3,\ v1b\ =\ 5,\ e1\ =\ 2;\ \ \textcolor{comment}{//\ vertices\ of\ left\ side,\ right\ side\ and\ edges}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph}{HKGraph}}\ g1(v1a,\ v1b);\ \textcolor{comment}{//\ execute\ the\ algorithm\ }}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ g1.addEdge(0,1);}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ g1.addEdge(1,4);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ expected\_res1\ =\ 0;\ \textcolor{comment}{//\ for\ the\ above\ sample\ data,\ this\ is\ the\ expected\ output}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ res1\ =\ g1.hopcroftKarpAlgorithm();}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ assert(res1\ ==\ expected\_res1);\ \textcolor{comment}{//\ assert\ check\ to\ ensure\ that\ the\ algorithm\ executed\ correctly\ for\ test\ 1}}
+\DoxyCodeLine{00267\ \ \ \ \ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \textcolor{comment}{//\ Sample\ test\ case\ 2}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ v2a\ =\ 4,\ v2b\ =\ 4,\ e2\ =\ 6;\ \ \textcolor{comment}{//\ vertices\ of\ left\ side,\ right\ side\ and\ edges}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph}{HKGraph}}\ g2(v2a,\ v2b);\ \textcolor{comment}{//\ execute\ the\ algorithm\ }}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ g2.addEdge(1,1);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ g2.addEdge(1,3);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ g2.addEdge(2,3);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ g2.addEdge(3,4);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ g2.addEdge(4,3);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ g2.addEdge(4,2);}
+\DoxyCodeLine{00278\ \ \ \ \ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ expected\_res2\ =\ 0;\ \textcolor{comment}{//\ for\ the\ above\ sample\ data,\ this\ is\ the\ expected\ output}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ res2\ =\ g2.hopcroftKarpAlgorithm();}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ assert(res2\ ==\ expected\_res2);\ \textcolor{comment}{//\ assert\ check\ to\ ensure\ that\ the\ algorithm\ executed\ correctly\ for\ test\ 2}}
+\DoxyCodeLine{00283\ \ \ \ \ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \textcolor{comment}{//\ Sample\ test\ case\ 3}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ v3a\ =\ 6,\ v3b\ =\ 6,\ e3\ =\ 4;\ \ \textcolor{comment}{//\ vertices\ of\ left\ side,\ right\ side\ and\ edges}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph}{HKGraph}}\ g3(v3a,\ v3b);\ \textcolor{comment}{//\ execute\ the\ algorithm\ }}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ g3.addEdge(0,1);}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ g3.addEdge(1,4);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ g3.addEdge(1,5);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ g3.addEdge(5,0);}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ expected\_res3\ =\ 0;\ \textcolor{comment}{//\ for\ the\ above\ sample\ data,\ this\ is\ the\ expected\ output}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ res3\ =\ g3.hopcroftKarpAlgorithm();}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ assert(res3\ ==\ expected\_res3);\ \textcolor{comment}{//\ assert\ check\ to\ ensure\ that\ the\ algorithm\ executed\ correctly\ for\ test\ 3}}
+\DoxyCodeLine{00297\ \ \ \ \ }
+\DoxyCodeLine{00298\ \ \ \ \ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00300\ \}}
+
+\end{DoxyCode}

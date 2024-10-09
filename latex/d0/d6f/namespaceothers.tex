@@ -1,0 +1,109 @@
+\doxysection{others Namespace Reference}
+\hypertarget{namespaceothers}{}\label{namespaceothers}\index{others@{others}}
+
+
+for {\ttfamily vector}  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceothers_1_1_cache}{Cache}}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespaceothers_1_1_cache}{Cache} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{are\+\_\+almost\+\_\+equal}} (double a, double b, double absolute\+\_\+tolerance=0.\+0001)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_compare}{Compare} two floating point numbers with a certain tolerance. This is needed as with some values, the result (e.\+g.\+: -\/196.\+15) might be a bit lower (in this case, -\/196.\+499999...). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{kelvin\+\_\+to\+\_\+celsius}} (double temperature\+\_\+in\+\_\+k)
+\begin{DoxyCompactList}\small\item\em Conversion from Kelvin to Celsius algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+for {\ttfamily vector} 
+
+for vector
+
+for std\+::unordered\+\_\+map
+
+Other algorithms.
+
+for IO operations
+
+for {\ttfamily reverse} for {\ttfamily assert} for I/O operations for {\ttfamily stack}
+
+Other algorithms
+
+for assert for std\+::abs
+
+Other algorithms
+
+for assert for IO Operations for std\+::list
+
+Other algorithms
+
+for assert for std\+::uint64\+\_\+t for I/O operations
+
+Other algorithms 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}\index{others@{others}!are\_almost\_equal@{are\_almost\_equal}}
+\index{are\_almost\_equal@{are\_almost\_equal}!others@{others}}
+\doxysubsubsection{\texorpdfstring{are\_almost\_equal()}{are\_almost\_equal()}}
+{\footnotesize\ttfamily \label{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703} 
+bool others\+::are\+\_\+almost\+\_\+equal (\begin{DoxyParamCaption}\item[{double}]{a}{, }\item[{double}]{b}{, }\item[{double}]{absolute\+\_\+tolerance}{ = {\ttfamily 0.0001}}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_compare}{Compare} two floating point numbers with a certain tolerance. This is needed as with some values, the result (e.\+g.\+: -\/196.\+15) might be a bit lower (in this case, -\/196.\+499999...). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the first number to compare \\
+\hline
+{\em b} & the second number to compare \\
+\hline
+{\em tolerance} & the tolerance to use when comparing the numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the numbers ARE equal within the given tolerance 
+
+false if the numbers are NOT equal within the given tolerance otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ std::abs(a\ -\/\ b)\ <\ absolute\_tolerance;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceothers_a48677fae5d683070432b1a905722d9ec}\index{others@{others}!kelvin\_to\_celsius@{kelvin\_to\_celsius}}
+\index{kelvin\_to\_celsius@{kelvin\_to\_celsius}!others@{others}}
+\doxysubsubsection{\texorpdfstring{kelvin\_to\_celsius()}{kelvin\_to\_celsius()}}
+{\footnotesize\ttfamily \label{namespaceothers_a48677fae5d683070432b1a905722d9ec} 
+double others\+::kelvin\+\_\+to\+\_\+celsius (\begin{DoxyParamCaption}\item[{double}]{temperature\+\_\+in\+\_\+k}{}\end{DoxyParamCaption})}
+
+
+
+Conversion from Kelvin to Celsius algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & the Celsius number that will be used to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Kelvin number converted to Celsius 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ absolute\_zero\_in\_c\ =\ -\/273.15;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (temperature\_in\_k\ <\ absolute\_zero\_in\_c)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}input\ temperature\ below\ absolute\ zero"{}});}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ temperature\_in\_k\ +\ absolute\_zero\_in\_c;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}

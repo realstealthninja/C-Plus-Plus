@@ -1,0 +1,185 @@
+\doxysection{machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::Knn Class Reference}
+\hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{}\label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+
+
+K-\/\+Nearest Neighbors (\doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}) class using Euclidean distance as distance metric.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a188d29ffcefdb5900a8cd41eccd89200}{Knn}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&X, std\+::vector$<$ int $>$ \&Y)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a9f5885c40112481ae5b588fe81d7910b}{Knn}} (const \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&model)=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \& \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a080f5b1742832a03c1cbba596a48bd1a}{operator=}} (const \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&model)=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a4b17dcf17c847f0295b60029512c120e}{Knn}} (\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&\&)=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \& \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_ac06986d5afddc767ddba4da738f75563}{operator=}} (\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&\&)=default
+\item 
+\Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_afe732a33112b457b738f403622d226e5}\label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_afe732a33112b457b738f403622d226e5} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Knn} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a62e152db014cd4de675fa906e5ef2861}{predict}} (std\+::vector$<$ double $>$ \&sample, int k)
+\begin{DoxyCompactList}\small\item\em Classify sample. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a16ddc13621eec6ac5f83658b3401a581}{X\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em attributes vector \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a209383503fb6c03afac405a80bace964}{Y\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em labels vector \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+K-\/\+Nearest Neighbors (\doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}) class using Euclidean distance as distance metric. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a188d29ffcefdb5900a8cd41eccd89200}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!Knn@{Knn}}
+\index{Knn@{Knn}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{Knn()}{Knn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a188d29ffcefdb5900a8cd41eccd89200} 
+machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::\+Knn (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{X}{, }\item[{std\+::vector$<$ int $>$ \&}]{Y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new \doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn} object. 
+
+Using lazy-\/learning approch, just holds in memory the dataset. 
+\begin{DoxyParams}{Parameters}
+{\em X} & attributes vector \\
+\hline
+{\em Y} & labels vector \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a16ddc13621eec6ac5f83658b3401a581}{X\_}}(X),\ \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a209383503fb6c03afac405a80bace964}{Y\_}}(Y)\{\};}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a9f5885c40112481ae5b588fe81d7910b}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!Knn@{Knn}}
+\index{Knn@{Knn}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{Knn()}{Knn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a9f5885c40112481ae5b588fe81d7910b} 
+machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::\+Knn (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy Constructor for class \doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & instance of class to be copied \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a4b17dcf17c847f0295b60029512c120e}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!Knn@{Knn}}
+\index{Knn@{Knn}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{Knn()}{Knn()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a4b17dcf17c847f0295b60029512c120e} 
+machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::\+Knn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Move constructor for class \doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn} 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a080f5b1742832a03c1cbba596a48bd1a}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!operator=@{operator=}}
+\index{operator=@{operator=}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a080f5b1742832a03c1cbba596a48bd1a} 
+\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \& machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy assignment operator for class \doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn} \Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_ac06986d5afddc767ddba4da738f75563}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!operator=@{operator=}}
+\index{operator=@{operator=}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_ac06986d5afddc767ddba4da738f75563} 
+\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \& machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Move assignment operator for class \doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn} \Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a62e152db014cd4de675fa906e5ef2861}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!predict@{predict}}
+\index{predict@{predict}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a62e152db014cd4de675fa906e5ef2861} 
+int machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::predict (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{sample}{, }\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Classify sample. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & sample \\
+\hline
+{\em k} & number of neighbors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int label of most frequent neighbors 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ std::vector<int>\ neighbors;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ std::vector<std::pair<double,\ int>>\ distances;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ this-\/>\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a16ddc13621eec6ac5f83658b3401a581}{X\_}}.size();\ ++i)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ current\ =\ this-\/>\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a16ddc13621eec6ac5f83658b3401a581}{X\_}}.at(i);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ label\ =\ this-\/>\mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a209383503fb6c03afac405a80bace964}{Y\_}}.at(i);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ distance\ =\ \mbox{\hyperlink{k__nearest__neighbors_8cpp_ad6ae16e50bb153ebaa7251d0aaa97b69}{euclidean\_distance}}(current,\ sample);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ distances.emplace\_back(distance,\ label);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ std::sort(distances.begin(),\ distances.end());}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}};\ i++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ label\ =\ distances.at(i).second;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ neighbors.push\_back(label);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ std::unordered\_map<int,\ int>\ frequency;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ neighbor\ :\ neighbors)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ ++frequency[neighbor];}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ std::pair<int,\ int>\ predicted;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ predicted.first\ =\ -\/1;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ predicted.second\ =\ -\/1;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ kv\ :\ frequency)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kv.second\ >\ predicted.second)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ predicted.second\ =\ kv.second;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ predicted.first\ =\ kv.first;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ predicted.first;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a16ddc13621eec6ac5f83658b3401a581}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!X\_@{X\_}}
+\index{X\_@{X\_}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{X\_}{X\_}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a16ddc13621eec6ac5f83658b3401a581} 
+std\+::vector$<$std\+::vector$<$double$>$ $>$ machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::\+X\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+attributes vector 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{\};\ \ \textcolor{comment}{///<\ attributes\ vector}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a209383503fb6c03afac405a80bace964}\index{machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}!Y\_@{Y\_}}
+\index{Y\_@{Y\_}!machine\_learning::k\_nearest\_neighbors::Knn@{machine\_learning::k\_nearest\_neighbors::Knn}}
+\doxysubsubsection{\texorpdfstring{Y\_}{Y\_}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1k__nearest__neighbors_1_1_knn_a209383503fb6c03afac405a80bace964} 
+std\+::vector$<$int$>$ machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn\+::\+Y\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+labels vector 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ labels\ vector}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+machine\+\_\+learning/\mbox{\hyperlink{k__nearest__neighbors_8cpp}{k\+\_\+nearest\+\_\+neighbors.\+cpp}}\end{DoxyCompactItemize}

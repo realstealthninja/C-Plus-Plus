@@ -1,0 +1,186 @@
+\doxysection{math/modular\+\_\+division.cpp File Reference}
+\hypertarget{modular__division_8cpp}{}\label{modular__division_8cpp}\index{math/modular\_division.cpp@{math/modular\_division.cpp}}
+
+
+An algorithm to divide two numbers under modulo p \href{https://www.geeksforgeeks.org/modular-division}{\texttt{ Modular Division}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemodular__division}{modular\+\_\+division}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://www.geeksforgeeks.org/modular-division}{\texttt{ Modular Division}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{modular__division_8cpp_a66cdf93153cbd1408bd74ac68961d179}{math\+::modular\+\_\+division\+::power}} (uint64\+\_\+t a, uint64\+\_\+t b, uint64\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em This function calculates a raised to exponent b under modulo c using modular exponentiation. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7}{math\+::modular\+\_\+division\+::mod\+\_\+division}} (uint64\+\_\+t a, uint64\+\_\+t b, uint64\+\_\+t p)
+\begin{DoxyCompactList}\small\item\em This function calculates modular division. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{modular__division_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{modular__division_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An algorithm to divide two numbers under modulo p \href{https://www.geeksforgeeks.org/modular-division}{\texttt{ Modular Division}} 
+
+To calculate division of two numbers under modulo p Modulo operator is not distributive under division, therefore we first have to calculate the inverse of divisor using \href{https://en.wikipedia.org/wiki/Fermat\%27s_little_theorem}{\texttt{ Fermat\textquotesingle{}s little theorem}} Now, we can multiply the dividend with the inverse of divisor and modulo is distributive over multiplication operation. Let, We have 3 numbers a, b, p To compute (a/b)p (a/b)p ≡ (a\texorpdfstring{$\ast$}{*}(inverse(b)))p ≡ ((ap)\texorpdfstring{$\ast$}{*}inverse(b)p)p NOTE\+: For the existence of inverse of \textquotesingle{}b\textquotesingle{}, \textquotesingle{}b\textquotesingle{} and \textquotesingle{}p\textquotesingle{} must be coprime For simplicity we take p as prime Time Complexity\+: O(log(b)) Example\+: ( 24 / 3 ) \% 5 =\texorpdfstring{$>$}{>} 8 \% 5 = 3 --- (i) Now the inverse of 3 is 2 (24 \texorpdfstring{$\ast$}{*} 2) \% 5 = (24 \% 5) \texorpdfstring{$\ast$}{*} (2 \% 5) = (4 \texorpdfstring{$\ast$}{*} 2) \% 5 = 3 --- (ii) (i) and (ii) are equal hence the answer is correct. \begin{DoxySeeAlso}{See also}
+\doxylink{modular__inverse__fermat__little__theorem_8cpp}{modular\+\_\+inverse\+\_\+fermat\+\_\+little\+\_\+theorem.\+cpp}, \doxylink{modular__exponentiation_8cpp}{modular\+\_\+exponentiation.\+cpp} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/shubhamamsa}{\texttt{ Shubham Yadav}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{modular__division_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{modular\_division.cpp@{modular\_division.cpp}!main@{main}}
+\index{main@{main}!modular\_division.cpp@{modular\_division.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{modular__division_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{modular__division_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7}\index{modular\_division.cpp@{modular\_division.cpp}!mod\_division@{mod\_division}}
+\index{mod\_division@{mod\_division}!modular\_division.cpp@{modular\_division.cpp}}
+\doxysubsubsection{\texorpdfstring{mod\_division()}{mod\_division()}}
+{\footnotesize\ttfamily \label{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7} 
+uint64\+\_\+t math\+::modular\+\_\+division\+::mod\+\_\+division (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{a}{, }\item[{uint64\+\_\+t}]{b}{, }\item[{uint64\+\_\+t}]{p}{}\end{DoxyParamCaption})}
+
+
+
+This function calculates modular division. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & integer dividend \\
+\hline
+{\em b} & integer divisor \\
+\hline
+{\em p} & integer modulo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a/b modulo c 
+\end{DoxyReturn}
+Calculate the inverse of b
+
+Calculate the final result
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ uint64\_t\ inverse\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}}(b,\ p\ -\/\ 2,\ p)\ \%\ p;\ \ \textcolor{comment}{///\ Calculate\ the\ inverse\ of\ b}}
+\DoxyCodeLine{00076\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ ((a\ \%\ p)\ *\ (inverse\ \%\ p))\ \%\ p;\ \ \textcolor{comment}{///\ Calculate\ the\ final\ result}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+\Hypertarget{modular__division_8cpp_a66cdf93153cbd1408bd74ac68961d179}\index{modular\_division.cpp@{modular\_division.cpp}!power@{power}}
+\index{power@{power}!modular\_division.cpp@{modular\_division.cpp}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily \label{modular__division_8cpp_a66cdf93153cbd1408bd74ac68961d179} 
+uint64\+\_\+t math\+::modular\+\_\+division\+::power (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{a}{, }\item[{uint64\+\_\+t}]{b}{, }\item[{uint64\+\_\+t}]{c}{}\end{DoxyParamCaption})}
+
+
+
+This function calculates a raised to exponent b under modulo c using modular exponentiation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & integer base \\
+\hline
+{\em b} & unsigned integer exponent \\
+\hline
+{\em c} & integer modulo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a raised to power b modulo c 
+\end{DoxyReturn}
+Initialize the answer to be returned
+
+Update a if it is more than or equal to c
+
+In case a is divisible by c;
+
+If b is odd, multiply a with answer
+
+b must be even now
+
+b = b/2
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ uint64\_t\ ans\ =\ 1;\ \ \textcolor{comment}{///\ Initialize\ the\ answer\ to\ be\ returned}}
+\DoxyCodeLine{00051\ \ \ \ \ a\ =\ a\ \%\ c;\ \ \ \ \ \ \ \ \ \textcolor{comment}{///\ Update\ a\ if\ it\ is\ more\ than\ or\ equal\ to\ c}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ ==\ 0)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \ \textcolor{comment}{///\ In\ case\ a\ is\ divisible\ by\ c;}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{while}\ (b\ >\ 0)\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ If\ b\ is\ odd,\ multiply\ a\ with\ answer}}
+\DoxyCodeLine{00057\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ \&\ 1)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ ((ans\ \%\ c)\ *\ (a\ \%\ c))\ \%\ c;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ b\ must\ be\ even\ now}}
+\DoxyCodeLine{00061\ \textcolor{comment}{}\ \ \ \ \ \ \ \ b\ =\ b\ >>\ 1;\ \ \textcolor{comment}{///\ b\ =\ b/2}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ a\ =\ ((a\ \%\ c)\ *\ (a\ \%\ c))\ \%\ c;}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{modular__division_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{modular\_division.cpp@{modular\_division.cpp}!test@{test}}
+\index{test@{test}!modular\_division.cpp@{modular\_division.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{modular__division_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function for testing power function. test cases and assert statement. \begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ uint64\_t\ test\_case\_1\ =\ \mbox{\hyperlink{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7}{math::modular\_division::mod\_division}}(8,\ 2,\ 2);}
+\DoxyCodeLine{00090\ \ \ \ \ assert(test\_case\_1\ ==\ 0);}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \ \ \ \ uint64\_t\ test\_case\_2\ =\ \mbox{\hyperlink{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7}{math::modular\_division::mod\_division}}(15,\ 3,\ 7);}
+\DoxyCodeLine{00093\ \ \ \ \ assert(test\_case\_2\ ==\ 5);}
+\DoxyCodeLine{00094\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00095\ \ \ \ \ uint64\_t\ test\_case\_3\ =\ \mbox{\hyperlink{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7}{math::modular\_division::mod\_division}}(10,\ 5,\ 2);}
+\DoxyCodeLine{00096\ \ \ \ \ assert(test\_case\_3\ ==\ 0);}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00098\ \ \ \ \ uint64\_t\ test\_case\_4\ =\ \mbox{\hyperlink{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7}{math::modular\_division::mod\_division}}(81,\ 3,\ 5);}
+\DoxyCodeLine{00099\ \ \ \ \ assert(test\_case\_4\ ==\ 2);}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 4\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00101\ \ \ \ \ uint64\_t\ test\_case\_5\ =\ \mbox{\hyperlink{modular__division_8cpp_a905e368ae121beb7e7ea35349ddcdac7}{math::modular\_division::mod\_division}}(12848,\ 73,\ 29);}
+\DoxyCodeLine{00102\ \ \ \ \ assert(test\_case\_5\ ==\ 2);}
+\DoxyCodeLine{00103\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 5\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}

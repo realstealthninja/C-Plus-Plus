@@ -1,0 +1,440 @@
+\doxysection{machine\+\_\+learning/kohonen\+\_\+som\+\_\+trace.cpp File Reference}
+\hypertarget{kohonen__som__trace_8cpp}{}\label{kohonen__som__trace_8cpp}\index{machine\_learning/kohonen\_som\_trace.cpp@{machine\_learning/kohonen\_som\_trace.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Self-organizing_map}{\texttt{ Kohonen self organizing map}} (data tracing)  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemachine__learning}{machine\+\_\+learning}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\+\_\+random}} (double a, double b)
+\item 
+int \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\+\_\+nd\+\_\+data}} (const char \texorpdfstring{$\ast$}{*}fname, const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&X)
+\item 
+void \mbox{\hyperlink{namespacemachine__learning_aa6aac06ccf128b0a9c55c9ee1a8e5631}{machine\+\_\+learning\+::update\+\_\+weights}} (const std\+::valarray$<$ double $>$ \&x, std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}W, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}D, double alpha, int R)
+\item 
+void \mbox{\hyperlink{namespacemachine__learning_a042f435bca0839e721fc1574a61e8da3}{machine\+\_\+learning\+::kohonen\+\_\+som\+\_\+tracer}} (const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&X, std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}W, double alpha\+\_\+min)
+\item 
+void \mbox{\hyperlink{kohonen__som__trace_8cpp_ae571600aa42a81bc14a4a602ea5ff00d}{test\+\_\+circle}} (std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})
+\item 
+void \mbox{\hyperlink{kohonen__som__trace_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\item 
+void \mbox{\hyperlink{kohonen__som__trace_8cpp_a53082f2e5bacec40266499da4547309a}{test\+\_\+lamniscate}} (std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})
+\item 
+void \mbox{\hyperlink{kohonen__som__trace_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\item 
+void \mbox{\hyperlink{kohonen__som__trace_8cpp_a7154fe319e6033485a8a6cd6f0d8932d}{test\+\_\+3d\+\_\+classes}} (std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})
+\item 
+void \mbox{\hyperlink{kohonen__som__trace_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}} ()
+\item 
+double \mbox{\hyperlink{kohonen__som__trace_8cpp_a2256c10b16edba377b64a44b6c656908}{get\+\_\+clock\+\_\+diff}} (clock\+\_\+t start\+\_\+t, clock\+\_\+t end\+\_\+t)
+\item 
+int \mbox{\hyperlink{kohonen__som__trace_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Self-organizing_map}{\texttt{ Kohonen self organizing map}} (data tracing) 
+
+This example implements a powerful self organizing map algorithm. The algorithm creates a connected network of weights that closely follows the given data points. This this creates a chain of nodes that resembles the given input shape.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}}
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This C++ version of the program is considerable slower than its \href{https://github.com/kvedala/C/blob/master/machine_learning/kohonen_som_trace.c}{\texttt{ C counterpart}} 
+
+The compiled code is much slower when compiled with MS Visual C++ 2019 than with GCC on windows 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{kohonen__som__topology_8cpp}{kohonen\+\_\+som\+\_\+topology.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{kohonen__som__trace_8cpp_a2256c10b16edba377b64a44b6c656908}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!get\_clock\_diff@{get\_clock\_diff}}
+\index{get\_clock\_diff@{get\_clock\_diff}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_clock\_diff()}{get\_clock\_diff()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_a2256c10b16edba377b64a44b6c656908} 
+double get\+\_\+clock\+\_\+diff (\begin{DoxyParamCaption}\item[{clock\+\_\+t}]{start\+\_\+t}{, }\item[{clock\+\_\+t}]{end\+\_\+t}{}\end{DoxyParamCaption})}
+
+Convert clock cycle difference to time in seconds
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em start\+\_\+t} & start clock \\
+\hline
+\mbox{\texttt{ in}}  & {\em end\+\_\+t} & end clock \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time difference in seconds 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\_t\ -\/\ start\_t)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00454\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kohonen__som__trace_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!main@{main}}
+\index{main@{main}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00459\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Using\ OpenMP\ based\ parallelization\(\backslash\)n"{}};}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00461\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}NOT\ using\ OpenMP\ based\ parallelization\(\backslash\)n"{}};}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \ \ std::clock\_t\ start\_clk\ =\ std::clock();}
+\DoxyCodeLine{00467\ \ \ \ \ \mbox{\hyperlink{kohonen__som__trace_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keyword}{auto}\ end\_clk\ =\ std::clock();}
+\DoxyCodeLine{00469\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ completed\ in\ "{}}\ <<\ \mbox{\hyperlink{kohonen__som__trace_8cpp_a2256c10b16edba377b64a44b6c656908}{get\_clock\_diff}}(start\_clk,\ end\_clk)}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ sec\(\backslash\)n"{}};}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \ \ \ \ start\_clk\ =\ std::clock();}
+\DoxyCodeLine{00473\ \ \ \ \ \mbox{\hyperlink{kohonen__som__trace_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();}
+\DoxyCodeLine{00474\ \ \ \ \ end\_clk\ =\ std::clock();}
+\DoxyCodeLine{00475\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ completed\ in\ "{}}\ <<\ \mbox{\hyperlink{kohonen__som__trace_8cpp_a2256c10b16edba377b64a44b6c656908}{get\_clock\_diff}}(start\_clk,\ end\_clk)}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ sec\(\backslash\)n"{}};}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ start\_clk\ =\ std::clock();}
+\DoxyCodeLine{00479\ \ \ \ \ \mbox{\hyperlink{kohonen__som__trace_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}}();}
+\DoxyCodeLine{00480\ \ \ \ \ end\_clk\ =\ std::clock();}
+\DoxyCodeLine{00481\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3\ completed\ in\ "{}}\ <<\ \mbox{\hyperlink{kohonen__som__trace_8cpp_a2256c10b16edba377b64a44b6c656908}{get\_clock\_diff}}(start\_clk,\ end\_clk)}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ sec\(\backslash\)n"{}};}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \ \ \ \ std::cout}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}(Note:\ Calculated\ times\ include:\ creating\ test\ sets,\ training\ "{}}}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}model\ and\ writing\ files\ to\ disk.)\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00488\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kohonen__som__trace_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!test1@{test1}}
+\index{test1@{test1}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test that creates a random set of points distributed {\itshape near} the circumference of a circle and trains an SOM that finds that circular pattern. The following \href{https://en.wikipedia.org/wiki/Comma-separated_values}{\texttt{ CSV}} files are created to validate the execution\+:
+\begin{DoxyItemize}
+\item {\ttfamily test1.\+csv}\+: random test samples points with a circular pattern
+\item {\ttfamily w11.\+csv}\+: initial random map
+\item {\ttfamily w12.\+csv}\+: trained SOM map
+\end{DoxyItemize}
+
+The outputs can be readily plotted in \href{https:://gnuplot.info}{\texttt{ gnuplot}} using the following snippet 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{set\ datafile\ separator\ ','}
+\DoxyCodeLine{plot\ "{}test1.csv"{}\ title\ "{}original"{},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}w11.csv"{}\ title\ "{}w1"{},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}w12.csv"{}\ title\ "{}w2"{}}
+
+\end{DoxyCode}
+  
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 500;}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{int}\ features\ =\ 2;}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_out\ =\ 50;}
+\DoxyCodeLine{00237\ \ \ \ \ std::vector<std::valarray<double>>\ X(N);}
+\DoxyCodeLine{00238\ \ \ \ \ std::vector<std::valarray<double>>\ W(num\_out);}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ std::max(num\_out,\ N);\ i++)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ loop\ till\ max(N,\ num\_out)}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ N)\ \{\ \ \textcolor{comment}{//\ only\ add\ new\ arrays\ if\ i\ <\ N}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ X[i]\ =\ std::valarray<double>(features);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ num\_out)\ \{\ \ \textcolor{comment}{//\ only\ add\ new\ arrays\ if\ i\ <\ num\_out}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ W[i]\ =\ std::valarray<double>(features);}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ features;\ j++)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ preallocate\ with\ random\ initial\ weights}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ W[i][j]\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(-\/1,\ 1);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{kohonen__som__trace_8cpp_ae571600aa42a81bc14a4a602ea5ff00d}{test\_circle}}(\&X);\ \ \textcolor{comment}{//\ create\ test\ data\ around\ circumference\ of\ a\ circle}}
+\DoxyCodeLine{00258\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}test1.csv"{}},\ X);\ \ \ \ \textcolor{comment}{//\ save\ test\ data\ points}}
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}w11.csv"{}},\ W);\ \ \ \ \ \ \textcolor{comment}{//\ save\ initial\ random\ weights}}
+\DoxyCodeLine{00260\ \ \ \ \ kohonen\_som\_tracer(X,\ \&W,\ 0.1);\ \ \textcolor{comment}{//\ train\ the\ SOM}}
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}w12.csv"{}},\ W);\ \ \ \ \ \ \textcolor{comment}{//\ save\ the\ resultant\ weights}}
+\DoxyCodeLine{00262\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kohonen__som__trace_8cpp_a0283886819c7c140a023582b7269e2d0}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!test2@{test2}}
+\index{test2@{test2}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test that creates a random set of points distributed {\itshape near} the locus of the \href{https://en.wikipedia.org/wiki/Lemniscate_of_Gerono}{\texttt{ Lamniscate of Gerono}} and trains an SOM that finds that circular pattern. The following \href{https://en.wikipedia.org/wiki/Comma-separated_values}{\texttt{ CSV}} files are created to validate the execution\+:
+\begin{DoxyItemize}
+\item {\ttfamily test2.\+csv}\+: random test samples points with a lamniscate pattern
+\item {\ttfamily w21.\+csv}\+: initial random map
+\item {\ttfamily w22.\+csv}\+: trained SOM map
+\end{DoxyItemize}
+
+The outputs can be readily plotted in \href{https:://gnuplot.info}{\texttt{ gnuplot}} using the following snippet 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{set\ datafile\ separator\ ','}
+\DoxyCodeLine{plot\ "{}test2.csv"{}\ title\ "{}original"{},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}w21.csv"{}\ title\ "{}w1"{},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}w22.csv"{}\ title\ "{}w2"{}}
+
+\end{DoxyCode}
+  
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 500;}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordtype}{int}\ features\ =\ 2;}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_out\ =\ 20;}
+\DoxyCodeLine{00319\ \ \ \ \ std::vector<std::valarray<double>>\ X(N);}
+\DoxyCodeLine{00320\ \ \ \ \ std::vector<std::valarray<double>>\ W(num\_out);}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ std::max(num\_out,\ N);\ i++)\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ loop\ till\ max(N,\ num\_out)}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ N)\ \{\ \ \textcolor{comment}{//\ only\ add\ new\ arrays\ if\ i\ <\ N}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ X[i]\ =\ std::valarray<double>(features);}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ num\_out)\ \{\ \ \textcolor{comment}{//\ only\ add\ new\ arrays\ if\ i\ <\ num\_out}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ W[i]\ =\ std::valarray<double>(features);}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ features;\ j++)\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ preallocate\ with\ random\ initial\ weights}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ W[i][j]\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(-\/1,\ 1);}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \mbox{\hyperlink{kohonen__som__trace_8cpp_a53082f2e5bacec40266499da4547309a}{test\_lamniscate}}(\&X);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ test\ data\ around\ the\ lamniscate}}
+\DoxyCodeLine{00340\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}test2.csv"{}},\ X);\ \ \ \ \ \textcolor{comment}{//\ save\ test\ data\ points}}
+\DoxyCodeLine{00341\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}w21.csv"{}},\ W);\ \ \ \ \ \ \ \textcolor{comment}{//\ save\ initial\ random\ weights}}
+\DoxyCodeLine{00342\ \ \ \ \ kohonen\_som\_tracer(X,\ \&W,\ 0.01);\ \ \textcolor{comment}{//\ train\ the\ SOM}}
+\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}w22.csv"{}},\ W);\ \ \ \ \ \ \ \textcolor{comment}{//\ save\ the\ resultant\ weights}}
+\DoxyCodeLine{00344\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kohonen__som__trace_8cpp_a6d0455dd5c30adda100e95f0423c786e}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!test3@{test3}}
+\index{test3@{test3}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_a6d0455dd5c30adda100e95f0423c786e} 
+void test3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test that creates a random set of points distributed in six clusters in 3D space. The following \href{https://en.wikipedia.org/wiki/Comma-separated_values}{\texttt{ CSV}} files are created to validate the execution\+:
+\begin{DoxyItemize}
+\item {\ttfamily test3.\+csv}\+: random test samples points with a circular pattern
+\item {\ttfamily w31.\+csv}\+: initial random map
+\item {\ttfamily w32.\+csv}\+: trained SOM map
+\end{DoxyItemize}
+
+The outputs can be readily plotted in \href{https:://gnuplot.info}{\texttt{ gnuplot}} using the following snippet 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{set\ datafile\ separator\ ','}
+\DoxyCodeLine{plot\ "{}test3.csv"{}\ title\ "{}original"{},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}w31.csv"{}\ title\ "{}w1"{},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}w32.csv"{}\ title\ "{}w2"{}}
+
+\end{DoxyCode}
+  
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 200;}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordtype}{int}\ features\ =\ 3;}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_out\ =\ 20;}
+\DoxyCodeLine{00418\ \ \ \ \ std::vector<std::valarray<double>>\ X(N);}
+\DoxyCodeLine{00419\ \ \ \ \ std::vector<std::valarray<double>>\ W(num\_out);}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ std::max(num\_out,\ N);\ i++)\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ loop\ till\ max(N,\ num\_out)}}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ N)\ \{\ \ \textcolor{comment}{//\ only\ add\ new\ arrays\ if\ i\ <\ N}}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ X[i]\ =\ std::valarray<double>(features);}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ num\_out)\ \{\ \ \textcolor{comment}{//\ only\ add\ new\ arrays\ if\ i\ <\ num\_out}}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ W[i]\ =\ std::valarray<double>(features);}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ features;\ j++)\ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ preallocate\ with\ random\ initial\ weights}}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ W[i][j]\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(-\/1,\ 1);}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00436\ \ \ \ \ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ \mbox{\hyperlink{kohonen__som__trace_8cpp_a7154fe319e6033485a8a6cd6f0d8932d}{test\_3d\_classes}}(\&X);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ test\ data\ around\ the\ lamniscate}}
+\DoxyCodeLine{00439\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}test3.csv"{}},\ X);\ \ \ \ \ \textcolor{comment}{//\ save\ test\ data\ points}}
+\DoxyCodeLine{00440\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}w31.csv"{}},\ W);\ \ \ \ \ \ \ \textcolor{comment}{//\ save\ initial\ random\ weights}}
+\DoxyCodeLine{00441\ \ \ \ \ kohonen\_som\_tracer(X,\ \&W,\ 0.01);\ \ \textcolor{comment}{//\ train\ the\ SOM}}
+\DoxyCodeLine{00442\ \ \ \ \ \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\_nd\_data}}(\textcolor{stringliteral}{"{}w32.csv"{}},\ W);\ \ \ \ \ \ \ \textcolor{comment}{//\ save\ the\ resultant\ weights}}
+\DoxyCodeLine{00443\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kohonen__som__trace_8cpp_a7154fe319e6033485a8a6cd6f0d8932d}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!test\_3d\_classes@{test\_3d\_classes}}
+\index{test\_3d\_classes@{test\_3d\_classes}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_3d\_classes()}{test\_3d\_classes()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_a7154fe319e6033485a8a6cd6f0d8932d} 
+void test\+\_\+3d\+\_\+classes (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+Creates a random set of points distributed in six clusters in 3D space with centroids at the points
+\begin{DoxyItemize}
+\item ${0.5, 0.5, 0.5}$
+\item ${0.5, 0.5, -0.5}$
+\item ${0.5, -0.5, 0.5}$
+\item ${0.5, -0.5, -0.5}$
+\item ${-0.5, 0.5, 0.5}$
+\item ${-0.5, 0.5, -0.5}$
+\item ${-0.5, -0.5, 0.5}$
+\item ${-0.5, -0.5, -0.5}$
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em data} & matrix to store data in \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}-\/>size();}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ R\ =\ 0.1;\ \ \textcolor{comment}{//\ radius\ of\ cluster}}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ num\_classes\ =\ 8;}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{const}\ std::array<const\ std::array<double,\ 3>,\ num\_classes>\ centres\ =\ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ centres\ of\ each\ class\ cluster}}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{.5,\ .5,\ .5\}),\ \ \ \ \textcolor{comment}{//\ centre\ of\ class\ 0}}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{.5,\ .5,\ -\/.5\}),\ \ \ \textcolor{comment}{//\ centre\ of\ class\ 1}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{.5,\ -\/.5,\ .5\}),\ \ \ \textcolor{comment}{//\ centre\ of\ class\ 2}}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{.5,\ -\/.5,\ -\/.5\}),\ \ \textcolor{comment}{//\ centre\ of\ class\ 3}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{-\/.5,\ .5,\ .5\}),\ \ \ \textcolor{comment}{//\ centre\ of\ class\ 4}}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{-\/.5,\ .5,\ -\/.5\}),\ \ \textcolor{comment}{//\ centre\ of\ class\ 5}}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{-\/.5,\ -\/.5,\ .5\}),\ \ \textcolor{comment}{//\ centre\ of\ class\ 6}}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ std::array<double,\ 3>(\{-\/.5,\ -\/.5,\ -\/.5\})\ \ \textcolor{comment}{//\ centre\ of\ class\ 7}}
+\DoxyCodeLine{00374\ \ \ \ \ \};}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cls\ =}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ std::rand()\ \%\ num\_classes;\ \ \textcolor{comment}{//\ select\ a\ random\ class\ for\ the\ point}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ random\ coordinates\ (x,y,z)\ around\ the\ centre\ of\ the\ class}}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[0][i][0]\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(centres[cls][0]\ -\/\ R,\ centres[cls][0]\ +\ R);}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[0][i][1]\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(centres[cls][1]\ -\/\ R,\ centres[cls][1]\ +\ R);}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[0][i][2]\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(centres[cls][2]\ -\/\ R,\ centres[cls][2]\ +\ R);}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ follosing\ can\ also\ be\ used}}
+\DoxyCodeLine{00389\ \textcolor{comment}{\ \ \ \ \ \ \ \ for\ (int\ j\ =\ 0;\ j\ <\ 3;\ j++)}}
+\DoxyCodeLine{00390\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ data[0][i][j]\ =\ \_random(centres[cls][j]\ -\/\ R,\ centres[cls][j]\ +\ R);}}
+\DoxyCodeLine{00391\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00392\ \ \ \ \ \}}
+\DoxyCodeLine{00393\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kohonen__som__trace_8cpp_ae571600aa42a81bc14a4a602ea5ff00d}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!test\_circle@{test\_circle}}
+\index{test\_circle@{test\_circle}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_circle()}{test\_circle()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_ae571600aa42a81bc14a4a602ea5ff00d} 
+void test\+\_\+circle (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+Creates a random set of points distributed {\itshape near} the circumference of a circle and trains an SOM that finds that circular pattern. The generating function is      \begin{eqnarray*}
+r &\in& [1-\delta r, 1+\delta r)\\
+\theta &\in& [0, 2\pi)\\
+x &=& r\cos\theta\\
+y &=& r\sin\theta
+\end{eqnarray*}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em data} & matrix to store data in \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}-\/>size();}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ R\ =\ 0.75,\ dr\ =\ 0.3;}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{double}\ a\_t\ =\ 0.,\ b\_t\ =\ 2.f\ *\ M\_PI;\ \ \textcolor{comment}{//\ theta\ random\ between\ 0\ and\ 2*pi}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{double}\ a\_r\ =\ R\ -\/\ dr,\ b\_r\ =\ R\ +\ dr;\ \ \textcolor{comment}{//\ radius\ random\ between\ R-\/dr\ and\ R+dr}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(a\_r,\ b\_r);\ \ \ \ \ \ \textcolor{comment}{//\ random\ radius}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ theta\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(a\_t,\ b\_t);\ \ \textcolor{comment}{//\ random\ theta}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[0][i][0]\ =\ r\ *\ cos(theta);\ \ \ \ \textcolor{comment}{//\ convert\ from\ polar\ to\ cartesian}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[0][i][1]\ =\ r\ *\ sin(theta);}
+\DoxyCodeLine{00211\ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kohonen__som__trace_8cpp_a53082f2e5bacec40266499da4547309a}\index{kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}!test\_lamniscate@{test\_lamniscate}}
+\index{test\_lamniscate@{test\_lamniscate}!kohonen\_som\_trace.cpp@{kohonen\_som\_trace.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_lamniscate()}{test\_lamniscate()}}
+{\footnotesize\ttfamily \label{kohonen__som__trace_8cpp_a53082f2e5bacec40266499da4547309a} 
+void test\+\_\+lamniscate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+Creates a random set of points distributed {\itshape near} the locus of the \href{https://en.wikipedia.org/wiki/Lemniscate_of_Gerono}{\texttt{ Lamniscate of Gerono}}.        \begin{eqnarray*}
+\delta r &=& 0.2\\
+\delta x &\in& [-\delta r, \delta r)\\
+\delta y &\in& [-\delta r, \delta r)\\
+\theta &\in& [0, \pi)\\
+x &=& \delta x + \cos\theta\\
+y &=& \delta y + \frac{\sin(2\theta)}{2}
+\end{eqnarray*} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em data} & matrix to store data in \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}-\/>size();}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ dr\ =\ 0.2;}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dx\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(-\/dr,\ dr);\ \ \ \ \ \textcolor{comment}{//\ random\ change\ in\ x}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dy\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(-\/dr,\ dr);\ \ \ \ \ \textcolor{comment}{//\ random\ change\ in\ y}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ theta\ =\ \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\_random}}(0,\ M\_PI);\ \ \textcolor{comment}{//\ random\ theta}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[0][i][0]\ =\ dx\ +\ cos(theta);\ \ \textcolor{comment}{//\ convert\ from\ polar\ to\ cartesian}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[0][i][1]\ =\ dy\ +\ sin(2.\ *\ theta)\ /\ 2.f;}
+\DoxyCodeLine{00291\ \ \ \ \ \}}
+\DoxyCodeLine{00292\ \}}
+
+\end{DoxyCode}

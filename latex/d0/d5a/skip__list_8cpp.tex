@@ -1,0 +1,78 @@
+\doxysection{data\+\_\+structures/skip\+\_\+list.cpp File Reference}
+\hypertarget{skip__list_8cpp}{}\label{skip__list_8cpp}\index{data\_structures/skip\_list.cpp@{data\_structures/skip\_list.cpp}}
+
+
+Data structure for fast searching and insertion in $O(\log n)$ time.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdata__structures_1_1_node}{data\+\_\+structures\+::\+Node}}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1_skip_list}{data\+\_\+structures\+::\+Skip\+List}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{skip__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a}\label{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a} 
+constexpr int {\bfseries data\+\_\+structures\+::\+MAX\+\_\+\+LEVEL} = 2
+\begin{DoxyCompactList}\small\item\em Maximum level of skip list. \end{DoxyCompactList}\item 
+\Hypertarget{namespacedata__structures_a903639d8e6f955dd8d5c263781455d61}\label{namespacedata__structures_a903639d8e6f955dd8d5c263781455d61} 
+constexpr float {\bfseries data\+\_\+structures\+::\+PROBABILITY} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Current probability for "{}coin toss"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data structure for fast searching and insertion in $O(\log n)$ time. 
+
+A skip list is a data structure that is used for storing a sorted list of items with a help of hierarchy of linked lists that connect increasingly sparse subsequences of the items
+
+References used\+: \href{https://www.geeksforgeeks.org/skip-list/}{\texttt{ Geeks\+For\+Geek}}, \href{https://iq.opengenus.org/skip-list}{\texttt{ Open\+Genus}} for Pseudo\+Code and Code \begin{DoxyAuthor}{Author}
+\href{https://github.com/enqidu}{\texttt{ enqidu}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{skip__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{skip\_list.cpp@{skip\_list.cpp}!main@{main}}
+\index{main@{main}!skip\_list.cpp@{skip\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{skip__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function\+: Creates and inserts random 2\texorpdfstring{$^\wedge$}{\string^}\mbox{[}number of levels\mbox{]} elements into the skip lists and than displays it 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_skip_list}{data\_structures::SkipList}}\ lst;}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ (1\ <<\ (\mbox{\hyperlink{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a}{data\_structures::MAX\_LEVEL}}\ +\ 1));\ j++)\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ (std::rand()\ \%\ (1\ <<\ (\mbox{\hyperlink{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a}{data\_structures::MAX\_LEVEL}}\ +\ 2))\ +\ 1);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ lst.\mbox{\hyperlink{classdata__structures_1_1_skip_list_a40a4042bdf0b6683b5f21ae7854de8a9}{insertElement}}(k,\ \&j);}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ lst.\mbox{\hyperlink{classdata__structures_1_1_skip_list_a812611f80b8079268dbb19cc4e9bee5c}{displayList}}();}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00225\ \}}
+
+\end{DoxyCode}

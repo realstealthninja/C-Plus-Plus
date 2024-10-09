@@ -1,0 +1,87 @@
+\doxysection{math/gcd\+\_\+iterative\+\_\+euclidean.cpp File Reference}
+\hypertarget{gcd__iterative__euclidean_8cpp}{}\label{gcd__iterative__euclidean_8cpp}\index{math/gcd\_iterative\_euclidean.cpp@{math/gcd\_iterative\_euclidean.cpp}}
+
+
+Compute the greatest common denominator of two integers using {\itshape iterative form} of \href{https://en.wikipedia.org/wiki/Euclidean_algorithm}{\texttt{ Euclidean algorithm}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}} (int num1, int num2)
+\item 
+int \mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute the greatest common denominator of two integers using {\itshape iterative form} of \href{https://en.wikipedia.org/wiki/Euclidean_algorithm}{\texttt{ Euclidean algorithm}} 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{gcd__recursive__euclidean_8cpp}{gcd\+\_\+recursive\+\_\+euclidean.\+cpp}, \doxylink{gcd__of__n__numbers_8cpp}{gcd\+\_\+of\+\_\+n\+\_\+numbers.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}\index{gcd\_iterative\_euclidean.cpp@{gcd\_iterative\_euclidean.cpp}!gcd@{gcd}}
+\index{gcd@{gcd}!gcd\_iterative\_euclidean.cpp@{gcd\_iterative\_euclidean.cpp}}
+\doxysubsubsection{\texorpdfstring{gcd()}{gcd()}}
+{\footnotesize\ttfamily \label{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e} 
+int gcd (\begin{DoxyParamCaption}\item[{int}]{num1}{, }\item[{int}]{num2}{}\end{DoxyParamCaption})}
+
+algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ <=\ 0\ |\ num2\ <=\ 0)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::domain\_error(\textcolor{stringliteral}{"{}Euclidean\ algorithm\ domain\ is\ for\ ints\ >\ 0"{}});}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ ==\ num2)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ num1;}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ base\_num\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ previous\_remainder\ =\ 1;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ >\ num2)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ base\_num\ =\ num1;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ previous\_remainder\ =\ num2;}
+\DoxyCodeLine{00030\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ base\_num\ =\ num2;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ previous\_remainder\ =\ num1;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{while}\ ((base\_num\ \%\ previous\_remainder)\ !=\ 0)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ old\_base\ =\ base\_num;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ base\_num\ =\ previous\_remainder;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ previous\_remainder\ =\ old\_base\ \%\ previous\_remainder;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ previous\_remainder;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gcd__iterative__euclidean_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{gcd\_iterative\_euclidean.cpp@{gcd\_iterative\_euclidean.cpp}!main@{main}}
+\index{main@{main}!gcd\_iterative\_euclidean.cpp@{gcd\_iterative\_euclidean.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{gcd__iterative__euclidean_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ 120,7\ is\ "{}}\ <<\ (\mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(120,\ 7))\ <<\ std::endl;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ -\/120,10\ is\ "{}}\ <<\ \mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(-\/120,\ 10)\ <<\ std::endl;}
+\DoxyCodeLine{00051\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::domain\_error\ \&e)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Error\ handling\ was\ successful"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ 312,221\ is\ "{}}\ <<\ (\mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(312,\ 221))\ <<\ std::endl;}
+\DoxyCodeLine{00055\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ 289,204\ is\ "{}}\ <<\ (\mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(289,\ 204))\ <<\ std::endl;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}

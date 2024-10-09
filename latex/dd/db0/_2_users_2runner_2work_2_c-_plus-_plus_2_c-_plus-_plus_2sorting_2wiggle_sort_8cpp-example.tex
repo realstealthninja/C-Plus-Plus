@@ -1,0 +1,140 @@
+\doxysection{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/sorting/wiggle\+\_\+sort.\+cpp}
+\hypertarget{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2sorting_2wiggle_sort_8cpp-example}{}\label{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2sorting_2wiggle_sort_8cpp-example}arr = \mbox{[}1,1,5,6,1,4\mbox{]}, after wiggle sort arr will become equal to \mbox{[}1,1,6,1,5,4\mbox{]} arr = \mbox{[}2,8,9,1,7\mbox{]}, after wiggle sort arr will become equal to \mbox{[}8,2,9,1,7\mbox{]}
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)addtogroup\ sorting\ Sorting\ Algorithms}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @\{}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)file}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)brief\ [Wiggle\ Sort\ Algorithm]}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ (https://leetcode.com/problems/wiggle-\/sort-\/ii/)\ Implementation}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)author\ [Roshan\ Kanwar](http://github.com/roshan0708)}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)details}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Wiggle\ Sort\ sorts\ the\ array\ into\ a\ wave\ like\ array.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ An\ array\ ‘arr[0..n-\/1]’\ is\ sorted\ in\ wave\ form,}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ if\ arr[0]\ >=\ arr[1]\ <=\ arr[2]\ >=\ arr[3]\ <=\ arr[4]\ >=\ …..}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)example}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ arr\ =\ [1,1,5,6,1,4],\ after\ wiggle\ sort\ arr\ will\ become\ equal\ to\ [1,1,6,1,5,4]}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ arr\ =\ [2,8,9,1,7],\ after\ wiggle\ sort\ arr\ will\ become\ equal\ to\ [8,2,9,1,7]}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}\ \ \textcolor{comment}{///\ for\ io\ operations}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @namespace\ sorting}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Sorting\ algorithms}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesorting}{sorting}}\ \{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @namespace\ wiggle\_sort}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Functions\ for\ [Wiggle}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Sort](https://leetcode.com/problems/wiggle-\/sort-\/ii/)\ algorithm}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacewiggle__sort}{wiggle\_sort}}\ \{}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Function\ used\ for\ sorting\ the\ elements\ in\ wave\ form.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Checking\ whether\ the\ even\ indexed\ elements\ are\ greater\ than}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ their\ adjacent\ odd\ elements.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Traversing\ all\ even\ indexed\ elements\ of\ the\ input\ arr.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ If\ current\ element\ is\ smaller\ than\ the\ previous\ odd\ element,\ swap\ them.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ If\ current\ element\ is\ smaller\ than\ the\ next\ odd\ element,\ swap\ them.}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ arr\ input\ array\ (unsorted\ elements)}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \ \textcolor{comment}{//\ this\ allows\ to\ have\ vectors\ of\ ints,\ double,\ float,}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ etc}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{wiggle__sort_8cpp_a99eeded693ac073717282fae365957a1}{wiggleSort}}(\textcolor{keyword}{const}\ std::vector<T>\ \&arr)\ \{}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ size\ =\ arr.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::vector<T>\ out(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ arr);\ \ \textcolor{comment}{//\ create\ a\ copy\ of\ input\ vector.\ this\ way,\ the\ original\ input}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vector\ does\ not\ get\ modified.\ a\ sorted\ array\ is\ is\ returned.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i\ +=\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0\ \&\&\ out[i\ -\/\ 1]\ >\ out[i])\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::swap(out[i],\ out[i\ -\/\ 1]);\ \ \textcolor{comment}{//\ swapping\ the\ two\ values}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ size\ -\/\ 1\ \&\&\ out[i]\ <\ out[i\ +\ 1])\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::swap(out[i],\ out[i\ +\ 1]);\ \ \textcolor{comment}{//\ swapping\ the\ two\ values}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ out;\ \ \textcolor{comment}{//\ returns\ the\ sorted\ vector}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\}\ \ \textcolor{comment}{//\ namespace\ wiggle\_sort}}
+\DoxyCodeLine{\}\ \ \textcolor{comment}{//\ namespace\ sorting}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Utility\ function\ used\ for\ printing\ the\ elements.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Prints\ elements\ of\ the\ array\ after\ they're\ sorted\ using\ wiggle\ sort}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ algorithm.}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ arr\ array\ containing\ the\ sorted\ elements}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__sorting_ga135e4c638e3bcf548bd122b5f49a3e72}{displayElements}}(\textcolor{keyword}{const}\ std::vector<T>\ \&arr)\ \{}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ size\ =\ arr.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ elements\ are\ as\ follows:\ "{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}["{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ arr[i];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ size\ -\/\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}]"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Test\ function}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @returns\ void}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}()\ \{}
+\DoxyCodeLine{\ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));\ \ \textcolor{comment}{//\ initialize\ random\ number\ generator}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::vector<float>\ data1(100);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&d\ :\ data1)\ \{\ \ \textcolor{comment}{//\ generate\ random\ numbers\ between\ -\/5.0\ and\ 4.99}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ d\ =\ float(std::rand()\ \%\ 1000\ -\/\ 500)\ /\ 100.f;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::vector<float>\ sorted\ =\ sorting::wiggle\_sort::wiggleSort<float>(data1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{group__sorting_ga135e4c638e3bcf548bd122b5f49a3e72}{displayElements}}(sorted);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ data1.size();\ j\ +=\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ assert(data1[j]\ <=\ data1[j\ +\ 1]\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data1[j\ +\ 1]\ >=\ data1[j\ +\ 2]);\ \ \textcolor{comment}{//\ check\ the\ validation\ condition}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**\ Driver\ Code\ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{generate__parentheses_8cpp_gae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**\ @\}\ */}}
+
+\end{DoxyCodeInclude}
+ 

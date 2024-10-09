@@ -1,0 +1,71 @@
+\doxysection{probability/bayes\+\_\+theorem.cpp File Reference}
+\hypertarget{bayes__theorem_8cpp}{}\label{bayes__theorem_8cpp}\index{probability/bayes\_theorem.cpp@{probability/bayes\_theorem.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Bayes\%27_theorem}{\texttt{ Bayes\textquotesingle{} theorem}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{bayes__theorem_8cpp_a655bfe51252468d232dc639a340656ba}{bayes\+\_\+\+AgivenB}} (double BgivenA, double A, double B)
+\item 
+double \mbox{\hyperlink{bayes__theorem_8cpp_abb4f22dc05887c2259fdfc55c687598f}{bayes\+\_\+\+BgivenA}} (double AgivenB, double A, double B)
+\item 
+int \mbox{\hyperlink{bayes__theorem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Bayes\%27_theorem}{\texttt{ Bayes\textquotesingle{} theorem}} 
+
+Bayes\textquotesingle{} theorem allows one to find $P(A|B)$ given $P(B|A)$ or $P(B|A)$ given $P(A|B)$ and $P(A)$ and $P(B)$.~\newline
+Note that $P(A|B)$ is read \textquotesingle{}The probability of A given that the event B has occured\textquotesingle{}. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bayes__theorem_8cpp_a655bfe51252468d232dc639a340656ba}\index{bayes\_theorem.cpp@{bayes\_theorem.cpp}!bayes\_AgivenB@{bayes\_AgivenB}}
+\index{bayes\_AgivenB@{bayes\_AgivenB}!bayes\_theorem.cpp@{bayes\_theorem.cpp}}
+\doxysubsubsection{\texorpdfstring{bayes\_AgivenB()}{bayes\_AgivenB()}}
+{\footnotesize\ttfamily \label{bayes__theorem_8cpp_a655bfe51252468d232dc639a340656ba} 
+double bayes\+\_\+\+AgivenB (\begin{DoxyParamCaption}\item[{double}]{BgivenA}{, }\item[{double}]{A}{, }\item[{double}]{B}{}\end{DoxyParamCaption})}
+
+returns P(A\texorpdfstring{$\vert$}{|}B) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{return}\ (BgivenA\ *\ A)\ /\ B;}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bayes__theorem_8cpp_abb4f22dc05887c2259fdfc55c687598f}\index{bayes\_theorem.cpp@{bayes\_theorem.cpp}!bayes\_BgivenA@{bayes\_BgivenA}}
+\index{bayes\_BgivenA@{bayes\_BgivenA}!bayes\_theorem.cpp@{bayes\_theorem.cpp}}
+\doxysubsubsection{\texorpdfstring{bayes\_BgivenA()}{bayes\_BgivenA()}}
+{\footnotesize\ttfamily \label{bayes__theorem_8cpp_abb4f22dc05887c2259fdfc55c687598f} 
+double bayes\+\_\+\+BgivenA (\begin{DoxyParamCaption}\item[{double}]{AgivenB}{, }\item[{double}]{A}{, }\item[{double}]{B}{}\end{DoxyParamCaption})}
+
+returns P(B\texorpdfstring{$\vert$}{|}A) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ (AgivenB\ *\ B)\ /\ A;}
+\DoxyCodeLine{00022\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bayes__theorem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{bayes\_theorem.cpp@{bayes\_theorem.cpp}!main@{main}}
+\index{main@{main}!bayes\_theorem.cpp@{bayes\_theorem.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{bayes__theorem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ A\ =\ 0.01;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ B\ =\ 0.1;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ BgivenA\ =\ 0.9;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ AgivenB\ =\ \mbox{\hyperlink{bayes__theorem_8cpp_a655bfe51252468d232dc639a340656ba}{bayes\_AgivenB}}(BgivenA,\ A,\ B);}
+\DoxyCodeLine{00031\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}A\ given\ B\ =\ "{}}\ <<\ AgivenB\ <<\ std::endl;}
+\DoxyCodeLine{00032\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}B\ given\ A\ =\ "{}}\ <<\ \mbox{\hyperlink{bayes__theorem_8cpp_abb4f22dc05887c2259fdfc55c687598f}{bayes\_BgivenA}}(AgivenB,\ A,\ B)\ <<\ std::endl;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}

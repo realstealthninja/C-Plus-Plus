@@ -1,0 +1,125 @@
+\doxysection{range\+\_\+queries/persistent\+\_\+seg\+\_\+tree\+\_\+lazy\+\_\+prop.cpp File Reference}
+\hypertarget{persistent__seg__tree__lazy__prop_8cpp}{}\label{persistent__seg__tree__lazy__prop_8cpp}\index{range\_queries/persistent\_seg\_tree\_lazy\_prop.cpp@{range\_queries/persistent\_seg\_tree\_lazy\_prop.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Persistent_data_structure}{\texttt{ Persistent segment tree with range updates (lazy propagation)}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrange__queries_1_1per_seg_tree}{range\+\_\+queries\+::per\+Seg\+Tree}}
+\begin{DoxyCompactList}\small\item\em Range query here is range sum, but the code can be modified to make different queries like range max or min. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{range\+\_\+queries\+::per\+Seg\+Tree\+::\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerange__queries}{range\+\_\+queries}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{persistent__seg__tree__lazy__prop_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{persistent__seg__tree__lazy__prop_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Persistent_data_structure}{\texttt{ Persistent segment tree with range updates (lazy propagation)}} 
+
+A normal segment tree facilitates making point updates and range queries in logarithmic time. Lazy propagation preserves the logarithmic time with range updates. So, a segment tree with lazy propagation enables doing range updates and range queries in logarithmic time, but it doesn\textquotesingle{}t save any information about itself before the last update. A persistent data structure always preserves the previous version of itself when it is modified. That is, a new version of the segment tree is generated after every update. It saves all previous versions of itself (before every update) to facilitate doing range queries in any version. More memory is used ,but the logarithmic time is preserved because the new version points to the same nodes, that the previous version points to, that are not affected by the update. That is, only the nodes that are affected by the update and their ancestors are copied. The rest is copied using lazy propagation in the next queries. Thus preserving the logarithmic time because the number of nodes copied after any update is logarithmic.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/MSedra}{\texttt{ Magdy Sedra}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{persistent__seg__tree__lazy__prop_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{persistent\_seg\_tree\_lazy\_prop.cpp@{persistent\_seg\_tree\_lazy\_prop.cpp}!main@{main}}
+\index{main@{main}!persistent\_seg\_tree\_lazy\_prop.cpp@{persistent\_seg\_tree\_lazy\_prop.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{persistent__seg__tree__lazy__prop_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \mbox{\hyperlink{persistent__seg__tree__lazy__prop_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00321\ \}}
+
+\end{DoxyCode}
+\Hypertarget{persistent__seg__tree__lazy__prop_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{persistent\_seg\_tree\_lazy\_prop.cpp@{persistent\_seg\_tree\_lazy\_prop.cpp}!test@{test}}
+\index{test@{test}!persistent\_seg\_tree\_lazy\_prop.cpp@{persistent\_seg\_tree\_lazy\_prop.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{persistent__seg__tree__lazy__prop_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ std::vector<int64\_t>\ arr\ =\ \{-\/5,\ 2,\ 3,\ 11,\ -\/2,\ 7,\ 0,\ 1\};}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree}{range\_queries::perSegTree}}\ tree;}
+\DoxyCodeLine{00271\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Elements\ before\ any\ updates\ are\ \{"{}};}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ arr.size();\ ++i)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr[i];}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ arr.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00279\ \ \ \ \ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a6d3f2465a7c5803a1ff16c5378bcc5e4}{construct}}(}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ arr);\ \ \textcolor{comment}{//\ constructing\ the\ original\ segment\ tree\ (version\ =\ 0)}}
+\DoxyCodeLine{00281\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Querying\ range\ sum\ on\ version\ 0\ from\ index\ 2\ to\ 4\ =\ 3+11-\/2\ =\ "{}}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(2,\ 4,\ 0)\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00283\ \ \ \ \ std::cout}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Subtract\ 7\ from\ all\ elements\ from\ index\ 1\ to\ index\ 5\ inclusive\(\backslash\)n"{}};}
+\DoxyCodeLine{00285\ \ \ \ \ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6}{update}}(1,\ 5,\ -\/7);\ \ \textcolor{comment}{//\ subtracting\ 7\ from\ index\ 1\ to\ index\ 5}}
+\DoxyCodeLine{00286\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Elements\ of\ the\ segment\ tree\ whose\ version\ =\ 1\ (after\ 1\ "{}}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}update)\ are\ \{"{}};}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ arr.size();\ ++i)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ std::cout\ <<\ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(i,\ i,\ 1);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ arr.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00295\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Add\ 10\ to\ all\ elements\ from\ index\ 0\ to\ index\ 7\ inclusive\(\backslash\)n"{}};}
+\DoxyCodeLine{00296\ \ \ \ \ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6}{update}}(0,\ 7,\ 10);\ \ \textcolor{comment}{//\ adding\ 10\ to\ all\ elements}}
+\DoxyCodeLine{00297\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Elements\ of\ the\ segment\ tree\ whose\ version\ =\ 2\ (after\ 2\ "{}}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}updates)\ are\ \{"{}};}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ arr.size();\ ++i)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ std::cout\ <<\ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(i,\ i,\ 2);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ arr.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00306\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Number\ of\ segment\ trees\ (versions)\ now\ =\ "{}}\ <<\ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a0fe4e431f3e09c274ecd7d2d58dcb865}{size}}()}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00308\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Querying\ range\ sum\ on\ version\ 0\ from\ index\ 3\ to\ 5\ =\ 11-\/2+7\ =\ "{}}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(3,\ 5,\ 0)\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00310\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Querying\ range\ sum\ on\ version\ 1\ from\ index\ 3\ to\ 5\ =\ 4-\/9+0\ =\ "{}}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ tree.\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(3,\ 5,\ 1)\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00312\ \}}
+
+\end{DoxyCode}

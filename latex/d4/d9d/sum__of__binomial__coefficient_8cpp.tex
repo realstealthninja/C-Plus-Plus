@@ -1,0 +1,92 @@
+\doxysection{math/sum\+\_\+of\+\_\+binomial\+\_\+coefficient.cpp File Reference}
+\hypertarget{sum__of__binomial__coefficient_8cpp}{}\label{sum__of__binomial__coefficient_8cpp}\index{math/sum\_of\_binomial\_coefficient.cpp@{math/sum\_of\_binomial\_coefficient.cpp}}
+
+
+Algorithm to find sum of binomial coefficients of a given positive integer.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{namespacemath_ae1ca505751f5a6d3977b86372cfe75ea}{math\+::binomial\+Coeff\+Sum}} (uint64\+\_\+t n)
+\item 
+static void \mbox{\hyperlink{sum__of__binomial__coefficient_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{sum__of__binomial__coefficient_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithm to find sum of binomial coefficients of a given positive integer. 
+
+Given a positive integer n, the task is to find the sum of binomial coefficient i.\+e n\+C0 + n\+C1 + n\+C2 + ... + n\+Cn-\/1 + n\+Cn By induction, we can prove that the sum is equal to 2\texorpdfstring{$^\wedge$}{\string^}n \begin{DoxySeeAlso}{See also}
+more on \href{https://en.wikipedia.org/wiki/Binomial_coefficient\#Sums_of_the_binomial_coefficients}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Binomial\+\_\+coefficient\#\+Sums\+\_\+of\+\_\+the\+\_\+binomial\+\_\+coefficients}} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/muskan0719}{\texttt{ muskan0719}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sum__of__binomial__coefficient_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sum\_of\_binomial\_coefficient.cpp@{sum\_of\_binomial\_coefficient.cpp}!main@{main}}
+\index{main@{main}!sum\_of\_binomial\_coefficient.cpp@{sum\_of\_binomial\_coefficient.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sum__of__binomial__coefficient_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{sum__of__binomial__coefficient_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sum__of__binomial__coefficient_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{sum\_of\_binomial\_coefficient.cpp@{sum\_of\_binomial\_coefficient.cpp}!test@{test}}
+\index{test@{test}!sum\_of\_binomial\_coefficient.cpp@{sum\_of\_binomial\_coefficient.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{sum__of__binomial__coefficient_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function for testing binomial\+Coeff\+Sum function. test cases and assert statement. \begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_case\_1\ =\ \mbox{\hyperlink{namespacemath_ae1ca505751f5a6d3977b86372cfe75ea}{math::binomialCoeffSum}}(2);}
+\DoxyCodeLine{00039\ \ \ \ \ assert(test\_case\_1\ ==\ 4);}
+\DoxyCodeLine{00040\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\_case\_1\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_case\_2\ =\ \mbox{\hyperlink{namespacemath_ae1ca505751f5a6d3977b86372cfe75ea}{math::binomialCoeffSum}}(3);}
+\DoxyCodeLine{00043\ \ \ \ \ assert(test\_case\_2\ ==\ 8);}
+\DoxyCodeLine{00044\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\_case\_2\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_case\_3\ =\ \mbox{\hyperlink{namespacemath_ae1ca505751f5a6d3977b86372cfe75ea}{math::binomialCoeffSum}}(4);}
+\DoxyCodeLine{00047\ \ \ \ \ assert(test\_case\_3\ ==\ 16);}
+\DoxyCodeLine{00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\_case\_3\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_case\_4\ =\ \mbox{\hyperlink{namespacemath_ae1ca505751f5a6d3977b86372cfe75ea}{math::binomialCoeffSum}}(5);}
+\DoxyCodeLine{00051\ \ \ \ \ assert(test\_case\_4\ ==\ 32);}
+\DoxyCodeLine{00052\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\_case\_4\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_case\_5\ =\ \mbox{\hyperlink{namespacemath_ae1ca505751f5a6d3977b86372cfe75ea}{math::binomialCoeffSum}}(7);}
+\DoxyCodeLine{00055\ \ \ \ \ assert(test\_case\_5\ ==\ 128);}
+\DoxyCodeLine{00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\_case\_5\ Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

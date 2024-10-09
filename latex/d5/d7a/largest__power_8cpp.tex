@@ -1,0 +1,96 @@
+\doxysection{math/largest\+\_\+power.cpp File Reference}
+\hypertarget{largest__power_8cpp}{}\label{largest__power_8cpp}\index{math/largest\_power.cpp@{math/largest\_power.cpp}}
+
+
+Algorithm to find largest x such that p\texorpdfstring{$^\wedge$}{\string^}x divides n! (factorial) using Legendre\textquotesingle{}s Formula.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{namespacemath_afa39ec943a4836c878e1614fd89b146f}{math\+::largest\+Power}} (uint32\+\_\+t n, const uint16\+\_\+t \&p)
+\begin{DoxyCompactList}\small\item\em Function to calculate largest power. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{largest__power_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing largest\+Power function. test cases and assert statement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{largest__power_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithm to find largest x such that p\texorpdfstring{$^\wedge$}{\string^}x divides n! (factorial) using Legendre\textquotesingle{}s Formula. 
+
+Given an integer n and a prime number p, the task is to find the largest x such that p\texorpdfstring{$^\wedge$}{\string^}x (p raised to power x) divides n! (factorial). This will be done using Legendre\textquotesingle{}s formula\+: x = \mbox{[}n/(p\texorpdfstring{$^\wedge$}{\string^}1)\mbox{]} + \mbox{[}n/(p\texorpdfstring{$^\wedge$}{\string^}2)\mbox{]} + \mbox{[}n/(p\texorpdfstring{$^\wedge$}{\string^}3)\mbox{]} + \textbackslash{}ldots + 1 \begin{DoxySeeAlso}{See also}
+more on \href{https://math.stackexchange.com/questions/141196/highest-power-of-a-prime-p-dividing-n}{\texttt{ https\+://math.\+stackexchange.\+com/questions/141196/highest-\/power-\/of-\/a-\/prime-\/p-\/dividing-\/n}} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/uday6670}{\texttt{ uday6670}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{largest__power_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{largest\_power.cpp@{largest\_power.cpp}!main@{main}}
+\index{main@{main}!largest\_power.cpp@{largest\_power.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{largest__power_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \{\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{largest__power_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00078\ \}\ }
+
+\end{DoxyCode}
+\Hypertarget{largest__power_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{largest\_power.cpp@{largest\_power.cpp}!test@{test}}
+\index{test@{test}!largest\_power.cpp@{largest\_power.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{largest__power_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing largest\+Power function. test cases and assert statement. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ uint8\_t\ test\_case\_1\ =\ \mbox{\hyperlink{namespacemath_afa39ec943a4836c878e1614fd89b146f}{math::largestPower}}(5,2);}
+\DoxyCodeLine{00050\ \ \ \ \ assert(test\_case\_1==3);}
+\DoxyCodeLine{00051\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Test\ 1\ Passed!"{}}<<std::endl;}
+\DoxyCodeLine{00052\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ uint16\_t\ test\_case\_2\ =\ \mbox{\hyperlink{namespacemath_afa39ec943a4836c878e1614fd89b146f}{math::largestPower}}(10,3);}
+\DoxyCodeLine{00054\ \ \ \ \ assert(test\_case\_2==4);}
+\DoxyCodeLine{00055\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Test\ 2\ Passed!"{}}<<std::endl;}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ uint32\_t\ test\_case\_3\ =\ \mbox{\hyperlink{namespacemath_afa39ec943a4836c878e1614fd89b146f}{math::largestPower}}(25,5);}
+\DoxyCodeLine{00058\ \ \ \ \ assert(test\_case\_3==6);}
+\DoxyCodeLine{00059\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Test\ 3\ Passed!"{}}<<std::endl;}
+\DoxyCodeLine{00060\ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ uint32\_t\ test\_case\_4\ =\ \mbox{\hyperlink{namespacemath_afa39ec943a4836c878e1614fd89b146f}{math::largestPower}}(27,2);}
+\DoxyCodeLine{00062\ \ \ \ \ assert(test\_case\_4==23);}
+\DoxyCodeLine{00063\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Test\ 4\ Passed!"{}}<<std::endl;}
+\DoxyCodeLine{00064\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ uint16\_t\ test\_case\_5\ =\ \mbox{\hyperlink{namespacemath_afa39ec943a4836c878e1614fd89b146f}{math::largestPower}}(7,3);}
+\DoxyCodeLine{00066\ \ \ \ \ assert(test\_case\_5==2);}
+\DoxyCodeLine{00067\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Test\ 5\ Passed!"{}}<<std::endl;}
+\DoxyCodeLine{00068\ \}\ }
+
+\end{DoxyCode}

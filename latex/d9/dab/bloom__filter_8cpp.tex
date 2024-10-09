@@ -1,0 +1,181 @@
+\doxysection{data\+\_\+structures/bloom\+\_\+filter.cpp File Reference}
+\hypertarget{bloom__filter_8cpp}{}\label{bloom__filter_8cpp}\index{data\_structures/bloom\_filter.cpp@{data\_structures/bloom\_filter.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Bloom_filter}{\texttt{ Bloom Filter}} generic implementation in C++  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1_bitset}{data\+\_\+structures\+::\+Bitset}}
+\begin{DoxyCompactList}\small\item\em Simple bitset implementation for bloom filter. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdata__structures_1_1_bloom_filter}{data\+\_\+structures\+::\+Bloom\+Filter$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Bloom filter template class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::size\+\_\+t \mbox{\hyperlink{namespacedata__structures_a271c753baf6dc5ac6f19fa03c5873eb4}{data\+\_\+structures\+::hash\+DJB2}} (std\+::string const \&s)
+\begin{DoxyCompactList}\small\item\em \href{http://www.cse.yorku.ca/~oz/hash.html}{\texttt{ Function djb2}} to get hash for the given string. \end{DoxyCompactList}\item 
+static std\+::size\+\_\+t \mbox{\hyperlink{namespacedata__structures_a35eb2bc3edbb52f9c5f0b1e51046ef15}{data\+\_\+structures\+::hash\+Str}} (std\+::string const \&s)
+\begin{DoxyCompactList}\small\item\em \href{https://stackoverflow.com/questions/8317508/hash-function-for-a-string}{\texttt{ Hash function}}, to get hash for the given string. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{namespacedata__structures_aa6deb9d4a0f63ea97aef3dce4c6c6677}{data\+\_\+structures\+::hash\+Int\+\_\+1}} (int x)
+\begin{DoxyCompactList}\small\item\em \href{https://stackoverflow.com/questions/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key}{\texttt{ Hash function for test}} \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{namespacedata__structures_a9ed236419034917c5270c1dccd220b5c}{data\+\_\+structures\+::hash\+Int\+\_\+2}} (int x)
+\begin{DoxyCompactList}\small\item\em \href{https://stackoverflow.com/questions/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key}{\texttt{ Hash function for test}} \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{bloom__filter_8cpp_a71f57bf262fe55db928b19dc124cc0d8}{test\+\_\+bloom\+\_\+filter\+\_\+string}} ()
+\begin{DoxyCompactList}\small\item\em Test for bloom filter with string as generic type. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{bloom__filter_8cpp_a30edc0d2bb59c185baec81d69d20ed3b}{test\+\_\+bloom\+\_\+filter\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Test for bloom filter with int as generic type. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{bloom__filter_8cpp_a6e509afe40db07681f676ad8da4fb905}{test\+\_\+bitset}} ()
+\begin{DoxyCompactList}\small\item\em Test for bitset. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{bloom__filter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Bloom_filter}{\texttt{ Bloom Filter}} generic implementation in C++ 
+
+A Bloom filter is a space-\/efficient probabilistic data structure, a query returns either "{}possibly in set"{} or "{}definitely not in set"{}.
+
+More generally, fewer than 10 bits per element are required for a 1\% false positive probability, independent of the size or number of elements in the set.
+
+It helps us to not make an "{}expensive operations"{}, like disk IO -\/ we can use bloom filter to check incoming request, and with a good probability get an answer of bloom filter, that we don\textquotesingle{}t need to make our "{}expensive operation"{}
+
+\href{https://stackoverflow.com/a/30247022}{\texttt{ Very good use case example}}
+
+Basic bloom filter doesn\textquotesingle{}t support deleting of elements, so we don\textquotesingle{}t need to implement deletion in bloom filter and bitset in our case. \begin{DoxyAuthor}{Author}
+\href{https://github.com/DanArmor}{\texttt{ Dan\+Armor}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bloom__filter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{bloom\_filter.cpp@{bloom\_filter.cpp}!main@{main}}
+\index{main@{main}!bloom\_filter.cpp@{bloom\_filter.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{bloom__filter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{bloom__filter_8cpp_a6e509afe40db07681f676ad8da4fb905}{test\_bitset}}();\ \ \textcolor{comment}{//\ run\ test\ for\ bitset,\ because\ bloom\ filter\ is\ depending\ on\ it}}
+\DoxyCodeLine{00286\ \ \ \ \ \mbox{\hyperlink{bloom__filter_8cpp_a71f57bf262fe55db928b19dc124cc0d8}{test\_bloom\_filter\_string}}();}
+\DoxyCodeLine{00287\ \ \ \ \ \mbox{\hyperlink{bloom__filter_8cpp_a30edc0d2bb59c185baec81d69d20ed3b}{test\_bloom\_filter\_int}}();}
+\DoxyCodeLine{00288\ \ \ \ \ }
+\DoxyCodeLine{00289\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00291\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bloom__filter_8cpp_a6e509afe40db07681f676ad8da4fb905}\index{bloom\_filter.cpp@{bloom\_filter.cpp}!test\_bitset@{test\_bitset}}
+\index{test\_bitset@{test\_bitset}!bloom\_filter.cpp@{bloom\_filter.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_bitset()}{test\_bitset()}}
+{\footnotesize\ttfamily \label{bloom__filter_8cpp_a6e509afe40db07681f676ad8da4fb905} 
+static void test\+\_\+bitset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test for bitset. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_bitset}{data\_structures::Bitset}}\ set(2);}
+\DoxyCodeLine{00269\ \ \ \ \ std::vector<std::size\_t>\ toCheck\{0,\ 1,\ 5,\ 8,\ 63,\ 64,\ 67,\ 127\};}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ :\ toCheck)\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ set.add(x);}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ assert(set.contains(x));}
+\DoxyCodeLine{00273\ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ assert(set.contains(128)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00275\ \ \ \ \ assert(set.contains(256)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00276\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bloom__filter_8cpp_a30edc0d2bb59c185baec81d69d20ed3b}\index{bloom\_filter.cpp@{bloom\_filter.cpp}!test\_bloom\_filter\_int@{test\_bloom\_filter\_int}}
+\index{test\_bloom\_filter\_int@{test\_bloom\_filter\_int}!bloom\_filter.cpp@{bloom\_filter.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_bloom\_filter\_int()}{test\_bloom\_filter\_int()}}
+{\footnotesize\ttfamily \label{bloom__filter_8cpp_a30edc0d2bb59c185baec81d69d20ed3b} 
+static void test\+\_\+bloom\+\_\+filter\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test for bloom filter with int as generic type. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter}{data\_structures::BloomFilter<int>}}\ filter(}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ 20,\ \{\mbox{\hyperlink{namespacedata__structures_aa6deb9d4a0f63ea97aef3dce4c6c6677}{data\_structures::hashInt\_1}},\ \mbox{\hyperlink{namespacedata__structures_a9ed236419034917c5270c1dccd220b5c}{data\_structures::hashInt\_2}}\});}
+\DoxyCodeLine{00249\ \ \ \ \ std::vector<int>\ toCheck\{100,\ 200,\ 300,\ 50\};}
+\DoxyCodeLine{00250\ \ \ \ \ std::vector<int>\ toFalse\{1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8\};}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ :\ toCheck)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ filter.add(x);}
+\DoxyCodeLine{00253\ \ \ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ :\ toFalse)\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ assert(filter.contains(x)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ :\ toCheck)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ assert(filter.contains(x));}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bloom__filter_8cpp_a71f57bf262fe55db928b19dc124cc0d8}\index{bloom\_filter.cpp@{bloom\_filter.cpp}!test\_bloom\_filter\_string@{test\_bloom\_filter\_string}}
+\index{test\_bloom\_filter\_string@{test\_bloom\_filter\_string}!bloom\_filter.cpp@{bloom\_filter.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_bloom\_filter\_string()}{test\_bloom\_filter\_string()}}
+{\footnotesize\ttfamily \label{bloom__filter_8cpp_a71f57bf262fe55db928b19dc124cc0d8} 
+static void test\+\_\+bloom\+\_\+filter\+\_\+string (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test for bloom filter with string as generic type. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter}{data\_structures::BloomFilter<std::string>}}\ filter(}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ 10,\ \{\mbox{\hyperlink{namespacedata__structures_a271c753baf6dc5ac6f19fa03c5873eb4}{data\_structures::hashDJB2}},\ \mbox{\hyperlink{namespacedata__structures_a35eb2bc3edbb52f9c5f0b1e51046ef15}{data\_structures::hashStr}}\});}
+\DoxyCodeLine{00229\ \ \ \ \ std::vector<std::string>\ toCheck\{\textcolor{stringliteral}{"{}hello"{}},\ \textcolor{stringliteral}{"{}world"{}},\ \textcolor{stringliteral}{"{}!"{}}\};}
+\DoxyCodeLine{00230\ \ \ \ \ std::vector<std::string>\ toFalse\{\textcolor{stringliteral}{"{}false"{}},\ \textcolor{stringliteral}{"{}world2"{}},\ \textcolor{stringliteral}{"{}!!!"{}}\};}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ x\ :\ toCheck)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ filter.add(x);}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ x\ :\ toFalse)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ assert(filter.contains(x)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ x\ :\ toCheck)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ assert(filter.contains(x));}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \}}
+
+\end{DoxyCode}

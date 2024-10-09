@@ -1,0 +1,146 @@
+\doxysection{numerical\+\_\+methods/fast\+\_\+fourier\+\_\+transform.cpp File Reference}
+\hypertarget{fast__fourier__transform_8cpp}{}\label{fast__fourier__transform_8cpp}\index{numerical\_methods/fast\_fourier\_transform.cpp@{numerical\_methods/fast\_fourier\_transform.cpp}}
+
+
+\href{https://medium.com/@aiswaryamathur/understanding-fast-fouriertransform-from-scratch-to-solve-polynomial-multiplication-8018d511162f}{\texttt{ A fast Fourier transform (FFT)}} is an algorithm that computes the discrete Fourier transform (DFT) of a sequence, or its inverse (IDFT).  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacenumerical__methods}{numerical\+\_\+methods}}
+\begin{DoxyCompactList}\small\item\em for assert \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150}{numerical\+\_\+methods\+::\+Fast\+Fourier\+Transform}} (std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}p, uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Fast\+Fourier\+Transform is a recursive function which returns list of complex numbers. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{fast__fourier__transform_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fast__fourier__transform_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://medium.com/@aiswaryamathur/understanding-fast-fouriertransform-from-scratch-to-solve-polynomial-multiplication-8018d511162f}{\texttt{ A fast Fourier transform (FFT)}} is an algorithm that computes the discrete Fourier transform (DFT) of a sequence, or its inverse (IDFT). 
+
+This algorithm has application in use case scenario where a user wants to find points of a function in a short time by just using the coefficients of the polynomial function. It can be also used to find inverse fourier transform by just switching the value of omega. Time complexity this algorithm computes the DFT in O(nlogn) time in comparison to traditional O(n\texorpdfstring{$^\wedge$}{\string^}2). \begin{DoxyAuthor}{Author}
+\href{https://github.com/ameyachawlaggsipu}{\texttt{ Ameya Chawla}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fast__fourier__transform_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\index{fast\_fourier\_transform.cpp@{fast\_fourier\_transform.cpp}!main@{main}}
+\index{main@{main}!fast\_fourier\_transform.cpp@{fast\_fourier\_transform.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fast__fourier__transform_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char const \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) calls automated test function to test the working of fast fourier transform. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{fast__fourier__transform_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ \ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ with\ 2\ defined\ test\ cases}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00166\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fast__fourier__transform_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{fast\_fourier\_transform.cpp@{fast\_fourier\_transform.cpp}!test@{test}}
+\index{test@{test}!fast\_fourier\_transform.cpp@{fast\_fourier\_transform.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{fast__fourier__transform_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+Declaring two test cases and checking for the error in predicted and true value is less than 0.\+000000000001. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Test case 1
+
+Test case 2
+
+True Answer for test case 1
+
+True Answer for test case 2
+
+Temporary variable used to delete memory location of o1
+
+Temporary variable used to delete memory location of o2
+
+Comparing for both real and imaginary values for test case 1
+
+Comparing for both real and imaginary values for test case 2
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{/*\ descriptions\ of\ the\ following\ test\ */}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{auto}\ *t1\ =\ \textcolor{keyword}{new}\ std::complex<double>[2];\ \ \textcolor{comment}{///\ Test\ case\ 1 }}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{auto}\ *t2\ =\ \textcolor{keyword}{new}\ std::complex<double>[4];\ \ \textcolor{comment}{///\ Test\ case\ 2 }}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ t1[0]\ =\ \{1,\ 0\};}
+\DoxyCodeLine{00111\ \ \ \ \ t1[1]\ =\ \{2,\ 0\};}
+\DoxyCodeLine{00112\ \ \ \ \ t2[0]\ =\ \{1,\ 0\};}
+\DoxyCodeLine{00113\ \ \ \ \ t2[1]\ =\ \{2,\ 0\};}
+\DoxyCodeLine{00114\ \ \ \ \ t2[2]\ =\ \{3,\ 0\};}
+\DoxyCodeLine{00115\ \ \ \ \ t2[3]\ =\ \{4,\ 0\};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ uint8\_t\ n1\ =\ 2;}
+\DoxyCodeLine{00118\ \ \ \ \ uint8\_t\ n2\ =\ 4;}
+\DoxyCodeLine{00119\ \ \ \ \ std::vector<std::complex<double>>\ r1\ =\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \{3,\ 0\},\ \{-\/1,\ 0\}\};\ \ \textcolor{comment}{///\ True\ Answer\ for\ test\ case\ 1 }}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ std::vector<std::complex<double>>\ r2\ =\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \{10,\ 0\},\ \{-\/2,\ -\/2\},\ \{-\/2,\ 0\},\ \{-\/2,\ 2\}\};\ \ \textcolor{comment}{///\ True\ Answer\ for\ test\ case\ 2 }}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ std::complex<double>\ *o1\ =\ \mbox{\hyperlink{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150}{numerical\_methods::FastFourierTransform}}(t1,\ n1);}
+\DoxyCodeLine{00126\ \ \ \ \ std::complex<double>\ *t3\ =}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ o1;\ \ \textcolor{comment}{///\ Temporary\ variable\ used\ to\ delete\ memory\ location\ of\ o1 }}
+\DoxyCodeLine{00128\ \ \ \ \ std::complex<double>\ *o2\ =\ \mbox{\hyperlink{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150}{numerical\_methods::FastFourierTransform}}(t2,\ n2);}
+\DoxyCodeLine{00129\ \ \ \ \ std::complex<double>\ *t4\ =}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ o2;\ \ \textcolor{comment}{///\ Temporary\ variable\ used\ to\ delete\ memory\ location\ of\ o2 }}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ n1;\ i++)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ assert((r1[i].real()\ -\/\ o1-\/>real()\ <\ 0.000000000001)\ \&\&}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (r1[i].imag()\ -\/\ o1-\/>imag()\ <}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.000000000001));\ \ \textcolor{comment}{///\ Comparing\ for\ both\ real\ and\ imaginary }\textcolor{comment}{}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ values\ for\ test\ case\ 1 }}
+\DoxyCodeLine{00136\ \textcolor{comment}{}\ \ \ \ \ \ \ \ o1++;}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ n2;\ i++)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ assert((r2[i].real()\ -\/\ o2-\/>real()\ <\ 0.000000000001)\ \&\&}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (r2[i].imag()\ -\/\ o2-\/>imag()\ <}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.000000000001));\ \ \textcolor{comment}{///\ Comparing\ for\ both\ real\ and\ imaginary }\textcolor{comment}{}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ values\ for\ test\ case\ 2 }}
+\DoxyCodeLine{00144\ \textcolor{comment}{}\ \ \ \ \ \ \ \ o2++;}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{delete}[]\ t1;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{delete}[]\ t2;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{delete}[]\ t3;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{delete}[]\ t4;}
+\DoxyCodeLine{00151\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00152\ \}}
+
+\end{DoxyCode}

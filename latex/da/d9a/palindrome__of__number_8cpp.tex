@@ -1,0 +1,50 @@
+\doxysection{others/palindrome\+\_\+of\+\_\+number.cpp File Reference}
+\hypertarget{palindrome__of__number_8cpp}{}\label{palindrome__of__number_8cpp}\index{others/palindrome\_of\_number.cpp@{others/palindrome\_of\_number.cpp}}
+
+
+Check if a number is \href{https://en.wikipedia.org/wiki/Palindrome}{\texttt{ palindrome}} or not.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{palindrome__of__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Check if a number is \href{https://en.wikipedia.org/wiki/Palindrome}{\texttt{ palindrome}} or not. 
+
+This program cheats by using the STL library\textquotesingle{}s std\+::reverse function. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{palindrome__of__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{palindrome\_of\_number.cpp@{palindrome\_of\_number.cpp}!main@{main}}
+\index{main@{main}!palindrome\_of\_number.cpp@{palindrome\_of\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{palindrome__of__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ num;}
+\DoxyCodeLine{00021\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ number\ =\ "{}};}
+\DoxyCodeLine{00022\ \ \ \ \ std::cin\ >>\ num;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ s1\ =\ std::to\_string(num);\ \ \textcolor{comment}{//\ convert\ number\ to\ string}}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ s2\ =\ s1;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ std::reverse(s1.begin(),\ s1.end());\ \ \textcolor{comment}{//\ reverse\ the\ string}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (s1\ ==\ s2)\ \ \textcolor{comment}{//\ check\ if\ reverse\ and\ original\ string\ are\ identical}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}false"{}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,300 @@
+\doxysection{others/smallest\+\_\+circle.cpp File Reference}
+\hypertarget{smallest__circle_8cpp}{}\label{smallest__circle_8cpp}\index{others/smallest\_circle.cpp@{others/smallest\_circle.cpp}}
+
+
+Get centre and radius of the \href{https://en.wikipedia.org/wiki/Smallest-circle_problem}{\texttt{ smallest circle}} that circumscribes given set of points.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_point}{Point}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{Lenght\+Line}} (const \mbox{\hyperlink{struct_point}{Point}} \&A, const \mbox{\hyperlink{struct_point}{Point}} \&B)
+\item 
+double \mbox{\hyperlink{smallest__circle_8cpp_a94682a4a70d5906857ca09de5b9fb2cc}{Triangle\+Area}} (const \mbox{\hyperlink{struct_point}{Point}} \&A, const \mbox{\hyperlink{struct_point}{Point}} \&B, const \mbox{\hyperlink{struct_point}{Point}} \&C)
+\item 
+bool \mbox{\hyperlink{smallest__circle_8cpp_aee6d48762c1dfb9f14627927f0c16fad}{Point\+In\+Circle}} (const std\+::vector$<$ \mbox{\hyperlink{struct_point}{Point}} $>$ \&P, const \mbox{\hyperlink{struct_point}{Point}} \&Center, double R)
+\item 
+double \mbox{\hyperlink{smallest__circle_8cpp_a0b0676df8e4da7a08c7ccaecea344903}{circle}} (const std\+::vector$<$ \mbox{\hyperlink{struct_point}{Point}} $>$ \&P)
+\item 
+void \mbox{\hyperlink{smallest__circle_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+void \mbox{\hyperlink{smallest__circle_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\item 
+void \mbox{\hyperlink{smallest__circle_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}} ()
+\item 
+int \mbox{\hyperlink{smallest__circle_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Get centre and radius of the \href{https://en.wikipedia.org/wiki/Smallest-circle_problem}{\texttt{ smallest circle}} that circumscribes given set of points. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://www.nayuki.io/page/smallest-enclosing-circle}{\texttt{ other implementation}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{smallest__circle_8cpp_a0b0676df8e4da7a08c7ccaecea344903}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!circle@{circle}}
+\index{circle@{circle}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{circle()}{circle()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_a0b0676df8e4da7a08c7ccaecea344903} 
+double circle (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{struct_point}{Point}} $>$ \&}]{P}{}\end{DoxyParamCaption})}
+
+Find the centre and radius of a circle enclosing a set of points.~\newline
+The function returns the radius of the circle and prints the coordinated of the centre of the circle. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em P} & vector of points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+radius of the circle 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ minR\ =\ INFINITY;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ R;}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ C;}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ minC;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{/*\ This\ code\ is\ invalid\ and\ does\ not\ give\ correct\ result\ for\ TEST\ 3\ */}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ for\ each\ point\ in\ the\ list}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ P.size()\ -\/\ 2;\ i++)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ every\ subsequent\ point\ in\ the\ list}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i\ +\ 1;\ j\ <\ P.size();\ j++)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ every\ subsequent\ point\ in\ the\ list}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ j\ +\ 1;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ <\ P.size();\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ here,\ we\ now\ have\ picked\ three\ points\ from\ the\ given\ set\ of}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ points\ that\ we\ can\ use}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ viz.,\ P[i],\ P[j]\ and\ P[k]}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C.x\ =\ -\/0.5\ *\ ((P[i].y\ *\ (P[j].x\ *\ P[j].x\ +\ P[j].y\ *\ P[j].y\ -\/}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ -\/\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y)\ +}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[j].y\ *\ (P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ +\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ -\/}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[i].x\ *\ P[i].x\ -\/\ P[i].y\ *\ P[i].y)\ +}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ *\ (P[i].x\ *\ P[i].x\ +\ P[i].y\ *\ P[i].y\ -\/}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[j].x\ *\ P[j].x\ -\/\ P[j].y\ *\ P[j].y))\ /}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (P[i].x\ *\ (P[j].y\ -\/\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y)\ +}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[j].x\ *\ (P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ -\/\ P[i].y)\ +}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ *\ (P[i].y\ -\/\ P[j].y)));}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ =\ 0.5\ *\ ((P[i].x\ *\ (P[j].x\ *\ P[j].x\ +\ P[j].y\ *\ P[j].y\ -\/}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ -\/\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y)\ +}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[j].x\ *\ (P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ +\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ *\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ -\/}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[i].x\ *\ P[i].x\ -\/\ P[i].y\ *\ P[i].y)\ +}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ *\ (P[i].x\ *\ P[i].x\ +\ P[i].y\ *\ P[i].y\ -\/}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[j].x\ *\ P[j].x\ -\/\ P[j].y\ *\ P[j].y))\ /}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (P[i].x\ *\ (P[j].y\ -\/\ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y)\ +}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[j].x\ *\ (P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].y\ -\/\ P[i].y)\ +}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}].x\ *\ (P[i].y\ -\/\ P[j].y)));}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R\ =\ (\mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(P[i],\ P[j])\ *\ \mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(P[j],\ P[k])\ *}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(P[k],\ P[i]))\ /}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (4\ *\ \mbox{\hyperlink{smallest__circle_8cpp_a94682a4a70d5906857ca09de5b9fb2cc}{TriangleArea}}(P[i],\ P[j],\ P[k]));}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{smallest__circle_8cpp_aee6d48762c1dfb9f14627927f0c16fad}{PointInCircle}}(P,\ C,\ R))\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (R\ <=\ minR)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minR\ =\ R;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minC\ =\ C;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ for\ each\ point\ in\ the\ list}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ P.size()\ -\/\ 1;\ i++)}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ every\ subsequent\ point\ in\ the\ list}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i\ +\ 1;\ j\ <\ P.size();\ j++)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ for\ diameterically\ opposite\ points}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ C.x\ =\ (P[i].x\ +\ P[j].x)\ /\ 2;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ C.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ =\ (P[i].y\ +\ P[j].y)\ /\ 2;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ R\ =\ \mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(C,\ P[i]);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{smallest__circle_8cpp_aee6d48762c1dfb9f14627927f0c16fad}{PointInCircle}}(P,\ C,\ R))\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (R\ <=\ minR)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minR\ =\ R;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minC\ =\ C;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ std::cout\ <<\ minC.x\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ minC.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ <<\ std::endl;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ minR;}
+\DoxyCodeLine{00151\ \}}
+
+\end{DoxyCode}
+\Hypertarget{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!LenghtLine@{LenghtLine}}
+\index{LenghtLine@{LenghtLine}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{LenghtLine()}{LenghtLine()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a} 
+double Lenght\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{A}{, }\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{B}{}\end{DoxyParamCaption})}
+
+Compute the Euclidian distance between two points $A\equiv(x_1,y_1)$ and $B\equiv(x_2,y_2)$ using the formula\+: \[d=\sqrt{\left(x_1-x_2\right)^2+\left(y_1-y_2\right)^2}\]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em A} & point A \\
+\hline
+\mbox{\texttt{ in}}  & {\em B} & point B \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ditance 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ dx\ =\ B.x\ -\/\ A.x;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ dy\ =\ B.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ -\/\ A.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt((dx\ *\ dx)\ +\ (dy\ *\ dy));}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{smallest__circle_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!main@{main}}
+\index{main@{main}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main program 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{smallest__circle_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00200\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00201\ \ \ \ \ \mbox{\hyperlink{smallest__circle_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();}
+\DoxyCodeLine{00202\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00203\ \ \ \ \ \mbox{\hyperlink{smallest__circle_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}}();}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00205\ \}}
+
+\end{DoxyCode}
+\Hypertarget{smallest__circle_8cpp_aee6d48762c1dfb9f14627927f0c16fad}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!PointInCircle@{PointInCircle}}
+\index{PointInCircle@{PointInCircle}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{PointInCircle()}{PointInCircle()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_aee6d48762c1dfb9f14627927f0c16fad} 
+bool Point\+In\+Circle (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{struct_point}{Point}} $>$ \&}]{P}{, }\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{Center}{, }\item[{double}]{R}{}\end{DoxyParamCaption})}
+
+Check if a set of points lie within given circle. This is true if the distance of all the points from the centre of the circle is less than the radius of the circle 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em P} & set of points to check \\
+\hline
+\mbox{\texttt{ in}}  & {\em Center} & coordinates to centre of the circle \\
+\hline
+\mbox{\texttt{ in}}  & {\em R} & radius of the circle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if P lies on or within the circle 
+
+False if P lies outside the circle 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ P.size();\ i++)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(P[i],\ Center)\ >\ R)}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{smallest__circle_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!test@{test}}
+\index{test@{test}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test case\+: result should be\+: ~\newline
+ Circle with ~\newline
+ radius 3.\+318493136080724 ~\newline
+ centre at (3.\+0454545454545454, 1.\+3181818181818181) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ std::vector<Point>\ Pv;}
+\DoxyCodeLine{00160\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(0,\ 0));}
+\DoxyCodeLine{00161\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(5,\ 4));}
+\DoxyCodeLine{00162\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(1,\ 3));}
+\DoxyCodeLine{00163\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(4,\ 1));}
+\DoxyCodeLine{00164\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(3,\ -\/2));}
+\DoxyCodeLine{00165\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{smallest__circle_8cpp_a0b0676df8e4da7a08c7ccaecea344903}{circle}}(Pv)\ <<\ std::endl;}
+\DoxyCodeLine{00166\ \}}
+
+\end{DoxyCode}
+\Hypertarget{smallest__circle_8cpp_a0283886819c7c140a023582b7269e2d0}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!test2@{test2}}
+\index{test2@{test2}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test case\+: result should be\+: ~\newline
+ Circle with ~\newline
+ radius 1.\+4142135623730951 ~\newline
+ centre at (1.\+0, 1.\+0) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ std::vector<Point>\ Pv;}
+\DoxyCodeLine{00175\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(0,\ 0));}
+\DoxyCodeLine{00176\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(0,\ 2));}
+\DoxyCodeLine{00177\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(2,\ 2));}
+\DoxyCodeLine{00178\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(2,\ 0));}
+\DoxyCodeLine{00179\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{smallest__circle_8cpp_a0b0676df8e4da7a08c7ccaecea344903}{circle}}(Pv)\ <<\ std::endl;}
+\DoxyCodeLine{00180\ \}}
+
+\end{DoxyCode}
+\Hypertarget{smallest__circle_8cpp_a6d0455dd5c30adda100e95f0423c786e}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!test3@{test3}}
+\index{test3@{test3}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_a6d0455dd5c30adda100e95f0423c786e} 
+void test3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test case\+: result should be\+: ~\newline
+ Circle with ~\newline
+ radius 1.\+821078397711709 ~\newline
+ centre at (2.\+142857142857143, 1.\+7857142857142856) \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]This test fails \end{DoxyRefDesc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00189\ \ \ \ \ std::vector<Point>\ Pv;}
+\DoxyCodeLine{00190\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(0.5,\ 1));}
+\DoxyCodeLine{00191\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(3.5,\ 3));}
+\DoxyCodeLine{00192\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(2.5,\ 0));}
+\DoxyCodeLine{00193\ \ \ \ \ Pv.push\_back(\mbox{\hyperlink{struct_point}{Point}}(2,\ 1.5));}
+\DoxyCodeLine{00194\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{smallest__circle_8cpp_a0b0676df8e4da7a08c7ccaecea344903}{circle}}(Pv)\ <<\ std::endl;}
+\DoxyCodeLine{00195\ \}}
+
+\end{DoxyCode}
+\Hypertarget{smallest__circle_8cpp_a94682a4a70d5906857ca09de5b9fb2cc}\index{smallest\_circle.cpp@{smallest\_circle.cpp}!TriangleArea@{TriangleArea}}
+\index{TriangleArea@{TriangleArea}!smallest\_circle.cpp@{smallest\_circle.cpp}}
+\doxysubsubsection{\texorpdfstring{TriangleArea()}{TriangleArea()}}
+{\footnotesize\ttfamily \label{smallest__circle_8cpp_a94682a4a70d5906857ca09de5b9fb2cc} 
+double Triangle\+Area (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{A}{, }\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{B}{, }\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{C}{}\end{DoxyParamCaption})}
+
+Compute the area of triangle formed by three points using \href{https://en.wikipedia.org/wiki/Heron\%27s_formula}{\texttt{ Heron\textquotesingle{}s formula}}. If the lengths of the sides of the triangle are $a,\,b,\,c$ and $s=\displaystyle\frac{a+b+c}{2}$ is the semi-\/perimeter then the area is given by \[A=\sqrt{s(s-a)(s-b)(s-c)}\] 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em A} & vertex A \\
+\hline
+\mbox{\texttt{ in}}  & {\em B} & vertex B \\
+\hline
+\mbox{\texttt{ in}}  & {\em C} & vertex C \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+area of triangle 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ \mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(A,\ B);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ b\ =\ \mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(B,\ C);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ c\ =\ \mbox{\hyperlink{smallest__circle_8cpp_a3cbebd6f4d2cdf227663c67fe41ba12a}{LenghtLine}}(C,\ A);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ (a\ +\ b\ +\ c)\ /\ 2;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(p\ *\ (p\ -\/\ a)\ *\ (p\ -\/\ b)\ *\ (p\ -\/\ c));}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,248 @@
+\doxysection{range\+\_\+queries/heavy\+\_\+light\+\_\+decomposition.cpp File Reference}
+\hypertarget{heavy__light__decomposition_8cpp}{}\label{heavy__light__decomposition_8cpp}\index{range\_queries/heavy\_light\_decomposition.cpp@{range\_queries/heavy\_light\_decomposition.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Heavy_path_decomposition}{\texttt{ Heavy Light Decomposition}} implementation  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+Tree$<$ X $>$}}
+\begin{DoxyCompactList}\small\item\em A Basic \doxylink{classrange__queries_1_1heavy__light__decomposition_1_1_tree}{Tree}, which supports binary lifting. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+SG$<$ X $>$}}
+\begin{DoxyCompactList}\small\item\em Segment \doxylink{classrange__queries_1_1heavy__light__decomposition_1_1_tree}{Tree}, to store heavy chains. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD$<$ X $>$}}
+\begin{DoxyCompactList}\small\item\em The Heavy-\/\+Light Decomposition class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerange__queries}{range\+\_\+queries}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceheavy__light__decomposition}{heavy\+\_\+light\+\_\+decomposition}}
+\begin{DoxyCompactList}\small\item\em Heavy light decomposition algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\+\_\+1}} ()
+\item 
+static void \mbox{\hyperlink{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}{test\+\_\+2}} ()
+\item 
+static void \mbox{\hyperlink{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}{test\+\_\+3}} ()
+\item 
+int \mbox{\hyperlink{heavy__light__decomposition_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Heavy_path_decomposition}{\texttt{ Heavy Light Decomposition}} implementation 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/aneee004}{\texttt{ Aniruthan R}}
+\end{DoxyAuthor}
+Heavy-\/\+Light Decomposition is a technique on trees, that supports the following\+:
+\begin{DoxyEnumerate}
+\item Update node s, with a value v
+\item Return the (sum) of all node values on the simple path from a to b (sum) can also be replced with \doxylink{namespace_x_o_r}{XOR}, OR, AND, min, or max
+\end{DoxyEnumerate}
+
+The update is done in O(log n) time, and the query is done in O(log\texorpdfstring{$^\wedge$}{\string^}2 n) time with HLD where, n is the number of nodes
+
+The template type is the data type of the value stored in the nodes. If a non-\/primitive data-\/type is used as a template, the coressponding operators must be overloaded.
+
+An HLD object can only be created with a constant number of nodes, and it cannot be changed later. Creaty an empty instance is not supported.
+
+To start answering updates and queries,
+\begin{DoxyEnumerate}
+\item Create an instance of HLD$<$\+X$>$ object (obj), with the required data type.
+\item Read in the edge/parent information and update it with obj.\+add\+\_\+edge(). Note\+: The edges addes must be 0 indexed.
+\item Create a vector with initial node values, and call set\+\_\+node\+\_\+val() with it.
+\item Call obj.\+init() to populate the required information for supporting operations.
+\item Call obj.\+update(node, new\+\_\+val), to update the value at index \textquotesingle{}node\textquotesingle{} to the new value. Note\+: node must be 0 indexed
+\item Call obj.\+query(a, b) to get the (sum) of node values in the simple path from a to b. Note\+: a and b, must be 0 indexed.
+\end{DoxyEnumerate}
+
+Sample I/O at the bottom. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000011}{Todo}}]Support edge weight queries, by storing the edge weight value in it\textquotesingle{}s child algorithm verified by testing in CSES path queries\+: \href{https://cses.fi/problemset/task/1138}{\texttt{ https\+://cses.\+fi/problemset/task/1138}} \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{heavy__light__decomposition_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}!main@{main}}
+\index{main@{main}!heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{heavy__light__decomposition_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00635\ \ \ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\_1}}();}
+\DoxyCodeLine{00636\ \ \ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}{test\_2}}();}
+\DoxyCodeLine{00637\ \ \ \mbox{\hyperlink{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}{test\_3}}();}
+\DoxyCodeLine{00638\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00639\ \}}
+
+\end{DoxyCode}
+\Hypertarget{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}\index{heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}!test\_1@{test\_1}}
+\index{test\_1@{test\_1}!heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_1()}{test\_1()}}
+{\footnotesize\ttfamily \label{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817} 
+static void test\+\_\+1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test implementations \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00506\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1:\(\backslash\)n"{}};}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \ \ \textcolor{comment}{//\ Test\ details}}
+\DoxyCodeLine{00509\ \ \ \textcolor{keywordtype}{int}\ n\ =\ 5;}
+\DoxyCodeLine{00510\ \ \ std::vector<int64\_t>\ node\_values\ =\ \{4,\ 2,\ 5,\ 2,\ 1\};}
+\DoxyCodeLine{00511\ \ \ std::vector<std::vector<int>>\ edges\ =\ \{\{1,\ 2\},\ \{1,\ 3\},\ \{3,\ 4\},\ \{3,\ 5\}\};}
+\DoxyCodeLine{00512\ \ \ std::vector<std::vector<int>>\ queries\ =\ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \{2,\ 1,\ 4\},}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \{1,\ 3,\ 2\},}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \{2,\ 1,\ 4\},}
+\DoxyCodeLine{00516\ \ \ \};}
+\DoxyCodeLine{00517\ \ \ std::vector<int>\ expected\_result\ =\ \{11,\ 8\};}
+\DoxyCodeLine{00518\ \ \ std::vector<int>\ code\_result;}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\_queries::heavy\_light\_decomposition::HLD<int64\_t>}}\ hld(n);}
+\DoxyCodeLine{00521\ \ \ hld.set\_node\_val(node\_values);}
+\DoxyCodeLine{00522\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ edges[i][0],\ v\ =\ edges[i][1];}
+\DoxyCodeLine{00524\ \ \ \ \ hld.add\_edge(u\ -\/\ 1,\ v\ -\/\ 1);}
+\DoxyCodeLine{00525\ \ \ \}}
+\DoxyCodeLine{00526\ \ \ hld.init();}
+\DoxyCodeLine{00527\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&q\ :\ queries)\ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keywordtype}{int}\ type\ =\ q[0];}
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ 1)\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ q[1],\ x\ =\ q[2];}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ hld.update(p\ -\/\ 1,\ x);}
+\DoxyCodeLine{00532\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ 2)\ \{}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ q[1],\ b\ =\ q[2];}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ code\_result.push\_back(hld.query(a\ -\/\ 1,\ b\ -\/\ 1));}
+\DoxyCodeLine{00535\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00537\ \ \ \ \ \}}
+\DoxyCodeLine{00538\ \ \ \}}
+\DoxyCodeLine{00539\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ static\_cast<int>(expected\_result.size());\ i++)\ \{}
+\DoxyCodeLine{00540\ \ \ \ \ assert(expected\_result[i]\ ==\ code\_result[i]);}
+\DoxyCodeLine{00541\ \ \ \}}
+\DoxyCodeLine{00542\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 1\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00543\ \}}
+
+\end{DoxyCode}
+\Hypertarget{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}\index{heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}!test\_2@{test\_2}}
+\index{test\_2@{test\_2}!heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_2()}{test\_2()}}
+{\footnotesize\ttfamily \label{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d} 
+static void test\+\_\+2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Second test implementations \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00550\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2:\(\backslash\)n"{}};}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \ \ \textcolor{comment}{//\ Test\ details\ (Bamboo)}}
+\DoxyCodeLine{00553\ \ \ \textcolor{keywordtype}{int}\ n\ =\ 10;}
+\DoxyCodeLine{00554\ \ \ std::vector<int64\_t>\ node\_values\ =\ \{1,\ 8,\ 6,\ 8,\ 6,\ 2,\ 9,\ 2,\ 3,\ 2\};}
+\DoxyCodeLine{00555\ \ \ std::vector<std::vector<int>>\ edges\ =\ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \{10,\ 5\},\ \{6,\ 2\},\ \{10,\ 7\},\ \{5,\ 2\},\ \{3,\ 9\},\ \{8,\ 3\},\ \{1,\ 4\},\ \{6,\ 4\},\ \{8,\ 7\}\};}
+\DoxyCodeLine{00557\ \ \ std::vector<std::vector<int>>\ queries\ =\ \{}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \{2,\ 1,\ 10\},\ \{2,\ 1,\ 6\},\ \{1,\ 3,\ 4\},\ \{2,\ 1,\ 9\},\ \{1,\ 5,\ 3\},}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \{1,\ 7,\ 8\},\ \ \{2,\ 1,\ 4\},\ \{2,\ 1,\ 8\},\ \{1,\ 1,\ 4\},\ \{1,\ 2,\ 7\}\};}
+\DoxyCodeLine{00560\ \ \ std::vector<int>\ expected\_result\ =\ \{27,\ 11,\ 45,\ 9,\ 34\};}
+\DoxyCodeLine{00561\ \ \ std::vector<int>\ code\_result;}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\_queries::heavy\_light\_decomposition::HLD<int64\_t>}}\ hld(n);}
+\DoxyCodeLine{00564\ \ \ hld.set\_node\_val(node\_values);}
+\DoxyCodeLine{00565\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00566\ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ edges[i][0],\ v\ =\ edges[i][1];}
+\DoxyCodeLine{00567\ \ \ \ \ hld.add\_edge(u\ -\/\ 1,\ v\ -\/\ 1);}
+\DoxyCodeLine{00568\ \ \ \}}
+\DoxyCodeLine{00569\ \ \ hld.init();}
+\DoxyCodeLine{00570\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&q\ :\ queries)\ \{}
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keywordtype}{int}\ type\ =\ q[0];}
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ 1)\ \{}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ q[1],\ x\ =\ q[2];}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ hld.update(p\ -\/\ 1,\ x);}
+\DoxyCodeLine{00575\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ 2)\ \{}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ q[1],\ b\ =\ q[2];}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ code\_result.push\_back(hld.query(a\ -\/\ 1,\ b\ -\/\ 1));}
+\DoxyCodeLine{00578\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00580\ \ \ \ \ \}}
+\DoxyCodeLine{00581\ \ \ \}}
+\DoxyCodeLine{00582\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ static\_cast<int>(expected\_result.size());\ i++)\ \{}
+\DoxyCodeLine{00583\ \ \ \ \ assert(expected\_result[i]\ ==\ code\_result[i]);}
+\DoxyCodeLine{00584\ \ \ \}}
+\DoxyCodeLine{00585\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest2\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00586\ \}}
+
+\end{DoxyCode}
+\Hypertarget{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}\index{heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}!test\_3@{test\_3}}
+\index{test\_3@{test\_3}!heavy\_light\_decomposition.cpp@{heavy\_light\_decomposition.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_3()}{test\_3()}}
+{\footnotesize\ttfamily \label{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a} 
+static void test\+\_\+3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Third test implementations \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00593\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3:\(\backslash\)n"{}};}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00595\ \ \ \textcolor{comment}{//\ Test\ details}}
+\DoxyCodeLine{00596\ \ \ \textcolor{keywordtype}{int}\ n\ =\ 8;}
+\DoxyCodeLine{00597\ \ \ std::vector<int64\_t>\ node\_values\ =\ \{1,\ 8,\ 6,\ 8,\ 6,\ 2,\ 9,\ 2\};}
+\DoxyCodeLine{00598\ \ \ std::vector<std::vector<int>>\ edges\ =\ \{\{1,\ 2\},\ \{2,\ 3\},\ \{3,\ 4\},\ \{1,\ 5\},}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{6,\ 3\},\ \{7,\ 5\},\ \{8,\ 7\}\};}
+\DoxyCodeLine{00600\ \ \ std::vector<std::vector<int>>\ queries\ =\ \{}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \{2,\ 6,\ 8\},\ \{2,\ 3,\ 6\},\ \{1,\ 3,\ 4\},\ \{2,\ 7,\ 1\},\ \{1,\ 5,\ 3\},}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \{1,\ 7,\ 8\},\ \{2,\ 6,\ 4\},\ \{2,\ 7,\ 8\},\ \{1,\ 1,\ 4\},\ \{1,\ 2,\ 7\}\};}
+\DoxyCodeLine{00603\ \ \ std::vector<int>\ expected\_result\ =\ \{34,\ 8,\ 16,\ 14,\ 10\};}
+\DoxyCodeLine{00604\ \ \ std::vector<int>\ code\_result;}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\_queries::heavy\_light\_decomposition::HLD<int64\_t>}}\ hld(n);}
+\DoxyCodeLine{00607\ \ \ hld.set\_node\_val(node\_values);}
+\DoxyCodeLine{00608\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00609\ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ edges[i][0],\ v\ =\ edges[i][1];}
+\DoxyCodeLine{00610\ \ \ \ \ hld.add\_edge(u\ -\/\ 1,\ v\ -\/\ 1);}
+\DoxyCodeLine{00611\ \ \ \}}
+\DoxyCodeLine{00612\ \ \ hld.init();}
+\DoxyCodeLine{00613\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&q\ :\ queries)\ \{}
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{int}\ type\ =\ q[0];}
+\DoxyCodeLine{00615\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ 1)\ \{}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ q[1],\ x\ =\ q[2];}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ hld.update(p\ -\/\ 1,\ x);}
+\DoxyCodeLine{00618\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ 2)\ \{}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ q[1],\ b\ =\ q[2];}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ code\_result.push\_back(hld.query(a\ -\/\ 1,\ b\ -\/\ 1));}
+\DoxyCodeLine{00621\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00623\ \ \ \ \ \}}
+\DoxyCodeLine{00624\ \ \ \}}
+\DoxyCodeLine{00625\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ static\_cast<int>(expected\_result.size());\ i++)\ \{}
+\DoxyCodeLine{00626\ \ \ \ \ assert(expected\_result[i]\ ==\ code\_result[i]);}
+\DoxyCodeLine{00627\ \ \ \}}
+\DoxyCodeLine{00628\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest3\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00629\ \}}
+
+\end{DoxyCode}

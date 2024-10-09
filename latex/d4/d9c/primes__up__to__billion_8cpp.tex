@@ -1,0 +1,84 @@
+\doxysection{math/primes\+\_\+up\+\_\+to\+\_\+billion.cpp File Reference}
+\hypertarget{primes__up__to__billion_8cpp}{}\label{primes__up__to__billion_8cpp}\index{math/primes\_up\_to\_billion.cpp@{math/primes\_up\_to\_billion.cpp}}
+
+
+Compute prime numbers upto 1 billion.  
+
+
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{primes__up__to__billion_8cpp_a031cada84819ed6426f58e4f7e81261c}{Sieve}} (int64\+\_\+t n)
+\item 
+int \mbox{\hyperlink{primes__up__to__billion_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}} \mbox{[}100000000\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute prime numbers upto 1 billion. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{prime__numbers_8cpp}{prime\+\_\+numbers.\+cpp} \doxylink{sieve__of__eratosthenes_8cpp}{sieve\+\_\+of\+\_\+eratosthenes.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{primes__up__to__billion_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{primes\_up\_to\_billion.cpp@{primes\_up\_to\_billion.cpp}!main@{main}}
+\index{main@{main}!primes\_up\_to\_billion.cpp@{primes\_up\_to\_billion.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{primes__up__to__billion_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{primes__up__to__billion_8cpp_a031cada84819ed6426f58e4f7e81261c}{Sieve}}(100000000);}
+\DoxyCodeLine{00028\ \ \ \ \ int64\_t\ n;}
+\DoxyCodeLine{00029\ \ \ \ \ std::cin\ >>\ n;\ \ \textcolor{comment}{//\ 10006187}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}}[n]\ ==\ \textcolor{charliteral}{'1'})}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}YES\(\backslash\)n"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}NO\(\backslash\)n"{}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{primes__up__to__billion_8cpp_a031cada84819ed6426f58e4f7e81261c}\index{primes\_up\_to\_billion.cpp@{primes\_up\_to\_billion.cpp}!Sieve@{Sieve}}
+\index{Sieve@{Sieve}!primes\_up\_to\_billion.cpp@{primes\_up\_to\_billion.cpp}}
+\doxysubsubsection{\texorpdfstring{Sieve()}{Sieve()}}
+{\footnotesize\ttfamily \label{primes__up__to__billion_8cpp_a031cada84819ed6426f58e4f7e81261c} 
+void Sieve (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+Perform Sieve algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ memset(\mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}},\ \textcolor{charliteral}{'1'},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}}));\ \ \textcolor{comment}{//\ intitize\ '1'\ to\ every\ index}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}}[0]\ =\ \textcolor{charliteral}{'0'};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 0\ is\ not\ prime}}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}}[1]\ =\ \textcolor{charliteral}{'0'};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1\ is\ not\ prime}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ p\ =\ 2;\ p\ *\ p\ <=\ n;\ p++)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}}[p]\ ==\ \textcolor{charliteral}{'1'})\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ p\ *\ p;\ i\ <=\ n;\ i\ +=\ p)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}{prime}}[i]\ =\ \textcolor{charliteral}{'0'};\ \ \textcolor{comment}{//\ set\ all\ multiples\ of\ p\ to\ false}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95}\index{primes\_up\_to\_billion.cpp@{primes\_up\_to\_billion.cpp}!prime@{prime}}
+\index{prime@{prime}!primes\_up\_to\_billion.cpp@{primes\_up\_to\_billion.cpp}}
+\doxysubsubsection{\texorpdfstring{prime}{prime}}
+{\footnotesize\ttfamily \label{primes__up__to__billion_8cpp_ac0f4b77b901ddb15dab4c4dee1ac6e95} 
+char prime\mbox{[}100000000\mbox{]}}
+
+array to store the primes 

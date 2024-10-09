@@ -1,0 +1,104 @@
+\doxysection{sorting/quick\+\_\+sort\+\_\+iterative.cpp File Reference}
+\hypertarget{quick__sort__iterative_8cpp}{}\label{quick__sort__iterative_8cpp}\index{sorting/quick\_sort\_iterative.cpp@{sorting/quick\_sort\_iterative.cpp}}
+
+
+Quick Sort without recursion. This method uses the stack instead. Both recursive and iterative implementations have O(n log n) best case and O(n\texorpdfstring{$^\wedge$}{\string^}2) worst case.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacesorting_aac8f44b28b4aa96444383030b28f8b34}{sorting\+::partition}} (std\+::vector$<$ int $>$ \&arr, int start, int end)
+\begin{DoxyCompactList}\small\item\em The partition function sorts the array from start to end and uses the last element as the pivot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesorting_a263595fd9a0163b5b997b89fab3a0dc5}{sorting\+::iterative\+Quick\+Sort}} (std\+::vector$<$ int $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em The main sorting function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{quick__sort__iterative_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{quick__sort__iterative_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Quick Sort without recursion. This method uses the stack instead. Both recursive and iterative implementations have O(n log n) best case and O(n\texorpdfstring{$^\wedge$}{\string^}2) worst case. 
+
+\href{https://stackoverflow.com/questions/12553238/quicksort-iterative-or-recursive}{\texttt{ https\+://stackoverflow.\+com/questions/12553238/quicksort-\/iterative-\/or-\/recursive}} \href{https://en.wikipedia.org/wiki/Quicksort}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Quicksort}} \href{https://www.geeksforgeeks.org/iterative-quick-sort/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/iterative-\/quick-\/sort/}} \begin{DoxyAuthor}{Author}
+\href{https://github.com/sebe324}{\texttt{ Sebe324}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{quick__sort__iterative_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{quick\_sort\_iterative.cpp@{quick\_sort\_iterative.cpp}!main@{main}}
+\index{main@{main}!quick\_sort\_iterative.cpp@{quick\_sort\_iterative.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{quick__sort__iterative_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{quick__sort__iterative_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();\ \textcolor{comment}{//\ run\ self\ test\ implementation}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00132\ \}}
+
+\end{DoxyCode}
+\Hypertarget{quick__sort__iterative_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{quick\_sort\_iterative.cpp@{quick\_sort\_iterative.cpp}!tests@{tests}}
+\index{tests@{tests}!quick\_sort\_iterative.cpp@{quick\_sort\_iterative.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{quick__sort__iterative_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//TEST\ 1\ -\/\ Positive\ numbers}}
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<int>\ case1=\{100,534,1000000,553,10,61,2000,238,2756,9,12,56,30\};}
+\DoxyCodeLine{00098\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}TEST\ 1\(\backslash\)n"{}};}
+\DoxyCodeLine{00099\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Before:\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ x\ :\ case1)\ std::cout<<x<<\textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a263595fd9a0163b5b997b89fab3a0dc5}{sorting::iterativeQuickSort}}(case1);}
+\DoxyCodeLine{00103\ \ \ \ \ assert(std::is\_sorted(std::begin(case1),std::end(case1)));}
+\DoxyCodeLine{00104\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Test\ 1\ succesful!\(\backslash\)n"{}};}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}After:\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ x\ :\ case1)\ std::cout<<x<<\textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00107\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//TEST\ 2\ -\/\ Negative\ numbers}}
+\DoxyCodeLine{00110\ \ \ \ \ std::vector<int>\ case2=\{-\/10,-\/2,-\/5,-\/2,-\/3746,-\/785,-\/123,\ -\/452,\ -\/32456\};}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}TEST\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Before:\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ x\ :\ case2)\ std::cout<<x<<\textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a263595fd9a0163b5b997b89fab3a0dc5}{sorting::iterativeQuickSort}}(case2);}
+\DoxyCodeLine{00116\ \ \ \ \ assert(std::is\_sorted(std::begin(case2),std::end(case2)));}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Test\ 2\ succesful!\(\backslash\)n"{}};}
+\DoxyCodeLine{00118\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}After:\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ x\ :\ case2)\ std::cout<<x<<\textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00120\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}

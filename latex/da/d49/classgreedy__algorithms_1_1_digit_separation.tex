@@ -1,0 +1,107 @@
+\doxysection{greedy\+\_\+algorithms\+::Digit\+Separation Class Reference}
+\hypertarget{classgreedy__algorithms_1_1_digit_separation}{}\label{classgreedy__algorithms_1_1_digit_separation}\index{greedy\_algorithms::DigitSeparation@{greedy\_algorithms::DigitSeparation}}
+
+
+A class that provides methods to separate the digits of a large positive number.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_afd54c969a6c9bab16b4a064fbc8ed40e}{Digit\+Separation}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classgreedy__algorithms_1_1_digit_separation}{Digit\+Separation} class. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::int64\+\_\+t $>$ \mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}{digit\+Separation\+Reverse\+Order}} (std\+::int64\+\_\+t large\+Number) const
+\begin{DoxyCompactList}\small\item\em Implementation of digit\+Separation\+Reverse\+Order method. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::int64\+\_\+t $>$ \mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8}{digit\+Separation\+Forward\+Order}} (std\+::int64\+\_\+t large\+Number) const
+\begin{DoxyCompactList}\small\item\em Implementation of digit\+Separation\+Forward\+Order method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that provides methods to separate the digits of a large positive number. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgreedy__algorithms_1_1_digit_separation_afd54c969a6c9bab16b4a064fbc8ed40e}\index{greedy\_algorithms::DigitSeparation@{greedy\_algorithms::DigitSeparation}!DigitSeparation@{DigitSeparation}}
+\index{DigitSeparation@{DigitSeparation}!greedy\_algorithms::DigitSeparation@{greedy\_algorithms::DigitSeparation}}
+\doxysubsubsection{\texorpdfstring{DigitSeparation()}{DigitSeparation()}}
+{\footnotesize\ttfamily \label{classgreedy__algorithms_1_1_digit_separation_afd54c969a6c9bab16b4a064fbc8ed40e} 
+greedy\+\_\+algorithms\+::\+Digit\+Separation\+::\+Digit\+Separation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor for the \doxylink{classgreedy__algorithms_1_1_digit_separation}{Digit\+Separation} class. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8}\index{greedy\_algorithms::DigitSeparation@{greedy\_algorithms::DigitSeparation}!digitSeparationForwardOrder@{digitSeparationForwardOrder}}
+\index{digitSeparationForwardOrder@{digitSeparationForwardOrder}!greedy\_algorithms::DigitSeparation@{greedy\_algorithms::DigitSeparation}}
+\doxysubsubsection{\texorpdfstring{digitSeparationForwardOrder()}{digitSeparationForwardOrder()}}
+{\footnotesize\ttfamily \label{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8} 
+std\+::vector$<$ std\+::int64\+\_\+t $>$ greedy\+\_\+algorithms\+::\+Digit\+Separation\+::digit\+Separation\+Forward\+Order (\begin{DoxyParamCaption}\item[{std\+::int64\+\_\+t}]{large\+Number}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementation of digit\+Separation\+Forward\+Order method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em large\+Number} & The large number to separate digits from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of digits in forward order. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::vector<std::int64\_t>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}{digitSeparationReverseOrder}}(largeNumber);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::reverse(\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.begin(),\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.end());}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}\index{greedy\_algorithms::DigitSeparation@{greedy\_algorithms::DigitSeparation}!digitSeparationReverseOrder@{digitSeparationReverseOrder}}
+\index{digitSeparationReverseOrder@{digitSeparationReverseOrder}!greedy\_algorithms::DigitSeparation@{greedy\_algorithms::DigitSeparation}}
+\doxysubsubsection{\texorpdfstring{digitSeparationReverseOrder()}{digitSeparationReverseOrder()}}
+{\footnotesize\ttfamily \label{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79} 
+std\+::vector$<$ std\+::int64\+\_\+t $>$ greedy\+\_\+algorithms\+::\+Digit\+Separation\+::digit\+Separation\+Reverse\+Order (\begin{DoxyParamCaption}\item[{std\+::int64\+\_\+t}]{large\+Number}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementation of digit\+Separation\+Reverse\+Order method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em large\+Number} & The large number to separate digits from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of digits in reverse order. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::vector<std::int64\_t>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (largeNumber\ !=\ 0)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (largeNumber\ !=\ 0)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(std::abs(largeNumber\ \%\ 10));}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ largeNumber\ /=\ 10;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(0);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+greedy\+\_\+algorithms/\mbox{\hyperlink{digit__separation_8cpp}{digit\+\_\+separation.\+cpp}}\end{DoxyCompactItemize}

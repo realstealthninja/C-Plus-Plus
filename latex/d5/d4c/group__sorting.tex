@@ -1,0 +1,301 @@
+\doxysection{Sorting Algorithm}
+\hypertarget{group__sorting}{}\label{group__sorting}\index{Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{merge__sort_8cpp}{merge\+\_\+sort.\+cpp}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/Merge_sort}{\texttt{ Merege Sort Algorithm (MEREGE SORT)}} implementation \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{wiggle__sort_8cpp}{wiggle\+\_\+sort.\+cpp}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Wiggle Sort Algorithm\mbox{]} (\href{https://leetcode.com/problems/wiggle-sort-ii/}{\texttt{ https\+://leetcode.\+com/problems/wiggle-\/sort-\/ii/}}) Implementation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{group__sorting_gabd9a93f241c5c86f2ec0abf8b66b4145}{heapify}} (T \texorpdfstring{$\ast$}{*}arr, int n, int i)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{group__sorting_ga29d28b140174dbdde7c9f5157758435f}{heap\+Sort}} (T \texorpdfstring{$\ast$}{*}arr, int n)
+\item 
+void \mbox{\hyperlink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge}} (int \texorpdfstring{$\ast$}{*}arr, int l, int m, int r)
+\item 
+void \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{merge\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int l, int r)
+\item 
+void \mbox{\hyperlink{group__sorting_ga0a9a57a1f1bbba3d4822531d002b7e07}{show}} (int \texorpdfstring{$\ast$}{*}arr, int size)
+\item 
+int \mbox{\hyperlink{group__sorting_gae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\static void \mbox{\hyperlink{group__sorting_ga135e4c638e3bcf548bd122b5f49a3e72}{display\+Elements}} (const std\+::vector$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Utility function used for printing the elements. Prints elements of the array after they\textquotesingle{}re sorted using wiggle sort algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{group__sorting_gaa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The heapify procedure can be thought of as building a heap from the bottom up by successively sifting downward to establish the heap property.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to be sorted \\
+\hline
+{\em n} & size of array \\
+\hline
+{\em i} & node position in Binary Tress or element position in Array to be compared with it\textquotesingle{}s childern\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__sorting_ga135e4c638e3bcf548bd122b5f49a3e72}\index{Sorting Algorithm@{Sorting Algorithm}!displayElements@{displayElements}}
+\index{displayElements@{displayElements}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{displayElements()}{displayElements()}}
+{\footnotesize\ttfamily \label{group__sorting_ga135e4c638e3bcf548bd122b5f49a3e72} 
+template$<$typename T $>$ \\
+static void display\+Elements (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{arr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Utility function used for printing the elements. Prints elements of the array after they\textquotesingle{}re sorted using wiggle sort algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array containing the sorted elements \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2sorting_2wiggle_sort_8cpp-example}{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/sorting/wiggle\+\_\+sort.\+cpp}}.\end{Desc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ uint32\_t\ size\ =\ arr.size();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ elements\ are\ as\ follows:\ "{}};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}["{}};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr[i];}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ size\ -\/\ 1)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}]"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__sorting_gabd9a93f241c5c86f2ec0abf8b66b4145}\index{Sorting Algorithm@{Sorting Algorithm}!heapify@{heapify}}
+\index{heapify@{heapify}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{heapify()}{heapify()}}
+{\footnotesize\ttfamily \label{group__sorting_gabd9a93f241c5c86f2ec0abf8b66b4145} 
+template$<$typename T $>$ \\
+void heapify (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{n}{, }\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ largest\ =\ i;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ l\ =\ 2\ *\ i\ +\ 1;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ 2\ *\ i\ +\ 2;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ <\ n\ \&\&\ arr[l]\ >\ arr[largest])}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ largest\ =\ l;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ <\ n\ \&\&\ arr[r]\ >\ arr[largest])}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ largest\ =\ r;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (largest\ !=\ i)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[largest]);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ heapify(arr,\ n,\ largest);}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__sorting_ga29d28b140174dbdde7c9f5157758435f}\index{Sorting Algorithm@{Sorting Algorithm}!heapSort@{heapSort}}
+\index{heapSort@{heapSort}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{heapSort()}{heapSort()}}
+{\footnotesize\ttfamily \label{group__sorting_ga29d28b140174dbdde7c9f5157758435f} 
+template$<$typename T $>$ \\
+void heap\+Sort (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+Utilizes heapify procedure to sort the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to be sorted \\
+\hline
+{\em n} & size of array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ n\ -\/\ 1;\ i\ >=\ 0;\ i-\/-\/)\ heapify(arr,\ n,\ i);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ n\ -\/\ 1;\ i\ >=\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::swap(arr[0],\ arr[i]);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ heapify(arr,\ i,\ 0);}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__sorting_gae66f6b31b5ad750f1fe042a706a4e3d4}\index{Sorting Algorithm@{Sorting Algorithm}!main@{main}}
+\index{main@{main}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{group__sorting_gae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function
+
+Driver Code 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00092\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ elements\ :\ "{}};}
+\DoxyCodeLine{00093\ \ \ \ \ std::cin\ >>\ size;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ *arr\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[size];}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ unsorted\ elements\ :\ "{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ std::cin\ >>\ arr[i];}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(arr,\ 0,\ size\ -\/\ 1);}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ array\ :\ "{}};}
+\DoxyCodeLine{00101\ \ \ \ \ show(arr,\ size);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{delete}[]\ arr;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__sorting_ga460c61cd948203b4816bef2accb3fc73}\index{Sorting Algorithm@{Sorting Algorithm}!merge@{merge}}
+\index{merge@{merge}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \label{group__sorting_ga460c61cd948203b4816bef2accb3fc73} 
+void merge (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{l}{, }\item[{int}]{m}{, }\item[{int}]{r}{}\end{DoxyParamCaption})}
+
+The \doxylink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge()} function is used for merging two halves. The merge(arr, l, m, r) is key process that assumes that arr\mbox{[}l..m\mbox{]} and arr\mbox{[}m+1..r\mbox{]} are sorted and merges the two sorted sub-\/arrays into one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ array with two halves arr\mbox{[}l...m\mbox{]} and arr\mbox{[}m+1...r\mbox{]} \\
+\hline
+{\em l} & -\/ left index or start index of first half array \\
+\hline
+{\em m} & -\/ right index or end index of first half array\\
+\hline
+\end{DoxyParams}
+(The second array starts form m+1 and goes till r)
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & -\/ end index or right index of second half array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j,\ k;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ n1\ =\ m\ -\/\ l\ +\ 1;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ n2\ =\ r\ -\/\ m;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ *L\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[n1],\ *R\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[n2];}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ n1;\ i++)\ L[i]\ =\ arr[l\ +\ i];}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ n2;\ j++)\ R[j]\ =\ arr[m\ +\ 1\ +\ j];}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ i\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ j\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ k\ =\ l;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ n1\ ||\ j\ <\ n2)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ >=\ n2\ ||\ (i\ <\ n1\ \&\&\ L[i]\ <=\ R[j]))\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ arr[k]\ =\ L[i];}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ arr[k]\ =\ R[j];}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++;}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{delete}[]\ L;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{delete}[]\ R;}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}\index{Sorting Algorithm@{Sorting Algorithm}!mergeSort@{mergeSort}}
+\index{mergeSort@{mergeSort}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{mergeSort()}{mergeSort()}}
+{\footnotesize\ttfamily \label{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7} 
+void merge\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{l}{, }\item[{int}]{r}{}\end{DoxyParamCaption})}
+
+Merge sort is a divide and conquer algorithm, it divides the input array into two halves and calls itself for the two halves and then calls \doxylink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge()} to merge the two halves
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ array to be sorted \\
+\hline
+{\em l} & -\/ left index or start index of array \\
+\hline
+{\em r} & -\/ right index or end index of array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ <\ r)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ l\ +\ (r\ -\/\ l)\ /\ 2;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(arr,\ l,\ m);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(arr,\ m\ +\ 1,\ r);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge}}(arr,\ l,\ m,\ r);}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__sorting_ga0a9a57a1f1bbba3d4822531d002b7e07}\index{Sorting Algorithm@{Sorting Algorithm}!show@{show}}
+\index{show@{show}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily \label{group__sorting_ga0a9a57a1f1bbba3d4822531d002b7e07} 
+void show (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+Utility function used to print the array after sorting 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00086\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__sorting_gaa8dca7b867074164d5f45b0f3851269d}\index{Sorting Algorithm@{Sorting Algorithm}!test@{test}}
+\index{test@{test}!Sorting Algorithm@{Sorting Algorithm}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{group__sorting_gaa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test function \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));\ \ \textcolor{comment}{//\ initialize\ random\ number\ generator}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ std::vector<float>\ data1(100);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&d\ :\ data1)\ \{\ \ \textcolor{comment}{//\ generate\ random\ numbers\ between\ -\/5.0\ and\ 4.99}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ d\ =\ float(std::rand()\ \%\ 1000\ -\/\ 500)\ /\ 100.f;}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ std::vector<float>\ sorted\ =\ sorting::wiggle\_sort::wiggleSort<float>(data1);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{group__sorting_ga135e4c638e3bcf548bd122b5f49a3e72}{displayElements}}(sorted);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ data1.size();\ j\ +=\ 2)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ assert(data1[j]\ <=\ data1[j\ +\ 1]\ \&\&}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data1[j\ +\ 1]\ >=\ data1[j\ +\ 2]);\ \ \textcolor{comment}{//\ check\ the\ validation\ condition}}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}

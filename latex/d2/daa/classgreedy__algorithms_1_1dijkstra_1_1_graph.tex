@@ -1,0 +1,114 @@
+\doxysection{greedy\+\_\+algorithms\+::dijkstra\+::Graph Class Reference}
+\hypertarget{classgreedy__algorithms_1_1dijkstra_1_1_graph}{}\label{classgreedy__algorithms_1_1dijkstra_1_1_graph}\index{greedy\_algorithms::dijkstra::Graph@{greedy\_algorithms::dijkstra::Graph}}
+
+
+Wrapper class for storing a graph.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgreedy__algorithms_1_1dijkstra_1_1_graph_afefaeb247734a7c64bd04e68e3c1c4bc}{Graph}} (const int V)
+\begin{DoxyCompactList}\small\item\em Constructs a graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgreedy__algorithms_1_1dijkstra_1_1_graph_a224b6efacbad55d59e11b046f792fe79}{add\+\_\+edge}} (int src, int dst, int weight)
+\begin{DoxyCompactList}\small\item\em Adds an edge to the graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgreedy__algorithms_1_1dijkstra_1_1_graph_a2b0f8f5d257613bb0c0cb470413964b1}\label{classgreedy__algorithms_1_1dijkstra_1_1_graph_a2b0f8f5d257613bb0c0cb470413964b1} 
+int {\bfseries vertex\+Num} = 0
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classgreedy__algorithms_1_1dijkstra_1_1_graph_a42a583424fb3b90346f1564d737a0fff}{edges}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class for storing a graph. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgreedy__algorithms_1_1dijkstra_1_1_graph_afefaeb247734a7c64bd04e68e3c1c4bc}\index{greedy\_algorithms::dijkstra::Graph@{greedy\_algorithms::dijkstra::Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!greedy\_algorithms::dijkstra::Graph@{greedy\_algorithms::dijkstra::Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily \label{classgreedy__algorithms_1_1dijkstra_1_1_graph_afefaeb247734a7c64bd04e68e3c1c4bc} 
+greedy\+\_\+algorithms\+::dijkstra\+::\+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{const int}]{V}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & number of vertices of the graph \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ array\ edges}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ this-\/>edges\ =\ std::vector<std::vector<int>>(V,\ std::vector<int>(V,\ 0));}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ V;\ i++)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ edges[i]\ =\ std::vector<int>(V,\ 0);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fills\ the\ array\ with\ zeros}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ V;\ i++)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ V;\ j++)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ edges[i][j]\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ this-\/>vertexNum\ =\ V;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgreedy__algorithms_1_1dijkstra_1_1_graph_a224b6efacbad55d59e11b046f792fe79}\index{greedy\_algorithms::dijkstra::Graph@{greedy\_algorithms::dijkstra::Graph}!add\_edge@{add\_edge}}
+\index{add\_edge@{add\_edge}!greedy\_algorithms::dijkstra::Graph@{greedy\_algorithms::dijkstra::Graph}}
+\doxysubsubsection{\texorpdfstring{add\_edge()}{add\_edge()}}
+{\footnotesize\ttfamily \label{classgreedy__algorithms_1_1dijkstra_1_1_graph_a224b6efacbad55d59e11b046f792fe79} 
+void greedy\+\_\+algorithms\+::dijkstra\+::\+Graph\+::add\+\_\+edge (\begin{DoxyParamCaption}\item[{int}]{src}{, }\item[{int}]{dst}{, }\item[{int}]{weight}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds an edge to the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & the graph the edge should be added to \\
+\hline
+{\em dst} & the position where the edge should be added to \\
+\hline
+{\em weight} & the weight of the edge that should be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ this-\/>edges[src][dst]\ =\ weight;}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgreedy__algorithms_1_1dijkstra_1_1_graph_a42a583424fb3b90346f1564d737a0fff}\index{greedy\_algorithms::dijkstra::Graph@{greedy\_algorithms::dijkstra::Graph}!edges@{edges}}
+\index{edges@{edges}!greedy\_algorithms::dijkstra::Graph@{greedy\_algorithms::dijkstra::Graph}}
+\doxysubsubsection{\texorpdfstring{edges}{edges}}
+{\footnotesize\ttfamily \label{classgreedy__algorithms_1_1dijkstra_1_1_graph_a42a583424fb3b90346f1564d737a0fff} 
+std\+::vector$<$std\+::vector$<$int$>$ $>$ greedy\+\_\+algorithms\+::dijkstra\+::\+Graph\+::edges \{\}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \{\};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+greedy\+\_\+algorithms/\mbox{\hyperlink{greedy__algorithms_2dijkstra_8cpp}{dijkstra.\+cpp}}\end{DoxyCompactItemize}

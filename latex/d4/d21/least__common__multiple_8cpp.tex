@@ -1,0 +1,122 @@
+\doxysection{math/least\+\_\+common\+\_\+multiple.cpp File Reference}
+\hypertarget{least__common__multiple_8cpp}{}\label{least__common__multiple_8cpp}\index{math/least\_common\_multiple.cpp@{math/least\_common\_multiple.cpp}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{least__common__multiple_8cpp_a8ba1fc66e4134ab25b2602b323150563}{gcd}} (unsigned int x, unsigned int y)
+\item 
+unsigned int \mbox{\hyperlink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm}} (unsigned int x, unsigned int y)
+\item 
+void \mbox{\hyperlink{least__common__multiple_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{least__common__multiple_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Copyright 2020 \begin{DoxyAuthor}{Author}
+tjgurwara99
+\end{DoxyAuthor}
+A basic implementation of LCM function 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{least__common__multiple_8cpp_a8ba1fc66e4134ab25b2602b323150563}\index{least\_common\_multiple.cpp@{least\_common\_multiple.cpp}!gcd@{gcd}}
+\index{gcd@{gcd}!least\_common\_multiple.cpp@{least\_common\_multiple.cpp}}
+\doxysubsubsection{\texorpdfstring{gcd()}{gcd()}}
+{\footnotesize\ttfamily \label{least__common__multiple_8cpp_a8ba1fc66e4134ab25b2602b323150563} 
+unsigned int gcd (\begin{DoxyParamCaption}\item[{unsigned int}]{x}{, }\item[{unsigned int}]{y}{}\end{DoxyParamCaption})}
+
+Function for finding greatest common divisor of two numbers. @params two integers x and y whose gcd we want to find. \begin{DoxyReturn}{Returns}
+greatest common divisor of x and y. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ 0)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ ==\ 0)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ y)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ y)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ following\ is\ valid\ because\ we\ have\ checked\ whether\ y\ ==\ 0}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ temp\ =\ x\ /\ y;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{least__common__multiple_8cpp_a8ba1fc66e4134ab25b2602b323150563}{gcd}}(y,\ x\ -\/\ temp\ *\ y);}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Again\ the\ following\ is\ valid\ because\ we\ have\ checked\ whether\ x\ ==\ 0}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ temp\ =\ y\ /\ x;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{least__common__multiple_8cpp_a8ba1fc66e4134ab25b2602b323150563}{gcd}}(x,\ y\ -\/\ temp\ *\ x);}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}\index{least\_common\_multiple.cpp@{least\_common\_multiple.cpp}!lcm@{lcm}}
+\index{lcm@{lcm}!least\_common\_multiple.cpp@{least\_common\_multiple.cpp}}
+\doxysubsubsection{\texorpdfstring{lcm()}{lcm()}}
+{\footnotesize\ttfamily \label{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25} 
+unsigned int lcm (\begin{DoxyParamCaption}\item[{unsigned int}]{x}{, }\item[{unsigned int}]{y}{}\end{DoxyParamCaption})}
+
+Function for finding the least common multiple of two numbers. @params integer x and y whose lcm we want to find. \begin{DoxyReturn}{Returns}
+lcm of x and y using the relation x \texorpdfstring{$\ast$}{*} y = gcd(x, y) \texorpdfstring{$\ast$}{*} lcm(x, y) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordflow}{return}\ x\ /\ \mbox{\hyperlink{least__common__multiple_8cpp_a8ba1fc66e4134ab25b2602b323150563}{gcd}}(x,\ y)\ *\ y;}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+\Hypertarget{least__common__multiple_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{least\_common\_multiple.cpp@{least\_common\_multiple.cpp}!main@{main}}
+\index{main@{main}!least\_common\_multiple.cpp@{least\_common\_multiple.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{least__common__multiple_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{least__common__multiple_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{least__common__multiple_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{least\_common\_multiple.cpp@{least\_common\_multiple.cpp}!tests@{tests}}
+\index{tests@{tests}!least\_common\_multiple.cpp@{least\_common\_multiple.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{least__common__multiple_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function for testing the \doxylink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm()} functions with some assert statements. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ First\ test\ on\ lcm(5,10)\ ==\ 10}}
+\DoxyCodeLine{00052\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}LCM\ of\ 5\ and\ 10\ is\ 10\ but\ lcm\ function\ gives\ a\ different\ "{}}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}result.\(\backslash\)n"{}},}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm}}(5,\ 10)\ ==\ 10));}
+\DoxyCodeLine{00055\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First\ assertion\ passes:\ LCM\ of\ 5\ and\ 10\ is\ "{}}\ <<\ \mbox{\hyperlink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm}}(5,\ 10)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Second\ test\ on\ lcm(2,3)\ ==\ 6\ as\ 2\ and\ 3\ are\ coprime\ (prime\ in\ fact)}}
+\DoxyCodeLine{00059\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}LCM\ of\ 2\ and\ 3\ is\ 6\ but\ lcm\ function\ gives\ a\ different\ "{}}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}result.\(\backslash\)n"{}},}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm}}(2,\ 3)\ ==\ 6));}
+\DoxyCodeLine{00062\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Second\ assertion\ passes:\ LCM\ of\ 2\ and\ 3\ is\ "{}}\ <<\ \mbox{\hyperlink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm}}(2,\ 3)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ Testing\ an\ integer\ overflow.}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ The\ algorithm\ should\ work\ as\ long\ as\ the\ result\ fits\ into\ integer.}}
+\DoxyCodeLine{00067\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}LCM\ of\ 987654321\ and\ 987654321\ is\ 987654321\ but\ lcm\ function"{}}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ gives\ a\ different\ result.\(\backslash\)n"{}},}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm}}(987654321,\ 987654321)\ ==\ 987654321));}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Third\ assertion\ passes:\ LCM\ of\ 987654321\ and\ 987654321\ is\ "{}}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{least__common__multiple_8cpp_aa8d0e241db517813725e721a152e3a25}{lcm}}(987654321,\ 987654321)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}

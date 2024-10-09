@@ -1,0 +1,216 @@
+\doxysection{strings/manacher\+\_\+algorithm.cpp File Reference}
+\hypertarget{manacher__algorithm_8cpp}{}\label{manacher__algorithm_8cpp}\index{strings/manacher\_algorithm.cpp@{strings/manacher\_algorithm.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Longest_palindromic_substring}{\texttt{ Manacher\textquotesingle{}s Algorithm}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestrings}{strings}}
+\begin{DoxyCompactList}\small\item\em String algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemanacher}{manacher}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Longest_palindromic_substring}{\texttt{ Manacher\textquotesingle{}s Algorithm}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{manacher__algorithm_8cpp_a95e6a2976bb2f332898f373941d52098}{strings\+::manacher\+::manacher}} (const std\+::string \&prototype)
+\begin{DoxyCompactList}\small\item\em A function that implements Manacher\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{manacher__algorithm_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{manacher__algorithm_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Longest_palindromic_substring}{\texttt{ Manacher\textquotesingle{}s Algorithm}} 
+
+Manacher\textquotesingle{}s Algorithm is used to find the longest palindromic substring within a string in O(n) time. It exploits the property of a palindrome that its first half is symmetric to the last half, and thus if the first half is a palindrome, then last half is also a palindrome. \begin{DoxyAuthor}{Author}
+\href{https://github.com/riti2409}{\texttt{ Riti Kumari}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{manacher__algorithm_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{manacher\_algorithm.cpp@{manacher\_algorithm.cpp}!main@{main}}
+\index{main@{main}!manacher\_algorithm.cpp@{manacher\_algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{manacher__algorithm_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{manacher__algorithm_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00174\ \}}
+
+\end{DoxyCode}
+\Hypertarget{manacher__algorithm_8cpp_a95e6a2976bb2f332898f373941d52098}\index{manacher\_algorithm.cpp@{manacher\_algorithm.cpp}!manacher@{manacher}}
+\index{manacher@{manacher}!manacher\_algorithm.cpp@{manacher\_algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{manacher()}{manacher()}}
+{\footnotesize\ttfamily \label{manacher__algorithm_8cpp_a95e6a2976bb2f332898f373941d52098} 
+std\+::string strings\+::manacher\+::manacher (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prototype}{}\end{DoxyParamCaption})}
+
+
+
+A function that implements Manacher\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prototype} & is the string where algorithm finds a palindromic substring. This string can contain any character except {\ttfamily @} {\ttfamily \#} {\ttfamily \&} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the largest palindromic substring 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (prototype.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stuffing\ characters\ between\ the\ input\ string\ to\ handle\ cases\ with}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ even\ length\ palindrome}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::string\ stuffed\_string\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ str\ :\ prototype)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ stuffed\_string\ +=\ str;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ stuffed\_string\ +=\ \textcolor{stringliteral}{"{}\#"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ stuffed\_string\ =\ \textcolor{stringliteral}{"{}@\#"{}}\ +\ stuffed\_string\ +\ \textcolor{stringliteral}{"{}\&"{}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::vector<uint64\_t>\ palindrome\_max\_half\_length(}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ stuffed\_string.size(),}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ 0);\ \ \textcolor{comment}{//\ this\ array\ will\ consist\ of\ largest\ possible\ half\ length\ of}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ palindrome\ centered\ at\ index\ (say\ i\ with\ respect\ to\ the}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stuffed\ string).\ This\ value\ will\ be\ lower\ bound\ of\ half}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ length\ since\ single\ character\ is\ a\ palindrome\ in\ itself.}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ uint64\_t\ bigger\_center\ =}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ 0;\ \ \textcolor{comment}{//\ this\ is\ the\ index\ of\ the\ center\ of\ palindromic}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ substring\ which\ would\ be\ considered\ as\ the\ larger}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ palindrome,\ having\ symmetric\ halves}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ uint64\_t\ right\ =\ 0;\ \ \textcolor{comment}{//\ this\ is\ the\ maximum\ length\ of\ the\ palindrome}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ from\ 'bigger\_center'\ to\ the\ rightmost\ end}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ i\ is\ considered\ as\ center\ lying\ within\ one\ half\ of\ the\ palindrone}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ which\ is\ centered\ at\ 'bigger\_center'}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 1;\ i\ <\ stuffed\_string.size()\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ right)\ \{\ \ \textcolor{comment}{//\ when\ i\ is\ before\ right\ end,\ considering}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 'bigger\_center'\ as\ center\ of\ palindrome}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ opposite\_to\_i\ =}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ *\ bigger\_center\ -\/}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i;\ \ \textcolor{comment}{//\ this\ is\ the\ opposite\ end\ of\ string,\ if}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ centered\ at\ center,\ and\ having\ one\ end\ as\ i}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ finding\ the\ minimum\ possible\ half\ length\ among}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ palindrome\ on\ having\ center\ at\ opposite\ end,}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ the\ string\ between\ i\ and\ right\ end,}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ considering\ 'bigger\_center'\ as\ center\ of\ palindrome}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ palindrome\_max\_half\_length[i]\ =\ std::min(}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ palindrome\_max\_half\_length[opposite\_to\_i],\ right\ -\/\ i);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ expanding\ the\ palindrome\ across\ the\ maximum\ stored\ length\ in\ the}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ array,\ centered\ at\ i}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (stuffed\_string[i\ +\ (palindrome\_max\_half\_length[i]\ +\ 1)]\ ==}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stuffed\_string[i\ -\/\ (palindrome\_max\_half\_length[i]\ +\ 1)])\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ palindrome\_max\_half\_length[i]++;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ palindrome\ centered\ at\ i\ exceeds\ the\ rightmost\ end\ of}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ palindrome\ centered\ at\ 'bigger\_center',\ then\ i\ will\ be\ made\ the}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 'bigger\_center'\ and\ right\ value\ will\ also\ be\ updated\ with\ respect}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ center\ i}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ +\ palindrome\_max\_half\_length[i]\ >\ right)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bigger\_center\ =\ i;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ right\ =\ i\ +\ palindrome\_max\_half\_length[i];}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ now\ extracting\ the\ first\ largest\ palindrome}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ uint64\_t\ half\_length\ =\ 0;\ \ \ \textcolor{comment}{//\ half\ length\ of\ the\ largest\ palindrome}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ uint64\_t\ center\_index\ =\ 0;\ \ \textcolor{comment}{//\ index\ of\ center\ of\ the\ largest\ palindrome}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 1;\ i\ <\ stuffed\_string.size()\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (palindrome\_max\_half\_length[i]\ >\ half\_length)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ half\_length\ =\ palindrome\_max\_half\_length[i];}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ center\_index\ =\ i;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ std::string\ palindromic\_substring\ =}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ contains\ the\ resulting\ largest\ palindrome}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (half\_length\ >\ 0)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ extra\ information:\ when\ '\#'\ is\ the\ center,\ then\ palindromic}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ substring\ will\ have\ even\ length,\ else\ palindromic\ substring\ will}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ have\ odd\ length}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ start\ =}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ center\_index\ -\/\ half\_length\ +}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1;\ \ \textcolor{comment}{//\ index\ of\ first\ character\ of\ palindromic\ substring}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ end\ =}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ center\_index\ +\ half\_length\ -\/}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1;\ \ \textcolor{comment}{//\ index\ of\ last\ character\ of\ palindromic\ substring}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ index\ =\ start;\ index\ <=\ end;\ index\ +=\ 2)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ palindromic\_substring\ +=\ stuffed\_string[index];}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ length\ =\ 0,\ then\ there\ does\ not\ exist\ any\ palindrome\ of\ length}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ >\ 1\ so\ we\ can\ assign\ any\ character\ of\ length\ 1\ from\ string\ as\ the}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ palindromic\ substring}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ palindromic\_substring\ =\ prototype[0];}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ palindromic\_substring;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ handling\ case\ when\ string\ is\ empty}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+\Hypertarget{manacher__algorithm_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{manacher\_algorithm.cpp@{manacher\_algorithm.cpp}!test@{test}}
+\index{test@{test}!manacher\_algorithm.cpp@{manacher\_algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{manacher__algorithm_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}"{}})\ ==\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}abababc"{}})\ ==\ \textcolor{stringliteral}{"{}ababa"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}cbaabd"{}})\ ==\ \textcolor{stringliteral}{"{}baab"{}});}
+\DoxyCodeLine{00154\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}DedzefDeD"{}})\ ==\ \textcolor{stringliteral}{"{}DeD"{}});}
+\DoxyCodeLine{00155\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}XZYYXXYZXX"{}})\ ==\ \textcolor{stringliteral}{"{}YXXY"{}});}
+\DoxyCodeLine{00156\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}1sm222m10abc"{}})\ ==\ \textcolor{stringliteral}{"{}m222m"{}});}
+\DoxyCodeLine{00157\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}798989591"{}})\ ==\ \textcolor{stringliteral}{"{}98989"{}});}
+\DoxyCodeLine{00158\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}xacdedcax"{}})\ ==\ \textcolor{stringliteral}{"{}xacdedcax"{}});}
+\DoxyCodeLine{00159\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}xaccax"{}})\ ==\ \textcolor{stringliteral}{"{}xaccax"{}});}
+\DoxyCodeLine{00160\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}a"{}})\ ==\ \textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{00161\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}xy"{}})\ ==\ \textcolor{stringliteral}{"{}x"{}});}
+\DoxyCodeLine{00162\ \ \ \ \ assert(strings::manacher::manacher(\textcolor{stringliteral}{"{}abced"{}})\ ==\ \textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00165\ \}}
+
+\end{DoxyCode}

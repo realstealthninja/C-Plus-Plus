@@ -1,0 +1,91 @@
+\doxysection{Solution Class Reference}
+\hypertarget{class_solution}{}\label{class_solution}\index{Solution@{Solution}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_solution_a98141c9dce5f9551ce6f8417d295514c}{search\+\_\+bridges}} (int n, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&connections)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_solution_a29d19d87d54fe43d3f22221b8fe1b0bc}{dfs}} (int current\+\_\+node, int parent)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_solution_a064ff4943e3860399f8f6873862071c9}\label{class_solution_a064ff4943e3860399f8f6873862071c9} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries graph}
+\item 
+\Hypertarget{class_solution_a4a7040c6f21dacd58b63e9c3aeecab86}\label{class_solution_a4a7040c6f21dacd58b63e9c3aeecab86} 
+std\+::vector$<$ int $>$ {\bfseries in\+\_\+time}
+\item 
+\Hypertarget{class_solution_af1fcd3d8160363baa35a079244eb2e91}\label{class_solution_af1fcd3d8160363baa35a079244eb2e91} 
+std\+::vector$<$ int $>$ {\bfseries out\+\_\+time}
+\item 
+\Hypertarget{class_solution_ae8ca86dfb0d034665027aa99af3c88c6}\label{class_solution_ae8ca86dfb0d034665027aa99af3c88c6} 
+int {\bfseries timer} = 0
+\item 
+\Hypertarget{class_solution_a216a0a43fbf11d0bbe8f77205b0d4ad6}\label{class_solution_a216a0a43fbf11d0bbe8f77205b0d4ad6} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries bridge}
+\item 
+\Hypertarget{class_solution_a315f536a234d4397d5b07b3c5795973c}\label{class_solution_a315f536a234d4397d5b07b3c5795973c} 
+std\+::vector$<$ bool $>$ {\bfseries visited}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_solution_a29d19d87d54fe43d3f22221b8fe1b0bc}\index{Solution@{Solution}!dfs@{dfs}}
+\index{dfs@{dfs}!Solution@{Solution}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily \label{class_solution_a29d19d87d54fe43d3f22221b8fe1b0bc} 
+void Solution\+::dfs (\begin{DoxyParamCaption}\item[{int}]{current\+\_\+node}{, }\item[{int}]{parent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ visited.at(current\_node)\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ in\_time[current\_node]\ =\ out\_time[current\_node]\ =\ timer++;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ itr\ :\ \mbox{\hyperlink{namespacegraph}{graph}}[current\_node])\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (itr\ ==\ parent)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited[itr])\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dfs(itr,\ current\_node);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (out\_time[itr]\ >\ in\_time[current\_node])\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bridge.push\_back(\{itr,\ current\_node\});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ out\_time[current\_node]\ =}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::min(out\_time[current\_node],\ out\_time[itr]);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_solution_a98141c9dce5f9551ce6f8417d295514c}\index{Solution@{Solution}!search\_bridges@{search\_bridges}}
+\index{search\_bridges@{search\_bridges}!Solution@{Solution}}
+\doxysubsubsection{\texorpdfstring{search\_bridges()}{search\_bridges()}}
+{\footnotesize\ttfamily \label{class_solution_a98141c9dce5f9551ce6f8417d295514c} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ Solution\+::search\+\_\+bridges (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{connections}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ timer\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegraph}{graph}}.resize(n);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ in\_time.assign(n,\ 0);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ visited.assign(n,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ out\_time.assign(n,\ 0);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ itr\ :\ connections)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegraph}{graph}}.at(itr[0]).push\_back(itr[1]);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegraph}{graph}}.at(itr[1]).push\_back(itr[0]);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ dfs(0,\ -\/1);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bridge;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/bridge\+\_\+finding\+\_\+with\+\_\+tarjan\+\_\+algorithm.\+cpp\end{DoxyCompactItemize}

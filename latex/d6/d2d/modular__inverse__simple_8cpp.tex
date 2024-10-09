@@ -1,0 +1,118 @@
+\doxysection{math/modular\+\_\+inverse\+\_\+simple.cpp File Reference}
+\hypertarget{modular__inverse__simple_8cpp}{}\label{modular__inverse__simple_8cpp}\index{math/modular\_inverse\_simple.cpp@{math/modular\_inverse\_simple.cpp}}
+
+
+Simple implementation of \href{https://en.wikipedia.org/wiki/Modular_multiplicative_inverse}{\texttt{ modular multiplicative inverse}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{modular__inverse__simple_8cpp_a618b198f74a88ab0023355b3a05d9ad6}{imod}} (uint64\+\_\+t x, uint64\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{modular__inverse__simple_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em self-\/test implementations \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{modular__inverse__simple_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple implementation of \href{https://en.wikipedia.org/wiki/Modular_multiplicative_inverse}{\texttt{ modular multiplicative inverse}} 
+
+this algorithm calculates the modular inverse x\texorpdfstring{$^\wedge$}{\string^}\{-\/1\} \textbackslash{}mod y iteratively 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{modular__inverse__simple_8cpp_a618b198f74a88ab0023355b3a05d9ad6}\index{modular\_inverse\_simple.cpp@{modular\_inverse\_simple.cpp}!imod@{imod}}
+\index{imod@{imod}!modular\_inverse\_simple.cpp@{modular\_inverse\_simple.cpp}}
+\doxysubsubsection{\texorpdfstring{imod()}{imod()}}
+{\footnotesize\ttfamily \label{modular__inverse__simple_8cpp_a618b198f74a88ab0023355b3a05d9ad6} 
+uint64\+\_\+t imod (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{x}{, }\item[{uint64\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+for IO operations 
+
+for assert
+
+Function imod Calculates the modular inverse of x with respect to y, x\texorpdfstring{$^\wedge$}{\string^}\{-\/1\} \textbackslash{}mod y 
+\begin{DoxyParams}{Parameters}
+{\em x} & number \\
+\hline
+{\em y} & number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the modular inverse 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ uint64\_t\ aux\ =\ 0;\ \ \textcolor{comment}{//\ auxiliary\ variable}}
+\DoxyCodeLine{00022\ \ \ \ \ uint64\_t\ itr\ =\ 0;\ \ \textcolor{comment}{//\ iteration\ counter}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \textcolor{comment}{//\ run\ the\ algorithm\ while\ not\ find\ the\ inverse}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ aux\ =\ y\ *\ itr\ +\ 1;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ itr++;}
+\DoxyCodeLine{00027\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (aux\ \%\ x);\ \ \textcolor{comment}{//\ while\ module\ aux\ \%\ x\ non-\/zero}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ aux\ /\ x;}
+\DoxyCodeLine{00030\ \}}
+
+\end{DoxyCode}
+\Hypertarget{modular__inverse__simple_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{modular\_inverse\_simple.cpp@{modular\_inverse\_simple.cpp}!main@{main}}
+\index{main@{main}!modular\_inverse\_simple.cpp@{modular\_inverse\_simple.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{modular__inverse__simple_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{modular__inverse__simple_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00060\ \};}
+
+\end{DoxyCode}
+\Hypertarget{modular__inverse__simple_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{modular\_inverse\_simple.cpp@{modular\_inverse\_simple.cpp}!test@{test}}
+\index{test@{test}!modular\_inverse\_simple.cpp@{modular\_inverse\_simple.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{modular__inverse__simple_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+self-\/test implementations 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First\ case\ testing...\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ for\ a\ =\ 3\ and\ b\ =\ 11\ return\ 4}}
+\DoxyCodeLine{00039\ \ \ \ \ assert(\mbox{\hyperlink{modular__inverse__simple_8cpp_a618b198f74a88ab0023355b3a05d9ad6}{imod}}(3,\ 11)\ ==\ 4);}
+\DoxyCodeLine{00040\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Second\ case\ testing...\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ for\ a\ =\ 3\ and\ b\ =\ 26\ return\ 9}}
+\DoxyCodeLine{00044\ \ \ \ \ assert(\mbox{\hyperlink{modular__inverse__simple_8cpp_a618b198f74a88ab0023355b3a05d9ad6}{imod}}(3,\ 26)\ ==\ 9);}
+\DoxyCodeLine{00045\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Third\ case\ testing...\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ for\ a\ =\ 7\ and\ b\ =\ 26\ return\ 15}}
+\DoxyCodeLine{00049\ \ \ \ \ assert(\mbox{\hyperlink{modular__inverse__simple_8cpp_a618b198f74a88ab0023355b3a05d9ad6}{imod}}(7,\ 26)\ ==\ 15);}
+\DoxyCodeLine{00050\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nAll\ test\ cases\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}

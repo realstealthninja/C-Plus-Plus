@@ -1,0 +1,192 @@
+\doxysection{sorting/selection\+\_\+sort\+\_\+recursive.cpp File Reference}
+\hypertarget{selection__sort__recursive_8cpp}{}\label{selection__sort__recursive_8cpp}\index{sorting/selection\_sort\_recursive.cpp@{sorting/selection\_sort\_recursive.cpp}}
+
+
+Implementation of the \href{https://en.wikipedia.org/wiki/Selection_sort}{\texttt{ Selection sort}} implementation using recursion.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceselection__sort__recursive}{selection\+\_\+sort\+\_\+recursive}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Selection_sort}{\texttt{ Selection sort}} implementation using recursion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\uint64\+\_\+t \mbox{\hyperlink{selection__sort__recursive_8cpp_a5454eeb691725ccac0f59df1e133f834}{sorting\+::selection\+\_\+sort\+\_\+recursive\+::find\+Min\+Index}} (const std\+::vector$<$ T $>$ \&in\+\_\+arr, uint64\+\_\+t current\+\_\+position=0)
+\begin{DoxyCompactList}\small\item\em The main function finds the index of the minimum element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89}{sorting\+::selection\+\_\+sort\+\_\+recursive\+::selection\+Sort\+Recursive}} (std\+::vector$<$ T $>$ \&in\+\_\+arr, uint64\+\_\+t current\+\_\+position=0)
+\begin{DoxyCompactList}\small\item\em The main function implements Selection sort. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{selection__sort__recursive_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{selection__sort__recursive_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://en.wikipedia.org/wiki/Selection_sort}{\texttt{ Selection sort}} implementation using recursion. 
+
+The selection sort algorithm divides the input list into two parts\+: a sorted sublist of items which is built up from left to right at the front (left) of the list, and a sublist of the remaining unsorted items that occupy the rest of the list. Initially, the sorted sublist is empty, and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on the sorting order) element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted element (putting it in sorted order), and moving the sublist boundaries one element to the right.\hypertarget{selection__sort__recursive_8cpp_autotoc_md112}{}\doxysubsubsubsection{\texorpdfstring{Implementation}{Implementation}}\label{selection__sort__recursive_8cpp_autotoc_md112}
+Find\+Min\+Index This function finds the minimum element of the array(list) recursively by simply comparing the minimum element of array reduced size by 1 and compares it to the last element of the array to find the minimum of the whole array.
+
+Selection\+Sort\+Recursive Just like selection sort, it divides the list into two parts (i.\+e.\+: sorted and unsorted) and finds the minimum of the unsorted array. By calling the {\ttfamily Find\+Min\+Index} function, it swaps the minimum element with the first element of the list, and then solves recursively for the remaining unsorted list. \begin{DoxyAuthor}{Author}
+\href{https://github.com/Tushar-K24}{\texttt{ Tushar Khanduri}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{selection__sort__recursive_8cpp_a5454eeb691725ccac0f59df1e133f834}\index{selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}!findMinIndex@{findMinIndex}}
+\index{findMinIndex@{findMinIndex}!selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}}
+\doxysubsubsection{\texorpdfstring{findMinIndex()}{findMinIndex()}}
+{\footnotesize\ttfamily \label{selection__sort__recursive_8cpp_a5454eeb691725ccac0f59df1e133f834} 
+template$<$typename T $>$ \\
+uint64\+\_\+t sorting\+::selection\+\_\+sort\+\_\+recursive\+::find\+Min\+Index (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{in\+\_\+arr}{, }\item[{uint64\+\_\+t}]{current\+\_\+position}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+The main function finds the index of the minimum element. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+arr} & array whose minimum element is to be returned \\
+\hline
+{\em current\+\_\+position} & position/index from where the in\+\_\+arr starts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of the minimum element 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_position\ +\ 1\ ==\ in\_arr.size())\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ current\_position;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ uint64\_t\ answer\ =\ \mbox{\hyperlink{selection__sort__recursive_8cpp_a5454eeb691725ccac0f59df1e133f834}{findMinIndex}}(in\_arr,\ current\_position\ +\ 1);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (in\_arr[current\_position]\ <\ in\_arr[answer])\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ answer\ =\ current\_position;}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ answer;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{selection__sort__recursive_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}!main@{main}}
+\index{main@{main}!selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{selection__sort__recursive_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{selection__sort__recursive_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00132\ \}}
+
+\end{DoxyCode}
+\Hypertarget{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89}\index{selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}!selectionSortRecursive@{selectionSortRecursive}}
+\index{selectionSortRecursive@{selectionSortRecursive}!selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}}
+\doxysubsubsection{\texorpdfstring{selectionSortRecursive()}{selectionSortRecursive()}}
+{\footnotesize\ttfamily \label{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89} 
+template$<$typename T $>$ \\
+void sorting\+::selection\+\_\+sort\+\_\+recursive\+::selection\+Sort\+Recursive (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{in\+\_\+arr}{, }\item[{uint64\+\_\+t}]{current\+\_\+position}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+The main function implements Selection sort. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+arr} & array to be sorted, \\
+\hline
+{\em current\+\_\+position} & position/index from where the in\+\_\+arr starts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_position\ ==\ in\_arr.size())\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ uint64\_t\ min\_element\_idx\ =}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ selection\_sort\_recursive::findMinIndex(in\_arr,\ current\_position);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (min\_element\_idx\ !=\ current\_position)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ std::swap(in\_arr[min\_element\_idx],\ in\_arr[current\_position]);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89}{selectionSortRecursive}}(in\_arr,\ current\_position\ +\ 1);}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+\Hypertarget{selection__sort__recursive_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}!test@{test}}
+\index{test@{test}!selection\_sort\_recursive.cpp@{selection\_sort\_recursive.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{selection__sort__recursive_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ [1,\ 0,\ 2,\ 1]\ return\ [0,\ 1,\ 1,\ 2]}}
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<uint64\_t>\ array1\ =\ \{0,\ 1,\ 1,\ 2\};}
+\DoxyCodeLine{00098\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test...\ "{}};}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89}{sorting::selection\_sort\_recursive::selectionSortRecursive}}(array1);}
+\DoxyCodeLine{00100\ \ \ \ \ assert(std::is\_sorted(std::begin(array1),\ std::end(array1)));}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ [1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 2,\ 1]\ return\ [0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 2]}}
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<uint64\_t>\ array2\ =\ \{1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 2,\ 1\};}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test...\ "{}};}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89}{sorting::selection\_sort\_recursive::selectionSortRecursive}}(array2);}
+\DoxyCodeLine{00107\ \ \ \ \ assert(std::is\_sorted(std::begin(array2),\ std::end(array2)));}
+\DoxyCodeLine{00108\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ [1,\ 1,\ 0,\ 0,\ 1,\ 2,\ 2,\ 0,\ 2,\ 1]\ return\ [0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 2,\ 2,\ 2]}}
+\DoxyCodeLine{00111\ \ \ \ \ std::vector<uint64\_t>\ array3\ =\ \{1,\ 1,\ 0,\ 0,\ 1,\ 2,\ 2,\ 0,\ 2,\ 1\};}
+\DoxyCodeLine{00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test...\ "{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89}{sorting::selection\_sort\_recursive::selectionSortRecursive}}(array3);}
+\DoxyCodeLine{00114\ \ \ \ \ assert(std::is\_sorted(std::begin(array3),\ std::end(array3)));}
+\DoxyCodeLine{00115\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ 4th\ test}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ [2,\ 2,\ 2,\ 0,\ 0,\ 1,\ 1]\ return\ [0,\ 0,\ 1,\ 1,\ 2,\ 2,\ 2]}}
+\DoxyCodeLine{00118\ \ \ \ \ std::vector<uint64\_t>\ array4\ =\ \{2,\ 2,\ 2,\ 0,\ 0,\ 1,\ 1\};}
+\DoxyCodeLine{00119\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4th\ test...\ "{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{selection__sort__recursive_8cpp_ab6f7b33a070e376e1f4374e534435e89}{sorting::selection\_sort\_recursive::selectionSortRecursive}}(array4);}
+\DoxyCodeLine{00121\ \ \ \ \ assert(std::is\_sorted(std::begin(array4),\ std::end(array4)));}
+\DoxyCodeLine{00122\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}

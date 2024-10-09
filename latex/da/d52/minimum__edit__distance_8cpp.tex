@@ -1,0 +1,242 @@
+\doxysection{dynamic\+\_\+programming/minimum\+\_\+edit\+\_\+distance.cpp File Reference}
+\hypertarget{minimum__edit__distance_8cpp}{}\label{minimum__edit__distance_8cpp}\index{dynamic\_programming/minimum\_edit\_distance.cpp@{dynamic\_programming/minimum\_edit\_distance.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Edit_distance}{\texttt{ Minimum Edit Distance}} using Dynamic Programing.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_minimum}{Minimum}}
+\begin{DoxyCompactList}\small\item\em Implementation of \href{https://en.wikipedia.org/wiki/Edit_distance}{\texttt{ Minimum Edit Distance}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{minimum__edit__distance_8cpp_a0138c226bd79ffe6d839c787cfc60347}{dynamic\+\_\+programming\+::minimum\+\_\+edit\+\_\+distance\+::min}} (uint64\+\_\+t x, uint64\+\_\+t y, uint64\+\_\+t z)
+\begin{DoxyCompactList}\small\item\em Takes input of the cost of three operations\+: Insert, Replace and Delete and return the minimum cost among them. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{minimum__edit__distance_8cpp_ade2fcfe0359f3c7691bfaa04b14943e2}{dynamic\+\_\+programming\+::minimum\+\_\+edit\+\_\+distance\+::edit\+Dist\+DP}} (std\+::string str1, std\+::string str2, uint64\+\_\+t m, uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Calculates and stores the result of all the sub-\/problems, so that we don\textquotesingle{}t have to recur to compute the minimum cost of a particular operation if it is already computed and stored in the {\ttfamily dp} vector. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{minimum__edit__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{minimum__edit__distance_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Edit_distance}{\texttt{ Minimum Edit Distance}} using Dynamic Programing. 
+
+Given two strings str1 \& str2 and we have to calculate the minimum number of operations (Insert, Remove, Replace) required to convert str1 to str2.\hypertarget{minimum__edit__distance_8cpp_autotoc_md73}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{minimum__edit__distance_8cpp_autotoc_md73}
+We will solve this problem using Naive recursion. But as we are approaching with a DP solution. So, we will take a DP array to store the solution of all sub-\/problems so that we don\textquotesingle{}t have to perform recursion again and again. Now to solve the problem, We can traverse all characters from either right side of the strings or left side. Suppose we will do it from the right side. So, there are two possibilities for every pair of characters being traversed.
+\begin{DoxyEnumerate}
+\item If the last characters of two strings are the same, Ignore the characters and get the count for the remaining string. So, we get the solution for lengths m-\/1 and n-\/1 in a DP array.
+\item Else, (If last characters are not the same), we will consider all three operations (Insert, Remove, Replace) on the last character of the first string and compute the minimum cost for all three operations and take the minimum of three values in the DP array. For Insert\+: Recur for m and n-\/1 For Remove\+: Recur for for m-\/1 and n For Replace\+: Recur for for m-\/1 and n-\/1
+\end{DoxyEnumerate}
+
+\begin{DoxyAuthor}{Author}
+\href{github.com/nirzak}{\texttt{ Nirjas Jakilim}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{minimum__edit__distance_8cpp_ade2fcfe0359f3c7691bfaa04b14943e2}\index{minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}!editDistDP@{editDistDP}}
+\index{editDistDP@{editDistDP}!minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{editDistDP()}{editDistDP()}}
+{\footnotesize\ttfamily \label{minimum__edit__distance_8cpp_ade2fcfe0359f3c7691bfaa04b14943e2} 
+uint64\+\_\+t dynamic\+\_\+programming\+::minimum\+\_\+edit\+\_\+distance\+::edit\+Dist\+DP (\begin{DoxyParamCaption}\item[{std\+::string}]{str1}{, }\item[{std\+::string}]{str2}{, }\item[{uint64\+\_\+t}]{m}{, }\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Calculates and stores the result of all the sub-\/problems, so that we don\textquotesingle{}t have to recur to compute the minimum cost of a particular operation if it is already computed and stored in the {\ttfamily dp} vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dp} & vector to store the computed minimum costs \\
+\hline
+{\em str1} & to pass the 1st string \\
+\hline
+{\em str2} & to pass the 2nd string \\
+\hline
+{\em m} & the length of str1 \\
+\hline
+{\em n} & the length of str2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dp\mbox{[}m\mbox{]}\mbox{[}n\mbox{]} the minimum cost of operations needed to convert str1 to str2 
+\end{DoxyReturn}
+Create a table to store results of subproblems
+
+creasting 2D vector dp to store the results of subproblems
+
+Fill d\mbox{[}\mbox{]}\mbox{[}\mbox{]} in bottom up manner
+
+If first string is empty, only option is to insert all characters of second string
+
+\doxylink{namespace_minimum}{Minimum} operations = j
+
+If second string is empty, only option is to remove all characters of second string
+
+\doxylink{namespace_minimum}{Minimum} operations = i
+
+If last characters are same, ignore last char and recur for remaining string
+
+If the last character is different, consider all possibilities and find the minimum
+
+returning the minimum cost of operations needed to convert str1 to str2
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ ///\ Create\ a\ table\ to\ store\ results\ of\ subproblems }}
+\DoxyCodeLine{00090\ \textcolor{comment}{}\ \ std::vector<std::vector<uint64\_t>>\mbox{\hyperlink{namespacedp}{dp}}(m+1,\ std::vector<uint64\_t>(n+1));\ \textcolor{comment}{///\ creasting\ 2D\ vector\ dp\ to\ store\ the\ results\ of\ subproblems }}
+\DoxyCodeLine{00091\ \textcolor{comment}{}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ ///\ Fill\ d[][]\ in\ bottom\ up\ manner }}
+\DoxyCodeLine{00093\ \textcolor{comment}{}\ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <=\ m;\ i++)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ j\ =\ 0;\ j\ <=\ n;\ j++)\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ \ \ ///\ If\ first\ string\ is\ empty,\ only\ option\ is\ to }}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ \ ///\ insert\ all\ characters\ of\ second\ string }}
+\DoxyCodeLine{00097\ \textcolor{comment}{}\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[i][j]\ =\ j;\ \textcolor{comment}{///\ Minimum\ operations\ =\ j }}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \textcolor{comment}{}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ \ \ \ \ \ ///\ If\ second\ string\ is\ empty,\ only\ option\ is\ to }}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ \ \ \ \ \ ///\ remove\ all\ characters\ of\ second\ string }}
+\DoxyCodeLine{00103\ \textcolor{comment}{}\ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (j\ ==\ 0)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[i][j]\ =\ i;\ \textcolor{comment}{///\ Minimum\ operations\ =\ i }}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \textcolor{comment}{}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ \ \ \ \ ///\ If\ last\ characters\ are\ same,\ ignore\ last\ char }}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ \ \ \ ///\ and\ recur\ for\ remaining\ string }}
+\DoxyCodeLine{00109\ \textcolor{comment}{}\ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (str1[i\ -\/\ 1]\ ==\ str2[j\ -\/\ 1])\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[i][j]\ =\ \mbox{\hyperlink{namespacedp}{dp}}[i\ -\/\ 1][j\ -\/\ 1];}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \textcolor{comment}{}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ \ \ ///\ If\ the\ last\ character\ is\ different,\ consider\ all }}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ \ \ \ \ ///\ possibilities\ and\ find\ the\ minimum }}
+\DoxyCodeLine{00115\ \textcolor{comment}{}\ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[i][j]\ =\ 1\ +\ min(\mbox{\hyperlink{namespacedp}{dp}}[i][j\ -\/\ 1],\ \ \ \ \ \ \textcolor{comment}{//\ Insert}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[i\ -\/\ 1][j],\ \ \ \ \ \ \textcolor{comment}{//\ Remove}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[i\ -\/\ 1][j\ -\/\ 1]);\ \textcolor{comment}{//\ Replace}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedp}{dp}}[m][n];\ \textcolor{comment}{///\ returning\ the\ minimum\ cost\ of\ operations\ needed\ to\ convert\ str1\ to\ str2 }}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}
+\Hypertarget{minimum__edit__distance_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}!main@{main}}
+\index{main@{main}!minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{minimum__edit__distance_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+main function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \mbox{\hyperlink{minimum__edit__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00162\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00163\ \}}
+
+\end{DoxyCode}
+\Hypertarget{minimum__edit__distance_8cpp_a0138c226bd79ffe6d839c787cfc60347}\index{minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}!min@{min}}
+\index{min@{min}!minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily \label{minimum__edit__distance_8cpp_a0138c226bd79ffe6d839c787cfc60347} 
+uint64\+\_\+t dynamic\+\_\+programming\+::minimum\+\_\+edit\+\_\+distance\+::min (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{x}{, }\item[{uint64\+\_\+t}]{y}{, }\item[{uint64\+\_\+t}]{z}{}\end{DoxyParamCaption})}
+
+
+
+Takes input of the cost of three operations\+: Insert, Replace and Delete and return the minimum cost among them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & used to pass minimum cost of Insert operations \\
+\hline
+{\em y} & used to pass minimum cost of Replace operations \\
+\hline
+{\em z} & used to pass minimum cost of Delete operations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+x if {\ttfamily x} is the minimum value 
+
+y if {\ttfamily y} is the minimum value 
+
+z if {\ttfamily z} is the minimum value 
+\end{DoxyReturn}
+returns x, if x is the minimum value
+
+returns y, if y is the minimum value
+
+returns z if z is the minimum value
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordflow}{if}\ (x\ <=\ y\ \&\&\ x\ <=\ z)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{///\ returns\ x,\ if\ x\ is\ the\ minimum\ value }}
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordflow}{if}\ (y\ <=\ x\ \&\&\ y\ <=\ z)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ y;\ \textcolor{comment}{///\ returns\ y,\ if\ y\ is\ the\ minimum\ value }}
+\DoxyCodeLine{00069\ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ z;\ \textcolor{comment}{///\ returns\ z\ if\ z\ is\ the\ minimum\ value }}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{minimum__edit__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}!test@{test}}
+\index{test@{test}!minimum\_edit\_distance.cpp@{minimum\_edit\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{minimum__edit__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00134\ \ \ std::string\ str1\ =\ \textcolor{stringliteral}{"{}INTENTION"{}};\ \textcolor{comment}{//\ Sample\ input\ of\ 1st\ string}}
+\DoxyCodeLine{00135\ \ \ std::string\ str2\ =\ \textcolor{stringliteral}{"{}EXECUTION"{}};\ \textcolor{comment}{//\ Sample\ input\ of\ 2nd\ string}}
+\DoxyCodeLine{00136\ \ \ uint64\_t\ expected\_output1\ =\ 5;\ \textcolor{comment}{//\ Expected\ minimum\ cost}}
+\DoxyCodeLine{00137\ \ \ uint64\_t\ output1\ =\ \mbox{\hyperlink{minimum__edit__distance_8cpp_ade2fcfe0359f3c7691bfaa04b14943e2}{dynamic\_programming::minimum\_edit\_distance::editDistDP}}(}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ str1,\ str2,\ str1.length(),\ str2.length());\ \textcolor{comment}{//\ calling\ the\ editDistDP\ function\ and\ storing\ the\ result\ on\ output1}}
+\DoxyCodeLine{00139\ \ \ assert(output1\ ==\ expected\_output1);\ \textcolor{comment}{//\ comparing\ the\ output\ with\ the\ expected\ output}}
+\DoxyCodeLine{00140\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Minimum\ Number\ of\ Operations\ Required:\ "{}}\ <<\ output1}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00144\ \ \ std::string\ str3\ =\ \textcolor{stringliteral}{"{}SATURDAY"{}};}
+\DoxyCodeLine{00145\ \ \ std::string\ str4\ =\ \textcolor{stringliteral}{"{}SUNDAY"{}};}
+\DoxyCodeLine{00146\ \ \ uint64\_t\ expected\_output2\ =\ 3;}
+\DoxyCodeLine{00147\ \ \ uint64\_t\ output2\ =\ \mbox{\hyperlink{minimum__edit__distance_8cpp_ade2fcfe0359f3c7691bfaa04b14943e2}{dynamic\_programming::minimum\_edit\_distance::editDistDP}}(}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ str3,\ str4,\ str3.length(),\ str4.length());}
+\DoxyCodeLine{00149\ \ \ assert(output2\ ==\ expected\_output2);}
+\DoxyCodeLine{00150\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Minimum\ Number\ of\ Operations\ Required:\ "{}}\ <<\ output2}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00152\ \}}
+
+\end{DoxyCode}

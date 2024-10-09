@@ -1,0 +1,1112 @@
+\doxysection{uint128\+\_\+t.\+hpp}
+\hypertarget{uint128__t_8hpp_source}{}\label{uint128__t_8hpp_source}\index{ciphers/uint128\_t.hpp@{ciphers/uint128\_t.hpp}}
+\mbox{\hyperlink{uint128__t_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ @details\ Implementation\ of\ 128-\/bit\ unsigned\ integers.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ @note\ The\ implementation\ can\ be\ flagged\ as\ not\ completed.\ This\ header\ is\ used}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ with\ enough\ operations\ as\ a\ part\ of\ bigger\ integer\ types\ 256-\/bit\ integer.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ @author\ [Ashish\ Daulatabad](https://github.com/AshishYUO)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \ \textcolor{comment}{///\ for\ \`{}std::reverse`\ and\ other\ operations}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <ostream>}\ \ \ \ \textcolor{comment}{///\ for\ \`{}std::cout`\ overload}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \ \textcolor{comment}{///\ for\ \`{}std::string`}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <utility>}\ \ \ \ \textcolor{comment}{///\ for\ \`{}std::pair`\ library}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <intrin.h>}\ \ \textcolor{comment}{///\ for\ \_BitScanForward64\ and\ \_\_BitScanReverse64\ operation}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ CIPHERS\_UINT128\_T\_HPP\_}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ CIPHERS\_UINT128\_T\_HPP\_}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classuint128__t}{uint128\_t}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00024\ \textcolor{keyword}{struct\ }std::is\_integral<\mbox{\hyperlink{classuint128__t}{uint128\_t}}>\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }std::is\_arithmetic<\mbox{\hyperlink{classuint128__t}{uint128\_t}}>\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }std::is\_unsigned<\mbox{\hyperlink{classuint128__t}{uint128\_t}}>\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00029\ \textcolor{comment}{}}
+\DoxyCodeLine{00030\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ @brief\ Adding\ two\ string}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ @details\ Adds\ two\ long\ integer,\ only\ used\ for\ printing\ numbers}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ @param\ first\ First\ integer\ string}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ @param\ second\ Second\ integer\ string}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ @returns\ string\ denoting\ the\ addition\ of\ both\ the\ strings}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ std::string\ \mbox{\hyperlink{uint128__t_8hpp_a3ff77262ffd6743df5b808d41382a6f3}{add}}(\textcolor{keyword}{const}\ std::string\ \&first,\ \textcolor{keyword}{const}\ std::string\ \&second)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ third;}
+\DoxyCodeLine{00039\ \ \ \ \ int16\_t\ sum\ =\ 0,\ carry\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ i\ =\ \textcolor{keyword}{static\_cast<}int32\_t\textcolor{keyword}{>}(first.size())\ -\/\ 1,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j\ =\ \textcolor{keyword}{static\_cast<}int32\_t\textcolor{keyword}{>}(second.size())\ -\/\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ i\ >=\ 0\ ||\ j\ >=\ 0;\ -\/-\/i,\ -\/-\/j)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ sum\ =\ ((i\ >=\ 0\ ?\ first[i]\ -\/\ \textcolor{charliteral}{'0'}\ :\ 0)\ +\ (j\ >=\ 0\ ?\ second[j]\ -\/\ \textcolor{charliteral}{'0'}\ :\ 0)\ +}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ carry);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ carry\ =\ sum\ /\ 10;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ sum\ \%=\ 10;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ third.push\_back(sum\ +\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (carry)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ third.push\_back(\textcolor{charliteral}{'1'});}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ std::reverse(third.begin(),\ third.end());}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ third;}
+\DoxyCodeLine{00054\ \}\textcolor{comment}{}}
+\DoxyCodeLine{00055\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ @class\ uint128\_t}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ @brief\ class\ for\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ uint64\_t\ f\{\},\ s\{\};\ \ \textcolor{comment}{///\ First\ and\ second\ half\ of\ 128\ bit\ number}}
+\DoxyCodeLine{00061\ \textcolor{comment}{}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Get\ integer\ from\ given\ string.}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ \ \ \ \ *\ @details\ Create\ an\ integer\ from\ a\ given\ string}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ \ *\ @param\ str\ integer\ string,\ can\ be\ hexadecimal\ (starting\ on\ 0x...\ or}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ \ *\ number)}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ void}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classuint128__t_a857a3c69c1e775a1bd3935c2bfbb02df}{\_\_get\_integer\_from\_string}}(\textcolor{keyword}{const}\ std::string\ \&str)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ this-\/>f\ =\ this-\/>s\ =\ 0;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str.size()\ >\ 1\ \&\&\ str[1]\ ==\ \textcolor{charliteral}{'x'})\ \{\ \ \textcolor{comment}{//\ if\ hexadecimal}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 2;\ i\ <\ str.size();\ ++i)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ *=\ 16LL;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str[i]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ str[i]\ <=\ \textcolor{charliteral}{'9'})\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ +=\ (str[i]\ -\/\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (str[i]\ >=\ \textcolor{charliteral}{'A'}\ \&\&\ str[i]\ <=\ \textcolor{charliteral}{'F'})\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ +=\ (str[i]\ -\/\ \textcolor{charliteral}{'A'}\ +\ 10);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (str[i]\ >=\ \textcolor{charliteral}{'a'}\ \&\&\ str[i]\ <=\ \textcolor{charliteral}{'f'})\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ +=\ (str[i]\ -\/\ \textcolor{charliteral}{'a'}\ +\ 10);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \textcolor{comment}{//\ if\ decimal}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&x\ :\ str)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ *=\ 10LL;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ +=\ (x\ -\/\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00092\ \textcolor{comment}{}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Parameterized\ constructor}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ *\ @param\ low\ lower\ part\ 8-\/bit\ unisgned\ integer}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classuint128__t_adce2432b148fe18179a5ea272f4eb040}{uint128\_t}}(T\ low)\ :\ s(low)\ \{\}}
+\DoxyCodeLine{00101\ \textcolor{comment}{}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Parameterized\ constructor}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ \ \ \ \ *\ @param\ str\ Integer\ string\ (hexadecimal\ starting\ with\ 0x..\ or\ decimal)}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classuint128__t_a0b6612186d8f678452e011d08ee1f5ac}{uint128\_t}}(\textcolor{keyword}{const}\ std::string\ \&str)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint128__t_a857a3c69c1e775a1bd3935c2bfbb02df}{\_\_get\_integer\_from\_string}}(str);}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \textcolor{comment}{}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Parameterized\ constructor}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ \ \ \ \ *\ @param\ high\ higher\ part\ 64-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ \ *\ @param\ low\ lower\ part\ 64-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{classuint128__t_a95ac8be8f414fcbce09301b912f5079d}{uint128\_t}}(\textcolor{keyword}{const}\ uint64\_t\ high,\ \textcolor{keyword}{const}\ uint64\_t\ low)\ :\ f(high),\ s(low)\ \{\}}
+\DoxyCodeLine{00116\ \textcolor{comment}{}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Copy\ constructor}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ \ *\ @param\ num\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{classuint128__t_a60bf2739c93bb1cd41654fd60c76ae6b}{uint128\_t}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&num)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00122\ \textcolor{comment}{}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Move\ constructor}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \ *\ @param\ num\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classuint128__t_a7d56143b2e291e8087188192533d2e3c}{uint128\_t}}(\mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\&num)\ noexcept\ :\ f(num.f),\ s(num.s)\ \{\}}
+\DoxyCodeLine{00128\ \textcolor{comment}{}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Destructor\ for\ uint128\_t}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{classuint128__t_a4147188abcdcdb12c61bfbe4e4c0a363}{\string~uint128\_t}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00133\ \textcolor{comment}{}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Leading\ zeroes\ in\ binary}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ \ \ *\ @details\ Calculates\ leading\ zeros\ in\ 128-\/bit\ integer}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ Integer\ denoting\ leading\ zeroes}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{classuint128__t_af139bb6e630f1a61919f180978611cd2}{\_lez}}()\ \{}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#ifndef\ \_MSC\_VER}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_\_builtin\_clzll(f);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 64\ +\ \_\_builtin\_clzll(s);}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ r\ =\ 0;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \_BitScanForward64(\&r,\ f);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 64)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ l\ =\ 0;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \_BitScanForward64(\&l,\ s);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 64\ +\ l;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \textcolor{comment}{}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Trailing\ zeroes\ in\ binary}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ \ \ \ \ *\ @details\ Calculates\ leading\ zeros\ in\ 128-\/bit\ integer}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ Integer\ denoting\ Trailing\ zeroes}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{classuint128__t_a7d2285a8a6e20b77f82f1f0351afe76e}{\_trz}}()\ \{}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#ifndef\ \_MSC\_VER}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_\_builtin\_ctzll(f);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 64\ +\ \_\_builtin\_ctzll(s);}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ r\ =\ 0;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \_BitScanReverse64(\&r,\ s);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 64)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ l\ =\ 0;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \_BitScanReverse64(\&l,\ f);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 64\ +\ l;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \textcolor{comment}{}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ casting\ operator\ to\ boolean\ value}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ value\ of\ this\ is\ non-\/zero,\ else\ false}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (f\ ||\ s);\ \}}
+\DoxyCodeLine{00185\ \textcolor{comment}{}}
+\DoxyCodeLine{00186\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ casting\ operator\ to\ any\ integer\ valu}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ any\ integer\ type}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ integer\ value\ casted\ to\ mentioned\ type}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ T()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(s);}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \textcolor{comment}{}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ returns\ lower\ 64-\/bit\ integer\ part}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ returns\ lower\ 64-\/bit\ integer\ part}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{inline}\ uint64\_t\ \mbox{\hyperlink{classuint128__t_aa69e1064c0b0b1df1c61acd2ea04fabd}{lower}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ s;\ \}}
+\DoxyCodeLine{00202\ \textcolor{comment}{}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ returns\ upper\ 64-\/bit\ integer\ part}}
+\DoxyCodeLine{00205\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ returns\ upper\ 64-\/bit\ integer\ part}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{inline}\ uint64\_t\ \mbox{\hyperlink{classuint128__t_a1ee2f1ffbd9984faad34883eb45e9705}{upper}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ f;\ \}}
+\DoxyCodeLine{00208\ \textcolor{comment}{}}
+\DoxyCodeLine{00209\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00210\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ =\ for\ other\ types}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ any\ integer\ type}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ an\ integer\ to\ assign\ it's\ value}}
+\DoxyCodeLine{00213\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ pointer\ with\ it's\ value\ equal\ to\ \`{}p`}}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_ac924cc09bbb919532dc42f1f93f6f544}{operator=}}(\textcolor{keyword}{const}\ T\ \&p)\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ this-\/>s\ =\ p;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \textcolor{comment}{}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ =\ for\ type\ string}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ string\ to\ assign\ it's\ value\ to\ equivalent\ integer}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ pointer\ with\ it's\ value\ equal\ to\ \`{}p`}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_abae08ef3c1d6dc512edd68ca68327f74}{operator=}}(\textcolor{keyword}{const}\ std::string\ \&p)\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classuint128__t_a857a3c69c1e775a1bd3935c2bfbb02df}{\_\_get\_integer\_from\_string}}(p);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \textcolor{comment}{}}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ =\ for\ uint128\_t}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ an\ 128-\/bit\ integer\ to\ assign\ it's\ value}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ pointer\ with\ it's\ value\ equal\ to\ \`{}p`}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_ab6aa4d14ed52c7c640468c45350da0c5}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00238\ \textcolor{comment}{}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Move\ assignment\ operator}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a3c4a7e775a0820196fc08303bbeed44a}{operator=}}(\mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\&p)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00243\ \textcolor{comment}{}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ +\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00246\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00247\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ addition\ of\ this\ and\ p,\ returning\ uint128\_t\ integer}}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a5133f854a93efe47fd1f0f6a9589856d}{operator+}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(f\ +\ (p\ +\ s\ <\ s),\ p\ +\ s);}
+\DoxyCodeLine{00254\ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \textcolor{comment}{}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ +\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ addition\ of\ this\ and\ p,\ returning\ uint128\_t\ integer}}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a0fd125cc2b7702370a4aefa740d57606}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(f\ +\ (p.s\ +\ s\ <\ s)\ +\ p.f,\ p.s\ +\ s);}
+\DoxyCodeLine{00263\ \ \ \ \ \}}
+\DoxyCodeLine{00264\ \textcolor{comment}{}}
+\DoxyCodeLine{00265\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ +=\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00269\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ addition\ of\ this\ and\ p,\ returning\ this}}
+\DoxyCodeLine{00270\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a55a3f122c4d982c60c2eb9fc09b9e004}{operator+=}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ app\ =\ p\ +\ s\ <\ s;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ this-\/>f\ +=\ app;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ this-\/>s\ +=\ p;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \textcolor{comment}{}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ +=\ for\ uint128\_t}}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00283\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ addition\ of\ this\ and\ p,\ returning\ this}}
+\DoxyCodeLine{00284\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a9704e6a4d32750461bff663e40e537cb}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ app\ =\ p.s\ +\ s\ <\ s;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ f\ =\ f\ +\ app\ +\ p.f;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ s\ =\ p.s\ +\ s;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \textcolor{comment}{}}
+\DoxyCodeLine{00292\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00293\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ pre-\/increment\ operator}}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ incremented\ value\ of\ this.}}
+\DoxyCodeLine{00295\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_ac8d293d20cdf65c48d8d1e0ba7034c8e}{operator++}}()\ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ +=\ 1;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ \textcolor{comment}{}}
+\DoxyCodeLine{00301\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00302\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ post-\/increment\ operator}}
+\DoxyCodeLine{00303\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ incremented\ value\ of\ this.}}
+\DoxyCodeLine{00304\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_af71990a1fba93a5528ddb1e6662bffd6}{operator++}}(\textcolor{keywordtype}{int})\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ ++*\textcolor{keyword}{this};}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \textcolor{comment}{}}
+\DoxyCodeLine{00310\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00311\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ -\/\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00312\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00313\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00314\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ subtraction\ of\ this\ and\ p,\ returning\ uint128\_t\ integer}}
+\DoxyCodeLine{00315\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a6824700c9c732a4200e7493fe7ed0eec}{operator-\/}}(\textcolor{keyword}{const}\ T\ \&p)\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ app\ =\ p\ >\ s;}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(f\ -\/\ app,\ s\ -\/\ p);}
+\DoxyCodeLine{00321\ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \textcolor{comment}{}}
+\DoxyCodeLine{00323\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00324\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ -\/\ for\ uint128\_t}}
+\DoxyCodeLine{00325\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00326\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ subtraction\ of\ this\ and\ p,\ returning\ uint128\_t\ integer}}
+\DoxyCodeLine{00327\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a81a568510e6d0b0950133dd9fc37fc0c}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ app\ =\ p.s\ >\ s;}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(f\ -\/\ p.f\ -\/\ app,\ s\ -\/\ p.s);}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ \textcolor{comment}{}}
+\DoxyCodeLine{00333\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00334\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ -\/\ using\ twos\ complement}}
+\DoxyCodeLine{00335\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ 2's\ complement\ of\ this.}}
+\DoxyCodeLine{00336\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a07945fe010079a35e18812636d5c70c3}{operator-\/}}()\ \{\ \textcolor{keywordflow}{return}\ \string~*\textcolor{keyword}{this}\ +\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(1);\ \}}
+\DoxyCodeLine{00338\ \textcolor{comment}{}}
+\DoxyCodeLine{00339\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00340\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ -\/-\/\ (pre-\/decrement)}}
+\DoxyCodeLine{00341\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ decremented\ value\ of\ this}}
+\DoxyCodeLine{00342\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a1d390c6ea5450680dcaff341235f0fed}{operator-\/-\/}}()\ \{}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ -\/=\ 1;}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00346\ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \textcolor{comment}{}}
+\DoxyCodeLine{00348\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00349\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ -\/-\/\ (post-\/decrement)}}
+\DoxyCodeLine{00350\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ decremented\ value\ of\ this}}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a2ecb71686e1c9ed0267124580c91c414}{operator-\/-\/}}(\textcolor{keywordtype}{int}\ p)\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ -\/-\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00355\ \ \ \ \ \}}
+\DoxyCodeLine{00356\ \textcolor{comment}{}}
+\DoxyCodeLine{00357\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00358\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ -\/=\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00359\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00360\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00361\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ subtraction\ of\ this\ and\ p,\ returning\ this}}
+\DoxyCodeLine{00362\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00365\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a0a4623fae71566dfcf2e742c8c156798}{operator-\/=}}(\textcolor{keyword}{const}\ T\ \&p)\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ app\ =\ p\ >\ s;}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ f\ -\/=\ app;}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ s\ -\/=\ p;}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00370\ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \textcolor{comment}{}}
+\DoxyCodeLine{00372\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00373\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ -\/=\ for\ uint128\_t}}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ subtraction\ of\ this\ and\ p,\ returning\ this}}
+\DoxyCodeLine{00376\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00377\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_abea727c69c2acd74ffe21464199d27c8}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ app\ =\ p.s\ >\ s;}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ f\ =\ f\ -\/\ p.f\ -\/\ app;}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ s\ =\ s\ -\/\ p.s;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00382\ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \textcolor{comment}{}}
+\DoxyCodeLine{00384\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00385\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ *\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00386\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00387\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00388\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ multiplication\ of\ this\ and\ p,\ returning\ uint128\_t\ integer}}
+\DoxyCodeLine{00389\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a488e65a14d4c32a096011aa4725cdb30}{operator*}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ *\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p);}
+\DoxyCodeLine{00394\ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \textcolor{comment}{}}
+\DoxyCodeLine{00396\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00397\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ *\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00398\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00399\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ multiplication\ of\ this\ and\ p,\ returning\ uint128\_t\ integer}}
+\DoxyCodeLine{00400\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00401\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a44e472cf685cac6edc5172eac2e66860}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ uint64\_t\ f\_first\ =\ s\ >>\ 32,\ f\_second\ =\ s\ \&\ 0xFFFFFFFF,}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\_first\ =\ p.s\ >>\ 32,\ s\_second\ =\ p.s\ \&\ 0xFFFFFFFF;}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ uint64\_t\ fi\ =\ f\_first\ *\ s\_first,\ se\ =\ f\_first\ *\ s\_second,}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ th\ =\ s\_first\ *\ f\_second,\ fo\ =\ s\_second\ *\ f\_second;}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ uint64\_t\ tmp\ =\ ((se\ \&\ 0xFFFFFFFF)\ <<\ 32),\ tmp2\ =\ (th\ \&\ 0xFFFFFFFF)}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ 32;}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cc\ =\ (tmp\ +\ tmp2\ <\ tmp);}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ tmp\ +=\ tmp2;}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ cc\ +=\ (tmp\ +\ fo\ <\ tmp);}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ uint64\_t\ carry\ =\ fi\ +\ (se\ >>\ 32)\ +\ (th\ >>\ 32);}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(this-\/>f\ *\ p.s\ +\ this-\/>s\ *\ p.f\ +\ carry\ +\ cc,\ tmp\ +\ fo);}
+\DoxyCodeLine{00413\ \ \ \ \ \}}
+\DoxyCodeLine{00414\ \textcolor{comment}{}}
+\DoxyCodeLine{00415\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00416\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ *=\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00417\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00418\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00419\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ multiplication\ of\ this\ and\ p,\ returning\ this}}
+\DoxyCodeLine{00420\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a3016b71f92a0c7e090a7c5b6a3935092}{operator*=}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ *=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p);}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00426\ \ \ \ \ \}}
+\DoxyCodeLine{00427\ \textcolor{comment}{}}
+\DoxyCodeLine{00428\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00429\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ *=\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00430\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00431\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ multiplication\ of\ this\ and\ p,\ returning\ this}}
+\DoxyCodeLine{00432\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00433\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a96fc7c2df4325bb1a0c22b566bcc6295}{operator*=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ uint64\_t\ f\_first\ =\ s\ >>\ 32,\ f\_second\ =\ s\ \&\ 0xFFFFFFFF,}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\_first\ =\ p.s\ >>\ 32,\ s\_second\ =\ p.s\ \&\ 0xFFFFFFFF;}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ uint64\_t\ fi\ =\ f\_first\ *\ s\_first,\ se\ =\ f\_first\ *\ s\_second,}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ th\ =\ s\_first\ *\ f\_second,\ fo\ =\ s\_second\ *\ f\_second;}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ uint64\_t\ tmp\ =\ (se\ <<\ 32),\ tmp2\ =\ (th\ <<\ 32);}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cc\ =\ (tmp\ +\ tmp2\ <\ tmp);}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ tmp\ +=\ tmp2;}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ cc\ +=\ (tmp\ +\ fo\ <\ tmp);}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ uint64\_t\ carry\ =\ fi\ +\ (se\ >>\ 32)\ +\ (th\ >>\ 32);}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ f\ =\ this-\/>f\ *\ p.s\ +\ this-\/>s\ *\ p.f\ +\ carry\ +\ cc;}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ s\ =\ tmp\ +\ fo;}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00446\ \ \ \ \ \}}
+\DoxyCodeLine{00447\ \textcolor{comment}{}}
+\DoxyCodeLine{00448\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00449\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ divide\ function\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00450\ \textcolor{comment}{\ \ \ \ \ *\ @details\ divide\ this\ value\ and}}
+\DoxyCodeLine{00451\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00452\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ pair\ denoting\ quotient\ and\ remainder.}}
+\DoxyCodeLine{00453\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00454\ \ \ \ \ std::pair<uint128\_t,\ uint128\_t>\ \mbox{\hyperlink{classuint128__t_a8bf81f7f5f5c98f197822ec88e106c6c}{divide}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ <\ p)\ \{\ \ \textcolor{comment}{//\ if\ this\ is\ less\ than\ divisor}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{classuint128__t}{uint128\_t}}(0),\ *\textcolor{keyword}{this}\};}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ ==\ p)\ \{\ \ \textcolor{comment}{//\ if\ this\ is\ equal\ to\ divisor}}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{classuint128__t}{uint128\_t}}(1),\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(0)\};}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ tmp\ =\ p,\ tmp2\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ uint16\_t\ left\ =\ tmp.\mbox{\hyperlink{classuint128__t_af139bb6e630f1a61919f180978611cd2}{\_lez}}()\ -\/\ \mbox{\hyperlink{classuint128__t_af139bb6e630f1a61919f180978611cd2}{\_lez}}();}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ tmp\ <<=\ left;}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ quotient(0);}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ zero(0);}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (tmp2\ >=\ p)\ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ shf\ =\ tmp2.\_lez()\ -\/\ tmp.\mbox{\hyperlink{classuint128__t_af139bb6e630f1a61919f180978611cd2}{\_lez}}();}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shf)\ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ >>=\ shf;}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quotient\ <<=\ shf;}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ left\ -\/=\ shf;}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tmp2\ <\ tmp)\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ >>=\ 1;}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quotient\ <<=\ 1;}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/left;}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ tmp2\ -\/=\ tmp;}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ ++quotient;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{quotient\ <<\ left,\ tmp2\};}
+\DoxyCodeLine{00481\ \ \ \ \ \}}
+\DoxyCodeLine{00482\ \textcolor{comment}{}}
+\DoxyCodeLine{00483\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00484\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ /\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00485\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00486\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ unsigned\ 128-\/bit\ quotient.}}
+\DoxyCodeLine{00487\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a3072a7e43da3600c345c81bc80c957ee}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t_a8bf81f7f5f5c98f197822ec88e106c6c}{divide}}(p).first;\ \}}
+\DoxyCodeLine{00489\ \textcolor{comment}{}}
+\DoxyCodeLine{00490\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00491\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ /\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00492\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00493\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00494\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ unsigned\ 128-\/bit\ quotient.}}
+\DoxyCodeLine{00495\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_aed49b24b99293ae6b14ac9850f5deb94}{operator/}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ tmp\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ tmp\ /=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(0,\ p);}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00502\ \ \ \ \ \}}
+\DoxyCodeLine{00503\ \textcolor{comment}{}}
+\DoxyCodeLine{00504\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00505\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ /=\ for\ uint128\_t}}
+\DoxyCodeLine{00506\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00507\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ set\ as\ unsigned\ 128-\/bit\ quotient.}}
+\DoxyCodeLine{00508\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a300ed88fe2054788cc6e0b6a8fdf66db}{operator/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ \mbox{\hyperlink{classuint128__t_a8bf81f7f5f5c98f197822ec88e106c6c}{divide}}(p).first;}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00512\ \ \ \ \ \}}
+\DoxyCodeLine{00513\ \textcolor{comment}{}}
+\DoxyCodeLine{00514\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00515\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ /=\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00516\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00517\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00518\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ set\ as\ unsigned\ 128-\/bit\ quotient.}}
+\DoxyCodeLine{00519\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_aaacb9fda7adcfee224f1b09124c0438b}{operator/=}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ /=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(0,\ p);}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00525\ \ \ \ \ \}}
+\DoxyCodeLine{00526\ \textcolor{comment}{}}
+\DoxyCodeLine{00527\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00528\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \%\ for\ uint128\_t}}
+\DoxyCodeLine{00529\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00530\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ unsigned\ 128-\/bit\ remainder.}}
+\DoxyCodeLine{00531\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_abfc6a8765039cacc829a5cd386b5a066}{operator\%}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t_a8bf81f7f5f5c98f197822ec88e106c6c}{divide}}(p).second;\ \}}
+\DoxyCodeLine{00533\ \textcolor{comment}{}}
+\DoxyCodeLine{00534\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00535\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \%\ for\ uint128\_t\ and\ other\ integer\ types.}}
+\DoxyCodeLine{00536\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00537\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00538\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ unsigned\ 128-\/bit\ remainder.}}
+\DoxyCodeLine{00539\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00540\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_add9938b97fc66560cec2d32e8c83eaad}{operator\%}}(\textcolor{keyword}{const}\ T\ \&p)\ \{}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ \%\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p);}
+\DoxyCodeLine{00544\ \ \ \ \ \}}
+\DoxyCodeLine{00545\ \textcolor{comment}{}}
+\DoxyCodeLine{00546\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00547\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \%=\ for\ uint128\_t}}
+\DoxyCodeLine{00548\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ unsigned\ integer}}
+\DoxyCodeLine{00549\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ set\ as\ unsigned\ 128-\/bit\ remainder.}}
+\DoxyCodeLine{00550\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a279209a184db20a7ffc8e687fdb05be2}{operator\%=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ \mbox{\hyperlink{classuint128__t_a8bf81f7f5f5c98f197822ec88e106c6c}{divide}}(p).second;}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00554\ \ \ \ \ \}}
+\DoxyCodeLine{00555\ \textcolor{comment}{}}
+\DoxyCodeLine{00556\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00557\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \%=\ for\ uint128\_t}}
+\DoxyCodeLine{00558\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ denoting\ integral\ type}}
+\DoxyCodeLine{00559\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ a\ type\ of\ integer\ variable}}
+\DoxyCodeLine{00560\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ set\ as\ unsigned\ 128-\/bit\ remainder.}}
+\DoxyCodeLine{00561\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00562\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a0500a90bcde5a8254750c361eed9bc40}{operator\%=}}(\textcolor{keyword}{const}\ T\ \&p)\ \{}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ \%=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p);}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00567\ \ \ \ \ \}}
+\DoxyCodeLine{00568\ \textcolor{comment}{}}
+\DoxyCodeLine{00569\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00570\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ <\ for\ uint128\_t}}
+\DoxyCodeLine{00571\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00572\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ less\ than\ other,\ else\ false}}
+\DoxyCodeLine{00573\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00574\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_ac9a4365fb9ea5e2d2c751258f09168a4}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&other)\ \{}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\ <\ other.f\ ||\ (f\ ==\ other.f\ \&\&\ s\ <\ other.s);}
+\DoxyCodeLine{00576\ \ \ \ \ \}}
+\DoxyCodeLine{00577\ \textcolor{comment}{}}
+\DoxyCodeLine{00578\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00579\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ <=\ for\ uint128\_t}}
+\DoxyCodeLine{00580\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00581\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ less\ than\ or\ equal\ to\ other,\ else\ false}}
+\DoxyCodeLine{00582\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00583\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a16eb351c1d0ed3b89c771c63808e035a}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&other)\ \{}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\ <\ other.f\ ||\ (f\ ==\ other.f\ \&\&\ s\ <=\ other.s);}
+\DoxyCodeLine{00585\ \ \ \ \ \}}
+\DoxyCodeLine{00586\ \textcolor{comment}{}}
+\DoxyCodeLine{00587\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00588\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ >\ for\ uint128\_t}}
+\DoxyCodeLine{00589\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00590\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ greater\ than\ other,\ else\ false}}
+\DoxyCodeLine{00591\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00592\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a291d2787d668e8d06a7cfab0f5144440}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&other)\ \{}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\ >\ other.f\ ||\ (f\ ==\ other.f\ \&\&\ s\ >\ other.s);}
+\DoxyCodeLine{00594\ \ \ \ \ \}}
+\DoxyCodeLine{00595\ \textcolor{comment}{}}
+\DoxyCodeLine{00596\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00597\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ >=\ for\ uint128\_t}}
+\DoxyCodeLine{00598\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00599\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ greater\ than\ or\ equal\ than\ other,\ else\ false}}
+\DoxyCodeLine{00600\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00601\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_ae7af1bad048942eeabc092d8e0194292}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&other)\ \{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (f\ >\ other.f)\ ||\ (f\ ==\ other.f\ \&\&\ s\ >=\ other.s);}
+\DoxyCodeLine{00603\ \ \ \ \ \}}
+\DoxyCodeLine{00604\ \textcolor{comment}{}}
+\DoxyCodeLine{00605\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00606\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ ==\ for\ uint128\_t}}
+\DoxyCodeLine{00607\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00608\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ equal\ than\ other,\ else\ false}}
+\DoxyCodeLine{00609\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a7b1de5584505c189664d0edd306e979e}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&other)\ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\ ==\ other.f\ \&\&\ s\ ==\ other.s;}
+\DoxyCodeLine{00612\ \ \ \ \ \}}
+\DoxyCodeLine{00613\ \textcolor{comment}{}}
+\DoxyCodeLine{00614\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00615\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ !=\ for\ uint128\_t}}
+\DoxyCodeLine{00616\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00617\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ not\ equal\ than\ other,\ else\ false}}
+\DoxyCodeLine{00618\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_ab3359b104bbb5a31c11c2027387c4b4e}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&other)\ \{}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\ !=\ other.f\ ||\ s\ !=\ other.s;}
+\DoxyCodeLine{00621\ \ \ \ \ \}}
+\DoxyCodeLine{00622\ \textcolor{comment}{}}
+\DoxyCodeLine{00623\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00624\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ !\ for\ uint128\_t}}
+\DoxyCodeLine{00625\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ has\ zero\ value,\ else\ false}}
+\DoxyCodeLine{00626\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00627\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_ad24d6fe1fe63f415fee806b377dfa47d}{operator!}}()\ \{\ \textcolor{keywordflow}{return}\ !f\ \&\&\ !s;\ \}}
+\DoxyCodeLine{00628\ \textcolor{comment}{}}
+\DoxyCodeLine{00629\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00630\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \&\&\ for\ uint128\_t}}
+\DoxyCodeLine{00631\ \textcolor{comment}{\ \ \ \ \ *\ @param\ b\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00632\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ both\ of\ the\ values\ are\ not\ zero,\ else\ false}}
+\DoxyCodeLine{00633\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00634\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_ab07413c67d205e406abf3a9f554d59e1}{operator\&\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&b)\ \{}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (s\ ||\ f)\ \&\&\ (b.s\ ||\ b.f);}
+\DoxyCodeLine{00636\ \ \ \ \ \}}
+\DoxyCodeLine{00637\ \textcolor{comment}{}}
+\DoxyCodeLine{00638\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00639\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ ||\ for\ uint128\_t}}
+\DoxyCodeLine{00640\ \textcolor{comment}{\ \ \ \ \ *\ @param\ b\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00641\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ one\ of\ the\ values\ are\ not\ zero,\ else\ false}}
+\DoxyCodeLine{00642\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00643\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a312509b1c5b3ae5eaaf342f2ba131d03}{operator||}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&b)\ \{}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (s\ ||\ f)\ ||\ (b.s\ ||\ b.f);}
+\DoxyCodeLine{00645\ \ \ \ \ \}}
+\DoxyCodeLine{00646\ \textcolor{comment}{}}
+\DoxyCodeLine{00647\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00648\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ ()\ for\ uint128\_t}}
+\DoxyCodeLine{00649\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ value\ is\ non-\/zero,\ else\ false}}
+\DoxyCodeLine{00650\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_af4ce01d81a0369218f7d46567d136733}{operator()}}()\ \{\ \textcolor{keywordflow}{return}\ s\ ||\ f;\ \}}
+\DoxyCodeLine{00652\ \textcolor{comment}{}}
+\DoxyCodeLine{00653\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00654\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ <\ for\ other\ types}}
+\DoxyCodeLine{00655\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00656\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00657\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ less\ than\ other,\ else\ false}}
+\DoxyCodeLine{00658\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00659\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00661\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a56f579c802a6cc16f31e43af274453dc}{operator<}}(\textcolor{keyword}{const}\ T\ other)\ \{}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ <\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(other);}
+\DoxyCodeLine{00663\ \ \ \ \ \}}
+\DoxyCodeLine{00664\ \textcolor{comment}{}}
+\DoxyCodeLine{00665\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00666\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ <=\ for\ other\ types}}
+\DoxyCodeLine{00667\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00668\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00669\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ less\ than\ or\ equal\ to\ other,\ else\ false}}
+\DoxyCodeLine{00670\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00671\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a4562c218813c8705bccb25d8786ca77c}{operator<=}}(\textcolor{keyword}{const}\ T\ other)\ \{}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ <=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(other);}
+\DoxyCodeLine{00675\ \ \ \ \ \}}
+\DoxyCodeLine{00676\ \textcolor{comment}{}}
+\DoxyCodeLine{00677\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00678\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ >\ for\ other\ types}}
+\DoxyCodeLine{00679\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00680\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00681\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ greater\ than\ other,\ else\ false}}
+\DoxyCodeLine{00682\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00685\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a82c63f8c18b8d2d255b8b0d373ac7d6e}{operator>}}(\textcolor{keyword}{const}\ T\ other)\ \{}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ >\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(other);}
+\DoxyCodeLine{00687\ \ \ \ \ \}}
+\DoxyCodeLine{00688\ \textcolor{comment}{}}
+\DoxyCodeLine{00689\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00690\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ >=\ for\ other\ types}}
+\DoxyCodeLine{00691\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00692\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00693\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ greater\ than\ or\ equal\ other,\ else\ false}}
+\DoxyCodeLine{00694\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00695\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00697\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a334bc710f411f108a0243b24ac73b481}{operator>=}}(\textcolor{keyword}{const}\ T\ other)\ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ >=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(other);}
+\DoxyCodeLine{00699\ \ \ \ \ \}}
+\DoxyCodeLine{00700\ \textcolor{comment}{}}
+\DoxyCodeLine{00701\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00702\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ ==\ for\ other\ types}}
+\DoxyCodeLine{00703\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00704\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00705\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ equal\ to\ other,\ else\ false}}
+\DoxyCodeLine{00706\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00707\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00709\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a7a95e3accdac1cb38c9767f9550c0896}{operator==}}(\textcolor{keyword}{const}\ T\ other)\ \{}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(other);}
+\DoxyCodeLine{00711\ \ \ \ \ \}}
+\DoxyCodeLine{00712\ \textcolor{comment}{}}
+\DoxyCodeLine{00713\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00714\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ !=\ for\ other\ types}}
+\DoxyCodeLine{00715\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00716\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00717\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ not\ equal\ to\ other,\ else\ false}}
+\DoxyCodeLine{00718\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00719\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00721\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a7737bb30a5480c7286546b911d82e696}{operator!=}}(\textcolor{keyword}{const}\ T\ other)\ \{}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ !=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(other);}
+\DoxyCodeLine{00723\ \ \ \ \ \}}
+\DoxyCodeLine{00724\ \textcolor{comment}{}}
+\DoxyCodeLine{00725\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00726\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \&\&\ for\ other\ types}}
+\DoxyCodeLine{00727\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00728\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00729\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ both\ values\ are\ non-\/zero,\ else\ false}}
+\DoxyCodeLine{00730\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00731\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00733\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a0ad881643c707f6ae3c5de3822a8cb8a}{operator\&\&}}(\textcolor{keyword}{const}\ T\ b)\ \{}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (f\ ||\ s)\ \&\&\ b;}
+\DoxyCodeLine{00735\ \ \ \ \ \}}
+\DoxyCodeLine{00736\ \textcolor{comment}{}}
+\DoxyCodeLine{00737\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00738\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ ||\ for\ other\ types}}
+\DoxyCodeLine{00739\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00740\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ number\ to\ be\ compared\ with\ this}}
+\DoxyCodeLine{00741\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ true\ if\ this\ is\ either\ one\ of\ the\ values\ are\ non-\/zero,\ else}}
+\DoxyCodeLine{00742\ \textcolor{comment}{\ \ \ \ \ *\ false}}
+\DoxyCodeLine{00743\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00744\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00746\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classuint128__t_a817b66c32268cf46244058a50db99503}{operator||}}(\textcolor{keyword}{const}\ T\ b)\ \{}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (f\ ||\ s)\ ||\ b;}
+\DoxyCodeLine{00748\ \ \ \ \ \}}
+\DoxyCodeLine{00749\ \textcolor{comment}{}}
+\DoxyCodeLine{00750\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00751\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \string~\ for\ uint128\_t}}
+\DoxyCodeLine{00752\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ 1's\ complement\ of\ this\ number}}
+\DoxyCodeLine{00753\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00754\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a43eafd4824666b413befe5edbc90ae7f}{operator\string~}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\string~this-\/>f,\ \string~this-\/>s);\ \}}
+\DoxyCodeLine{00755\ \textcolor{comment}{}}
+\DoxyCodeLine{00756\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00757\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ <<\ for\ uint128\_t}}
+\DoxyCodeLine{00758\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00759\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ denoting\ number\ of\ shifts}}
+\DoxyCodeLine{00760\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ shifted\ by\ p\ to\ left}}
+\DoxyCodeLine{00761\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00762\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00764\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a16e7e1211ba6c27e9a229d97fb0d9190}{operator<<}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!p)\ \{}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(f,\ s);}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p\ >=\ 64\ \&\&\ p\ <=\ 128)\ \{}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}((this-\/>s\ <<\ (p\ -\/\ 64)),\ 0);}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p\ <\ 64\ \&\&\ p\ >\ 0)\ \{}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}((this-\/>f\ <<\ p)\ +\ ((this-\/>s\ >>\ (64\ -\/\ p))),}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>s\ <<\ p);}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(0);}
+\DoxyCodeLine{00774\ \ \ \ \ \}}
+\DoxyCodeLine{00775\ \textcolor{comment}{}}
+\DoxyCodeLine{00776\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00777\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ <<=\ for\ uint128\_t}}
+\DoxyCodeLine{00778\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00779\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ denoting\ number\ of\ shifts}}
+\DoxyCodeLine{00780\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ shifted\ by\ p\ to\ left}}
+\DoxyCodeLine{00781\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00782\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00784\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_aa5b93187b1d199071f204b9987d5d16a}{operator<<=}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ \{}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ >=\ 64\ \&\&\ p\ <=\ 128)\ \{}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>f\ =\ (this-\/>s\ <<\ (p\ -\/\ 64));}
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>s\ =\ 0;}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f\ =\ ((this-\/>f\ <<\ p)\ +\ (this-\/>s\ >>\ (64\ -\/\ p)));}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ (this-\/>s\ <<\ p);}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00795\ \ \ \ \ \}}
+\DoxyCodeLine{00796\ \textcolor{comment}{}}
+\DoxyCodeLine{00797\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00798\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ >>\ for\ uint128\_t}}
+\DoxyCodeLine{00799\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00800\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ denoting\ number\ of\ shifts}}
+\DoxyCodeLine{00801\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ shifted\ by\ p\ to\ right}}
+\DoxyCodeLine{00802\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00803\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00805\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a6f24982de03e0e3d04ac7f8ae30f5848}{operator>>}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!p)\ \{}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(this-\/>f,\ this-\/>s);}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p\ >=\ 64\ \&\&\ p\ <=\ 128)\ \{}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(0,\ (this-\/>f\ >>\ (p\ -\/\ 64)));}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p\ <\ 64\ \&\&\ p\ >\ 0)\ \{}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}((this-\/>f\ >>\ p),}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (this-\/>s\ >>\ p)\ +\ (this-\/>f\ <<\ (64\ -\/\ p)));}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(0);}
+\DoxyCodeLine{00815\ \ \ \ \ \}}
+\DoxyCodeLine{00816\ \textcolor{comment}{}}
+\DoxyCodeLine{00817\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00818\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ >>=\ for\ uint128\_t}}
+\DoxyCodeLine{00819\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00820\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ denoting\ number\ of\ shifts}}
+\DoxyCodeLine{00821\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ shifted\ by\ p\ to\ right}}
+\DoxyCodeLine{00822\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00823\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00825\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a0ae5fc0c2bcc9138b32d7582466aa7f9}{operator>>=}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ \{}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ >=\ 64)\ \{}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f\ =\ 0;}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ (this-\/>f\ >>\ (p\ -\/\ 64));}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ (this-\/>s\ >>\ p)\ +\ (this-\/>f\ <<\ (64\ -\/\ p));}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f\ =\ (this-\/>f\ >>\ p);}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00836\ \ \ \ \ \}}
+\DoxyCodeLine{00837\ \textcolor{comment}{}}
+\DoxyCodeLine{00838\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00839\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \&\ for\ uint128\_t\ (bitwise\ operator)}}
+\DoxyCodeLine{00840\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00841\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ \&\ p\ (\&\ is\ bit-\/wise\ operator)}}
+\DoxyCodeLine{00842\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_ad1717d3a38391258befa413b7e2b9244}{operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(this-\/>f\ \&\ p.f,\ this-\/>s\ \&\ p.s);}
+\DoxyCodeLine{00845\ \ \ \ \ \}}
+\DoxyCodeLine{00846\ \textcolor{comment}{}}
+\DoxyCodeLine{00847\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00848\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \&\ for\ other\ types\ (bitwise\ operator)}}
+\DoxyCodeLine{00849\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00850\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00851\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ \&\ p\ (\&\ is\ bit-\/wise\ operator)}}
+\DoxyCodeLine{00852\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00853\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00854\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00855\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a9fa81ef0d54ecb9050d0be4249358ca4}{operator\&}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00856\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ tmp\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp\ \&\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p);}
+\DoxyCodeLine{00858\ \ \ \ \ \}}
+\DoxyCodeLine{00859\ \textcolor{comment}{}}
+\DoxyCodeLine{00860\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00861\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \&=\ for\ uint128\_t\ (bitwise\ operator)}}
+\DoxyCodeLine{00862\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00863\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ =\ this\ \&\ p\ (\&\ is\ bit-\/wise\ operator)}}
+\DoxyCodeLine{00864\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00865\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_ac7d55ed3bac01075b9cd11cc59508050}{operator\&=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ this-\/>f\ \&=\ p.f;}
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ this-\/>s\ \&=\ p.s;}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00869\ \ \ \ \ \}}
+\DoxyCodeLine{00870\ \textcolor{comment}{}}
+\DoxyCodeLine{00871\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00872\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \&=\ for\ other\ types\ (bitwise\ operator)}}
+\DoxyCodeLine{00873\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00874\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00875\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ =\ this\ \&\ p\ (\&\ is\ bit-\/wise\ operator)}}
+\DoxyCodeLine{00876\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00877\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00879\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a225146042c6456a3c5595645870ca640}{operator\&=}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ \&=\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p);}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00882\ \ \ \ \ \}}
+\DoxyCodeLine{00883\ \textcolor{comment}{}}
+\DoxyCodeLine{00884\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00885\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ |\ for\ other\ types\ (bitwise\ operator)}}
+\DoxyCodeLine{00886\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00887\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00888\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ |\ p\ (|\ is\ bit-\/wise\ operator)}}
+\DoxyCodeLine{00889\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00890\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00892\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a3facc74d6d078604fe2c80d0abfd3304}{operator|}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p\ |\ s);}
+\DoxyCodeLine{00894\ \ \ \ \ \}}
+\DoxyCodeLine{00895\ \textcolor{comment}{}}
+\DoxyCodeLine{00896\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00897\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ |\ for\ uint128\_t\ (bitwise\ operator)}}
+\DoxyCodeLine{00898\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00899\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ |\ p\ (|\ is\ bit-\/wise\ OR\ operator)}}
+\DoxyCodeLine{00900\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00901\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a2fda65032d9fdbaf9142a6322654dbdd}{operator|}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00902\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(this-\/>f\ |\ p.f,\ this-\/>s\ |\ p.s);}
+\DoxyCodeLine{00903\ \ \ \ \ \}}
+\DoxyCodeLine{00904\ \textcolor{comment}{}}
+\DoxyCodeLine{00905\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00906\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ |=\ for\ uint128\_t\ (bitwise\ operator)}}
+\DoxyCodeLine{00907\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00908\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ =\ this\ |\ p\ (|\ is\ bit-\/wise\ OR\ operator)}}
+\DoxyCodeLine{00909\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00910\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_ab88330f3c4f3bcde75dc5ef9eb8eb39d}{operator|=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00911\ \ \ \ \ \ \ \ \ f\ |=\ p.f;}
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ s\ |=\ p.s;}
+\DoxyCodeLine{00913\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00914\ \ \ \ \ \}}
+\DoxyCodeLine{00915\ \textcolor{comment}{}}
+\DoxyCodeLine{00916\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00917\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ |=\ for\ other\ types\ (bitwise\ operator)}}
+\DoxyCodeLine{00918\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00919\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00920\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ =\ this\ |\ p\ (|\ is\ bit-\/wise\ OR\ operator)}}
+\DoxyCodeLine{00921\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00922\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00923\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00924\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a6110aa452a6d114fcd2f42d2bc106fee}{operator|=}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00925\ \ \ \ \ \ \ \ \ s\ |=\ p.s;}
+\DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00927\ \ \ \ \ \}}
+\DoxyCodeLine{00928\ \textcolor{comment}{}}
+\DoxyCodeLine{00929\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00930\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \string^\ for\ other\ types\ (bitwise\ operator)}}
+\DoxyCodeLine{00931\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00932\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00933\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ \string^\ p\ (\string^\ is\ bit-\/wise\ XOR\ operator)}}
+\DoxyCodeLine{00934\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00935\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00936\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00937\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_aab88fd72d0370b12e4a257e378b82d37}{operator\string^}}(\textcolor{keyword}{const}\ T\ p)\ \{}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(this-\/>f,\ this-\/>s\ \string^\ p);}
+\DoxyCodeLine{00939\ \ \ \ \ \}}
+\DoxyCodeLine{00940\ \textcolor{comment}{}}
+\DoxyCodeLine{00941\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00942\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \string^\ for\ uint128\_t\ (bitwise\ operator)}}
+\DoxyCodeLine{00943\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00944\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ value\ of\ this\ \string^\ p\ (\string^\ is\ bit-\/wise\ XOR\ operator)}}
+\DoxyCodeLine{00945\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00946\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \mbox{\hyperlink{classuint128__t_a9487ed06019d846add5dc8874e41eb8b}{operator\string^}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(this-\/>f\ \string^\ p.f,\ this-\/>s\ \string^\ p.s);}
+\DoxyCodeLine{00948\ \ \ \ \ \}}
+\DoxyCodeLine{00949\ \textcolor{comment}{}}
+\DoxyCodeLine{00950\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00951\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \string^=\ for\ uint128\_t\ (bitwise\ operator)}}
+\DoxyCodeLine{00952\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00953\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ =\ this\ \string^\ p\ (\string^\ is\ bit-\/wise\ XOR\ operator)}}
+\DoxyCodeLine{00954\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00955\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_ae3f0ef8a3f68d9cbd9d99e772f1a947a}{operator\string^=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ f\ \string^=\ p.f;}
+\DoxyCodeLine{00957\ \ \ \ \ \ \ \ \ s\ \string^=\ p.s;}
+\DoxyCodeLine{00958\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00959\ \ \ \ \ \}}
+\DoxyCodeLine{00960\ \textcolor{comment}{}}
+\DoxyCodeLine{00961\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00962\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ \string^=\ for\ other\ types\ (bitwise\ operator)}}
+\DoxyCodeLine{00963\ \textcolor{comment}{\ \ \ \ \ *\ @tparam\ T\ integral\ type}}
+\DoxyCodeLine{00964\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ number\ to\ be\ operated}}
+\DoxyCodeLine{00965\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ this\ =\ this\ \string^\ p\ (\string^\ is\ bit-\/wise\ XOR\ operator)}}
+\DoxyCodeLine{00966\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00967\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{00969\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&\mbox{\hyperlink{classuint128__t_a44fd2a4a4cc1d13f93ac222db5a46c67}{operator\string^=}}(\textcolor{keyword}{const}\ T\ \&p)\ \{}
+\DoxyCodeLine{00970\ \ \ \ \ \ \ \ \ s\ \string^=\ p;}
+\DoxyCodeLine{00971\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00972\ \ \ \ \ \}}
+\DoxyCodeLine{00973\ \textcolor{comment}{}}
+\DoxyCodeLine{00974\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00975\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ operator\ <<\ for\ printing\ uint128\_t\ integer}}
+\DoxyCodeLine{00976\ \textcolor{comment}{\ \ \ \ \ *\ @details\ Prints\ the\ uint128\_t\ integer\ in\ decimal\ form}}
+\DoxyCodeLine{00977\ \textcolor{comment}{\ \ \ \ \ *\ @note\ Note\ that\ this\ operator\ is\ costly\ since\ it\ uses\ strings\ to\ print}}
+\DoxyCodeLine{00978\ \textcolor{comment}{\ \ \ \ \ *\ the\ value}}
+\DoxyCodeLine{00979\ \textcolor{comment}{\ \ \ \ \ *\ @param\ op\ ostream\ object}}
+\DoxyCodeLine{00980\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ 128-\/bit\ integer}}
+\DoxyCodeLine{00981\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ op,\ ostream\ object.}}
+\DoxyCodeLine{00982\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00983\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&\mbox{\hyperlink{classuint128__t_a5f2ace9fdcd459f74f8e43ef30a2a953}{operator<<}}(std::ostream\ \&op,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&p)\ \{}
+\DoxyCodeLine{00984\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!p.f)\ \{}
+\DoxyCodeLine{00985\ \ \ \ \ \ \ \ \ \ \ \ \ op\ <<\ p.s;}
+\DoxyCodeLine{00986\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ out\ =\ \textcolor{stringliteral}{"{}0"{}},\ p\_2\ =\ \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 64;\ ++i)\ \{}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.s\ \&\ (1LL\ <<\ i))\ \{}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{uint128__t_8hpp_a3ff77262ffd6743df5b808d41382a6f3}{add}}(out,\ p\_2);}
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00992\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\_2\ =\ \mbox{\hyperlink{uint128__t_8hpp_a3ff77262ffd6743df5b808d41382a6f3}{add}}(p\_2,\ p\_2);}
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 64;\ ++i)\ \{}
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.f\ \&\ (1LL\ <<\ i))\ \{}
+\DoxyCodeLine{00996\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{uint128__t_8hpp_a3ff77262ffd6743df5b808d41382a6f3}{add}}(out,\ p\_2);}
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\_2\ =\ \mbox{\hyperlink{uint128__t_8hpp_a3ff77262ffd6743df5b808d41382a6f3}{add}}(p\_2,\ p\_2);}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01000\ \ \ \ \ \ \ \ \ \ \ \ \ op\ <<\ out;}
+\DoxyCodeLine{01001\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01002\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ op;}
+\DoxyCodeLine{01003\ \ \ \ \ \}}
+\DoxyCodeLine{01004\ \};}
+\DoxyCodeLine{01005\ }
+\DoxyCodeLine{01006\ \textcolor{comment}{//\ Arithmetic\ operators}}
+\DoxyCodeLine{01007\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01009\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator+(\textcolor{keyword}{const}\ T\ \&p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01010\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ +\ q;}
+\DoxyCodeLine{01011\ \}}
+\DoxyCodeLine{01012\ }
+\DoxyCodeLine{01013\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01015\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator-\/(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01016\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ -\/\ q;}
+\DoxyCodeLine{01017\ \}}
+\DoxyCodeLine{01018\ }
+\DoxyCodeLine{01019\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01021\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator*(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01022\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ *\ q;}
+\DoxyCodeLine{01023\ \}}
+\DoxyCodeLine{01024\ }
+\DoxyCodeLine{01025\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01027\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator/(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01028\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ /\ q;}
+\DoxyCodeLine{01029\ \}}
+\DoxyCodeLine{01030\ }
+\DoxyCodeLine{01031\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01033\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator\%(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01034\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ \%\ q;}
+\DoxyCodeLine{01035\ \}}
+\DoxyCodeLine{01036\ }
+\DoxyCodeLine{01037\ \textcolor{comment}{//\ Bitwise\ operators}}
+\DoxyCodeLine{01038\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01040\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator\&(\textcolor{keyword}{const}\ T\ \&p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01041\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ \&\ q;}
+\DoxyCodeLine{01042\ \}}
+\DoxyCodeLine{01043\ }
+\DoxyCodeLine{01044\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01046\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator|(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01047\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ |\ q;}
+\DoxyCodeLine{01048\ \}}
+\DoxyCodeLine{01049\ }
+\DoxyCodeLine{01050\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01052\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ operator\string^(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01053\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ \string^\ q;}
+\DoxyCodeLine{01054\ \}}
+\DoxyCodeLine{01055\ }
+\DoxyCodeLine{01056\ \textcolor{comment}{//\ Boolean\ operators}}
+\DoxyCodeLine{01057\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01059\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator\&\&(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01060\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ \&\&\ q;}
+\DoxyCodeLine{01061\ \}}
+\DoxyCodeLine{01062\ }
+\DoxyCodeLine{01063\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01065\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator||(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01066\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ ||\ q;}
+\DoxyCodeLine{01067\ \}}
+\DoxyCodeLine{01068\ }
+\DoxyCodeLine{01069\ \textcolor{comment}{//\ Comparison\ operators}}
+\DoxyCodeLine{01070\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01072\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01073\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ ==\ q;}
+\DoxyCodeLine{01074\ \}}
+\DoxyCodeLine{01075\ }
+\DoxyCodeLine{01076\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01078\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01079\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ !=\ q;}
+\DoxyCodeLine{01080\ \}}
+\DoxyCodeLine{01081\ }
+\DoxyCodeLine{01082\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01084\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01085\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ <\ q;}
+\DoxyCodeLine{01086\ \}}
+\DoxyCodeLine{01087\ }
+\DoxyCodeLine{01088\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01090\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator<=(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01091\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ <=\ q;}
+\DoxyCodeLine{01092\ \}}
+\DoxyCodeLine{01093\ }
+\DoxyCodeLine{01094\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01096\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01097\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ >\ q;}
+\DoxyCodeLine{01098\ \}}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01100\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{01101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_integral<T>::value,\ T>::type>}
+\DoxyCodeLine{01102\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator>=(\textcolor{keyword}{const}\ T\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ \&q)\ \{}
+\DoxyCodeLine{01103\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(p)\ >=\ q;}
+\DoxyCodeLine{01104\ \}}
+\DoxyCodeLine{01105\ }
+\DoxyCodeLine{01106\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ CIPHERS\_UINT128\_T\_HPP\_}}
+
+\end{DoxyCode}

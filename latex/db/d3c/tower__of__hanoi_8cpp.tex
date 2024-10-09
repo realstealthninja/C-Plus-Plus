@@ -1,0 +1,141 @@
+\doxysection{others/tower\+\_\+of\+\_\+hanoi.cpp File Reference}
+\hypertarget{tower__of__hanoi_8cpp}{}\label{tower__of__hanoi_8cpp}\index{others/tower\_of\_hanoi.cpp@{others/tower\_of\_hanoi.cpp}}
+
+
+Solve the \href{https://en.wikipedia.org/wiki/Tower_of_Hanoi}{\texttt{ Tower of Hanoi}} problem.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtower}{tower}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tower__of__hanoi_8cpp_a746d9a3984bba88fd6dd91978f6931ed}{show}} (const struct \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}const F, const struct \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}const T, const struct \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}const U)
+\item 
+void \mbox{\hyperlink{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}{mov}} (\mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}From, \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}To)
+\item 
+void \mbox{\hyperlink{tower__of__hanoi_8cpp_ab037f72a5eac476535a6cfbbcb965417}{TH}} (int n, \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}From, \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}Using, \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}To)
+\item 
+int \mbox{\hyperlink{tower__of__hanoi_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solve the \href{https://en.wikipedia.org/wiki/Tower_of_Hanoi}{\texttt{ Tower of Hanoi}} problem. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tower__of__hanoi_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}!main@{main}}
+\index{main@{main}!tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{tower__of__hanoi_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtower}{tower}}\ F,\ U,\ T;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ F.\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}}\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \ \ U.top\ =\ 0;}
+\DoxyCodeLine{00070\ \ \ \ \ T.top\ =\ 0;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ no;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ number\ of\ discs\ :\ "{}};}
+\DoxyCodeLine{00075\ \ \ \ \ std::cin\ >>\ no;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ no;\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ F.values[F.top++]\ =\ i;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ show(\&F,\ \&T,\ \&U);}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{tower__of__hanoi_8cpp_ab037f72a5eac476535a6cfbbcb965417}{TH}}(no,\ \&F,\ \&U,\ \&T);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}\index{tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}!mov@{mov}}
+\index{mov@{mov}!tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}}
+\doxysubsubsection{\texorpdfstring{mov()}{mov()}}
+{\footnotesize\ttfamily \label{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d} 
+void mov (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}}]{From}{, }\item[{\mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}}]{To}{}\end{DoxyParamCaption})}
+
+Move one disc from one tower to another 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em From} & tower to move disk {\itshape from} \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em To} & tower to move disk {\itshape to} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ -\/-\/From-\/>\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}};}
+\DoxyCodeLine{00041\ \ \ \ \ To-\/>\mbox{\hyperlink{structtower_a3ebb75c13c57d51a8a1ba1ea54a515e9}{values}}[To-\/>\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}}]\ =\ From-\/>\mbox{\hyperlink{structtower_a3ebb75c13c57d51a8a1ba1ea54a515e9}{values}}[From-\/>\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}}];}
+\DoxyCodeLine{00042\ \ \ \ \ ++To-\/>\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}};}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tower__of__hanoi_8cpp_a746d9a3984bba88fd6dd91978f6931ed}\index{tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}!show@{show}}
+\index{show@{show}!tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily \label{tower__of__hanoi_8cpp_a746d9a3984bba88fd6dd91978f6931ed} 
+void show (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}const}]{F}{, }\item[{const struct \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}const}]{T}{, }\item[{const struct \mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}const}]{U}{}\end{DoxyParamCaption})}
+
+Display the towers 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n\(\backslash\)tF\ :\ "{}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ F-\/>\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}};\ i++)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::cout\ <<\ F-\/>\mbox{\hyperlink{structtower_a3ebb75c13c57d51a8a1ba1ea54a515e9}{values}}[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)tU\ :\ "{}};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ U-\/>\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}};\ i++)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::cout\ <<\ U-\/>\mbox{\hyperlink{structtower_a3ebb75c13c57d51a8a1ba1ea54a515e9}{values}}[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)tT\ :\ "{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ T-\/>\mbox{\hyperlink{structtower_acb535964abd34c47678a4ade0628223d}{top}};\ i++)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::cout\ <<\ T-\/>\mbox{\hyperlink{structtower_a3ebb75c13c57d51a8a1ba1ea54a515e9}{values}}[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tower__of__hanoi_8cpp_ab037f72a5eac476535a6cfbbcb965417}\index{tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}!TH@{TH}}
+\index{TH@{TH}!tower\_of\_hanoi.cpp@{tower\_of\_hanoi.cpp}}
+\doxysubsubsection{\texorpdfstring{TH()}{TH()}}
+{\footnotesize\ttfamily \label{tower__of__hanoi_8cpp_ab037f72a5eac476535a6cfbbcb965417} 
+void TH (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{\mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}}]{From}{, }\item[{\mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}}]{Using}{, }\item[{\mbox{\hyperlink{structtower}{tower}} \texorpdfstring{$\ast$}{*}}]{To}{}\end{DoxyParamCaption})}
+
+Recursive algorithm to solve the puzzle 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & starting number of disks \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em From} & tower to move disks from \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em Using} & temporary tower for the puzzle \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em To} & tower to move disk to \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 1)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}{mov}}(From,\ To);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ show(From,\ To,\ Using);}
+\DoxyCodeLine{00056\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tower__of__hanoi_8cpp_ab037f72a5eac476535a6cfbbcb965417}{TH}}(n\ -\/\ 1,\ From,\ To,\ Using);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}{mov}}(From,\ To);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ show(From,\ To,\ Using);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tower__of__hanoi_8cpp_ab037f72a5eac476535a6cfbbcb965417}{TH}}(n\ -\/\ 1,\ Using,\ From,\ To);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

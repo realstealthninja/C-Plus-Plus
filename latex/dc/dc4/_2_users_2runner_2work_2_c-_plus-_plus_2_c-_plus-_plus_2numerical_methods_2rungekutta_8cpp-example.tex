@@ -1,0 +1,141 @@
+\doxysection{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/numerical\+\_\+methods/rungekutta.\+cpp}
+\hypertarget{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2numerical_methods_2rungekutta_8cpp-example}{}\label{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2numerical_methods_2rungekutta_8cpp-example}it solves \textbackslash{}frac\{\textbackslash{}mathrm\{d\} y\}\{\textbackslash{}mathrm\{d\} x\}= \textbackslash{}frac\{\textbackslash{}left ( x-\/y \textbackslash{}right )\}\{2\} given x for given initial conditions There can be many such equations
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @\{}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)file}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)brief\ [Runge\ Kutta\ fourth}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ order](https://en.wikipedia.org/wiki/Runge\%E2\%80\%93Kutta\_methods)\ method}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ implementation}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)author\ [Rudra\ Prasad\ Das](http://github.com/rudra697)}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)details}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ It\ solves\ the\ unknown\ value\ of\ y}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ for\ a\ given\ value\ of\ x}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ only\ first\ order\ differential\ equations}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ can\ be\ solved}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \(\backslash\)example}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ it\ solves\ \(\backslash\)frac\{\(\backslash\)mathrm\{d\}\ y\}\{\(\backslash\)mathrm\{d\}\ x\}=\ \(\backslash\)frac\{\(\backslash\)left\ (\ x-\/y\ \(\backslash\)right\ )\}\{2\}}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ given\ x\ for\ given\ initial}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ conditions}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ There\ can\ be\ many\ such\ equations}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <cassert>}\ \ \ \textcolor{comment}{///\ asserting\ the\ test\ functions}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}\ \ \textcolor{comment}{///\ for\ io\ operations}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \textcolor{comment}{///\ for\ using\ the\ vector\ container}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ The\ change()\ function\ is\ used}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ to\ return\ the\ updated\ iterative\ value\ corresponding}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ to\ the\ given\ function}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ x\ is\ the\ value\ corresponding\ to\ the\ x\ coordinate}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ y\ is\ the\ value\ corresponding\ to\ the\ y\ coordinate}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @returns\ the\ computed\ function\ value\ at\ that\ call}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y)\ \{\ \textcolor{keywordflow}{return}\ ((x\ -\/\ y)\ /\ 2.0);\ \}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @namespace\ numerical\_methods}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Numerical\ Methods}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenumerical__methods}{numerical\_methods}}\ \{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @namespace\ runge\_kutta}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Functions\ for\ [Runge\ Kutta\ fourth}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ order](https://en.wikipedia.org/wiki/Runge\%E2\%80\%93Kutta\_methods)\ method}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerunge__kutta}{runge\_kutta}}\ \{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ the\ Runge\ Kutta\ method\ finds\ the\ value\ of\ integration\ of\ a\ function\ in}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ the\ given\ limits.\ the\ lower\ limit\ of\ integration\ as\ the\ initial\ value\ and\ the}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ upper\ limit\ is\ the\ given\ x}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ init\_x\ is\ the\ value\ of\ initial\ x\ and\ is\ updated\ after\ each\ call}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ init\_y\ is\ the\ value\ of\ initial\ x\ and\ is\ updated\ after\ each\ call}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ x\ is\ current\ iteration\ at\ which\ the\ function\ needs\ to\ be\ evaluated}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ h\ is\ the\ step\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @returns\ the\ value\ of\ y\ at\ thr\ required\ value\ of\ x\ from\ the\ initial}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ conditions}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{rungeKutta}}(\textcolor{keywordtype}{double}\ init\_x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&init\_y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&x,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Count\ number\ of\ iterations}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ using\ step\ size\ or}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ step\ height\ h}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ n\ calucates\ the\ number\ of\ iterations}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ k1,\ k2,\ k3,\ k4\ are\ the\ Runge\ Kutta\ variables}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ used\ for\ calculation\ of\ y\ at\ each\ iteration}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ n\ =\ \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}((x\ -\/\ init\_x)\ /\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ used\ a\ vector\ container\ for\ the\ variables}}
+\DoxyCodeLine{\ \ \ \ std::vector<double>\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}(4,\ 0.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Iterate\ for\ number\ of\ iterations}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ init\_y;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n;\ ++i)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Apply\ Runge\ Kutta\ Formulas}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ find\ next\ value\ of\ y}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[0]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x,\ y);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[1]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x\ +\ 0.5\ *\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ y\ +\ 0.5\ *\ k[0]);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[2]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x\ +\ 0.5\ *\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ y\ +\ 0.5\ *\ k[1]);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[3]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x\ +\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ y\ +\ k[2]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ next\ value\ of\ y}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ y\ +=\ (1.0\ /\ 6.0)\ *\ (k[0]\ +\ 2\ *\ k[1]\ +\ 2\ *\ k[2]\ +\ k[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ next\ value\ of\ x}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ init\_x\ +=\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\}\ \ \textcolor{comment}{//\ namespace\ runge\_kutta}}
+\DoxyCodeLine{\}\ \ \textcolor{comment}{//\ namespace\ numerical\_methods}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Tests\ to\ check\ algorithm\ implementation.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @returns\ void}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}()\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ Runge\ Kutta\ function\ will\ be\ tested\ on\ the\ basis\ of\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}precomputed\ values\(\backslash\)n"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...."{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ valfirst\ =\ \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{numerical\_methods::runge\_kutta::rungeKutta}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 2,\ 3,\ 4,\ 0.2);\ \ \textcolor{comment}{//\ Tests\ the\ function\ with\ pre\ calculated\ values}}
+\DoxyCodeLine{\ \ \ \ assert(valfirst\ ==\ 3.10363932323749570);}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 1\(\backslash\)n"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...."{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ valsec\ =\ \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{numerical\_methods::runge\_kutta::rungeKutta}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 1,\ 2,\ 5,\ 0.1);\ \ \textcolor{comment}{//\ The\ value\ of\ step\ changed}}
+\DoxyCodeLine{\ \ \ \ assert(valsec\ ==\ 3.40600589380261409);}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...."{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ valthird\ =\ \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{numerical\_methods::runge\_kutta::rungeKutta}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/1,\ 3,\ 4,\ 0.1);\ \ \textcolor{comment}{//\ Tested\ with\ negative\ value}}
+\DoxyCodeLine{\ \ \ \ assert(valthird\ ==\ 2.49251005860244268);}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 3\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Main\ function}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @returns\ 0\ on\ exit}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{generate__parentheses_8cpp_gae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ Execute\ the\ tests}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

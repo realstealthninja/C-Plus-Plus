@@ -1,0 +1,123 @@
+\doxysection{search/exponential\+\_\+search.cpp File Reference}
+\hypertarget{exponential__search_8cpp}{}\label{exponential__search_8cpp}\index{search/exponential\_search.cpp@{search/exponential\_search.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Exponential_search}{\texttt{ Exponential search algorithm}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Type $>$ }\\Type \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{exponential__search_8cpp_ab06cedad209456eae95d37b7cd66acae}{binary\+\_\+s}} (Type \texorpdfstring{$\ast$}{*}array, size\+\_\+t size, Type key)
+\item 
+{\footnotesize template$<$class Type $>$ }\\Type \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208}{struzik\+\_\+search}} (Type \texorpdfstring{$\ast$}{*}array, size\+\_\+t size, Type key)
+\item 
+int \mbox{\hyperlink{exponential__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Exponential_search}{\texttt{ Exponential search algorithm}} 
+
+\begin{DoxyCopyright}{Copyright}
+2020 Divide-\/et-\/impera-\/11
+\end{DoxyCopyright}
+The algorithm try to search the range where the key should be. If it has been found we do a binary search there. The range of the search grows by exponential every time. If the key is larger than the last element of array, the start of block(block\+\_\+front) will be equal to the end of block(block\+\_\+size) and the algorithm return null ponter, every other cases the algoritm return fom the loop. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{exponential__search_8cpp_ab06cedad209456eae95d37b7cd66acae}\index{exponential\_search.cpp@{exponential\_search.cpp}!binary\_s@{binary\_s}}
+\index{binary\_s@{binary\_s}!exponential\_search.cpp@{exponential\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{binary\_s()}{binary\_s()}}
+{\footnotesize\ttfamily \label{exponential__search_8cpp_ab06cedad209456eae95d37b7cd66acae} 
+template$<$class Type $>$ \\
+Type \texorpdfstring{$\ast$}{*} binary\+\_\+s (\begin{DoxyParamCaption}\item[{Type \texorpdfstring{$\ast$}{*}}]{array}{, }\item[{size\+\_\+t}]{size}{, }\item[{Type}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Binary Search Algorithm (used by \doxylink{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208}{struzik\+\_\+search})~\newline
+
+\begin{DoxyItemize}
+\item Time Complexity O(log n) where \textquotesingle{}n\textquotesingle{} is the number of elements
+\item Worst Time Complexity O(log n)
+\item Best Time Complexity Ω(1)
+\item Space Complexity O(1)
+\item Auxiliary Space Complexity O(1) \begin{DoxyReturn}{Returns}
+pointer to value in the array 
+
+{\ttfamily nullptr} if value not found 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ int32\_t\ lower\_index(0),\ upper\_index(size\ -\/\ 1),\ middle\_index;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{while}\ (lower\_index\ <=\ upper\_index)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ middle\_index\ =\ std::floor((lower\_index\ +\ upper\_index)\ /\ 2);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*(array\ +\ middle\_index)\ <\ key)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ lower\_index\ =\ (middle\_index\ +\ 1);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*(array\ +\ middle\_index)\ >\ key)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ upper\_index\ =\ (middle\_index\ -\/\ 1);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (array\ +\ middle\_index);}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{exponential__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{exponential\_search.cpp@{exponential\_search.cpp}!main@{main}}
+\index{main@{main}!exponential\_search.cpp@{exponential\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{exponential__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ TEST\ CASES}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}*\ sorted\_array\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[7]\{7,\ 10,\ 15,\ 23,\ 70,\ 105,\ 203\};}
+\DoxyCodeLine{00077\ \ \ \ \ assert(\mbox{\hyperlink{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208}{struzik\_search<int>}}(sorted\_array,\ 7,\ 0)\ ==\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00078\ \ \ \ \ assert(\mbox{\hyperlink{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208}{struzik\_search<int>}}(sorted\_array,\ 7,\ 1000)\ ==\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00079\ \ \ \ \ assert(\mbox{\hyperlink{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208}{struzik\_search<int>}}(sorted\_array,\ 7,\ 50)\ ==\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00080\ \ \ \ \ assert(\mbox{\hyperlink{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208}{struzik\_search<int>}}(sorted\_array,\ 7,\ 7)\ ==\ sorted\_array);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ TEST\ CASES}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{delete}[]\ sorted\_array;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208}\index{exponential\_search.cpp@{exponential\_search.cpp}!struzik\_search@{struzik\_search}}
+\index{struzik\_search@{struzik\_search}!exponential\_search.cpp@{exponential\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{struzik\_search()}{struzik\_search()}}
+{\footnotesize\ttfamily \label{exponential__search_8cpp_af421bf4b7b95f20ac86c233adfdb9208} 
+template$<$class Type $>$ \\
+Type \texorpdfstring{$\ast$}{*} struzik\+\_\+search (\begin{DoxyParamCaption}\item[{Type \texorpdfstring{$\ast$}{*}}]{array}{, }\item[{size\+\_\+t}]{size}{, }\item[{Type}]{key}{}\end{DoxyParamCaption})}
+
+Struzik Search Algorithm(\+Exponential)
+\begin{DoxyItemize}
+\item Time Complexity O(log i) where i is the position of search key in the list
+\item Worst Time Complexity O(log i)
+\item Best Time Complexity Ω(1)
+\item Space Complexity O(1)
+\item Auxiliary Space Complexity O(1) 
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ uint32\_t\ block\_front(0),\ block\_size\ =\ size\ ==\ 0\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{while}\ (block\_front\ !=\ block\_size)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*(array\ +\ block\_size\ -\/\ 1)\ <\ key)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ block\_front\ =\ block\_size;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ (block\_size\ *\ 2\ -\/\ 1\ <\ size)\ ?\ (block\_size\ *=\ 2)\ :\ block\_size\ =\ size;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{exponential__search_8cpp_ab06cedad209456eae95d37b7cd66acae}{binary\_s<Type>}}(array\ +\ block\_front,\ (block\_size\ -\/\ block\_front),}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ key);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}

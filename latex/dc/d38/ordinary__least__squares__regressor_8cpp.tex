@@ -1,0 +1,639 @@
+\doxysection{machine\+\_\+learning/ordinary\+\_\+least\+\_\+squares\+\_\+regressor.cpp File Reference}
+\hypertarget{ordinary__least__squares__regressor_8cpp}{}\label{ordinary__least__squares__regressor_8cpp}\index{machine\_learning/ordinary\_least\_squares\_regressor.cpp@{machine\_learning/ordinary\_least\_squares\_regressor.cpp}}
+
+
+Linear regression example using \href{https://en.wikipedia.org/wiki/Ordinary_least_squares}{\texttt{ Ordinary least squares}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a7075a0fccad9b2d79be0275bfe8948d4}{operator$<$$<$}} (std\+::ostream \&out, std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_ab1ad727903d7817c2758d25bcb52cbc8}{operator$<$$<$}} (std\+::ostream \&out, std\+::vector$<$ T $>$ const \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a8fa731952b0ee3bc7ec51c51ed21911e}{is\+\_\+square}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_ae2edd40354a1ca7aeaee3d1e3589e713}{operator\texorpdfstring{$\ast$}{*}}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&A, std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a865e8d26a01962cc93aca66e71346f37}{operator\texorpdfstring{$\ast$}{*}}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&A, std\+::vector$<$ T $>$ const \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ float $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a207b3a99fd5974d3117e0b0ac0aad234}{operator\texorpdfstring{$\ast$}{*}}} (float const scalar, std\+::vector$<$ T $>$ const \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ float $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a42535e20e97d85aa61271e0894cc0359}{operator\texorpdfstring{$\ast$}{*}}} (std\+::vector$<$ T $>$ const \&A, float const scalar)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ float $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a7a2d742b9a3ae7b85292e1f86428bb4f}{operator/}} (std\+::vector$<$ T $>$ const \&A, float const scalar)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a4a6a560dbdd0177633783b72db37dc19}{operator-\/}} (std\+::vector$<$ T $>$ const \&A, std\+::vector$<$ T $>$ const \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a01e6c7bf2b09272578b9c5819ce0f36f}{operator+}} (std\+::vector$<$ T $>$ const \&A, std\+::vector$<$ T $>$ const \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_af7243bdc6ae3c7169f01b85bb226e66a}{get\+\_\+inverse}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a21c80569aaffb7bf1657e54fa4b97deb}{get\+\_\+transpose}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ float $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_aaddc683af581b51351e1023d2a01ef3b}{fit\+\_\+\+OLS\+\_\+regressor}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&X, std\+::vector$<$ T $>$ const \&Y)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ float $>$ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_ade6e463f37878fe2a219f927c65b5493}{predict\+\_\+\+OLS\+\_\+regressor}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&X, std\+::vector$<$ float $>$ const \&beta)
+\item 
+void \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a4261f3c3c3dfdb86f3004eb8aaffea8d}{ols\+\_\+test}} ()
+\item 
+int \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Linear regression example using \href{https://en.wikipedia.org/wiki/Ordinary_least_squares}{\texttt{ Ordinary least squares}} 
+
+Program that gets the number of data samples and number of features per sample along with output per sample. It applies OLS regression to compute the regression output for additional test data samples.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_aaddc683af581b51351e1023d2a01ef3b}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!fit\_OLS\_regressor@{fit\_OLS\_regressor}}
+\index{fit\_OLS\_regressor@{fit\_OLS\_regressor}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{fit\_OLS\_regressor()}{fit\_OLS\_regressor()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_aaddc683af581b51351e1023d2a01ef3b} 
+template$<$typename T $>$ \\
+std\+::vector$<$ float $>$ fit\+\_\+\+OLS\+\_\+regressor (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{X}{, }\item[{std\+::vector$<$ T $>$ const \&}]{Y}{}\end{DoxyParamCaption})}
+
+Perform Ordinary Least Squares curve fit. This operation is defined as \[\beta = \left(X^TXX^T\right)Y\] 
+\begin{DoxyParams}{Parameters}
+{\em X} & feature matrix with rows representing sample vector of features \\
+\hline
+{\em Y} & known regression value for each sample \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+fitted regression model polynomial coefficients 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{comment}{//\ NxF}}
+\DoxyCodeLine{00324\ \ \ \ \ std::vector<std::vector<T>>\ X2\ =\ X;}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ X2.size();\ i++)\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ Y-\/intercept\ -\/>\ Nx(F+1)}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ X2[i].push\_back(1);}
+\DoxyCodeLine{00328\ \ \ \ \ \}}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{comment}{//\ (F+1)xN}}
+\DoxyCodeLine{00330\ \ \ \ \ std::vector<std::vector<T>>\ Xt\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a21c80569aaffb7bf1657e54fa4b97deb}{get\_transpose}}(X2);}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{comment}{//\ (F+1)x(F+1)}}
+\DoxyCodeLine{00332\ \ \ \ \ std::vector<std::vector<T>>\ tmp\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_af7243bdc6ae3c7169f01b85bb226e66a}{get\_inverse}}(Xt\ *\ X2);}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{comment}{//\ (F+1)xN}}
+\DoxyCodeLine{00334\ \ \ \ \ std::vector<std::vector<float>>\ out\ =\ tmp\ *\ Xt;}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ endl}}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ <<\ "{}Projection\ matrix:\ "{}\ <<\ X2\ *\ out\ <<\ endl;}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{comment}{//\ Fx1,1\ \ \ \ -\/>\ (F+1)\string^th\ element\ is\ the\ independent\ constant}}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{return}\ out\ *\ Y;}
+\DoxyCodeLine{00340\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_af7243bdc6ae3c7169f01b85bb226e66a}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!get\_inverse@{get\_inverse}}
+\index{get\_inverse@{get\_inverse}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_inverse()}{get\_inverse()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_af7243bdc6ae3c7169f01b85bb226e66a} 
+template$<$typename T $>$ \\
+std\+::vector$<$ std\+::vector$<$ float $>$ $>$ get\+\_\+inverse (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{A}{}\end{DoxyParamCaption})}
+
+Get matrix inverse using Row-\/trasnformations. Given matrix must be a square and non-\/singular. \begin{DoxyReturn}{Returns}
+inverse matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ Assuming\ A\ is\ square\ matrix}}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ A.size();}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ std::vector<std::vector<float>>\ inverse(N);}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ preallocatae\ a\ resultant\ identity\ matrix}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ inverse[row]\ =\ std::vector<float>(N);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ col++)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row][col]\ =\ (row\ ==\ col)\ ?\ 1.f\ :\ 0.f;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a8fa731952b0ee3bc7ec51c51ed21911e}{is\_square}}(A))\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}A\ must\ be\ a\ square\ matrix!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inverse;}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{comment}{//\ preallocatae\ a\ temporary\ matrix\ identical\ to\ A}}
+\DoxyCodeLine{00246\ \ \ \ \ std::vector<std::vector<float>>\ temp(N);}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ std::vector<float>\ v(N);}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ col++)\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ v[col]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(A[row][col]);}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ temp[row]\ =\ v;}
+\DoxyCodeLine{00253\ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{//\ start\ transformations}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row2\ =\ row;\ row2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ \&\&\ temp[row][row]\ ==\ 0;\ row2++)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ to\ ensure\ diagonal\ elements\ are\ not\ 0}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ temp[row]\ =\ temp[row]\ +\ temp[row2];}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row]\ =\ inverse[row]\ +\ inverse[row2];}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col2\ =\ row;\ col2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ \&\&\ temp[row][row]\ ==\ 0;\ col2++)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ to\ further\ ensure\ diagonal\ elements\ are\ not\ 0}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row2\ =\ 0;\ row2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row2++)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[row2][row]\ =\ temp[row2][row]\ +\ temp[row2][col2];}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row2][row]\ =\ inverse[row2][row]\ +\ inverse[row2][col2];}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp[row][row]\ ==\ 0)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Probably\ a\ low-\/rank\ matrix\ and\ hence\ singular}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Low-\/rank\ matrix,\ no\ inverse!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inverse;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ diagonal\ to\ 1}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ divisor\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(temp[row][row]);}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ temp[row]\ =\ temp[row]\ /\ divisor;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ inverse[row]\ =\ inverse[row]\ /\ divisor;}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Row\ transformations}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row2\ =\ 0;\ row2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row2++)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row2\ ==\ row)\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ factor\ =\ temp[row2][row];}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ temp[row2]\ =\ temp[row2]\ -\/\ factor\ *\ temp[row];}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row2]\ =\ inverse[row2]\ -\/\ factor\ *\ inverse[row];}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{return}\ inverse;}
+\DoxyCodeLine{00293\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a21c80569aaffb7bf1657e54fa4b97deb}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!get\_transpose@{get\_transpose}}
+\index{get\_transpose@{get\_transpose}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_transpose()}{get\_transpose()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a21c80569aaffb7bf1657e54fa4b97deb} 
+template$<$typename T $>$ \\
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ get\+\_\+transpose (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{A}{}\end{DoxyParamCaption})}
+
+matrix transpose \begin{DoxyReturn}{Returns}
+resultant matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00302\ \ \ \ \ std::vector<std::vector<T>>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(A[0].size());}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ A[0].size();\ row++)\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ std::vector<T>\ v(A.size());}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ A.size();\ col++)\ v[col]\ =\ A[col][row];}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[row]\ =\ v;}
+\DoxyCodeLine{00309\ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00311\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a8fa731952b0ee3bc7ec51c51ed21911e}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!is\_square@{is\_square}}
+\index{is\_square@{is\_square}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_square()}{is\_square()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a8fa731952b0ee3bc7ec51c51ed21911e} 
+template$<$typename T $>$ \\
+bool is\+\_\+square (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+function to check if given matrix is a square matrix \begin{DoxyReturn}{Returns}
+1 if true, 0 if false 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Assuming\ A\ is\ square\ matrix}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ A.size();}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A[i].size()\ !=\ N)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!main@{main}}
+\index{main@{main}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_a4261f3c3c3dfdb86f3004eb8aaffea8d}{ols\_test}}();}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 0,\ F\ =\ 0;}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ number\ of\ features:\ "{}};}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{comment}{//\ number\ of\ features\ =\ columns}}
+\DoxyCodeLine{00430\ \ \ \ \ std::cin\ >>\ F;}
+\DoxyCodeLine{00431\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ number\ of\ samples:\ "{}};}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{comment}{//\ number\ of\ samples\ =\ rows}}
+\DoxyCodeLine{00433\ \ \ \ \ std::cin\ >>\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ std::vector<std::vector<float>>\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}(N);}
+\DoxyCodeLine{00436\ \ \ \ \ std::vector<float>\ Y(N);}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ std::cout}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Enter\ training\ data.\ Per\ sample,\ provide\ features\ and\ one\ output."{}}}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ rows\ =\ 0;\ rows\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ rows++)\ \{}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ std::vector<float>\ v(F);}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sample\#\ "{}}\ <<\ rows\ +\ 1\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ cols\ =\ 0;\ cols\ <\ F;\ cols++)\ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ the\ F\ features}}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ v[cols];}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[rows]\ =\ v;}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ the\ corresponding\ output}}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ std::cin\ >>\ Y[rows];}
+\DoxyCodeLine{00452\ \ \ \ \ \}}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ std::vector<float>\ beta\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_aaddc683af581b51351e1023d2a01ef3b}{fit\_OLS\_regressor}}(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}},\ Y);}
+\DoxyCodeLine{00455\ \ \ \ \ std::cout\ <<\ std::endl\ <<\ std::endl\ <<\ \textcolor{stringliteral}{"{}beta:"{}}\ <<\ beta\ <<\ std::endl;}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ T\ =\ 0;}
+\DoxyCodeLine{00458\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ number\ of\ test\ samples:\ "{}};}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{comment}{//\ number\ of\ test\ sample\ inputs}}
+\DoxyCodeLine{00460\ \ \ \ \ std::cin\ >>\ T;}
+\DoxyCodeLine{00461\ \ \ \ \ std::vector<std::vector<float>>\ data2(T);}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{comment}{//\ vector<float>\ Y2(T);}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ rows\ =\ 0;\ rows\ <\ T;\ rows++)\ \{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sample\#\ "{}}\ <<\ rows\ +\ 1\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ std::vector<float>\ v(F);}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ cols\ =\ 0;\ cols\ <\ F;\ cols++)\ std::cin\ >>\ v[cols];}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ data2[rows]\ =\ v;}
+\DoxyCodeLine{00469\ \ \ \ \ \}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ std::vector<float>\ out\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_ade6e463f37878fe2a219f927c65b5493}{predict\_OLS\_regressor}}(data2,\ beta);}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ rows\ =\ 0;\ rows\ <\ T;\ rows++)\ std::cout\ <<\ out[rows]\ <<\ std::endl;}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00475\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a4261f3c3c3dfdb86f3004eb8aaffea8d}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!ols\_test@{ols\_test}}
+\index{ols\_test@{ols\_test}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{ols\_test()}{ols\_test()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a4261f3c3c3dfdb86f3004eb8aaffea8d} 
+void ols\+\_\+test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Self test checks 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{int}\ F\ =\ 3,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 5;}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{comment}{/*\ test\ function\ =\ x\string^2\ -\/5\ */}}
+\DoxyCodeLine{00373\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ (quadratic\ function)...."{}};}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{comment}{//\ create\ training\ data\ set\ with\ features\ =\ x,\ x\string^2,\ x\string^3}}
+\DoxyCodeLine{00375\ \ \ \ \ std::vector<std::vector<float>>\ data1(}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \{\{-\/5,\ 25,\ -\/125\},\ \{-\/1,\ 1,\ -\/1\},\ \{0,\ 0,\ 0\},\ \{1,\ 1,\ 1\},\ \{6,\ 36,\ 216\}\});}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{comment}{//\ create\ corresponding\ outputs}}
+\DoxyCodeLine{00378\ \ \ \ \ std::vector<float>\ Y1(\{20,\ -\/4,\ -\/5,\ -\/4,\ 31\});}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{comment}{//\ perform\ regression\ modelling}}
+\DoxyCodeLine{00380\ \ \ \ \ std::vector<float>\ beta1\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_aaddc683af581b51351e1023d2a01ef3b}{fit\_OLS\_regressor}}(data1,\ Y1);}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{comment}{//\ create\ test\ data\ set\ with\ same\ features\ =\ x,\ x\string^2,\ x\string^3}}
+\DoxyCodeLine{00382\ \ \ \ \ std::vector<std::vector<float>>\ test\_data1(}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \{\{-\/2,\ 4,\ -\/8\},\ \{2,\ 4,\ 8\},\ \{-\/10,\ 100,\ -\/1000\},\ \{10,\ 100,\ 1000\}\});}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{comment}{//\ expected\ regression\ outputs}}
+\DoxyCodeLine{00385\ \ \ \ \ std::vector<float>\ expected1(\{-\/1,\ -\/1,\ 95,\ 95\});}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{comment}{//\ predicted\ regression\ outputs}}
+\DoxyCodeLine{00387\ \ \ \ \ std::vector<float>\ out1\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_ade6e463f37878fe2a219f927c65b5493}{predict\_OLS\_regressor}}(test\_data1,\ beta1);}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{comment}{//\ compare\ predicted\ results\ are\ within\ +-\/0.01\ limit\ of\ expected}}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ rows\ =\ 0;\ rows\ <\ out1.size();\ rows++)\ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ assert(std::abs(out1[rows]\ -\/\ expected1[rows])\ <\ 0.01);}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{comment}{/*\ test\ function\ =\ x\string^3\ +\ x\string^2\ -\/\ 100\ */}}
+\DoxyCodeLine{00395\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ (cubic\ function)...."{}};}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{comment}{//\ create\ training\ data\ set\ with\ features\ =\ x,\ x\string^2,\ x\string^3}}
+\DoxyCodeLine{00397\ \ \ \ \ std::vector<std::vector<float>>\ data2(}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \{\{-\/5,\ 25,\ -\/125\},\ \{-\/1,\ 1,\ -\/1\},\ \{0,\ 0,\ 0\},\ \{1,\ 1,\ 1\},\ \{6,\ 36,\ 216\}\});}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{comment}{//\ create\ corresponding\ outputs}}
+\DoxyCodeLine{00400\ \ \ \ \ std::vector<float>\ Y2(\{-\/200,\ -\/100,\ -\/100,\ 98,\ 152\});}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{comment}{//\ perform\ regression\ modelling}}
+\DoxyCodeLine{00402\ \ \ \ \ std::vector<float>\ beta2\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_aaddc683af581b51351e1023d2a01ef3b}{fit\_OLS\_regressor}}(data2,\ Y2);}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{comment}{//\ create\ test\ data\ set\ with\ same\ features\ =\ x,\ x\string^2,\ x\string^3}}
+\DoxyCodeLine{00404\ \ \ \ \ std::vector<std::vector<float>>\ test\_data2(}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \{\{-\/2,\ 4,\ -\/8\},\ \{2,\ 4,\ 8\},\ \{-\/10,\ 100,\ -\/1000\},\ \{10,\ 100,\ 1000\}\});}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{comment}{//\ expected\ regression\ outputs}}
+\DoxyCodeLine{00407\ \ \ \ \ std::vector<float>\ expected2(\{-\/104,\ -\/88,\ -\/1000,\ 1000\});}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{comment}{//\ predicted\ regression\ outputs}}
+\DoxyCodeLine{00409\ \ \ \ \ std::vector<float>\ out2\ =\ \mbox{\hyperlink{ordinary__least__squares__regressor_8cpp_ade6e463f37878fe2a219f927c65b5493}{predict\_OLS\_regressor}}(test\_data2,\ beta2);}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{comment}{//\ compare\ predicted\ results\ are\ within\ +-\/0.01\ limit\ of\ expected}}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ rows\ =\ 0;\ rows\ <\ out2.size();\ rows++)\ \{}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ assert(std::abs(out2[rows]\ -\/\ expected2[rows])\ <\ 0.01);}
+\DoxyCodeLine{00413\ \ \ \ \ \}}
+\DoxyCodeLine{00414\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ std::cout\ <<\ std::endl;\ \ \textcolor{comment}{//\ ensure\ test\ results\ are\ displayed\ on\ screen}}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (flush\ stdout)}}
+\DoxyCodeLine{00418\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a207b3a99fd5974d3117e0b0ac0aad234}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a207b3a99fd5974d3117e0b0ac0aad234} 
+template$<$typename T $>$ \\
+std\+::vector$<$ float $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{float const}]{scalar}{, }\item[{std\+::vector$<$ T $>$ const \&}]{A}{}\end{DoxyParamCaption})}
+
+pre-\/multiplication of a vector by a scalar \begin{DoxyReturn}{Returns}
+resultant vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ rows\ in\ A}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ N\_A\ =\ A.size();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(N\_A);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ N\_A;\ row++)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[row]\ +=\ A[row]\ *\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(scalar);}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00149\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_ae2edd40354a1ca7aeaee3d1e3589e713}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_ae2edd40354a1ca7aeaee3d1e3589e713} 
+template$<$typename T $>$ \\
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{A}{, }\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{B}{}\end{DoxyParamCaption})}
+
+Matrix multiplication such that if A is size (mxn) and B is of size (pxq) then the multiplication is defined only when n = p and the resultant matrix is of size (mxq)
+
+\begin{DoxyReturn}{Returns}
+resultant matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ rows\ in\ A}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ N\_A\ =\ A.size();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ columns\ in\ B}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ N\_B\ =\ B[0].size();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ std::vector<std::vector<T>>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(N\_A);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (A[0].size()\ !=\ B.size())\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Number\ of\ columns\ in\ A\ !=\ Number\ of\ rows\ in\ B\ ("{}}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ A[0].size()\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ B.size()\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ N\_A;\ row++)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::vector<T>\ v(N\_B);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ N\_B;\ col++)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ v[col]\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ B.size();\ j++)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v[col]\ +=\ A[row][j]\ *\ B[j][col];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[row]\ =\ v;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00105\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a865e8d26a01962cc93aca66e71346f37}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a865e8d26a01962cc93aca66e71346f37} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{A}{, }\item[{std\+::vector$<$ T $>$ const \&}]{B}{}\end{DoxyParamCaption})}
+
+multiplication of a matrix with a column vector \begin{DoxyReturn}{Returns}
+resultant vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ rows\ in\ A}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ N\_A\ =\ A.size();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(N\_A);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (A[0].size()\ !=\ B.size())\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Number\ of\ columns\ in\ A\ !=\ Number\ of\ rows\ in\ B\ ("{}}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ A[0].size()\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ B.size()\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ N\_A;\ row++)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[row]\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ B.size();\ j++)\ result[row]\ +=\ A[row][j]\ *\ B[j];}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a42535e20e97d85aa61271e0894cc0359}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a42535e20e97d85aa61271e0894cc0359} 
+template$<$typename T $>$ \\
+std\+::vector$<$ float $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ const \&}]{A}{, }\item[{float const}]{scalar}{}\end{DoxyParamCaption})}
+
+post-\/multiplication of a vector by a scalar \begin{DoxyReturn}{Returns}
+resultant vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ rows\ in\ A}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ N\_A\ =\ A.size();}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(N\_A);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ N\_A;\ row++)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[row]\ =\ A[row]\ *\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(scalar);}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a01e6c7bf2b09272578b9c5819ce0f36f}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a01e6c7bf2b09272578b9c5819ce0f36f} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ operator+ (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ const \&}]{A}{, }\item[{std\+::vector$<$ T $>$ const \&}]{B}{}\end{DoxyParamCaption})}
+
+addition of two vectors of identical lengths \begin{DoxyReturn}{Returns}
+resultant vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ rows\ in\ A}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ A.size();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(N);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{if}\ (B.size()\ !=\ N)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Vector\ dimensions\ shouldbe\ identical!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ A;}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ result[row]\ =\ A[row]\ +\ B[row];}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00218\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a4a6a560dbdd0177633783b72db37dc19}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a4a6a560dbdd0177633783b72db37dc19} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ operator-\/ (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ const \&}]{A}{, }\item[{std\+::vector$<$ T $>$ const \&}]{B}{}\end{DoxyParamCaption})}
+
+subtraction of two vectors of identical lengths \begin{DoxyReturn}{Returns}
+resultant vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ rows\ in\ A}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ A.size();}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(N);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{if}\ (B.size()\ !=\ N)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Vector\ dimensions\ shouldbe\ identical!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ A;}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ result[row]\ =\ A[row]\ -\/\ B[row];}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00197\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a7a2d742b9a3ae7b85292e1f86428bb4f}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator/@{operator/}}
+\index{operator/@{operator/}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a7a2d742b9a3ae7b85292e1f86428bb4f} 
+template$<$typename T $>$ \\
+std\+::vector$<$ float $>$ operator/ (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ const \&}]{A}{, }\item[{float const}]{scalar}{}\end{DoxyParamCaption})}
+
+division of a vector by a scalar \begin{DoxyReturn}{Returns}
+resultant vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{return}\ (1.f\ /\ scalar)\ *\ A;}
+\DoxyCodeLine{00176\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_a7075a0fccad9b2d79be0275bfe8948d4}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_a7075a0fccad9b2d79be0275bfe8948d4} 
+template$<$typename T $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{v}{}\end{DoxyParamCaption})}
+
+operator to print a matrix 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 10;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ v[row].size();\ col++)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::left\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row][col];}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ out\ <<\ std::endl;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_ab1ad727903d7817c2758d25bcb52cbc8}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_ab1ad727903d7817c2758d25bcb52cbc8} 
+template$<$typename T $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{std\+::vector$<$ T $>$ const \&}]{v}{}\end{DoxyParamCaption})}
+
+operator to print a vector 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 15;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ out\ <<\ std::left\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row];}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ordinary__least__squares__regressor_8cpp_ade6e463f37878fe2a219f927c65b5493}\index{ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}!predict\_OLS\_regressor@{predict\_OLS\_regressor}}
+\index{predict\_OLS\_regressor@{predict\_OLS\_regressor}!ordinary\_least\_squares\_regressor.cpp@{ordinary\_least\_squares\_regressor.cpp}}
+\doxysubsubsection{\texorpdfstring{predict\_OLS\_regressor()}{predict\_OLS\_regressor()}}
+{\footnotesize\ttfamily \label{ordinary__least__squares__regressor_8cpp_ade6e463f37878fe2a219f927c65b5493} 
+template$<$typename T $>$ \\
+std\+::vector$<$ float $>$ predict\+\_\+\+OLS\+\_\+regressor (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ const \&}]{X}{, }\item[{std\+::vector$<$ float $>$ const \&}]{beta}{}\end{DoxyParamCaption})}
+
+Given data and OLS model coeffficients, predict regression estimates. This operation is defined as \[y_{\text{row}=i} = \sum_{j=\text{columns}}\beta_j\cdot X_{i,j}\]
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & feature matrix with rows representing sample vector of features \\
+\hline
+{\em beta} & fitted regression model \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with regression values for each sample 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00354\ \ \ \{}
+\DoxyCodeLine{00355\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(X.size());}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ rows\ =\ 0;\ rows\ <\ X.size();\ rows++)\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/>\ start\ with\ constant\ term}}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[rows]\ =\ beta[X[0].size()];}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ cols\ =\ 0;\ cols\ <\ X[0].size();\ cols++)\ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[rows]\ +=\ beta[cols]\ *\ X[rows][cols];}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{comment}{//\ Nx1}}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00366\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,208 @@
+\doxysection{data\+\_\+structures/reverse\+\_\+a\+\_\+linked\+\_\+list.cpp File Reference}
+\hypertarget{reverse__a__linked__list_8cpp}{}\label{reverse__a__linked__list_8cpp}\index{data\_structures/reverse\_a\_linked\_list.cpp@{data\_structures/reverse\_a\_linked\_list.cpp}}
+
+
+Implementation of \href{https://simple.wikipedia.org/wiki/Linked_list}{\texttt{ Reversing a single linked list}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$new$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1_node}{data\+\_\+structures\+::linked\+\_\+list\+::\+Node}}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\+\_\+structures\+::linked\+\_\+list\+::list}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacelinked__list}{linked\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Functions for singly linked list algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{reverse__a__linked__list_8cpp_a7f80d9712cc7d77399dcacb4c2917511}{data\+\_\+structures\+::linked\+\_\+list\+::copy\+\_\+all\+\_\+nodes}} (const \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em creates a deep copy of a list starting at the input node \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{reverse__a__linked__list_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reverse__a__linked__list_8cpp_aa4e119e5a427e2b4e0b9ec6297579709}{test\+\_\+copy\+\_\+constructor}} ()
+\item 
+void \mbox{\hyperlink{reverse__a__linked__list_8cpp_a29e92f516e1606aa6743fc992aab35be}{test\+\_\+assignment\+\_\+operator}} ()
+\item 
+int \mbox{\hyperlink{reverse__a__linked__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://simple.wikipedia.org/wiki/Linked_list}{\texttt{ Reversing a single linked list}} 
+
+The linked list is a data structure used for holding a sequence of values, which can be added, displayed, reversed, or removed. \hypertarget{reverse__a__linked__list_8cpp_autotoc_md44}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{reverse__a__linked__list_8cpp_autotoc_md44}
+Values can be added by iterating to the end of a list (by following the pointers) starting from the first link. Whichever link points to null is considered the last link and is pointed to the new value.
+
+Linked List can be reversed by using 3 pointers\+: current, previous, and next\+\_\+node; we keep iterating until the last node. Meanwhile, before changing to the next of current, we store it in the next\+\_\+node pointer, now we store the prev pointer in the current of next, this is where the actual reversal happens. And then we move the prev and current pointers one step forward. Then the head node is made to point to the last node (prev pointer) after completion of an iteration.
+
+\href{https://drive.google.com/file/d/1pM5COF0wx-wermnNy_svtyZquaCUP2xS/view?usp=sharing}{\texttt{ A graphic explanation and view of what\textquotesingle{}s happening behind the scenes}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{reverse__a__linked__list_8cpp_a7f80d9712cc7d77399dcacb4c2917511}\index{reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}!copy\_all\_nodes@{copy\_all\_nodes}}
+\index{copy\_all\_nodes@{copy\_all\_nodes}!reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{copy\_all\_nodes()}{copy\_all\_nodes()}}
+{\footnotesize\ttfamily \label{reverse__a__linked__list_8cpp_a7f80d9712cc7d77399dcacb4c2917511} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} data\+\_\+structures\+::linked\+\_\+list\+::copy\+\_\+all\+\_\+nodes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}const}]{node}{}\end{DoxyParamCaption})}
+
+
+
+creates a deep copy of a list starting at the input node 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em node} & pointer to the first node/head of the list to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the first node/head of the copied list or nullptr 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NOLINTNEXTLINE(cppcoreguidelines-\/owning-\/memory)}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}*\ res\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ res-\/>val\ =\ \mbox{\hyperlink{structnode}{node}}-\/>val;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ res-\/>next\ =\ \mbox{\hyperlink{reverse__a__linked__list_8cpp_a7f80d9712cc7d77399dcacb4c2917511}{copy\_all\_nodes}}(\mbox{\hyperlink{structnode}{node}}-\/>next);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{reverse__a__linked__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}!main@{main}}
+\index{main@{main}!reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{reverse__a__linked__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \mbox{\hyperlink{reverse__a__linked__list_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00303\ \ \ \ \ test\_copy\_constructor();}
+\DoxyCodeLine{00304\ \ \ \ \ test\_assignment\_operator();}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00306\ \}}
+
+\end{DoxyCode}
+\Hypertarget{reverse__a__linked__list_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}!test@{test}}
+\index{test@{test}!reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{reverse__a__linked__list_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\_structures::linked\_list::list}}\ L;}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00231\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(11);}
+\DoxyCodeLine{00232\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(12);}
+\DoxyCodeLine{00233\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(15);}
+\DoxyCodeLine{00234\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(10);}
+\DoxyCodeLine{00235\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(-\/12);}
+\DoxyCodeLine{00236\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(-\/20);}
+\DoxyCodeLine{00237\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(18);}
+\DoxyCodeLine{00238\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a9785d1478e59f5a90288b2928a7094d6}{top}}()\ ==\ 11);}
+\DoxyCodeLine{00239\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_af39bcc08641ce0c813023f364a9a9015}{last}}()\ ==\ 18);}
+\DoxyCodeLine{00240\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_ac466ec086c0835822467bd3d8f3ab90e}{reverseList}}();}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{comment}{//\ Reversal\ Testing}}
+\DoxyCodeLine{00242\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a9785d1478e59f5a90288b2928a7094d6}{top}}()\ ==\ 18);}
+\DoxyCodeLine{00243\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(1)\ ==\ -\/20);}
+\DoxyCodeLine{00244\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(2)\ ==\ -\/12);}
+\DoxyCodeLine{00245\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(3)\ ==\ 10);}
+\DoxyCodeLine{00246\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(4)\ ==\ 15);}
+\DoxyCodeLine{00247\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(5)\ ==\ 12);}
+\DoxyCodeLine{00248\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_af39bcc08641ce0c813023f364a9a9015}{last}}()\ ==\ 11);}
+\DoxyCodeLine{00249\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00250\ \}}
+
+\end{DoxyCode}
+\Hypertarget{reverse__a__linked__list_8cpp_a29e92f516e1606aa6743fc992aab35be}\index{reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}!test\_assignment\_operator@{test\_assignment\_operator}}
+\index{test\_assignment\_operator@{test\_assignment\_operator}!reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_assignment\_operator()}{test\_assignment\_operator()}}
+{\footnotesize\ttfamily \label{reverse__a__linked__list_8cpp_a29e92f516e1606aa6743fc992aab35be} 
+void test\+\_\+assignment\+\_\+operator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\_structures::linked\_list::list}}\ L;}
+\DoxyCodeLine{00276\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\_structures::linked\_list::list}}\ otherList;}
+\DoxyCodeLine{00277\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(10);}
+\DoxyCodeLine{00278\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(20);}
+\DoxyCodeLine{00279\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(30);}
+\DoxyCodeLine{00280\ \ \ \ \ otherList\ =\ L;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ otherList.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(40);}
+\DoxyCodeLine{00283\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(400);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a9785d1478e59f5a90288b2928a7094d6}{top}}()\ ==\ 10);}
+\DoxyCodeLine{00286\ \ \ \ \ assert(otherList.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a9785d1478e59f5a90288b2928a7094d6}{top}}()\ ==\ 10);}
+\DoxyCodeLine{00287\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(1)\ ==\ 20);}
+\DoxyCodeLine{00288\ \ \ \ \ assert(otherList.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(1)\ ==\ 20);}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(2)\ ==\ 30);}
+\DoxyCodeLine{00291\ \ \ \ \ assert(otherList.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(2)\ ==\ 30);}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_af39bcc08641ce0c813023f364a9a9015}{last}}()\ ==\ 400);}
+\DoxyCodeLine{00294\ \ \ \ \ assert(otherList.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_af39bcc08641ce0c813023f364a9a9015}{last}}()\ ==\ 40);}
+\DoxyCodeLine{00295\ \}}
+
+\end{DoxyCode}
+\Hypertarget{reverse__a__linked__list_8cpp_aa4e119e5a427e2b4e0b9ec6297579709}\index{reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}!test\_copy\_constructor@{test\_copy\_constructor}}
+\index{test\_copy\_constructor@{test\_copy\_constructor}!reverse\_a\_linked\_list.cpp@{reverse\_a\_linked\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_copy\_constructor()}{test\_copy\_constructor()}}
+{\footnotesize\ttfamily \label{reverse__a__linked__list_8cpp_aa4e119e5a427e2b4e0b9ec6297579709} 
+void test\+\_\+copy\+\_\+constructor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\_structures::linked\_list::list}}\ L;}
+\DoxyCodeLine{00254\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(10);}
+\DoxyCodeLine{00255\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(20);}
+\DoxyCodeLine{00256\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(30);}
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\_structures::linked\_list::list}}\ otherList(L);}
+\DoxyCodeLine{00258\ \ \ \ \ otherList.insert(40);}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_aa69707af46eb6d410eb3a54ee58e1ed1}{insert}}(400);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a9785d1478e59f5a90288b2928a7094d6}{top}}()\ ==\ 10);}
+\DoxyCodeLine{00263\ \ \ \ \ assert(otherList.top()\ ==\ 10);}
+\DoxyCodeLine{00264\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(1)\ ==\ 20);}
+\DoxyCodeLine{00265\ \ \ \ \ assert(otherList.traverse(1)\ ==\ 20);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_a2b951a3f1123b9b2f4891ec96aa76d69}{traverse}}(2)\ ==\ 30);}
+\DoxyCodeLine{00268\ \ \ \ \ assert(otherList.traverse(2)\ ==\ 30);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ assert(L.\mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list_af39bcc08641ce0c813023f364a9a9015}{last}}()\ ==\ 400);}
+\DoxyCodeLine{00271\ \ \ \ \ assert(otherList.last()\ ==\ 40);}
+\DoxyCodeLine{00272\ \}}
+
+\end{DoxyCode}

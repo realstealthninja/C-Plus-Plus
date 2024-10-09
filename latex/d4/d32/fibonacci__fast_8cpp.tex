@@ -1,0 +1,93 @@
+\doxysection{math/fibonacci\+\_\+fast.cpp File Reference}
+\hypertarget{fibonacci__fast_8cpp}{}\label{fibonacci__fast_8cpp}\index{math/fibonacci\_fast.cpp@{math/fibonacci\_fast.cpp}}
+
+
+Faster computation of Fibonacci series.  
+
+
+{\ttfamily \#include $<$cinttypes$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fibonacci__fast_8cpp_a392fb874e547e582e9c66a08a1f23326}{MAX}}~93
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{fibonacci__fast_8cpp_a5712edca101204eca8accdb1e096707f}{fib}} (uint64\+\_\+t n)
+\item 
+int \mbox{\hyperlink{fibonacci__fast_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Faster computation of Fibonacci series. 
+
+An efficient way to calculate nth fibonacci number faster and simpler than $O(n\log n)$ method of matrix exponentiation This works by using both recursion and dynamic programming. as 93rd fibonacci exceeds 19 digits, which cannot be stored in a single long long variable, we can only use it till 92nd fibonacci we can use it for 10000th fibonacci etc, if we implement bigintegers. This algorithm works with the fact that nth fibonacci can easily found if we have already found n/2th or (n+1)/2th fibonacci It is a property of fibonacci similar to matrix exponentiation.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\doxylink{fibonacci__large_8cpp}{fibonacci\+\_\+large.\+cpp}, \doxylink{fibonacci_8cpp}{fibonacci.\+cpp}, \doxylink{string__fibonacci_8cpp}{string\+\_\+fibonacci.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fibonacci__fast_8cpp_a392fb874e547e582e9c66a08a1f23326}\index{fibonacci\_fast.cpp@{fibonacci\_fast.cpp}!MAX@{MAX}}
+\index{MAX@{MAX}!fibonacci\_fast.cpp@{fibonacci\_fast.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX}{MAX}}
+{\footnotesize\ttfamily \label{fibonacci__fast_8cpp_a392fb874e547e582e9c66a08a1f23326} 
+\#define MAX~93}
+
+maximum number that can be computed -\/ The result after 93 cannot be stored in a {\ttfamily uint64\+\_\+t} data type. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fibonacci__fast_8cpp_a5712edca101204eca8accdb1e096707f}\index{fibonacci\_fast.cpp@{fibonacci\_fast.cpp}!fib@{fib}}
+\index{fib@{fib}!fibonacci\_fast.cpp@{fibonacci\_fast.cpp}}
+\doxysubsubsection{\texorpdfstring{fib()}{fib()}}
+{\footnotesize\ttfamily \label{fibonacci__fast_8cpp_a5712edca101204eca8accdb1e096707f} 
+uint64\+\_\+t fib (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+Algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ f1\ =\ 1,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f2\ =\ 1;\ \ \textcolor{comment}{//\ using\ static\ keyword\ will\ retain\ the\ values\ of}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ f1\ and\ f2\ for\ the\ next\ function\ call.}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <=\ 2)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f2;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >=\ 93)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::cerr}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Cannot\ compute\ for\ n>93\ due\ to\ limit\ of\ 64-\/bit\ integers\(\backslash\)n"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ uint64\_t\ temp\ =\ f2;\ \ \textcolor{comment}{//\ we\ do\ not\ need\ temp\ to\ be\ static}}
+\DoxyCodeLine{00044\ \ \ \ \ f2\ +=\ f1;}
+\DoxyCodeLine{00045\ \ \ \ \ f1\ =\ temp;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ f2;}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__fast_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fibonacci\_fast.cpp@{fibonacci\_fast.cpp}!main@{main}}
+\index{main@{main}!fibonacci\_fast.cpp@{fibonacci\_fast.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fibonacci__fast_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Main\ Function}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 1;\ i\ <\ 93;\ i++)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ th\ fibonacci\ number\ is\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__fast_8cpp_a5712edca101204eca8accdb1e096707f}{fib}}(i)\ <<\ std::endl;}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

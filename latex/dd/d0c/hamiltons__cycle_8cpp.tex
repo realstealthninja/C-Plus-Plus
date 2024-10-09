@@ -1,0 +1,216 @@
+\doxysection{graph/hamiltons\+\_\+cycle.cpp File Reference}
+\hypertarget{hamiltons__cycle_8cpp}{}\label{hamiltons__cycle_8cpp}\index{graph/hamiltons\_cycle.cpp@{graph/hamiltons\_cycle.cpp}}
+
+
+The implementation of \href{https://en.wikipedia.org/wiki/Hamiltonian_path}{\texttt{ Hamilton\textquotesingle{}s cycle}} dynamic solution for vertices number less than 20.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}{hamilton\+\_\+cycle}} (const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&routes)
+\item 
+static void \mbox{\hyperlink{hamiltons__cycle_8cpp_ae7880ce913f3058a35ff106d5be9e243}{test1}} ()
+\item 
+static void \mbox{\hyperlink{hamiltons__cycle_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}{test2}} ()
+\item 
+static void \mbox{\hyperlink{hamiltons__cycle_8cpp_a0cc94918b6831f308d4fe4fa27f08299}{test3}} ()
+\item 
+int \mbox{\hyperlink{hamiltons__cycle_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of \href{https://en.wikipedia.org/wiki/Hamiltonian_path}{\texttt{ Hamilton\textquotesingle{}s cycle}} dynamic solution for vertices number less than 20. 
+
+I use $2^n\times n$ matrix and for every $[i, j]$ ( $i < 2^n$ and $j < n$) in the matrix I store {\ttfamily true} if it is possible to get to all vertices on which position in {\ttfamily i}\textquotesingle{}s binary representation is {\ttfamily 1} so as $j$ would be the last one.
+
+In the the end if any cell in $(2^n - 1)^{\mbox{th}}$ row is {\ttfamily true} there exists hamiltonian cycle.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/vakhokoto}{\texttt{ vakhokoto}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}\index{hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}!hamilton\_cycle@{hamilton\_cycle}}
+\index{hamilton\_cycle@{hamilton\_cycle}!hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}}
+\doxysubsubsection{\texorpdfstring{hamilton\_cycle()}{hamilton\_cycle()}}
+{\footnotesize\ttfamily \label{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4} 
+bool hamilton\+\_\+cycle (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{routes}{}\end{DoxyParamCaption})}
+
+The function determines if there is a hamilton\textquotesingle{}s cycle in the graph
+
+
+\begin{DoxyParams}{Parameters}
+{\em routes} & nxn boolean matrix of $[i, j]$ where $[i, j]$ is {\ttfamily true} if there is a road from $i$ to $j$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if there is Hamiltonian cycle in the graph 
+
+{\ttfamily false} if there is no Hamiltonian cycle in the graph 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ n\ =\ routes.size();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ height\ of\ dp\ array\ which\ is\ 2\string^n}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}\ =\ 1\ <<\ n;}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<std::vector<bool>>\ \mbox{\hyperlink{namespacedp}{dp}}(\mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}},\ std::vector<bool>(n,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ to\ fill\ in\ the\ [2\string^i,\ i]\ cells\ with\ true}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[1\ <<\ i][i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}};\ i++)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ std::vector<size\_t>\ zeros,\ ones;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ finding\ positions\ with\ 1s\ and\ 0s\ and\ separate\ them}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ pos\ =\ 0;\ pos\ <\ n;\ ++pos)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((1\ <<\ pos)\ \&\ i)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ones.push\_back(pos);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zeros.push\_back(pos);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&o\ :\ ones)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacedp}{dp}}[i][o])\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&z\ :\ zeros)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!routes[o][z])\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[i\ +\ (1\ <<\ z)][z]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_cycle\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ is\_cycle\ |=\ \mbox{\hyperlink{namespacedp}{dp}}[\mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}\ -\/\ 1][i];}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_cycle)\ \{\ \ \textcolor{comment}{//\ if\ true,\ all\ subsequent\ loop\ will\ be\ true.\ hence}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ break}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_cycle;}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamiltons__cycle_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}!main@{main}}
+\index{main@{main}!hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{hamiltons__cycle_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+Main function
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{hamiltons__cycle_8cpp_ae7880ce913f3058a35ff106d5be9e243}{test1}}();}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{hamiltons__cycle_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}{test2}}();}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{hamiltons__cycle_8cpp_a0cc94918b6831f308d4fe4fa27f08299}{test3}}();}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00147\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamiltons__cycle_8cpp_ae7880ce913f3058a35ff106d5be9e243}\index{hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}!test1@{test1}}
+\index{test1@{test1}!hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{hamiltons__cycle_8cpp_ae7880ce913f3058a35ff106d5be9e243} 
+static void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+this test is testing if \doxylink{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}{hamilton\+\_\+cycle} returns {\ttfamily true} for graph\+: {\ttfamily 1 -\/\texorpdfstring{$>$}{>} 2 -\/\texorpdfstring{$>$}{>} 3 -\/\texorpdfstring{$>$}{>} 4} \begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ std::vector<std::vector<bool>>\ arr\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{keyword}{false}\}),}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}\}),}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\}),}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}\})\};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{bool}\ ans\ =\ \mbox{\hyperlink{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}{hamilton\_cycle}}(arr);}
+\DoxyCodeLine{00089\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...\ "{}};}
+\DoxyCodeLine{00090\ \ \ \ \ assert(ans);}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamiltons__cycle_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}\index{hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}!test2@{test2}}
+\index{test2@{test2}!hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{hamiltons__cycle_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae} 
+static void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+this test is testing if \doxylink{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}{hamilton\+\_\+cycle} returns {\ttfamily false} for ~\newline
+ graph\+:
+\begin{DoxyPre}
+ 1 -\/> 2 -\/> 3
+      |
+      V
+      4\end{DoxyPre}
+ \begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<std::vector<bool>>\ arr\{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{keyword}{false}\}),}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\}),}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}\}),}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}\})\};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ ans\ =\ \mbox{\hyperlink{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}{hamilton\_cycle}}(arr);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...\ "{}};}
+\DoxyCodeLine{00113\ \ \ \ \ assert(!ans);\ \ \textcolor{comment}{//\ not\ a\ cycle}}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamiltons__cycle_8cpp_a0cc94918b6831f308d4fe4fa27f08299}\index{hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}!test3@{test3}}
+\index{test3@{test3}!hamiltons\_cycle.cpp@{hamiltons\_cycle.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{hamiltons__cycle_8cpp_a0cc94918b6831f308d4fe4fa27f08299} 
+static void test3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+this test is testing if \doxylink{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}{hamilton\+\_\+cycle} returns {\ttfamily true} for clique with 4 vertices \begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ std::vector<std::vector<bool>>\ arr\{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\}),}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\}),}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\}),}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ std::vector<bool>(\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\})\};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{bool}\ ans\ =\ \mbox{\hyperlink{hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4}{hamilton\_cycle}}(arr);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...\ "{}};}
+\DoxyCodeLine{00132\ \ \ \ \ assert(ans);}
+\DoxyCodeLine{00133\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00134\ \}}
+
+\end{DoxyCode}

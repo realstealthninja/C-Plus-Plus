@@ -1,0 +1,135 @@
+\doxysection{greedy\+\_\+algorithms Namespace Reference}
+\hypertarget{namespacegreedy__algorithms}{}\label{namespacegreedy__algorithms}\index{greedy\_algorithms@{greedy\_algorithms}}
+
+
+for std\+::vector  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms_1_1dijkstra}{dijkstra}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}{\texttt{ Dijkstra}} algorithm implementation. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching}{stable\+\_\+matching}}
+\begin{DoxyCompactList}\small\item\em Functions for the Gale-\/\+Shapley Algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation}{Digit\+Separation}}
+\begin{DoxyCompactList}\small\item\em A class that provides methods to separate the digits of a large positive number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}{can\+\_\+jump}} (const std\+::vector$<$ int $>$ \&nums)
+\begin{DoxyCompactList}\small\item\em Checks whether the given element (default is {\ttfamily 1}) can jump to the last index. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N, std\+::size\+\_\+t M$>$ }\\void \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{find\+Minimum\+Edge}} (const T \&infinity, const std\+::array$<$ std\+::array$<$ T, N $>$, M $>$ \&graph)
+\begin{DoxyCompactList}\small\item\em Finds the minimum edge of the given graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+for std\+::vector 
+
+for uint32\+\_\+t
+
+for assert
+
+For std\+::vector to store separated digits.
+
+for assert for INT\+\_\+\+MAX for IO operations
+
+Greedy Algorithms
+
+For reveresing the vector For assert() function to check for errors For abs() function For int64\+\_\+t data type to handle large numbers For input/output operations
+
+Greedy Algorithms
+
+for std\+::u32int\+\_\+t for std\+::vector for std\+::find
+
+Greedy Algorithms
+
+for assert for std\+::cout
+
+Greedy Algorithms
+
+for array for IO operations for numeric limits
+
+Greedy Algorithms 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}\index{greedy\_algorithms@{greedy\_algorithms}!can\_jump@{can\_jump}}
+\index{can\_jump@{can\_jump}!greedy\_algorithms@{greedy\_algorithms}}
+\doxysubsubsection{\texorpdfstring{can\_jump()}{can\_jump()}}
+{\footnotesize\ttfamily \label{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502} 
+bool greedy\+\_\+algorithms\+::can\+\_\+jump (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{nums}{}\end{DoxyParamCaption})}
+
+
+
+Checks whether the given element (default is {\ttfamily 1}) can jump to the last index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nums} & array of numbers containing the maximum jump (in steps) from that index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the index can be reached 
+
+false if the index can NOT be reached 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lastPos\ =\ nums.size()\ -\/\ 1;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ lastPos;\ i\ !=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(-\/1);\ i-\/-\/)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ +\ nums[i]\ >=\ lastPos)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ lastPos\ =\ i;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ lastPos\ ==\ 0;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}\index{greedy\_algorithms@{greedy\_algorithms}!findMinimumEdge@{findMinimumEdge}}
+\index{findMinimumEdge@{findMinimumEdge}!greedy\_algorithms@{greedy\_algorithms}}
+\doxysubsubsection{\texorpdfstring{findMinimumEdge()}{findMinimumEdge()}}
+{\footnotesize\ttfamily \label{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098} 
+template$<$typename T , std\+::size\+\_\+t N, std\+::size\+\_\+t M$>$ \\
+void greedy\+\_\+algorithms\+::find\+Minimum\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{infinity}{, }\item[{const std\+::array$<$ std\+::array$<$ T, N $>$, M $>$ \&}]{graph}{}\end{DoxyParamCaption})}
+
+
+
+Finds the minimum edge of the given graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em infinity} & Defines the infinity of the graph \\
+\hline
+{\em graph} & The graph that will be used to find the edge \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ !=\ M)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nWrong\ input\ passed.\ Provided\ array\ has\ dimensions\ "{}}\ <<\ N}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}x"{}}\ <<\ M\ <<\ \textcolor{stringliteral}{"{}.\ Please\ provide\ a\ square\ matrix.\(\backslash\)n"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{namespacegraph}{graph}}.size();\ i++)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ infinity;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ minIndex\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{namespacegraph}{graph}}.size();\ j++)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ j\ \&\&\ \mbox{\hyperlink{namespacegraph}{graph}}[i][j]\ !=\ 0\ \&\&\ \mbox{\hyperlink{namespacegraph}{graph}}[i][j]\ <\ min)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\ =\ \mbox{\hyperlink{namespacegraph}{graph}}[i][j];}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minIndex\ =\ j;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ \ -\/\ \ "{}}\ <<\ minIndex\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ \mbox{\hyperlink{namespacegraph}{graph}}[i][minIndex]}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

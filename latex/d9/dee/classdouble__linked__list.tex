@@ -1,0 +1,161 @@
+\doxysection{double\+\_\+linked\+\_\+list Class Reference}
+\hypertarget{classdouble__linked__list}{}\label{classdouble__linked__list}\index{double\_linked\_list@{double\_linked\_list}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdouble__linked__list_a3b5f341835034d3a74add60781a65470}{insert}} (int x)
+\item 
+void \mbox{\hyperlink{classdouble__linked__list_a4a68961af2c26e06c7b37f7de57d5e5f}{remove}} (int x)
+\item 
+void \mbox{\hyperlink{classdouble__linked__list_a25f38dea0b69f2365fe67bdc35f8e0e2}{search}} (int x)
+\item 
+void \mbox{\hyperlink{classdouble__linked__list_a81a7f2c5fa23359b9ddd541a6c8b49f9}{show}} ()
+\item 
+void \mbox{\hyperlink{classdouble__linked__list_a0525cf734dfd9cd399f3c8d0df138dce}{reverse\+Show}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdouble__linked__list_a999c63fbdcc64f1fd367282d417a991e}\index{double\_linked\_list@{double\_linked\_list}!double\_linked\_list@{double\_linked\_list}}
+\index{double\_linked\_list@{double\_linked\_list}!double\_linked\_list@{double\_linked\_list}}
+\doxysubsubsection{\texorpdfstring{double\_linked\_list()}{double\_linked\_list()}}
+{\footnotesize\ttfamily \label{classdouble__linked__list_a999c63fbdcc64f1fd367282d417a991e} 
+double\+\_\+linked\+\_\+list\+::double\+\_\+linked\+\_\+list (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{\ start\ =\ NULL;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdouble__linked__list_a3b5f341835034d3a74add60781a65470}\index{double\_linked\_list@{double\_linked\_list}!insert@{insert}}
+\index{insert@{insert}!double\_linked\_list@{double\_linked\_list}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{classdouble__linked__list_a3b5f341835034d3a74add60781a65470} 
+void double\+\_\+linked\+\_\+list\+::insert (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ start;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ !=\ NULL)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (t-\/>next\ !=\ NULL)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ t-\/>next;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *n\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ t-\/>next\ =\ n;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ n-\/>prev\ =\ t;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ n-\/>val\ =\ x;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ n-\/>next\ =\ NULL;}
+\DoxyCodeLine{00032\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *n\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ n-\/>val\ =\ x;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ n-\/>prev\ =\ NULL;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ n-\/>next\ =\ NULL;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ start\ =\ n;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdouble__linked__list_a4a68961af2c26e06c7b37f7de57d5e5f}\index{double\_linked\_list@{double\_linked\_list}!remove@{remove}}
+\index{remove@{remove}!double\_linked\_list@{double\_linked\_list}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{classdouble__linked__list_a4a68961af2c26e06c7b37f7de57d5e5f} 
+void double\+\_\+linked\+\_\+list\+::remove (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ start;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ !=\ NULL\ \&\&\ t-\/>val\ !=\ x)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ t\ =\ t-\/>next;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ ==\ NULL)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (t-\/>prev\ ==\ NULL)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t-\/>next\ ==\ NULL)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ NULL;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ t-\/>next;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ start-\/>prev\ =\ NULL;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (t-\/>next\ ==\ NULL)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ t-\/>prev-\/>next\ =\ NULL;}
+\DoxyCodeLine{00058\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ t-\/>prev-\/>next\ =\ t-\/>next;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ t-\/>next-\/>prev\ =\ t-\/>prev;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{delete}\ t;}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdouble__linked__list_a0525cf734dfd9cd399f3c8d0df138dce}\index{double\_linked\_list@{double\_linked\_list}!reverseShow@{reverseShow}}
+\index{reverseShow@{reverseShow}!double\_linked\_list@{double\_linked\_list}}
+\doxysubsubsection{\texorpdfstring{reverseShow()}{reverseShow()}}
+{\footnotesize\ttfamily \label{classdouble__linked__list_a0525cf734dfd9cd399f3c8d0df138dce} 
+void double\+\_\+linked\+\_\+list\+::reverse\+Show (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ start;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ !=\ NULL\ \&\&\ t-\/>next\ !=\ NULL)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ t\ =\ t-\/>next;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ !=\ NULL)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::cout\ <<\ t-\/>val\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ t\ =\ t-\/>prev;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdouble__linked__list_a25f38dea0b69f2365fe67bdc35f8e0e2}\index{double\_linked\_list@{double\_linked\_list}!search@{search}}
+\index{search@{search}!double\_linked\_list@{double\_linked\_list}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily \label{classdouble__linked__list_a25f38dea0b69f2365fe67bdc35f8e0e2} 
+void double\+\_\+linked\+\_\+list\+::search (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ start;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ found\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ !=\ NULL)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t-\/>val\ ==\ x)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nFound"{}};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ 1;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ t\ =\ t-\/>next;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNot\ Found"{}};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdouble__linked__list_a81a7f2c5fa23359b9ddd541a6c8b49f9}\index{double\_linked\_list@{double\_linked\_list}!show@{show}}
+\index{show@{show}!double\_linked\_list@{double\_linked\_list}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily \label{classdouble__linked__list_a81a7f2c5fa23359b9ddd541a6c8b49f9} 
+void double\+\_\+linked\+\_\+list\+::show (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ start;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ !=\ NULL)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::cout\ <<\ t-\/>val\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ t\ =\ t-\/>next;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/doubly\+\_\+linked\+\_\+list.\+cpp\end{DoxyCompactItemize}

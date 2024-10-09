@@ -1,0 +1,218 @@
+\doxysection{dynamic\+\_\+programming/shortest\+\_\+common\+\_\+supersequence.cpp File Reference}
+\hypertarget{shortest__common__supersequence_8cpp}{}\label{shortest__common__supersequence_8cpp}\index{dynamic\_programming/shortest\_common\_supersequence.cpp@{dynamic\_programming/shortest\_common\_supersequence.cpp}}
+
+
+SCS is a string Z which is the shortest supersequence of strings X and Y (may not be continuous in Z, but order is maintained).  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceshortest__common__supersequence}{shortest\+\_\+common\+\_\+supersequence}}
+\begin{DoxyCompactList}\small\item\em Shortest Common Super Sequence algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{shortest__common__supersequence_8cpp_ad2ee8d7e67da9f6eb85146b08dad95e6}{dynamic\+\_\+programming\+::shortest\+\_\+common\+\_\+supersequence\+::scs}} (const std\+::string \&str1, const std\+::string \&str2)
+\item 
+static void \mbox{\hyperlink{shortest__common__supersequence_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{shortest__common__supersequence_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SCS is a string Z which is the shortest supersequence of strings X and Y (may not be continuous in Z, but order is maintained). 
+
+The idea is to use lookup table method as used in LCS. For example\+: example 1\+:-\/ X\+: \textquotesingle{}ABCXYZ\textquotesingle{}, Y\+: \textquotesingle{}ABZ\textquotesingle{} then Z will be \textquotesingle{}ABCXYZ\textquotesingle{} (y is not continuous but in order)
+
+For example\+: example 2\+:-\/ X\+: \textquotesingle{}AGGTAB\textquotesingle{}, Y\+: \textquotesingle{}GXTXAYB\textquotesingle{} then Z will be \textquotesingle{}AGGXTXAYB\textquotesingle{} \begin{DoxyAuthor}{Author}
+\href{https://github.com/ridhishjain}{\texttt{ Ridhish Jain}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+more on \href{https://en.wikipedia.org/wiki/Shortest_common_supersequence_problem}{\texttt{ SCS}} 
+
+related \doxylink{ode__forward__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem} \href{https://leetcode.com/problems/shortest-common-supersequence/}{\texttt{ Leetcode}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{shortest__common__supersequence_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{shortest\_common\_supersequence.cpp@{shortest\_common\_supersequence.cpp}!main@{main}}
+\index{main@{main}!shortest\_common\_supersequence.cpp@{shortest\_common\_supersequence.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{shortest__common__supersequence_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function (driver code) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//\ test\ for\ implementation}}
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{shortest__common__supersequence_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{//\ user\ input}}
+\DoxyCodeLine{00169\ \ \ \ \ std::string\ s1,\ s2;}
+\DoxyCodeLine{00170\ \ \ \ \ std::cin\ >>\ s1;}
+\DoxyCodeLine{00171\ \ \ \ \ std::cin\ >>\ s2;}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ std::string\ ans;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ user\ output}}
+\DoxyCodeLine{00176\ \ \ \ \ ans\ =\ \mbox{\hyperlink{shortest__common__supersequence_8cpp_ad2ee8d7e67da9f6eb85146b08dad95e6}{dynamic\_programming::shortest\_common\_supersequence::scs}}(s1,\ s2);}
+\DoxyCodeLine{00177\ \ \ \ \ std::cout\ <<\ ans;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00179\ \}}
+
+\end{DoxyCode}
+\Hypertarget{shortest__common__supersequence_8cpp_ad2ee8d7e67da9f6eb85146b08dad95e6}\index{shortest\_common\_supersequence.cpp@{shortest\_common\_supersequence.cpp}!scs@{scs}}
+\index{scs@{scs}!shortest\_common\_supersequence.cpp@{shortest\_common\_supersequence.cpp}}
+\doxysubsubsection{\texorpdfstring{scs()}{scs()}}
+{\footnotesize\ttfamily \label{shortest__common__supersequence_8cpp_ad2ee8d7e67da9f6eb85146b08dad95e6} 
+std\+::string dynamic\+\_\+programming\+::shortest\+\_\+common\+\_\+supersequence\+::scs (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str1}{, }\item[{const std\+::string \&}]{str2}{}\end{DoxyParamCaption})}
+
+Function implementing Shortest Common Super-\/\+Sequence algorithm using look-\/up table method. 
+\begin{DoxyParams}{Parameters}
+{\em str1} & first string \textquotesingle{}X\textquotesingle{} \\
+\hline
+{\em str2} & second string \textquotesingle{}Y\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \textquotesingle{}Z\textquotesingle{}, super\+Sequence of X and Y 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Edge\ cases}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ either\ str1\ or\ str2\ or\ both\ are\ empty}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(str1.empty()\ \&\&\ str2.empty())\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(str1.empty())\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str2;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(str2.empty())\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str1;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ creating\ lookup\ table}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector\ <std::vector\ <int>>\ lookup(str1.length()\ +\ 1,\ std::vector\ <int>\ (str2.length()\ +\ 1,\ 0));}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=1;\ i\ <=\ str1.length();\ i++)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=1;\ j\ <=\ str2.length();\ j++)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(str1[i-\/1]\ ==\ str2[j-\/1])\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lookup[i][j]\ =\ lookup[i-\/1][j-\/1]\ +\ 1;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lookup[i][j]\ =\ std::max(lookup[i-\/1][j],\ lookup[i][j-\/1]);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ making\ supersequence}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ i\ and\ j\ are\ initially\ pointed\ towards\ end\ of\ strings}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Super-\/sequence\ will\ be\ constructed\ backwards}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i=str1.length();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j=str2.length();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ s;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(i>0\ \&\&\ j>0)\ \{}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ characters\ at\ i\ and\ j\ of\ both\ strings\ are\ same}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ only\ need\ to\ add\ them\ once\ in\ s}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(str1[i-\/1]\ ==\ str2[j-\/1])\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(str1[i-\/1]);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ otherwise\ we\ check\ lookup\ table\ for\ recurrences\ of\ characters}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(lookup[i-\/1][j]\ >\ lookup[i][j-\/1])\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(str1[i-\/1]);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(str2[j-\/1]);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copying\ remaining\ elements}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ j\ becomes\ 0\ before\ i}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(i\ >\ 0)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(str1[i-\/1]);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ i\ becomes\ 0\ before\ j}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(j\ >\ 0)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(str2[j-\/1]);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ As\ the\ super\ sequence\ is\ constructd\ backwards}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reversing\ the\ string\ before\ returning\ gives\ us\ the\ correct\ output\ \ }}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ reverse(s.begin(),\ s.end());}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{shortest__common__supersequence_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{shortest\_common\_supersequence.cpp@{shortest\_common\_supersequence.cpp}!test@{test}}
+\index{test@{test}!shortest\_common\_supersequence.cpp@{shortest\_common\_supersequence.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{shortest__common__supersequence_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test Function \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ custom\ input\ vector}}
+\DoxyCodeLine{00126\ \ \ \ \ std::vector\ <std::vector\ <std::string>>\ scsStrings\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}ABCXYZ"{}},\ \textcolor{stringliteral}{"{}ABZ"{}}\},}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}ABZ"{}},\ \textcolor{stringliteral}{"{}ABCXYZ"{}}\},}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}AGGTAB"{}},\ \textcolor{stringliteral}{"{}GXTXAYB"{}}\},}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}X"{}},\ \textcolor{stringliteral}{"{}Y"{}}\},}
+\DoxyCodeLine{00131\ \ \ \ \ \};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ calculated\ output\ vector\ by\ scs\ function}}
+\DoxyCodeLine{00134\ \ \ \ \ std::vector\ <std::string>\ calculatedOutput(4,\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ i=0;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ \&\ scsString\ :\ scsStrings)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ calculatedOutput[i]\ =\ \mbox{\hyperlink{shortest__common__supersequence_8cpp_ad2ee8d7e67da9f6eb85146b08dad95e6}{dynamic\_programming::shortest\_common\_supersequence::scs}}(}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ scsString[0],\ scsString[1]}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ expected\ output\ vector\ acc\ to\ problem\ statement}}
+\DoxyCodeLine{00145\ \ \ \ \ std::vector\ <std::string>\ expectedOutput\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ABCXYZ"{}},}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ABCXYZ"{}},}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}AGGXTXAYB"{}},}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}XY"{}}}
+\DoxyCodeLine{00150\ \ \ \ \ \};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ Testing\ implementation\ via\ assert\ function}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ It\ will\ throw\ error\ if\ any\ of\ the\ expected\ test\ fails}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ Else\ it\ will\ give\ nothing}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i\ <\ scsStrings.size();\ i++)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ assert(expectedOutput[i]\ ==\ calculatedOutput[i]);}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ passed\ successfully!\(\backslash\)n"{}};}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00161\ \}}
+
+\end{DoxyCode}

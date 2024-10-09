@@ -1,0 +1,83 @@
+\doxysection{graphics/spirograph.cpp File Reference}
+\hypertarget{spirograph_8cpp}{}\label{spirograph_8cpp}\index{graphics/spirograph.cpp@{graphics/spirograph.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Spirograph}{\texttt{ Spirograph}}  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacespirograph}{spirograph}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{spirograph_8cpp_a525335710b53cb064ca56b936120431e}{\+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespacespirograph_aeca22dbe4563358960e907a40cd3e1ac}{spirograph\+::spirograph}} (std\+::array$<$ std\+::pair$<$ double, double $>$, N $>$ \texorpdfstring{$\ast$}{*}points, double l, double k, double rot)
+\item 
+void \mbox{\hyperlink{namespacespirograph_a8e83a64e8443fff1e5ffdc1c299c1e99}{spirograph\+::test}} ()
+\begin{DoxyCompactList}\small\item\em Test function to save resulting points to a CSV file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{spirograph_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Spirograph}{\texttt{ Spirograph}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+Implementation of the program is based on the geometry shown in the figure below\+:
+
+\href{https://commons.wikimedia.org/wiki/File:Resonance_Cascade.svg}{\texttt{ }} 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{spirograph_8cpp_a525335710b53cb064ca56b936120431e}\index{spirograph.cpp@{spirograph.cpp}!\_USE\_MATH\_DEFINES@{\_USE\_MATH\_DEFINES}}
+\index{\_USE\_MATH\_DEFINES@{\_USE\_MATH\_DEFINES}!spirograph.cpp@{spirograph.cpp}}
+\doxysubsubsection{\texorpdfstring{\_USE\_MATH\_DEFINES}{\_USE\_MATH\_DEFINES}}
+{\footnotesize\ttfamily \label{spirograph_8cpp_a525335710b53cb064ca56b936120431e} 
+\#define \+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}
+
+required for MSVC compiler 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{spirograph_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{spirograph.cpp@{spirograph.cpp}!main@{main}}
+\index{main@{main}!spirograph.cpp@{spirograph.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{spirograph_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \mbox{\hyperlink{namespacespirograph_a8e83a64e8443fff1e5ffdc1c299c1e99}{spirograph::test}}();}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#ifdef\ USE\_GLUT}}
+\DoxyCodeLine{00272\ \ \ \ \ glutInit(\&argc,\ argv);}
+\DoxyCodeLine{00273\ \ \ \ \ glutInitDisplayMode(GLUT\_RGB\ |\ GLUT\_DOUBLE);}
+\DoxyCodeLine{00274\ \ \ \ \ glutCreateWindow(\textcolor{stringliteral}{"{}Spirograph"{}});}
+\DoxyCodeLine{00275\ \ \ \ \ glutInitWindowSize(400,\ 400);}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{comment}{//\ glutIdleFunc(glutPostRedisplay);}}
+\DoxyCodeLine{00277\ \ \ \ \ glutTimerFunc(spirograph::animation\_speed,\ spirograph::timer\_cb,\ 0);}
+\DoxyCodeLine{00278\ \ \ \ \ glutKeyboardFunc(spirograph::keyboard\_cb);}
+\DoxyCodeLine{00279\ \ \ \ \ glutDisplayFunc(spirograph::test2);}
+\DoxyCodeLine{00280\ \ \ \ \ glutMainLoop();}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00284\ \}}
+
+\end{DoxyCode}

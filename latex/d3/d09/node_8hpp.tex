@@ -1,0 +1,82 @@
+\doxysection{data\+\_\+structures/node.hpp File Reference}
+\hypertarget{node_8hpp}{}\label{node_8hpp}\index{data\_structures/node.hpp@{data\_structures/node.hpp}}
+
+
+Provides \doxylink{struct_node}{Node} class and related utilities.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{struct_node}{Node$<$ Value\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{struct_node}{Node}} , typename Action $>$ }\\void \mbox{\hyperlink{node_8hpp_a990a87f74d83899124b2254bef8d0e98}{traverse}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const in\+Node, const Action \&action)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{struct_node}{Node}} $>$ }\\void \mbox{\hyperlink{node_8hpp_aed1593858f6a7284d21caa8839b65520}{display\+\_\+all}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const in\+Node)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{struct_node}{Node}} $>$ }\\std\+::vector$<$ typename Node\+::value\+\_\+type $>$ \mbox{\hyperlink{node_8hpp_a134faa726adc30b00d03454f77b87a0f}{push\+\_\+all\+\_\+to\+\_\+vector}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const in\+Node, const std\+::size\+\_\+t expected\+\_\+size=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides \doxylink{struct_node}{Node} class and related utilities. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{node_8hpp_aed1593858f6a7284d21caa8839b65520}\index{node.hpp@{node.hpp}!display\_all@{display\_all}}
+\index{display\_all@{display\_all}!node.hpp@{node.hpp}}
+\doxysubsubsection{\texorpdfstring{display\_all()}{display\_all()}}
+{\footnotesize\ttfamily \label{node_8hpp_aed1593858f6a7284d21caa8839b65520} 
+template$<$typename \mbox{\hyperlink{struct_node}{Node}} $>$ \\
+void display\+\_\+all (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const}]{in\+Node}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ traverse(inNode,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\&\ curNode)\ \{\ std::cout\ <<\ curNode.data\ <<\ \textcolor{stringliteral}{"{}\ "{}};\ \});}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{node_8hpp_a134faa726adc30b00d03454f77b87a0f}\index{node.hpp@{node.hpp}!push\_all\_to\_vector@{push\_all\_to\_vector}}
+\index{push\_all\_to\_vector@{push\_all\_to\_vector}!node.hpp@{node.hpp}}
+\doxysubsubsection{\texorpdfstring{push\_all\_to\_vector()}{push\_all\_to\_vector()}}
+{\footnotesize\ttfamily \label{node_8hpp_a134faa726adc30b00d03454f77b87a0f} 
+template$<$typename \mbox{\hyperlink{struct_node}{Node}} $>$ \\
+std\+::vector$<$ typename Node\+::value\+\_\+type $>$ push\+\_\+all\+\_\+to\+\_\+vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const}]{in\+Node}{, }\item[{const std\+::size\+\_\+t}]{expected\+\_\+size}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<typename\ Node::value\_type>\ res;}
+\DoxyCodeLine{00040\ \ \ \ \ res.reserve(expected\_size);}
+\DoxyCodeLine{00041\ \ \ \ \ traverse(inNode,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ [\&res](\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\&\ curNode)\ \{\ res.push\_back(curNode.data);\ \});}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{node_8hpp_a990a87f74d83899124b2254bef8d0e98}\index{node.hpp@{node.hpp}!traverse@{traverse}}
+\index{traverse@{traverse}!node.hpp@{node.hpp}}
+\doxysubsubsection{\texorpdfstring{traverse()}{traverse()}}
+{\footnotesize\ttfamily \label{node_8hpp_a990a87f74d83899124b2254bef8d0e98} 
+template$<$typename \mbox{\hyperlink{struct_node}{Node}} , typename Action $>$ \\
+void traverse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const}]{in\+Node}{, }\item[{const Action \&}]{action}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (inNode)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ action(*inNode);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ traverse(inNode-\/>next.get(),\ action);}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}

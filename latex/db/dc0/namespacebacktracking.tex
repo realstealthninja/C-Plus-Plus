@@ -1,0 +1,104 @@
+\doxysection{backtracking Namespace Reference}
+\hypertarget{namespacebacktracking}{}\label{namespacebacktracking}\index{backtracking@{backtracking}}
+
+
+for vector container  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbacktracking_1_1generate__parentheses}{generate\+\_\+parentheses}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classbacktracking_1_1generate__parentheses}{generate\+\_\+parentheses} class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t T$>$ }\\int \mbox{\hyperlink{namespacebacktracking_a78540bcb5ef3473b2348cbc34748ec50}{minimax}} (int depth, int node\+\_\+index, bool is\+\_\+max, const std\+::array$<$ int, T $>$ \&scores, double \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em Check which is the maximum/minimum number in the array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+for vector container 
+
+Backtracking algorithms.
+
+for IO operations
+
+for std\+::vector
+
+for assert for I/O operation
+
+Backtracking algorithms
+
+for std\+::array for IO operations
+
+Backtracking algorithms
+
+for std\+::array
+
+Backtracking algorithms
+
+for std\+::count for assert for IO operations for std\+::list for std\+::accumulate for std\+::vector
+
+for std\+::max, std\+::min for std\+::array for log2
+
+Backtracking algorithms
+
+for std\+::array for assert
+
+Backtracking algorithms
+
+for assert for IO operations for unordered\+\_\+map
+
+Backtracking algorithms
+
+for assert for IO operations
+
+Backtracking algorithms
+
+for assert
+
+Backtracking algorithms 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacebacktracking_a78540bcb5ef3473b2348cbc34748ec50}\index{backtracking@{backtracking}!minimax@{minimax}}
+\index{minimax@{minimax}!backtracking@{backtracking}}
+\doxysubsubsection{\texorpdfstring{minimax()}{minimax()}}
+{\footnotesize\ttfamily \label{namespacebacktracking_a78540bcb5ef3473b2348cbc34748ec50} 
+template$<$size\+\_\+t T$>$ \\
+int backtracking\+::minimax (\begin{DoxyParamCaption}\item[{int}]{depth}{, }\item[{int}]{node\+\_\+index}{, }\item[{bool}]{is\+\_\+max}{, }\item[{const std\+::array$<$ int, T $>$ \&}]{scores}{, }\item[{double}]{height}{}\end{DoxyParamCaption})}
+
+
+
+Check which is the maximum/minimum number in the array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth} & current depth in game tree \\
+\hline
+{\em node\+\_\+index} & current index in array \\
+\hline
+{\em is\+\_\+max} & if current index is the longest number \\
+\hline
+{\em scores} & saved numbers in array \\
+\hline
+{\em height} & maximum height for game tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the maximum or minimum number 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (depth\ ==\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scores[node\_index];}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ v1\ =\ minimax(depth\ +\ 1,\ node\_index\ *\ 2,\ !is\_max,\ scores,\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}});}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ v2\ =\ minimax(depth\ +\ 1,\ node\_index\ *\ 2\ +\ 1,\ !is\_max,\ scores,\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_max\ ?\ std::max(v1,\ v2)\ :\ std::min(v1,\ v2);}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}

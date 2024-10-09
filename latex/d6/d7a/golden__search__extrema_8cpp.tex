@@ -1,0 +1,233 @@
+\doxysection{numerical\+\_\+methods/golden\+\_\+search\+\_\+extrema.cpp File Reference}
+\hypertarget{golden__search__extrema_8cpp}{}\label{golden__search__extrema_8cpp}\index{numerical\_methods/golden\_search\_extrema.cpp@{numerical\_methods/golden\_search\_extrema.cpp}}
+
+
+Find extrema of a univariate real function in a given interval using \href{https://en.wikipedia.org/wiki/Golden-section_search}{\texttt{ golden section search algorithm}}.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{golden__search__extrema_8cpp_a525335710b53cb064ca56b936120431e}\label{golden__search__extrema_8cpp_a525335710b53cb064ca56b936120431e} 
+\#define {\bfseries \+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}
+\item 
+\Hypertarget{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}\label{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70} 
+\#define {\bfseries EPSILON}~1e-\/7
+\begin{DoxyCompactList}\small\item\em solution accuracy limit \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{golden__search__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\+\_\+minima}} (const std\+::function$<$ double(double)$>$ \&f, double lim\+\_\+a, double lim\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Get the minima of a function in the given interval. To get the maxima, simply negate the function. The golden ratio used here is\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{golden__search__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\begin{DoxyCompactList}\small\item\em Test function to find minima for the function $f(x)= (x-2)^2$ in the interval $[1,5]$ ~\newline
+ Expected result = 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{golden__search__extrema_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\begin{DoxyCompactList}\small\item\em Test function to find {\itshape maxima} for the function $f(x)= x^{\frac{1}{x}}$ in the interval $[-2,10]$ ~\newline
+ Expected result\+: $e\approx 2.71828182845904509$. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{golden__search__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}} ()
+\begin{DoxyCompactList}\small\item\em Test function to find {\itshape maxima} for the function $f(x)= \cos x$ in the interval $[0,12]$ ~\newline
+ Expected result\+: $\pi\approx 3.14159265358979312$. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{golden__search__extrema_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Find extrema of a univariate real function in a given interval using \href{https://en.wikipedia.org/wiki/Golden-section_search}{\texttt{ golden section search algorithm}}. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{brent__method__extrema_8cpp}{brent\+\_\+method\+\_\+extrema.\+cpp} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{golden__search__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}\index{golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}!get\_minima@{get\_minima}}
+\index{get\_minima@{get\_minima}!golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_minima()}{get\_minima()}}
+{\footnotesize\ttfamily \label{golden__search__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b} 
+double get\+\_\+minima (\begin{DoxyParamCaption}\item[{const std\+::function$<$ double(double)$>$ \&}]{f}{, }\item[{double}]{lim\+\_\+a}{, }\item[{double}]{lim\+\_\+b}{}\end{DoxyParamCaption})}
+
+
+
+Get the minima of a function in the given interval. To get the maxima, simply negate the function. The golden ratio used here is\+: 
+
+\[
+k=\frac{3-\sqrt{5}}{2} \approx 0.381966\ldots\]
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & function to get minima for \\
+\hline
+{\em lim\+\_\+a} & lower limit of search window \\
+\hline
+{\em lim\+\_\+b} & upper limit of search window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+local minima found in the interval 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ uint32\_t\ iters\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ c,\ d;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ prev\_mean,\ mean\ =\ std::numeric\_limits<double>::infinity();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ golden\ ratio\ value}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ M\_GOLDEN\_RATIO\ =\ (1.f\ +\ std::sqrt(5.f))\ /\ 2.f;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ ensure\ that\ lim\_a\ <\ lim\_b}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (lim\_a\ >\ lim\_b)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::swap(lim\_a,\ lim\_b);}
+\DoxyCodeLine{00041\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (std::abs(lim\_a\ -\/\ lim\_b)\ <=\ \mbox{\hyperlink{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Search\ range\ must\ be\ greater\ than\ "{}}\ <<\ \mbox{\hyperlink{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lim\_a;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ prev\_mean\ =\ mean;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compute\ the\ section\ ratio\ width}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ratio\ =\ (lim\_b\ -\/\ lim\_a)\ /\ M\_GOLDEN\_RATIO;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ c\ =\ lim\_b\ -\/\ ratio;\ \ \textcolor{comment}{//\ right-\/side\ section\ start}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ d\ =\ lim\_a\ +\ ratio;\ \ \textcolor{comment}{//\ left-\/side\ section\ end}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}}(c)\ <\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}}(d))\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ select\ left\ section}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ lim\_b\ =\ d;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ selct\ right\ section}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ lim\_a\ =\ c;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ mean\ =\ (lim\_a\ +\ lim\_b)\ /\ 2.f;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ iters++;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ continue\ till\ the\ interval\ width\ is\ greater\ than\ sqrt(system\ epsilon)}}
+\DoxyCodeLine{00066\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (std::abs(lim\_a\ -\/\ lim\_b)\ >\ \mbox{\hyperlink{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ (iters:\ "{}}\ <<\ iters\ <<\ \textcolor{stringliteral}{"{})\ "{}};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{return}\ prev\_mean;}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+\Hypertarget{golden__search__extrema_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}!main@{main}}
+\index{main@{main}!golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{golden__search__extrema_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ std::cout.precision(9);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Computations\ performed\ with\ machine\ epsilon:\ "{}}\ <<\ \mbox{\hyperlink{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{golden__search__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();}
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{golden__search__extrema_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{golden__search__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}}();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00150\ \}}
+
+\end{DoxyCode}
+\Hypertarget{golden__search__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}!test1@{test1}}
+\index{test1@{test1}!golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{golden__search__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to find minima for the function $f(x)= (x-2)^2$ in the interval $[1,5]$ ~\newline
+ Expected result = 2. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ define\ the\ function\ to\ minimize\ as\ a\ lambda\ function}}
+\DoxyCodeLine{00080\ \ \ \ \ std::function<double(\textcolor{keywordtype}{double})>\ f1\ =\ [](\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ -\/\ 2)\ *\ (x\ -\/\ 2);}
+\DoxyCodeLine{00082\ \ \ \ \ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1....\ "{}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{double}\ minima\ =\ \mbox{\hyperlink{golden__search__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\_minima}}(f1,\ 1,\ 5);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ minima\ <<\ \textcolor{stringliteral}{"{}..."{}};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ assert(std::abs(minima\ -\/\ 2)\ <\ \mbox{\hyperlink{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}});}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{golden__search__extrema_8cpp_a0283886819c7c140a023582b7269e2d0}\index{golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}!test2@{test2}}
+\index{test2@{test2}!golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{golden__search__extrema_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to find {\itshape maxima} for the function $f(x)= x^{\frac{1}{x}}$ in the interval $[-2,10]$ ~\newline
+ Expected result\+: $e\approx 2.71828182845904509$. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ define\ the\ function\ to\ maximize\ as\ a\ lambda\ function}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ since\ we\ are\ maximixing,\ we\ negated\ the\ function\ return\ value}}
+\DoxyCodeLine{00103\ \ \ \ \ std::function<double(\textcolor{keywordtype}{double})>\ func\ =\ [](\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/std::pow(x,\ 1.f\ /\ x);}
+\DoxyCodeLine{00105\ \ \ \ \ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2....\ "{}};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{double}\ minima\ =\ \mbox{\hyperlink{golden__search__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\_minima}}(func,\ -\/2,\ 10);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ minima\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ M\_E\ <<\ \textcolor{stringliteral}{"{})..."{}};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ assert(std::abs(minima\ -\/\ M\_E)\ <\ \mbox{\hyperlink{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}});}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{golden__search__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e}\index{golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}!test3@{test3}}
+\index{test3@{test3}!golden\_search\_extrema.cpp@{golden\_search\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{golden__search__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e} 
+void test3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to find {\itshape maxima} for the function $f(x)= \cos x$ in the interval $[0,12]$ ~\newline
+ Expected result\+: $\pi\approx 3.14159265358979312$. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ define\ the\ function\ to\ maximize\ as\ a\ lambda\ function}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ since\ we\ are\ maximixing,\ we\ negated\ the\ function\ return\ value}}
+\DoxyCodeLine{00126\ \ \ \ \ std::function<double(\textcolor{keywordtype}{double})>\ func\ =\ [](\textcolor{keywordtype}{double}\ x)\ \{\ \textcolor{keywordflow}{return}\ std::cos(x);\ \};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3....\ "{}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{double}\ minima\ =\ \mbox{\hyperlink{golden__search__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\_minima}}(func,\ -\/4,\ 12);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ std::cout\ <<\ minima\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ M\_PI\ <<\ \textcolor{stringliteral}{"{})..."{}};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ assert(std::abs(minima\ -\/\ M\_PI)\ <\ \mbox{\hyperlink{golden__search__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}});}
+\DoxyCodeLine{00135\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00136\ \}}
+
+\end{DoxyCode}

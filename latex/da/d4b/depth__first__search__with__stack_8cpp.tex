@@ -1,0 +1,310 @@
+\doxysection{graph/depth\+\_\+first\+\_\+search\+\_\+with\+\_\+stack.cpp File Reference}
+\hypertarget{depth__first__search__with__stack_8cpp}{}\label{depth__first__search__with__stack_8cpp}\index{graph/depth\_first\_search\_with\_stack.cpp@{graph/depth\_first\_search\_with\_stack.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Depth-first_search}{\texttt{ Depth First Search Algorithm using Stack (Depth First Search Algorithm)}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacedepth__first__search}{depth\+\_\+first\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Depth-first_search}{\texttt{ Depth First Search}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph\+::depth\+\_\+first\+\_\+search\+::add\+Edge}} (std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \texorpdfstring{$\ast$}{*}adj, size\+\_\+t u, size\+\_\+t v)
+\begin{DoxyCompactList}\small\item\em Adds and edge between two vertices of graph say u and v in this case. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a5738da9f508f6a9e87f123c9fb6f2ea9}{graph\+::depth\+\_\+first\+\_\+search\+::dfs}} (const std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&graph, size\+\_\+t start)
+\begin{DoxyCompactList}\small\item\em Explores the given vertex, exploring a vertex means traversing over all the vertices which are connected to the vertex that is currently being explored and push it onto the stack. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\item 
+int \mbox{\hyperlink{depth__first__search__with__stack_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{depth__first__search__with__stack_8cpp_afb80b42b42381658a12a57a975ecd0c7}{WHITE}} = 0
+\item 
+\Hypertarget{depth__first__search__with__stack_8cpp_a43e30173f12330e85cce6239a277527e}\label{depth__first__search__with__stack_8cpp_a43e30173f12330e85cce6239a277527e} 
+constexpr int {\bfseries GREY} = 1
+\begin{DoxyCompactList}\small\item\em indicates the node hasn\textquotesingle{}t been explored \end{DoxyCompactList}\item 
+\Hypertarget{depth__first__search__with__stack_8cpp_a7f1cd94cf4da32933e8551cb3577e18b}\label{depth__first__search__with__stack_8cpp_a7f1cd94cf4da32933e8551cb3577e18b} 
+constexpr int {\bfseries BLACK} = 2
+\begin{DoxyCompactList}\small\item\em indicates node is in stack waiting to be explored \end{DoxyCompactList}\item 
+\Hypertarget{depth__first__search__with__stack_8cpp_a330a2b0a904f01802ada1f8f3b28e76c}\label{depth__first__search__with__stack_8cpp_a330a2b0a904f01802ada1f8f3b28e76c} 
+constexpr int64\+\_\+t {\bfseries INF} = std\+::numeric\+\_\+limits$<$int16\+\_\+t$>$\+::max()
+\begin{DoxyCompactList}\small\item\em indicates node has already been explored \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Depth-first_search}{\texttt{ Depth First Search Algorithm using Stack (Depth First Search Algorithm)}} 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/ayaankhan98}{\texttt{ Ayaan Khan}} 
+
+\href{https://github.com/sauravUppoor}{\texttt{ Saurav Uppoor}}
+\end{DoxyAuthor}
+Depth First Search also quoted as DFS is a \doxylink{class_graph}{Graph} Traversal Algorithm. Time Complexity O(\texorpdfstring{$\vert$}{|}\+V\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}\+E\texorpdfstring{$\vert$}{|}) where V is number of vertices and E is number of edges in graph.
+
+Application of Depth First Search are
+
+
+\begin{DoxyEnumerate}
+\item Finding connected components
+\item Finding 2-\/(edge or vertex)-\/connected components.
+\item Finding 3-\/(edge or vertex)-\/connected components.
+\item Finding the bridges of a graph.
+\item Generating words in order to plot the limit set of a group.
+\item Finding strongly connected components.
+\end{DoxyEnumerate}
+
+\doxysubsubsubsubsection*{Working}
+
+
+\begin{DoxyEnumerate}
+\item Mark all vertices as unvisited (colour it WHITE).
+\item Push starting vertex into the stack and colour it GREY.
+\item Once a node is popped out of the stack and is coloured GREY, we colour it BLACK.
+\item Push all its neighbours which are not coloured BLACK.
+\item Repeat steps 4 and 5 until the stack is empty. 
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}\index{depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \label{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b} 
+void graph\+::depth\+\_\+first\+\_\+search\+::add\+Edge (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \texorpdfstring{$\ast$}{*}}]{adj}{, }\item[{size\+\_\+t}]{u}{, }\item[{size\+\_\+t}]{v}{}\end{DoxyParamCaption})}
+
+
+
+Adds and edge between two vertices of graph say u and v in this case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & Adjacency list representation of graph \\
+\hline
+{\em u} & first vertex \\
+\hline
+{\em v} & second vertex \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ *}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ *\ Here\ we\ are\ considering\ undirected\ graph\ that's\ the}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ *\ reason\ we\ are\ adding\ v\ to\ the\ adjacency\ list\ representation\ of\ u}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ *\ and\ also\ adding\ u\ to\ the\ adjacency\ list\ representation\ of\ v}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ *}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00072\ \ \ \ \ (*adj)[u\ -\/\ 1].push\_back(v\ -\/\ 1);}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{depth__first__search__with__stack_8cpp_a5738da9f508f6a9e87f123c9fb6f2ea9}\index{depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}!dfs@{dfs}}
+\index{dfs@{dfs}!depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily \label{depth__first__search__with__stack_8cpp_a5738da9f508f6a9e87f123c9fb6f2ea9} 
+std\+::vector$<$ size\+\_\+t $>$ graph\+::depth\+\_\+first\+\_\+search\+::dfs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&}]{graph}{, }\item[{size\+\_\+t}]{start}{}\end{DoxyParamCaption})}
+
+
+
+Explores the given vertex, exploring a vertex means traversing over all the vertices which are connected to the vertex that is currently being explored and push it onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & graph \\
+\hline
+{\em start} & starting vertex for DFS \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with nodes stored in the order of DFS traversal 
+\end{DoxyReturn}
+checked\mbox{[}i\mbox{]} stores the status of each node
+
+while stack is not empty we keep exploring the node on top of stack
+
+push the node to the final result vector
+
+exploring the neighbours of the current node
+
+\doxylink{struct_node}{Node} has been explored
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ \ \ \ ///\ checked[i]\ stores\ the\ status\ of\ each\ node}}
+\DoxyCodeLine{00089\ \textcolor{comment}{}\ \ \ \ std::vector<size\_t>\ checked(\mbox{\hyperlink{namespacegraph}{graph}}.size(),\ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_afb80b42b42381658a12a57a975ecd0c7}{WHITE}}),\ traversed\_path;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ checked[start]\ =\ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a43e30173f12330e85cce6239a277527e}{GREY}};}
+\DoxyCodeLine{00092\ \ \ \ \ std::stack<size\_t>\ \mbox{\hyperlink{paranthesis__matching_8cpp_aa37d24a036d239b3b528f13b9de880c7}{stack}};}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_a90df277532c23519aa7ac3c08ed90a1d}{push}}(start);}
+\DoxyCodeLine{00094\ \textcolor{comment}{}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ ///\ while\ stack\ is\ not\ empty\ we\ keep\ exploring\ the\ node\ on\ top\ of\ stack}}
+\DoxyCodeLine{00096\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{classstack}{stack}}.empty())\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ act\ =\ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_ae09630c4384903d187801921b2ddc709}{top}}();}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_a3647fb4418890f19e0dc414b8092b8b0}{pop}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checked[act]\ ==\ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a43e30173f12330e85cce6239a277527e}{GREY}})\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ push\ the\ node\ to\ the\ final\ result\ vector}}
+\DoxyCodeLine{00102\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ traversed\_path.push\_back(act\ +\ 1);}
+\DoxyCodeLine{00103\ \textcolor{comment}{}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ exploring\ the\ neighbours\ of\ the\ current\ node}}
+\DoxyCodeLine{00105\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ :\ \mbox{\hyperlink{namespacegraph}{graph}}[act])\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_a90df277532c23519aa7ac3c08ed90a1d}{push}}(it);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checked[it]\ !=\ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a7f1cd94cf4da32933e8551cb3577e18b}{BLACK}})\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ checked[it]\ =\ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a43e30173f12330e85cce6239a277527e}{GREY}};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ checked[act]\ =\ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a7f1cd94cf4da32933e8551cb3577e18b}{BLACK}};\ \ \textcolor{comment}{///\ Node\ has\ been\ explored}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ traversed\_path;}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{depth__first__search__with__stack_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}!main@{main}}
+\index{main@{main}!depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{depth__first__search__with__stack_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+creating a graph
+
+taking input for the edges
+
+taking input for the starting position
+
+Printing the order of traversal
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ vertices\ =\ 0,\ edges\ =\ 0,\ start\_pos\ =\ 1;}
+\DoxyCodeLine{00177\ \ \ \ \ std::vector<size\_t>\ traversal;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ Vertices\ :\ "{}};}
+\DoxyCodeLine{00180\ \ \ \ \ std::cin\ >>\ vertices;}
+\DoxyCodeLine{00181\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ Edges\ :\ "{}};}
+\DoxyCodeLine{00182\ \ \ \ \ std::cin\ >>\ edges;}
+\DoxyCodeLine{00183\ \textcolor{comment}{}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ \ \ \ ///\ creating\ a\ graph}}
+\DoxyCodeLine{00185\ \textcolor{comment}{}\ \ \ \ std::vector<std::vector<size\_t>\ >\ adj(vertices,\ std::vector<size\_t>());}
+\DoxyCodeLine{00186\ \textcolor{comment}{}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ \ \ \ ///\ taking\ input\ for\ the\ edges}}
+\DoxyCodeLine{00188\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ vertices\ which\ have\ edges\ between\ them\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges-\/-\/)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ u\ =\ 0,\ v\ =\ 0;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ std::cin\ >>\ u\ >>\ v;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&adj,\ u,\ v);}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \textcolor{comment}{}}
+\DoxyCodeLine{00195\ \textcolor{comment}{\ \ \ \ ///\ taking\ input\ for\ the\ starting\ position}}
+\DoxyCodeLine{00196\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ starting\ vertex\ [1,n]:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00197\ \ \ \ \ std::cin\ >>\ start\_pos;}
+\DoxyCodeLine{00198\ \ \ \ \ start\_pos\ -\/=\ 1;}
+\DoxyCodeLine{00199\ \ \ \ \ traversal\ =\ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_a5738da9f508f6a9e87f123c9fb6f2ea9}{graph::depth\_first\_search::dfs}}(adj,\ start\_pos);}
+\DoxyCodeLine{00200\ \textcolor{comment}{}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ \ \ \ ///\ Printing\ the\ order\ of\ traversal}}
+\DoxyCodeLine{00202\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ :\ traversal)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ std::cout\ <<\ x\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00207\ \}}
+
+\end{DoxyCode}
+\Hypertarget{depth__first__search__with__stack_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}!tests@{tests}}
+\index{tests@{tests}!depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{depth__first__search__with__stack_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Self-\/test implementations \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Test 1
+
+for the above sample data, this is the expected output
+
+Test 2
+
+for the above sample data, this is the expected output
+
+Test 3
+
+for the above sample data, this is the expected output
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ start\_pos;}
+\DoxyCodeLine{00125\ \textcolor{comment}{}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ ///\ Test\ 1}}
+\DoxyCodeLine{00127\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Case\ 1:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00128\ \ \ \ \ start\_pos\ =\ 1;}
+\DoxyCodeLine{00129\ \ \ \ \ std::vector<std::vector<size\_t>\ >\ g1(3,\ std::vector<size\_t>());}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g1,\ 1,\ 2);}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g1,\ 2,\ 3);}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g1,\ 3,\ 1);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ std::vector<size\_t>\ expected1\ \{1,\ 2,\ 3\};\ \textcolor{comment}{///\ for\ the\ above\ sample\ data,\ this\ is\ the\ expected\ output}}
+\DoxyCodeLine{00136\ \ \ \ \ assert(graph::depth\_first\_search::dfs(g1,\ start\_pos\ -\/\ 1)\ ==\ expected1);}
+\DoxyCodeLine{00137\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00138\ \textcolor{comment}{}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ ///\ Test\ 2}}
+\DoxyCodeLine{00140\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Case\ 2:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00141\ \ \ \ \ start\_pos\ =\ 1;}
+\DoxyCodeLine{00142\ \ \ \ \ std::vector<std::vector<size\_t>\ >\ g2(4,\ std::vector<size\_t>());}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g2,\ 1,\ 2);}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g2,\ 1,\ 3);}
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g2,\ 2,\ 4);}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g2,\ 4,\ 1);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ std::vector<size\_t>\ expected2\ \{1,\ 3,\ 2,\ 4\};\ \textcolor{comment}{///\ for\ the\ above\ sample\ data,\ this\ is\ the\ expected\ output}}
+\DoxyCodeLine{00150\ \ \ \ \ assert(graph::depth\_first\_search::dfs(g2,\ start\_pos\ -\/\ 1)\ ==\ expected2);}
+\DoxyCodeLine{00151\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00152\ \textcolor{comment}{}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ ///\ Test\ 3}}
+\DoxyCodeLine{00154\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Case\ 3:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00155\ \ \ \ \ start\_pos\ =\ 2;}
+\DoxyCodeLine{00156\ \ \ \ \ std::vector<std::vector<size\_t>\ >\ g3(4,\ std::vector<size\_t>());}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g3,\ 1,\ 2);}
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g3,\ 1,\ 3);}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g3,\ 2,\ 4);}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{depth__first__search__with__stack_8cpp_aadebe9c855821d6515ca5b171222ef7b}{graph::depth\_first\_search::addEdge}}(\&g3,\ 4,\ 1);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ std::vector<size\_t>\ expected3\ \{2,\ 4,\ 1,\ 3\};\ \textcolor{comment}{///\ for\ the\ above\ sample\ data,\ this\ is\ the\ expected\ output}}
+\DoxyCodeLine{00164\ \ \ \ \ assert(graph::depth\_first\_search::dfs(g3,\ start\_pos\ -\/\ 1)\ ==\ expected3);}
+\DoxyCodeLine{00165\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{depth__first__search__with__stack_8cpp_afb80b42b42381658a12a57a975ecd0c7}\index{depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}!WHITE@{WHITE}}
+\index{WHITE@{WHITE}!depth\_first\_search\_with\_stack.cpp@{depth\_first\_search\_with\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{WHITE}{WHITE}}
+{\footnotesize\ttfamily \label{depth__first__search__with__stack_8cpp_afb80b42b42381658a12a57a975ecd0c7} 
+int WHITE = 0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+for IO operations header for std\+::stack header for std\+::vector header for preprocessor macro assert() header for limits of integral types 

@@ -1,0 +1,205 @@
+\doxysection{strings/boyer\+\_\+moore.cpp File Reference}
+\hypertarget{boyer__moore_8cpp}{}\label{boyer__moore_8cpp}\index{strings/boyer\_moore.cpp@{strings/boyer\_moore.cpp}}
+
+
+The \href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore_string-search_algorithm}{\texttt{ Boyer–\+Moore}} algorithm searches for occurrences of pattern P in text T by performing explicit character comparisons at different alignments. Instead of a brute-\/force search of all alignments (of which there are n -\/ m + 1), Boyer–\+Moore uses information gained by preprocessing P to skip as many alignments as possible.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstrings_1_1boyer__moore_1_1pattern}{strings\+::boyer\+\_\+moore\+::pattern}}
+\begin{DoxyCompactList}\small\item\em A structure representing all the data we need to search the preprocessed pattern in text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestrings}{strings}}
+\begin{DoxyCompactList}\small\item\em String algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacestrings_1_1boyer__moore}{strings\+::boyer\+\_\+moore}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore_string-search_algorithm}{\texttt{ Boyer Moore}} algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{boyer__moore_8cpp_a77c872c08612d7b8861ba13bc9881cbd}{APLHABET\+\_\+\+SIZE}}~CHAR\+\_\+\+MAX
+\begin{DoxyCompactList}\small\item\em number of symbols in the alphabet we use \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacestrings_1_1boyer__moore_aa709cf7fca02b7d3e1888423d5f739a1}{strings\+::boyer\+\_\+moore\+::init\+\_\+good\+\_\+suffix}} (const std\+::string \&str, std\+::vector$<$ size\+\_\+t $>$ \&arg)
+\begin{DoxyCompactList}\small\item\em A function that preprocess the good suffix thable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a2f6688c9bb3e692297a3aa09cebc1c00}{strings\+::boyer\+\_\+moore\+::init\+\_\+bad\+\_\+char}} (const std\+::string \&str, std\+::vector$<$ size\+\_\+t $>$ \&arg)
+\begin{DoxyCompactList}\small\item\em A function that preprocess the bad char table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a0b165af1dc341289fd705be4c67728f8}{strings\+::boyer\+\_\+moore\+::init\+\_\+pattern}} (const std\+::string \&str, \mbox{\hyperlink{structstrings_1_1boyer__moore_1_1pattern}{pattern}} \&arg)
+\begin{DoxyCompactList}\small\item\em A function that initializes pattern. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a15703b553faed0d28202c10808cf9738}{strings\+::boyer\+\_\+moore\+::search}} (const std\+::string \&str, const \mbox{\hyperlink{structstrings_1_1boyer__moore_1_1pattern}{pattern}} \&arg)
+\begin{DoxyCompactList}\small\item\em A function that implements Boyer-\/\+Moore\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a056122c8fe8fb0f5fca6428d3f7b5c3a}{strings\+::boyer\+\_\+moore\+::is\+\_\+prefix}} (const char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}pat, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Check if pat is prefix of str. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{boyer__moore_8cpp_acb8f69e7901ee7459d98bd4b9dda79d9}{and\+\_\+test}} (const char \texorpdfstring{$\ast$}{*}text)
+\begin{DoxyCompactList}\small\item\em A test case in which we search for every appearance of the word \textquotesingle{}and\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{boyer__moore_8cpp_ac8fac0dd4b19973da103a434143a16d2}{pat\+\_\+test}} (const char \texorpdfstring{$\ast$}{*}text)
+\begin{DoxyCompactList}\small\item\em A test case in which we search for every appearance of the word \textquotesingle{}pat\textquotesingle{}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{boyer__moore_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boyer__moore_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore_string-search_algorithm}{\texttt{ Boyer–\+Moore}} algorithm searches for occurrences of pattern P in text T by performing explicit character comparisons at different alignments. Instead of a brute-\/force search of all alignments (of which there are n -\/ m + 1), Boyer–\+Moore uses information gained by preprocessing P to skip as many alignments as possible. 
+
+The key insight in this algorithm is that if the end of the pattern is compared to the text, then jumps along the text can be made rather than checking every character of the text. The reason that this works is that in lining up the pattern against the text, the last character of the pattern is compared to the character in the text.
+
+If the characters do not match, there is no need to continue searching backwards along the text. This leaves us with two cases.
+
+Case 1\+: If the character in the text does not match any of the characters in the pattern, then the next character in the text to check is located m characters farther along the text, where m is the length of the pattern.
+
+Case 2\+: If the character in the text is in the pattern, then a partial shift of the pattern along the text is done to line up along the matching character and the process is repeated.
+
+There are two shift rules\+:
+
+\mbox{[}The bad character rule\mbox{]} (\href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore_string-search_algorithm\#The_bad_character_rule}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Boyer\%\+E2\%80\%93\+Moore\+\_\+string-\/search\+\_\+algorithm\#\+The\+\_\+bad\+\_\+character\+\_\+rule}})
+
+\mbox{[}The good suffix rule\mbox{]} (\href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore_string-search_algorithm\#The_good_suffix_rule}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Boyer\%\+E2\%80\%93\+Moore\+\_\+string-\/search\+\_\+algorithm\#\+The\+\_\+good\+\_\+suffix\+\_\+rule}})
+
+The shift rules are implemented as constant-\/time table lookups, using tables generated during the preprocessing of P. \begin{DoxyAuthor}{Author}
+\href{https://github.com/stoychoX}{\texttt{ Stoycho Kyosev}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{boyer__moore_8cpp_a77c872c08612d7b8861ba13bc9881cbd}\index{boyer\_moore.cpp@{boyer\_moore.cpp}!APLHABET\_SIZE@{APLHABET\_SIZE}}
+\index{APLHABET\_SIZE@{APLHABET\_SIZE}!boyer\_moore.cpp@{boyer\_moore.cpp}}
+\doxysubsubsection{\texorpdfstring{APLHABET\_SIZE}{APLHABET\_SIZE}}
+{\footnotesize\ttfamily \label{boyer__moore_8cpp_a77c872c08612d7b8861ba13bc9881cbd} 
+\#define APLHABET\+\_\+\+SIZE~CHAR\+\_\+\+MAX}
+
+
+
+number of symbols in the alphabet we use 
+
+for assert for CHAR\+\_\+\+MAX macro for strlen for IO operations for std\+::string for std\+::vector 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{boyer__moore_8cpp_acb8f69e7901ee7459d98bd4b9dda79d9}\index{boyer\_moore.cpp@{boyer\_moore.cpp}!and\_test@{and\_test}}
+\index{and\_test@{and\_test}!boyer\_moore.cpp@{boyer\_moore.cpp}}
+\doxysubsubsection{\texorpdfstring{and\_test()}{and\_test()}}
+{\footnotesize\ttfamily \label{boyer__moore_8cpp_acb8f69e7901ee7459d98bd4b9dda79d9} 
+void and\+\_\+test (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{text}{}\end{DoxyParamCaption})}
+
+
+
+A test case in which we search for every appearance of the word \textquotesingle{}and\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text in which we search for appearance of the word \textquotesingle{}and\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{structstrings_1_1boyer__moore_1_1pattern}{strings::boyer\_moore::pattern}}\ ands;}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a0b165af1dc341289fd705be4c67728f8}{strings::boyer\_moore::init\_pattern}}(\textcolor{stringliteral}{"{}and"{}},\ ands);}
+\DoxyCodeLine{00223\ \ \ \ \ std::vector<size\_t>\ indexes\ =\ \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a15703b553faed0d28202c10808cf9738}{strings::boyer\_moore::search}}(text,\ ands);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ assert(indexes.size()\ ==\ 2);}
+\DoxyCodeLine{00226\ \ \ \ \ assert(\mbox{\hyperlink{namespacestrings_1_1boyer__moore_a056122c8fe8fb0f5fca6428d3f7b5c3a}{strings::boyer\_moore::is\_prefix}}(text\ +\ indexes[0],\ \textcolor{stringliteral}{"{}and"{}},\ 3));}
+\DoxyCodeLine{00227\ \ \ \ \ assert(\mbox{\hyperlink{namespacestrings_1_1boyer__moore_a056122c8fe8fb0f5fca6428d3f7b5c3a}{strings::boyer\_moore::is\_prefix}}(text\ +\ indexes[1],\ \textcolor{stringliteral}{"{}and"{}},\ 3));}
+\DoxyCodeLine{00228\ \}}
+
+\end{DoxyCode}
+\Hypertarget{boyer__moore_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{boyer\_moore.cpp@{boyer\_moore.cpp}!main@{main}}
+\index{main@{main}!boyer\_moore.cpp@{boyer\_moore.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{boyer__moore_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{boyer__moore_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00272\ \}}
+
+\end{DoxyCode}
+\Hypertarget{boyer__moore_8cpp_ac8fac0dd4b19973da103a434143a16d2}\index{boyer\_moore.cpp@{boyer\_moore.cpp}!pat\_test@{pat\_test}}
+\index{pat\_test@{pat\_test}!boyer\_moore.cpp@{boyer\_moore.cpp}}
+\doxysubsubsection{\texorpdfstring{pat\_test()}{pat\_test()}}
+{\footnotesize\ttfamily \label{boyer__moore_8cpp_ac8fac0dd4b19973da103a434143a16d2} 
+void pat\+\_\+test (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{text}{}\end{DoxyParamCaption})}
+
+
+
+A test case in which we search for every appearance of the word \textquotesingle{}pat\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text in which we search for appearance of the word \textquotesingle{}pat\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \mbox{\hyperlink{structstrings_1_1boyer__moore_1_1pattern}{strings::boyer\_moore::pattern}}\ pat;}
+\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a0b165af1dc341289fd705be4c67728f8}{strings::boyer\_moore::init\_pattern}}(\textcolor{stringliteral}{"{}pat"{}},\ pat);}
+\DoxyCodeLine{00238\ \ \ \ \ std::vector<size\_t>\ indexes\ =\ \mbox{\hyperlink{namespacestrings_1_1boyer__moore_a15703b553faed0d28202c10808cf9738}{strings::boyer\_moore::search}}(text,\ pat);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ assert(indexes.size()\ ==\ 6);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ currentIndex\ :\ indexes)\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{namespacestrings_1_1boyer__moore_a056122c8fe8fb0f5fca6428d3f7b5c3a}{strings::boyer\_moore::is\_prefix}}(text\ +\ currentIndex,\ \textcolor{stringliteral}{"{}pat"{}},\ 3));}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \}}
+
+\end{DoxyCode}
+\Hypertarget{boyer__moore_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{boyer\_moore.cpp@{boyer\_moore.cpp}!tests@{tests}}
+\index{tests@{tests}!boyer\_moore.cpp@{boyer\_moore.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{boyer__moore_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ text\ =}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}When\ pat\ Mr.\ and\ Mrs.\ pat\ Dursley\ woke\ up\ on\ the\ dull,\ gray\ \ \(\backslash\)}}
+\DoxyCodeLine{00253\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tuesday\ our\ story\ starts,\ \(\backslash\)}}
+\DoxyCodeLine{00254\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ there\ was\ nothing\ about\ pat\ the\ cloudy\ sky\ outside\ to\ pat\ suggest\ that\(\backslash\)}}
+\DoxyCodeLine{00255\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strange\ and\ \(\backslash\)}}
+\DoxyCodeLine{00256\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mysterious\ things\ would\ pat\ soon\ be\ happening\ all\ pat\ over\ the\ \(\backslash\)}}
+\DoxyCodeLine{00257\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ country."{}};}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{boyer__moore_8cpp_acb8f69e7901ee7459d98bd4b9dda79d9}{and\_test}}(text);}
+\DoxyCodeLine{00260\ \ \ \ \ \mbox{\hyperlink{boyer__moore_8cpp_ac8fac0dd4b19973da103a434143a16d2}{pat\_test}}(text);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00263\ \}}
+
+\end{DoxyCode}

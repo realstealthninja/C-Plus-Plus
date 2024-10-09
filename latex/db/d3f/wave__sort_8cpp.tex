@@ -1,0 +1,149 @@
+\doxysection{sorting/wave\+\_\+sort.cpp File Reference}
+\hypertarget{wave__sort_8cpp}{}\label{wave__sort_8cpp}\index{sorting/wave\_sort.cpp@{sorting/wave\_sort.cpp}}
+
+
+Implementation of the \href{https://www.geeksforgeeks.org/sort-array-wave-form-2/}{\texttt{ Wave sort}} algorithm.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacewave__sort}{wave\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://www.geeksforgeeks.org/sort-array-wave-form-2/}{\texttt{ Wave sort}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{wave__sort_8cpp_a7d4f243b9dc13ace4ef77e30dbc56f12}{sorting\+::wave\+\_\+sort\+::wave\+Sort}} (const std\+::vector$<$ T $>$ \&in\+\_\+arr, int64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em The main function implements that implements the Wave Sort algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{wave__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{wave__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://www.geeksforgeeks.org/sort-array-wave-form-2/}{\texttt{ Wave sort}} algorithm. 
+
+Wave Sort is a sorting algorithm that works in $O(nlogn)$ time assuming the sort function used works in $O(nlogn)$ time. \begin{DoxyAuthor}{Author}
+\href{https://github.com/Swastyy}{\texttt{ Swastika Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{wave__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{wave\_sort.cpp@{wave\_sort.cpp}!main@{main}}
+\index{main@{main}!wave\_sort.cpp@{wave\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{wave__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{wave__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00094\ \}}
+
+\end{DoxyCode}
+\Hypertarget{wave__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{wave\_sort.cpp@{wave\_sort.cpp}!test@{test}}
+\index{test@{test}!wave\_sort.cpp@{wave\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{wave__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ [10,\ 90,\ 49,\ 2,\ 1,\ 5,\ 23]\ return\ [2,\ 1,\ 10,\ 5,\ 49,\ 23,\ 90]}}
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<int64\_t>\ array1\ =\ \{10,\ 90,\ 49,\ 2,\ 1,\ 5,\ 23\};}
+\DoxyCodeLine{00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...\ "{}};}
+\DoxyCodeLine{00057\ \ \ \ \ std::vector<int64\_t>\ arr1\ =\ \mbox{\hyperlink{wave__sort_8cpp_a7d4f243b9dc13ace4ef77e30dbc56f12}{sorting::wave\_sort::waveSort}}(array1,\ 7);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int64\_t>\ o1\ =\ \{2,\ 1,\ 10,\ 5,\ 49,\ 23,\ 90\};}
+\DoxyCodeLine{00059\ \ \ \ \ assert(arr1\ ==\ o1);}
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ [1,\ 3,\ 4,\ 2,\ 7,\ 8]\ return\ [2,\ 1,\ 4,\ 3,\ 8,\ 7]}}
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<int64\_t>\ array2\ =\ \{1,\ 3,\ 4,\ 2,\ 7,\ 8\};}
+\DoxyCodeLine{00064\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...\ "{}};}
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<int64\_t>\ arr2\ =\ \mbox{\hyperlink{wave__sort_8cpp_a7d4f243b9dc13ace4ef77e30dbc56f12}{sorting::wave\_sort::waveSort}}(array2,\ 6);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int64\_t>\ o2\ =\ \{2,\ 1,\ 4,\ 3,\ 8,\ 7\};}
+\DoxyCodeLine{00067\ \ \ \ \ assert(arr2\ ==\ o2);}
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ [3,\ 3,\ 3,\ 3]\ return\ [3,\ 3,\ 3,\ 3]}}
+\DoxyCodeLine{00071\ \ \ \ \ std::vector<int64\_t>\ array3\ =\ \{3,\ 3,\ 3,\ 3\};}
+\DoxyCodeLine{00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...\ "{}};}
+\DoxyCodeLine{00073\ \ \ \ \ std::vector<int64\_t>\ arr3\ =\ \mbox{\hyperlink{wave__sort_8cpp_a7d4f243b9dc13ace4ef77e30dbc56f12}{sorting::wave\_sort::waveSort}}(array3,\ 4);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int64\_t>\ o3\ =\ \{3,\ 3,\ 3,\ 3\};}
+\DoxyCodeLine{00075\ \ \ \ \ assert(arr3\ ==\ o3);}
+\DoxyCodeLine{00076\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ [9,\ 4,\ 6,\ 8,\ 14,\ 3]\ return\ [4,\ 3,\ 8,\ 6,\ 14,\ 9]}}
+\DoxyCodeLine{00079\ \ \ \ \ std::vector<int64\_t>\ array4\ =\ \{9,\ 4,\ 6,\ 8,\ 14,\ 3\};}
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 4...\ "{}};}
+\DoxyCodeLine{00081\ \ \ \ \ std::vector<int64\_t>\ arr4\ =\ \mbox{\hyperlink{wave__sort_8cpp_a7d4f243b9dc13ace4ef77e30dbc56f12}{sorting::wave\_sort::waveSort}}(array4,\ 6);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int64\_t>\ o4\ =\ \{4,\ 3,\ 8,\ 6,\ 14,\ 9\};}
+\DoxyCodeLine{00083\ \ \ \ \ assert(arr4\ ==\ o4);}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}
+\Hypertarget{wave__sort_8cpp_a7d4f243b9dc13ace4ef77e30dbc56f12}\index{wave\_sort.cpp@{wave\_sort.cpp}!waveSort@{waveSort}}
+\index{waveSort@{waveSort}!wave\_sort.cpp@{wave\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{waveSort()}{waveSort()}}
+{\footnotesize\ttfamily \label{wave__sort_8cpp_a7d4f243b9dc13ace4ef77e30dbc56f12} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ sorting\+::wave\+\_\+sort\+::wave\+Sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{in\+\_\+arr}{, }\item[{int64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements that implements the Wave Sort algorithm. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+arr} & array to be sorted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+arr the wave sorted array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<T>\ arr(in\_arr);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ arr[i]\ =\ in\_arr[i];}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ std::sort(arr.begin(),\ arr.end());}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 0;\ i\ <\ n\ -\/\ 1;\ i\ +=\ 2)\ \{\ \ \textcolor{comment}{//\ swap\ all\ the\ adjacent\ elements}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[i\ +\ 1]);}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,426 @@
+\doxysection{numerical\+\_\+methods/durand\+\_\+kerner\+\_\+roots.cpp File Reference}
+\hypertarget{durand__kerner__roots_8cpp}{}\label{durand__kerner__roots_8cpp}\index{numerical\_methods/durand\_kerner\_roots.cpp@{numerical\_methods/durand\_kerner\_roots.cpp}}
+
+
+Compute all possible approximate roots of any given polynomial using \href{https://en.wikipedia.org/wiki/Durand\%E2\%80\%93Kerner_method}{\texttt{ Durand Kerner algorithm}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{durand__kerner__roots_8cpp_af270a96662132d0385cb6b4637c5a689}{ACCURACY}}~1e-\/10
+\item 
+\Hypertarget{durand__kerner__roots_8cpp_a212979f5fc9dcf0a420e90b9b21d780a}\label{durand__kerner__roots_8cpp_a212979f5fc9dcf0a420e90b9b21d780a} 
+\#define {\bfseries MAX\+\_\+\+BUFF\+\_\+\+SIZE}~50
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{durand__kerner__roots_8cpp_ae2ab49ba1969d7a5988f9bc2c8924569}{poly\+\_\+function}} (const std\+::valarray$<$ double $>$ \&coeffs, std\+::complex$<$ double $>$ x)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{durand__kerner__roots_8cpp_a90219e35062007d1f1b68e9af071ab5c}{complex\+\_\+str}} (const std\+::complex$<$ double $>$ \&x)
+\item 
+bool \mbox{\hyperlink{durand__kerner__roots_8cpp_a024b8bc4755863315456d573a6732377}{check\+\_\+termination}} (long double delta)
+\item 
+std\+::pair$<$ uint32\+\_\+t, double $>$ \mbox{\hyperlink{durand__kerner__roots_8cpp_a2c35b320ace8677f9b331faf94f8b2fd}{durand\+\_\+kerner\+\_\+algo}} (const std\+::valarray$<$ double $>$ \&coeffs, std\+::valarray$<$ std\+::complex$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}roots, bool write\+\_\+log=false)
+\item 
+void \mbox{\hyperlink{durand__kerner__roots_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\item 
+void \mbox{\hyperlink{durand__kerner__roots_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\item 
+int \mbox{\hyperlink{durand__kerner__roots_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute all possible approximate roots of any given polynomial using \href{https://en.wikipedia.org/wiki/Durand\%E2\%80\%93Kerner_method}{\texttt{ Durand Kerner algorithm}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}}
+\end{DoxyAuthor}
+Test the algorithm online\+: \href{https://gist.github.com/kvedala/27f1b0b6502af935f6917673ec43bcd7}{\texttt{ https\+://gist.\+github.\+com/kvedala/27f1b0b6502af935f6917673ec43bcd7}}
+
+Try the highly unstable Wilkinson\textquotesingle{}s polynomial\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./\mbox{\hyperlink{namespacenumerical__methods}{numerical\_methods}}/durand\_kerner\_roots\ 1\ -\/210\ 20615\ -\/1256850\ 53327946}
+\DoxyCodeLine{-\/1672280820\ 40171771630\ -\/756111184500\ 11310276995381\ -\/135585182899530}
+\DoxyCodeLine{1307535010540395\ -\/10142299865511450\ 63030812099294896\ -\/311333643161390640}
+\DoxyCodeLine{1206647803780373360\ -\/3599979517947607200\ 8037811822645051776}
+\DoxyCodeLine{-\/12870931245150988800\ 13803759753640704000\ -\/8752948036761600000}
+\DoxyCodeLine{2432902008176640000}
+
+\end{DoxyCode}
+ Sample implementation results to compute approximate roots of the equation $x^4-1=0$\+:~\newline
+   
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{durand__kerner__roots_8cpp_af270a96662132d0385cb6b4637c5a689}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!ACCURACY@{ACCURACY}}
+\index{ACCURACY@{ACCURACY}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{ACCURACY}{ACCURACY}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_af270a96662132d0385cb6b4637c5a689} 
+\#define ACCURACY~1e-\/10}
+
+maximum accuracy limit 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{durand__kerner__roots_8cpp_a024b8bc4755863315456d573a6732377}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!check\_termination@{check\_termination}}
+\index{check\_termination@{check\_termination}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_termination()}{check\_termination()}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_a024b8bc4755863315456d573a6732377} 
+bool check\+\_\+termination (\begin{DoxyParamCaption}\item[{long double}]{delta}{}\end{DoxyParamCaption})}
+
+check for termination condition 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & point at which to evaluate the polynomial \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily false} if termination not reached 
+
+{\ttfamily true} if termination reached 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ past\_delta\ =\ INFINITY;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(past\_delta\ -\/\ delta)\ <=\ \mbox{\hyperlink{durand__kerner__roots_8cpp_af270a96662132d0385cb6b4637c5a689}{ACCURACY}}\ ||\ delta\ <\ \mbox{\hyperlink{durand__kerner__roots_8cpp_af270a96662132d0385cb6b4637c5a689}{ACCURACY}})}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00095\ \ \ \ \ past\_delta\ =\ delta;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
+\Hypertarget{durand__kerner__roots_8cpp_a90219e35062007d1f1b68e9af071ab5c}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!complex\_str@{complex\_str}}
+\index{complex\_str@{complex\_str}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{complex\_str()}{complex\_str()}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_a90219e35062007d1f1b68e9af071ab5c} 
+const char \texorpdfstring{$\ast$}{*} complex\+\_\+str (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ double $>$ \&}]{x}{}\end{DoxyParamCaption})}
+
+create a textual form of complex number 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & point at which to evaluate the polynomial \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to converted string 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ MAX\_BUFF\_SIZE\ 50}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ msg[MAX\_BUFF\_SIZE];}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ std::snprintf(msg,\ MAX\_BUFF\_SIZE,\ \textcolor{stringliteral}{"{}\%\ 7.04g\%+7.04gj"{}},\ x.real(),\ x.imag());}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ msg;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{durand__kerner__roots_8cpp_a2c35b320ace8677f9b331faf94f8b2fd}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!durand\_kerner\_algo@{durand\_kerner\_algo}}
+\index{durand\_kerner\_algo@{durand\_kerner\_algo}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{durand\_kerner\_algo()}{durand\_kerner\_algo()}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_a2c35b320ace8677f9b331faf94f8b2fd} 
+std\+::pair$<$ uint32\+\_\+t, double $>$ durand\+\_\+kerner\+\_\+algo (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ double $>$ \&}]{coeffs}{, }\item[{std\+::valarray$<$ std\+::complex$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}}]{roots}{, }\item[{bool}]{write\+\_\+log}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Implements Durand Kerner iterative algorithm to compute all roots of a polynomial.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeffs} & coefficients of the polynomial \\
+\hline
+\mbox{\texttt{ out}}  & {\em roots} & the computed roots of the polynomial \\
+\hline
+\mbox{\texttt{ in}}  & {\em write\+\_\+log} & flag whether to save the log file (default = {\ttfamily false}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair of values -\/ number of iterations taken and final accuracy achieved 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ tol\_condition\ =\ 1;}
+\DoxyCodeLine{00113\ \ \ \ \ uint32\_t\ iter\ =\ 0;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00115\ \ \ \ \ std::ofstream\ log\_file;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (write\_log)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ store\ intermediate\ values\ to\ a\ CSV\ file}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ log\_file.open(\textcolor{stringliteral}{"{}durand\_kerner.log.csv"{}});}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!log\_file.is\_open())\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Unable\ to\ create\ a\ storage\ log\ file!"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ log\_file\ <<\ \textcolor{stringliteral}{"{}iter\#,"{}};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ roots-\/>size();\ n++)\ log\_file\ <<\ \textcolor{stringliteral}{"{}root\_"{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ log\_file\ <<\ \textcolor{stringliteral}{"{}avg.\ correction"{}};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ log\_file\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n0,"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ roots-\/>size();\ n++)}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ log\_file\ <<\ \mbox{\hyperlink{durand__kerner__roots_8cpp_a90219e35062007d1f1b68e9af071ab5c}{complex\_str}}((*roots)[n])\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ break\_loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{durand__kerner__roots_8cpp_a024b8bc4755863315456d573a6732377}{check\_termination}}(tol\_condition)\ \&\&\ iter\ <\ INT16\_MAX\ \&\&}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ !break\_loop)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ tol\_condition\ =\ 0;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ iter++;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ break\_loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (log\_file.is\_open())}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ log\_file\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ <<\ iter\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ shared(break\_loop,\ tol\_condition)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ roots-\/>size();\ n++)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (break\_loop)}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ std::complex<double>\ numerator,\ denominator;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ numerator\ =\ \mbox{\hyperlink{durand__kerner__roots_8cpp_ae2ab49ba1969d7a5988f9bc2c8924569}{poly\_function}}(coeffs,\ (*roots)[n]);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ denominator\ =\ 1.0;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ roots-\/>size();\ i++)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ n)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ denominator\ *=\ (*roots)[n]\ -\/\ (*roots)[i];}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ std::complex<long\ double>\ delta\ =\ numerator\ /\ denominator;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::isnan(std::abs(delta))\ ||\ std::isinf(std::abs(delta)))\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nOverflow/underrun\ error\ -\/\ got\ value\ =\ "{}}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::abs(delta)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ return\ std::pair<uint32\_t,\ double>(iter,\ tol\_condition);}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break\_loop\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ (*roots)[n]\ -\/=\ delta;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#pragma\ omp\ critical}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ tol\_condition\ =\ std::max(tol\_condition,\ std::abs(std::abs(delta)));}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tol\_condition\ /=\ (degree\ -\/\ 1);}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (break\_loop)}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (log\_file.is\_open())\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ roots-\/>size();\ n++)}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ log\_file\ <<\ \mbox{\hyperlink{durand__kerner__roots_8cpp_a90219e35062007d1f1b68e9af071ab5c}{complex\_str}}((*roots)[n])\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#if\ defined(DEBUG)\ ||\ !defined(NDEBUG)}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iter\ \%\ 500\ ==\ 0)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Iter:\ "{}}\ <<\ iter\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ roots-\/>size();\ n++)}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ \mbox{\hyperlink{durand__kerner__roots_8cpp_a90219e35062007d1f1b68e9af071ab5c}{complex\_str}}((*roots)[n]);}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tabsolute\ average\ change:\ "{}}\ <<\ tol\_condition}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (log\_file.is\_open())}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ log\_file\ <<\ tol\_condition;}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{return}\ std::pair<uint32\_t,\ long\ double>(iter,\ tol\_condition);}
+\DoxyCodeLine{00201\ \}}
+
+\end{DoxyCode}
+\Hypertarget{durand__kerner__roots_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!main@{main}}
+\index{main@{main}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{comment}{/*\ initialize\ random\ seed:\ */}}
+\DoxyCodeLine{00285\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 2)\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{durand__kerner__roots_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();\ \ \textcolor{comment}{//\ run\ tests\ when\ no\ input\ is\ provided}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{durand__kerner__roots_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();\ \ \textcolor{comment}{//\ and\ skip\ tests\ when\ input\ polynomial\ is\ provided}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Please\ pass\ the\ coefficients\ of\ the\ polynomial\ as\ "{}}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}commandline\ "{}}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments.\(\backslash\)n"{}};}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00294\ \ \ \ \ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{int}\ n,\ degree\ =\ argc\ -\/\ 1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ detected\ polynomial\ degree}}
+\DoxyCodeLine{00297\ \ \ \ \ std::valarray<double>\ coeffs(degree);\ \ \textcolor{comment}{//\ create\ coefficiencts\ array}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{comment}{//\ number\ of\ roots\ =\ degree\ -\/\ 1}}
+\DoxyCodeLine{00300\ \ \ \ \ std::valarray<std::complex<double>>\ s0(degree\ -\/\ 1);}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Computing\ the\ roots\ for:\(\backslash\)n\(\backslash\)t"{}};}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ degree;\ n++)\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ coeffs[n]\ =\ strtod(argv[n\ +\ 1],\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ degree\ -\/\ 1\ \&\&\ coeffs[n]\ !=\ 0)}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ coeffs[n]\ <<\ \textcolor{stringliteral}{"{})\ x\string^"{}}\ <<\ degree\ -\/\ n\ -\/\ 1\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}};}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (coeffs[n]\ !=\ 0)}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ coeffs[n]\ <<\ \textcolor{stringliteral}{"{})\ x\string^"{}}\ <<\ degree\ -\/\ n\ -\/\ 1}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ =\ 0\(\backslash\)n"{}};}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ initialize\ root\ approximations\ with\ random\ values\ */}}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ degree\ -\/\ 1)\ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ s0[n]\ =\ std::complex<double>(std::rand()\ \%\ 100,\ std::rand()\ \%\ 100);}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ s0[n]\ -\/=\ 50.f;}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ s0[n]\ /=\ 50.f;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{comment}{//\ numerical\ errors\ less\ when\ the\ first\ coefficient\ is\ "{}1"{}}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{comment}{//\ hence,\ we\ normalize\ the\ first\ coefficient}}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tmp\ =\ coeffs[0];}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ coeffs\ /=\ tmp;}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ clock\_t\ end\_time,\ start\_time\ =\ clock();}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{durand__kerner__roots_8cpp_a2c35b320ace8677f9b331faf94f8b2fd}{durand\_kerner\_algo}}(coeffs,\ \&s0,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00328\ \ \ \ \ end\_time\ =\ clock();}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIterations:\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.first\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ degree\ -\/\ 1;\ n++)}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ \mbox{\hyperlink{durand__kerner__roots_8cpp_a90219e35062007d1f1b68e9af071ab5c}{complex\_str}}(s0[n])\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00333\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}absolute\ average\ change:\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.second\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00334\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\_time\ -\/\ start\_time)\ /\ CLOCKS\_PER\_SEC}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ sec\(\backslash\)n"{}};}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00339\ \}}
+
+\end{DoxyCode}
+\Hypertarget{durand__kerner__roots_8cpp_ae2ab49ba1969d7a5988f9bc2c8924569}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!poly\_function@{poly\_function}}
+\index{poly\_function@{poly\_function}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{poly\_function()}{poly\_function()}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_ae2ab49ba1969d7a5988f9bc2c8924569} 
+std\+::complex$<$ double $>$ poly\+\_\+function (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ double $>$ \&}]{coeffs}{, }\item[{std\+::complex$<$ double $>$}]{x}{}\end{DoxyParamCaption})}
+
+Evaluate the value of a polynomial with given coefficients 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeffs} & coefficients of the polynomial \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & point at which to evaluate the polynomial \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$f(x)$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ real\ =\ 0.f,\ imag\ =\ 0.f;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ \#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ \#pragma\ omp\ target\ teams\ distribute\ reduction(+\ :\ real,\ imag)}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ \#endif}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ coeffs.size();\ n++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::complex<double>\ tmp\ =}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ coeffs[n]\ *\ std::pow(x,\ coeffs.size()\ -\/\ n\ -\/\ 1);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ real\ +=\ tmp.real();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ imag\ +=\ tmp.imag();}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ std::complex<double>(real,\ imag);}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{durand__kerner__roots_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!test1@{test1}}
+\index{test1@{test1}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Self test the algorithm by checking the roots for $x^2+4=0$ to which the roots are $0 \pm 2i$ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<double>\ coeffs\ =\ \{1,\ 0,\ 4\};\ \ \textcolor{comment}{//\ x\string^2\ -\/\ 2\ =\ 0}}
+\DoxyCodeLine{00209\ \ \ \ \ std::valarray<std::complex<double>>\ roots(2);}
+\DoxyCodeLine{00210\ \ \ \ \ std::valarray<std::complex<double>>\ expected\ =\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ std::complex<double>(0.,\ 2.),}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ std::complex<double>(0.,\ -\/2.)\ \ \textcolor{comment}{//\ known\ expected\ roots}}
+\DoxyCodeLine{00213\ \ \ \ \ \};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{/*\ initialize\ root\ approximations\ with\ random\ values\ */}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ roots.size();\ n++)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ roots[n]\ =\ std::complex<double>(std::rand()\ \%\ 100,\ std::rand()\ \%\ 100);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ roots[n]\ -\/=\ 50.f;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ roots[n]\ /=\ 25.f;}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{durand__kerner__roots_8cpp_a2c35b320ace8677f9b331faf94f8b2fd}{durand\_kerner\_algo}}(coeffs,\ \&roots,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ roots.size();\ i++)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ approximations\ are\ have\ <\ 0.1\%\ error\ with\ one\ of\ the}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ expected\ roots}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ err1\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ roots.size();\ j++)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ err1\ |=\ std::abs(std::abs(roots[i]\ -\/\ expected[j]))\ <\ 1e-\/3;}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ assert(err1);}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ passed!\ -\/\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.first\ <<\ \textcolor{stringliteral}{"{}\ iterations,\ "{}}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.second\ <<\ \textcolor{stringliteral}{"{}\ accuracy"{}}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00236\ \}}
+
+\end{DoxyCode}
+\Hypertarget{durand__kerner__roots_8cpp_a0283886819c7c140a023582b7269e2d0}\index{durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}!test2@{test2}}
+\index{test2@{test2}!durand\_kerner\_roots.cpp@{durand\_kerner\_roots.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{durand__kerner__roots_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Self test the algorithm by checking the roots for $0.015625x^3-1=0$ to which the roots are $(4+0i),\,(-2\pm3.464i)$ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<double>\ coeffs\ =\ \{\textcolor{comment}{//\ 0.015625\ x\string^3\ -\/\ 1\ =\ 0}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1.\ /\ 64.,\ 0.,\ 0.,\ -\/1.\};}
+\DoxyCodeLine{00245\ \ \ \ \ std::valarray<std::complex<double>>\ roots(3);}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<std::complex<double>>\ expected\ =\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ std::complex<double>(4.,\ 0.),\ std::complex<double>(-\/2.,\ 3.46410162),}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ std::complex<double>(-\/2.,\ -\/3.46410162)\ \ \textcolor{comment}{//\ known\ expected\ roots}}
+\DoxyCodeLine{00249\ \ \ \ \ \};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{comment}{/*\ initialize\ root\ approximations\ with\ random\ values\ */}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ roots.size();\ n++)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ roots[n]\ =\ std::complex<double>(std::rand()\ \%\ 100,\ std::rand()\ \%\ 100);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ roots[n]\ -\/=\ 50.f;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ roots[n]\ /=\ 25.f;}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{durand__kerner__roots_8cpp_a2c35b320ace8677f9b331faf94f8b2fd}{durand\_kerner\_algo}}(coeffs,\ \&roots,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ roots.size();\ i++)\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ approximations\ are\ have\ <\ 0.1\%\ error\ with\ one\ of\ the}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ expected\ roots}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ err1\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ roots.size();\ j++)}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ err1\ |=\ std::abs(std::abs(roots[i]\ -\/\ expected[j]))\ <\ 1e-\/3;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ assert(err1);}
+\DoxyCodeLine{00267\ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ passed!\ -\/\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.first\ <<\ \textcolor{stringliteral}{"{}\ iterations,\ "{}}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.second\ <<\ \textcolor{stringliteral}{"{}\ accuracy"{}}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00272\ \}}
+
+\end{DoxyCode}

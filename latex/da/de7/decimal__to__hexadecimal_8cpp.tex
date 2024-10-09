@@ -1,0 +1,55 @@
+\doxysection{others/decimal\+\_\+to\+\_\+hexadecimal.cpp File Reference}
+\hypertarget{decimal__to__hexadecimal_8cpp}{}\label{decimal__to__hexadecimal_8cpp}\index{others/decimal\_to\_hexadecimal.cpp@{others/decimal\_to\_hexadecimal.cpp}}
+
+
+Convert decimal number to hexadecimal representation.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{decimal__to__hexadecimal_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Convert decimal number to hexadecimal representation. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{decimal__to__hexadecimal_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\index{decimal\_to\_hexadecimal.cpp@{decimal\_to\_hexadecimal.cpp}!main@{main}}
+\index{main@{main}!decimal\_to\_hexadecimal.cpp@{decimal\_to\_hexadecimal.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{decimal__to__hexadecimal_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main program 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ valueToConvert\ =\ 0;\ \ \textcolor{comment}{//\ Holds\ user\ input}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ hexArray[8];\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Contains\ hex\ values\ backwards}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ counter}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{char}\ HexValues[]\ =\ \textcolor{stringliteral}{"{}0123456789ABCDEF"{}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ Decimal\ Value"{}}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;\ \ \textcolor{comment}{//\ Displays\ request\ to\ stdout}}
+\DoxyCodeLine{00019\ \ \ \ \ std::cin\ >>}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ valueToConvert;\ \ \textcolor{comment}{//\ Stores\ value\ into\ valueToConvert\ via\ user\ input}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{while}\ (valueToConvert\ >\ 15)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dec\ to\ Hex\ Algorithm}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ hexArray[i++]\ =\ valueToConvert\ \%\ 16;\ \ \textcolor{comment}{//\ Gets\ remainder}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ valueToConvert\ /=\ 16;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ valueToConvert\ >>=\ 4;\ \ //\ This\ will\ divide\ by\ 2\string^4=16\ and\ is\ faster}}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ hexArray[i]\ =\ valueToConvert;\ \ \textcolor{comment}{//\ Gets\ last\ value}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hex\ Value:\ "{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ >=\ 0)\ std::cout\ <<\ HexValues[hexArray[i-\/-\/]];}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\doxysection{geometry/line\+\_\+segment\+\_\+intersection.cpp File Reference}
+\hypertarget{line__segment__intersection_8cpp}{}\label{line__segment__intersection_8cpp}\index{geometry/line\_segment\_intersection.cpp@{geometry/line\_segment\_intersection.cpp}}
+
+
+check whether two line segments intersect each other or not.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_point}{Point}}
+\item 
+struct \mbox{\hyperlink{struct_segment_intersection}{Segment\+Intersection}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{line__segment__intersection_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+check whether two line segments intersect each other or not. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{line__segment__intersection_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{line\_segment\_intersection.cpp@{line\_segment\_intersection.cpp}!main@{main}}
+\index{main@{main}!line\_segment\_intersection.cpp@{line\_segment\_intersection.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{line__segment__intersection_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+This is the main function to test whether the algorithm is working well. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{struct_segment_intersection}{SegmentIntersection}}\ segment;}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ first\_point,\ second\_point,\ third\_point,\ forth\_point;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ std::cin\ >>\ first\_point.x\ >>\ first\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}};}
+\DoxyCodeLine{00097\ \ \ \ \ std::cin\ >>\ second\_point.x\ >>\ second\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}};}
+\DoxyCodeLine{00098\ \ \ \ \ std::cin\ >>\ third\_point.x\ >>\ third\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}};}
+\DoxyCodeLine{00099\ \ \ \ \ std::cin\ >>\ forth\_point.x\ >>\ forth\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d"{}},\ segment.intersect(first\_point,\ second\_point,\ third\_point,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ forth\_point));}
+\DoxyCodeLine{00103\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}

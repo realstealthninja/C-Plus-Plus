@@ -1,0 +1,113 @@
+\doxysection{math/binary\+\_\+exponent.cpp File Reference}
+\hypertarget{binary__exponent_8cpp}{}\label{binary__exponent_8cpp}\index{math/binary\_exponent.cpp@{math/binary\_exponent.cpp}}
+
+
+C++ Program to find Binary Exponent Iteratively and Recursively.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{binary__exponent_8cpp_aeb48dce0725e63d19147944f41843c73}{bin\+Expo}} (int a, int b)
+\item 
+int \mbox{\hyperlink{binary__exponent_8cpp_a31dbf5f7ceb9c9eec831ef9f7782291f}{bin\+Expo\+\_\+alt}} (int a, int b)
+\item 
+int \mbox{\hyperlink{binary__exponent_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C++ Program to find Binary Exponent Iteratively and Recursively. 
+
+Calculate $a^b$ in $O(\log(b))$ by converting $b$ to a binary number. Binary exponentiation is also known as exponentiation by squaring. \begin{DoxyNote}{Note}
+This is a far better approach compared to naive method which provide $O(b)$ operations.
+\end{DoxyNote}
+Example\+: 10 in base 2 is 1010.       \begin{eqnarray*}
+2^{10_d} &=& 2^{1010_b} = 2^8 * 2^2\\
+2^1 &=& 2\\
+2^2 &=& (2^1)^2 = 2^2 = 4\\
+2^4 &=& (2^2)^2 = 4^2 = 16\\
+2^8 &=& (2^4)^2 = 16^2 = 256\\
+\end{eqnarray*} Hence to calculate 2\texorpdfstring{$^\wedge$}{\string^}10 we only need to multiply $2^8$ and $2^2$ skipping $2^1$ and $2^4$. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{binary__exponent_8cpp_aeb48dce0725e63d19147944f41843c73}\index{binary\_exponent.cpp@{binary\_exponent.cpp}!binExpo@{binExpo}}
+\index{binExpo@{binExpo}!binary\_exponent.cpp@{binary\_exponent.cpp}}
+\doxysubsubsection{\texorpdfstring{binExpo()}{binExpo()}}
+{\footnotesize\ttfamily \label{binary__exponent_8cpp_aeb48dce0725e63d19147944f41843c73} 
+int bin\+Expo (\begin{DoxyParamCaption}\item[{int}]{a}{, }\item[{int}]{b}{}\end{DoxyParamCaption})}
+
+Recursive function to calculate exponent in $O(\log(n))$ using binary exponent. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ ==\ 0)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{binary__exponent_8cpp_aeb48dce0725e63d19147944f41843c73}{binExpo}}(a,\ b\ /\ 2);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ \%\ 2)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ *\ res\ *\ a;}
+\DoxyCodeLine{00035\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ *\ res;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__exponent_8cpp_a31dbf5f7ceb9c9eec831ef9f7782291f}\index{binary\_exponent.cpp@{binary\_exponent.cpp}!binExpo\_alt@{binExpo\_alt}}
+\index{binExpo\_alt@{binExpo\_alt}!binary\_exponent.cpp@{binary\_exponent.cpp}}
+\doxysubsubsection{\texorpdfstring{binExpo\_alt()}{binExpo\_alt()}}
+{\footnotesize\ttfamily \label{binary__exponent_8cpp_a31dbf5f7ceb9c9eec831ef9f7782291f} 
+int bin\+Expo\+\_\+alt (\begin{DoxyParamCaption}\item[{int}]{a}{, }\item[{int}]{b}{}\end{DoxyParamCaption})}
+
+Iterative function to calculate exponent in $O(\log(n))$ using binary exponent. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ 1;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{while}\ (b\ >\ 0)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ \%\ 2)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ res\ *\ a;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ a\ =\ a\ *\ a;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ b\ /=\ 2;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__exponent_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{binary\_exponent.cpp@{binary\_exponent.cpp}!main@{main}}
+\index{main@{main}!binary\_exponent.cpp@{binary\_exponent.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{binary__exponent_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+Give two numbers a, b
+
+int res\+Iterate = bin\+Expo\+\_\+alt(a, b);
+
+Result of a\texorpdfstring{$^\wedge$}{\string^}b (where \textquotesingle{}\texorpdfstring{$^\wedge$}{\string^}\textquotesingle{} denotes exponentiation)
+
+std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} res\+Iterate \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl;
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ a,\ b;\textcolor{comment}{}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ ///\ Give\ two\ numbers\ a,\ b}}
+\DoxyCodeLine{00058\ \textcolor{comment}{}\ \ \ \ std::cin\ >>\ a\ >>\ b;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ ==\ 0\ \&\&\ b\ ==\ 0)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Math\ error"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00061\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (b\ <\ 0)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Exponent\ must\ be\ positive\ !!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00063\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ resRecurse\ =\ \mbox{\hyperlink{binary__exponent_8cpp_aeb48dce0725e63d19147944f41843c73}{binExpo}}(a,\ b);\textcolor{comment}{}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ int\ resIterate\ =\ binExpo\_alt(a,\ b);}}
+\DoxyCodeLine{00066\ \textcolor{comment}{}\textcolor{comment}{}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Result\ of\ a\string^b\ (where\ '\string^'\ denotes\ exponentiation)}}
+\DoxyCodeLine{00068\ \textcolor{comment}{}\ \ \ \ \ \ \ \ std::cout\ <<\ resRecurse\ <<\ std::endl;\textcolor{comment}{}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ std::cout\ <<\ resIterate\ <<\ std::endl;}}
+\DoxyCodeLine{00070\ \textcolor{comment}{}\ \ \ \ \}}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}

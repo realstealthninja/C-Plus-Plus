@@ -1,0 +1,520 @@
+\doxysection{vector\+\_\+ops.\+hpp}
+\hypertarget{vector__ops_8hpp_source}{}\label{vector__ops_8hpp_source}\index{machine\_learning/vector\_ops.hpp@{machine\_learning/vector\_ops.hpp}}
+\mbox{\hyperlink{vector__ops_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ vector\_ops.hpp}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @author\ [Deep\ Raval](https://github.com/imdeep2905)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ @brief\ Various\ functions\ for\ vectors\ associated\ with\ [NeuralNetwork\ (aka}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Multilayer\ Perceptron)]}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ (https://en.wikipedia.org/wiki/Multilayer\_perceptron).}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ VECTOR\_OPS\_FOR\_NN}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ VECTOR\_OPS\_FOR\_NN}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <valarray>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ \textcolor{comment}{}}
+\DoxyCodeLine{00020\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ @namespace\ machine\_learning}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ @brief\ Machine\ Learning\ algorithms}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemachine__learning}{machine\_learning}}\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ Overloaded\ operator\ "{}<<"{}\ to\ print\ 2D\ vector}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ @param\ out\ std::ostream\ to\ output}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ to\ be\ printed}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00032\ std::ostream\ \&\mbox{\hyperlink{namespacemachine__learning_a84260cb1be9b63d6e38107000ac4b7e7}{operator<<}}(std::ostream\ \&out,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::valarray<T>>\ \textcolor{keyword}{const}\ \&A)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Setting\ output\ precision\ to\ 4\ in\ case\ of\ floating\ point\ numbers}}
+\DoxyCodeLine{00035\ \ \ \ \ out.precision(4);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&a\ :\ A)\ \{\ \ \ \ \ \ \ \textcolor{comment}{//\ For\ each\ row\ in\ A}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&x\ :\ a)\ \{\ \ \ \textcolor{comment}{//\ For\ each\ element\ in\ row}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ x\ <<\ \textcolor{charliteral}{'\ '};\ \ \textcolor{comment}{//\ print\ element}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00044\ \textcolor{comment}{}}
+\DoxyCodeLine{00045\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ Overloaded\ operator\ "{}<<"{}\ to\ print\ a\ pair}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ pair}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ @param\ out\ std::ostream\ to\ output}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ @param\ A\ Pair\ to\ be\ printed}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00052\ std::ostream\ \&\mbox{\hyperlink{namespacemachine__learning_a84260cb1be9b63d6e38107000ac4b7e7}{operator<<}}(std::ostream\ \&out,\ \textcolor{keyword}{const}\ std::pair<T,\ T>\ \&A)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Setting\ output\ precision\ to\ 4\ in\ case\ of\ floating\ point\ numbers}}
+\DoxyCodeLine{00054\ \ \ \ \ out.precision(4);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ printing\ pair\ in\ the\ form\ (p,\ q)}}
+\DoxyCodeLine{00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ A.first\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ A.second\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ \textcolor{comment}{}}
+\DoxyCodeLine{00060\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ Overloaded\ operator\ "{}<<"{}\ to\ print\ a\ 1D\ vector}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ @param\ out\ std::ostream\ to\ output}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ @param\ A\ 1D\ vector\ to\ be\ printed}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00066\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00067\ std::ostream\ \&\mbox{\hyperlink{namespacemachine__learning_a84260cb1be9b63d6e38107000ac4b7e7}{operator<<}}(std::ostream\ \&out,\ \textcolor{keyword}{const}\ std::valarray<T>\ \&A)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Setting\ output\ precision\ to\ 4\ in\ case\ of\ floating\ point\ numbers}}
+\DoxyCodeLine{00069\ \ \ \ \ out.precision(4);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&a\ :\ A)\ \{\ \ \ \textcolor{comment}{//\ For\ every\ element\ in\ the\ vector.}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ std::cout\ <<\ a\ <<\ \textcolor{charliteral}{'\ '};\ \ \textcolor{comment}{//\ Print\ element}}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ \textcolor{comment}{}}
+\DoxyCodeLine{00077\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ *\ Function\ to\ insert\ element\ into\ 1D\ vector}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ 1D\ vector\ and\ the\ element}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ @param\ A\ 1D\ vector\ in\ which\ element\ will\ to\ be\ inserted}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ *\ @param\ ele\ element\ to\ be\ inserted}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00084\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00085\ std::valarray<T>\ \mbox{\hyperlink{namespacemachine__learning_a496302e3371aa7b478cb7d5917904bdd}{insert\_element}}(\textcolor{keyword}{const}\ std::valarray<T>\ \&A,\ \textcolor{keyword}{const}\ T\ \&ele)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ std::valarray<T>\ B;\ \ \ \ \ \ \textcolor{comment}{//\ New\ 1D\ vector\ to\ store\ resultant\ vector}}
+\DoxyCodeLine{00087\ \ \ \ \ B.resize(A.size()\ +\ 1);\ \ \textcolor{comment}{//\ Resizing\ it\ accordingly}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ A.size();\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ element\ in\ A}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ B[i]\ =\ A[i];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copy\ element\ in\ B}}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ B[B.size()\ -\/\ 1]\ =\ ele;\ \ \textcolor{comment}{//\ Inserting\ new\ element\ in\ last\ position}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Return\ resultant\ vector}}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ \textcolor{comment}{}}
+\DoxyCodeLine{00095\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ Function\ to\ remove\ first\ element\ from\ 1D\ vector}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ *\ @param\ A\ 1D\ vector\ from\ which\ first\ element\ will\ be\ removed}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00101\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00102\ std::valarray<T>\ \mbox{\hyperlink{namespacemachine__learning_a912cf68863063a38d6e63545be5eb093}{pop\_front}}(\textcolor{keyword}{const}\ std::valarray<T>\ \&A)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ std::valarray<T>\ B;\ \ \ \ \ \ \textcolor{comment}{//\ New\ 1D\ vector\ to\ store\ resultant\ vector}}
+\DoxyCodeLine{00104\ \ \ \ \ B.resize(A.size()\ -\/\ 1);\ \ \textcolor{comment}{//\ Resizing\ it\ accordingly}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <\ A.size();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ i++)\ \{\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ //\ For\ every\ (except\ first)\ element\ in\ A}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ B[i\ -\/\ 1]\ =\ A[i];\ \ \textcolor{comment}{//\ Copy\ element\ in\ B\ with\ left\ shifted\ position}}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \textcolor{comment}{//\ Return\ resultant\ vector}}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ \textcolor{comment}{}}
+\DoxyCodeLine{00112\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ *\ Function\ to\ remove\ last\ element\ from\ 1D\ vector}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ *\ @param\ A\ 1D\ vector\ from\ which\ last\ element\ will\ be\ removed}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00118\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00119\ std::valarray<T>\ \mbox{\hyperlink{namespacemachine__learning_ae10178b082f0205c326550877d998e5d}{pop\_back}}(\textcolor{keyword}{const}\ std::valarray<T>\ \&A)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ std::valarray<T>\ B;\ \ \ \ \ \ \textcolor{comment}{//\ New\ 1D\ vector\ to\ store\ resultant\ vector}}
+\DoxyCodeLine{00121\ \ \ \ \ B.resize(A.size()\ -\/\ 1);\ \ \textcolor{comment}{//\ Resizing\ it\ accordingly}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ A.size()\ -\/\ 1;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ i++)\ \{\ \ \ \ \ \ \ \textcolor{comment}{//\ For\ every\ (except\ last)\ element\ in\ A}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ B[i]\ =\ A[i];\ \ \textcolor{comment}{//\ Copy\ element\ in\ B}}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \textcolor{comment}{//\ Return\ resultant\ vector}}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ \textcolor{comment}{}}
+\DoxyCodeLine{00129\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ Function\ to\ equally\ shuffle\ two\ 3D\ vectors\ (used\ for\ shuffling\ training\ data)}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ @param\ A\ First\ 3D\ vector}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ @param\ B\ Second\ 3D\ vector}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00135\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemachine__learning_af801bf30591ca6b2c38ff4fed0ded23f}{equal\_shuffle}}(std::vector<std::vector<std::valarray<T>>>\ \&A,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<std::valarray<T>>>\ \&B)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ If\ two\ vectors\ have\ different\ sizes}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{if}\ (A.size()\ !=\ B.size())\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ std::cerr}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Can\ not\ equally\ shuffle\ two\ vectors\ with\ different\ sizes:\ "{}};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ std::cerr\ <<\ A.size()\ <<\ \textcolor{stringliteral}{"{}\ and\ "{}}\ <<\ B.size()\ <<\ std::endl;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ A.size();\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ element\ in\ A\ and\ B}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Genrating\ random\ index\ <\ size\ of\ A\ and\ B}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ std::srand(std::chrono::system\_clock::now().time\_since\_epoch().count());}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ random\_index\ =\ std::rand()\ \%\ A.size();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Swap\ elements\ in\ both\ A\ and\ B\ with\ same\ random\ index}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ std::swap(A[i],\ A[random\_index]);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ std::swap(B[i],\ B[random\_index]);}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00156\ \textcolor{comment}{}}
+\DoxyCodeLine{00157\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ *\ Function\ to\ initialize\ given\ 2D\ vector\ using\ uniform\ random\ initialization}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ to\ be\ initialized}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ *\ @param\ shape\ required\ shape}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ *\ @param\ low\ lower\ limit\ on\ value}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ *\ @param\ high\ upper\ limit\ on\ value}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00165\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00166\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemachine__learning_abee7b35403af3612222d3b7a53074905}{uniform\_random\_initialization}}(std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::pair<size\_t,\ size\_t>\ \&shape,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ \&low,\ \textcolor{keyword}{const}\ T\ \&high)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ A.clear();\ \ \textcolor{comment}{//\ Making\ A\ empty}}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{//\ Uniform\ distribution\ in\ range\ [low,\ high]}}
+\DoxyCodeLine{00171\ \ \ \ \ std::default\_random\_engine\ generator(}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ std::chrono::system\_clock::now().time\_since\_epoch().count());}
+\DoxyCodeLine{00173\ \ \ \ \ std::uniform\_real\_distribution<T>\ distribution(low,\ high);}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shape.first;\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ row}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ std::valarray<T>}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ row;\ \ \textcolor{comment}{//\ Making\ empty\ row\ which\ will\ be\ inserted\ in\ vector}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ row.resize(shape.second);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&r\ :\ row)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ every\ element\ in\ row}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ distribution(generator);\ \ \textcolor{comment}{//\ copy\ random\ number}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ A.push\_back(row);\ \ \textcolor{comment}{//\ Insert\ new\ row\ in\ vector}}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00184\ \}}
+\DoxyCodeLine{00185\ \textcolor{comment}{}}
+\DoxyCodeLine{00186\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ *\ Function\ to\ Intialize\ 2D\ vector\ as\ unit\ matrix}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ to\ be\ initialized}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ *\ @param\ shape\ required\ shape}}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00192\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00193\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemachine__learning_a8dd3f1ffbc2f26a3c88da1b1f8b7e9c4}{unit\_matrix\_initialization}}(std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::pair<size\_t,\ size\_t>\ \&shape)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ A.clear();\ \ \textcolor{comment}{//\ Making\ A\ empty}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shape.first;\ i++)\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ std::valarray<T>}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ row;\ \ \textcolor{comment}{//\ Making\ empty\ row\ which\ will\ be\ inserted\ in\ vector}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ row.resize(shape.second);}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ row[i]\ =\ T(1);\ \ \ \ \ \textcolor{comment}{//\ Insert\ 1\ at\ ith\ position}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ A.push\_back(row);\ \ \textcolor{comment}{//\ Insert\ new\ row\ in\ vector}}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00204\ \}}
+\DoxyCodeLine{00205\ \textcolor{comment}{}}
+\DoxyCodeLine{00206\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ *\ Function\ to\ Intialize\ 2D\ vector\ as\ zeroes}}
+\DoxyCodeLine{00208\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00209\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ to\ be\ initialized}}
+\DoxyCodeLine{00210\ \textcolor{comment}{\ *\ @param\ shape\ required\ shape}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00212\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00213\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemachine__learning_ac1bdaa2a724b4ce6a6bb371a5dbe2e7e}{zeroes\_initialization}}(std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::pair<size\_t,\ size\_t>\ \&shape)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ A.clear();\ \ \textcolor{comment}{//\ Making\ A\ empty}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shape.first;\ i++)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ std::valarray<T>}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ row;\ \ \textcolor{comment}{//\ Making\ empty\ row\ which\ will\ be\ inserted\ in\ vector}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ row.resize(shape.second);\ \ \textcolor{comment}{//\ By\ default\ all\ elements\ are\ zero}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ A.push\_back(row);\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Insert\ new\ row\ in\ vector}}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00223\ \}}
+\DoxyCodeLine{00224\ \textcolor{comment}{}}
+\DoxyCodeLine{00225\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ *\ Function\ to\ get\ sum\ of\ all\ elements\ in\ 2D\ vector}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ for\ which\ sum\ is\ required}}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ *\ @return\ returns\ sum\ of\ all\ elements\ of\ 2D\ vector}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00231\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00232\ T\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}(\textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ T\ cur\_sum\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initially\ sum\ is\ zero}}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&a\ :\ A)\ \{\ \ \textcolor{comment}{//\ For\ every\ row\ in\ A}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ cur\_sum\ +=\ a.sum();\ \ \ \ \textcolor{comment}{//\ Add\ sum\ of\ that\ row\ to\ current\ sum}}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_sum;\ \ \textcolor{comment}{//\ Return\ sum}}
+\DoxyCodeLine{00238\ \}}
+\DoxyCodeLine{00239\ \textcolor{comment}{}}
+\DoxyCodeLine{00240\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ *\ Function\ to\ get\ shape\ of\ given\ 2D\ vector}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ for\ which\ shape\ is\ required}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ *\ @return\ shape\ as\ pair}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00246\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00247\ std::pair<size\_t,\ size\_t>\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(\textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A)\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ sub\_size\ =\ (*A.begin()).size();}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&a\ :\ A)\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ supplied\ vector\ don't\ have\ same\ shape\ in\ all\ rows}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a.size()\ !=\ sub\_size)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Supplied\ vector\ is\ not\ 2D\ Matrix"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(A.size(),\ sub\_size);\ \ \textcolor{comment}{//\ Return\ shape\ as\ pair}}
+\DoxyCodeLine{00258\ \}}
+\DoxyCodeLine{00259\ \textcolor{comment}{}}
+\DoxyCodeLine{00260\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ *\ Function\ to\ scale\ given\ 3D\ vector\ using\ min-\/max\ scaler}}
+\DoxyCodeLine{00262\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ *\ @param\ A\ 3D\ vector\ which\ will\ be\ scaled}}
+\DoxyCodeLine{00264\ \textcolor{comment}{\ *\ @param\ low\ new\ minimum\ value}}
+\DoxyCodeLine{00265\ \textcolor{comment}{\ *\ @param\ high\ new\ maximum\ value}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\ *\ @return\ new\ scaled\ 3D\ vector}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00268\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00269\ std::vector<std::vector<std::valarray<T>>>\ \mbox{\hyperlink{namespacemachine__learning_ac332d152078e96311e43ac5e7183ea26}{minmax\_scaler}}(}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<std::valarray<T>>>\ \&A,\ \textcolor{keyword}{const}\ T\ \&low,}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{const}\ T\ \&high)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ std::vector<std::vector<std::valarray<T>>>\ B\ =}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ A;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copying\ into\ new\ vector\ B}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(B[0]);\ \ \textcolor{comment}{//\ Storing\ shape\ of\ B's\ every\ element}}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{comment}{//\ As\ this\ function\ is\ used\ for\ scaling\ training\ data\ vector\ should\ be\ of}}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{comment}{//\ shape\ (1,\ X)}}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}\ (shape.first\ !=\ 1)\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ std::cerr}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Supplied\ vector\ is\ not\ supported\ for\ minmax\ scaling,\ shape:\ "{}};}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ std::cerr\ <<\ shape\ <<\ std::endl;}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shape.second;\ i++)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ T\ min\ =\ B[0][0][i],\ max\ =\ B[0][0][i];}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ B.size();\ j++)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Updating\ minimum\ and\ maximum\ values}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ min\ =\ std::min(min,\ B[j][0][i]);}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ max\ =\ std::max(max,\ B[j][0][i]);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ B.size();\ j++)\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Applying\ min-\/max\ scaler\ formula}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ B[j][0][i]\ =}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((B[j][0][i]\ -\/\ min)\ /\ (max\ -\/\ min))\ *\ (high\ -\/\ low)\ +\ low;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 3D\ vector}}
+\DoxyCodeLine{00298\ \}}
+\DoxyCodeLine{00299\ \textcolor{comment}{}}
+\DoxyCodeLine{00300\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00301\ \textcolor{comment}{\ *\ Function\ to\ get\ index\ of\ maximum\ element\ in\ 2D\ vector}}
+\DoxyCodeLine{00302\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00303\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ for\ which\ maximum\ index\ is\ required}}
+\DoxyCodeLine{00304\ \textcolor{comment}{\ *\ @return\ index\ of\ maximum\ element}}
+\DoxyCodeLine{00305\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00306\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00307\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{argmax}}(\textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A)\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(A);}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{comment}{//\ As\ this\ function\ is\ used\ on\ predicted\ (or\ target)\ vector,\ shape\ should\ be}}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{comment}{//\ (1,\ X)}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordflow}{if}\ (shape.first\ !=\ 1)\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Supplied\ vector\ is\ ineligible\ for\ argmax"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{comment}{//\ Return\ distance\ of\ max\ element\ from\ first\ element\ (i.e.\ index)}}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordflow}{return}\ std::distance(std::begin(A[0]),}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::max\_element(std::begin(A[0]),\ std::end(A[0])));}
+\DoxyCodeLine{00319\ \}}
+\DoxyCodeLine{00320\ \textcolor{comment}{}}
+\DoxyCodeLine{00321\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00322\ \textcolor{comment}{\ *\ Function\ which\ applys\ supplied\ function\ to\ every\ element\ of\ 2D\ vector}}
+\DoxyCodeLine{00323\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00324\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ on\ which\ function\ will\ be\ applied}}
+\DoxyCodeLine{00325\ \textcolor{comment}{\ *\ @param\ func\ Function\ to\ be\ applied}}
+\DoxyCodeLine{00326\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00327\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00328\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00329\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_ad0bdc88e5f1be47c46c0f0c8ebf754bb}{apply\_function}}(}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A,\ T\ (*func)(\textcolor{keyword}{const}\ T\ \&))\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ std::vector<std::valarray<double>>\ B\ =}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ A;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ New\ vector\ to\ store\ resultant\ vector}}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&b\ :\ B)\ \{\ \ \ \ \ \textcolor{comment}{//\ For\ every\ row\ in\ vector}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ b\ =\ b.apply(func);\ \ \textcolor{comment}{//\ Apply\ function\ to\ that\ row}}
+\DoxyCodeLine{00335\ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00337\ \}}
+\DoxyCodeLine{00338\ \textcolor{comment}{}}
+\DoxyCodeLine{00339\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00340\ \textcolor{comment}{\ *\ Overloaded\ operator\ "{}*"{}\ to\ multiply\ given\ 2D\ vector\ with\ scaler}}
+\DoxyCodeLine{00341\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ both\ vector\ and\ the\ scaler}}
+\DoxyCodeLine{00342\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ to\ which\ scaler\ will\ be\ multiplied}}
+\DoxyCodeLine{00343\ \textcolor{comment}{\ *\ @param\ val\ Scaler\ value\ which\ will\ be\ multiplied}}
+\DoxyCodeLine{00344\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00345\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00346\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00347\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_a16f34574b7e0dd51bc3b3fda37446695}{operator*}}(\textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ \&val)\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ std::vector<std::valarray<double>>\ B\ =}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ A;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ New\ vector\ to\ store\ resultant\ vector}}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&b\ :\ B)\ \{\ \ \textcolor{comment}{//\ For\ every\ row\ in\ vector}}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ b\ =\ b\ *\ val;\ \ \ \ \ \textcolor{comment}{//\ Multiply\ row\ with\ scaler}}
+\DoxyCodeLine{00353\ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00355\ \}}
+\DoxyCodeLine{00356\ \textcolor{comment}{}}
+\DoxyCodeLine{00357\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00358\ \textcolor{comment}{\ *\ Overloaded\ operator\ "{}/"{}\ to\ divide\ given\ 2D\ vector\ with\ scaler}}
+\DoxyCodeLine{00359\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector\ and\ the\ scaler}}
+\DoxyCodeLine{00360\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ to\ which\ scaler\ will\ be\ divided}}
+\DoxyCodeLine{00361\ \textcolor{comment}{\ *\ @param\ val\ Scaler\ value\ which\ will\ be\ divided}}
+\DoxyCodeLine{00362\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00363\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00364\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00365\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_ae6ec42318d172b97fbdf45638d09d7b5}{operator/}}(\textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ \&val)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ std::vector<std::valarray<double>>\ B\ =}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ A;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ New\ vector\ to\ store\ resultant\ vector}}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&b\ :\ B)\ \{\ \ \textcolor{comment}{//\ For\ every\ row\ in\ vector}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ b\ =\ b\ /\ val;\ \ \ \ \ \textcolor{comment}{//\ Divide\ row\ with\ scaler}}
+\DoxyCodeLine{00371\ \ \ \ \ \}}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00373\ \}}
+\DoxyCodeLine{00374\ \textcolor{comment}{}}
+\DoxyCodeLine{00375\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00376\ \textcolor{comment}{\ *\ Function\ to\ get\ transpose\ of\ 2D\ vector}}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00378\ \textcolor{comment}{\ *\ @param\ A\ 2D\ vector\ which\ will\ be\ transposed}}
+\DoxyCodeLine{00379\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00380\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00381\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00382\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_a89fde571b38f9483576594f66572958a}{transpose}}(}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A)\ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(A);\ \ \textcolor{comment}{//\ Current\ shape\ of\ vector}}
+\DoxyCodeLine{00385\ \ \ \ \ std::vector<std::valarray<T>>\ B;\ \ \textcolor{comment}{//\ New\ vector\ to\ store\ result}}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{comment}{//\ Storing\ transpose\ values\ of\ A\ in\ B}}
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ shape.second;\ j++)\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ std::valarray<T>\ row;}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ row.resize(shape.first);}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shape.first;\ i++)\ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ row[i]\ =\ A[i][j];}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ B.push\_back(row);}
+\DoxyCodeLine{00394\ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordflow}{return}\ B;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00396\ \}}
+\DoxyCodeLine{00397\ \textcolor{comment}{}}
+\DoxyCodeLine{00398\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00399\ \textcolor{comment}{\ *\ Overloaded\ operator\ "{}+"{}\ to\ add\ two\ 2D\ vectors}}
+\DoxyCodeLine{00400\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00401\ \textcolor{comment}{\ *\ @param\ A\ First\ 2D\ vector}}
+\DoxyCodeLine{00402\ \textcolor{comment}{\ *\ @param\ B\ Second\ 2D\ vector}}
+\DoxyCodeLine{00403\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00404\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00405\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00406\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_a2466857dab977a49f117029835b3b6d2}{operator+}}(}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&B)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_a\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(A);}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_b\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(B);}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{comment}{//\ If\ vectors\ don't\ have\ equal\ shape}}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordflow}{if}\ (shape\_a.first\ !=\ shape\_b.first\ ||\ shape\_a.second\ !=\ shape\_b.second)\ \{}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Supplied\ vectors\ have\ different\ shapes\ "{}};}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ std::cerr\ <<\ shape\_a\ <<\ \textcolor{stringliteral}{"{}\ and\ "{}}\ <<\ shape\_b\ <<\ std::endl;}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00417\ \ \ \ \ \}}
+\DoxyCodeLine{00418\ \ \ \ \ std::vector<std::valarray<T>>\ C;}
+\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ A.size();\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ row}}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ C.push\_back(A[i]\ +\ B[i]);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Elementwise\ addition}}
+\DoxyCodeLine{00421\ \ \ \ \ \}}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{return}\ C;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00423\ \}}
+\DoxyCodeLine{00424\ \textcolor{comment}{}}
+\DoxyCodeLine{00425\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00426\ \textcolor{comment}{\ *\ Overloaded\ operator\ "{}-\/"{}\ to\ add\ subtract\ 2D\ vectors}}
+\DoxyCodeLine{00427\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00428\ \textcolor{comment}{\ *\ @param\ A\ First\ 2D\ vector}}
+\DoxyCodeLine{00429\ \textcolor{comment}{\ *\ @param\ B\ Second\ 2D\ vector}}
+\DoxyCodeLine{00430\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00431\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00432\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00433\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_a0cc29566568e0383dd7d374068cbe6b3}{operator-\/}}(}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&B)\ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_a\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(A);}
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_b\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(B);}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{comment}{//\ If\ vectors\ don't\ have\ equal\ shape}}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordflow}{if}\ (shape\_a.first\ !=\ shape\_b.first\ ||\ shape\_a.second\ !=\ shape\_b.second)\ \{}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Supplied\ vectors\ have\ different\ shapes\ "{}};}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ std::cerr\ <<\ shape\_a\ <<\ \textcolor{stringliteral}{"{}\ and\ "{}}\ <<\ shape\_b\ <<\ std::endl;}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00444\ \ \ \ \ \}}
+\DoxyCodeLine{00445\ \ \ \ \ std::vector<std::valarray<T>>\ C;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vector\ to\ store\ result}}
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ A.size();\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ row}}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ C.push\_back(A[i]\ -\/\ B[i]);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Elementwise\ substraction}}
+\DoxyCodeLine{00448\ \ \ \ \ \}}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordflow}{return}\ C;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00450\ \}}
+\DoxyCodeLine{00451\ \textcolor{comment}{}}
+\DoxyCodeLine{00452\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00453\ \textcolor{comment}{\ *\ Function\ to\ multiply\ two\ 2D\ vectors}}
+\DoxyCodeLine{00454\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00455\ \textcolor{comment}{\ *\ @param\ A\ First\ 2D\ vector}}
+\DoxyCodeLine{00456\ \textcolor{comment}{\ *\ @param\ B\ Second\ 2D\ vector}}
+\DoxyCodeLine{00457\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00458\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00459\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00460\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_a5342906d42b80fc6b6b3ad17bf00fcb9}{multiply}}(\textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&B)\ \{}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_a\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(A);}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_b\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(B);}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{comment}{//\ If\ vectors\ are\ not\ eligible\ for\ multiplication}}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordflow}{if}\ (shape\_a.second\ !=\ shape\_b.first)\ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Vectors\ are\ not\ eligible\ for\ multiplication\ "{}};}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ std::cerr\ <<\ shape\_a\ <<\ \textcolor{stringliteral}{"{}\ and\ "{}}\ <<\ shape\_b\ <<\ std::endl;}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00470\ \ \ \ \ \}}
+\DoxyCodeLine{00471\ \ \ \ \ std::vector<std::valarray<T>>\ C;\ \ \textcolor{comment}{//\ Vector\ to\ store\ result}}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{comment}{//\ Normal\ matrix\ multiplication}}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shape\_a.first;\ i++)\ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ std::valarray<T>\ row;}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ row.resize(shape\_b.second);}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ shape\_b.second;\ j++)\ \{}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ shape\_a.second;\ k++)\ \{}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row[j]\ +=\ A[i][k]\ *\ B[k][j];}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ C.push\_back(row);}
+\DoxyCodeLine{00482\ \ \ \ \ \}}
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keywordflow}{return}\ C;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00484\ \}}
+\DoxyCodeLine{00485\ \textcolor{comment}{}}
+\DoxyCodeLine{00486\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00487\ \textcolor{comment}{\ *\ Function\ to\ get\ hadamard\ product\ of\ two\ 2D\ vectors}}
+\DoxyCodeLine{00488\ \textcolor{comment}{\ *\ @tparam\ T\ typename\ of\ the\ vector}}
+\DoxyCodeLine{00489\ \textcolor{comment}{\ *\ @param\ A\ First\ 2D\ vector}}
+\DoxyCodeLine{00490\ \textcolor{comment}{\ *\ @param\ B\ Second\ 2D\ vector}}
+\DoxyCodeLine{00491\ \textcolor{comment}{\ *\ @return\ new\ resultant\ vector}}
+\DoxyCodeLine{00492\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00493\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00494\ std::vector<std::valarray<T>>\ \mbox{\hyperlink{namespacemachine__learning_acafa3e62b686aebdbad81c4f89913f43}{hadamard\_product}}(}
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&A,}
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::valarray<T>>\ \&B)\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_a\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(A);}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\_b\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(B);}
+\DoxyCodeLine{00499\ \ \ \ \ \textcolor{comment}{//\ If\ vectors\ are\ not\ eligible\ for\ hadamard\ product}}
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keywordflow}{if}\ (shape\_a.first\ !=\ shape\_b.first\ ||\ shape\_a.second\ !=\ shape\_b.second)\ \{}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Vectors\ have\ different\ shapes\ "{}};}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ std::cerr\ <<\ shape\_a\ <<\ \textcolor{stringliteral}{"{}\ and\ "{}}\ <<\ shape\_b\ <<\ std::endl;}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00505\ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \ \ std::vector<std::valarray<T>>\ C;\ \ \textcolor{comment}{//\ Vector\ to\ store\ result}}
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ A.size();\ i++)\ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ C.push\_back(A[i]\ *\ B[i]);\ \ \textcolor{comment}{//\ Elementwise\ multiplication}}
+\DoxyCodeLine{00509\ \ \ \ \ \}}
+\DoxyCodeLine{00510\ \ \ \ \ \textcolor{keywordflow}{return}\ C;\ \ \textcolor{comment}{//\ Return\ new\ resultant\ 2D\ vector}}
+\DoxyCodeLine{00511\ \}}
+\DoxyCodeLine{00512\ \}\ \ \textcolor{comment}{//\ namespace\ machine\_learning}}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

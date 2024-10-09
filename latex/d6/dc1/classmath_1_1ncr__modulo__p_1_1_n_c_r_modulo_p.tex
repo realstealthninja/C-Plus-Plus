@@ -1,0 +1,132 @@
+\doxysection{math\+::ncr\+\_\+modulo\+\_\+p\+::NCRModuloP Class Reference}
+\hypertarget{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p}{}\label{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p}\index{math::ncr\_modulo\_p::NCRModuloP@{math::ncr\_modulo\_p::NCRModuloP}}
+
+
+Class which contains all methods required for calculating n\+Cr mod p.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a94b07e7dc61d8d7a1e9c5a28988e72f9}{NCRModuloP}} (const int64\+\_\+t \&size, const int64\+\_\+t \&p)
+\begin{DoxyCompactList}\small\item\em constructs an \doxylink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p}{NCRModuloP} object allowing to compute (n\+Cr)p for inputs from 0 to size \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a499df7a01bcd348345dc5a0ab79bb0e9}{ncr}} (const int64\+\_\+t \&n, const int64\+\_\+t \&r) const
+\begin{DoxyCompactList}\small\item\em computes n\+Cr \% p \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ int64\+\_\+t $>$ \mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_ab5744fa589f6a48f9fe7bca13dbe661f}{compute\+Factorials\+Mod}} (const int64\+\_\+t \&max\+\_\+arg\+\_\+val, const int64\+\_\+t \&mod)
+\begin{DoxyCompactList}\small\item\em stores precomputed factorial(i) \% p value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a60df0311c9b2aafa8e91c4ee65b7e0e8}\label{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a60df0311c9b2aafa8e91c4ee65b7e0e8} 
+const int64\+\_\+t {\bfseries p} = 0
+\item 
+\Hypertarget{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a738a5f59bb3560c81cdb7f43bcfe9fec}\label{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a738a5f59bb3560c81cdb7f43bcfe9fec} 
+const std\+::vector$<$ int64\+\_\+t $>$ {\bfseries fac}
+\begin{DoxyCompactList}\small\item\em the p from (n\+Cr \% p) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class which contains all methods required for calculating n\+Cr mod p. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a94b07e7dc61d8d7a1e9c5a28988e72f9}\index{math::ncr\_modulo\_p::NCRModuloP@{math::ncr\_modulo\_p::NCRModuloP}!NCRModuloP@{NCRModuloP}}
+\index{NCRModuloP@{NCRModuloP}!math::ncr\_modulo\_p::NCRModuloP@{math::ncr\_modulo\_p::NCRModuloP}}
+\doxysubsubsection{\texorpdfstring{NCRModuloP()}{NCRModuloP()}}
+{\footnotesize\ttfamily \label{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a94b07e7dc61d8d7a1e9c5a28988e72f9} 
+math\+::ncr\+\_\+modulo\+\_\+p\+::\+NCRModulo\+P\+::\+NCRModuloP (\begin{DoxyParamCaption}\item[{const int64\+\_\+t \&}]{size}{, }\item[{const int64\+\_\+t \&}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructs an \doxylink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p}{NCRModuloP} object allowing to compute (n\+Cr)p for inputs from 0 to size 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ :\ p(p),\ \mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a738a5f59bb3560c81cdb7f43bcfe9fec}{fac}}(\mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_ab5744fa589f6a48f9fe7bca13dbe661f}{computeFactorialsMod}}(size,\ p))\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_ab5744fa589f6a48f9fe7bca13dbe661f}\index{math::ncr\_modulo\_p::NCRModuloP@{math::ncr\_modulo\_p::NCRModuloP}!computeFactorialsMod@{computeFactorialsMod}}
+\index{computeFactorialsMod@{computeFactorialsMod}!math::ncr\_modulo\_p::NCRModuloP@{math::ncr\_modulo\_p::NCRModuloP}}
+\doxysubsubsection{\texorpdfstring{computeFactorialsMod()}{computeFactorialsMod()}}
+{\footnotesize\ttfamily \label{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_ab5744fa589f6a48f9fe7bca13dbe661f} 
+static std\+::vector$<$ int64\+\_\+t $>$ math\+::ncr\+\_\+modulo\+\_\+p\+::\+NCRModulo\+P\+::compute\+Factorials\+Mod (\begin{DoxyParamCaption}\item[{const int64\+\_\+t \&}]{max\+\_\+arg\+\_\+val}{, }\item[{const int64\+\_\+t \&}]{mod}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+stores precomputed factorial(i) \% p value 
+
+computes the array of values of factorials reduced modulo mod 
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+arg\+\_\+val} & argument of the last factorial stored in the result \\
+\hline
+{\em mod} & value of the divisor used to reduce factorials \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector storing factorials of the numbers 0, ..., max\+\_\+arg\+\_\+val reduced modulo mod 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ res\ =\ std::vector<int64\_t>(max\_arg\_val\ +\ 1);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ res[0]\ =\ 1;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 1;\ i\ <=\ max\_arg\_val;\ i++)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ res[i]\ =\ (res[i\ -\/\ 1]\ *\ i)\ \%\ mod;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a499df7a01bcd348345dc5a0ab79bb0e9}\index{math::ncr\_modulo\_p::NCRModuloP@{math::ncr\_modulo\_p::NCRModuloP}!ncr@{ncr}}
+\index{ncr@{ncr}!math::ncr\_modulo\_p::NCRModuloP@{math::ncr\_modulo\_p::NCRModuloP}}
+\doxysubsubsection{\texorpdfstring{ncr()}{ncr()}}
+{\footnotesize\ttfamily \label{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a499df7a01bcd348345dc5a0ab79bb0e9} 
+int64\+\_\+t math\+::ncr\+\_\+modulo\+\_\+p\+::\+NCRModulo\+P\+::ncr (\begin{DoxyParamCaption}\item[{const int64\+\_\+t \&}]{n}{, }\item[{const int64\+\_\+t \&}]{r}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+computes n\+Cr \% p 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & the number of objects to be chosen \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & the number of objects to choose from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value n\+Cr \% p 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Base\ cases}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ >\ n)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 1)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n\ \%\ p;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0\ ||\ r\ ==\ n)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fac\ is\ a\ global\ array\ with\ fac[r]\ =\ (r!\ \%\ p)}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ denominator\ =\ (\mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a738a5f59bb3560c81cdb7f43bcfe9fec}{fac}}[r]\ *\ \mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a738a5f59bb3560c81cdb7f43bcfe9fec}{fac}}[n\ -\/\ r])\ \%\ p;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ denominator\_inv\ =\ utils::modInverse(denominator,\ p);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (denominator\_inv\ <\ 0)\ \{\ \ \textcolor{comment}{//\ modular\ inverse\ doesn't\ exist}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classmath_1_1ncr__modulo__p_1_1_n_c_r_modulo_p_a738a5f59bb3560c81cdb7f43bcfe9fec}{fac}}[n]\ *\ denominator\_inv)\ \%\ p;}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+math/\mbox{\hyperlink{ncr__modulo__p_8cpp}{ncr\+\_\+modulo\+\_\+p.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\doxysection{sorting/heap\+\_\+sort.cpp File Reference}
+\hypertarget{heap__sort_8cpp}{}\label{heap__sort_8cpp}\index{sorting/heap\_sort.cpp@{sorting/heap\_sort.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Heapsort}{\texttt{ Heap Sort Algorithm (heap sort)}} implementation  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{heap__sort_8cpp_a9ed3e1510afdf3edd06cf2b68769a767}{print\+Array}} (T \texorpdfstring{$\ast$}{*}arr, int sz)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{group__sorting_gabd9a93f241c5c86f2ec0abf8b66b4145}{heapify}} (T \texorpdfstring{$\ast$}{*}arr, int n, int i)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{group__sorting_ga29d28b140174dbdde7c9f5157758435f}{heap\+Sort}} (T \texorpdfstring{$\ast$}{*}arr, int n)
+\item 
+void \mbox{\hyperlink{heap__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+int \mbox{\hyperlink{heap__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Heapsort}{\texttt{ Heap Sort Algorithm (heap sort)}} implementation 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/ayaankhan98}{\texttt{ Ayaan Khan}}
+\end{DoxyAuthor}
+Heap-\/sort is a comparison-\/based sorting algorithm. Heap-\/sort can be thought of as an improved selection sort\+: like selection sort, heap sort divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element from it and inserting it into the sorted region. Unlike selection sort, heap sort does not waste time with a linear-\/time scan of the unsorted region; rather, heap sort maintains the unsorted region in a heap data structure to more quickly find the largest element in each step.
+
+Time Complexity -\/ $O(n \log(n))$ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{heap__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{heap\_sort.cpp@{heap\_sort.cpp}!main@{main}}
+\index{main@{main}!heap\_sort.cpp@{heap\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{heap__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{heap__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}
+\Hypertarget{heap__sort_8cpp_a9ed3e1510afdf3edd06cf2b68769a767}\index{heap\_sort.cpp@{heap\_sort.cpp}!printArray@{printArray}}
+\index{printArray@{printArray}!heap\_sort.cpp@{heap\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{printArray()}{printArray()}}
+{\footnotesize\ttfamily \label{heap__sort_8cpp_a9ed3e1510afdf3edd06cf2b68769a767} 
+template$<$typename T $>$ \\
+void print\+Array (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{sz}{}\end{DoxyParamCaption})}
+
+Utility function to print the array after sorting.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to be printed \\
+\hline
+{\em sz} & size of array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ sz;\ i++)\ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00039\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}
+\Hypertarget{heap__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{heap\_sort.cpp@{heap\_sort.cpp}!test@{test}}
+\index{test@{test}!heap\_sort.cpp@{heap\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{heap__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test cases to test the program 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\(\backslash\)n"{}};}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ arr[]\ =\ \{-\/10,\ 78,\ -\/1,\ -\/6,\ 7,\ 4,\ 94,\ 5,\ 99,\ 0\};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ sz\ =\ \textcolor{keyword}{sizeof}(arr)\ /\ \textcolor{keyword}{sizeof}(arr[0]);\ \ \textcolor{comment}{//\ sz\ -\/\ size\ of\ array}}
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{heap__sort_8cpp_a9ed3e1510afdf3edd06cf2b68769a767}{printArray}}(arr,\ sz);\ \ \textcolor{comment}{//\ displaying\ the\ array\ before\ sorting}}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{group__sorting_ga29d28b140174dbdde7c9f5157758435f}{heapSort}}(arr,\ sz);\ \ \ \ \textcolor{comment}{//\ calling\ heapsort\ to\ sort\ the\ array}}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{heap__sort_8cpp_a9ed3e1510afdf3edd06cf2b68769a767}{printArray}}(arr,\ sz);\ \ \textcolor{comment}{//\ display\ array\ after\ sorting}}
+\DoxyCodeLine{00106\ \ \ \ \ assert(std::is\_sorted(arr,\ arr\ +\ sz));}
+\DoxyCodeLine{00107\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ Passed\(\backslash\)n========================\(\backslash\)n"{}};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{double}\ arr2[]\ =\ \{4.5,\ -\/3.6,\ 7.6,\ 0,\ 12.9\};}
+\DoxyCodeLine{00111\ \ \ \ \ sz\ =\ \textcolor{keyword}{sizeof}(arr2)\ /\ \textcolor{keyword}{sizeof}(arr2[0]);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{heap__sort_8cpp_a9ed3e1510afdf3edd06cf2b68769a767}{printArray}}(arr2,\ sz);}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{group__sorting_ga29d28b140174dbdde7c9f5157758435f}{heapSort}}(arr2,\ sz);}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{heap__sort_8cpp_a9ed3e1510afdf3edd06cf2b68769a767}{printArray}}(arr2,\ sz);}
+\DoxyCodeLine{00115\ \ \ \ \ assert(std::is\_sorted(arr2,\ arr2\ +\ sz));}
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,235 @@
+\doxysection{ciphers/elliptic\+\_\+curve\+\_\+key\+\_\+exchange.cpp File Reference}
+\hypertarget{elliptic__curve__key__exchange_8cpp}{}\label{elliptic__curve__key__exchange_8cpp}\index{ciphers/elliptic\_curve\_key\_exchange.cpp@{ciphers/elliptic\_curve\_key\_exchange.cpp}}
+
+
+Implementation of \href{https://cryptobook.nakov.com/asymmetric-key-ciphers/ecdh-key-exchange}{\texttt{ Elliptic Curve Diffie Hellman Key Exchange}}.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}uint256\+\_\+t.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{ciphers\+::elliptic\+\_\+curve\+\_\+key\+\_\+exchange\+::\+Point}}
+\begin{DoxyCompactList}\small\item\em Definition of struct \doxylink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceciphers}{ciphers}}
+\begin{DoxyCompactList}\small\item\em Algorithms for encryption and decryption. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange}{ciphers\+::elliptic\+\_\+curve\+\_\+key\+\_\+exchange}}
+\begin{DoxyCompactList}\small\item\em namespace \doxylink{namespaceciphers_1_1elliptic__curve__key__exchange}{elliptic\+\_\+curve\+\_\+key\+\_\+exchange} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct ciphers\+::elliptic\+\_\+curve\+\_\+key\+\_\+exchange\+::\+Point \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange_af0a6e3521629c25c2b5d620f26429830}{ciphers\+::elliptic\+\_\+curve\+\_\+key\+\_\+exchange\+::\+Point}}
+\begin{DoxyCompactList}\small\item\em Definition of struct \doxylink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange_ac00616a4e40d3cd5cfb4da87d9ff9af0}{ciphers\+::elliptic\+\_\+curve\+\_\+key\+\_\+exchange\+::exp}} (\mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} number, \mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}}, const \mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} \&mod)
+\begin{DoxyCompactList}\small\item\em This function calculates number raised to exponent power under modulo mod using \href{https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/math/modular_exponentiation.cpp}{\texttt{ Modular Exponentiation}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point}} \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange_acc5fe9c2032fb7582c38a20d1fa69bcf}{ciphers\+::elliptic\+\_\+curve\+\_\+key\+\_\+exchange\+::addition}} (\mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point}} a, \mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point}} b, const \mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} \&curve\+\_\+a\+\_\+coeff, \mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} mod)
+\begin{DoxyCompactList}\small\item\em Addition of points. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point}} \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange_a17f3d667241b88115a95282cdd719cb2}{ciphers\+::elliptic\+\_\+curve\+\_\+key\+\_\+exchange\+::multiply}} (const \mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point}} \&a, const \mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} \&curve\+\_\+a\+\_\+coeff, \mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} p, const \mbox{\hyperlink{classuint256__t}{uint256\+\_\+t}} \&mod)
+\begin{DoxyCompactList}\small\item\em multiply \doxylink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{Point} and integer \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{elliptic__curve__key__exchange_8cpp_a8800c8a84d77dadadb05ad5e83b77ef4}{uint128\+\_\+t\+\_\+tests}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the \doxylink{classuint128__t}{uint128\+\_\+t} header. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{elliptic__curve__key__exchange_8cpp_a37775d1724ffe404c088dabbc8da91ae}{uint256\+\_\+t\+\_\+tests}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the \doxylink{classuint256__t}{uint256\+\_\+t} header. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{elliptic__curve__key__exchange_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the provided algorithm above. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{elliptic__curve__key__exchange_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://cryptobook.nakov.com/asymmetric-key-ciphers/ecdh-key-exchange}{\texttt{ Elliptic Curve Diffie Hellman Key Exchange}}. 
+
+The ECDH (Elliptic Curve Diffie–\+Hellman Key Exchange) is anonymous key agreement scheme, which allows two parties, each having an elliptic-\/curve public–private key pair, to establish a shared secret over an insecure channel. ECDH is very similar to the classical DHKE (Diffie–\+Hellman Key Exchange) algorithm, but it uses ECC point multiplication instead of modular exponentiations. ECDH is based on the following property of EC points\+: (a \texorpdfstring{$\ast$}{*} G) \texorpdfstring{$\ast$}{*} b = (b \texorpdfstring{$\ast$}{*} G) \texorpdfstring{$\ast$}{*} a If we have two secret numbers a and b (two private keys, belonging to Alice and Bob) and an ECC elliptic curve with generator point G, we can exchange over an insecure channel the values (a \texorpdfstring{$\ast$}{*} G) and (b \texorpdfstring{$\ast$}{*} G) (the public keys of Alice and Bob) and then we can derive a shared secret\+: secret = (a \texorpdfstring{$\ast$}{*} G) \texorpdfstring{$\ast$}{*} b = (b \texorpdfstring{$\ast$}{*} G) \texorpdfstring{$\ast$}{*} a. Pretty simple. The above equation takes the following form\+: alice\+Pub\+Key \texorpdfstring{$\ast$}{*} bob\+Priv\+Key = bob\+Pub\+Key \texorpdfstring{$\ast$}{*} alice\+Priv\+Key = secret \begin{DoxyAuthor}{Author}
+\href{https://github.com/AshishYUO}{\texttt{ Ashish Daulatabad}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{elliptic__curve__key__exchange_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}!main@{main}}
+\index{main@{main}!elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{elliptic__curve__key__exchange_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \mbox{\hyperlink{elliptic__curve__key__exchange_8cpp_a8800c8a84d77dadadb05ad5e83b77ef4}{uint128\_t\_tests}}();\ \ \textcolor{comment}{//\ running\ predefined\ 128-\/bit\ unsigned\ integer\ tests}}
+\DoxyCodeLine{00322\ \ \ \ \ \mbox{\hyperlink{elliptic__curve__key__exchange_8cpp_a37775d1724ffe404c088dabbc8da91ae}{uint256\_t\_tests}}();\ \ \textcolor{comment}{//\ running\ predefined\ 256-\/bit\ unsigned\ integer\ tests}}
+\DoxyCodeLine{00323\ \ \ \ \ \mbox{\hyperlink{elliptic__curve__key__exchange_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ running\ self-\/test\ implementations}}
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00325\ \}}
+
+\end{DoxyCode}
+\Hypertarget{elliptic__curve__key__exchange_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}!test@{test}}
+\index{test@{test}!elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{elliptic__curve__key__exchange_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the provided algorithm above. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{comment}{//\ demonstration\ of\ key\ exchange\ using\ curve\ secp112r1}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ Equation\ of\ the\ form\ y\string^2\ =\ (x\string^3\ +\ ax\ +\ b)\ \%\ P\ (here\ p\ is\ mod)}}
+\DoxyCodeLine{00271\ \ \ \ \ \mbox{\hyperlink{classuint256__t}{uint256\_t}}\ a(\textcolor{stringliteral}{"{}4451685225093714772084598273548424"{}}),}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ b(\textcolor{stringliteral}{"{}2061118396808653202902996166388514"{}}),}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ mod(\textcolor{stringliteral}{"{}4451685225093714772084598273548427"{}});}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{comment}{//\ Generator\ value:\ is\ pre-\/defined\ for\ the\ given\ curve}}
+\DoxyCodeLine{00276\ \ \ \ \ \mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{ciphers::elliptic\_curve\_key\_exchange::Point}}\ ptr\ =\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}188281465057972534892223778713752"{}}),}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}3419875491033170827167861896082688"{}})\};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{comment}{//\ Shared\ key\ generation.}}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{comment}{//\ For\ alice}}
+\DoxyCodeLine{00282\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}For\ alice:\(\backslash\)n"{}};}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ Alice's\ private\ key\ (can\ be\ generated\ randomly)}}
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{classuint256__t}{uint256\_t}}\ alice\_private\_key(\textcolor{stringliteral}{"{}164330438812053169644452143505618"{}});}
+\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{ciphers::elliptic\_curve\_key\_exchange::Point}}\ alice\_public\_key\ =}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}}(ptr,\ a,\ alice\_private\_key,\ mod);}
+\DoxyCodeLine{00287\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPrivate\ key:\ "{}}\ <<\ alice\_private\_key\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00288\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPublic\ Key:\ "{}}\ <<\ alice\_public\_key\ <<\ std::endl;}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{comment}{//\ For\ Bob}}
+\DoxyCodeLine{00291\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}For\ Bob:\(\backslash\)n"{}};}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{comment}{//\ Bob's\ private\ key\ (can\ be\ generated\ randomly)}}
+\DoxyCodeLine{00293\ \ \ \ \ \mbox{\hyperlink{classuint256__t}{uint256\_t}}\ bob\_private\_key(\textcolor{stringliteral}{"{}1959473333748537081510525763478373"{}});}
+\DoxyCodeLine{00294\ \ \ \ \ \mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{ciphers::elliptic\_curve\_key\_exchange::Point}}\ bob\_public\_key\ =}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}}(ptr,\ a,\ bob\_private\_key,\ mod);}
+\DoxyCodeLine{00296\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPrivate\ key:\ "{}}\ <<\ bob\_private\_key\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00297\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPublic\ Key:\ "{}}\ <<\ bob\_public\_key\ <<\ std::endl;}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{comment}{//\ After\ public\ key\ exchange,\ create\ a\ shared\ key\ for\ communication.}}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{comment}{//\ create\ shared\ key:}}
+\DoxyCodeLine{00301\ \ \ \ \ \mbox{\hyperlink{structciphers_1_1elliptic__curve__key__exchange_1_1_point}{ciphers::elliptic\_curve\_key\_exchange::Point}}\ alice\_shared\_key\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}}(}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bob\_public\_key,\ a,}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alice\_private\_key,\ mod),}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bob\_shared\_key\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}}(}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alice\_public\_key,\ a,}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bob\_private\_key,\ mod);}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Shared\ keys:\(\backslash\)n"{}};}
+\DoxyCodeLine{00309\ \ \ \ \ std::cout\ <<\ alice\_shared\_key\ <<\ std::endl;}
+\DoxyCodeLine{00310\ \ \ \ \ std::cout\ <<\ bob\_shared\_key\ <<\ std::endl;}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{comment}{//\ Check\ whether\ shared\ keys\ are\ equal}}
+\DoxyCodeLine{00313\ \ \ \ \ assert(alice\_shared\_key\ ==\ bob\_shared\_key);}
+\DoxyCodeLine{00314\ \}}
+
+\end{DoxyCode}
+\Hypertarget{elliptic__curve__key__exchange_8cpp_a8800c8a84d77dadadb05ad5e83b77ef4}\index{elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}!uint128\_t\_tests@{uint128\_t\_tests}}
+\index{uint128\_t\_tests@{uint128\_t\_tests}!elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}}
+\doxysubsubsection{\texorpdfstring{uint128\_t\_tests()}{uint128\_t\_tests()}}
+{\footnotesize\ttfamily \label{elliptic__curve__key__exchange_8cpp_a8800c8a84d77dadadb05ad5e83b77ef4} 
+static void uint128\+\_\+t\+\_\+tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the \doxylink{classuint128__t}{uint128\+\_\+t} header. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{//\ 1st\ test:\ Operations\ test}}
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{classuint128__t}{uint128\_t}}\ a(\textcolor{stringliteral}{"{}122"{}}),\ b(\textcolor{stringliteral}{"{}2312"{}});}
+\DoxyCodeLine{00200\ \ \ \ \ assert(a\ +\ b\ ==\ 2434);}
+\DoxyCodeLine{00201\ \ \ \ \ assert(b\ -\/\ a\ ==\ 2190);}
+\DoxyCodeLine{00202\ \ \ \ \ assert(a\ *\ b\ ==\ 282064);}
+\DoxyCodeLine{00203\ \ \ \ \ assert(b\ /\ a\ ==\ 18);}
+\DoxyCodeLine{00204\ \ \ \ \ assert(b\ \%\ a\ ==\ 116);}
+\DoxyCodeLine{00205\ \ \ \ \ assert((a\ \&\ b)\ ==\ 8);}
+\DoxyCodeLine{00206\ \ \ \ \ assert((a\ |\ b)\ ==\ 2426);}
+\DoxyCodeLine{00207\ \ \ \ \ assert((a\ \string^\ b)\ ==\ 2418);}
+\DoxyCodeLine{00208\ \ \ \ \ assert((a\ <<\ 64)\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}2250502776992565297152"{}}));}
+\DoxyCodeLine{00209\ \ \ \ \ assert((b\ >>\ 7)\ ==\ 18);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test:\ Operations\ test}}
+\DoxyCodeLine{00212\ \ \ \ \ a\ =\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}12321421424232142122"{}});}
+\DoxyCodeLine{00213\ \ \ \ \ b\ =\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}23123212"{}});}
+\DoxyCodeLine{00214\ \ \ \ \ assert(a\ +\ b\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}12321421424255265334"{}}));}
+\DoxyCodeLine{00215\ \ \ \ \ assert(a\ -\/\ b\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}12321421424209018910"{}}));}
+\DoxyCodeLine{00216\ \ \ \ \ assert(a\ *\ b\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}284910839733861759501135864"{}}));}
+\DoxyCodeLine{00217\ \ \ \ \ assert(a\ /\ b\ ==\ 532859423865LL);}
+\DoxyCodeLine{00218\ \ \ \ \ assert(a\ \%\ b\ ==\ 3887742);}
+\DoxyCodeLine{00219\ \ \ \ \ assert((a\ \&\ b)\ ==\ 18912520);}
+\DoxyCodeLine{00220\ \ \ \ \ assert((a\ |\ b)\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}12321421424236352814"{}}));}
+\DoxyCodeLine{00221\ \ \ \ \ assert((a\ \string^\ b)\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}12321421424217440294"{}}));}
+\DoxyCodeLine{00222\ \ \ \ \ assert((a\ <<\ 64)\ ==\ \mbox{\hyperlink{classuint128__t}{uint128\_t}}(\textcolor{stringliteral}{"{}227290107637132170748078080907806769152"{}}));}
+\DoxyCodeLine{00223\ \}}
+
+\end{DoxyCode}
+\Hypertarget{elliptic__curve__key__exchange_8cpp_a37775d1724ffe404c088dabbc8da91ae}\index{elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}!uint256\_t\_tests@{uint256\_t\_tests}}
+\index{uint256\_t\_tests@{uint256\_t\_tests}!elliptic\_curve\_key\_exchange.cpp@{elliptic\_curve\_key\_exchange.cpp}}
+\doxysubsubsection{\texorpdfstring{uint256\_t\_tests()}{uint256\_t\_tests()}}
+{\footnotesize\ttfamily \label{elliptic__curve__key__exchange_8cpp_a37775d1724ffe404c088dabbc8da91ae} 
+static void uint256\+\_\+t\+\_\+tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the \doxylink{classuint256__t}{uint256\+\_\+t} header. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ 1st\ test:\ Operations\ test}}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{classuint256__t}{uint256\_t}}\ a(\textcolor{stringliteral}{"{}122"{}}),\ b(\textcolor{stringliteral}{"{}2312"{}});}
+\DoxyCodeLine{00233\ \ \ \ \ assert(a\ +\ b\ ==\ 2434);}
+\DoxyCodeLine{00234\ \ \ \ \ assert(b\ -\/\ a\ ==\ 2190);}
+\DoxyCodeLine{00235\ \ \ \ \ assert(a\ *\ b\ ==\ 282064);}
+\DoxyCodeLine{00236\ \ \ \ \ assert(b\ /\ a\ ==\ 18);}
+\DoxyCodeLine{00237\ \ \ \ \ assert(b\ \%\ a\ ==\ 116);}
+\DoxyCodeLine{00238\ \ \ \ \ assert((a\ \&\ b)\ ==\ 8);}
+\DoxyCodeLine{00239\ \ \ \ \ assert((a\ |\ b)\ ==\ 2426);}
+\DoxyCodeLine{00240\ \ \ \ \ assert((a\ \string^\ b)\ ==\ 2418);}
+\DoxyCodeLine{00241\ \ \ \ \ assert((a\ <<\ 64)\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}2250502776992565297152"{}}));}
+\DoxyCodeLine{00242\ \ \ \ \ assert((b\ >>\ 7)\ ==\ 18);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test:\ Operations\ test}}
+\DoxyCodeLine{00245\ \ \ \ \ a\ =\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}12321423124513251424232142122"{}});}
+\DoxyCodeLine{00246\ \ \ \ \ b\ =\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}23124312431243243215354315132413213212"{}});}
+\DoxyCodeLine{00247\ \ \ \ \ assert(a\ +\ b\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}23124312443564666339867566556645355334"{}}));}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{//\ Since\ a\ <\ b,\ the\ value\ is\ greater}}
+\DoxyCodeLine{00249\ \ \ \ \ assert(a\ -\/\ b\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}115792089237316195423570985008687907853246860353"{}}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}221642219366742944204948568846"{}}));}
+\DoxyCodeLine{00251\ \ \ \ \ assert(a\ *\ b\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}284924437928789743312147393953938013677909398222"{}}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}169728183872115864"{}}));}
+\DoxyCodeLine{00253\ \ \ \ \ assert(b\ /\ a\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}1876756621"{}}));}
+\DoxyCodeLine{00254\ \ \ \ \ assert(b\ \%\ a\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}2170491202688962563936723450"{}}));}
+\DoxyCodeLine{00255\ \ \ \ \ assert((a\ \&\ b)\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}3553901085693256462344"{}}));}
+\DoxyCodeLine{00256\ \ \ \ \ assert((a\ |\ b)\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}23124312443564662785966480863388892990"{}}));}
+\DoxyCodeLine{00257\ \ \ \ \ assert((a\ \string^\ b)\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}23124312443564659232065395170132430646"{}}));}
+\DoxyCodeLine{00258\ \ \ \ \ assert((a\ <<\ 128)\ ==\ \mbox{\hyperlink{classuint256__t}{uint256\_t}}(\textcolor{stringliteral}{"{}4192763024643754272961909047609369343091683"{}}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}376561852756163540549632"{}}));}
+\DoxyCodeLine{00260\ \}}
+
+\end{DoxyCode}

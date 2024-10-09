@@ -1,0 +1,76 @@
+\doxysection{others/primality\+\_\+test.cpp File Reference}
+\hypertarget{primality__test_8cpp}{}\label{primality__test_8cpp}\index{others/primality\_test.cpp@{others/primality\_test.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Primality_test}{\texttt{ Primality test}} implementation.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{primality__test_8cpp_a2bfa6adead2bdcbf1dac94cbe08d7eaf}{Is\+Prime}} (int number)
+\item 
+int \mbox{\hyperlink{primality__test_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Primality_test}{\texttt{ Primality test}} implementation. 
+
+A simple and efficient implementation of a function to test if a number is prime, based on the fact that \begin{quote}
+Every Prime number, except 2 and 3, are of the form $6k\pm1$ for integer values of k. This gives a 3x speed improvement. \end{quote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{primality__test_8cpp_a2bfa6adead2bdcbf1dac94cbe08d7eaf}\index{primality\_test.cpp@{primality\_test.cpp}!IsPrime@{IsPrime}}
+\index{IsPrime@{IsPrime}!primality\_test.cpp@{primality\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{IsPrime()}{IsPrime()}}
+{\footnotesize\ttfamily \label{primality__test_8cpp_a2bfa6adead2bdcbf1dac94cbe08d7eaf} 
+bool Is\+Prime (\begin{DoxyParamCaption}\item[{int}]{number}{}\end{DoxyParamCaption})}
+
+Check if a number is prime 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em number} & number to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if prime else false 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (((!(number\ \&\ 1))\ \&\&\ number\ !=\ 2)\ ||\ (number\ <\ 2)\ ||}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ (number\ \%\ 3\ ==\ 0\ \&\&\ number\ !=\ 3))}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ 36\ *\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ *\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ -\/\ 12\ *\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ <\ number;\ ++\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}})\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((number\ \%\ (6\ *\ k\ +\ 1)\ ==\ 0)\ ||\ (number\ \%\ (6\ *\ k\ -\/\ 1)\ ==\ 0))}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{primality__test_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{primality\_test.cpp@{primality\_test.cpp}!main@{main}}
+\index{main@{main}!primality\_test.cpp@{primality\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{primality__test_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Main\ Function}}
+\DoxyCodeLine{00033\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ value\ of\ n\ to\ check\ if\ Prime\(\backslash\)n"{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00035\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{primality__test_8cpp_a2bfa6adead2bdcbf1dac94cbe08d7eaf}{IsPrime}}(n))}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ is\ Prime"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ is\ not\ Prime"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

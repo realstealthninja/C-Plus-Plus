@@ -1,0 +1,171 @@
+\doxysection{data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::Queue\+\_\+\+Array Class Reference}
+\hypertarget{classdata__structures_1_1queue__using__array_1_1_queue___array}{}\label{classdata__structures_1_1queue__using__array_1_1_queue___array}\index{data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}}
+
+
+\doxylink{classdata__structures_1_1queue__using__array_1_1_queue___array}{Queue\+\_\+\+Array} class containing the main data and also index of head and tail of the array.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a4dc64488c36f84d927365fa8d1933663}{enqueue}} (const int16\+\_\+t \&)
+\begin{DoxyCompactList}\small\item\em Add element to the first of the queue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2aaf88c9954ef3ab686f8e4bfbd87622}{dequeue}} ()
+\begin{DoxyCompactList}\small\item\em Delete element from back of the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a688b7ea064739ea9fa66bf64bf4ae631}{display}} () const
+\begin{DoxyCompactList}\small\item\em Show all saved data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}} \{-\/1\}
+\begin{DoxyCompactList}\small\item\em Index of head of the array. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}} \{-\/1\}
+\begin{DoxyCompactList}\small\item\em Index of tail of the array. \end{DoxyCompactList}\item 
+std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{queue__using__array_8cpp_a2d49e79bd164c298912db252970520d8}{max\+\_\+size}} $>$ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}} \{\}
+\begin{DoxyCompactList}\small\item\em All stored data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classdata__structures_1_1queue__using__array_1_1_queue___array}{Queue\+\_\+\+Array} class containing the main data and also index of head and tail of the array. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1queue__using__array_1_1_queue___array_a2aaf88c9954ef3ab686f8e4bfbd87622}\index{data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1queue__using__array_1_1_queue___array_a2aaf88c9954ef3ab686f8e4bfbd87622} 
+int data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::\+Queue\+\_\+\+Array\+::dequeue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Delete element from back of the queue. 
+
+Remove element that is located at the first of the queue.
+
+\begin{DoxyReturn}{Returns}
+data that is deleted if queue is not empty 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ int8\_t\ d\{0\};}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nstack\ is\ empty\ "{}};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00080\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}\ ==\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}})\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ d\ =\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}}.at(\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}\ =\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}}\ =\ -\/1;}
+\DoxyCodeLine{00083\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ d\ =\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}}.at(\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}++);}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ d;}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1queue__using__array_1_1_queue___array_a688b7ea064739ea9fa66bf64bf4ae631}\index{data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}!display@{display}}
+\index{display@{display}!data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1queue__using__array_1_1_queue___array_a688b7ea064739ea9fa66bf64bf4ae631} 
+void data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::\+Queue\+\_\+\+Array\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Show all saved data. 
+
+Utility function to show all elements in the queue. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nStack\ is\ empty"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int16\_t\ i\{\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}\};\ i\ <=\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}};\ ++i)\ std::cout\ <<\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}}.at(i)\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1queue__using__array_1_1_queue___array_a4dc64488c36f84d927365fa8d1933663}\index{data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1queue__using__array_1_1_queue___array_a4dc64488c36f84d927365fa8d1933663} 
+void data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::\+Queue\+\_\+\+Array\+::enqueue (\begin{DoxyParamCaption}\item[{const int16\+\_\+t \&}]{ele}{}\end{DoxyParamCaption})}
+
+
+
+Add element to the first of the queue. 
+
+Adds new element to the end of the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ele} & to be added to the end of the queue \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}}\ ==\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}}.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nStack\ is\ full"{}};}
+\DoxyCodeLine{00061\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}\ ==\ -\/1\ \&\&\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}{front}}\ =\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}}\ =\ 0;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}}[\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}}]\ =\ ele;}
+\DoxyCodeLine{00065\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}}\ <\ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}}.size())\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}{arr}}[\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}{rear}}]\ =\ ele;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d}\index{data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}!arr@{arr}}
+\index{arr@{arr}!data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}}
+\doxysubsubsection{\texorpdfstring{arr}{arr}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1queue__using__array_1_1_queue___array_ae69a0bf6c9921b37c516c8a4d2fb904d} 
+std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{queue__using__array_8cpp_a2d49e79bd164c298912db252970520d8}{max\+\_\+size}}$>$ data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::\+Queue\+\_\+\+Array\+::arr \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+All stored data. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \{\};\ \ \textcolor{comment}{///<\ All\ stored\ data}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e}\index{data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}!front@{front}}
+\index{front@{front}!data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}}
+\doxysubsubsection{\texorpdfstring{front}{front}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1queue__using__array_1_1_queue___array_a2f676f2f249eb36dfd49711a03e9e67e} 
+int8\+\_\+t data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::\+Queue\+\_\+\+Array\+::front \{-\/1\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Index of head of the array. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{-\/1\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Index\ of\ head\ of\ the\ array}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85}\index{data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}!rear@{rear}}
+\index{rear@{rear}!data\_structures::queue\_using\_array::Queue\_Array@{data\_structures::queue\_using\_array::Queue\_Array}}
+\doxysubsubsection{\texorpdfstring{rear}{rear}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1queue__using__array_1_1_queue___array_a9883dfcceede9a42227d2d313ae86f85} 
+int8\+\_\+t data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::\+Queue\+\_\+\+Array\+::rear \{-\/1\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Index of tail of the array. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \{-\/1\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Index\ of\ tail\ of\ the\ array}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{queue__using__array_8cpp}{queue\+\_\+using\+\_\+array.\+cpp}}\end{DoxyCompactItemize}

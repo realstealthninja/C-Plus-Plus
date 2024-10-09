@@ -1,0 +1,360 @@
+\doxysection{qr\+\_\+algorithm Namespace Reference}
+\hypertarget{namespaceqr__algorithm}{}\label{namespaceqr__algorithm}\index{qr\_algorithm@{qr\_algorithm}}
+
+
+Functions to compute \href{https://en.wikipedia.org/wiki/QR_decomposition}{\texttt{ QR decomposition}} of any rectangular matrix.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespaceqr__algorithm_adfbdf47277c8cfee229b05b72f1f7834}{operator$<$$<$}} (std\+::ostream \&out, std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ const \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespaceqr__algorithm_a257425cb2365359da51c6fe6741834d8}{operator$<$$<$}} (std\+::ostream \&out, std\+::valarray$<$ T $>$ const \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\+\_\+dot}} (const std\+::valarray$<$ T $>$ \&a, const std\+::valarray$<$ T $>$ \&b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{namespaceqr__algorithm_ad16da2183db22378435042f26af43d5f}{vector\+\_\+mag}} (const std\+::valarray$<$ T $>$ \&a)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::valarray$<$ T $>$ \mbox{\hyperlink{namespaceqr__algorithm_a6d3c7dce1f142141f509d09f6c0e25dc}{vector\+\_\+proj}} (const std\+::valarray$<$ T $>$ \&a, const std\+::valarray$<$ T $>$ \&b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceqr__algorithm_a73ce637634fc49e1d10d190eb388ebf1}{qr\+\_\+decompose}} (const std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ \&A, std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ \texorpdfstring{$\ast$}{*}Q, std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ \texorpdfstring{$\ast$}{*}R)
+\item 
+std\+::valarray$<$ double $>$ \mbox{\hyperlink{namespaceqr__algorithm_a28e2fa3e803abaea6c568dc45d69d8cc}{eigen\+\_\+values}} (std\+::valarray$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}A, bool print\+\_\+intermediates=false)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions to compute \href{https://en.wikipedia.org/wiki/QR_decomposition}{\texttt{ QR decomposition}} of any rectangular matrix. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceqr__algorithm_a28e2fa3e803abaea6c568dc45d69d8cc}\index{qr\_algorithm@{qr\_algorithm}!eigen\_values@{eigen\_values}}
+\index{eigen\_values@{eigen\_values}!qr\_algorithm@{qr\_algorithm}}
+\doxysubsubsection{\texorpdfstring{eigen\_values()}{eigen\_values()}}
+{\footnotesize\ttfamily \label{namespaceqr__algorithm_a28e2fa3e803abaea6c568dc45d69d8cc} 
+std\+::valarray$<$ double $>$ qr\+\_\+algorithm\+::eigen\+\_\+values (\begin{DoxyParamCaption}\item[{std\+::valarray$<$ std\+::valarray$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}}]{A}{, }\item[{bool}]{print\+\_\+intermediates}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Compute eigen values using iterative shifted QR decomposition algorithm as follows\+:
+\begin{DoxyEnumerate}
+\item Use last diagonal element of A as eigen value approximation $c$
+\item Shift diagonals of matrix $A\textnormal{\textquotesingle} = A - cI$
+\item Decompose matrix $A\textnormal{\textquotesingle}=QR$
+\item Compute next approximation $A\textnormal{\textquotesingle}_1 = RQ $
+\item Shift diagonals back $A_1 = A\textnormal{\textquotesingle}_1 + cI$
+\item Termination condition check\+: last element below diagonal is almost 0
+\begin{DoxyEnumerate}
+\item If not 0, go back to step 1 with the new approximation $A_1$
+\item If 0, continue to step 7
+\end{DoxyEnumerate}
+\item Save last known $c$ as the eigen value.
+\item Are all eigen values found?
+\begin{DoxyEnumerate}
+\item If not, remove last row and column of $A_1$ and go back to step 1.
+\item If yes, stop.
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+The matrix $A$ gets modified
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em A} & matrix to compute eigen values for \\
+\hline
+\mbox{\texttt{ in}}  & {\em print\+\_\+intermediates} & (optional) whether to print intermediate A, Q and R matrices (default = {\ttfamily false}) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ rows\ =\ A-\/>size();}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ columns\ =\ rows;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ counter\ =\ 0,\ num\_eigs\ =\ rows\ -\/\ 1;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ last\_eig\ =\ 0;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ std::valarray<std::valarray<double>>\ Q(rows);}
+\DoxyCodeLine{00106\ \ \ \ \ std::valarray<std::valarray<double>>\ R(columns);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{/*\ number\ of\ eigen\ values\ =\ matrix\ size\ */}}
+\DoxyCodeLine{00109\ \ \ \ \ std::valarray<double>\ eigen\_vals(rows);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ i++)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ Q[i]\ =\ std::valarray<double>(columns);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ R[i]\ =\ std::valarray<double>(columns);}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{/*\ continue\ till\ all\ eigen\ values\ are\ found\ */}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_eigs\ >\ 0)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ iterate\ with\ QR\ decomposition\ */}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::abs(A[0][num\_eigs][num\_eigs\ -\/\ 1])\ >}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<double>::epsilon())\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initial\ approximation\ =\ last\ diagonal\ element}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ last\_eig\ =\ A[0][num\_eigs][num\_eigs];}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ i++)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A[0][i][i]\ -\/=\ last\_eig;\ \textcolor{comment}{/*\ A\ -\/\ cI\ */}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ qr\_decompose(*A,\ \&Q,\ \&R);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (print\_intermediates)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ *A\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ Q\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ R\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \%d\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}},}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++counter);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ new\ approximation\ A'\ =\ R\ *\ Q}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{qr__eigen__values_8cpp_abb8bf4c55e10685a5eb2ad3797fde1ae}{mat\_mul}}(R,\ Q,\ A);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ i++)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A[0][i][i]\ +=\ last\_eig;\ \textcolor{comment}{/*\ A\ +\ cI\ */}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ store\ the\ converged\ eigen\ value\ */}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ eigen\_vals[num\_eigs]\ =\ last\_eig;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A[0][num\_eigs][num\_eigs];}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (print\_intermediates)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}========================\(\backslash\)n"{}};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Eigen\ value:\ "{}}\ <<\ last\_eig\ <<\ \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}========================\(\backslash\)n"{}};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ num\_eigs-\/-\/;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ rows-\/-\/;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ columns-\/-\/;}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ eigen\_vals[0]\ =\ A[0][0][0];}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{if}\ (print\_intermediates)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ std::cout\ <<\ Q\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::cout\ <<\ R\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ eigen\_vals;}
+\DoxyCodeLine{00165\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceqr__algorithm_adfbdf47277c8cfee229b05b72f1f7834}\index{qr\_algorithm@{qr\_algorithm}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!qr\_algorithm@{qr\_algorithm}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceqr__algorithm_adfbdf47277c8cfee229b05b72f1f7834} 
+template$<$typename T $>$ \\
+std\+::ostream \& qr\+\_\+algorithm\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ const \&}]{v}{}\end{DoxyParamCaption})}
+
+operator to print a matrix 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 12;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ out.precision(4);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ v[row].size();\ col++)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::right\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row][col];}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ out\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceqr__algorithm_a257425cb2365359da51c6fe6741834d8}\index{qr\_algorithm@{qr\_algorithm}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!qr\_algorithm@{qr\_algorithm}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceqr__algorithm_a257425cb2365359da51c6fe6741834d8} 
+template$<$typename T $>$ \\
+std\+::ostream \& qr\+\_\+algorithm\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{std\+::valarray$<$ T $>$ const \&}]{v}{}\end{DoxyParamCaption})}
+
+operator to print a vector 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 10;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ out.precision(4);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ out\ <<\ std::right\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row];}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceqr__algorithm_a73ce637634fc49e1d10d190eb388ebf1}\index{qr\_algorithm@{qr\_algorithm}!qr\_decompose@{qr\_decompose}}
+\index{qr\_decompose@{qr\_decompose}!qr\_algorithm@{qr\_algorithm}}
+\doxysubsubsection{\texorpdfstring{qr\_decompose()}{qr\_decompose()}}
+{\footnotesize\ttfamily \label{namespaceqr__algorithm_a73ce637634fc49e1d10d190eb388ebf1} 
+template$<$typename T $>$ \\
+void qr\+\_\+algorithm\+::qr\+\_\+decompose (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ \&}]{A}{, }\item[{std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ \texorpdfstring{$\ast$}{*}}]{Q}{, }\item[{std\+::valarray$<$ std\+::valarray$<$ T $>$ $>$ \texorpdfstring{$\ast$}{*}}]{R}{}\end{DoxyParamCaption})}
+
+Decompose matrix $A$ using \href{https://en.wikipedia.org/wiki/QR_decomposition}{\texttt{ Gram-\/\+Schmidt process}}.
+
+\begin{eqnarray*}
+  \text{given that}\quad A &=&
+*\left[\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_{N-1},\right]\\
+  \text{where}\quad\mathbf{a}_i &=&
+  \left[a_{0i},a_{1i},a_{2i},\ldots,a_{(M-1)i}\right]^T\quad\ldots\mbox{(column
+  vectors)}\\
+  \text{then}\quad\mathbf{u}_i &=& \mathbf{a}_i
+*-\sum_{j=0}^{i-1}\text{proj}_{\mathbf{u}_j}\mathbf{a}_i\\
+  \mathbf{e}_i &=&\frac{\mathbf{u}_i}{\left|\mathbf{u}_i\right|}\\
+  Q &=& \begin{bmatrix}\mathbf{e}_0 & \mathbf{e}_1 & \mathbf{e}_2 & \dots &
+  \mathbf{e}_{N-1}\end{bmatrix}\\
+  R &=& \begin{bmatrix}\langle\mathbf{e}_0\,,\mathbf{a}_0\rangle &
+  \langle\mathbf{e}_1\,,\mathbf{a}_1\rangle &
+  \langle\mathbf{e}_2\,,\mathbf{a}_2\rangle & \dots \\
+                   0 & \langle\mathbf{e}_1\,,\mathbf{a}_1\rangle &
+  \langle\mathbf{e}_2\,,\mathbf{a}_2\rangle & \dots\\
+                   0 & 0 & \langle\mathbf{e}_2\,,\mathbf{a}_2\rangle &
+  \dots\\ \vdots & \vdots & \vdots & \ddots
+       \end{bmatrix}\\
+  \end{eqnarray*} 
+\begin{DoxyParams}{Parameters}
+{\em A} & input matrix to decompose  \\
+\hline
+{\em Q} & output decomposed matrix  \\
+\hline
+{\em R} & output decomposed matrix \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ std::size\_t\ ROWS\ =\ A.size();\ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ rows\ of\ A}}
+\DoxyCodeLine{00152\ \ \ \ \ std::size\_t\ COLUMNS\ =\ A[0].size();\ \ \textcolor{comment}{//\ number\ of\ columns\ of\ A}}
+\DoxyCodeLine{00153\ \ \ \ \ std::valarray<T>\ col\_vector(ROWS);}
+\DoxyCodeLine{00154\ \ \ \ \ std::valarray<T>\ col\_vector2(ROWS);}
+\DoxyCodeLine{00155\ \ \ \ \ std::valarray<T>\ tmp\_vector(ROWS);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ COLUMNS;\ i++)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ for\ each\ column\ =>\ R\ is\ a\ square\ matrix\ of\ NxN\ */}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ R[0][i]\ =\ 0.;\ \textcolor{comment}{/*\ make\ R\ upper\ triangular\ */}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ get\ corresponding\ Q\ vector\ */}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00164\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ ROWS;\ j++)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\_vector[j]\ =\ A[j][i];\ \textcolor{comment}{/*\ accumulator\ for\ uk\ */}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector[j]\ =\ A[j][i];}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ i;\ j++)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ ROWS;\ k++)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector2[k]\ =\ Q[0][k][j];}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector2\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a6d3c7dce1f142141f509d09f6c0e25dc}{vector\_proj}}(col\_vector,\ col\_vector2);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\_vector\ -\/=\ col\_vector2;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{vector__cross__product_8cpp_a4b2a9757a87c18e1642d72410ecfaba8}{mag}}\ =\ \mbox{\hyperlink{namespaceqr__algorithm_ad16da2183db22378435042f26af43d5f}{vector\_mag}}(tmp\_vector);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00182\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ ROWS;\ j++)\ Q[0][j][i]\ =\ tmp\_vector[j]\ /\ mag;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ compute\ upper\ triangular\ values\ of\ R\ */}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00189\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ kk\ =\ 0;\ kk\ <\ ROWS;\ kk++)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector[kk]\ =\ Q[0][kk][i];}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00197\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ i;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ <\ COLUMNS;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++)\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ kk\ =\ 0;\ kk\ <\ ROWS;\ kk++)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector2[kk]\ =\ A[kk][\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}];}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ R[0][i][\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}]\ =\ (col\_vector\ *\ col\_vector2).\mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}();}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}\index{qr\_algorithm@{qr\_algorithm}!vector\_dot@{vector\_dot}}
+\index{vector\_dot@{vector\_dot}!qr\_algorithm@{qr\_algorithm}}
+\doxysubsubsection{\texorpdfstring{vector\_dot()}{vector\_dot()}}
+{\footnotesize\ttfamily \label{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec} 
+template$<$typename T $>$ \\
+double qr\+\_\+algorithm\+::vector\+\_\+dot (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ T $>$ \&}]{a}{, }\item[{const std\+::valarray$<$ T $>$ \&}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compute dot product of two vectors of equal lengths
+
+If $\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]$ and $\vec{b}=\left[b_0,b_1,b_1,...,b_L\right]$ then $\vec{a}\cdot\vec{b}=\displaystyle\sum_{i=0}^L a_i\times b_i$
+
+\begin{DoxyReturn}{Returns}
+$\vec{a}\cdot\vec{b}$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ (a\ *\ b).sum();}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ could\ also\ use\ following}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ return\ std::inner\_product(std::begin(a),\ std::end(a),\ std::begin(b),}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ 0.f);}}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceqr__algorithm_ad16da2183db22378435042f26af43d5f}\index{qr\_algorithm@{qr\_algorithm}!vector\_mag@{vector\_mag}}
+\index{vector\_mag@{vector\_mag}!qr\_algorithm@{qr\_algorithm}}
+\doxysubsubsection{\texorpdfstring{vector\_mag()}{vector\_mag()}}
+{\footnotesize\ttfamily \label{namespaceqr__algorithm_ad16da2183db22378435042f26af43d5f} 
+template$<$typename T $>$ \\
+double qr\+\_\+algorithm\+::vector\+\_\+mag (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ T $>$ \&}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compute magnitude of vector.
+
+If $\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]$ then $\left|\vec{a}\right|=\sqrt{\displaystyle\sum_{i=0}^L a_i^2}$
+
+\begin{DoxyReturn}{Returns}
+$\left|\vec{a}\right|$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{double}\ dot\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\_dot}}(a,\ a);}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(dot);}
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceqr__algorithm_a6d3c7dce1f142141f509d09f6c0e25dc}\index{qr\_algorithm@{qr\_algorithm}!vector\_proj@{vector\_proj}}
+\index{vector\_proj@{vector\_proj}!qr\_algorithm@{qr\_algorithm}}
+\doxysubsubsection{\texorpdfstring{vector\_proj()}{vector\_proj()}}
+{\footnotesize\ttfamily \label{namespaceqr__algorithm_a6d3c7dce1f142141f509d09f6c0e25dc} 
+template$<$typename T $>$ \\
+std\+::valarray$<$ T $>$ qr\+\_\+algorithm\+::vector\+\_\+proj (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ T $>$ \&}]{a}{, }\item[{const std\+::valarray$<$ T $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+Compute projection of vector $\vec{a}$ on $\vec{b}$ defined as \[\text{proj}_\vec{b}\vec{a}=\frac{\vec{a}\cdot\vec{b}}{\left|\vec{b}\right|^2}\vec{b}\]
+
+\begin{DoxyReturn}{Returns}
+NULL if error, otherwise pointer to output 
+\end{DoxyReturn}
+check for division by zero using machine epsilon
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ num\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\_dot}}(a,\ b);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{double}\ deno\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\_dot}}(b,\ b);}
+\DoxyCodeLine{00108\ \textcolor{comment}{}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ \ \ /*!\ check\ for\ division\ by\ zero\ using\ machine\ epsilon\ */}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (deno\ <=\ std::numeric\_limits<double>::epsilon())\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{}]\ Possible\ division\ by\ zero\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a;\ \ \textcolor{comment}{//\ return\ vector\ a\ back}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{double}\ scalar\ =\ num\ /\ deno;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ b\ *\ scalar;}
+\DoxyCodeLine{00118\ \}}
+
+\end{DoxyCode}

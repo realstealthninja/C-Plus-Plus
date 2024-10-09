@@ -1,0 +1,141 @@
+\doxysection{math/prime\+\_\+factorization.cpp File Reference}
+\hypertarget{prime__factorization_8cpp}{}\label{prime__factorization_8cpp}\index{math/prime\_factorization.cpp@{math/prime\_factorization.cpp}}
+
+
+Prime factorization of positive integers.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{prime__factorization_8cpp_affe577b9bce8f604f5e2f861c63c7099}{Sieve\+Of\+Eratosthenes}} (int N)
+\item 
+void \mbox{\hyperlink{prime__factorization_8cpp_a0ece0145fb29a5cf48378c23dde2da46}{prime\+\_\+factorization}} (int num)
+\item 
+int \mbox{\hyperlink{prime__factorization_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23}{isprime}} \mbox{[}1000006\mbox{]}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe}{prime\+\_\+numbers}}
+\item 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \mbox{\hyperlink{prime__factorization_8cpp_acfb0df439a4beae5a34ef131ce737c1b}{factors}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Prime factorization of positive integers. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{prime__factorization_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{prime\_factorization.cpp@{prime\_factorization.cpp}!main@{main}}
+\index{main@{main}!prime\_factorization.cpp@{prime\_factorization.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{prime__factorization_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main program 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ num;}
+\DoxyCodeLine{00064\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tComputes\ the\ prime\ factorization\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00065\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Type\ in\ a\ number:\ "{}};}
+\DoxyCodeLine{00066\ \ \ \ \ std::cin\ >>\ num;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{prime__factorization_8cpp_affe577b9bce8f604f5e2f861c63c7099}{SieveOfEratosthenes}}(num);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{prime__factorization_8cpp_a0ece0145fb29a5cf48378c23dde2da46}{prime\_factorization}}(num);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Prime\ factors\ with\ their\ powers\ in\ the\ given\ number\ in\ new\ line}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ :\ \mbox{\hyperlink{prime__factorization_8cpp_acfb0df439a4beae5a34ef131ce737c1b}{factors}})\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ std::cout\ <<\ it.first\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ it.second\ <<\ std::endl;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{prime__factorization_8cpp_a0ece0145fb29a5cf48378c23dde2da46}\index{prime\_factorization.cpp@{prime\_factorization.cpp}!prime\_factorization@{prime\_factorization}}
+\index{prime\_factorization@{prime\_factorization}!prime\_factorization.cpp@{prime\_factorization.cpp}}
+\doxysubsubsection{\texorpdfstring{prime\_factorization()}{prime\_factorization()}}
+{\footnotesize\ttfamily \label{prime__factorization_8cpp_a0ece0145fb29a5cf48378c23dde2da46} 
+void prime\+\_\+factorization (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+Prime factorization of a number 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ number\ =\ num;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ \mbox{\hyperlink{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe}{prime\_numbers}}[i]\ <=\ num;\ i++)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ termination\ condition}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (number\ ==\ 1)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (number\ \%\ \mbox{\hyperlink{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe}{prime\_numbers}}[i]\ ==\ 0)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ number\ =\ number\ /\ \mbox{\hyperlink{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe}{prime\_numbers}}[i];}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{prime__factorization_8cpp_acfb0df439a4beae5a34ef131ce737c1b}{factors}}.push\_back(std::make\_pair(\mbox{\hyperlink{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe}{prime\_numbers}}[i],\ count));}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{prime__factorization_8cpp_affe577b9bce8f604f5e2f861c63c7099}\index{prime\_factorization.cpp@{prime\_factorization.cpp}!SieveOfEratosthenes@{SieveOfEratosthenes}}
+\index{SieveOfEratosthenes@{SieveOfEratosthenes}!prime\_factorization.cpp@{prime\_factorization.cpp}}
+\doxysubsubsection{\texorpdfstring{SieveOfEratosthenes()}{SieveOfEratosthenes()}}
+{\footnotesize\ttfamily \label{prime__factorization_8cpp_affe577b9bce8f604f5e2f861c63c7099} 
+void Sieve\+Of\+Eratosthenes (\begin{DoxyParamCaption}\item[{int}]{N}{}\end{DoxyParamCaption})}
+
+Calculating prime number upto a given range 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ initializes\ the\ array\ isprime}}
+\DoxyCodeLine{00025\ \ \ \ \ memset(\mbox{\hyperlink{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23}{isprime}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{sizeof}\ \mbox{\hyperlink{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23}{isprime}});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <=\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23}{isprime}}[i])\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 2\ *\ i;\ j\ <=\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ j\ +=\ i)\ \mbox{\hyperlink{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23}{isprime}}[j]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <=\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23}{isprime}}[i])}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe}{prime\_numbers}}.push\_back(i);}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{prime__factorization_8cpp_acfb0df439a4beae5a34ef131ce737c1b}\index{prime\_factorization.cpp@{prime\_factorization.cpp}!factors@{factors}}
+\index{factors@{factors}!prime\_factorization.cpp@{prime\_factorization.cpp}}
+\doxysubsubsection{\texorpdfstring{factors}{factors}}
+{\footnotesize\ttfamily \label{prime__factorization_8cpp_acfb0df439a4beae5a34ef131ce737c1b} 
+std\+::vector$<$std\+::pair$<$int, int$>$ $>$ factors}
+
+list of prime factor-\/pairs \Hypertarget{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23}\index{prime\_factorization.cpp@{prime\_factorization.cpp}!isprime@{isprime}}
+\index{isprime@{isprime}!prime\_factorization.cpp@{prime\_factorization.cpp}}
+\doxysubsubsection{\texorpdfstring{isprime}{isprime}}
+{\footnotesize\ttfamily \label{prime__factorization_8cpp_a7fe38b570a51e448430d6a0f072c2f23} 
+bool isprime\mbox{[}1000006\mbox{]}}
+
+Declaring variables for maintaing prime numbers and to check whether a number is prime or not \Hypertarget{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe}\index{prime\_factorization.cpp@{prime\_factorization.cpp}!prime\_numbers@{prime\_numbers}}
+\index{prime\_numbers@{prime\_numbers}!prime\_factorization.cpp@{prime\_factorization.cpp}}
+\doxysubsubsection{\texorpdfstring{prime\_numbers}{prime\_numbers}}
+{\footnotesize\ttfamily \label{prime__factorization_8cpp_af097796783684712b8326e5b82bfd4fe} 
+std\+::vector$<$int$>$ prime\+\_\+numbers}
+
+list of prime numbers 

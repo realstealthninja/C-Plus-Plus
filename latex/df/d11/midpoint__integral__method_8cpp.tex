@@ -1,0 +1,334 @@
+\doxysection{numerical\+\_\+methods/midpoint\+\_\+integral\+\_\+method.cpp File Reference}
+\hypertarget{midpoint__integral__method_8cpp}{}\label{midpoint__integral__method_8cpp}\index{numerical\_methods/midpoint\_integral\_method.cpp@{numerical\_methods/midpoint\_integral\_method.cpp}}
+
+
+A numerical method for easy \href{https://en.wikipedia.org/wiki/Midpoint_method}{\texttt{ approximation of integrals}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacenumerical__methods}{numerical\+\_\+methods}}
+\begin{DoxyCompactList}\small\item\em for assert \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemidpoint__rule}{midpoint\+\_\+rule}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Midpoint_method}{\texttt{ Midpoint Integral}} method implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{midpoint__integral__method_8cpp_a7072493d1f0f8a91b2a71d4cc456c09c}{numerical\+\_\+methods\+::midpoint\+\_\+rule\+::midpoint}} (const std\+::int32\+\_\+t N, const double \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}, const double a, const std\+::function$<$ double(double)$>$ \&func)
+\begin{DoxyCompactList}\small\item\em Main function for implementing the Midpoint Integral Method implementation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{midpoint__integral__method_8cpp_a7ee8e824ef3e138a9a21883b26d97226}{numerical\+\_\+methods\+::midpoint\+\_\+rule\+::f}} (double x)
+\begin{DoxyCompactList}\small\item\em A function f(x) that will be used to test the method. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{midpoint__integral__method_8cpp_ae682ee71af44b1e9e884849cc6a6b040}{numerical\+\_\+methods\+::midpoint\+\_\+rule\+::g}} (double x)
+\begin{DoxyCompactList}\small\item\em A function g(x) that will be used to test the method. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{midpoint__integral__method_8cpp_ae9f66040f8e0ba73c1c741261c22a52a}{numerical\+\_\+methods\+::midpoint\+\_\+rule\+::k}} (double x)
+\begin{DoxyCompactList}\small\item\em A function k(x) that will be used to test the method. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{midpoint__integral__method_8cpp_ad53616fb4fa6880ae876bcba53365c51}{numerical\+\_\+methods\+::midpoint\+\_\+rule\+::l}} (double x)
+\begin{DoxyCompactList}\small\item\em A function l(x) that will be used to test the method. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{midpoint__integral__method_8cpp_a2ae48a41e43dc6ab11b962742349646e}{test}} (std\+::int32\+\_\+t N, double \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}, double a, double b, bool used\+\_\+argv\+\_\+parameters)
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{midpoint__integral__method_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A numerical method for easy \href{https://en.wikipedia.org/wiki/Midpoint_method}{\texttt{ approximation of integrals}} 
+
+The idea is to split the interval into N of intervals and use as interpolation points the xi for which it applies that xi = x0 + i\texorpdfstring{$\ast$}{*}h, where h is a step defined as h = (b-\/a)/N where a and b are the first and last points of the interval of the integration \mbox{[}a, b\mbox{]}.
+
+We create a table of the xi and their corresponding f(xi) values and we evaluate the integral by the formula\+: I = h \texorpdfstring{$\ast$}{*} \{f(x0+h/2) + f(x1+h/2) + ... + f(x\+N-\/1+h/2)\}
+
+Arguments can be passed as parameters from the command line argv\mbox{[}1\mbox{]} = N, argv\mbox{[}2\mbox{]} = a, argv\mbox{[}3\mbox{]} = b. In this case if the default values N=16, a=1, b=3 are changed then the tests/assert are disabled.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/ggkogkou}{\texttt{ ggkogkou}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{midpoint__integral__method_8cpp_a7ee8e824ef3e138a9a21883b26d97226}\index{midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}!f@{f}}
+\index{f@{f}!midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily \label{midpoint__integral__method_8cpp_a7ee8e824ef3e138a9a21883b26d97226} 
+double numerical\+\_\+methods\+::midpoint\+\_\+rule\+::f (\begin{DoxyParamCaption}\item[{double}]{x}{}\end{DoxyParamCaption})}
+
+
+
+A function f(x) that will be used to test the method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The independent variable xi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of the dependent variable yi = f(xi) = sqrt(xi) + ln(xi) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{\ \textcolor{keywordflow}{return}\ std::sqrt(x)\ +\ std::log(x);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{midpoint__integral__method_8cpp_ae682ee71af44b1e9e884849cc6a6b040}\index{midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}!g@{g}}
+\index{g@{g}!midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{g()}{g()}}
+{\footnotesize\ttfamily \label{midpoint__integral__method_8cpp_ae682ee71af44b1e9e884849cc6a6b040} 
+double numerical\+\_\+methods\+::midpoint\+\_\+rule\+::g (\begin{DoxyParamCaption}\item[{double}]{x}{}\end{DoxyParamCaption})}
+
+
+
+A function g(x) that will be used to test the method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The independent variable xi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of the dependent variable yi = g(xi) = e\texorpdfstring{$^\wedge$}{\string^}(-\/xi) \texorpdfstring{$\ast$}{*} (4 -\/ xi\texorpdfstring{$^\wedge$}{\string^}2) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \{\ \textcolor{keywordflow}{return}\ std::exp(-\/x)\ *\ (4\ -\/\ std::pow(x,\ 2));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{midpoint__integral__method_8cpp_ae9f66040f8e0ba73c1c741261c22a52a}\index{midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}!k@{k}}
+\index{k@{k}!midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{k()}{k()}}
+{\footnotesize\ttfamily \label{midpoint__integral__method_8cpp_ae9f66040f8e0ba73c1c741261c22a52a} 
+double numerical\+\_\+methods\+::midpoint\+\_\+rule\+::k (\begin{DoxyParamCaption}\item[{double}]{x}{}\end{DoxyParamCaption})}
+
+
+
+A function k(x) that will be used to test the method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The independent variable xi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of the dependent variable yi = k(xi) = sqrt(2\texorpdfstring{$\ast$}{*}xi\texorpdfstring{$^\wedge$}{\string^}3 + 3) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \{\ \textcolor{keywordflow}{return}\ std::sqrt(2\ *\ std::pow(x,\ 3)\ +\ 3);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{midpoint__integral__method_8cpp_ad53616fb4fa6880ae876bcba53365c51}\index{midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}!l@{l}}
+\index{l@{l}!midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{l()}{l()}}
+{\footnotesize\ttfamily \label{midpoint__integral__method_8cpp_ad53616fb4fa6880ae876bcba53365c51} 
+double numerical\+\_\+methods\+::midpoint\+\_\+rule\+::l (\begin{DoxyParamCaption}\item[{double}]{x}{}\end{DoxyParamCaption})}
+
+
+
+A function l(x) that will be used to test the method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The independent variable xi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of the dependent variable yi = l(xi) = xi + ln(2\texorpdfstring{$\ast$}{*}xi + 1) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \{\ \textcolor{keywordflow}{return}\ x\ +\ std::log(2\ *\ x\ +\ 1);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{midpoint__integral__method_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}!main@{main}}
+\index{main@{main}!midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{midpoint__integral__method_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+Number of intervals to divide the integration interval.
+
+MUST BE EVEN
+
+Starting and ending point of the integration in
+
+the real axis
+
+Step, calculated by a, b and N
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ std::int32\_t\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ 16;\ \ \textcolor{comment}{///\ Number\ of\ intervals\ to\ divide\ the\ integration\ interval.}\textcolor{comment}{}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \ \ ///\ MUST\ BE\ EVEN}}
+\DoxyCodeLine{00166\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ 1,\ b\ =\ 3;\ \ \textcolor{comment}{///\ Starting\ and\ ending\ point\ of\ the\ integration\ in}\textcolor{comment}{}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ \ \ \ ///\ the\ real\ axis}}
+\DoxyCodeLine{00168\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ =\ NAN;\ \ \textcolor{comment}{///\ Step,\ calculated\ by\ a,\ b\ and\ N}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ used\_argv\_parameters\ =}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ If\ argv\ parameters\ are\ used\ then\ the\ assert\ must\ be\ omitted}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ for\ the\ test\ cases}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ Get\ user\ input\ (by\ the\ command\ line\ parameters\ or\ the\ console\ after}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ displaying\ messages)}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ std::atoi(argv[1]);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ a\ =\ std::atof(argv[2]);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ b\ =\ std::atof(argv[3]);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ a<b\ else\ abort}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ assert(a\ <\ b\ \&\&\ \textcolor{stringliteral}{"{}a\ has\ to\ be\ less\ than\ b"{}});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ assert(N\ >\ 0\ \&\&\ \textcolor{stringliteral}{"{}N\ has\ to\ be\ >\ 0"{}});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ <\ 4\ ||\ a\ !=\ 1\ ||\ b\ !=\ 3)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ used\_argv\_parameters\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}You\ selected\ N="{}}\ <<\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ <<\ \textcolor{stringliteral}{"{},\ a="{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{},\ b="{}}\ <<\ b}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00188\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Default\ N="{}}\ <<\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ <<\ \textcolor{stringliteral}{"{},\ a="{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{},\ b="{}}\ <<\ b}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ Find\ the\ step}}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ =\ (b\ -\/\ a)\ /\ N;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(N,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ a,\ b,\ used\_argv\_parameters);\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00199\ \}}
+
+\end{DoxyCode}
+\Hypertarget{midpoint__integral__method_8cpp_a7072493d1f0f8a91b2a71d4cc456c09c}\index{midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}!midpoint@{midpoint}}
+\index{midpoint@{midpoint}!midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{midpoint()}{midpoint()}}
+{\footnotesize\ttfamily \label{midpoint__integral__method_8cpp_a7072493d1f0f8a91b2a71d4cc456c09c} 
+double numerical\+\_\+methods\+::midpoint\+\_\+rule\+::midpoint (\begin{DoxyParamCaption}\item[{const std\+::int32\+\_\+t}]{N}{, }\item[{const double}]{h}{, }\item[{const double}]{a}{, }\item[{const std\+::function$<$ double(double)$>$ \&}]{func}{}\end{DoxyParamCaption})}
+
+
+
+Main function for implementing the Midpoint Integral Method implementation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & is the number of intervals \\
+\hline
+{\em h} & is the step \\
+\hline
+{\em a} & is x0 \\
+\hline
+{\em func} & is the function that will be integrated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result of the integration 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ std::map<int,\ double>}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ data\_table;\ \ \textcolor{comment}{//\ Contains\ the\ data\ points,\ key:\ i,\ value:\ f(xi)}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ xi\ =\ a;\ \ \ \textcolor{comment}{//\ Initialize\ xi\ to\ the\ starting\ point\ x0\ =\ a}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ data\ table}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Loop\ from\ x0\ to\ xN-\/1}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{double}\ temp\ =\ NAN;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::int32\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ temp\ =\ func(xi\ +\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ /\ 2);\ \ \textcolor{comment}{//\ find\ f(xi+h/2)}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ data\_table.insert(}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ std::pair<std::int32\_t,\ double>(i,\ temp));\ \ \textcolor{comment}{//\ add\ i\ and\ f(xi)}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ xi\ +=\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}};\ \ \textcolor{comment}{//\ Get\ the\ next\ point\ xi\ for\ the\ next\ iteration}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Evaluate\ the\ integral.}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Remember:\ \{f(x0+h/2)\ +\ f(x1+h/2)\ +\ ...\ +\ f(xN-\/1+h/2)\}}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{double}\ evaluate\_integral\ =\ 0;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::int32\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ evaluate\_integral\ +=\ data\_table.at(i);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Multiply\ by\ the\ coefficient\ h}}
+\DoxyCodeLine{00074\ \ \ \ \ evaluate\_integral\ *=\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ If\ the\ result\ calculated\ is\ nan,\ then\ the\ user\ has\ given\ wrong\ input}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ interval.}}
+\DoxyCodeLine{00078\ \ \ \ \ assert(!std::isnan(evaluate\_integral)\ \&\&}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ definite\ integral\ can't\ be\ evaluated.\ Check\ the\ validity\ of\ "{}}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}your\ input.\(\backslash\)n"{}});}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ Else\ return}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ evaluate\_integral;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{midpoint__integral__method_8cpp_a2ae48a41e43dc6ab11b962742349646e}\index{midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}!test@{test}}
+\index{test@{test}!midpoint\_integral\_method.cpp@{midpoint\_integral\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{midpoint__integral__method_8cpp_a2ae48a41e43dc6ab11b962742349646e} 
+static void test (\begin{DoxyParamCaption}\item[{std\+::int32\+\_\+t}]{N}{, }\item[{double}]{h}{, }\item[{double}]{a}{, }\item[{double}]{b}{, }\item[{bool}]{used\+\_\+argv\+\_\+parameters}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & is the number of intervals \\
+\hline
+{\em h} & is the step \\
+\hline
+{\em a} & is x0 \\
+\hline
+{\em b} & is the end of the interval \\
+\hline
+{\em used\+\_\+argv\+\_\+parameters} & is \textquotesingle{}true\textquotesingle{} if argv parameters are given and \textquotesingle{}false\textquotesingle{} if not \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ Call\ midpoint()\ for\ each\ of\ the\ test\ functions\ f,\ g,\ k,\ l}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ Assert\ with\ two\ decimal\ point\ precision}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{double}\ result\_f\ =\ \mbox{\hyperlink{midpoint__integral__method_8cpp_a7072493d1f0f8a91b2a71d4cc456c09c}{numerical\_methods::midpoint\_rule::midpoint}}(}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ N,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ a,\ numerical\_methods::midpoint\_rule::f);}
+\DoxyCodeLine{00129\ \ \ \ \ assert((used\_argv\_parameters\ ||\ (result\_f\ >=\ 4.09\ \&\&\ result\_f\ <=\ 4.10))\ \&\&}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ result\ of\ f(x)\ is\ wrong"{}});}
+\DoxyCodeLine{00131\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ result\ of\ integral\ f(x)\ on\ interval\ ["{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ b}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}]\ is\ equal\ to:\ "{}}\ <<\ result\_f\ <<\ std::endl;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{double}\ result\_g\ =\ \mbox{\hyperlink{midpoint__integral__method_8cpp_a7072493d1f0f8a91b2a71d4cc456c09c}{numerical\_methods::midpoint\_rule::midpoint}}(}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ N,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ a,\ numerical\_methods::midpoint\_rule::g);}
+\DoxyCodeLine{00136\ \ \ \ \ assert((used\_argv\_parameters\ ||\ (result\_g\ >=\ 0.27\ \&\&\ result\_g\ <=\ 0.28))\ \&\&}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ result\ of\ g(x)\ is\ wrong"{}});}
+\DoxyCodeLine{00138\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ result\ of\ integral\ g(x)\ on\ interval\ ["{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ b}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}]\ is\ equal\ to:\ "{}}\ <<\ result\_g\ <<\ std::endl;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{double}\ result\_k\ =\ \mbox{\hyperlink{midpoint__integral__method_8cpp_a7072493d1f0f8a91b2a71d4cc456c09c}{numerical\_methods::midpoint\_rule::midpoint}}(}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ N,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ a,\ numerical\_methods::midpoint\_rule::k);}
+\DoxyCodeLine{00143\ \ \ \ \ assert((used\_argv\_parameters\ ||\ (result\_k\ >=\ 9.06\ \&\&\ result\_k\ <=\ 9.07))\ \&\&}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ result\ of\ k(x)\ is\ wrong"{}});}
+\DoxyCodeLine{00145\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ result\ of\ integral\ k(x)\ on\ interval\ ["{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ b}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}]\ is\ equal\ to:\ "{}}\ <<\ result\_k\ <<\ std::endl;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{double}\ result\_l\ =\ \mbox{\hyperlink{midpoint__integral__method_8cpp_a7072493d1f0f8a91b2a71d4cc456c09c}{numerical\_methods::midpoint\_rule::midpoint}}(}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ N,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ a,\ numerical\_methods::midpoint\_rule::l);}
+\DoxyCodeLine{00150\ \ \ \ \ assert((used\_argv\_parameters\ ||\ (result\_l\ >=\ 7.16\ \&\&\ result\_l\ <=\ 7.17))\ \&\&}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ result\ of\ l(x)\ is\ wrong"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ result\ of\ integral\ l(x)\ on\ interval\ ["{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ b}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}]\ is\ equal\ to:\ "{}}\ <<\ result\_l\ <<\ std::endl;}
+\DoxyCodeLine{00154\ \}}
+
+\end{DoxyCode}

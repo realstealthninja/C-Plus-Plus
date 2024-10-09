@@ -1,0 +1,174 @@
+\doxysection{machine\+\_\+learning/k\+\_\+nearest\+\_\+neighbors.cpp File Reference}
+\hypertarget{k__nearest__neighbors_8cpp}{}\label{k__nearest__neighbors_8cpp}\index{machine\_learning/k\_nearest\_neighbors.cpp@{machine\_learning/k\_nearest\_neighbors.cpp}}
+
+
+Implementation of \mbox{[}K-\/\+Nearest Neighbors algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+K-\/nearest\+\_\+neighbors\+\_\+algorithm}}).  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::\+Knn}}
+\begin{DoxyCompactList}\small\item\em K-\/\+Nearest Neighbors (\doxylink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{Knn}) class using Euclidean distance as distance metric. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemachine__learning}{machine\+\_\+learning}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}} \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacek__nearest__neighbors}{k\+\_\+nearest\+\_\+neighbors}}
+\begin{DoxyCompactList}\small\item\em Functions for the \mbox{[}K-\/\+Nearest Neighbors algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+K-\/nearest\+\_\+neighbors\+\_\+algorithm}}) implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{k__nearest__neighbors_8cpp_ad6ae16e50bb153ebaa7251d0aaa97b69}{machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::euclidean\+\_\+distance}} (const std\+::vector$<$ T $>$ \&a, const std\+::vector$<$ T $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Compute the Euclidean distance between two vectors. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{k__nearest__neighbors_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{k__nearest__neighbors_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \mbox{[}K-\/\+Nearest Neighbors algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+K-\/nearest\+\_\+neighbors\+\_\+algorithm}}). 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/luizcarloscf}{\texttt{ Luiz Carlos Cosmi Filho}}
+\end{DoxyAuthor}
+K-\/nearest neighbors algorithm, also known as KNN or k-\/\+NN, is a supervised learning classifier, which uses proximity to make classifications. This implementantion uses the Euclidean Distance as distance metric to find the K-\/nearest neighbors. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{k__nearest__neighbors_8cpp_ad6ae16e50bb153ebaa7251d0aaa97b69}\index{k\_nearest\_neighbors.cpp@{k\_nearest\_neighbors.cpp}!euclidean\_distance@{euclidean\_distance}}
+\index{euclidean\_distance@{euclidean\_distance}!k\_nearest\_neighbors.cpp@{k\_nearest\_neighbors.cpp}}
+\doxysubsubsection{\texorpdfstring{euclidean\_distance()}{euclidean\_distance()}}
+{\footnotesize\ttfamily \label{k__nearest__neighbors_8cpp_ad6ae16e50bb153ebaa7251d0aaa97b69} 
+template$<$typename T $>$ \\
+double machine\+\_\+learning\+::k\+\_\+nearest\+\_\+neighbors\+::euclidean\+\_\+distance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{a}{, }\item[{const std\+::vector$<$ T $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Compute the Euclidean distance between two vectors. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & typename of the vector \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first unidimentional vector \\
+\hline
+{\em b} & second unidimentional vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double scalar representing the Euclidean distance between provided vectors 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<double>\ aux;}
+\DoxyCodeLine{00045\ \ \ \ \ std::transform(a.begin(),\ a.end(),\ b.begin(),\ std::back\_inserter(aux),}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](T\ x1,\ T\ x2)\ \{\ return\ std::pow((x1\ -\/\ x2),\ 2);\ \});}
+\DoxyCodeLine{00047\ \ \ \ \ aux.shrink\_to\_fit();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(std::accumulate(aux.begin(),\ aux.end(),\ 0.0));}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{k__nearest__neighbors_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{k\_nearest\_neighbors.cpp@{k\_nearest\_neighbors.cpp}!main@{main}}
+\index{main@{main}!k\_nearest\_neighbors.cpp@{k\_nearest\_neighbors.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{k__nearest__neighbors_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{k__nearest__neighbors_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00196\ \}}
+
+\end{DoxyCode}
+\Hypertarget{k__nearest__neighbors_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{k\_nearest\_neighbors.cpp@{k\_nearest\_neighbors.cpp}!test@{test}}
+\index{test@{test}!k\_nearest\_neighbors.cpp@{k\_nearest\_neighbors.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{k__nearest__neighbors_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/\ Test\ 1\ -\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00142\ \ \ \ \ std::vector<std::vector<double>>\ X1\ =\ \{\{0.0,\ 0.0\},\ \{0.25,\ 0.25\},}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0.0,\ 0.5\},\ \{0.5,\ 0.5\},}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{1.0,\ 0.5\},\ \{1.0,\ 1.0\}\};}
+\DoxyCodeLine{00145\ \ \ \ \ std::vector<int>\ Y1\ =\ \{1,\ 1,\ 1,\ 1,\ 2,\ 2\};}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{auto}\ model1\ =\ \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{machine\_learning::k\_nearest\_neighbors::Knn}}(X1,\ Y1);}
+\DoxyCodeLine{00147\ \ \ \ \ std::vector<double>\ sample1\ =\ \{1.2,\ 1.2\};}
+\DoxyCodeLine{00148\ \ \ \ \ std::vector<double>\ sample2\ =\ \{0.1,\ 0.1\};}
+\DoxyCodeLine{00149\ \ \ \ \ std::vector<double>\ sample3\ =\ \{0.1,\ 0.5\};}
+\DoxyCodeLine{00150\ \ \ \ \ std::vector<double>\ sample4\ =\ \{1.0,\ 0.75\};}
+\DoxyCodeLine{00151\ \ \ \ \ assert(model1.predict(sample1,\ 2)\ ==\ 2);}
+\DoxyCodeLine{00152\ \ \ \ \ assert(model1.predict(sample2,\ 2)\ ==\ 1);}
+\DoxyCodeLine{00153\ \ \ \ \ assert(model1.predict(sample3,\ 2)\ ==\ 1);}
+\DoxyCodeLine{00154\ \ \ \ \ assert(model1.predict(sample4,\ 2)\ ==\ 2);}
+\DoxyCodeLine{00155\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}...\ Passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00156\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/\ Test\ 2\ -\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00157\ \ \ \ \ std::vector<std::vector<double>>\ X2\ =\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \{0.0,\ 0.0,\ 0.0\},\ \{0.25,\ 0.25,\ 0.0\},\ \{0.0,\ 0.5,\ 0.0\},\ \{0.5,\ 0.5,\ 0.0\},}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \{1.0,\ 0.5,\ 0.0\},\ \{1.0,\ 1.0,\ 0.0\},\ \ \ \{1.0,\ 1.0,\ 1.0\},\ \{1.5,\ 1.5,\ 1.0\}\};}
+\DoxyCodeLine{00160\ \ \ \ \ std::vector<int>\ Y2\ =\ \{1,\ 1,\ 1,\ 1,\ 2,\ 2,\ 3,\ 3\};}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{auto}\ model2\ =\ \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{machine\_learning::k\_nearest\_neighbors::Knn}}(X2,\ Y2);}
+\DoxyCodeLine{00162\ \ \ \ \ std::vector<double>\ sample5\ =\ \{1.2,\ 1.2,\ 0.0\};}
+\DoxyCodeLine{00163\ \ \ \ \ std::vector<double>\ sample6\ =\ \{0.1,\ 0.1,\ 0.0\};}
+\DoxyCodeLine{00164\ \ \ \ \ std::vector<double>\ sample7\ =\ \{0.1,\ 0.5,\ 0.0\};}
+\DoxyCodeLine{00165\ \ \ \ \ std::vector<double>\ sample8\ =\ \{1.0,\ 0.75,\ 1.0\};}
+\DoxyCodeLine{00166\ \ \ \ \ assert(model2.predict(sample5,\ 2)\ ==\ 2);}
+\DoxyCodeLine{00167\ \ \ \ \ assert(model2.predict(sample6,\ 2)\ ==\ 1);}
+\DoxyCodeLine{00168\ \ \ \ \ assert(model2.predict(sample7,\ 2)\ ==\ 1);}
+\DoxyCodeLine{00169\ \ \ \ \ assert(model2.predict(sample8,\ 2)\ ==\ 3);}
+\DoxyCodeLine{00170\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}...\ Passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00171\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/\ Test\ 3\ -\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00172\ \ \ \ \ std::vector<std::vector<double>>\ X3\ =\ \{\{0.0\},\ \{1.0\},\ \{2.0\},\ \{3.0\},}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4.0\},\ \{5.0\},\ \{6.0\},\ \{7.0\}\};}
+\DoxyCodeLine{00174\ \ \ \ \ std::vector<int>\ Y3\ =\ \{1,\ 1,\ 1,\ 1,\ 2,\ 2,\ 2,\ 2\};}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{auto}\ model3\ =\ \mbox{\hyperlink{classmachine__learning_1_1k__nearest__neighbors_1_1_knn}{machine\_learning::k\_nearest\_neighbors::Knn}}(X3,\ Y3);}
+\DoxyCodeLine{00176\ \ \ \ \ std::vector<double>\ sample9\ =\ \{0.5\};}
+\DoxyCodeLine{00177\ \ \ \ \ std::vector<double>\ sample10\ =\ \{2.9\};}
+\DoxyCodeLine{00178\ \ \ \ \ std::vector<double>\ sample11\ =\ \{5.5\};}
+\DoxyCodeLine{00179\ \ \ \ \ std::vector<double>\ sample12\ =\ \{7.5\};}
+\DoxyCodeLine{00180\ \ \ \ \ assert(model3.predict(sample9,\ 3)\ ==\ 1);}
+\DoxyCodeLine{00181\ \ \ \ \ assert(model3.predict(sample10,\ 3)\ ==\ 1);}
+\DoxyCodeLine{00182\ \ \ \ \ assert(model3.predict(sample11,\ 3)\ ==\ 2);}
+\DoxyCodeLine{00183\ \ \ \ \ assert(model3.predict(sample12,\ 3)\ ==\ 2);}
+\DoxyCodeLine{00184\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}...\ Passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}

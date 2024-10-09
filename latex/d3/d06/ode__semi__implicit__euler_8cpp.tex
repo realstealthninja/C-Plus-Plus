@@ -1,0 +1,200 @@
+\doxysection{numerical\+\_\+methods/ode\+\_\+semi\+\_\+implicit\+\_\+euler.cpp File Reference}
+\hypertarget{ode__semi__implicit__euler_8cpp}{}\label{ode__semi__implicit__euler_8cpp}\index{numerical\_methods/ode\_semi\_implicit\_euler.cpp@{numerical\_methods/ode\_semi\_implicit\_euler.cpp}}
+
+
+Solve a multivariable first order \href{https://en.wikipedia.org/wiki/Ordinary_differential_equation}{\texttt{ ordinary differential equation (ODEs)}} using \href{https://en.wikipedia.org/wiki/Semi-implicit_Euler_method}{\texttt{ semi implicit Euler method}}  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem}} (const double \&x, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}dy)
+\begin{DoxyCompactList}\small\item\em Problem statement for a system with first-\/order differential equations. Updates the system differential variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_af3adf7b092a87868917ee5fb4255192b}{exact\+\_\+solution}} (const double \&x, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y)
+\begin{DoxyCompactList}\small\item\em Exact solution of the problem. Used for solution comparison. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__ode_ga827bf009831ddc477c5fa8891d5cb35f}{semi\+\_\+implicit\+\_\+euler\+\_\+step}} (const double dx, const double \&x, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}dy)
+\begin{DoxyCompactList}\small\item\em Compute next step approximation using the semi-\/implicit-\/\+Euler method. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__ode_ga3874d294ab00fe9ce8731c5b7991a089}{semi\+\_\+implicit\+\_\+euler}} (double dx, double x0, double x\+\_\+max, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, bool save\+\_\+to\+\_\+file=false)
+\begin{DoxyCompactList}\small\item\em Compute approximation using the semi-\/implicit-\/\+Euler method in the given limits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_aa13517b8e5de1b75592052db7f7e237f}{save\+\_\+exact\+\_\+solution}} (const double \&X0, const double \&X\+\_\+\+MAX, const double \&step\+\_\+size, const std\+::valarray$<$ double $>$ \&Y0)
+\item 
+int \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solve a multivariable first order \href{https://en.wikipedia.org/wiki/Ordinary_differential_equation}{\texttt{ ordinary differential equation (ODEs)}} using \href{https://en.wikipedia.org/wiki/Semi-implicit_Euler_method}{\texttt{ semi implicit Euler method}} 
+
+\begin{DoxyAuthor}{Authors}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+The ODE being solved is\+:      \begin{eqnarray*}
+   \dot{u} &=& v\\
+   \dot{v} &=& -\omega^2 u\\
+   \omega &=& 1\\
+   [x_0, u_0, v_0] &=& [0,1,0]\qquad\ldots\text{(initial values)}
+   \end{eqnarray*} The exact solution for the above problem is\+:    \begin{eqnarray*}
+   u(x) &=& \cos(x)\\
+   v(x) &=& -\sin(x)\\
+   \end{eqnarray*} The computation results are stored to a text file {\ttfamily semi\+\_\+implicit\+\_\+euler.\+csv} and the exact soltuion results in {\ttfamily exact.\+csv} for comparison. 
+
+To implement \href{https://en.wikipedia.org/wiki/Van_der_Pol_oscillator}{\texttt{ Van der Pol oscillator}}, change the \doxylink{ode__semi__implicit__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem} function to\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ mu\ =\ 2.0;}
+\DoxyCodeLine{dy[0]\ =\ y[1];}
+\DoxyCodeLine{dy[1]\ =\ mu\ *\ (1.f\ -\/\ y[0]\ *\ y[0])\ *\ y[1]\ -\/\ y[0];}
+
+\end{DoxyCode}
+ \begin{DoxySeeAlso}{See also}
+\doxylink{ode__midpoint__euler_8cpp}{ode\+\_\+midpoint\+\_\+euler.\+cpp}, \doxylink{ode__forward__euler_8cpp}{ode\+\_\+forward\+\_\+euler.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ode__semi__implicit__euler_8cpp_af3adf7b092a87868917ee5fb4255192b}\index{ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}!exact\_solution@{exact\_solution}}
+\index{exact\_solution@{exact\_solution}!ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}}
+\doxysubsubsection{\texorpdfstring{exact\_solution()}{exact\_solution()}}
+{\footnotesize\ttfamily \label{ode__semi__implicit__euler_8cpp_af3adf7b092a87868917ee5fb4255192b} 
+void exact\+\_\+solution (\begin{DoxyParamCaption}\item[{const double \&}]{x}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Exact solution of the problem. Used for solution comparison. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & independent variable \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & dependent variable \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ y[0][0]\ =\ std::cos(x);}
+\DoxyCodeLine{00068\ \ \ \ \ y[0][1]\ =\ -\/std::sin(x);}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ode__semi__implicit__euler_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}!main@{main}}
+\index{main@{main}!ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{ode__semi__implicit__euler_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+Main Function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{double}\ X0\ =\ 0.f;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ initial\ value\ of\ x0\ */}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{double}\ X\_MAX\ =\ 10.F;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ upper\ limit\ of\ integration\ */}}
+\DoxyCodeLine{00192\ \ \ \ \ std::valarray<double>\ Y0\ =\ \{1.f,\ 0.f\};\ \textcolor{comment}{/*\ initial\ value\ Y\ =\ y(x\ =\ x\_0)\ */}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{double}\ step\_size;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ step\ size:\ "{}};}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ std::cin\ >>\ step\_size;}
+\DoxyCodeLine{00198\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ use\ commandline\ argument\ as\ independent\ variable\ step\ size}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ step\_size\ =\ std::atof(argv[1]);}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{comment}{//\ get\ approximate\ solution}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{double}\ total\_time\ =\ \mbox{\hyperlink{group__ode_ga3874d294ab00fe9ce8731c5b7991a089}{semi\_implicit\_euler}}(step\_size,\ X0,\ X\_MAX,\ \&Y0,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00205\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tTime\ =\ "{}}\ <<\ total\_time\ <<\ \textcolor{stringliteral}{"{}\ ms\(\backslash\)n"{}};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{/*\ compute\ exact\ solution\ for\ comparion\ */}}
+\DoxyCodeLine{00208\ \ \ \ \ \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_aa13517b8e5de1b75592052db7f7e237f}{save\_exact\_solution}}(X0,\ X\_MAX,\ step\_size,\ Y0);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00211\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ode__semi__implicit__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}\index{ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}!problem@{problem}}
+\index{problem@{problem}!ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}}
+\doxysubsubsection{\texorpdfstring{problem()}{problem()}}
+{\footnotesize\ttfamily \label{ode__semi__implicit__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe} 
+void problem (\begin{DoxyParamCaption}\item[{const double \&}]{x}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{dy}{}\end{DoxyParamCaption})}
+
+
+
+Problem statement for a system with first-\/order differential equations. Updates the system differential variables. 
+
+\begin{DoxyNote}{Note}
+This function can be updated to and ode of any order.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & independent variable(s) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & dependent variable(s) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em dy} & first-\/derivative of dependent variable(s) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ omega\ =\ 1.F;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ some\ const\ for\ the\ problem}}
+\DoxyCodeLine{00056\ \ \ \ \ dy[0][0]\ =\ y[0][1];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ dot}}
+\DoxyCodeLine{00057\ \ \ \ \ dy[0][1]\ =\ -\/omega\ *\ omega\ *\ y[0][0];\ \ \textcolor{comment}{//\ y\ dot}}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ode__semi__implicit__euler_8cpp_aa13517b8e5de1b75592052db7f7e237f}\index{ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}!save\_exact\_solution@{save\_exact\_solution}}
+\index{save\_exact\_solution@{save\_exact\_solution}!ode\_semi\_implicit\_euler.cpp@{ode\_semi\_implicit\_euler.cpp}}
+\doxysubsubsection{\texorpdfstring{save\_exact\_solution()}{save\_exact\_solution()}}
+{\footnotesize\ttfamily \label{ode__semi__implicit__euler_8cpp_aa13517b8e5de1b75592052db7f7e237f} 
+void save\+\_\+exact\+\_\+solution (\begin{DoxyParamCaption}\item[{const double \&}]{X0}{, }\item[{const double \&}]{X\+\_\+\+MAX}{, }\item[{const double \&}]{step\+\_\+size}{, }\item[{const std\+::valarray$<$ double $>$ \&}]{Y0}{}\end{DoxyParamCaption})}
+
+Function to compute and save exact solution for comparison
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em X0} & initial value of independent variable \\
+\hline
+\mbox{\texttt{ in}}  & {\em X\+\_\+\+MAX} & final value of independent variable \\
+\hline
+\mbox{\texttt{ in}}  & {\em step\+\_\+size} & independent variable step size \\
+\hline
+\mbox{\texttt{ in}}  & {\em Y0} & initial values of dependent variables \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ X0;}
+\DoxyCodeLine{00157\ \ \ \ \ std::valarray<double>\ y\ =\ Y0;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::ofstream\ fp(\textcolor{stringliteral}{"{}exact.csv"{}},\ std::ostream::out);}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{if}\ (!fp.is\_open())\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::perror(\textcolor{stringliteral}{"{}Error!\ "{}});}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00163\ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Finding\ exact\ solution\(\backslash\)n"{}};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ std::clock\_t\ t1\ =\ std::clock();}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ fp\ <<\ x\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ y.size()\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ y[i]\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ fp\ <<\ y[y.size()\ -\/\ 1]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_af3adf7b092a87868917ee5fb4255192b}{exact\_solution}}(x,\ \&y);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ x\ +=\ step\_size;}
+\DoxyCodeLine{00177\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ <=\ X\_MAX);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ std::clock\_t\ t2\ =\ std::clock();}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{double}\ total\_time\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(t2\ -\/\ t1)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00181\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tTime\ =\ "{}}\ <<\ total\_time\ <<\ \textcolor{stringliteral}{"{}\ ms\(\backslash\)n"{}};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ fp.close();}
+\DoxyCodeLine{00184\ \}}
+
+\end{DoxyCode}

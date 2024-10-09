@@ -1,0 +1,235 @@
+\doxysection{Trie Class Reference}
+\hypertarget{class_trie}{}\label{class_trie}\index{Trie@{Trie}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie}} ()
+\begin{DoxyCompactList}\small\item\em constructor to initialise the root of the trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_trie_afd8b79959009b554e98ea7128b2886f2}{insert}} (const std\+::string \&word)
+\item 
+bool \mbox{\hyperlink{class_trie_a411e77126930a0942dd7b65e96b15206}{search}} (const std\+::string \&word)
+\item 
+void \mbox{\hyperlink{class_trie_a734a08b52b8ad73bdd1f36ae8348056e}{remove\+Word}} (const std\+::string \&word)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}} $>$ \mbox{\hyperlink{class_trie_a26941759ecf94d67a27d4a610bc0f63d}{remove\+Word\+Helper}} (const std\+::string \&word, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}} $>$ curr, size\+\_\+t index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_trie_a6d10eb1669453395d1900ebd401954fb}{has\+Children}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}} $>$ \mbox{\hyperlink{structnode}{node}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_trie_a58b359fad33ca0064bd75a0d41a7b66d}\label{class_trie_a58b359fad33ca0064bd75a0d41a7b66d} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}} $>$ {\bfseries m\+\_\+root}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_trie_a7c3ba4caf24378826a789848629177bd}\label{class_trie_a7c3ba4caf24378826a789848629177bd} 
+static constexpr size\+\_\+t {\bfseries ALPHABETS} = 26
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A basic implementation of trie class to store only lower-\/case strings. You can extend the implementation to all the ASCII characters by changing the value of @ ALPHABETS to 128. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908}\index{Trie@{Trie}!Trie@{Trie}}
+\index{Trie@{Trie}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{Trie()}{Trie()}}
+{\footnotesize\ttfamily \label{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908} 
+Trie\+::\+Trie (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor to initialise the root of the trie. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ :\ m\_root(std::make\_shared<TrieNode>())\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_trie_a6d10eb1669453395d1900ebd401954fb}\index{Trie@{Trie}!hasChildren@{hasChildren}}
+\index{hasChildren@{hasChildren}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{hasChildren()}{hasChildren()}}
+{\footnotesize\ttfamily \label{class_trie_a6d10eb1669453395d1900ebd401954fb} 
+static bool Trie\+::has\+Children (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}} $>$}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Function to check if a node has some children which can form words. 
+\begin{DoxyParams}{Parameters}
+{\em node} & whose character array of pointers need to be checked for children. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if a child is found 
+
+{\ttfamily false} if a child is not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ ALPHABETS;\ i++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>character[i])\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_trie_afd8b79959009b554e98ea7128b2886f2}\index{Trie@{Trie}!insert@{insert}}
+\index{insert@{insert}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{class_trie_afd8b79959009b554e98ea7128b2886f2} 
+void Trie\+::insert (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Insert a word into the trie. 
+\begin{DoxyParams}{Parameters}
+{\em word} & which needs to be inserted into the string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ curr\ =\ m\_root;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ :\ word)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ ch\ -\/\ \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ a\ node\ for\ current\ word\ is\ not\ already\ present\ in\ trie,\ create}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ new\ node\ for\ it.}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!curr-\/>character[index])\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>character[index]\ =\ std::make\_shared<TrieNode>();}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>character[index];}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ curr-\/>isEndOfWord\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_trie_a734a08b52b8ad73bdd1f36ae8348056e}\index{Trie@{Trie}!removeWord@{removeWord}}
+\index{removeWord@{removeWord}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{removeWord()}{removeWord()}}
+{\footnotesize\ttfamily \label{class_trie_a734a08b52b8ad73bdd1f36ae8348056e} 
+void Trie\+::remove\+Word (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ m\_root\ =\ \mbox{\hyperlink{class_trie_a26941759ecf94d67a27d4a610bc0f63d}{removeWordHelper}}(word,\ m\_root,\ 0);}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_trie_a26941759ecf94d67a27d4a610bc0f63d}\index{Trie@{Trie}!removeWordHelper@{removeWordHelper}}
+\index{removeWordHelper@{removeWordHelper}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{removeWordHelper()}{removeWordHelper()}}
+{\footnotesize\ttfamily \label{class_trie_a26941759ecf94d67a27d4a610bc0f63d} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}} $>$ Trie\+::remove\+Word\+Helper (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_trie_1_1_trie_node}{Trie\+Node}} $>$}]{curr}{, }\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+A recursive helper function to remove a word from the trie. First, it recursively traverses to the location of last character of word in the trie. However, if the word is not found, the function returns a runtime error. Upon successfully reaching the last character of word in trie, if sets the is\+End\+Of\+Word to false and deletes the node if and only if it has no children, else it returns the current node. 
+\begin{DoxyParams}{Parameters}
+{\em word} & is the string which needs to be removed from trie. \\
+\hline
+{\em curr} & is the current node we are at. \\
+\hline
+{\em index} & is the index of the @word we are at. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if current node has childern, it returns @ curr, else it returns nullptr. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em a} & runtime error in case @ word is not found in the trie. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (word.size()\ ==\ index)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>isEndOfWord)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>isEndOfWord\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_trie_a6d10eb1669453395d1900ebd401954fb}{hasChildren}}(curr))\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curr;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ idx\ =\ word[index]\ -\/\ \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Throw\ a\ runtime\ error\ in\ case\ the\ user\ enters\ a\ word\ which\ is\ not}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ present\ in\ the\ trie.}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!curr-\/>character[idx])\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::move(std::string(\textcolor{stringliteral}{"{}Word\ not\ found."{}})));}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ curr-\/>character[idx]\ =}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_trie_a26941759ecf94d67a27d4a610bc0f63d}{removeWordHelper}}(word,\ curr-\/>character[idx],\ index\ +\ 1);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ if\ condition\ checks\ if\ the\ node\ has\ some\ childern.}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ 1st\ if\ check,\ i.e.\ (curr-\/>character[idx])\ is\ checked\ specifically}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ because\ if\ the\ older\ string\ is\ a\ prefix\ of\ some\ other\ string,\ then,}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there\ would\ be\ no\ need\ to\ check\ all\ 26\ characters.\ Example-\/\ str1\ =}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ abbey,\ str2\ =\ abbex\ and\ we\ want\ to\ delete\ string\ "{}abbey"{},\ then\ in}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ case,\ there\ would\ be\ no\ need\ to\ check\ all\ characters\ for\ the}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ chars\ a,b,b.}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>character[idx]\ ||\ \mbox{\hyperlink{class_trie_a6d10eb1669453395d1900ebd401954fb}{hasChildren}}(curr))\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curr;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_trie_a411e77126930a0942dd7b65e96b15206}\index{Trie@{Trie}!search@{search}}
+\index{search@{search}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily \label{class_trie_a411e77126930a0942dd7b65e96b15206} 
+bool Trie\+::search (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Search if a word is present in trie or not. 
+\begin{DoxyParams}{Parameters}
+{\em word} & which is needed to be searched in the trie. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the word is found in trie and is\+End\+Of\+Word is set to true. 
+
+False if word is not found in trie or is\+End\+Of\+Word is set to false. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ curr\ =\ m\_root;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ :\ word)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ ch\ -\/\ \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ any\ node\ for\ a\ character\ is\ not\ found,\ then\ return\ that\ the}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ word\ cannot\ be\ formed.}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!curr-\/>character[index])\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>character[index];}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curr-\/>isEndOfWord;}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{trie__modern_8cpp}{trie\+\_\+modern.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,208 @@
+\doxysection{ciphers/hill\+\_\+cipher.cpp File Reference}
+\hypertarget{hill__cipher_8cpp}{}\label{hill__cipher_8cpp}\index{ciphers/hill\_cipher.cpp@{ciphers/hill\_cipher.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Hill_cipher}{\texttt{ Hill cipher}} algorithm.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}../numerical\+\_\+methods/lu\+\_\+decomposition.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classciphers_1_1_hill_cipher}{ciphers\+::\+Hill\+Cipher}}
+\begin{DoxyCompactList}\small\item\em Implementation of \href{https://en.wikipedia.org/wiki/Hill_cipher}{\texttt{ Hill Cipher}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceciphers}{ciphers}}
+\begin{DoxyCompactList}\small\item\em Algorithms for encryption and decryption. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\static std\+::ostream \& \mbox{\hyperlink{hill__cipher_8cpp_a34bfcd756610834acac501f9eea1e2eb}{operator$<$$<$}} (std\+::ostream \&out, \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ const \&v)
+\item 
+void \mbox{\hyperlink{hill__cipher_8cpp_a3147ad576f8a94a2a6b66948672b452b}{test1}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Self test 1 -\/ using 3x3 randomly generated key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hill__cipher_8cpp_a04391124480d2a49f2dec900237b0712}{test2}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Self test 2 -\/ using 8x8 randomly generated key. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hill__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{ciphers\+::\+STRKEY}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Hill_cipher}{\texttt{ Hill cipher}} algorithm. 
+
+Program to generate the encryption-\/decryption key and perform encryption and decryption of ASCII text using the famous block cipher algorithm. This is a powerful encryption algorithm that is relatively easy to implement with a given key. The strength of the algorithm depends on the size of the block encryption matrix key; the bigger the matrix, the stronger the encryption and more difficult to break it. However, the important requirement for the matrix is that\+:
+\begin{DoxyEnumerate}
+\item matrix should be invertible -\/ all inversion conditions should be satisfied and
+\item its determinant must not have any common factors with the length of character set Due to this restriction, most implementations only implement with small 3x3 encryption keys and a small subset of ASCII alphabets.
+\end{DoxyEnumerate}
+
+In the current implementation, I present to you an implementation for generating larger encryption keys (I have attempted upto 10x10) and an ASCII character set of 97 printable characters. Hence, a typical ASCII text file could be easily encrypted with the module. The larger character set increases the modulo of cipher and hence the matrix determinants can get very large very quickly rendering them ill-\/defined.
+
+\begin{DoxyNote}{Note}
+This program uses determinant computation using LU decomposition from the file \doxylink{lu__decomposition_8h}{lu\+\_\+decomposition.\+h} 
+
+The matrix generation algorithm is very rudimentary and does not guarantee an invertible modulus matrix. 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Better matrix generation algorithm.\end{DoxyRefDesc}
+
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hill__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{hill\_cipher.cpp@{hill\_cipher.cpp}!main@{main}}
+\index{main@{main}!hill\_cipher.cpp@{hill\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{hill__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00533\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00534\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Key\ dictionary:\ ("{}}\ <<\ std::strlen(\mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{ciphers::STRKEY}})\ <<\ \textcolor{stringliteral}{"{})\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{ciphers::STRKEY}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \ \ \ \ std::string\ text\ =\ \textcolor{stringliteral}{"{}This\ is\ a\ simple\ text\ with\ numb3r5\ and\ exclamat!0n."{}};}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_ae7880ce913f3058a35ff106d5be9e243}{test1}}(text);}
+\DoxyCodeLine{00540\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}{test2}}(text);}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00543\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hill__cipher_8cpp_a34bfcd756610834acac501f9eea1e2eb}\index{hill\_cipher.cpp@{hill\_cipher.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!hill\_cipher.cpp@{hill\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{hill__cipher_8cpp_a34bfcd756610834acac501f9eea1e2eb} 
+template$<$typename T $>$ \\
+static std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ const \&}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+operator to print a matrix 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 15;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ v[row].size();\ col++)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::left\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row][col];}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ out\ <<\ std::endl;}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hill__cipher_8cpp_a3147ad576f8a94a2a6b66948672b452b}\index{hill\_cipher.cpp@{hill\_cipher.cpp}!test1@{test1}}
+\index{test1@{test1}!hill\_cipher.cpp@{hill\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{hill__cipher_8cpp_a3147ad576f8a94a2a6b66948672b452b} 
+void test1 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+
+
+Self test 1 -\/ using 3x3 randomly generated key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & string to encrypt and decrypt \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{comment}{//\ std::string\ text\ =\ "{}Hello\ world!"{};}}
+\DoxyCodeLine{00472\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}======Test\ 1\ (3x3\ key)\ ======\(\backslash\)nOriginal\ text:\(\backslash\)n\(\backslash\)t"{}}\ <<\ text}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ \ \ std::pair<matrix<int>,\ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}>\ p\ =}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a405b0a28d66a61239d3565d5256f9cb5}{ciphers::HillCipher::generate\_keys}}(3,\ 0,\ 100);}
+\DoxyCodeLine{00477\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ ekey\ =\ p.first;}
+\DoxyCodeLine{00478\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ dkey\ =\ p.second;}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{comment}{//\ matrix<int>\ ekey\ =\ \{\{22,\ 28,\ 25\},\ \{5,\ 26,\ 15\},\ \{14,\ 18,\ 9\}\};}}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Encryption\ key:\ \(\backslash\)n"{}\ <<\ ekey;}}
+\DoxyCodeLine{00482\ \ \ \ \ std::string\ gibberish\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_aa8bbb6e4a5749f6008b06602d5103917}{ciphers::HillCipher::encrypt\_text}}(text,\ ekey);}
+\DoxyCodeLine{00483\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Encrypted\ text:\(\backslash\)n\(\backslash\)t"{}}\ <<\ gibberish\ <<\ std::endl;}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{comment}{//\ matrix<int>\ dkey\ =\ ciphers::HillCipher::generate\_decryption\_key(ekey);}}
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Decryption\ key:\ \(\backslash\)n"{}\ <<\ dkey;}}
+\DoxyCodeLine{00487\ \ \ \ \ std::string\ txt\_back\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a427acfac1dbff3f48a2b071d449d965b}{ciphers::HillCipher::decrypt\_text}}(gibberish,\ dkey);}
+\DoxyCodeLine{00488\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Reconstruct\ text:\(\backslash\)n\(\backslash\)t"{}}\ <<\ txt\_back\ <<\ std::endl;}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \ \ \ \ std::ofstream\ out\_file(\textcolor{stringliteral}{"{}hill\_cipher\_test1.txt"{}});}
+\DoxyCodeLine{00491\ \ \ \ \ out\_file\ <<\ \textcolor{stringliteral}{"{}Block\ size:\ "{}}\ <<\ ekey.size()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00492\ \ \ \ \ out\_file\ <<\ \textcolor{stringliteral}{"{}Encryption\ Key:\(\backslash\)n"{}}\ <<\ ekey;}
+\DoxyCodeLine{00493\ \ \ \ \ out\_file\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nDecryption\ Key:\(\backslash\)n"{}}\ <<\ dkey;}
+\DoxyCodeLine{00494\ \ \ \ \ out\_file.close();}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ assert(txt\_back\ ==\ text);}
+\DoxyCodeLine{00497\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ :)\(\backslash\)n"{}};}
+\DoxyCodeLine{00498\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hill__cipher_8cpp_a04391124480d2a49f2dec900237b0712}\index{hill\_cipher.cpp@{hill\_cipher.cpp}!test2@{test2}}
+\index{test2@{test2}!hill\_cipher.cpp@{hill\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{hill__cipher_8cpp_a04391124480d2a49f2dec900237b0712} 
+void test2 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+
+
+Self test 2 -\/ using 8x8 randomly generated key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & string to encrypt and decrypt \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00506\ \ \ \ \ \textcolor{comment}{//\ std::string\ text\ =\ "{}Hello\ world!"{};}}
+\DoxyCodeLine{00507\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}======Test\ 2\ (8x8\ key)\ ======\(\backslash\)nOriginal\ text:\(\backslash\)n\(\backslash\)t"{}}\ <<\ text}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ std::pair<matrix<int>,\ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}>\ p\ =}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a405b0a28d66a61239d3565d5256f9cb5}{ciphers::HillCipher::generate\_keys}}(8,\ 0,\ 3);}
+\DoxyCodeLine{00512\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ ekey\ =\ p.first;}
+\DoxyCodeLine{00513\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ dkey\ =\ p.second;}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \ \ std::string\ gibberish\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_aa8bbb6e4a5749f6008b06602d5103917}{ciphers::HillCipher::encrypt\_text}}(text,\ ekey);}
+\DoxyCodeLine{00516\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Encrypted\ text:\(\backslash\)n\(\backslash\)t"{}}\ <<\ gibberish\ <<\ std::endl;}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \ \ \ \ std::string\ txt\_back\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a427acfac1dbff3f48a2b071d449d965b}{ciphers::HillCipher::decrypt\_text}}(gibberish,\ dkey);}
+\DoxyCodeLine{00519\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Reconstruct\ text:\(\backslash\)n\(\backslash\)t"{}}\ <<\ txt\_back\ <<\ std::endl;}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ std::ofstream\ out\_file(\textcolor{stringliteral}{"{}hill\_cipher\_test2.txt"{}});}
+\DoxyCodeLine{00522\ \ \ \ \ out\_file\ <<\ \textcolor{stringliteral}{"{}Block\ size:\ "{}}\ <<\ ekey.size()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00523\ \ \ \ \ out\_file\ <<\ \textcolor{stringliteral}{"{}Encryption\ Key:\(\backslash\)n"{}}\ <<\ ekey;}
+\DoxyCodeLine{00524\ \ \ \ \ out\_file\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nDecryption\ Key:\(\backslash\)n"{}}\ <<\ dkey;}
+\DoxyCodeLine{00525\ \ \ \ \ out\_file.close();}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \ \ \ \ assert(txt\_back.compare(0,\ text.size(),\ text)\ ==\ 0);}
+\DoxyCodeLine{00528\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ :)\(\backslash\)n"{}};}
+\DoxyCodeLine{00529\ \}}
+
+\end{DoxyCode}

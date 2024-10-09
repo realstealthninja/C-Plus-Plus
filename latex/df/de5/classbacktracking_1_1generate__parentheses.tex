@@ -1,0 +1,104 @@
+\doxysection{backtracking\+::generate\+\_\+parentheses Class Reference}
+\hypertarget{classbacktracking_1_1generate__parentheses}{}\label{classbacktracking_1_1generate__parentheses}\index{backtracking::generate\_parentheses@{backtracking::generate\_parentheses}}
+
+
+\doxylink{classbacktracking_1_1generate__parentheses}{generate\+\_\+parentheses} class  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_af39c03d80ce0ba9fbf659b420980d160}{generate}} (int n)
+\begin{DoxyCompactList}\small\item\em wrapper interface \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_ac1489edd65374f22fe04851051f0a2ec}{make\+Strings}} (std\+::string str, int n, int closed, int open)
+\begin{DoxyCompactList}\small\item\em function that adds parenthesis to the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classbacktracking_1_1generate__parentheses_ab35b9b6d2886abed3d6fb05c2be1c508}\label{classbacktracking_1_1generate__parentheses_ab35b9b6d2886abed3d6fb05c2be1c508} 
+std\+::vector$<$ std\+::string $>$ {\bfseries res}
+\begin{DoxyCompactList}\small\item\em Contains all possible valid patterns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classbacktracking_1_1generate__parentheses}{generate\+\_\+parentheses} class 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classbacktracking_1_1generate__parentheses_af39c03d80ce0ba9fbf659b420980d160}\index{backtracking::generate\_parentheses@{backtracking::generate\_parentheses}!generate@{generate}}
+\index{generate@{generate}!backtracking::generate\_parentheses@{backtracking::generate\_parentheses}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \label{classbacktracking_1_1generate__parentheses_af39c03d80ce0ba9fbf659b420980d160} 
+std\+::vector$<$ std\+::string $>$ backtracking\+::generate\+\_\+parentheses\+::generate (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+wrapper interface 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of pairs of parentheses \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+all well-\/formed pattern of parentheses 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_ab35b9b6d2886abed3d6fb05c2be1c508}{backtracking::generate\_parentheses::res}}.clear();}
+\DoxyCodeLine{00072\ \ \ \ \ std::string\ str\ =\ \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_ac1489edd65374f22fe04851051f0a2ec}{generate\_parentheses::makeStrings}}(str,\ n,\ 0,\ 1);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_ab35b9b6d2886abed3d6fb05c2be1c508}{res}};}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbacktracking_1_1generate__parentheses_ac1489edd65374f22fe04851051f0a2ec}\index{backtracking::generate\_parentheses@{backtracking::generate\_parentheses}!makeStrings@{makeStrings}}
+\index{makeStrings@{makeStrings}!backtracking::generate\_parentheses@{backtracking::generate\_parentheses}}
+\doxysubsubsection{\texorpdfstring{makeStrings()}{makeStrings()}}
+{\footnotesize\ttfamily \label{classbacktracking_1_1generate__parentheses_ac1489edd65374f22fe04851051f0a2ec} 
+void backtracking\+::generate\+\_\+parentheses\+::make\+Strings (\begin{DoxyParamCaption}\item[{std\+::string}]{str}{, }\item[{int}]{n}{, }\item[{int}]{closed}{, }\item[{int}]{open}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+function that adds parenthesis to the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & string build during backtracking \\
+\hline
+{\em n} & number of pairs of parentheses \\
+\hline
+{\em closed} & number of closed parentheses \\
+\hline
+{\em open} & number of open parentheses \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (closed\ >\ open)\ \ \textcolor{comment}{//\ We\ can\ never\ have\ more\ closed\ than\ open}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ ((str.length()\ ==\ 2\ *\ n)\ \&\&}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ (closed\ !=\ open))\ \{\ \ \textcolor{comment}{//\ closed\ and\ open\ must\ be\ the\ same}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (str.length()\ ==\ 2\ *\ n)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_ab35b9b6d2886abed3d6fb05c2be1c508}{res}}.push\_back(str);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_ac1489edd65374f22fe04851051f0a2ec}{makeStrings}}(str\ +\ \textcolor{charliteral}{')'},\ n,\ closed\ +\ 1,\ open);}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classbacktracking_1_1generate__parentheses_ac1489edd65374f22fe04851051f0a2ec}{makeStrings}}(str\ +\ \textcolor{charliteral}{'('},\ n,\ closed,\ open\ +\ 1);}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+backtracking/\mbox{\hyperlink{generate__parentheses_8cpp}{generate\+\_\+parentheses.\+cpp}}\end{DoxyCompactItemize}

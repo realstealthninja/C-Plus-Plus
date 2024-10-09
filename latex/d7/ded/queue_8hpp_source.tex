@@ -1,0 +1,110 @@
+\doxysection{queue.\+hpp}
+\hypertarget{queue_8hpp_source}{}\label{queue_8hpp_source}\index{data\_structures/queue.hpp@{data\_structures/queue.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ This\ class\ specifies\ the\ basic\ operation\ on\ a\ queue\ as\ a\ linked\ list\ */}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ DATA\_STRUCTURES\_QUEUE\_HPP\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ DATA\_STRUCTURES\_QUEUE\_HPP\_}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{node_8hpp}{node.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/**\ Definition\ of\ the\ queue\ class\ */}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classqueue}{queue}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_node}{node\_type}}\ =\ \mbox{\hyperlink{struct_node}{Node<ValueType>}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{using\ }value\_type\ =\ ValueType;\textcolor{comment}{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ prints\ the\ queue\ into\ the\ std::cout}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classqueue_a353e4dd5772575905c78b0b30856e368}{display}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Front\ -\/-\/>\ "{}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ display\_all(this-\/>\mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}.get());}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Size\ of\ queue:\ "{}}\ <<\ size\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \textcolor{comment}{}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ converts\ the\ queue\ into\ the\ std::vector}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ *\ @return\ std::vector\ containning\ all\ of\ the\ elements\ of\ the\ queue\ in\ the}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ *\ same\ order}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<value\_type>\ \mbox{\hyperlink{classqueue_a386fc1df8610948d3117b12f24655c7d}{toVector}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ push\_all\_to\_vector(this-\/>\mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}.get(),\ this-\/>size);}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \textcolor{keyword}{private}:\textcolor{comment}{}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ throws\ an\ exception\ if\ queue\ is\ empty}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ \ *\ @exception\ std::invalid\_argument\ if\ queue\ is\ empty}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604}{ensureNotEmpty}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec}{isEmptyQueue}}())\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Queue\ is\ empty."{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ checks\ if\ the\ queue\ has\ no\ elements}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ *\ @return\ true\ if\ the\ queue\ is\ empty,\ false\ otherwise}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec}{isEmptyQueue}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ ==\ \textcolor{keyword}{nullptr});\ \}}
+\DoxyCodeLine{00050\ \textcolor{comment}{}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ inserts\ a\ new\ item\ into\ the\ queue}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classqueue_ada88d0c1f34946d66386b7a11bee4e4d}{enQueue}}(\textcolor{keyword}{const}\ value\_type\&\ item)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newNode\ =\ std::make\_shared<node\_type>();}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ newNode-\/>data\ =\ item;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ newNode-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec}{isEmptyQueue}}())\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ =\ newNode;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}\ =\ newNode;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}-\/>next\ =\ newNode;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}\ =\ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}-\/>next;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ++size;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \textcolor{comment}{}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ \ *\ @return\ the\ first\ element\ of\ the\ queue}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ \ *\ @exception\ std::invalid\_argument\ if\ queue\ is\ empty}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00072\ \ \ \ \ value\_type\ \mbox{\hyperlink{classqueue_a75e231798bc706b8b0773a07f78713e7}{front}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604}{ensureNotEmpty}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}-\/>data;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \textcolor{comment}{}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ removes\ the\ first\ element\ from\ the\ queue}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \ *\ @exception\ std::invalid\_argument\ if\ queue\ is\ empty}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classqueue_af27dbb72fb63f58f817a88550d7faa85}{deQueue}}()\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604}{ensureNotEmpty}}();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ =\ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}-\/>next;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ -\/-\/size;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \textcolor{comment}{}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ removes\ all\ elements\ from\ the\ queue}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classqueue_a6ed7f8dfefe8687841f36f2223069375}{clear}}()\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ size\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00097\ \ \ \ \ std::shared\_ptr<node\_type>\ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ =}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{\};\ \textcolor{comment}{/**<\ Pointer\ to\ the\ front\ of\ the\ queue\ */}}
+\DoxyCodeLine{00099\ \ \ \ \ std::shared\_ptr<node\_type>\ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}\ =}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \{\};\ \textcolor{comment}{/**<\ Pointer\ to\ the\ rear\ of\ the\ queue\ \ */}}
+\DoxyCodeLine{00101\ \ \ \ \ std::size\_t\ size\ =\ 0;}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DATA\_STRUCTURES\_QUEUE\_HPP\_}}
+
+\end{DoxyCode}

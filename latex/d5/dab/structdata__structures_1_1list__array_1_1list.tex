@@ -1,0 +1,327 @@
+\doxysection{data\+\_\+structures\+::list\+\_\+array\+::list\texorpdfstring{$<$}{<} N \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structdata__structures_1_1list__array_1_1list}{}\label{structdata__structures_1_1list__array_1_1list}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+
+
+Structure of List with supporting methods.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a412bdb3910181f3c384d86aee7e217cf}{Binary\+Search}} (const std\+::array$<$ uint64\+\_\+t, N $>$ \&data\+Arr, const uint64\+\_\+t \&first, const uint64\+\_\+t \&last, const uint64\+\_\+t \&val)
+\begin{DoxyCompactList}\small\item\em Search an element in the list using binary\+Search. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_ad202ae68fe8d98082afa9dafea9e22b9}{Linear\+Search}} (const std\+::array$<$ uint64\+\_\+t, N $>$ \&data\+Arr, const uint64\+\_\+t \&val) const
+\begin{DoxyCompactList}\small\item\em Search an element using linear search. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a0b5d794b245ba8e126220171cc8ef7fb}{search}} (const uint64\+\_\+t \&val)
+\item 
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a133635ad53bd89e3947ca02448819180}{sort}} ()
+\begin{DoxyCompactList}\small\item\em Sort the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}} (const uint64\+\_\+t \&val)
+\begin{DoxyCompactList}\small\item\em Insert the new element in the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a98f7d9079c0868e0f4e67d5c52174fb6}{remove}} (const uint64\+\_\+t \&val)
+\begin{DoxyCompactList}\small\item\em To remove the element from the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a0b7acf65026df1e9dd13eebf309dda5e}{show}} ()
+\begin{DoxyCompactList}\small\item\em Utility function to print array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ uint64\+\_\+t, N $>$ \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a0c9737eb5b4938531d3633b4915e9e00}{data}} \{\}
+\item 
+\Hypertarget{structdata__structures_1_1list__array_1_1list_ad6835623d5397d0c22e68bf0cdd7c3dc}\label{structdata__structures_1_1list__array_1_1list_ad6835623d5397d0c22e68bf0cdd7c3dc} 
+uint64\+\_\+t {\bfseries top} = 0
+\item 
+\Hypertarget{structdata__structures_1_1list__array_1_1list_a02fb664c4f6f50459e103a1433f8a3d1}\label{structdata__structures_1_1list__array_1_1list_a02fb664c4f6f50459e103a1433f8a3d1} 
+bool {\bfseries is\+Sorted} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$uint64\+\_\+t N$>$\newline
+struct data\+\_\+structures\+::list\+\_\+array\+::list$<$ N $>$}
+Structure of List with supporting methods. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_a412bdb3910181f3c384d86aee7e217cf}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!BinarySearch@{BinarySearch}}
+\index{BinarySearch@{BinarySearch}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{BinarySearch()}{BinarySearch()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_a412bdb3910181f3c384d86aee7e217cf} 
+template$<$uint64\+\_\+t N$>$ \\
+uint64\+\_\+t \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::\+Binary\+Search (\begin{DoxyParamCaption}\item[{const std\+::array$<$ uint64\+\_\+t, N $>$ \&}]{data\+Arr}{, }\item[{const uint64\+\_\+t \&}]{first}{, }\item[{const uint64\+\_\+t \&}]{last}{, }\item[{const uint64\+\_\+t \&}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Search an element in the list using binary\+Search. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Arr} & list \\
+\hline
+{\em first} & pointer to the first element in the remaining list \\
+\hline
+{\em last} & pointer to the last element in the remaining list \\
+\hline
+{\em val} & element that will be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of element in the list if present else -\/1 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ both\ pointer\ cross\ each\ other\ means\ no\ element\ present\ in\ the\ list\ which\ is\ equal\ to\ the\ val}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (last\ <\ first)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ mid\ =\ (first\ +\ last)\ /\ 2;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ whether\ current\ mid\ pointer\ value\ is\ equal\ to\ element\ or\ not}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dataArr[mid]\ ==\ val)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mid;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ current\ mid\ value\ is\ greater\ than\ \ element\ we\ have\ to\ search\ in\ first\ half}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (val\ <\ dataArr[mid])}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a412bdb3910181f3c384d86aee7e217cf}{BinarySearch}}(dataArr,\ first,\ mid\ -\/\ 1,\ val));}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ current\ mid\ value\ is\ greater\ than\ \ element\ we\ have\ to\ search\ in\ second\ half}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (val\ >\ dataArr[mid])}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a412bdb3910181f3c384d86aee7e217cf}{BinarySearch}}(dataArr,\ mid\ +\ 1,\ last,\ val));}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ \_\_LINE\_\_\ <<\ \textcolor{stringliteral}{"{}:\ Undefined\ condition\(\backslash\)n"{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!insert@{insert}}
+\index{insert@{insert}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1} 
+template$<$uint64\+\_\+t N$>$ \\
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::insert (\begin{DoxyParamCaption}\item[{const uint64\+\_\+t \&}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert the new element in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & element that will be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ overflow\ check}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (top\ ==\ N)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nOverflow"{}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ list\ is\ not\ sorted,\ insert\ at\ the\ last}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ otherwise\ place\ it\ to\ correct\ position}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isSorted)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[top]\ =\ val;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ top++;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ pos\ =\ 0;\ \textcolor{comment}{//\ Initialize\ the\ index\ variable}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Going\ through\ each\ element\ and\ find\ correct\ position\ for\ element}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ top\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ for\ the\ correct\ position}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data[i]\ <=\ val\ \&\&\ val\ <=\ data[i\ +\ 1])\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ i\ +\ 1;\ \textcolor{comment}{//\ assign\ correct\ pos\ to\ the\ index\ var}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ to\ get\ out\ from\ the\ loop}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ all\ elements\ are\ smaller\ than\ the\ element}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ 0)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ top\ -\/\ 1;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ shift\ all\ element\ to\ make\ a\ room\ for\ new\ element}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ top;\ i\ >\ pos;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[i]\ =\ data[i\ -\/\ 1];}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ top++;\ \textcolor{comment}{//\ Increment\ the\ value\ of\ top.}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[pos]\ =\ val;\ \textcolor{comment}{//\ Assign\ the\ value\ to\ the\ correct\ index\ in\ the\ array}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_ad202ae68fe8d98082afa9dafea9e22b9}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!LinearSearch@{LinearSearch}}
+\index{LinearSearch@{LinearSearch}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{LinearSearch()}{LinearSearch()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_ad202ae68fe8d98082afa9dafea9e22b9} 
+template$<$uint64\+\_\+t N$>$ \\
+uint64\+\_\+t \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::\+Linear\+Search (\begin{DoxyParamCaption}\item[{const std\+::array$<$ uint64\+\_\+t, N $>$ \&}]{data\+Arr}{, }\item[{const uint64\+\_\+t \&}]{val}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Search an element using linear search. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Arr} & list \\
+\hline
+{\em val} & element that will be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of element in the list if present else -\/1 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Going\ through\ each\ element\ in\ the\ list}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ top;\ i++)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dataArr[i]\ ==\ val)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;\ \textcolor{comment}{//\ element\ found\ at\ ith\ index}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ element\ is\ not\ present\ in\ the\ list}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_a98f7d9079c0868e0f4e67d5c52174fb6}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!remove@{remove}}
+\index{remove@{remove}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_a98f7d9079c0868e0f4e67d5c52174fb6} 
+template$<$uint64\+\_\+t N$>$ \\
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::remove (\begin{DoxyParamCaption}\item[{const uint64\+\_\+t \&}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+To remove the element from the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & element that will be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ pos\ =\ \mbox{\hyperlink{namespacesearch}{search}}(val);\ \textcolor{comment}{//\ search\ the\ index\ of\ the\ value}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ search\ returns\ -\/1,\ element\ does\ not\ present\ in\ the\ list}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Element\ does\ not\ present\ in\ the\ list\ "{}};}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ <<\ data[pos]\ <<\ \textcolor{stringliteral}{"{}\ deleted"{}};\ \textcolor{comment}{//\ print\ the\ appropriate\ message}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ shift\ all\ the\ element\ 1\ left\ to\ fill\ vacant\ space}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ pos;\ i\ <\ top;\ i++)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[i]\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[i\ +\ 1];}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ top-\/-\/;\ \textcolor{comment}{//\ decrement\ the\ top\ variable\ to\ maintain\ last\ index}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_a0b5d794b245ba8e126220171cc8ef7fb}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!search@{search}}
+\index{search@{search}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_a0b5d794b245ba8e126220171cc8ef7fb} 
+template$<$uint64\+\_\+t N$>$ \\
+uint64\+\_\+t \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::search (\begin{DoxyParamCaption}\item[{const uint64\+\_\+t \&}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ pos;\ \textcolor{comment}{//\ pos\ variable\ to\ store\ index\ value\ of\ element.}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ list\ is\ sorted,\ binary\ search\ works\ efficiently\ else\ linear\ search\ is\ the\ only\ option}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isSorted)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a412bdb3910181f3c384d86aee7e217cf}{BinarySearch}}(data,\ 0,\ top\ -\/\ 1,\ val);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_ad202ae68fe8d98082afa9dafea9e22b9}{LinearSearch}}(data,\ val);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ index\ is\ equal\ to\ -\/1\ means\ element\ does\ not\ present}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ print\ the\ index\ of\ that\ element}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nElement\ found\ at\ position\ :\ "{}}\ <<\ pos;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nElement\ not\ found"{}};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ return\ the\ index\ of\ element\ or\ -\/1.}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pos;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_a0b7acf65026df1e9dd13eebf309dda5e}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!show@{show}}
+\index{show@{show}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_a0b7acf65026df1e9dd13eebf309dda5e} 
+template$<$uint64\+\_\+t N$>$ \\
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::show (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utility function to print array. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Going\ through\ each\ element\ in\ the\ list}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ top;\ i++)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ data[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};\ \textcolor{comment}{//\ print\ the\ element}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_a133635ad53bd89e3947ca02448819180}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!sort@{sort}}
+\index{sort@{sort}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_a133635ad53bd89e3947ca02448819180} 
+template$<$uint64\+\_\+t N$>$ \\
+void \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::sort (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sort the list. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Going\ through\ each\ element\ in\ the\ list}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ top;\ i++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ min\_idx\ =\ i;\ \textcolor{comment}{//\ Initialize\ the\ min\ variable}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ j\ =\ i\ +\ 1;\ j\ <\ top;\ j++)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ whether\ any\ element\ less\ than\ current\ min\ value}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data[j]\ <\ data[min\_idx])\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_idx\ =\ j;\ \textcolor{comment}{//\ update\ index\ accordingly}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ swap\ min\ value\ and\ element\ at\ the\ ith\ index}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(data[min\_idx],\ data[i]);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ mark\ isSorted\ variable\ as\ true}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ isSorted\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdata__structures_1_1list__array_1_1list_a0c9737eb5b4938531d3633b4915e9e00}\index{data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}!data@{data}}
+\index{data@{data}!data\_structures::list\_array::list$<$ N $>$@{data\_structures::list\_array::list$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1list__array_1_1list_a0c9737eb5b4938531d3633b4915e9e00} 
+template$<$uint64\+\_\+t N$>$ \\
+std\+::array$<$uint64\+\_\+t, N$>$ \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list}}$<$ N $>$\+::data \{\}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \{\};\ \textcolor{comment}{//\ Array\ that\ implement\ list}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{list__array_8cpp}{list\+\_\+array.\+cpp}}\end{DoxyCompactItemize}

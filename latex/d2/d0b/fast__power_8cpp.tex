@@ -1,0 +1,127 @@
+\doxysection{math/fast\+\_\+power.cpp File Reference}
+\hypertarget{fast__power_8cpp}{}\label{fast__power_8cpp}\index{math/fast\_power.cpp@{math/fast\_power.cpp}}
+
+
+Faster computation for $a^b$.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445}{fast\+\_\+power\+\_\+recursive}} (T a, T b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{fast__power_8cpp_a0d4e3f0099a6975b74a314a35bd0f94d}{fast\+\_\+power\+\_\+linear}} (T a, T b)
+\item 
+int \mbox{\hyperlink{fast__power_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Faster computation for $a^b$. 
+
+Program that computes $a^b$ in $O(logN)$ time. It is based on formula that\+:
+\begin{DoxyEnumerate}
+\item if $b$ is even\+: $a^b = a^\frac{b}{2} \cdot a^\frac{b}{2} = {a^\frac{b}{2}}^2$
+\item if $b$ is odd\+:  $a^b = a^\frac{b-1}{2}
+ \cdot a^\frac{b-1}{2} \cdot a = {a^\frac{b-1}{2}}^2 \cdot a$
+\end{DoxyEnumerate}
+
+We can compute $a^b$ recursively using above algorithm. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fast__power_8cpp_a0d4e3f0099a6975b74a314a35bd0f94d}\index{fast\_power.cpp@{fast\_power.cpp}!fast\_power\_linear@{fast\_power\_linear}}
+\index{fast\_power\_linear@{fast\_power\_linear}!fast\_power.cpp@{fast\_power.cpp}}
+\doxysubsubsection{\texorpdfstring{fast\_power\_linear()}{fast\_power\_linear()}}
+{\footnotesize\ttfamily \label{fast__power_8cpp_a0d4e3f0099a6975b74a314a35bd0f94d} 
+template$<$typename T $>$ \\
+double fast\+\_\+power\+\_\+linear (\begin{DoxyParamCaption}\item[{T}]{a}{, }\item[{T}]{b}{}\end{DoxyParamCaption})}
+
+Same algorithm with little different formula. It still calculates in $O(\log N)$ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ negative\ power.\ a\string^b\ =\ 1\ /\ (a\string^-\/b)}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ <\ 0)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ \mbox{\hyperlink{fast__power_8cpp_a0d4e3f0099a6975b74a314a35bd0f94d}{fast\_power\_linear}}(a,\ -\/b);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ 1;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{while}\ (b)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ \&\ 1)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ *\ a;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ a\ =\ a\ *\ a;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ b\ =\ b\ >>\ 1;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445}\index{fast\_power.cpp@{fast\_power.cpp}!fast\_power\_recursive@{fast\_power\_recursive}}
+\index{fast\_power\_recursive@{fast\_power\_recursive}!fast\_power.cpp@{fast\_power.cpp}}
+\doxysubsubsection{\texorpdfstring{fast\_power\_recursive()}{fast\_power\_recursive()}}
+{\footnotesize\ttfamily \label{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445} 
+template$<$typename T $>$ \\
+double fast\+\_\+power\+\_\+recursive (\begin{DoxyParamCaption}\item[{T}]{a}{, }\item[{T}]{b}{}\end{DoxyParamCaption})}
+
+algorithm implementation for $a^b$ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ negative\ power.\ a\string^b\ =\ 1\ /\ (a\string^-\/b)}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ <\ 0)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ \mbox{\hyperlink{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445}{fast\_power\_recursive}}(a,\ -\/b);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ ==\ 0)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00033\ \ \ \ \ T\ bottom\ =\ \mbox{\hyperlink{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445}{fast\_power\_recursive}}(a,\ b\ >>\ 1);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Since\ it\ is\ integer\ division\ b/2\ =\ (b-\/1)/2\ where\ b\ is\ odd.}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Therefore,\ case2\ is\ easily\ solved\ by\ integer\ division.}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ ((b\ \&\ 1)\ ==\ 0)\ \ \textcolor{comment}{//\ case1}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ bottom\ *\ bottom;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{else}\ \ \textcolor{comment}{//\ case2}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ bottom\ *\ bottom\ *\ a;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fast__power_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fast\_power.cpp@{fast\_power.cpp}!main@{main}}
+\index{main@{main}!fast\_power.cpp@{fast\_power.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fast__power_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00070\ \ \ \ \ std::ios\_base::sync\_with\_stdio(\textcolor{keyword}{false});}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 20;\ i++)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ std::rand()\ \%\ 20\ -\/\ 10;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ b\ =\ std::rand()\ \%\ 20\ -\/\ 10;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl\ <<\ \textcolor{stringliteral}{"{}Calculating\ "{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}\string^"{}}\ <<\ b\ <<\ std::endl;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445}{fast\_power\_recursive}}(a,\ b)\ ==\ std::pow(a,\ b));}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{fast__power_8cpp_a0d4e3f0099a6975b74a314a35bd0f94d}{fast\_power\_linear}}(a,\ b)\ ==\ std::pow(a,\ b));}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/\ "{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}\string^"{}}\ <<\ b\ <<\ \textcolor{stringliteral}{"{}\ =\ "{}}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445}{fast\_power\_recursive}}(a,\ b)\ <<\ std::endl;}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ int64\_t\ a,\ b;}
+\DoxyCodeLine{00085\ \ \ \ \ std::cin\ >>\ a\ >>\ b;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ std::cout\ <<\ a\ <<\ \textcolor{stringliteral}{"{}\string^"{}}\ <<\ b\ <<\ \textcolor{stringliteral}{"{}\ =\ "{}}\ <<\ \mbox{\hyperlink{fast__power_8cpp_a8399b847626e5bba983cab7c7918b445}{fast\_power\_recursive}}(a,\ b)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ std::cout\ <<\ a\ <<\ \textcolor{stringliteral}{"{}\string^"{}}\ <<\ b\ <<\ \textcolor{stringliteral}{"{}\ =\ "{}}\ <<\ \mbox{\hyperlink{fast__power_8cpp_a0d4e3f0099a6975b74a314a35bd0f94d}{fast\_power\_linear}}(a,\ b)\ <<\ std::endl;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}

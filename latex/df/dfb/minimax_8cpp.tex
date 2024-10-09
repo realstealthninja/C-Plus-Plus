@@ -1,0 +1,63 @@
+\doxysection{backtracking/minimax.cpp File Reference}
+\hypertarget{minimax_8cpp}{}\label{minimax_8cpp}\index{backtracking/minimax.cpp@{backtracking/minimax.cpp}}
+
+
+returns which is the longest/shortest number using \href{https://en.wikipedia.org/wiki/Minimax}{\texttt{ minimax}} algorithm  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t T$>$ }\\int \mbox{\hyperlink{namespacebacktracking_a78540bcb5ef3473b2348cbc34748ec50}{backtracking\+::minimax}} (int depth, int node\+\_\+index, bool is\+\_\+max, const std\+::array$<$ int, T $>$ \&scores, double \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em Check which is the maximum/minimum number in the array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{minimax_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+returns which is the longest/shortest number using \href{https://en.wikipedia.org/wiki/Minimax}{\texttt{ minimax}} algorithm 
+
+Minimax (sometimes Min\+Max, MM or saddle point) is a decision rule used in artificial intelligence, decision theory, game theory, statistics, and philosophy for minimizing the possible loss for a worst case (maximum loss) scenario. When dealing with gains, it is referred to as "{}maximin"{}—to maximize the minimum gain. Originally formulated for two-\/player zero-\/sum game theory, covering both the cases where players take alternate moves and those where they make simultaneous moves, it has also been extended to more complex games and to general decision-\/making in the presence of uncertainty.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/gleisonbs}{\texttt{ Gleison Batista}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{minimax_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{minimax.cpp@{minimax.cpp}!main@{main}}
+\index{main@{main}!minimax.cpp@{minimax.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{minimax_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ std::array<int,\ 8>\ scores\ =\ \{90,\ 23,\ 6,\ 33,\ 21,\ 65,\ 123,\ 34423\};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}\ =\ log2(scores.size());}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Optimal\ value:\ "{}}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacebacktracking_a78540bcb5ef3473b2348cbc34748ec50}{backtracking::minimax}}(0,\ 0,\ \textcolor{keyword}{true},\ scores,\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})\ <<\ std::endl;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}

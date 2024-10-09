@@ -1,0 +1,239 @@
+\doxysection{Min\+Heap Class Reference}
+\hypertarget{class_min_heap}{}\label{class_min_heap}\index{MinHeap@{MinHeap}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_min_heap_a078cb888e642bb1f95dd0e03f0a35820}{Min\+Heap}} (int cap)
+\item 
+void \mbox{\hyperlink{class_min_heap_aaef438c1056492cb62c4a4d9035b5cad}{Min\+Heapify}} (int)
+\item 
+int \mbox{\hyperlink{class_min_heap_a0e893f9deb4be4cf4f9990e736483e81}{parent}} (int i)
+\item 
+int \mbox{\hyperlink{class_min_heap_aa8c6c141e3de664819686aa637e1afca}{left}} (int i)
+\item 
+int \mbox{\hyperlink{class_min_heap_ac760b85cf90265b8d674b942a43fb70e}{right}} (int i)
+\item 
+int \mbox{\hyperlink{class_min_heap_a4014f1edaed0bd7db0c0d2ca53228980}{extract\+Min}} ()
+\item 
+void \mbox{\hyperlink{class_min_heap_aa7f726cc6327955d22871592227432f5}{decrease\+Key}} (int i, int new\+\_\+val)
+\item 
+int \mbox{\hyperlink{class_min_heap_a336ac71f0d857269fe9a98058a3cd130}{get\+Min}} ()
+\item 
+void \mbox{\hyperlink{class_min_heap_a37ac126eabb0c3ce04047172abccca29}{delete\+Key}} (int i)
+\item 
+void \mbox{\hyperlink{class_min_heap_aef78f3384f5a0ae880ad0883d2d44b82}{insert\+Key}} (int k)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_min_heap_a34a93a87967308eb516328c0aca3c48e}\label{class_min_heap_a34a93a87967308eb516328c0aca3c48e} 
+int \texorpdfstring{$\ast$}{*} {\bfseries harr}
+\begin{DoxyCompactList}\small\item\em pointer to array of elements in heap \end{DoxyCompactList}\item 
+\Hypertarget{class_min_heap_a88b4aa3e66392a3eabbf2517a9a79a02}\label{class_min_heap_a88b4aa3e66392a3eabbf2517a9a79a02} 
+int {\bfseries capacity}
+\begin{DoxyCompactList}\small\item\em maximum possible size of min heap \end{DoxyCompactList}\item 
+\Hypertarget{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}\label{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913} 
+int {\bfseries heap\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Current number of elements in min heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for Min Heap 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_min_heap_a078cb888e642bb1f95dd0e03f0a35820}\index{MinHeap@{MinHeap}!MinHeap@{MinHeap}}
+\index{MinHeap@{MinHeap}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{MinHeap()}{MinHeap()}}
+{\footnotesize\ttfamily \label{class_min_heap_a078cb888e642bb1f95dd0e03f0a35820} 
+Min\+Heap\+::\+Min\+Heap (\begin{DoxyParamCaption}\item[{int}]{cap}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor\+: Builds a heap from a given array a\mbox{[}\mbox{]} of given size 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em capacity} & initial heap capacity \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_min_heap_a88b4aa3e66392a3eabbf2517a9a79a02}{capacity}}\ =\ cap;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[cap];}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_a2759e717e45edcd6ca7096ff03d65dbd}\index{MinHeap@{MinHeap}!````~MinHeap@{\texorpdfstring{$\sim$}{\string~}MinHeap}}
+\index{````~MinHeap@{\texorpdfstring{$\sim$}{\string~}MinHeap}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MinHeap()}{\string~MinHeap()}}
+{\footnotesize\ttfamily \label{class_min_heap_a2759e717e45edcd6ca7096ff03d65dbd} 
+Min\+Heap\+::\texorpdfstring{$\sim$}{\string~}\+Min\+Heap (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \{\ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}};\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_min_heap_aa7f726cc6327955d22871592227432f5}\index{MinHeap@{MinHeap}!decreaseKey@{decreaseKey}}
+\index{decreaseKey@{decreaseKey}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{decreaseKey()}{decreaseKey()}}
+{\footnotesize\ttfamily \label{class_min_heap_aa7f726cc6327955d22871592227432f5} 
+void Min\+Heap\+::decrease\+Key (\begin{DoxyParamCaption}\item[{int}]{i}{, }\item[{int}]{new\+\_\+val}{}\end{DoxyParamCaption})}
+
+Decreases key value of key at index i to new\+\_\+val
+
+Decreases value of key at index \textquotesingle{}i\textquotesingle{} to new\+\_\+val. It is assumed that new\+\_\+val is smaller than harr\mbox{[}i\mbox{]}. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i]\ =\ new\_val;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ !=\ 0\ \&\&\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[parent(i)]\ >\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i])\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ std::swap(\mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i],\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[parent(i)]);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ i\ =\ parent(i);}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_a37ac126eabb0c3ce04047172abccca29}\index{MinHeap@{MinHeap}!deleteKey@{deleteKey}}
+\index{deleteKey@{deleteKey}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{deleteKey()}{deleteKey()}}
+{\footnotesize\ttfamily \label{class_min_heap_a37ac126eabb0c3ce04047172abccca29} 
+void Min\+Heap\+::delete\+Key (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+Deletes a key stored at index i
+
+This function deletes key at index i. It first reduced value to minus infinite, then calls \doxylink{class_min_heap_a4014f1edaed0bd7db0c0d2ca53228980}{extract\+Min()} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_min_heap_aa7f726cc6327955d22871592227432f5}{decreaseKey}}(i,\ INT\_MIN);}
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{class_min_heap_a4014f1edaed0bd7db0c0d2ca53228980}{extractMin}}();}
+\DoxyCodeLine{00108\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_a4014f1edaed0bd7db0c0d2ca53228980}\index{MinHeap@{MinHeap}!extractMin@{extractMin}}
+\index{extractMin@{extractMin}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{extractMin()}{extractMin()}}
+{\footnotesize\ttfamily \label{class_min_heap_a4014f1edaed0bd7db0c0d2ca53228980} 
+int Min\+Heap\+::extract\+Min (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+to extract the root which is the minimum element 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ <=\ 0)}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INT\_MAX;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ ==\ 1)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}-\/-\/;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[0];}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ Store\ the\ minimum\ value,\ and\ remove\ it\ from\ heap}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ root\ =\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[0];}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[0]\ =\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[\mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ -\/\ 1];}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}-\/-\/;}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{class_min_heap_aaef438c1056492cb62c4a4d9035b5cad}{MinHeapify}}(0);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ root;}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_a336ac71f0d857269fe9a98058a3cd130}\index{MinHeap@{MinHeap}!getMin@{getMin}}
+\index{getMin@{getMin}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{getMin()}{getMin()}}
+{\footnotesize\ttfamily \label{class_min_heap_a336ac71f0d857269fe9a98058a3cd130} 
+int Min\+Heap\+::get\+Min (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the minimum key (key at root) from min heap 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[0];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_aef78f3384f5a0ae880ad0883d2d44b82}\index{MinHeap@{MinHeap}!insertKey@{insertKey}}
+\index{insertKey@{insertKey}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{insertKey()}{insertKey()}}
+{\footnotesize\ttfamily \label{class_min_heap_aef78f3384f5a0ae880ad0883d2d44b82} 
+void Min\+Heap\+::insert\+Key (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})}
+
+Inserts a new key \textquotesingle{}k\textquotesingle{} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ ==\ \mbox{\hyperlink{class_min_heap_a88b4aa3e66392a3eabbf2517a9a79a02}{capacity}})\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nOverflow:\ Could\ not\ insertKey\(\backslash\)n"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ First\ insert\ the\ new\ key\ at\ the\ end}}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}++;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ -\/\ 1;}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i]\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Fix\ the\ min\ heap\ property\ if\ it\ is\ violated}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ !=\ 0\ \&\&\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[parent(i)]\ >\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i])\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::swap(\mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i],\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[parent(i)]);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ i\ =\ parent(i);}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_aa8c6c141e3de664819686aa637e1afca}\index{MinHeap@{MinHeap}!left@{left}}
+\index{left@{left}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{left()}{left()}}
+{\footnotesize\ttfamily \label{class_min_heap_aa8c6c141e3de664819686aa637e1afca} 
+int Min\+Heap\+::left (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+to get index of left child of node at index i 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ \textcolor{keywordflow}{return}\ (2\ *\ i\ +\ 1);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_aaef438c1056492cb62c4a4d9035b5cad}\index{MinHeap@{MinHeap}!MinHeapify@{MinHeapify}}
+\index{MinHeapify@{MinHeapify}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{MinHeapify()}{MinHeapify()}}
+{\footnotesize\ttfamily \label{class_min_heap_aaef438c1056492cb62c4a4d9035b5cad} 
+void Min\+Heap\+::\+Min\+Heapify (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+to heapify a subtree with the root at given index
+
+A recursive method to heapify a subtree with the root at given index This method assumes that the subtrees are already heapified 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ =\ \mbox{\hyperlink{class_min_heap_aa8c6c141e3de664819686aa637e1afca}{left}}(i);}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ \mbox{\hyperlink{class_min_heap_ac760b85cf90265b8d674b942a43fb70e}{right}}(i);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ smallest\ =\ i;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ <\ \mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ \&\&\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[l]\ <\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i])}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ smallest\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ <\ \mbox{\hyperlink{class_min_heap_ae4d358bf063bb196a1945b3fb99b4913}{heap\_size}}\ \&\&\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[r]\ <\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[smallest])}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ smallest\ =\ r;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (smallest\ !=\ i)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ std::swap(\mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[i],\ \mbox{\hyperlink{class_min_heap_a34a93a87967308eb516328c0aca3c48e}{harr}}[smallest]);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_min_heap_aaef438c1056492cb62c4a4d9035b5cad}{MinHeapify}}(smallest);}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_a0e893f9deb4be4cf4f9990e736483e81}\index{MinHeap@{MinHeap}!parent@{parent}}
+\index{parent@{parent}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}}
+{\footnotesize\ttfamily \label{class_min_heap_a0e893f9deb4be4cf4f9990e736483e81} 
+int Min\+Heap\+::parent (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{\ \textcolor{keywordflow}{return}\ (i\ -\/\ 1)\ /\ 2;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_min_heap_ac760b85cf90265b8d674b942a43fb70e}\index{MinHeap@{MinHeap}!right@{right}}
+\index{right@{right}!MinHeap@{MinHeap}}
+\doxysubsubsection{\texorpdfstring{right()}{right()}}
+{\footnotesize\ttfamily \label{class_min_heap_ac760b85cf90265b8d674b942a43fb70e} 
+int Min\+Heap\+::right (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+to get index of right child of node at index i 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \{\ \textcolor{keywordflow}{return}\ (2\ *\ i\ +\ 2);\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{binaryheap_8cpp}{binaryheap.\+cpp}}\end{DoxyCompactItemize}

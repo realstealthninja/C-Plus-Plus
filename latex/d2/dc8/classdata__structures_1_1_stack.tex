@@ -1,0 +1,254 @@
+\doxysection{data\+\_\+structures\+::Stack\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdata__structures_1_1_stack}{}\label{classdata__structures_1_1_stack}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+
+
+Class representation of a stack.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdata__structures_1_1_stack_a8cb0602c8a9c1603d0315938177ecc6a}{Stack}} (int size)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{classdata__structures_1_1_stack}{Stack} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1_stack_aa753346c8ee5f21d4f4482398fe6d5c1}{full}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the stack is full. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1_stack_a04e2e7cb58b2de6d3a15053bfaaf6080}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the stack is empty. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1_stack_aa9f9b087e9e7c00628e1289f0f1de3b2}{push}} (T element)
+\begin{DoxyCompactList}\small\item\em Pushes an element onto the stack. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdata__structures_1_1_stack_ac46842bdd9c655d84f865fa3a03da19b}{pop}} ()
+\begin{DoxyCompactList}\small\item\em Pops an element from the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1_stack_abb86ed67d9d97112897a09cfb10ff586}{show}} () const
+\begin{DoxyCompactList}\small\item\em Displays all elements in the stack. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdata__structures_1_1_stack_a61dc70e128ee64c9684f03a4c04818b0}{topmost}} () const
+\begin{DoxyCompactList}\small\item\em Displays the topmost element of the stack. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdata__structures_1_1_stack_a2ac469fcc2229d273450e429139d90e6}{bottom}} () const
+\begin{DoxyCompactList}\small\item\em Displays the bottom element of the stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1_stack_a3f912a0e9bed5b24b206584e3010dce3}\label{classdata__structures_1_1_stack_a3f912a0e9bed5b24b206584e3010dce3} 
+std\+::unique\+\_\+ptr$<$ T\mbox{[}$\,$\mbox{]}$>$ {\bfseries stack}
+\begin{DoxyCompactList}\small\item\em Smart pointer to the stack array. \end{DoxyCompactList}\item 
+\Hypertarget{classdata__structures_1_1_stack_a88a10062c0662a385f172669f2f19b86}\label{classdata__structures_1_1_stack_a88a10062c0662a385f172669f2f19b86} 
+int {\bfseries stack\+Size}
+\begin{DoxyCompactList}\small\item\em Maximum size of the stack. \end{DoxyCompactList}\item 
+\Hypertarget{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}\label{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6} 
+int {\bfseries stack\+Index}
+\begin{DoxyCompactList}\small\item\em Index pointing to the top element of the stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class data\+\_\+structures\+::\+Stack$<$ T $>$}
+Class representation of a stack. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the elements in the stack \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdata__structures_1_1_stack_a8cb0602c8a9c1603d0315938177ecc6a}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!Stack@{Stack}}
+\index{Stack@{Stack}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Stack()}{Stack()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_a8cb0602c8a9c1603d0315938177ecc6a} 
+template$<$typename T $>$ \\
+\mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::\+Stack (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a new \doxylink{classdata__structures_1_1_stack}{Stack} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Maximum size of the stack \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ :\ \mbox{\hyperlink{classdata__structures_1_1_stack_a88a10062c0662a385f172669f2f19b86}{stackSize}}(size),\ \mbox{\hyperlink{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}{stackIndex}}(-\/1),\ \mbox{\hyperlink{classdata__structures_1_1_stack_a3f912a0e9bed5b24b206584e3010dce3}{stack}}(\textcolor{keyword}{new}\ T[size])\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1_stack_a2ac469fcc2229d273450e429139d90e6}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!bottom@{bottom}}
+\index{bottom@{bottom}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{bottom()}{bottom()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_a2ac469fcc2229d273450e429139d90e6} 
+template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::bottom (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the bottom element of the stack. 
+
+\begin{DoxyReturn}{Returns}
+The bottom element of the stack 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if the stack is empty \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1_stack_a04e2e7cb58b2de6d3a15053bfaaf6080}{empty}}())\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Stack\ underflow"{}});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classstack}{stack}}[0];}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_stack_a04e2e7cb58b2de6d3a15053bfaaf6080}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!empty@{empty}}
+\index{empty@{empty}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_a04e2e7cb58b2de6d3a15053bfaaf6080} 
+template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the stack is empty. 
+
+\begin{DoxyReturn}{Returns}
+true if the stack is empty, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}{stackIndex}}\ ==\ -\/1;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_stack_aa753346c8ee5f21d4f4482398fe6d5c1}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!full@{full}}
+\index{full@{full}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{full()}{full()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_aa753346c8ee5f21d4f4482398fe6d5c1} 
+template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::full (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the stack is full. 
+
+\begin{DoxyReturn}{Returns}
+true if the stack is full, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}{stackIndex}}\ ==\ \mbox{\hyperlink{classdata__structures_1_1_stack_a88a10062c0662a385f172669f2f19b86}{stackSize}}\ -\/\ 1;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_stack_ac46842bdd9c655d84f865fa3a03da19b}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!pop@{pop}}
+\index{pop@{pop}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_ac46842bdd9c655d84f865fa3a03da19b} 
+template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pops an element from the stack. 
+
+\begin{DoxyReturn}{Returns}
+The popped element 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if the stack is empty \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1_stack_a04e2e7cb58b2de6d3a15053bfaaf6080}{empty}}())\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Stack\ underflow"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classstack}{stack}}[\mbox{\hyperlink{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}{stackIndex}}-\/-\/];}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_stack_aa9f9b087e9e7c00628e1289f0f1de3b2}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!push@{push}}
+\index{push@{push}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_aa9f9b087e9e7c00628e1289f0f1de3b2} 
+template$<$typename T $>$ \\
+void \mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::push (\begin{DoxyParamCaption}\item[{T}]{element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pushes an element onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to push onto the stack \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1_stack_aa753346c8ee5f21d4f4482398fe6d5c1}{full}}())\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Stack\ overflow"{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}[++\mbox{\hyperlink{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}{stackIndex}}]\ =\ element;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_stack_abb86ed67d9d97112897a09cfb10ff586}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!show@{show}}
+\index{show@{show}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_abb86ed67d9d97112897a09cfb10ff586} 
+template$<$typename T $>$ \\
+void \mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::show (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays all elements in the stack. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ \mbox{\hyperlink{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}{stackIndex}};\ i++)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{classstack}{stack}}[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_stack_a61dc70e128ee64c9684f03a4c04818b0}\index{data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}!topmost@{topmost}}
+\index{topmost@{topmost}!data\_structures::Stack$<$ T $>$@{data\_structures::Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{topmost()}{topmost()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_stack_a61dc70e128ee64c9684f03a4c04818b0} 
+template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdata__structures_1_1_stack}{data\+\_\+structures\+::\+Stack}}$<$ T $>$\+::topmost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the topmost element of the stack. 
+
+\begin{DoxyReturn}{Returns}
+The topmost element of the stack 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if the stack is empty \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1_stack_a04e2e7cb58b2de6d3a15053bfaaf6080}{empty}}())\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Stack\ underflow"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classstack}{stack}}[\mbox{\hyperlink{classdata__structures_1_1_stack_a71afc94746d47fb2c0c4fa4b612edee6}{stackIndex}}];}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/stack\+\_\+using\+\_\+array.\+cpp\end{DoxyCompactItemize}

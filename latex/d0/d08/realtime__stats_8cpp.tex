@@ -1,0 +1,139 @@
+\doxysection{math/realtime\+\_\+stats.cpp File Reference}
+\hypertarget{realtime__stats_8cpp}{}\label{realtime__stats_8cpp}\index{math/realtime\_stats.cpp@{math/realtime\_stats.cpp}}
+
+
+Compute statistics for data entered in rreal-\/time.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classstatistics_1_1stats__computer1}{statistics\+::stats\+\_\+computer1$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classstatistics_1_1stats__computer2}{statistics\+::stats\+\_\+computer2$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestatistics}{statistics}}
+\begin{DoxyCompactList}\small\item\em Statistical algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{realtime__stats_8cpp_aa54c915581fcc495489175a4386d59fd}{test\+\_\+function}} (const float \texorpdfstring{$\ast$}{*}test\+\_\+data, const int number\+\_\+of\+\_\+samples)
+\item 
+int \mbox{\hyperlink{realtime__stats_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute statistics for data entered in rreal-\/time. 
+
+This algorithm is really beneficial to compute statistics on data read in realtime. For example, devices reading biometrics data. The algorithm is simple enough to be easily implemented in an embedded system. \begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{realtime__stats_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{realtime\_stats.cpp@{realtime\_stats.cpp}!main@{main}}
+\index{main@{main}!realtime\_stats.cpp@{realtime\_stats.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{realtime__stats_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ test\_data1[]\ =\ \{3,\ 4,\ 5,\ -\/1.4,\ -\/3.6,\ 1.9,\ 1.\};}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{realtime__stats_8cpp_aa54c915581fcc495489175a4386d59fd}{test\_function}}(test\_data1,\ \textcolor{keyword}{sizeof}(test\_data1)\ /\ \textcolor{keyword}{sizeof}(test\_data1[0]));}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ std::cout}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Enter\ data.\ Any\ non-\/numeric\ data\ will\ terminate\ the\ data\ input."{}}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{classstatistics_1_1stats__computer1}{stats\_computer1<float>}}\ stats1;}
+\DoxyCodeLine{00167\ \ \ \ \ \mbox{\hyperlink{classstatistics_1_1stats__computer2}{stats\_computer2<float>}}\ stats2;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ val;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ number:\ "{}};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ std::cin\ >>\ val;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ for\ failure\ to\ read\ input.\ Happens\ for}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ non-\/numeric\ data}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::cin.fail())}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ stats1.\mbox{\hyperlink{classstatistics_1_1stats__computer1_aa13bf7c38de112f71921a5525d71a2f2}{new\_val}}(val);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ stats2.\mbox{\hyperlink{classstatistics_1_1stats__computer2_ade6de704deea24fdc88077b3d9a0d534}{new\_val}}(val);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMethod\ 1:"{}}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMean:\ "{}}\ <<\ stats1.\mbox{\hyperlink{classstatistics_1_1stats__computer1_a390697dcee210b91823ceff04b25081b}{mean}}()}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Variance:\ "{}}\ <<\ stats1.\mbox{\hyperlink{classstatistics_1_1stats__computer1_a27f0a03e2fd2254f1c81fe668226bd92}{variance}}()}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Std:\ "{}}\ <<\ stats1.\mbox{\hyperlink{classstatistics_1_1stats__computer1_af57e942d49f4fd70f059f224b4ac07e1}{std}}()\ <<\ std::endl;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMethod\ 2:"{}}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMean:\ "{}}\ <<\ stats2.\mbox{\hyperlink{classstatistics_1_1stats__computer2_a8290966ad468f2a8c266d008bc60720e}{mean}}()}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Variance:\ "{}}\ <<\ stats2.\mbox{\hyperlink{classstatistics_1_1stats__computer2_af6198817084276113b3c064e87ce0555}{variance}}()}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Std:\ "{}}\ <<\ stats2.\mbox{\hyperlink{classstatistics_1_1stats__computer2_acf2e84df4fc386bb3295016ef8fd156e}{std}}()\ <<\ std::endl;}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00193\ \}}
+
+\end{DoxyCode}
+\Hypertarget{realtime__stats_8cpp_aa54c915581fcc495489175a4386d59fd}\index{realtime\_stats.cpp@{realtime\_stats.cpp}!test\_function@{test\_function}}
+\index{test\_function@{test\_function}!realtime\_stats.cpp@{realtime\_stats.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_function()}{test\_function()}}
+{\footnotesize\ttfamily \label{realtime__stats_8cpp_aa54c915581fcc495489175a4386d59fd} 
+void test\+\_\+function (\begin{DoxyParamCaption}\item[{const float \texorpdfstring{$\ast$}{*}}]{test\+\_\+data}{, }\item[{const int}]{number\+\_\+of\+\_\+samples}{}\end{DoxyParamCaption})}
+
+Test the algorithm implementation 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em test\+\_\+data} & array of data to test the algorithms \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{float}\ mean\ =\ 0.f,\ variance\ =\ 0.f;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{classstatistics_1_1stats__computer1}{stats\_computer1<float>}}\ stats01;}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{classstatistics_1_1stats__computer2}{stats\_computer2<float>}}\ stats02;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ number\_of\_samples;\ i++)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ stats01.\mbox{\hyperlink{classstatistics_1_1stats__computer1_aa13bf7c38de112f71921a5525d71a2f2}{new\_val}}(test\_data[i]);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ stats02.\mbox{\hyperlink{classstatistics_1_1stats__computer2_ade6de704deea24fdc88077b3d9a0d534}{new\_val}}(test\_data[i]);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ mean\ +=\ test\_data[i];}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ mean\ /=\ number\_of\_samples;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ number\_of\_samples;\ i++)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ temp\ =\ test\_data[i]\ -\/\ mean;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ variance\ +=\ temp\ *\ temp;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ variance\ /=\ number\_of\_samples;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}<<<<<<<<\ Test\ Function\ >>>>>>>>"{}}\ <<\ std::endl}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Expected:\ Mean:\ "{}}\ <<\ mean\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Variance:\ "{}}\ <<\ variance}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00141\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMethod\ 1:"{}}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMean:\ "{}}\ <<\ stats01.\mbox{\hyperlink{classstatistics_1_1stats__computer1_a390697dcee210b91823ceff04b25081b}{mean}}()}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Variance:\ "{}}\ <<\ stats01.\mbox{\hyperlink{classstatistics_1_1stats__computer1_a27f0a03e2fd2254f1c81fe668226bd92}{variance}}()}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Std:\ "{}}\ <<\ stats01.\mbox{\hyperlink{classstatistics_1_1stats__computer1_af57e942d49f4fd70f059f224b4ac07e1}{std}}()\ <<\ std::endl;}
+\DoxyCodeLine{00145\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMethod\ 2:"{}}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMean:\ "{}}\ <<\ stats02.\mbox{\hyperlink{classstatistics_1_1stats__computer2_a8290966ad468f2a8c266d008bc60720e}{mean}}()}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Variance:\ "{}}\ <<\ stats02.\mbox{\hyperlink{classstatistics_1_1stats__computer2_af6198817084276113b3c064e87ce0555}{variance}}()}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\ Std:\ "{}}\ <<\ stats02.\mbox{\hyperlink{classstatistics_1_1stats__computer2_acf2e84df4fc386bb3295016ef8fd156e}{std}}()\ <<\ std::endl;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ assert(std::abs(stats01.\mbox{\hyperlink{classstatistics_1_1stats__computer1_a390697dcee210b91823ceff04b25081b}{mean}}()\ -\/\ mean)\ <\ 0.01);}
+\DoxyCodeLine{00151\ \ \ \ \ assert(std::abs(stats02.\mbox{\hyperlink{classstatistics_1_1stats__computer2_a8290966ad468f2a8c266d008bc60720e}{mean}}()\ -\/\ mean)\ <\ 0.01);}
+\DoxyCodeLine{00152\ \ \ \ \ assert(std::abs(stats02.\mbox{\hyperlink{classstatistics_1_1stats__computer2_af6198817084276113b3c064e87ce0555}{variance}}()\ -\/\ variance)\ <\ 0.01);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}(Tests\ passed)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}

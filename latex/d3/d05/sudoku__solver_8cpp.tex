@@ -1,0 +1,277 @@
+\doxysection{backtracking/sudoku\+\_\+solver.cpp File Reference}
+\hypertarget{sudoku__solver_8cpp}{}\label{sudoku__solver_8cpp}\index{backtracking/sudoku\_solver.cpp@{backtracking/sudoku\_solver.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Sudoku}{\texttt{ Sudoku Solver}} algorithm.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacesudoku__solver}{sudoku\+\_\+solver}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Sudoku}{\texttt{ Sudoku Solver}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\bool \mbox{\hyperlink{sudoku__solver_8cpp_a07dc6acffd0500de9bdbf16b3ade94b0}{backtracking\+::sudoku\+\_\+solver\+::is\+Possible}} (const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&mat, int i, int j, int no, int n)
+\begin{DoxyCompactList}\small\item\em Check if it\textquotesingle{}s possible to place a number ({\ttfamily no} parameter) \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\void \mbox{\hyperlink{sudoku__solver_8cpp_ab040a12d7684cd85fb3684f4211ea5ac}{backtracking\+::sudoku\+\_\+solver\+::print\+Mat}} (const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&mat, const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&starting\+\_\+mat, int n)
+\begin{DoxyCompactList}\small\item\em Utility function to print the matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\bool \mbox{\hyperlink{sudoku__solver_8cpp_ac911c8bca8556206ff64461b2424866b}{backtracking\+::sudoku\+\_\+solver\+::solve\+Sudoku}} (std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&mat, const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&starting\+\_\+mat, int i, int j)
+\begin{DoxyCompactList}\small\item\em Main function to implement the Sudoku algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sudoku__solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Sudoku}{\texttt{ Sudoku Solver}} algorithm. 
+
+Sudoku (数独, sūdoku, digit-\/single) (/suːˈdoʊkuː/, /-\/ˈdɒk-\//, /sə-\//, originally called Number Place) is a logic-\/based, combinatorial number-\/placement puzzle. In classic sudoku, the objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid (also called "{}boxes"{}, "{}blocks"{}, or "{}regions"{}) contain all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-\/posed puzzle has a single solution.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/DarthCoder3200}{\texttt{ Darth\+Coder3200}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sudoku__solver_8cpp_a07dc6acffd0500de9bdbf16b3ade94b0}\index{sudoku\_solver.cpp@{sudoku\_solver.cpp}!isPossible@{isPossible}}
+\index{isPossible@{isPossible}!sudoku\_solver.cpp@{sudoku\_solver.cpp}}
+\doxysubsubsection{\texorpdfstring{isPossible()}{isPossible()}}
+{\footnotesize\ttfamily \label{sudoku__solver_8cpp_a07dc6acffd0500de9bdbf16b3ade94b0} 
+template$<$size\+\_\+t V$>$ \\
+bool backtracking\+::sudoku\+\_\+solver\+::is\+Possible (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{mat}{, }\item[{int}]{i}{, }\item[{int}]{j}{, }\item[{int}]{no}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Check if it\textquotesingle{}s possible to place a number ({\ttfamily no} parameter) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in the array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matrix where numbers are saved \\
+\hline
+{\em i} & current index in rows \\
+\hline
+{\em j} & current index in columns \\
+\hline
+{\em no} & number to be added in matrix \\
+\hline
+{\em n} & number of times loop will run \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if \textquotesingle{}mat\textquotesingle{} is different from \textquotesingle{}no\textquotesingle{} 
+
+{\ttfamily false} if \textquotesingle{}mat\textquotesingle{} equals to \textquotesingle{}no\textquotesingle{} 
+\end{DoxyReturn}
+{\ttfamily no} shouldn\textquotesingle{}t be present in either row i or column j
+
+{\ttfamily no} shouldn\textquotesingle{}t be present in the 3\texorpdfstring{$\ast$}{*}3 subgrid
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ ///\ \`{}no`\ shouldn't\ be\ present\ in\ either\ row\ i\ or\ column\ j }}
+\DoxyCodeLine{00047\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ n;\ x++)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mat[x][j]\ ==\ no\ ||\ mat[i][x]\ ==\ no)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \textcolor{comment}{}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ ///\ \`{}no`\ shouldn't\ be\ present\ in\ the\ 3*3\ subgrid }}
+\DoxyCodeLine{00054\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{int}\ sx\ =\ (i\ /\ 3)\ *\ 3;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ sy\ =\ (j\ /\ 3)\ *\ 3;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ sx;\ x\ <\ sx\ +\ 3;\ x++)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ sy;\ y\ <\ sy\ +\ 3;\ y++)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mat[x][y]\ ==\ no)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sudoku__solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sudoku\_solver.cpp@{sudoku\_solver.cpp}!main@{main}}
+\index{main@{main}!sudoku\_solver.cpp@{sudoku\_solver.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sudoku__solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ V\ =\ 9;}
+\DoxyCodeLine{00156\ \ \ \ \ std::array<std::array<int,\ V>,\ V>\ mat\ =\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{5,\ 3,\ 0,\ 0,\ 7,\ 0,\ 0,\ 0,\ 0\},}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{6,\ 0,\ 0,\ 1,\ 9,\ 5,\ 0,\ 0,\ 0\},}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{0,\ 9,\ 8,\ 0,\ 0,\ 0,\ 0,\ 6,\ 0\},}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{8,\ 0,\ 0,\ 0,\ 6,\ 0,\ 0,\ 0,\ 3\},}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{4,\ 0,\ 0,\ 8,\ 0,\ 3,\ 0,\ 0,\ 1\},}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{7,\ 0,\ 0,\ 0,\ 2,\ 0,\ 0,\ 0,\ 6\},}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{0,\ 6,\ 0,\ 0,\ 0,\ 0,\ 2,\ 8,\ 0\},}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{0,\ 0,\ 0,\ 4,\ 1,\ 9,\ 0,\ 0,\ 5\},}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ std::array<int,\ V>\{0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 7,\ 9\}\};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ backtracking::sudoku\_solver::printMat<V>(mat,\ mat,\ 9);}
+\DoxyCodeLine{00168\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Solution\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00169\ \ \ \ \ std::array<std::array<int,\ V>,\ V>\ starting\_mat\ =\ mat;}
+\DoxyCodeLine{00170\ \ \ \ \ backtracking::sudoku\_solver::solveSudoku<V>(mat,\ starting\_mat,\ 0,\ 0);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00173\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sudoku__solver_8cpp_ab040a12d7684cd85fb3684f4211ea5ac}\index{sudoku\_solver.cpp@{sudoku\_solver.cpp}!printMat@{printMat}}
+\index{printMat@{printMat}!sudoku\_solver.cpp@{sudoku\_solver.cpp}}
+\doxysubsubsection{\texorpdfstring{printMat()}{printMat()}}
+{\footnotesize\ttfamily \label{sudoku__solver_8cpp_ab040a12d7684cd85fb3684f4211ea5ac} 
+template$<$size\+\_\+t V$>$ \\
+void backtracking\+::sudoku\+\_\+solver\+::print\+Mat (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{mat}{, }\item[{const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{starting\+\_\+mat}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Utility function to print the matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matrix where numbers are saved \\
+\hline
+{\em starting\+\_\+mat} & copy of mat, required by print\+Mat for highlighting the differences \\
+\hline
+{\em n} & number of times loop will run \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (starting\_mat[i][j]\ !=\ mat[i][j])\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)033[93m"{}}\ <<\ mat[i][j]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ mat[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((j\ +\ 1)\ \%\ 3\ ==\ 0)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)t'};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((i\ +\ 1)\ \%\ 3\ ==\ 0)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sudoku__solver_8cpp_ac911c8bca8556206ff64461b2424866b}\index{sudoku\_solver.cpp@{sudoku\_solver.cpp}!solveSudoku@{solveSudoku}}
+\index{solveSudoku@{solveSudoku}!sudoku\_solver.cpp@{sudoku\_solver.cpp}}
+\doxysubsubsection{\texorpdfstring{solveSudoku()}{solveSudoku()}}
+{\footnotesize\ttfamily \label{sudoku__solver_8cpp_ac911c8bca8556206ff64461b2424866b} 
+template$<$size\+\_\+t V$>$ \\
+bool backtracking\+::sudoku\+\_\+solver\+::solve\+Sudoku (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{mat}{, }\item[{const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{starting\+\_\+mat}{, }\item[{int}]{i}{, }\item[{int}]{j}{}\end{DoxyParamCaption})}
+
+
+
+Main function to implement the Sudoku algorithm. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matrix where numbers are saved \\
+\hline
+{\em starting\+\_\+mat} & copy of mat, required by print\+Mat for highlighting the differences \\
+\hline
+{\em i} & current index in rows \\
+\hline
+{\em j} & current index in columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if \textquotesingle{}no\textquotesingle{} was placed 
+
+{\ttfamily false} if \textquotesingle{}no\textquotesingle{} was not placed 
+\end{DoxyReturn}
+Base Case
+
+Solved for 9 rows already
+
+Crossed the last Cell in the row
+
+Blue Cell -\/ Skip
+
+White Cell Try to place every possible no
+
+Place the \textquotesingle{}no\textquotesingle{} -\/ assuming a solution will exist
+
+Couldn\textquotesingle{}t find a solution loop will place the next {\ttfamily no}.
+
+\doxylink{class_solution}{Solution} couldn\textquotesingle{}t be found for any of the numbers provided
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ ///\ Base\ Case }}
+\DoxyCodeLine{00114\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 9)\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Solved\ for\ 9\ rows\ already }}
+\DoxyCodeLine{00116\ \textcolor{comment}{}\ \ \ \ \ \ \ \ printMat<V>(mat,\ starting\_mat,\ 9);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \textcolor{comment}{}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ ///\ Crossed\ the\ last\ \ Cell\ in\ the\ row }}
+\DoxyCodeLine{00121\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ 9)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ solveSudoku<V>(mat,\ starting\_mat,\ i\ +\ 1,\ 0);}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \textcolor{comment}{}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ ///\ Blue\ Cell\ -\/\ Skip }}
+\DoxyCodeLine{00126\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{if}\ (mat[i][j]\ !=\ 0)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ solveSudoku<V>(mat,\ starting\_mat,\ i,\ j\ +\ 1);}
+\DoxyCodeLine{00128\ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ ///\ White\ Cell }}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ ///\ Try\ to\ place\ every\ possible\ no }}
+\DoxyCodeLine{00131\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ no\ =\ 1;\ no\ <=\ 9;\ no++)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isPossible<V>(mat,\ i,\ j,\ no,\ 9))\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ Place\ the\ 'no'\ -\/\ assuming\ a\ solution\ will\ exist }}
+\DoxyCodeLine{00134\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ mat[i][j]\ =\ no;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ solution\_found\ =\ solveSudoku<V>(mat,\ starting\_mat,\ i,\ j\ +\ 1);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (solution\_found)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ Couldn't\ find\ a\ solution }}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ loop\ will\ place\ the\ next\ \`{}no`. }}
+\DoxyCodeLine{00141\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ ///\ Solution\ couldn't\ be\ found\ for\ any\ of\ the\ numbers\ provided }}
+\DoxyCodeLine{00144\ \textcolor{comment}{}\ \ \ \ mat[i][j]\ =\ 0;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00146\ \}}
+
+\end{DoxyCode}

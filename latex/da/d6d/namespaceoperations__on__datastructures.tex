@@ -1,0 +1,355 @@
+\doxysection{operations\+\_\+on\+\_\+datastructures Namespace Reference}
+\hypertarget{namespaceoperations__on__datastructures}{}\label{namespaceoperations__on__datastructures}\index{operations\_on\_datastructures@{operations\_on\_datastructures}}
+
+
+for std\+::vector  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceoperations__on__datastructures_a6109193567a5b7e36a27f2b4865fce20}{print}} (const std\+::vector$<$ int32\+\_\+t $>$ \&array)
+\begin{DoxyCompactList}\small\item\em Prints the values of a vector sequentially, ending with a newline character. \end{DoxyCompactList}\item 
+std\+::vector$<$ int32\+\_\+t $>$ \mbox{\hyperlink{namespaceoperations__on__datastructures_afce39cf843989a39811a49ebe29dd6d8}{shift\+\_\+left}} (const std\+::vector$<$ int32\+\_\+t $>$ \&array, size\+\_\+t shift)
+\begin{DoxyCompactList}\small\item\em Shifts the given vector to the left by the shift amount and returns a new vector with the result. The original vector is not mutated. \end{DoxyCompactList}\item 
+std\+::vector$<$ int32\+\_\+t $>$ \mbox{\hyperlink{namespaceoperations__on__datastructures_a1bfb8711f49e591eb168ccaa3df6fb86}{shift\+\_\+right}} (const std\+::vector$<$ int32\+\_\+t $>$ \&array, size\+\_\+t shift)
+\begin{DoxyCompactList}\small\item\em Shifts the given vector to the right by the shift amount and returns a new vector with the result. The original vector is not mutated. \end{DoxyCompactList}\item 
+std\+::vector$<$ int32\+\_\+t $>$ \mbox{\hyperlink{namespaceoperations__on__datastructures_adaf9a06f0c236c2d95c97e441ea2d12e}{get\+\_\+intersection}} (const std\+::vector$<$ int32\+\_\+t $>$ \&first, const std\+::vector$<$ int32\+\_\+t $>$ \&second)
+\begin{DoxyCompactList}\small\item\em Gets the intersection of two sorted arrays, and returns them in a vector. \end{DoxyCompactList}\item 
+std\+::vector$<$ int32\+\_\+t $>$ \mbox{\hyperlink{namespaceoperations__on__datastructures_a2b8ff06a84b041457873840bf82e2d74}{get\+\_\+union}} (const std\+::vector$<$ int32\+\_\+t $>$ \&first, const std\+::vector$<$ int32\+\_\+t $>$ \&second)
+\begin{DoxyCompactList}\small\item\em Gets the union of two sorted arrays, and returns them in a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+for std\+::vector 
+
+for std\+::priority\+\_\+queue
+
+For std\+::vector.
+
+for assert for IO operations
+
+Operations on Data Structures
+
+for assert for IO Operations
+
+Operations on data structures
+
+for std\+::sort for assert for IO operations
+
+Operations on Data Structures
+
+For assert For IO operations For std\+::queue
+
+Operations on Data Structures
+
+for std\+::count for assert for tolower for string operations for IO Operations
+
+Operations on data structures 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceoperations__on__datastructures_adaf9a06f0c236c2d95c97e441ea2d12e}\index{operations\_on\_datastructures@{operations\_on\_datastructures}!get\_intersection@{get\_intersection}}
+\index{get\_intersection@{get\_intersection}!operations\_on\_datastructures@{operations\_on\_datastructures}}
+\doxysubsubsection{\texorpdfstring{get\_intersection()}{get\_intersection()}}
+{\footnotesize\ttfamily \label{namespaceoperations__on__datastructures_adaf9a06f0c236c2d95c97e441ea2d12e} 
+std\+::vector$<$ int32\+\_\+t $>$ operations\+\_\+on\+\_\+datastructures\+::get\+\_\+intersection (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{first}{, }\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{second}{}\end{DoxyParamCaption})}
+
+
+
+Gets the intersection of two sorted arrays, and returns them in a vector. 
+
+An algorithm is used that compares the elements of the two vectors, incrementing the index of the smaller of the two. If the elements are the same, the element is appended to the result array to be returned. 
+\begin{DoxyParams}{Parameters}
+{\em first} & A std\+::vector of sorted integer values \\
+\hline
+{\em second} & A std\+::vector of sorted integer values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::vector of the intersection of the two arrays, in ascending order 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Vector to hold the intersection
+
+\texorpdfstring{$<$}{<} Index for the first array
+
+\texorpdfstring{$<$}{<} Index for the second array
+
+\texorpdfstring{$<$}{<} Length of first array
+
+\texorpdfstring{$<$}{<} Length of second array
+
+\texorpdfstring{$<$}{<} Increment index of second array
+
+\texorpdfstring{$<$}{<} Increment index of second array
+
+\texorpdfstring{$<$}{<} Add the element if it is unique
+
+\texorpdfstring{$<$}{<} Increment index of first array
+
+\texorpdfstring{$<$}{<} Increment index of second array too
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<int32\_t>\ res;\ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Vector\ to\ hold\ the\ intersection}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ f\_index\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Index\ for\ the\ first\ array}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ s\_index\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Index\ for\ the\ second\ array}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ f\_length\ =\ first.size();\ \ \ \textcolor{comment}{///<\ Length\ of\ first\ array}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ s\_length\ =\ second.size();\ \ \textcolor{comment}{///<\ Length\ of\ second\ array}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{while}\ (f\_index\ <\ f\_length\ \&\&\ s\_index\ <\ s\_length)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (first[f\_index]\ <\ second[s\_index])\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ f\_index++;\ \ \textcolor{comment}{///<\ Increment\ index\ of\ second\ array}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (first[f\_index]\ >\ second[s\_index])\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ s\_index++;\ \ \textcolor{comment}{///<\ Increment\ index\ of\ second\ array}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((res.size()\ ==\ 0)\ ||\ (first[f\_index]\ !=\ res.back()))\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ first[f\_index]);\ \ \textcolor{comment}{///<\ Add\ the\ element\ if\ it\ is\ unique}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ f\_index++;\ \ \textcolor{comment}{///<\ Increment\ index\ of\ first\ array}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ s\_index++;\ \ \textcolor{comment}{///<\ Increment\ index\ of\ second\ array\ too}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceoperations__on__datastructures_a2b8ff06a84b041457873840bf82e2d74}\index{operations\_on\_datastructures@{operations\_on\_datastructures}!get\_union@{get\_union}}
+\index{get\_union@{get\_union}!operations\_on\_datastructures@{operations\_on\_datastructures}}
+\doxysubsubsection{\texorpdfstring{get\_union()}{get\_union()}}
+{\footnotesize\ttfamily \label{namespaceoperations__on__datastructures_a2b8ff06a84b041457873840bf82e2d74} 
+std\+::vector$<$ int32\+\_\+t $>$ operations\+\_\+on\+\_\+datastructures\+::get\+\_\+union (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{first}{, }\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{second}{}\end{DoxyParamCaption})}
+
+
+
+Gets the union of two sorted arrays, and returns them in a vector. 
+
+An algorithm is used that compares the elements of the two vectors, appending the one that has a lower value, and incrementing the index for that array. If one of the arrays reaches its end, all the elements of the other are appended to the resultant vector. 
+\begin{DoxyParams}{Parameters}
+{\em first} & A std\+::vector of sorted integer values \\
+\hline
+{\em second} & A std\+::vector of sorted integer values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::vector of the union of the two arrays, in ascending order 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Vector to hold the union
+
+\texorpdfstring{$<$}{<} Index for the first array
+
+\texorpdfstring{$<$}{<} Index for the second array
+
+\texorpdfstring{$<$}{<} Length of first array
+
+\texorpdfstring{$<$}{<} Length of second array
+
+\texorpdfstring{$<$}{<} Integer to store value of the next element
+
+\texorpdfstring{$<$}{<} Append from first array
+
+\texorpdfstring{$<$}{<} Increment index of second array
+
+\texorpdfstring{$<$}{<} Append from second array
+
+\texorpdfstring{$<$}{<} Increment index of second array
+
+\texorpdfstring{$<$}{<} Element is the same in both
+
+\texorpdfstring{$<$}{<} Increment index of first array
+
+\texorpdfstring{$<$}{<} Increment index of second array too
+
+\texorpdfstring{$<$}{<} Add the element if it is unique
+
+\texorpdfstring{$<$}{<} Add remaining elements
+
+\texorpdfstring{$<$}{<} Add the element if it is unique
+
+\texorpdfstring{$<$}{<} Add remaining elements
+
+\texorpdfstring{$<$}{<} Add the element if it is unique
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<int32\_t>\ res;\ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Vector\ to\ hold\ the\ union}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ f\_index\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Index\ for\ the\ first\ array}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ s\_index\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Index\ for\ the\ second\ array}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ f\_length\ =\ first.size();\ \ \ \textcolor{comment}{///<\ Length\ of\ first\ array}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ s\_length\ =\ second.size();\ \ \textcolor{comment}{///<\ Length\ of\ second\ array}}
+\DoxyCodeLine{00056\ \ \ \ \ int32\_t\ next\ =\ 0;\ \ \textcolor{comment}{///<\ Integer\ to\ store\ value\ of\ the\ next\ element}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{while}\ (f\_index\ <\ f\_length\ \&\&\ s\_index\ <\ s\_length)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (first[f\_index]\ <\ second[s\_index])\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ first[f\_index];\ \ \textcolor{comment}{///<\ Append\ from\ first\ array}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ f\_index++;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Increment\ index\ of\ second\ array}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (first[f\_index]\ >\ second[s\_index])\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ second[s\_index];\ \ \textcolor{comment}{///<\ Append\ from\ second\ array}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ s\_index++;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Increment\ index\ of\ second\ array}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ first[f\_index];\ \ \textcolor{comment}{///<\ Element\ is\ the\ same\ in\ both}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ f\_index++;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Increment\ index\ of\ first\ array}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ s\_index++;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ Increment\ index\ of\ second\ array\ too}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((res.size()\ ==\ 0)\ ||\ (next\ !=\ res.back()))\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(next);\ \ \textcolor{comment}{///<\ Add\ the\ element\ if\ it\ is\ unique}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{while}\ (f\_index\ <\ f\_length)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ next\ =\ first[f\_index];\ \ \textcolor{comment}{///<\ Add\ remaining\ elements}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((res.size()\ ==\ 0)\ ||\ (next\ !=\ res.back()))\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(next);\ \ \textcolor{comment}{///<\ Add\ the\ element\ if\ it\ is\ unique}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ f\_index++;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{while}\ (s\_index\ <\ s\_length)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ next\ =\ second[s\_index];\ \ \textcolor{comment}{///<\ Add\ remaining\ elements}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((res.size()\ ==\ 0)\ ||\ (next\ !=\ res.back()))\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(next);\ \ \textcolor{comment}{///<\ Add\ the\ element\ if\ it\ is\ unique}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ s\_index++;}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceoperations__on__datastructures_a6109193567a5b7e36a27f2b4865fce20}\index{operations\_on\_datastructures@{operations\_on\_datastructures}!print@{print}}
+\index{print@{print}!operations\_on\_datastructures@{operations\_on\_datastructures}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{namespaceoperations__on__datastructures_a6109193567a5b7e36a27f2b4865fce20} 
+void operations\+\_\+on\+\_\+datastructures\+::print (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{array}{}\end{DoxyParamCaption})}
+
+
+
+Prints the values of a vector sequentially, ending with a newline character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Reference to the array to be printed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Print each value in the array
+
+Print newline
+
+Print each value in the array
+
+Print newline
+
+Print each value in the array
+
+Print newline
+
+Print each value in the array
+
+Print newline
+
+Print each value in the array
+
+Print newline
+
+Print each value in the array
+
+Print newline
+
+Print each value in the array
+
+Print newline
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ i\ :\ array)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}};\ \ \textcolor{comment}{///\ Print\ each\ value\ in\ the\ array}}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \textcolor{comment}{///\ Print\ newline}}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceoperations__on__datastructures_afce39cf843989a39811a49ebe29dd6d8}\index{operations\_on\_datastructures@{operations\_on\_datastructures}!shift\_left@{shift\_left}}
+\index{shift\_left@{shift\_left}!operations\_on\_datastructures@{operations\_on\_datastructures}}
+\doxysubsubsection{\texorpdfstring{shift\_left()}{shift\_left()}}
+{\footnotesize\ttfamily \label{namespaceoperations__on__datastructures_afce39cf843989a39811a49ebe29dd6d8} 
+std\+::vector$<$ int32\+\_\+t $>$ operations\+\_\+on\+\_\+datastructures\+::shift\+\_\+left (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{array}{, }\item[{size\+\_\+t}]{shift}{}\end{DoxyParamCaption})}
+
+
+
+Shifts the given vector to the left by the shift amount and returns a new vector with the result. The original vector is not mutated. 
+
+Shifts the values of the vector, by creating a new vector and adding values from the shift index to the end, then appending the rest of the elements from the start of the vector. 
+\begin{DoxyParams}{Parameters}
+{\em array} & A reference to the input std\+::vector \\
+\hline
+{\em shift} & The amount to be shifted to the left \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::vector with the shifted values 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} We got an invalid shift, return empty array
+
+\texorpdfstring{$<$}{<} Result array
+
+\texorpdfstring{$<$}{<} Add values after the shift index
+
+\texorpdfstring{$<$}{<} Add the values from the start
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (array.size()\ <=\ shift)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};\ \ \textcolor{comment}{///<\ We\ got\ an\ invalid\ shift,\ return\ empty\ array}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<int32\_t>\ res(array.size());\ \ \textcolor{comment}{///<\ Result\ array}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ shift;\ i\ <\ array.size();\ i++)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ res[i\ -\/\ shift]\ =\ array[i];\ \ \textcolor{comment}{///<\ Add\ values\ after\ the\ shift\ index}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shift;\ i++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ res[array.size()\ -\/\ shift\ +\ i]\ =}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ array[i];\ \ \textcolor{comment}{///<\ Add\ the\ values\ from\ the\ start}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceoperations__on__datastructures_a1bfb8711f49e591eb168ccaa3df6fb86}\index{operations\_on\_datastructures@{operations\_on\_datastructures}!shift\_right@{shift\_right}}
+\index{shift\_right@{shift\_right}!operations\_on\_datastructures@{operations\_on\_datastructures}}
+\doxysubsubsection{\texorpdfstring{shift\_right()}{shift\_right()}}
+{\footnotesize\ttfamily \label{namespaceoperations__on__datastructures_a1bfb8711f49e591eb168ccaa3df6fb86} 
+std\+::vector$<$ int32\+\_\+t $>$ operations\+\_\+on\+\_\+datastructures\+::shift\+\_\+right (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{array}{, }\item[{size\+\_\+t}]{shift}{}\end{DoxyParamCaption})}
+
+
+
+Shifts the given vector to the right by the shift amount and returns a new vector with the result. The original vector is not mutated. 
+
+Shifts the values of the vector, by creating a new vector and adding values from the shift index to the end, then appending the rest of the elements to the start of the vector. 
+\begin{DoxyParams}{Parameters}
+{\em array} & A reference to the input std\+::vector \\
+\hline
+{\em shift} & The amount to be shifted to the right \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::vector with the shifted values 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} We got an invalid shift, return empty array
+
+\texorpdfstring{$<$}{<} Result array
+
+\texorpdfstring{$<$}{<} Add values after the shift index
+
+\texorpdfstring{$<$}{<} Add the values from the start
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (array.size()\ <=\ shift)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};\ \ \textcolor{comment}{///<\ We\ got\ an\ invalid\ shift,\ return\ empty\ array}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ std::vector<int32\_t>\ res(array.size());\ \ \textcolor{comment}{///<\ Result\ array}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ shift;\ i\ <\ array.size();\ i++)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ res[i]\ =\ array[i\ -\/\ shift];\ \ \textcolor{comment}{///<\ Add\ values\ after\ the\ shift\ index}}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ shift;\ i++)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ res[i]\ =}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ array[array.size()\ -\/\ shift\ +\ i];\ \ \textcolor{comment}{///<\ Add\ the\ values\ from\ the\ start}}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}

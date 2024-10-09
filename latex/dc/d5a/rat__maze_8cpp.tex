@@ -1,0 +1,169 @@
+\doxysection{backtracking/rat\+\_\+maze.cpp File Reference}
+\hypertarget{rat__maze_8cpp}{}\label{rat__maze_8cpp}\index{backtracking/rat\_maze.cpp@{backtracking/rat\_maze.cpp}}
+
+
+Implements \href{https://www.codesdope.com/blog/article/backtracking-to-
+solve-a-rat-in-a-maze-c-java-pytho/}{\texttt{ Rat in a Maze}} algorithm.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacerat__maze}{rat\+\_\+maze}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://www.codesdope.com/blog/article/backtracking-to-
+solve-a-rat-in-a-maze-c-java-pytho/}{\texttt{ Rat in a Maze}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t size$>$ }\\bool \mbox{\hyperlink{rat__maze_8cpp_ab99107bfb4c6934cd4691868c66c0aa3}{backtracking\+::rat\+\_\+maze\+::solve\+Maze}} (int currposrow, int currposcol, const std\+::array$<$ std\+::array$<$ int, size $>$, size $>$ \&maze, std\+::array$<$ std\+::array$<$ int, size $>$, size $>$ soln)
+\begin{DoxyCompactList}\small\item\em Solve rat maze problem. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{rat__maze_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rat__maze_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements \href{https://www.codesdope.com/blog/article/backtracking-to-
+solve-a-rat-in-a-maze-c-java-pytho/}{\texttt{ Rat in a Maze}} algorithm. 
+
+A Maze is given as N\texorpdfstring{$\ast$}{*}N binary matrix of blocks where source block is the upper left most block i.\+e., maze\mbox{[}0\mbox{]}\mbox{[}0\mbox{]} and destination block is lower rightmost block i.\+e., maze\mbox{[}N-\/1\mbox{]}\mbox{[}N-\/1\mbox{]}. A rat starts from source and has to reach destination. The rat can move only in two directions\+: forward and down. In the maze matrix, 0 means the block is dead end and 1 means the block can be used in the path from source to destination.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/vaithak}{\texttt{ Vaibhav Thakkar}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rat__maze_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{rat\_maze.cpp@{rat\_maze.cpp}!main@{main}}
+\index{main@{main}!rat\_maze.cpp@{rat\_maze.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{rat__maze_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{rat__maze_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{rat__maze_8cpp_ab99107bfb4c6934cd4691868c66c0aa3}\index{rat\_maze.cpp@{rat\_maze.cpp}!solveMaze@{solveMaze}}
+\index{solveMaze@{solveMaze}!rat\_maze.cpp@{rat\_maze.cpp}}
+\doxysubsubsection{\texorpdfstring{solveMaze()}{solveMaze()}}
+{\footnotesize\ttfamily \label{rat__maze_8cpp_ab99107bfb4c6934cd4691868c66c0aa3} 
+template$<$size\+\_\+t size$>$ \\
+bool backtracking\+::rat\+\_\+maze\+::solve\+Maze (\begin{DoxyParamCaption}\item[{int}]{currposrow}{, }\item[{int}]{currposcol}{, }\item[{const std\+::array$<$ std\+::array$<$ int, size $>$, size $>$ \&}]{maze}{, }\item[{std\+::array$<$ std\+::array$<$ int, size $>$, size $>$}]{soln}{}\end{DoxyParamCaption})}
+
+
+
+Solve rat maze problem. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em size} & number of matrix size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em currposrow} & current position in rows \\
+\hline
+{\em currposcol} & current position in columns \\
+\hline
+{\em maze} & matrix where numbers are saved \\
+\hline
+{\em soln} & matrix to problem solution \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if there exists a solution to move one step ahead in a column or in a row 
+
+{\ttfamily false} for the backtracking part 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ ((currposrow\ ==\ size\ -\/\ 1)\ \&\&\ (currposcol\ ==\ size\ -\/\ 1))\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ soln[currposrow][currposcol]\ =\ 1;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ size;\ ++j)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ soln[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00059\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ soln[currposrow][currposcol]\ =\ 1;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ there\ exist\ a\ solution\ by\ moving\ one\ step\ ahead\ in\ a\ column}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((currposcol\ <\ size\ -\/\ 1)\ \&\&\ maze[currposrow][currposcol\ +\ 1]\ ==\ 1\ \&\&}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{rat__maze_8cpp_ab99107bfb4c6934cd4691868c66c0aa3}{solveMaze}}(currposrow,\ currposcol\ +\ 1,\ maze,\ soln))\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ there\ exists\ a\ solution\ by\ moving\ one\ step\ ahead\ in\ a\ row}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((currposrow\ <\ size\ -\/\ 1)\ \&\&\ maze[currposrow\ +\ 1][currposcol]\ ==\ 1\ \&\&}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{rat__maze_8cpp_ab99107bfb4c6934cd4691868c66c0aa3}{solveMaze}}(currposrow\ +\ 1,\ currposcol,\ maze,\ soln))\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ backtracking\ part}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ soln[currposrow][currposcol]\ =\ 0;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{rat__maze_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{rat\_maze.cpp@{rat\_maze.cpp}!test@{test}}
+\index{test@{test}!rat\_maze.cpp@{rat\_maze.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{rat__maze_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ 4;}
+\DoxyCodeLine{00088\ \ \ \ \ std::array<std::array<int,\ size>,\ size>\ maze\ =\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::array<int,\ size>\{1,\ 0,\ 1,\ 0\},\ std::array<int,\ size>\{1,\ 0,\ 1,\ 1\},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::array<int,\ size>\{1,\ 0,\ 0,\ 1\},\ std::array<int,\ size>\{1,\ 1,\ 1,\ 1\}\};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ std::array<std::array<int,\ size>,\ size>\ soln\{\};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ Backtracking:\ setup\ matrix\ solution\ to\ zero}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ size;\ ++j)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ soln[i][j]\ =\ 0;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ currposrow\ =\ 0;\ \ \textcolor{comment}{//\ Current\ position\ in\ the\ rows}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ currposcol\ =\ 0;\ \ \textcolor{comment}{//\ Current\ position\ in\ the\ columns}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ assert(backtracking::rat\_maze::solveMaze<size>(currposrow,\ currposcol,\ maze,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ soln)\ ==\ 1);}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}

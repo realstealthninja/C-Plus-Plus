@@ -1,0 +1,88 @@
+\doxysection{math/check\+\_\+amicable\+\_\+pair.cpp File Reference}
+\hypertarget{check__amicable__pair_8cpp}{}\label{check__amicable__pair_8cpp}\index{math/check\_amicable\_pair.cpp@{math/check\_amicable\_pair.cpp}}
+
+
+A C++ Program to check whether a pair of numbers is an \href{https://en.wikipedia.org/wiki/Amicable_numbers}{\texttt{ amicable pair}} or not.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacemath_af05567415a9ea36c254b54e3d5a2152a}{math\+::sum\+\_\+of\+\_\+divisor}} (int num)
+\begin{DoxyCompactList}\small\item\em Function to calculate the sum of all the proper divisor of an integer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacemath_a8e6eede206201db0d1dbb618fa969bec}{math\+::are\+\_\+amicable}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Function to check whether the pair is amicable or not. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{check__amicable__pair_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{check__amicable__pair_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A C++ Program to check whether a pair of numbers is an \href{https://en.wikipedia.org/wiki/Amicable_numbers}{\texttt{ amicable pair}} or not. 
+
+An Amicable Pair is two positive integers such that the sum of the proper divisor for each number is equal to the other number.
+
+\begin{DoxyNote}{Note}
+Remember that a proper divisor is any positive whole number that divides into a selected number, apart from the selected number itself, and returns a positive integer. for example 1, 2 and 5 are all proper divisors of 10.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/iamnambiar}{\texttt{ iamnambiar}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{check__amicable__pair_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{check\_amicable\_pair.cpp@{check\_amicable\_pair.cpp}!main@{main}}
+\index{main@{main}!check\_amicable\_pair.cpp@{check\_amicable\_pair.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{check__amicable__pair_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{check__amicable__pair_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ perform\ self-\/tests\ implementations}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{check__amicable__pair_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{check\_amicable\_pair.cpp@{check\_amicable\_pair.cpp}!tests@{tests}}
+\index{tests@{tests}!check\_amicable\_pair.cpp@{check\_amicable\_pair.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{check__amicable__pair_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8e6eede206201db0d1dbb618fa969bec}{math::are\_amicable}}(220,\ 284)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00069\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8e6eede206201db0d1dbb618fa969bec}{math::are\_amicable}}(6368,\ 6232)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00070\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8e6eede206201db0d1dbb618fa969bec}{math::are\_amicable}}(458,\ 232)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00071\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8e6eede206201db0d1dbb618fa969bec}{math::are\_amicable}}(17296,\ 18416)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00072\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8e6eede206201db0d1dbb618fa969bec}{math::are\_amicable}}(18416,\ 17296)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}

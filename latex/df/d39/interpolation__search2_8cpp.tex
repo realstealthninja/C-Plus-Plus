@@ -1,0 +1,83 @@
+\doxysection{search/interpolation\+\_\+search2.cpp File Reference}
+\hypertarget{interpolation__search2_8cpp}{}\label{interpolation__search2_8cpp}\index{search/interpolation\_search2.cpp@{search/interpolation\_search2.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Interpolation_search}{\texttt{ Interpolation search}} algorithm  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{interpolation__search2_8cpp_aa3ec659ec8394d186c761df81ad1f629}{Interpolation\+Search}} (int A\mbox{[}$\,$\mbox{]}, int n, int x)
+\item 
+int \mbox{\hyperlink{interpolation__search2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Interpolation_search}{\texttt{ Interpolation search}} algorithm 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{interpolation__search2_8cpp_aa3ec659ec8394d186c761df81ad1f629}\index{interpolation\_search2.cpp@{interpolation\_search2.cpp}!InterpolationSearch@{InterpolationSearch}}
+\index{InterpolationSearch@{InterpolationSearch}!interpolation\_search2.cpp@{interpolation\_search2.cpp}}
+\doxysubsubsection{\texorpdfstring{InterpolationSearch()}{InterpolationSearch()}}
+{\footnotesize\ttfamily \label{interpolation__search2_8cpp_aa3ec659ec8394d186c761df81ad1f629} 
+int Interpolation\+Search (\begin{DoxyParamCaption}\item[{int}]{A}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{n}{, }\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+function to search the value in an array using interpolation search 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arr} & array to search in \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & value to search for \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & length of array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index where the value is found 
+
+-\/1 if not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ low\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ high\ =\ n\ -\/\ 1;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{while}\ (low\ <=\ high)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ low\ +\ (((high\ -\/\ 1)\ *\ (x\ -\/\ A[low]))\ /\ (A[high]\ -\/\ A[low]));}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ A[mid])}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mid;\ \ \textcolor{comment}{//\ Found\ x,\ return\ (exit)}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (x\ <\ A[mid])}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ high\ =\ mid\ -\/\ 1;\ \ \textcolor{comment}{//\ X\ lies\ before\ mid}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ low\ =\ mid\ +\ 1;\ \ \textcolor{comment}{//\ x\ lies\ after\ mid}}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}
+\Hypertarget{interpolation__search2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{interpolation\_search2.cpp@{interpolation\_search2.cpp}!main@{main}}
+\index{main@{main}!interpolation\_search2.cpp@{interpolation\_search2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{interpolation__search2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function \texorpdfstring{$<$}{<} passed array A inside the Interpolation\+Search function
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ A[]\ =\ \{2,\ 4,\ 5,\ 7,\ 13,\ 14,\ 15,\ 23\};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 17;}
+\DoxyCodeLine{00035\ \textcolor{comment}{}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ ///<\ passed\ array\ A\ inside\ the\ InterpolationSearch\ function }}
+\DoxyCodeLine{00037\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{interpolation__search2_8cpp_aa3ec659ec8394d186c761df81ad1f629}{InterpolationSearch}}(A,\ 8,\ x);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <\ 0)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Number\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\ not\ found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Number\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\ is\ at\ "{}}\ <<\ index\ <<\ std::endl;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

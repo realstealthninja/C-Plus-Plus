@@ -1,0 +1,134 @@
+\doxysection{bit\+\_\+manipulation/count\+\_\+bits\+\_\+flip.cpp File Reference}
+\hypertarget{count__bits__flip_8cpp}{}\label{count__bits__flip_8cpp}\index{bit\_manipulation/count\_bits\_flip.cpp@{bit\_manipulation/count\_bits\_flip.cpp}}
+
+
+Implementation to \mbox{[}Count number of bits to be flipped to convert A to B\mbox{]} (\href{https://www.geeksforgeeks.org/count-number-of-bits-to-be-flipped-to-convert-a-to-b/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/count-\/number-\/of-\/bits-\/to-\/be-\/flipped-\/to-\/convert-\/a-\/to-\/b/}}) in an integer.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebit__manipulation}{bit\+\_\+manipulation}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecount__bits__flip}{count\+\_\+bits\+\_\+flip}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://www.geeksforgeeks.org/count-set-bits-in-an-integer/}{\texttt{ count bits flip}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{count__bits__flip_8cpp_a2548486b6c3b80101e768562e687ef7b}{bit\+\_\+manipulation\+::count\+\_\+bits\+\_\+flip\+::count\+Bits\+Flip}} (std\+::int64\+\_\+t A, std\+::int64\+\_\+t B)
+\begin{DoxyCompactList}\small\item\em The main function implements count of bits flip required. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{count__bits__flip_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{count__bits__flip_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation to \mbox{[}Count number of bits to be flipped to convert A to B\mbox{]} (\href{https://www.geeksforgeeks.org/count-number-of-bits-to-be-flipped-to-convert-a-to-b/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/count-\/number-\/of-\/bits-\/to-\/be-\/flipped-\/to-\/convert-\/a-\/to-\/b/}}) in an integer. 
+
+We are given two numbers A and B. Our task is to count the number of bits needed to be flipped to convert A to B.
+
+Explanation\+:
+
+A = 01010 B = 10100 As we can see, the bits of A that need to be flipped are 01010. If we flipthese bits, we get 10100, which is B.
+
+Worst Case Time Complexity\+: O(log n) Space complexity\+: O(1) \begin{DoxyAuthor}{Author}
+\href{https://github.com/yashrajyash}{\texttt{ Yash Raj Singh}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{count__bits__flip_8cpp_a2548486b6c3b80101e768562e687ef7b}\index{count\_bits\_flip.cpp@{count\_bits\_flip.cpp}!countBitsFlip@{countBitsFlip}}
+\index{countBitsFlip@{countBitsFlip}!count\_bits\_flip.cpp@{count\_bits\_flip.cpp}}
+\doxysubsubsection{\texorpdfstring{countBitsFlip()}{countBitsFlip()}}
+{\footnotesize\ttfamily \label{count__bits__flip_8cpp_a2548486b6c3b80101e768562e687ef7b} 
+std\+::uint64\+\_\+t bit\+\_\+manipulation\+::count\+\_\+bits\+\_\+flip\+::count\+Bits\+Flip (\begin{DoxyParamCaption}\item[{std\+::int64\+\_\+t}]{A}{, }\item[{std\+::int64\+\_\+t}]{B}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements count of bits flip required. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & is the given number whose bits will be flipped to get number B \\
+\hline
+{\em B} & is the given target number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+total number of bits needed to be flipped to convert A to B 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ int64\_t\ is\ preferred\ over\ int\ so\ that}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ no\ Overflow\ can\ be\ there.}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ 0;\ \ \textcolor{comment}{//\ "{}count"{}\ variable\ is\ used\ to\ count\ number\ of\ bits\ flip\ of\ the}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ A\ to\ form\ B\ in\ binary\ representation\ of\ number\ 'n'}}
+\DoxyCodeLine{00050\ \ \ \ \ A\ =\ A\ \string^\ B;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{while}\ (A)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ A\ =\ A\ \&\ (A\ -\/\ 1);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{count__bits__flip_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{count\_bits\_flip.cpp@{count\_bits\_flip.cpp}!main@{main}}
+\index{main@{main}!count\_bits\_flip.cpp@{count\_bits\_flip.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{count__bits__flip_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{count__bits__flip_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{count__bits__flip_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{count\_bits\_flip.cpp@{count\_bits\_flip.cpp}!test@{test}}
+\index{test@{test}!count\_bits\_flip.cpp@{count\_bits\_flip.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{count__bits__flip_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ A\ =\ 10,\ B\ =\ 20\ return\ 4}}
+\DoxyCodeLine{00066\ \ \ \ \ assert(bit\_manipulation::count\_bits\_flip::countBitsFlip(10,\ 20)\ ==\ 4);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ A\ =\ 20,\ B\ =\ 25\ return\ 3}}
+\DoxyCodeLine{00068\ \ \ \ \ assert(bit\_manipulation::count\_bits\_flip::countBitsFlip(20,\ 25)\ ==\ 3);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ A\ =\ 7,\ B\ =\ 10\ return\ 3}}
+\DoxyCodeLine{00070\ \ \ \ \ assert(bit\_manipulation::count\_bits\_flip::countBitsFlip(7,\ 10)\ ==\ 3);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ A\ =\ 17,\ B\ =\ 25\ return\ 1}}
+\DoxyCodeLine{00072\ \ \ \ \ assert(bit\_manipulation::count\_bits\_flip::countBitsFlip(17,\ 25)\ ==\ 1);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ A\ =\ 11,\ B\ =\ 8\ return\ 2}}
+\DoxyCodeLine{00074\ \ \ \ \ assert(bit\_manipulation::count\_bits\_flip::countBitsFlip(11,\ 8)\ ==\ 2);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ A\ =\ 21,\ B\ =\ 22\ return\ 2}}
+\DoxyCodeLine{00076\ \ \ \ \ assert(bit\_manipulation::count\_bits\_flip::countBitsFlip(21,\ 22)\ ==\ 2);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ A\ =\ 7,\ B\ =\ 786\ return\ 5}}
+\DoxyCodeLine{00078\ \ \ \ \ assert(bit\_manipulation::count\_bits\_flip::countBitsFlip(7,\ 786)\ ==\ 5);}
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ test\ cases\ successfully\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}

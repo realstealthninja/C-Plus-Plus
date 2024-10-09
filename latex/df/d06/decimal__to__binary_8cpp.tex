@@ -1,0 +1,94 @@
+\doxysection{others/decimal\+\_\+to\+\_\+binary.cpp File Reference}
+\hypertarget{decimal__to__binary_8cpp}{}\label{decimal__to__binary_8cpp}\index{others/decimal\_to\_binary.cpp@{others/decimal\_to\_binary.cpp}}
+
+
+Function to convert decimal number to binary representation.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{decimal__to__binary_8cpp_a9240f2e79074a2a248395258aebbfa11}{method1}} (int number)
+\item 
+void \mbox{\hyperlink{decimal__to__binary_8cpp_a10df57491019f0ac39b492740fb388f7}{method2}} (int number)
+\item 
+int \mbox{\hyperlink{decimal__to__binary_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function to convert decimal number to binary representation. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{decimal__to__binary_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{decimal\_to\_binary.cpp@{decimal\_to\_binary.cpp}!main@{main}}
+\index{main@{main}!decimal\_to\_binary.cpp@{decimal\_to\_binary.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{decimal__to__binary_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ number;}
+\DoxyCodeLine{00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ number:"{}};}
+\DoxyCodeLine{00049\ \ \ \ \ std::cin\ >>\ number;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{decimal__to__binary_8cpp_a9240f2e79074a2a248395258aebbfa11}{method1}}(number);}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{decimal__to__binary_8cpp_a10df57491019f0ac39b492740fb388f7}{method2}}(number);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+\Hypertarget{decimal__to__binary_8cpp_a9240f2e79074a2a248395258aebbfa11}\index{decimal\_to\_binary.cpp@{decimal\_to\_binary.cpp}!method1@{method1}}
+\index{method1@{method1}!decimal\_to\_binary.cpp@{decimal\_to\_binary.cpp}}
+\doxysubsubsection{\texorpdfstring{method1()}{method1()}}
+{\footnotesize\ttfamily \label{decimal__to__binary_8cpp_a9240f2e79074a2a248395258aebbfa11} 
+void method1 (\begin{DoxyParamCaption}\item[{int}]{number}{}\end{DoxyParamCaption})}
+
+This method converts the bit representation and stores it as a decimal number. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ remainder,\ binary\ =\ 0,\ var\ =\ 1;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ remainder\ =\ number\ \%\ 2;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ number\ =\ number\ /\ 2;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ binary\ =\ binary\ +\ (remainder\ *\ var);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ var\ =\ var\ *\ 10;}
+\DoxyCodeLine{00019\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (number\ >\ 0);}
+\DoxyCodeLine{00020\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Method\ 1\ :\ "{}}\ <<\ binary\ <<\ std::endl;}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
+\Hypertarget{decimal__to__binary_8cpp_a10df57491019f0ac39b492740fb388f7}\index{decimal\_to\_binary.cpp@{decimal\_to\_binary.cpp}!method2@{method2}}
+\index{method2@{method2}!decimal\_to\_binary.cpp@{decimal\_to\_binary.cpp}}
+\doxysubsubsection{\texorpdfstring{method2()}{method2()}}
+{\footnotesize\ttfamily \label{decimal__to__binary_8cpp_a10df57491019f0ac39b492740fb388f7} 
+void method2 (\begin{DoxyParamCaption}\item[{int}]{number}{}\end{DoxyParamCaption})}
+
+This method stores each bit value from LSB to MSB and then prints them back from MSB to LSB 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_bits\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{char}\ bit\_string[50];}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ bit\ =\ number\ \&\ 0x01;\ \ \textcolor{comment}{//\ get\ last\ bit}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bit)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ bit\_string[num\_bits++]\ =\ \textcolor{charliteral}{'1'};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ bit\_string[num\_bits++]\ =\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ number\ >>=\ 1;\ \ \textcolor{comment}{//\ right\ shift\ bit\ 1\ bit}}
+\DoxyCodeLine{00038\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (number\ >\ 0);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Method\ 2\ :\ "{}};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bits\ >=\ 0)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::cout\ <<\ bit\_string[num\_bits-\/-\/];\ \ \textcolor{comment}{//\ print\ from\ MSB\ to\ LSB}}
+\DoxyCodeLine{00043\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}

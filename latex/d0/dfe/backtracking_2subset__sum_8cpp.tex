@@ -1,0 +1,157 @@
+\doxysection{backtracking/subset\+\_\+sum.cpp File Reference}
+\hypertarget{backtracking_2subset__sum_8cpp}{}\label{backtracking_2subset__sum_8cpp}\index{backtracking/subset\_sum.cpp@{backtracking/subset\_sum.cpp}}
+
+
+Implementation of the \href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ Subset Sum}} problem.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_subsets}{Subsets}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ Subset Sum}} problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{backtracking_2subset__sum_8cpp_a7cb50d36a59427a33f64a266dac83d99}{backtracking\+::subset\+\_\+sum\+::number\+\_\+of\+\_\+subsets}} (int32\+\_\+t sum, const std\+::vector$<$ int32\+\_\+t $>$ \&in\+\_\+arr)
+\begin{DoxyCompactList}\small\item\em The main function implements count of subsets. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{backtracking_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{backtracking_2subset__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ Subset Sum}} problem. 
+
+We are given an array and a sum value. The algorithm finds all the subsets of that array with sum equal to the given sum and return such subsets count. This approach will have exponential time complexity. \begin{DoxyAuthor}{Author}
+\href{https://github.com/Swastyy}{\texttt{ Swastika Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{backtracking_2subset__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{subset\_sum.cpp@{subset\_sum.cpp}!main@{main}}
+\index{main@{main}!subset\_sum.cpp@{subset\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{backtracking_2subset__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{backtracking_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{backtracking_2subset__sum_8cpp_a7cb50d36a59427a33f64a266dac83d99}\index{subset\_sum.cpp@{subset\_sum.cpp}!number\_of\_subsets@{number\_of\_subsets}}
+\index{number\_of\_subsets@{number\_of\_subsets}!subset\_sum.cpp@{subset\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{number\_of\_subsets()}{number\_of\_subsets()}}
+{\footnotesize\ttfamily \label{backtracking_2subset__sum_8cpp_a7cb50d36a59427a33f64a266dac83d99} 
+uint64\+\_\+t backtracking\+::subset\+\_\+sum\+::number\+\_\+of\+\_\+subsets (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{sum}{, }\item[{const std\+::vector$<$ int32\+\_\+t $>$ \&}]{in\+\_\+arr}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements count of subsets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sum} & is the required sum of any subset \\
+\hline
+{\em in\+\_\+arr} & is the input array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count of the number of subsets with required sum 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ int32\_t\ nelement\ =\ in\_arr.size();}
+\DoxyCodeLine{00035\ \ \ \ \ uint64\_t\ count\_of\_subset\ =\ 0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ i\ =\ 0;\ i\ <\ (1\ <<\ (nelement));\ i++)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ int32\_t\ check\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ j\ =\ 0;\ j\ <\ nelement;\ j++)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ \&\ (1\ <<\ j))\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check\ +=\ (in\_arr[j]);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (check\ ==\ sum)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ count\_of\_subset++;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ count\_of\_subset;}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{backtracking_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{subset\_sum.cpp@{subset\_sum.cpp}!test@{test}}
+\index{test@{test}!subset\_sum.cpp@{subset\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{backtracking_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00059\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test\ "{}};}
+\DoxyCodeLine{00060\ \ \ \ \ std::vector<int32\_t>\ array1\ =\ \{-\/7,\ -\/3,\ -\/2,\ 5,\ 8\};\ \ \textcolor{comment}{//\ input\ array}}
+\DoxyCodeLine{00061\ \ \ \ \ assert(backtracking::subset\_sum::number\_of\_subsets(0,\ array1)\ ==}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ 2);\ \ \textcolor{comment}{//\ first\ argument\ in\ subset\_sum\ function\ is\ the\ required\ sum\ and}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ second\ is\ the\ input\ array}}
+\DoxyCodeLine{00064\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00067\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test\ "{}};}
+\DoxyCodeLine{00068\ \ \ \ \ std::vector<int32\_t>\ array2\ =\ \{1,\ 2,\ 3,\ 3\};}
+\DoxyCodeLine{00069\ \ \ \ \ assert(backtracking::subset\_sum::number\_of\_subsets(6,\ array2)\ ==}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ 3);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 3\ subsets\ which\ sum\ up\ to\ 6\ i.e.}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{(1,2,3),(1,2,3),(3,3)\}}}
+\DoxyCodeLine{00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00075\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test\ "{}};}
+\DoxyCodeLine{00076\ \ \ \ \ std::vector<int32\_t>\ array3\ =\ \{1,\ 1,\ 1,\ 1\};}
+\DoxyCodeLine{00077\ \ \ \ \ assert(backtracking::subset\_sum::number\_of\_subsets(1,\ array3)\ ==}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ 4);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 4\ subsets\ which\ sum\ up\ to\ 1\ i.e.}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{(1),(1),(1),(1)\}}}
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ 4th\ test}}
+\DoxyCodeLine{00083\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4th\ test\ "{}};}
+\DoxyCodeLine{00084\ \ \ \ \ std::vector<int32\_t>\ array4\ =\ \{3,\ 3,\ 3,\ 3\};}
+\DoxyCodeLine{00085\ \ \ \ \ assert(backtracking::subset\_sum::number\_of\_subsets(6,\ array4)\ ==}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ 6);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 6\ subsets\ which\ sum\ up\ to\ 6\ i.e.}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{(3,3),(3,3),(3,3),(3,3),(3,3),(3,3)\}}}
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ Test\ 5}}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}5th\ test\ "{}};}
+\DoxyCodeLine{00092\ \ \ \ \ std::vector<int32\_t>\ array5\ =\ \{\};}
+\DoxyCodeLine{00093\ \ \ \ \ assert(backtracking::subset\_sum::number\_of\_subsets(6,\ array5)\ ==}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ 0);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 0\ subsets\ which\ sum\ up\ to\ 6\ i.e.\ we}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cannot\ select\ anything\ from\ an\ empty\ array}}
+\DoxyCodeLine{00096\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}

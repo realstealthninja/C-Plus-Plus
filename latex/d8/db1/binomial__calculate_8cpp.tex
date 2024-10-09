@@ -1,0 +1,150 @@
+\doxysection{math/binomial\+\_\+calculate.cpp File Reference}
+\hypertarget{binomial__calculate_8cpp}{}\label{binomial__calculate_8cpp}\index{math/binomial\_calculate.cpp@{math/binomial\_calculate.cpp}}
+
+
+Program to calculate \href{https://en.wikipedia.org/wiki/Binomial_coefficient}{\texttt{ Binomial coefficients}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacebinomial}{binomial}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Binomial_coefficient}{\texttt{ Binomial coefficients}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{binomial__calculate_8cpp_aae407a2a13362c4c64fbe509ff325978}{math\+::binomial\+::calculate}} (int32\+\_\+t n, int32\+\_\+t k)
+\begin{DoxyCompactList}\small\item\em Function to calculate binomial coefficients. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binomial__calculate_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{binomial__calculate_8cpp_ac0f2228420376f4db7e1274f2b41667c}{main}} (int argc, const char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Program to calculate \href{https://en.wikipedia.org/wiki/Binomial_coefficient}{\texttt{ Binomial coefficients}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/astronmax}{\texttt{ astronmax}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{binomial__calculate_8cpp_aae407a2a13362c4c64fbe509ff325978}\index{binomial\_calculate.cpp@{binomial\_calculate.cpp}!calculate@{calculate}}
+\index{calculate@{calculate}!binomial\_calculate.cpp@{binomial\_calculate.cpp}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily \label{binomial__calculate_8cpp_aae407a2a13362c4c64fbe509ff325978} 
+size\+\_\+t math\+::binomial\+::calculate (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{n}{, }\item[{int32\+\_\+t}]{k}{}\end{DoxyParamCaption})}
+
+
+
+Function to calculate binomial coefficients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & first value \\
+\hline
+{\em k} & second value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+binomial coefficient for n and k 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ basic\ cases}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ >\ (n\ /\ 2))}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ n\ -\/\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ 1)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ 0)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ i\ =\ 1;\ i\ <=\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}};\ ++i)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ *=\ n\ -\/\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ +\ i;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ /=\ i;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__calculate_8cpp_ac0f2228420376f4db7e1274f2b41667c}\index{binomial\_calculate.cpp@{binomial\_calculate.cpp}!main@{main}}
+\index{main@{main}!binomial\_calculate.cpp@{binomial\_calculate.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{binomial__calculate_8cpp_ac0f2228420376f4db7e1274f2b41667c} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count \\
+\hline
+{\em argv} & commandline array of arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{binomial__calculate_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 3)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Usage\ ./binomial\_calculate\ \{n\}\ \{k\}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ int32\_t\ n\ =\ atoi(argv[1]);}
+\DoxyCodeLine{00088\ \ \ \ \ int32\_t\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ atoi(argv[2]);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{binomial__calculate_8cpp_aae407a2a13362c4c64fbe509ff325978}{math::binomial::calculate}}(n,\ k)\ <<\ std::endl;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__calculate_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{binomial\_calculate.cpp@{binomial\_calculate.cpp}!tests@{tests}}
+\index{tests@{tests}!binomial\_calculate.cpp@{binomial\_calculate.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{binomial__calculate_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ tests\ for\ calculate\ function}}
+\DoxyCodeLine{00058\ \ \ \ \ assert(math::binomial::calculate(1,\ 1)\ ==\ 1);}
+\DoxyCodeLine{00059\ \ \ \ \ assert(math::binomial::calculate(57,\ 57)\ ==\ 1);}
+\DoxyCodeLine{00060\ \ \ \ \ assert(math::binomial::calculate(6,\ 3)\ ==\ 20);}
+\DoxyCodeLine{00061\ \ \ \ \ assert(math::binomial::calculate(10,\ 5)\ ==\ 252);}
+\DoxyCodeLine{00062\ \ \ \ \ assert(math::binomial::calculate(20,\ 10)\ ==\ 184756);}
+\DoxyCodeLine{00063\ \ \ \ \ assert(math::binomial::calculate(30,\ 15)\ ==\ 155117520);}
+\DoxyCodeLine{00064\ \ \ \ \ assert(math::binomial::calculate(40,\ 20)\ ==\ 137846528820);}
+\DoxyCodeLine{00065\ \ \ \ \ assert(math::binomial::calculate(50,\ 25)\ ==\ 126410606437752);}
+\DoxyCodeLine{00066\ \ \ \ \ assert(math::binomial::calculate(60,\ 30)\ ==\ 118264581564861424);}
+\DoxyCodeLine{00067\ \ \ \ \ assert(math::binomial::calculate(62,\ 31)\ ==\ 465428353255261088);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[+]\ Binomial\ coefficients\ calculate\ test\ completed"{}}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}

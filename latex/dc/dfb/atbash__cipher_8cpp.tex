@@ -1,0 +1,168 @@
+\doxysection{ciphers/atbash\+\_\+cipher.cpp File Reference}
+\hypertarget{atbash__cipher_8cpp}{}\label{atbash__cipher_8cpp}\index{ciphers/atbash\_cipher.cpp@{ciphers/atbash\_cipher.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Atbash}{\texttt{ Atbash Cipher}} implementation  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceciphers}{ciphers}}
+\begin{DoxyCompactList}\small\item\em Algorithms for encryption and decryption. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceatbash}{atbash}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Atbash}{\texttt{ Atbash Cipher}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{atbash__cipher_8cpp_a8f7dd4dcd3df7c512c20482afc2dbb9d}{ciphers\+::atbash\+::atbash\+\_\+cipher}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em atbash cipher encryption and decryption \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{atbash__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{atbash__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ char, char $>$ \mbox{\hyperlink{atbash__cipher_8cpp_a6db8da258087a33e99296a725d84fc92}{ciphers\+::atbash\+::atbash\+\_\+cipher\+\_\+map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Atbash}{\texttt{ Atbash Cipher}} implementation 
+
+The Atbash cipher is a subsitution cipher where the letters of the alphabet are in reverse. For example, A is replaced with Z, B is replaced with Y, etc.\hypertarget{atbash__cipher_8cpp_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{atbash__cipher_8cpp_autotoc_md0}
+The algorithm takes a string, and looks up the corresponding reversed letter for each letter in the word and replaces it. Spaces are ignored and case is preserved.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Focusucof}{\texttt{ Focusucof}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{atbash__cipher_8cpp_a8f7dd4dcd3df7c512c20482afc2dbb9d}\index{atbash\_cipher.cpp@{atbash\_cipher.cpp}!atbash\_cipher@{atbash\_cipher}}
+\index{atbash\_cipher@{atbash\_cipher}!atbash\_cipher.cpp@{atbash\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{atbash\_cipher()}{atbash\_cipher()}}
+{\footnotesize\ttfamily \label{atbash__cipher_8cpp_a8f7dd4dcd3df7c512c20482afc2dbb9d} 
+std\+::string ciphers\+::atbash\+::atbash\+\_\+cipher (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+
+
+atbash cipher encryption and decryption 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Plaintext to be encrypted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+encoded or decoded string 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::string\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ letter\ :\ text)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ +=\ atbash\_cipher\_map[letter];}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}
+\Hypertarget{atbash__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{atbash\_cipher.cpp@{atbash\_cipher.cpp}!main@{main}}
+\index{main@{main}!atbash\_cipher.cpp@{atbash\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{atbash__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{atbash__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{atbash__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{atbash\_cipher.cpp@{atbash\_cipher.cpp}!test@{test}}
+\index{test@{test}!atbash\_cipher.cpp@{atbash\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{atbash__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00064\ \ \ \ \ std::string\ text\ =\ \textcolor{stringliteral}{"{}Hello\ World"{}};}
+\DoxyCodeLine{00065\ \ \ \ \ std::string\ expected\ =\ \textcolor{stringliteral}{"{}Svool\ Dliow"{}};}
+\DoxyCodeLine{00066\ \ \ \ \ std::string\ encrypted\_text\ =\ \mbox{\hyperlink{atbash__cipher_8cpp_a8f7dd4dcd3df7c512c20482afc2dbb9d}{ciphers::atbash::atbash\_cipher}}(text);}
+\DoxyCodeLine{00067\ \ \ \ \ std::string\ decrypted\_text\ =\ \mbox{\hyperlink{atbash__cipher_8cpp_a8f7dd4dcd3df7c512c20482afc2dbb9d}{ciphers::atbash::atbash\_cipher}}(encrypted\_text);}
+\DoxyCodeLine{00068\ \ \ \ \ assert(expected\ ==\ encrypted\_text);}
+\DoxyCodeLine{00069\ \ \ \ \ assert(text\ ==\ decrypted\_text);}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ text:\ "{}}\ <<\ text\ <<\ std::endl;}
+\DoxyCodeLine{00071\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Expected\ text:\ "{}}\ <<\ expected\ <<\ std::endl;}
+\DoxyCodeLine{00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Encrypted\ text:\ "{}}\ <<\ encrypted\_text\ <<\ std::endl;}
+\DoxyCodeLine{00073\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Decrypted\ text:\ "{}}\ <<\ decrypted\_text\ <<\ std::endl;}
+\DoxyCodeLine{00074\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nAll\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{atbash__cipher_8cpp_a6db8da258087a33e99296a725d84fc92}\index{atbash\_cipher.cpp@{atbash\_cipher.cpp}!atbash\_cipher\_map@{atbash\_cipher\_map}}
+\index{atbash\_cipher\_map@{atbash\_cipher\_map}!atbash\_cipher.cpp@{atbash\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{atbash\_cipher\_map}{atbash\_cipher\_map}}
+{\footnotesize\ttfamily \label{atbash__cipher_8cpp_a6db8da258087a33e99296a725d84fc92} 
+std\+::map$<$char, char$>$ ciphers\+::atbash\+::atbash\+\_\+cipher\+\_\+map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'z'}\},\ \{\textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'y'}\},\ \{\textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'x'}\},\ \{\textcolor{charliteral}{'d'},\ \textcolor{charliteral}{'w'}\},\ \{\textcolor{charliteral}{'e'},\ \textcolor{charliteral}{'v'}\},\ \{\textcolor{charliteral}{'f'},\ \textcolor{charliteral}{'u'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'g'},\ \textcolor{charliteral}{'t'}\},\ \{\textcolor{charliteral}{'h'},\ \textcolor{charliteral}{'s'}\},\ \{\textcolor{charliteral}{'i'},\ \textcolor{charliteral}{'r'}\},\ \{\textcolor{charliteral}{'j'},\ \textcolor{charliteral}{'q'}\},\ \{\textcolor{charliteral}{'k'},\ \textcolor{charliteral}{'p'}\},\ \{\textcolor{charliteral}{'l'},\ \textcolor{charliteral}{'o'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'m'},\ \textcolor{charliteral}{'n'}\},\ \{\textcolor{charliteral}{'n'},\ \textcolor{charliteral}{'m'}\},\ \{\textcolor{charliteral}{'o'},\ \textcolor{charliteral}{'l'}\},\ \{\textcolor{charliteral}{'p'},\ \textcolor{charliteral}{'k'}\},\ \{\textcolor{charliteral}{'q'},\ \textcolor{charliteral}{'j'}\},\ \{\textcolor{charliteral}{'r'},\ \textcolor{charliteral}{'i'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'s'},\ \textcolor{charliteral}{'h'}\},\ \{\textcolor{charliteral}{'t'},\ \textcolor{charliteral}{'g'}\},\ \{\textcolor{charliteral}{'u'},\ \textcolor{charliteral}{'f'}\},\ \{\textcolor{charliteral}{'v'},\ \textcolor{charliteral}{'e'}\},\ \{\textcolor{charliteral}{'w'},\ \textcolor{charliteral}{'d'}\},\ \{\textcolor{charliteral}{'x'},\ \textcolor{charliteral}{'c'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'y'},\ \textcolor{charliteral}{'b'}\},\ \{\textcolor{charliteral}{'z'},\ \textcolor{charliteral}{'a'}\},\ \{\textcolor{charliteral}{'A'},\ \textcolor{charliteral}{'Z'}\},\ \{\textcolor{charliteral}{'B'},\ \textcolor{charliteral}{'Y'}\},\ \{\textcolor{charliteral}{'C'},\ \textcolor{charliteral}{'X'}\},\ \{\textcolor{charliteral}{'D'},\ \textcolor{charliteral}{'W'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'E'},\ \textcolor{charliteral}{'V'}\},\ \{\textcolor{charliteral}{'F'},\ \textcolor{charliteral}{'U'}\},\ \{\textcolor{charliteral}{'G'},\ \textcolor{charliteral}{'T'}\},\ \{\textcolor{charliteral}{'H'},\ \textcolor{charliteral}{'S'}\},\ \{\textcolor{charliteral}{'I'},\ \textcolor{charliteral}{'R'}\},\ \{\textcolor{charliteral}{'J'},\ \textcolor{charliteral}{'Q'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'K'},\ \textcolor{charliteral}{'P'}\},\ \{\textcolor{charliteral}{'L'},\ \textcolor{charliteral}{'O'}\},\ \{\textcolor{charliteral}{'M'},\ \textcolor{charliteral}{'N'}\},\ \{\textcolor{charliteral}{'N'},\ \textcolor{charliteral}{'M'}\},\ \{\textcolor{charliteral}{'O'},\ \textcolor{charliteral}{'L'}\},\ \{\textcolor{charliteral}{'P'},\ \textcolor{charliteral}{'K'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'Q'},\ \textcolor{charliteral}{'J'}\},\ \{\textcolor{charliteral}{'R'},\ \textcolor{charliteral}{'I'}\},\ \{\textcolor{charliteral}{'S'},\ \textcolor{charliteral}{'H'}\},\ \{\textcolor{charliteral}{'T'},\ \textcolor{charliteral}{'G'}\},\ \{\textcolor{charliteral}{'U'},\ \textcolor{charliteral}{'F'}\},\ \{\textcolor{charliteral}{'V'},\ \textcolor{charliteral}{'E'}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'W'},\ \textcolor{charliteral}{'D'}\},\ \{\textcolor{charliteral}{'X'},\ \textcolor{charliteral}{'C'}\},\ \{\textcolor{charliteral}{'Y'},\ \textcolor{charliteral}{'B'}\},\ \{\textcolor{charliteral}{'Z'},\ \textcolor{charliteral}{'A'}\},\ \{\textcolor{charliteral}{'\ '},\ \textcolor{charliteral}{'\ '}\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \{\textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'z'}\},\ \{\textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'y'}\},\ \{\textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'x'}\},\ \{\textcolor{charliteral}{'d'},\ \textcolor{charliteral}{'w'}\},\ \{\textcolor{charliteral}{'e'},\ \textcolor{charliteral}{'v'}\},\ \{\textcolor{charliteral}{'f'},\ \textcolor{charliteral}{'u'}\},}
+\DoxyCodeLine{00031\ \ \ \ \ \{\textcolor{charliteral}{'g'},\ \textcolor{charliteral}{'t'}\},\ \{\textcolor{charliteral}{'h'},\ \textcolor{charliteral}{'s'}\},\ \{\textcolor{charliteral}{'i'},\ \textcolor{charliteral}{'r'}\},\ \{\textcolor{charliteral}{'j'},\ \textcolor{charliteral}{'q'}\},\ \{\textcolor{charliteral}{'k'},\ \textcolor{charliteral}{'p'}\},\ \{\textcolor{charliteral}{'l'},\ \textcolor{charliteral}{'o'}\},}
+\DoxyCodeLine{00032\ \ \ \ \ \{\textcolor{charliteral}{'m'},\ \textcolor{charliteral}{'n'}\},\ \{\textcolor{charliteral}{'n'},\ \textcolor{charliteral}{'m'}\},\ \{\textcolor{charliteral}{'o'},\ \textcolor{charliteral}{'l'}\},\ \{\textcolor{charliteral}{'p'},\ \textcolor{charliteral}{'k'}\},\ \{\textcolor{charliteral}{'q'},\ \textcolor{charliteral}{'j'}\},\ \{\textcolor{charliteral}{'r'},\ \textcolor{charliteral}{'i'}\},}
+\DoxyCodeLine{00033\ \ \ \ \ \{\textcolor{charliteral}{'s'},\ \textcolor{charliteral}{'h'}\},\ \{\textcolor{charliteral}{'t'},\ \textcolor{charliteral}{'g'}\},\ \{\textcolor{charliteral}{'u'},\ \textcolor{charliteral}{'f'}\},\ \{\textcolor{charliteral}{'v'},\ \textcolor{charliteral}{'e'}\},\ \{\textcolor{charliteral}{'w'},\ \textcolor{charliteral}{'d'}\},\ \{\textcolor{charliteral}{'x'},\ \textcolor{charliteral}{'c'}\},}
+\DoxyCodeLine{00034\ \ \ \ \ \{\textcolor{charliteral}{'y'},\ \textcolor{charliteral}{'b'}\},\ \{\textcolor{charliteral}{'z'},\ \textcolor{charliteral}{'a'}\},\ \{\textcolor{charliteral}{'A'},\ \textcolor{charliteral}{'Z'}\},\ \{\textcolor{charliteral}{'B'},\ \textcolor{charliteral}{'Y'}\},\ \{\textcolor{charliteral}{'C'},\ \textcolor{charliteral}{'X'}\},\ \{\textcolor{charliteral}{'D'},\ \textcolor{charliteral}{'W'}\},}
+\DoxyCodeLine{00035\ \ \ \ \ \{\textcolor{charliteral}{'E'},\ \textcolor{charliteral}{'V'}\},\ \{\textcolor{charliteral}{'F'},\ \textcolor{charliteral}{'U'}\},\ \{\textcolor{charliteral}{'G'},\ \textcolor{charliteral}{'T'}\},\ \{\textcolor{charliteral}{'H'},\ \textcolor{charliteral}{'S'}\},\ \{\textcolor{charliteral}{'I'},\ \textcolor{charliteral}{'R'}\},\ \{\textcolor{charliteral}{'J'},\ \textcolor{charliteral}{'Q'}\},}
+\DoxyCodeLine{00036\ \ \ \ \ \{\textcolor{charliteral}{'K'},\ \textcolor{charliteral}{'P'}\},\ \{\textcolor{charliteral}{'L'},\ \textcolor{charliteral}{'O'}\},\ \{\textcolor{charliteral}{'M'},\ \textcolor{charliteral}{'N'}\},\ \{\textcolor{charliteral}{'N'},\ \textcolor{charliteral}{'M'}\},\ \{\textcolor{charliteral}{'O'},\ \textcolor{charliteral}{'L'}\},\ \{\textcolor{charliteral}{'P'},\ \textcolor{charliteral}{'K'}\},}
+\DoxyCodeLine{00037\ \ \ \ \ \{\textcolor{charliteral}{'Q'},\ \textcolor{charliteral}{'J'}\},\ \{\textcolor{charliteral}{'R'},\ \textcolor{charliteral}{'I'}\},\ \{\textcolor{charliteral}{'S'},\ \textcolor{charliteral}{'H'}\},\ \{\textcolor{charliteral}{'T'},\ \textcolor{charliteral}{'G'}\},\ \{\textcolor{charliteral}{'U'},\ \textcolor{charliteral}{'F'}\},\ \{\textcolor{charliteral}{'V'},\ \textcolor{charliteral}{'E'}\},}
+\DoxyCodeLine{00038\ \ \ \ \ \{\textcolor{charliteral}{'W'},\ \textcolor{charliteral}{'D'}\},\ \{\textcolor{charliteral}{'X'},\ \textcolor{charliteral}{'C'}\},\ \{\textcolor{charliteral}{'Y'},\ \textcolor{charliteral}{'B'}\},\ \{\textcolor{charliteral}{'Z'},\ \textcolor{charliteral}{'A'}\},\ \{\textcolor{charliteral}{'\ '},\ \textcolor{charliteral}{'\ '}\}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \};}
+
+\end{DoxyCode}

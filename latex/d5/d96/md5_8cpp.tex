@@ -1,0 +1,555 @@
+\doxysection{hashing/md5.cpp File Reference}
+\hypertarget{md5_8cpp}{}\label{md5_8cpp}\index{hashing/md5.cpp@{hashing/md5.cpp}}
+
+
+Simple C++ implementation of the \href{https://en.wikipedia.org/wiki/MD5}{\texttt{ MD5 Hashing Algorithm}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacehashing}{hashing}}
+\begin{DoxyCompactList}\small\item\em Hashing algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_m_d5}{MD5}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/MD5}{\texttt{ MD5}} algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{md5_8cpp_add2bf982d5dd64a45d13cba52c2b371d}{hashing\+::md5\+::left\+Rotate32bits}} (uint32\+\_\+t n, std\+::size\+\_\+t rotate)
+\begin{DoxyCompactList}\small\item\em Rotates the bits of a 32-\/bit unsigned integer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{md5_8cpp_af8e96bde0183c4b0a7ff04668f11e446}{hashing\+::md5\+::is\+Big\+Endian}} ()
+\begin{DoxyCompactList}\small\item\em Checks whether integers are stored as big endian or not. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{md5_8cpp_a694712c9665051ba52b686387b87a689}{hashing\+::md5\+::to\+Little\+Endian32}} (uint32\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Sets 32-\/bit integer to little-\/endian if needed. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{md5_8cpp_a6be48c1e6e742f9bd329f501d61dcaef}{hashing\+::md5\+::to\+Little\+Endian64}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Sets 64-\/bit integer to little-\/endian if needed. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{md5_8cpp_aaee69c6136a841043f956de32116e348}{hashing\+::md5\+::sig2hex}} (void \texorpdfstring{$\ast$}{*}sig)
+\begin{DoxyCompactList}\small\item\em Transforms the 128-\/bit \doxylink{namespace_m_d5}{MD5} signature into a 32 char hex string. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{md5_8cpp_a5341431cef7fcfc33794326e1deb2425}{hashing\+::md5\+::hash\+\_\+bs}} (const void \texorpdfstring{$\ast$}{*}input\+\_\+bs, uint64\+\_\+t input\+\_\+size)
+\begin{DoxyCompactList}\small\item\em The \doxylink{namespace_m_d5}{MD5} algorithm itself, taking in a bytestring. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hashing\+::md5\+::hash}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Converts the string to bytestring and calls the main algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{md5_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations of well-\/known \doxylink{namespace_m_d5}{MD5} hashes. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{md5_8cpp_ac9e1a11f44135b890dd10a00e73b5661}{interactive}} ()
+\begin{DoxyCompactList}\small\item\em Puts user in a loop where inputs can be given and \doxylink{namespace_m_d5}{MD5} hash will be computed and printed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{md5_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple C++ implementation of the \href{https://en.wikipedia.org/wiki/MD5}{\texttt{ MD5 Hashing Algorithm}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/tGautot}{\texttt{ t\+Gautot}}
+\end{DoxyAuthor}
+The \href{https://en.wikipedia.org/wiki/MD5}{\texttt{ MD5 Algorithm}} is a hashing algorithm which was designed in 1991 by \href{https://en.wikipedia.org/wiki/Ron_Rivest}{\texttt{ Ronal Rivest}}.
+
+\doxylink{namespace_m_d5}{MD5} is one of the most used hashing algorithm there is. Some of its use cases are\+:
+\begin{DoxyEnumerate}
+\item Providing checksum for downloaded software
+\item Store salted password
+\end{DoxyEnumerate}
+
+However \doxylink{namespace_m_d5}{MD5} has be know to be cryptographically weak for quite some time, yet it is still widely used. This weakness was exploited by the \href{https://en.wikipedia.org/wiki/Flame_(malware)}{\texttt{ Flame Malware}} in 2012\hypertarget{md5_8cpp_autotoc_md82}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{md5_8cpp_autotoc_md82}
+First of all, all values are expected to be in \mbox{[}little endian\mbox{]} (\href{https://en.wikipedia.org/wiki/Endianness}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Endianness}}). This is especially important when using part of the bytestring as an integer.
+
+The first step of the algorithm is to pad the message for its length to be a multiple of 64 (bytes). This is done by first adding 0x80 (10000000) and then only zeroes until the last 8 bytes must be filled, where then the 64 bit size of the input will be added
+
+Once this is done, the algo breaks down this padded message into 64 bytes chunks. Each chunk is used for one {\itshape round}, a round breaks the chunk into 16 blocks of 4 bytes. During these rounds the algorithm will update its 128 bit state (represented by 4 ints\+: A,B,C,D) For more precisions on these operations please see the \href{https://en.wikipedia.org/wiki/MD5\#Algorithm}{\texttt{ Wikipedia aritcle}}. The signature given by \doxylink{namespace_m_d5}{MD5} is its 128 bit state once all rounds are done. \begin{DoxyNote}{Note}
+This is a simple implementation for a byte string but some implmenetations can work on bytestream, messages of unknown length. 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}\index{md5.cpp@{md5.cpp}!hash@{hash}}
+\index{hash@{hash}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily \label{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb} 
+void \texorpdfstring{$\ast$}{*} hashing\+::md5\+::hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Converts the string to bytestring and calls the main algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Plain character message to hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} Pointer to the \doxylink{namespace_m_d5}{MD5} signature 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{md5_8cpp_a5341431cef7fcfc33794326e1deb2425}{hash\_bs}}(\&message[0],\ message.size());}
+\DoxyCodeLine{00289\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_a5341431cef7fcfc33794326e1deb2425}\index{md5.cpp@{md5.cpp}!hash\_bs@{hash\_bs}}
+\index{hash\_bs@{hash\_bs}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{hash\_bs()}{hash\_bs()}}
+{\footnotesize\ttfamily \label{md5_8cpp_a5341431cef7fcfc33794326e1deb2425} 
+void \texorpdfstring{$\ast$}{*} hashing\+::md5\+::hash\+\_\+bs (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{input\+\_\+bs}{, }\item[{uint64\+\_\+t}]{input\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+The \doxylink{namespace_m_d5}{MD5} algorithm itself, taking in a bytestring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+bs} & The bytestring to hash \\
+\hline
+{\em input\+\_\+size} & The size (in BYTES) of the input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} Pointer to the 128-\/bit signature 
+\end{DoxyReturn}
+Values of K are pseudo-\/random and used to "{}salt"{} each round The values can be obtained by the following python code 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{from}\ math\ \textcolor{keyword}{import}\ floor,\ sin}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(64):}
+\DoxyCodeLine{\ \ \ \ print(floor(2**32\ *\ abs(sin(i+1))))}
+
+\end{DoxyCode}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{auto}*\ input\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }uint8\_t*\textcolor{keyword}{>}(input\_bs);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ Step\ 0:\ Initial\ Data\ (Those\ are\ decided\ in\ the\ MD5\ protocol)}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ s\ is\ the\ shift\ used\ in\ the\ leftrotate\ each\ round}}
+\DoxyCodeLine{00143\ \ \ \ \ std::array<uint32\_t,\ 64>\ s\ =\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ 7,\ 12,\ 17,\ 22,\ 7,\ 12,\ 17,\ 22,\ 7,\ 12,\ 17,\ 22,\ 7,\ 12,\ 17,\ 22,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ 5,\ 9,\ \ 14,\ 20,\ 5,\ 9,\ \ 14,\ 20,\ 5,\ 9,\ \ 14,\ 20,\ 5,\ 9,\ \ 14,\ 20,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ 4,\ 11,\ 16,\ 23,\ 4,\ 11,\ 16,\ 23,\ 4,\ 11,\ 16,\ 23,\ 4,\ 11,\ 16,\ 23,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ 6,\ 10,\ 15,\ 21,\ 6,\ 10,\ 15,\ 21,\ 6,\ 10,\ 15,\ 21,\ 6,\ 10,\ 15,\ 21\};}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ K\ is\ pseudo-\/random\ values\ used\ each\ round}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ The\ values\ can\ be\ obtained\ by\ the\ following\ python\ code:}}
+\DoxyCodeLine{00150\ \textcolor{comment}{}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Values\ of\ K\ are\ pseudo-\/random\ and\ used\ to\ "{}salt"{}\ each\ round}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ \ *\ The\ values\ can\ be\ obtained\ by\ the\ following\ python\ code}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ \ \ \ \ *\ @code\{.py\}}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ \ \ \ \ *\ from\ math\ import\ floor,\ sin}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ \ *\ for\ i\ in\ range(64):}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ print(floor(2**32\ *\ abs(sin(i+1))))}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ \ \ \ \ *\ @endcode}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00161\ \ \ \ \ std::array<uint32\_t,\ 64>\ K\ =\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ 3614090360,\ 3905402710,\ 606105819,\ \ 3250441966,\ 4118548399,\ 1200080426,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ 2821735955,\ 4249261313,\ 1770035416,\ 2336552879,\ 4294925233,\ 2304563134,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ 1804603682,\ 4254626195,\ 2792965006,\ 1236535329,\ 4129170786,\ 3225465664,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ 643717713,\ \ 3921069994,\ 3593408605,\ 38016083,\ \ \ 3634488961,\ 3889429448,}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ 568446438,\ \ 3275163606,\ 4107603335,\ 1163531501,\ 2850285829,\ 4243563512,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ 1735328473,\ 2368359562,\ 4294588738,\ 2272392833,\ 1839030562,\ 4259657740,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ 2763975236,\ 1272893353,\ 4139469664,\ 3200236656,\ 681279174,\ \ 3936430074,}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ 3572445317,\ 76029189,\ \ \ 3654602809,\ 3873151461,\ 530742520,\ \ 3299628645,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ 4096336452,\ 1126891415,\ 2878612391,\ 4237533241,\ 1700485571,\ 2399980690,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ 4293915773,\ 2240044497,\ 1873313359,\ 4264355552,\ 2734768916,\ 1309151649,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ 4149444226,\ 3174756917,\ 718787259,\ \ 3951481745\};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ The\ initial\ 128-\/bit\ state}}
+\DoxyCodeLine{00175\ \ \ \ \ uint32\_t\ a0\ =\ 0x67452301,\ A\ =\ 0;}
+\DoxyCodeLine{00176\ \ \ \ \ uint32\_t\ b0\ =\ 0xefcdab89,\ B\ =\ 0;}
+\DoxyCodeLine{00177\ \ \ \ \ uint32\_t\ c0\ =\ 0x98badcfe,\ C\ =\ 0;}
+\DoxyCodeLine{00178\ \ \ \ \ uint32\_t\ d0\ =\ 0x10325476,\ D\ =\ 0;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ Step\ 1:\ Processing\ the\ bytestring}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ First\ compute\ the\ size\ the\ padded\ message\ will\ have}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//\ so\ it\ is\ possible\ to\ allocate\ the\ right\ amount\ of\ memory}}
+\DoxyCodeLine{00184\ \ \ \ \ uint64\_t\ padded\_message\_size\ =\ 0;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\_size\ \%\ 64\ <\ 56)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ padded\_message\_size\ =\ input\_size\ +\ 64\ -\/\ (input\_size\ \%\ 64);}
+\DoxyCodeLine{00187\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ padded\_message\_size\ =\ input\_size\ +\ 128\ -\/\ (input\_size\ \%\ 64);}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ std::vector<uint8\_t>\ padded\_message(padded\_message\_size);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ Beginning\ of\ the\ padded\ message\ is\ the\ original\ message}}
+\DoxyCodeLine{00194\ \ \ \ \ std::copy(input,\ input\ +\ input\_size,\ padded\_message.begin());}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ Afterwards\ comes\ a\ single\ 1\ bit\ and\ then\ only\ zeroes}}
+\DoxyCodeLine{00197\ \ \ \ \ padded\_message[input\_size]\ =\ 1\ <<\ 7;\ \ \textcolor{comment}{//\ 10000000}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ input\_size;\ i\ \%\ 64\ !=\ 56;\ i++)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ input\_size)\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ pass\ first\ iteration}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ padded\_message[i]\ =\ 0;}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{//\ We\ then\ have\ to\ add\ the\ 64-\/bit\ size\ of\ the\ message\ at\ the\ end}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ When\ there\ is\ a\ conversion\ from\ int\ to\ bytestring\ or\ vice-\/versa}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//\ We\ always\ need\ to\ make\ sure\ it\ is\ little\ endian}}
+\DoxyCodeLine{00208\ \ \ \ \ uint64\_t\ input\_bitsize\_le\ =\ \mbox{\hyperlink{md5_8cpp_a6be48c1e6e742f9bd329f501d61dcaef}{toLittleEndian64}}(input\_size\ *\ 8);}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 8;\ i++)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ padded\_message[padded\_message\_size\ -\/\ 8\ +\ i]\ =}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ (input\_bitsize\_le\ >>\ (56\ -\/\ 8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{comment}{//\ Already\ allocate\ memory\ for\ blocks}}
+\DoxyCodeLine{00215\ \ \ \ \ std::array<uint32\_t,\ 16>\ blocks\{\};}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{comment}{//\ Rounds}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ chunk\ =\ 0;\ chunk\ *\ 64\ <\ padded\_message\_size;\ chunk++)\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First,\ build\ the\ 16\ 32-\/bits\ blocks\ from\ the\ chunk}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ bid\ =\ 0;\ bid\ <\ 16;\ bid++)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ blocks[bid]\ =\ 0;}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Having\ to\ build\ a\ 32-\/bit\ word\ from\ 4-\/bit\ words}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ each\ and\ shift\ them\ to\ the\ left}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ cid\ =\ 0;\ cid\ <\ 4;\ cid++)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blocks[bid]\ =\ (blocks[bid]\ <<\ 8)\ +}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padded\_message[chunk\ *\ 64\ +\ bid\ *\ 4\ +\ cid];}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ A\ =\ a0;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ B\ =\ b0;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ C\ =\ c0;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ D\ =\ d0;}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ "{}hashing"{}\ loop}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 64;\ i++)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ F\ =\ 0,\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ 0;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 16)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ (B\ \&\ C)\ |\ ((\string~B)\ \&\ D);}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ i;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ <\ 32)\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ (D\ \&\ B)\ |\ ((\string~D)\ \&\ C);}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ (5\ *\ i\ +\ 1)\ \%\ 16;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ <\ 48)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ B\ \string^\ C\ \string^\ D;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ (3\ *\ i\ +\ 5)\ \%\ 16;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ C\ \string^\ (B\ |\ (\string~D));}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ (7\ *\ i)\ \%\ 16;}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ accumulators}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ F\ +=\ A\ +\ K[i]\ +\ \mbox{\hyperlink{md5_8cpp_a694712c9665051ba52b686387b87a689}{toLittleEndian32}}(blocks[g]);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ A\ =\ D;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ D\ =\ C;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ C\ =\ B;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ B\ +=\ \mbox{\hyperlink{md5_8cpp_add2bf982d5dd64a45d13cba52c2b371d}{leftRotate32bits}}(F,\ s[i]);}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ state\ with\ this\ chunk's\ hash}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ a0\ +=\ A;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ b0\ +=\ B;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ c0\ +=\ C;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ d0\ +=\ D;}
+\DoxyCodeLine{00266\ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{comment}{//\ Build\ signature\ from\ state}}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ Note,\ any\ type\ could\ be\ used\ for\ the\ signature}}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ uint8\_t\ was\ used\ to\ make\ the\ 16\ bytes\ obvious}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ The\ sig\ needs\ to\ be\ little\ endian}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keyword}{auto}*\ sig\ =\ \textcolor{keyword}{new}\ uint8\_t[16];}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 4;\ i++)\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ sig[i]\ =\ (a0\ >>\ (8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ sig[i\ +\ 4]\ =\ (b0\ >>\ (8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ sig[i\ +\ 8]\ =\ (c0\ >>\ (8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ sig[i\ +\ 12]\ =\ (d0\ >>\ (8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{return}\ sig;}
+\DoxyCodeLine{00281\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_ac9e1a11f44135b890dd10a00e73b5661}\index{md5.cpp@{md5.cpp}!interactive@{interactive}}
+\index{interactive@{interactive}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{interactive()}{interactive()}}
+{\footnotesize\ttfamily \label{md5_8cpp_ac9e1a11f44135b890dd10a00e73b5661} 
+static void interactive (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Puts user in a loop where inputs can be given and \doxylink{namespace_m_d5}{MD5} hash will be computed and printed. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ std::string\ input;}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ message\ to\ be\ hashed\ (Ctrl-\/C\ to\ exit):\ "{}}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ std::getline(std::cin,\ input);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ sig\ =\ \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hashing::md5::hash}}(input);}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hash\ is:\ "{}}\ <<\ \mbox{\hyperlink{md5_8cpp_aaee69c6136a841043f956de32116e348}{hashing::md5::sig2hex}}(sig)\ <<\ std::endl;}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Want\ to\ enter\ another\ message?\ (y/n)\ "{}};}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ input);}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.compare(\textcolor{stringliteral}{"{}y"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input.compare(\textcolor{stringliteral}{"{}n"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00369\ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_af8e96bde0183c4b0a7ff04668f11e446}\index{md5.cpp@{md5.cpp}!isBigEndian@{isBigEndian}}
+\index{isBigEndian@{isBigEndian}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{isBigEndian()}{isBigEndian()}}
+{\footnotesize\ttfamily \label{md5_8cpp_af8e96bde0183c4b0a7ff04668f11e446} 
+bool hashing\+::md5\+::is\+Big\+Endian (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks whether integers are stored as big endian or not. 
+
+\begin{DoxyNote}{Note}
+Taken from \href{https://stackoverflow.com/a/1001373}{\texttt{ this}} Stack\+Overflow post 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true IF integers are detected to work as big-\/endian 
+
+false IF integers are detected to work as little-\/endian 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ uint32\_t\ i;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ std::array<char,\ 4>\ c;}
+\DoxyCodeLine{00080\ \ \ \ \ \}\ bint\ =\ \{0x01020304\};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ bint.c[0]\ ==\ 1;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_add2bf982d5dd64a45d13cba52c2b371d}\index{md5.cpp@{md5.cpp}!leftRotate32bits@{leftRotate32bits}}
+\index{leftRotate32bits@{leftRotate32bits}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{leftRotate32bits()}{leftRotate32bits()}}
+{\footnotesize\ttfamily \label{md5_8cpp_add2bf982d5dd64a45d13cba52c2b371d} 
+uint32\+\_\+t hashing\+::md5\+::left\+Rotate32bits (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n}{, }\item[{std\+::size\+\_\+t}]{rotate}{}\end{DoxyParamCaption})}
+
+
+
+Rotates the bits of a 32-\/bit unsigned integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer to rotate \\
+\hline
+{\em rotate} & How many bits for the rotation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t The rotated integer 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ (n\ <<\ rotate)\ |\ (n\ >>\ (32\ -\/\ rotate));}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{md5.cpp@{md5.cpp}!main@{main}}
+\index{main@{main}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{md5_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \mbox{\hyperlink{md5_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{comment}{//\ Launch\ interactive\ mode\ where\ user\ can\ input\ messages\ and\ see}}
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{comment}{//\ their\ hash}}
+\DoxyCodeLine{00381\ \ \ \ \ \mbox{\hyperlink{md5_8cpp_ac9e1a11f44135b890dd10a00e73b5661}{interactive}}();}
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00383\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_aaee69c6136a841043f956de32116e348}\index{md5.cpp@{md5.cpp}!sig2hex@{sig2hex}}
+\index{sig2hex@{sig2hex}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{sig2hex()}{sig2hex()}}
+{\footnotesize\ttfamily \label{md5_8cpp_aaee69c6136a841043f956de32116e348} 
+std\+::string hashing\+::md5\+::sig2hex (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{sig}{}\end{DoxyParamCaption})}
+
+
+
+Transforms the 128-\/bit \doxylink{namespace_m_d5}{MD5} signature into a 32 char hex string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sig} & The \doxylink{namespace_m_d5}{MD5} signature (Expected 16 bytes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string The hex signature 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ hexChars\ =\ \textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{auto}*\ intsig\ =\ \textcolor{keyword}{static\_cast<}uint8\_t*\textcolor{keyword}{>}(sig);}
+\DoxyCodeLine{00125\ \ \ \ \ std::string\ hex\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 16;\ i++)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ hex.push\_back(hexChars[(intsig[i]\ >>\ 4)\ \&\ 0xF]);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ hex.push\_back(hexChars[(intsig[i])\ \&\ 0xF]);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{return}\ hex;}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{md5.cpp@{md5.cpp}!test@{test}}
+\index{test@{test}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{md5_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations of well-\/known \doxylink{namespace_m_d5}{MD5} hashes. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{comment}{//\ Hashes\ empty\ string\ and\ stores\ signature}}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig\ =\ \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hashing::md5::hash}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00300\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hashing\ empty\ string"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00302\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{md5_8cpp_aaee69c6136a841043f956de32116e348}{hashing::md5::sig2hex}}(sig)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ whether\ sig\ is\ correct\ from\ the\ expected\ value}}
+\DoxyCodeLine{00304\ \ \ \ \ assert(hashing::md5::sig2hex(sig).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}d41d8cd98f00b204e9800998ecf8427e"{}})\ ==\ 0);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{comment}{//\ Hashes\ "{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog"{}\ and\ stores\ signature}}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig2\ =}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hashing::md5::hash}}(\textcolor{stringliteral}{"{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog"{}});}
+\DoxyCodeLine{00310\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hashing\ The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog"{}}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00313\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{md5_8cpp_aaee69c6136a841043f956de32116e348}{hashing::md5::sig2hex}}(sig2)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ whether\ sig\ is\ correct\ from\ the\ expected\ value}}
+\DoxyCodeLine{00315\ \ \ \ \ assert(hashing::md5::sig2hex(sig2).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}9e107d9d372bb6826bd81d3542a419d6"{}})\ ==\ 0);}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{comment}{//\ Hashes\ "{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."{}\ (notice\ the}}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{comment}{//\ additional\ period)\ and\ stores\ signature}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig3\ =}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hashing::md5::hash}}(\textcolor{stringliteral}{"{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."{}});}
+\DoxyCodeLine{00322\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hashing\ "{}}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."{}}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00326\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{md5_8cpp_aaee69c6136a841043f956de32116e348}{hashing::md5::sig2hex}}(sig3)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ whether\ sig\ is\ correct\ from\ the\ expected\ value}}
+\DoxyCodeLine{00328\ \ \ \ \ assert(hashing::md5::sig2hex(sig3).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}e4d909c290d0fb1ca068ffaddf22cbd0"{}})\ ==\ 0);}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{comment}{//\ Hashes\ "{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"{}}}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{comment}{//\ and\ stores\ signature}}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig4\ =\ \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hashing::md5::hash}}(}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"{}});}
+\DoxyCodeLine{00335\ \ \ \ \ std::cout}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Hashing\ "{}}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"{}}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00340\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{md5_8cpp_aaee69c6136a841043f956de32116e348}{hashing::md5::sig2hex}}(sig4)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ whether\ sig\ is\ correct\ from\ the\ expected\ value}}
+\DoxyCodeLine{00342\ \ \ \ \ assert(hashing::md5::sig2hex(sig4).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}d174ab98d277d9f5a5611c2c9f419d9f"{}})\ ==\ 0);}
+\DoxyCodeLine{00344\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_a694712c9665051ba52b686387b87a689}\index{md5.cpp@{md5.cpp}!toLittleEndian32@{toLittleEndian32}}
+\index{toLittleEndian32@{toLittleEndian32}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{toLittleEndian32()}{toLittleEndian32()}}
+{\footnotesize\ttfamily \label{md5_8cpp_a694712c9665051ba52b686387b87a689} 
+uint32\+\_\+t hashing\+::md5\+::to\+Little\+Endian32 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Sets 32-\/bit integer to little-\/endian if needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number to set to little-\/endian (uint32\+\_\+t) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t param n with binary representation as little-\/endian 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{md5_8cpp_af8e96bde0183c4b0a7ff04668f11e446}{isBigEndian}}())\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((n\ <<\ 24)\ \&\ 0xFF000000)\ |\ ((n\ <<\ 8)\ \&\ 0x00FF0000)\ |}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ >>\ 8)\ \&\ 0x0000FF00)\ |\ ((n\ >>\ 24)\ \&\ 0x000000FF);}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ Machine\ works\ on\ little\ endian,\ no\ need\ to\ change\ anything}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\Hypertarget{md5_8cpp_a6be48c1e6e742f9bd329f501d61dcaef}\index{md5.cpp@{md5.cpp}!toLittleEndian64@{toLittleEndian64}}
+\index{toLittleEndian64@{toLittleEndian64}!md5.cpp@{md5.cpp}}
+\doxysubsubsection{\texorpdfstring{toLittleEndian64()}{toLittleEndian64()}}
+{\footnotesize\ttfamily \label{md5_8cpp_a6be48c1e6e742f9bd329f501d61dcaef} 
+uint64\+\_\+t hashing\+::md5\+::to\+Little\+Endian64 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Sets 64-\/bit integer to little-\/endian if needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number to set to little-\/endian (uint64\+\_\+t) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t param n with binary representation as little-\/endian 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{md5_8cpp_af8e96bde0183c4b0a7ff04668f11e446}{isBigEndian}}())\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((n\ <<\ 56)\ \&\ 0xFF00000000000000)\ |}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ <<\ 40)\ \&\ 0x00FF000000000000)\ |}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ <<\ 24)\ \&\ 0x0000FF0000000000)\ |}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ <<\ 8)\ \&\ 0x000000FF00000000)\ |}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ >>\ 8)\ \&\ 0x00000000FF000000)\ |}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ >>\ 24)\ \&\ 0x0000000000FF0000)\ |}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ >>\ 40)\ \&\ 0x000000000000FF00)\ |}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((n\ >>\ 56)\ \&\ 0x00000000000000FF);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Machine\ works\ on\ little\ endian,\ no\ need\ to\ change\ anything}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{00116\ \}}
+
+\end{DoxyCode}

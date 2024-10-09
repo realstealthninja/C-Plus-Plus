@@ -1,0 +1,129 @@
+\doxysection{sorting/bogo\+\_\+sort.cpp File Reference}
+\hypertarget{bogo__sort_8cpp}{}\label{bogo__sort_8cpp}\index{sorting/bogo\_sort.cpp@{sorting/bogo\_sort.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Bogosort}{\texttt{ Bogosort algorithm}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::array$<$ T, N $>$ \mbox{\hyperlink{namespacesorting_a7bfe11bd4703eacd1dab93f25ec639c5}{sorting\+::shuffle}} (std\+::array$<$ T, N $>$ arr)
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::array$<$ T, N $>$ \mbox{\hyperlink{namespacesorting_affc6ee160142cd017f8c4b213437d0fd}{sorting\+::randomized\+\_\+bogosort}} (std\+::array$<$ T, N $>$ arr)
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}{show\+\_\+array}} (const std\+::array$<$ T, N $>$ \&arr)
+\item 
+void \mbox{\hyperlink{bogo__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+int \mbox{\hyperlink{bogo__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Bogosort}{\texttt{ Bogosort algorithm}} 
+
+In computer science, bogosort (also known as permutation sort, stupid sort, slowsort, shotgun sort, random sort, monkey sort, bobosort or shuffle sort) is a highly inefficient sorting algorithm based on the generate and test paradigm. Two versions of this algorithm exist\+: a deterministic version that enumerates all permutations until it hits a sorted one, and a randomized version that randomly permutes its input.\+Randomized version is implemented here.\hypertarget{bogo__sort_8cpp_autotoc_md109}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{bogo__sort_8cpp_autotoc_md109}
+Shuffle the array untill array is sorted.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/imdeep2905}{\texttt{ Deep Raval}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bogo__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{bogo\_sort.cpp@{bogo\_sort.cpp}!main@{main}}
+\index{main@{main}!bogo\_sort.cpp@{bogo\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{bogo__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Driver Code 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ Testing}}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{bogo__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Example\ Usage}}
+\DoxyCodeLine{00111\ \ \ \ \ std::array\ <int,\ 5>\ arr\ =\ \{3,\ 7,\ 10,\ 4,\ 1\};\ \textcolor{comment}{//\ Defining\ array\ which\ we\ want\ to\ sort}}
+\DoxyCodeLine{00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ Array\ :\ "{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}{show\_array}}(arr);}
+\DoxyCodeLine{00114\ \ \ \ \ arr\ =\ \mbox{\hyperlink{namespacesorting_affc6ee160142cd017f8c4b213437d0fd}{sorting::randomized\_bogosort}}(arr);\ \textcolor{comment}{//\ Callling\ bogo\ sort\ on\ it}}
+\DoxyCodeLine{00115\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ Array\ :\ "{}};}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}{show\_array}}(arr);\ \textcolor{comment}{//\ Printing\ sorted\ array}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00118\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}\index{bogo\_sort.cpp@{bogo\_sort.cpp}!show\_array@{show\_array}}
+\index{show\_array@{show\_array}!bogo\_sort.cpp@{bogo\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{show\_array()}{show\_array()}}
+{\footnotesize\ttfamily \label{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859} 
+template$<$typename T , size\+\_\+t N$>$ \\
+void show\+\_\+array (\begin{DoxyParamCaption}\item[{const std\+::array$<$ T, N $>$ \&}]{arr}{}\end{DoxyParamCaption})}
+
+Function to display array on screen 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & typename of the array \\
+\hline
+{\em N} & length of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to display \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ :\ arr)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ std::cout\ <<\ x\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bogo__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{bogo\_sort.cpp@{bogo\_sort.cpp}!test@{test}}
+\index{test@{test}!bogo\_sort.cpp@{bogo\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{bogo__sort_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function to test above algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00083\ \ \ \ \ std::array\ <int,\ 5>\ arr1;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \&x\ :\ arr1)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ x\ =\ std::rand()\ \%\ 100;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ Array\ :\ "{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}{show\_array}}(arr1);}
+\DoxyCodeLine{00089\ \ \ \ \ arr1\ =\ \mbox{\hyperlink{namespacesorting_affc6ee160142cd017f8c4b213437d0fd}{sorting::randomized\_bogosort}}(arr1);}
+\DoxyCodeLine{00090\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ Array\ :\ "{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}{show\_array}}(arr1);}
+\DoxyCodeLine{00092\ \ \ \ \ assert(std::is\_sorted(arr1.begin(),\ arr1.end()));}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ Test\ 2}}
+\DoxyCodeLine{00094\ \ \ \ \ std::array\ <int,\ 5>\ arr2;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \&x\ :\ arr2)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ x\ =\ std::rand()\ \%\ 100;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ Array\ :\ "{}};}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}{show\_array}}(arr2);}
+\DoxyCodeLine{00100\ \ \ \ \ arr2\ =\ \mbox{\hyperlink{namespacesorting_affc6ee160142cd017f8c4b213437d0fd}{sorting::randomized\_bogosort}}(arr2);}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ Array\ :\ "{}};}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{bogo__sort_8cpp_ae8adaeff66471f9ed84f2e673b38a859}{show\_array}}(arr2);}
+\DoxyCodeLine{00103\ \ \ \ \ assert(std::is\_sorted(arr2.begin(),\ arr2.end()));}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}

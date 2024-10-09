@@ -1,0 +1,110 @@
+\doxysection{data\+\_\+structures/trie\+\_\+tree.cpp File Reference}
+\hypertarget{trie__tree_8cpp}{}\label{trie__tree_8cpp}\index{data\_structures/trie\_tree.cpp@{data\_structures/trie\_tree.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} data structure for English alphabets in small characters.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1trie}{data\+\_\+structures\+::trie}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} implementation for small-\/case English alphabets {\ttfamily a-\/z} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{trie__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Testing function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{trie__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} data structure for English alphabets in small characters. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Arctic2333}{\texttt{ @\+Arctic2333}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+the function \+::data\+\_\+structure\+::trie\+::delete\+String might be erroneous 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{trie__modern_8cpp}{trie\+\_\+modern.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{trie__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{trie\_tree.cpp@{trie\_tree.cpp}!main@{main}}
+\index{main@{main}!trie\_tree.cpp@{trie\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{trie__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{trie__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00209\ \}}
+
+\end{DoxyCode}
+\Hypertarget{trie__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{trie\_tree.cpp@{trie\_tree.cpp}!test@{test}}
+\index{test@{test}!trie\_tree.cpp@{trie\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{trie__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Testing function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1trie}{data\_structures::trie}}\ root;}
+\DoxyCodeLine{00180\ \ \ \ \ root.insert(\textcolor{stringliteral}{"{}Hello"{}});}
+\DoxyCodeLine{00181\ \ \ \ \ root.insert(\textcolor{stringliteral}{"{}World"{}});}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ assert(!root.search(\textcolor{stringliteral}{"{}hello"{}},\ 0));}
+\DoxyCodeLine{00184\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}hello\ -\/\ "{}}\ <<\ root.search(\textcolor{stringliteral}{"{}hello"{}},\ 0)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ assert(root.search(\textcolor{stringliteral}{"{}Hello"{}},\ 0));}
+\DoxyCodeLine{00187\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hello\ -\/\ "{}}\ <<\ root.search(\textcolor{stringliteral}{"{}Hello"{}},\ 0)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ assert(!root.search(\textcolor{stringliteral}{"{}Word"{}},\ 0));}
+\DoxyCodeLine{00190\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Word\ -\/\ "{}}\ <<\ root.search(\textcolor{stringliteral}{"{}Word"{}},\ 0)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ assert(root.search(\textcolor{stringliteral}{"{}World"{}},\ 0));}
+\DoxyCodeLine{00193\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}World\ -\/\ "{}}\ <<\ root.search(\textcolor{stringliteral}{"{}World"{}},\ 0)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ Following\ lines\ of\ code\ give\ erroneous\ output}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ root.deleteString("{}hello"{},\ 0);}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ assert(!root.search("{}hello"{},\ 0));}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}hello\ -\/\ "{}\ <<\ root.search("{}world"{},\ 0)\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{00199\ \}}
+
+\end{DoxyCode}

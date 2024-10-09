@@ -1,0 +1,151 @@
+\doxysection{geometry\+::jarvis\+::Convexhull Class Reference}
+\hypertarget{classgeometry_1_1jarvis_1_1_convexhull}{}\label{classgeometry_1_1jarvis_1_1_convexhull}\index{geometry::jarvis::Convexhull@{geometry::jarvis::Convexhull}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeometry_1_1jarvis_1_1_convexhull_a8306e48040a8570e164c58d1c530f870}{Convexhull}} (const std\+::vector$<$ \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} $>$ \&point\+List)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} $>$ \mbox{\hyperlink{classgeometry_1_1jarvis_1_1_convexhull_aeec46e86786ddd461464b07a77c4d5f1}{get\+Convex\+Hull}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classgeometry_1_1jarvis_1_1_convexhull_a54df5f9a8f37170bd97c91127664655c}{orientation}} (const \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} \&p, const \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} \&q, const \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} \&r)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgeometry_1_1jarvis_1_1_convexhull_a835cd4cdc5a644abb84535197d753b02}\label{classgeometry_1_1jarvis_1_1_convexhull_a835cd4cdc5a644abb84535197d753b02} 
+std\+::vector$<$ \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} $>$ {\bfseries points}
+\item 
+\Hypertarget{classgeometry_1_1jarvis_1_1_convexhull_a2272bb62c35af959953b0ea06b010036}\label{classgeometry_1_1jarvis_1_1_convexhull_a2272bb62c35af959953b0ea06b010036} 
+int {\bfseries size}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class which can be called from main and is globally available throughout the code 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgeometry_1_1jarvis_1_1_convexhull_a8306e48040a8570e164c58d1c530f870}\index{geometry::jarvis::Convexhull@{geometry::jarvis::Convexhull}!Convexhull@{Convexhull}}
+\index{Convexhull@{Convexhull}!geometry::jarvis::Convexhull@{geometry::jarvis::Convexhull}}
+\doxysubsubsection{\texorpdfstring{Convexhull()}{Convexhull()}}
+{\footnotesize\ttfamily \label{classgeometry_1_1jarvis_1_1_convexhull_a8306e48040a8570e164c58d1c530f870} 
+geometry\+::jarvis\+::\+Convexhull\+::\+Convexhull (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} $>$ \&}]{point\+List}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor of given class
+
+
+\begin{DoxyParams}{Parameters}
+{\em point\+List} & list of all points in the space \\
+\hline
+{\em n} & number of points in space \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points\ =\ pointList;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ points.size();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgeometry_1_1jarvis_1_1_convexhull_aeec46e86786ddd461464b07a77c4d5f1}\index{geometry::jarvis::Convexhull@{geometry::jarvis::Convexhull}!getConvexHull@{getConvexHull}}
+\index{getConvexHull@{getConvexHull}!geometry::jarvis::Convexhull@{geometry::jarvis::Convexhull}}
+\doxysubsubsection{\texorpdfstring{getConvexHull()}{getConvexHull()}}
+{\footnotesize\ttfamily \label{classgeometry_1_1jarvis_1_1_convexhull_aeec46e86786ddd461464b07a77c4d5f1} 
+std\+::vector$<$ \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} $>$ geometry\+::jarvis\+::\+Convexhull\+::get\+Convex\+Hull (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates convex hull of a set of n points. There must be 3 points at least for the convex hull to exist
+
+\begin{DoxyReturn}{Returns}
+an vector array containing points in space which enclose all given points thus forming a hull 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ Result}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Point>\ hull;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ leftmost\ point}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ leftmost\_point\ =\ 0;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (points[i].x\ <\ points[leftmost\_point].x)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftmost\_point\ =\ i;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ from\ leftmost\ point,\ keep\ moving\ counterclockwise}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ until\ reach\ the\ start\ point\ again.\ \ This\ loop\ runs\ O(h)}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ times\ where\ h\ is\ number\ of\ points\ in\ result\ or\ output.}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ leftmost\_point,\ q\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ current\ point\ to\ result}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hull.push\_back(points[p]);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Search\ for\ a\ point\ 'q'\ such\ that\ orientation(p,\ x,\ q)}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ counterclockwise\ for\ all\ points\ 'x'.\ The\ idea}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ to\ keep\ track\ of\ last\ visited\ most\ counter\ clock-\/}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ wise\ point\ in\ q.\ If\ any\ point\ 'i'\ is\ more\ counter\ clock-\/}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ wise\ than\ q,\ then\ update\ q.}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ (p\ +\ 1)\ \%\ size;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ i\ is\ more\ counterclockwise\ than\ current\ q,\ then}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ q}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeometry_1_1jarvis_1_1_convexhull_a54df5f9a8f37170bd97c91127664655c}{orientation}}(points[p],\ points[i],\ points[q])\ ==\ 2)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ i;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Now\ q\ is\ the\ most\ counterclockwise\ with\ respect\ to\ p}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ p\ as\ q\ for\ next\ iteration,\ so\ that\ q\ is\ added\ to}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ result\ 'hull'}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ q;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (p\ !=\ leftmost\_point);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ While\ we\ don't\ come\ to\ first\ point}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hull;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgeometry_1_1jarvis_1_1_convexhull_a54df5f9a8f37170bd97c91127664655c}\index{geometry::jarvis::Convexhull@{geometry::jarvis::Convexhull}!orientation@{orientation}}
+\index{orientation@{orientation}!geometry::jarvis::Convexhull@{geometry::jarvis::Convexhull}}
+\doxysubsubsection{\texorpdfstring{orientation()}{orientation()}}
+{\footnotesize\ttfamily \label{classgeometry_1_1jarvis_1_1_convexhull_a54df5f9a8f37170bd97c91127664655c} 
+static int geometry\+::jarvis\+::\+Convexhull\+::orientation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} \&}]{p}{, }\item[{const \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} \&}]{q}{, }\item[{const \mbox{\hyperlink{structgeometry_1_1jarvis_1_1_point}{Point}} \&}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+This function returns the geometric orientation for the three points in a space, ie, whether they are linear ir clockwise or anti-\/clockwise 
+\begin{DoxyParams}{Parameters}
+{\em p} & first point selected \\
+\hline
+{\em q} & adjacent point for q \\
+\hline
+{\em r} & adjacent point for q\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 -\/\texorpdfstring{$>$}{>} Linear 
+
+1 -\/\texorpdfstring{$>$}{>} Clock Wise 
+
+2 -\/\texorpdfstring{$>$}{>} Anti Clock Wise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ val\ =\ (q.y\ -\/\ p.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}})\ *\ (r.x\ -\/\ q.x)\ -\/\ (q.x\ -\/\ p.x)\ *\ (r.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ -\/\ q.y);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (val\ ==\ 0)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (val\ >\ 0)\ ?\ 1\ :\ 2;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+geometry/\mbox{\hyperlink{jarvis__algorithm_8cpp}{jarvis\+\_\+algorithm.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,216 @@
+\doxysection{qr\+\_\+decompose.\+h}
+\hypertarget{qr__decompose_8h_source}{}\label{qr__decompose_8h_source}\index{numerical\_methods/qr\_decompose.h@{numerical\_methods/qr\_decompose.h}}
+\mbox{\hyperlink{qr__decompose_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Library\ functions\ to\ compute\ [QR}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ decomposition](https://en.wikipedia.org/wiki/QR\_decomposition)\ of\ a\ given}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ matrix.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \(\backslash\)author\ [Krishna\ Vedala](https://github.com/kvedala)}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ NUMERICAL\_METHODS\_QR\_DECOMPOSE\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ NUMERICAL\_METHODS\_QR\_DECOMPOSE\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <valarray>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <omp.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ \textcolor{comment}{}}
+\DoxyCodeLine{00023\ \textcolor{comment}{/**\ \(\backslash\)namespace\ qr\_algorithm}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Functions\ to\ compute\ [QR}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ decomposition](https://en.wikipedia.org/wiki/QR\_decomposition)\ of\ any}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ rectangular\ matrix}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceqr__algorithm}{qr\_algorithm}}\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00029\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ operator\ to\ print\ a\ matrix}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00033\ std::ostream\ \&\mbox{\hyperlink{namespaceqr__algorithm_adfbdf47277c8cfee229b05b72f1f7834}{operator<<}}(std::ostream\ \&out,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::valarray<std::valarray<T>>\ \textcolor{keyword}{const}\ \&v)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 12;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ out.precision(4);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ v[row].size();\ col++)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::right\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row][col];}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ out\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ \textcolor{comment}{}}
+\DoxyCodeLine{00049\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ operator\ to\ print\ a\ vector}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00053\ std::ostream\ \&\mbox{\hyperlink{namespaceqr__algorithm_adfbdf47277c8cfee229b05b72f1f7834}{operator<<}}(std::ostream\ \&out,\ std::valarray<T>\ \textcolor{keyword}{const}\ \&v)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 10;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ out.precision(4);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ out\ <<\ std::right\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row];}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00064\ \}}
+\DoxyCodeLine{00065\ \textcolor{comment}{}}
+\DoxyCodeLine{00066\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ Compute\ dot\ product\ of\ two\ vectors\ of\ equal\ lengths}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ If\ \(\backslash\)f\$\(\backslash\)vec\{a\}=\(\backslash\)left[a\_0,a\_1,a\_2,...,a\_L\(\backslash\)right]\(\backslash\)f\$\ and}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ \(\backslash\)f\$\(\backslash\)vec\{b\}=\(\backslash\)left[b\_0,b\_1,b\_1,...,b\_L\(\backslash\)right]\(\backslash\)f\$\ then}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ \(\backslash\)f\$\(\backslash\)vec\{a\}\(\backslash\)cdot\(\backslash\)vec\{b\}=\(\backslash\)displaystyle\(\backslash\)sum\_\{i=0\}\string^L\ a\_i\(\backslash\)times\ b\_i\(\backslash\)f\$}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ \(\backslash\)returns\ \(\backslash\)f\$\(\backslash\)vec\{a\}\(\backslash\)cdot\(\backslash\)vec\{b\}\(\backslash\)f\$}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00075\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00076\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\_dot}}(\textcolor{keyword}{const}\ std::valarray<T>\ \&a,\ \textcolor{keyword}{const}\ std::valarray<T>\ \&b)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ (a\ *\ b).sum();}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ could\ also\ use\ following}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ return\ std::inner\_product(std::begin(a),\ std::end(a),\ std::begin(b),}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ 0.f);}}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ \textcolor{comment}{}}
+\DoxyCodeLine{00083\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *\ Compute\ magnitude\ of\ vector.}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ *\ If\ \(\backslash\)f\$\(\backslash\)vec\{a\}=\(\backslash\)left[a\_0,a\_1,a\_2,...,a\_L\(\backslash\)right]\(\backslash\)f\$\ then}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ \(\backslash\)f\$\(\backslash\)left|\(\backslash\)vec\{a\}\(\backslash\)right|=\(\backslash\)sqrt\{\(\backslash\)displaystyle\(\backslash\)sum\_\{i=0\}\string^L\ a\_i\string^2\}\(\backslash\)f\$}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *\ \(\backslash\)returns\ \(\backslash\)f\$\(\backslash\)left|\(\backslash\)vec\{a\}\(\backslash\)right|\(\backslash\)f\$}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00092\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceqr__algorithm_ad16da2183db22378435042f26af43d5f}{vector\_mag}}(\textcolor{keyword}{const}\ std::valarray<T>\ \&a)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{double}\ dot\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\_dot}}(a,\ a);}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(dot);}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ \textcolor{comment}{}}
+\DoxyCodeLine{00097\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ *\ Compute\ projection\ of\ vector\ \(\backslash\)f\$\(\backslash\)vec\{a\}\(\backslash\)f\$\ on\ \(\backslash\)f\$\(\backslash\)vec\{b\}\(\backslash\)f\$\ defined\ as}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *\ \(\backslash\)f[\(\backslash\)text\{proj\}\_\(\backslash\)vec\{b\}\(\backslash\)vec\{a\}=\(\backslash\)frac\{\(\backslash\)vec\{a\}\(\backslash\)cdot\(\backslash\)vec\{b\}\}\{\(\backslash\)left|\(\backslash\)vec\{b\}\(\backslash\)right|\string^2\}\(\backslash\)vec\{b\}\(\backslash\)f]}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *\ \(\backslash\)returns\ NULL\ if\ error,\ otherwise\ pointer\ to\ output}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00103\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00104\ std::valarray<T>\ \mbox{\hyperlink{namespaceqr__algorithm_a6d3c7dce1f142141f509d09f6c0e25dc}{vector\_proj}}(\textcolor{keyword}{const}\ std::valarray<T>\ \&a,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<T>\ \&b)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ num\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\_dot}}(a,\ b);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{double}\ deno\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a8ea313a1a1b5f9d0e3e332c29c6446ec}{vector\_dot}}(b,\ b);}
+\DoxyCodeLine{00108\ \textcolor{comment}{}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ \ \ /*!\ check\ for\ division\ by\ zero\ using\ machine\ epsilon\ */}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (deno\ <=\ std::numeric\_limits<double>::epsilon())\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{}]\ Possible\ division\ by\ zero\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a;\ \ \textcolor{comment}{//\ return\ vector\ a\ back}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{double}\ scalar\ =\ num\ /\ deno;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ b\ *\ scalar;}
+\DoxyCodeLine{00118\ \}}
+\DoxyCodeLine{00119\ \textcolor{comment}{}}
+\DoxyCodeLine{00120\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ *\ Decompose\ matrix\ \(\backslash\)f\$A\(\backslash\)f\$\ using\ [Gram-\/Schmidt}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ *process](https://en.wikipedia.org/wiki/QR\_decomposition).}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ *\ \(\backslash\)f\{eqnarray*\}\{}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ *\ \(\backslash\)text\{given\ that\}\(\backslash\)quad\ A\ \&=\&}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ *\(\backslash\)left[\(\backslash\)mathbf\{a\}\_1,\(\backslash\)mathbf\{a\}\_2,\(\backslash\)ldots,\(\backslash\)mathbf\{a\}\_\{N-\/1\},\(\backslash\)right]\(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ *\ \(\backslash\)text\{where\}\(\backslash\)quad\(\backslash\)mathbf\{a\}\_i\ \&=\&}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ *\ \(\backslash\)left[a\_\{0i\},a\_\{1i\},a\_\{2i\},\(\backslash\)ldots,a\_\{(M-\/1)i\}\(\backslash\)right]\string^T\(\backslash\)quad\(\backslash\)ldots\(\backslash\)mbox\{(column}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ *\ vectors)\}\(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ \(\backslash\)text\{then\}\(\backslash\)quad\(\backslash\)mathbf\{u\}\_i\ \&=\&\ \(\backslash\)mathbf\{a\}\_i}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ *-\/\(\backslash\)sum\_\{j=0\}\string^\{i-\/1\}\(\backslash\)text\{proj\}\_\{\(\backslash\)mathbf\{u\}\_j\}\(\backslash\)mathbf\{a\}\_i\(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ \(\backslash\)mathbf\{e\}\_i\ \&=\&\(\backslash\)frac\{\(\backslash\)mathbf\{u\}\_i\}\{\(\backslash\)left|\(\backslash\)mathbf\{u\}\_i\(\backslash\)right|\}\(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ Q\ \&=\&\ \(\backslash\)begin\{bmatrix\}\(\backslash\)mathbf\{e\}\_0\ \&\ \(\backslash\)mathbf\{e\}\_1\ \&\ \(\backslash\)mathbf\{e\}\_2\ \&\ \(\backslash\)dots\ \&}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ \(\backslash\)mathbf\{e\}\_\{N-\/1\}\(\backslash\)end\{bmatrix\}\(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ R\ \&=\&\ \(\backslash\)begin\{bmatrix\}\(\backslash\)langle\(\backslash\)mathbf\{e\}\_0\(\backslash\),,\(\backslash\)mathbf\{a\}\_0\(\backslash\)rangle\ \&}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ *\ \(\backslash\)langle\(\backslash\)mathbf\{e\}\_1\(\backslash\),,\(\backslash\)mathbf\{a\}\_1\(\backslash\)rangle\ \&}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ *\ \(\backslash\)langle\(\backslash\)mathbf\{e\}\_2\(\backslash\),,\(\backslash\)mathbf\{a\}\_2\(\backslash\)rangle\ \&\ \(\backslash\)dots\ \(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \&\ \(\backslash\)langle\(\backslash\)mathbf\{e\}\_1\(\backslash\),,\(\backslash\)mathbf\{a\}\_1\(\backslash\)rangle\ \&}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ *\ \(\backslash\)langle\(\backslash\)mathbf\{e\}\_2\(\backslash\),,\(\backslash\)mathbf\{a\}\_2\(\backslash\)rangle\ \&\ \(\backslash\)dots\(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \&\ 0\ \&\ \(\backslash\)langle\(\backslash\)mathbf\{e\}\_2\(\backslash\),,\(\backslash\)mathbf\{a\}\_2\(\backslash\)rangle\ \&}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ *\ \(\backslash\)dots\(\backslash\)\(\backslash\)\ \(\backslash\)vdots\ \&\ \(\backslash\)vdots\ \&\ \(\backslash\)vdots\ \&\ \(\backslash\)ddots}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ *\ \ \ \ \ \ \(\backslash\)end\{bmatrix\}\(\backslash\)\(\backslash\)}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ *\ \(\backslash\)f\}}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00145\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceqr__algorithm_a73ce637634fc49e1d10d190eb388ebf1}{qr\_decompose}}(}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<std::valarray<T>>\ \&A,\ \textcolor{comment}{/**<\ input\ matrix\ to\ decompose\ */}}
+\DoxyCodeLine{00148\ \ \ \ \ std::valarray<std::valarray<T>>\ *Q,\ \ \ \ \ \ \ \textcolor{comment}{/**<\ output\ decomposed\ matrix\ */}}
+\DoxyCodeLine{00149\ \ \ \ \ std::valarray<std::valarray<T>>\ *R\ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ output\ decomposed\ matrix\ */}}
+\DoxyCodeLine{00150\ )\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ std::size\_t\ ROWS\ =\ A.size();\ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ rows\ of\ A}}
+\DoxyCodeLine{00152\ \ \ \ \ std::size\_t\ COLUMNS\ =\ A[0].size();\ \ \textcolor{comment}{//\ number\ of\ columns\ of\ A}}
+\DoxyCodeLine{00153\ \ \ \ \ std::valarray<T>\ col\_vector(ROWS);}
+\DoxyCodeLine{00154\ \ \ \ \ std::valarray<T>\ col\_vector2(ROWS);}
+\DoxyCodeLine{00155\ \ \ \ \ std::valarray<T>\ tmp\_vector(ROWS);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ COLUMNS;\ i++)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ for\ each\ column\ =>\ R\ is\ a\ square\ matrix\ of\ NxN\ */}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ R[0][i]\ =\ 0.;\ \textcolor{comment}{/*\ make\ R\ upper\ triangular\ */}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ get\ corresponding\ Q\ vector\ */}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00164\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ ROWS;\ j++)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\_vector[j]\ =\ A[j][i];\ \textcolor{comment}{/*\ accumulator\ for\ uk\ */}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector[j]\ =\ A[j][i];}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ i;\ j++)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ ROWS;\ k++)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector2[k]\ =\ Q[0][k][j];}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector2\ =\ \mbox{\hyperlink{namespaceqr__algorithm_a6d3c7dce1f142141f509d09f6c0e25dc}{vector\_proj}}(col\_vector,\ col\_vector2);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\_vector\ -\/=\ col\_vector2;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mag\ =\ \mbox{\hyperlink{namespaceqr__algorithm_ad16da2183db22378435042f26af43d5f}{vector\_mag}}(tmp\_vector);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00182\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ ROWS;\ j++)\ Q[0][j][i]\ =\ tmp\_vector[j]\ /\ mag;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ compute\ upper\ triangular\ values\ of\ R\ */}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00189\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ kk\ =\ 0;\ kk\ <\ ROWS;\ kk++)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector[kk]\ =\ Q[0][kk][i];}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00197\ \textcolor{comment}{//\ parallelize\ on\ threads}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ i;\ k\ <\ COLUMNS;\ k++)\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ kk\ =\ 0;\ kk\ <\ ROWS;\ kk++)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col\_vector2[kk]\ =\ A[kk][k];}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ R[0][i][k]\ =\ (col\_vector\ *\ col\_vector2).sum();}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \}}
+\DoxyCodeLine{00208\ \}\ \ \textcolor{comment}{//\ namespace\ qr\_algorithm}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ NUMERICAL\_METHODS\_QR\_DECOMPOSE\_H\_}}
+
+\end{DoxyCode}

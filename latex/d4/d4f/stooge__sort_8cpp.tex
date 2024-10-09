@@ -1,0 +1,177 @@
+\doxysection{sorting/stooge\+\_\+sort.cpp File Reference}
+\hypertarget{stooge__sort_8cpp}{}\label{stooge__sort_8cpp}\index{sorting/stooge\_sort.cpp@{sorting/stooge\_sort.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Stooge_sort}{\texttt{ Stooge sort implementation}} in C++  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stooge\+Sort}} (std\+::vector$<$ int $>$ \texorpdfstring{$\ast$}{*}L, size\+\_\+t i, size\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stooge__sort_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\begin{DoxyCompactList}\small\item\em Function to test sorting algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stooge__sort_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\begin{DoxyCompactList}\small\item\em Function to test sorting algorithm, one element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stooge__sort_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}} ()
+\begin{DoxyCompactList}\small\item\em Function to test sorting algorithm, repeating elements. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stooge__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Stooge_sort}{\texttt{ Stooge sort implementation}} in C++ 
+
+Stooge sort is a recursive sorting algorithm. It divides the array into 3 parts and proceeds to\+:
+\begin{DoxyItemize}
+\item sort first two thirds of the array
+\item sort last two thirds of the array
+\item sort first two thirds of the array It\textquotesingle{}s time complexity is O(n\texorpdfstring{$^\wedge$}{\string^}(log3/log1.\+5)), which is about O(n\texorpdfstring{$^\wedge$}{\string^}2.7), which makes it to be not the most efficient sorting algorithm on the street on average. Space complexity is O(1). 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{stooge__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{stooge\_sort.cpp@{stooge\_sort.cpp}!main@{main}}
+\index{main@{main}!stooge\_sort.cpp@{stooge\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{stooge__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}}();}
+\DoxyCodeLine{00083\ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+\Hypertarget{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}\index{stooge\_sort.cpp@{stooge\_sort.cpp}!stoogeSort@{stoogeSort}}
+\index{stoogeSort@{stoogeSort}!stooge\_sort.cpp@{stooge\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{stoogeSort()}{stoogeSort()}}
+{\footnotesize\ttfamily \label{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b} 
+void stooge\+Sort (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \texorpdfstring{$\ast$}{*}}]{L}{, }\item[{size\+\_\+t}]{i}{, }\item[{size\+\_\+t}]{j}{}\end{DoxyParamCaption})}
+
+
+
+for IO operations 
+
+for vector for assert for std\+::is\+\_\+sorted
+
+The \doxylink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stooge\+Sort()} function is used for sorting the array. 
+\begin{DoxyParams}{Parameters}
+{\em L} & -\/ vector of values (int) to be sorted in in place (ascending order) \\
+\hline
+{\em i} & -\/ the first index of the array (0) \\
+\hline
+{\em j} & -\/ the last index of the array (L.\+size() -\/ 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ j)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*L)[i]\ >\ (*L)[j])\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::swap((*L)[i],\ (*L)[j]);}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ -\/\ i\ >\ 1)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ third\ =\ (j\ -\/\ i\ +\ 1)\ /\ 3;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stoogeSort}}(L,\ i,\ j\ -\/\ third);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stoogeSort}}(L,\ i\ +\ third,\ j);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stoogeSort}}(L,\ i,\ j\ -\/\ third);}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{stooge__sort_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{stooge\_sort.cpp@{stooge\_sort.cpp}!test1@{test1}}
+\index{test1@{test1}!stooge\_sort.cpp@{stooge\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{stooge__sort_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function to test sorting algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::vector<int>\ L\ =\ \{\ 8,\ 9,\ 10,\ 4,\ 3,\ 5,\ 1\ \};}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stoogeSort}}(\&L,\ 0,\ L.size()\ -\/\ 1);}
+\DoxyCodeLine{00050\ \ \ \ \ assert(std::is\_sorted(std::begin(L),\ std::end(L)));}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{stooge__sort_8cpp_a0283886819c7c140a023582b7269e2d0}\index{stooge\_sort.cpp@{stooge\_sort.cpp}!test2@{test2}}
+\index{test2@{test2}!stooge\_sort.cpp@{stooge\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{stooge__sort_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function to test sorting algorithm, one element. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ std::vector<int>\ L\ =\ \{\ -\/1\ \};}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stoogeSort}}(\&L,\ 0,\ L.size()\ -\/\ 1);}
+\DoxyCodeLine{00060\ \ \ \ \ assert(std::is\_sorted(std::begin(L),\ std::end(L)));}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{stooge__sort_8cpp_a6d0455dd5c30adda100e95f0423c786e}\index{stooge\_sort.cpp@{stooge\_sort.cpp}!test3@{test3}}
+\index{test3@{test3}!stooge\_sort.cpp@{stooge\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{stooge__sort_8cpp_a6d0455dd5c30adda100e95f0423c786e} 
+void test3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function to test sorting algorithm, repeating elements. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ std::vector<int>\ L\ =\ \{\ 1,\ 2,\ 5,\ 4,\ 1,\ 5\ \};}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{stooge__sort_8cpp_ac23852832437dc68327efe9b1da2d91b}{stoogeSort}}(\&L,\ 0,\ L.size()\ -\/\ 1);}
+\DoxyCodeLine{00070\ \ \ \ \ assert(std::is\_sorted(std::begin(L),\ std::end(L)));}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}

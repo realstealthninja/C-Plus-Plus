@@ -1,0 +1,203 @@
+\doxysection{math/gcd\+\_\+of\+\_\+n\+\_\+numbers.cpp File Reference}
+\hypertarget{gcd__of__n__numbers_8cpp}{}\label{gcd__of__n__numbers_8cpp}\index{math/gcd\_of\_n\_numbers.cpp@{math/gcd\_of\_n\_numbers.cpp}}
+
+
+This program aims at calculating the GCD of n numbers.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacegcd__of__n__numbers}{gcd\+\_\+of\+\_\+n\+\_\+numbers}}
+\begin{DoxyCompactList}\small\item\em Compute GCD of numbers in an array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gcd__of__n__numbers_8cpp_a509a35e11ed1e17a9e00dd56320a4181}{math\+::gcd\+\_\+of\+\_\+n\+\_\+numbers\+::gcd\+\_\+two}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Function to compute GCD of 2 numbers x and y. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t n$>$ }\\bool \mbox{\hyperlink{gcd__of__n__numbers_8cpp_a71b9357c7a722f8208499d9ba573297a}{math\+::gcd\+\_\+of\+\_\+n\+\_\+numbers\+::check\+\_\+all\+\_\+zeros}} (const std\+::array$<$ int, n $>$ \&a)
+\begin{DoxyCompactList}\small\item\em Function to check if all elements in the array are 0. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t n$>$ }\\int \mbox{\hyperlink{gcd__of__n__numbers_8cpp_a1161713c662a14c2d5e33504f4324532}{math\+::gcd\+\_\+of\+\_\+n\+\_\+numbers\+::gcd}} (const std\+::array$<$ int, n $>$ \&a)
+\begin{DoxyCompactList}\small\item\em Main program to compute GCD using the Euclidean algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{gcd__of__n__numbers_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gcd__of__n__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program aims at calculating the GCD of n numbers. 
+
+The GCD of n numbers can be calculated by repeatedly calculating the GCDs of pairs of numbers i.\+e. $\gcd(a, b, c)$ = $\gcd(\gcd(a, b), c)$ Euclidean algorithm helps calculate the GCD of each pair of numbers efficiently
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{gcd__iterative__euclidean_8cpp}{gcd\+\_\+iterative\+\_\+euclidean.\+cpp}, \doxylink{gcd__recursive__euclidean_8cpp}{gcd\+\_\+recursive\+\_\+euclidean.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gcd__of__n__numbers_8cpp_a71b9357c7a722f8208499d9ba573297a}\index{gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}!check\_all\_zeros@{check\_all\_zeros}}
+\index{check\_all\_zeros@{check\_all\_zeros}!gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_all\_zeros()}{check\_all\_zeros()}}
+{\footnotesize\ttfamily \label{gcd__of__n__numbers_8cpp_a71b9357c7a722f8208499d9ba573297a} 
+template$<$std\+::size\+\_\+t n$>$ \\
+bool math\+::gcd\+\_\+of\+\_\+n\+\_\+numbers\+::check\+\_\+all\+\_\+zeros (\begin{DoxyParamCaption}\item[{const std\+::array$<$ int, n $>$ \&}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Function to check if all elements in the array are 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Array of numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}True\textquotesingle{} if all elements are 0 
+
+\textquotesingle{}False\textquotesingle{} if not all elements are 0 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Use\ std::all\_of\ to\ simplify\ zero-\/checking}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{return}\ std::all\_of(a.begin(),\ a.end(),\ [](\textcolor{keywordtype}{int}\ x)\ \{\ return\ x\ ==\ 0;\ \});}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gcd__of__n__numbers_8cpp_a1161713c662a14c2d5e33504f4324532}\index{gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}!gcd@{gcd}}
+\index{gcd@{gcd}!gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{gcd()}{gcd()}}
+{\footnotesize\ttfamily \label{gcd__of__n__numbers_8cpp_a1161713c662a14c2d5e33504f4324532} 
+template$<$std\+::size\+\_\+t n$>$ \\
+int math\+::gcd\+\_\+of\+\_\+n\+\_\+numbers\+::gcd (\begin{DoxyParamCaption}\item[{const std\+::array$<$ int, n $>$ \&}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Main program to compute GCD using the Euclidean algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Array of integers to compute GCD for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+GCD of the numbers in the array or std\+::nullopt if undefined 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ GCD\ is\ undefined\ if\ all\ elements\ in\ the\ array\ are\ 0}}
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gcd__of__n__numbers_8cpp_a71b9357c7a722f8208499d9ba573297a}{check\_all\_zeros}}(a))\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ \textcolor{comment}{//\ Use\ std::optional\ to\ represent\ undefined\ GCD}}
+\DoxyCodeLine{00068\ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ divisors\ can\ be\ negative,\ we\ only\ want\ the\ positive\ value}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ std::abs(a[0]);}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{gcd__of__n__numbers_8cpp_a509a35e11ed1e17a9e00dd56320a4181}{gcd\_two}}(result,\ std::abs(a[i]));}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ 1)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ Further\ computations\ still\ result\ in\ gcd\ of\ 1}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gcd__of__n__numbers_8cpp_a509a35e11ed1e17a9e00dd56320a4181}\index{gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}!gcd\_two@{gcd\_two}}
+\index{gcd\_two@{gcd\_two}!gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{gcd\_two()}{gcd\_two()}}
+{\footnotesize\ttfamily \label{gcd__of__n__numbers_8cpp_a509a35e11ed1e17a9e00dd56320a4181} 
+int math\+::gcd\+\_\+of\+\_\+n\+\_\+numbers\+::gcd\+\_\+two (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Function to compute GCD of 2 numbers x and y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & First number \\
+\hline
+{\em y} & Second number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+GCD of x and y via recursion 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ base\ cases}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordflow}{if}\ (y\ ==\ 0)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00039\ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ 0)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{gcd__of__n__numbers_8cpp_a509a35e11ed1e17a9e00dd56320a4181}{gcd\_two}}(y,\ x\ \%\ y);\ \textcolor{comment}{//\ Euclidean\ method}}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gcd__of__n__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}!main@{main}}
+\index{main@{main}!gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{gcd__of__n__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \mbox{\hyperlink{gcd__of__n__numbers_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \textcolor{comment}{//\ run\ self-\/test\ implementation}}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gcd__of__n__numbers_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}!test@{test}}
+\index{test@{test}!gcd\_of\_n\_numbers.cpp@{gcd\_of\_n\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{gcd__of__n__numbers_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementation. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ std::array<int,\ 1>\ array\_1\ =\ \{0\};}
+\DoxyCodeLine{00089\ \ \ std::array<int,\ 1>\ array\_2\ =\ \{1\};}
+\DoxyCodeLine{00090\ \ \ std::array<int,\ 2>\ array\_3\ =\ \{0,\ 2\};}
+\DoxyCodeLine{00091\ \ \ std::array<int,\ 3>\ array\_4\ =\ \{-\/60,\ 24,\ 18\};}
+\DoxyCodeLine{00092\ \ \ std::array<int,\ 4>\ array\_5\ =\ \{100,\ -\/100,\ -\/100,\ 200\};}
+\DoxyCodeLine{00093\ \ \ std::array<int,\ 5>\ array\_6\ =\ \{0,\ 0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{00094\ \ \ std::array<int,\ 7>\ array\_7\ =\ \{10350,\ -\/24150,\ 0,\ 17250,\ 37950,\ -\/127650,\ 51750\};}
+\DoxyCodeLine{00095\ \ \ std::array<int,\ 7>\ array\_8\ =\ \{9500000,\ -\/12121200,\ 0,\ 4444,\ 0,\ 0,\ 123456789\};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_1)\ ==\ -\/1);}
+\DoxyCodeLine{00098\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_2)\ ==\ 1);}
+\DoxyCodeLine{00099\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_3)\ ==\ 2);}
+\DoxyCodeLine{00100\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_4)\ ==\ 6);}
+\DoxyCodeLine{00101\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_5)\ ==\ 100);}
+\DoxyCodeLine{00102\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_6)\ ==\ -\/1);}
+\DoxyCodeLine{00103\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_7)\ ==\ 3450);}
+\DoxyCodeLine{00104\ \ \ assert(math::gcd\_of\_n\_numbers::gcd(array\_8)\ ==\ 1);}
+\DoxyCodeLine{00105\ \}}
+
+\end{DoxyCode}

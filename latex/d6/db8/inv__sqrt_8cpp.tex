@@ -1,0 +1,179 @@
+\doxysection{math/inv\+\_\+sqrt.cpp File Reference}
+\hypertarget{inv__sqrt_8cpp}{}\label{inv__sqrt_8cpp}\index{math/inv\_sqrt.cpp@{math/inv\_sqrt.cpp}}
+
+
+Implementation of \href{https://medium.com/hard-mode/the-legendary-fast-inverse-square-root-e51fee3b49d9}{\texttt{ the inverse square root Root}}.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T  = double, char iterations = 2$>$ }\\T \mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\+\_\+\+Inv\+Sqrt}} (T x)
+\begin{DoxyCompactList}\small\item\em for numeric\+\_\+limits \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T  = double$>$ }\\T \mbox{\hyperlink{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}{Standard\+\_\+\+Inv\+Sqrt}} (T number)
+\begin{DoxyCompactList}\small\item\em This is the function that calculates the fast inverse square root. The following code is the fast inverse square root with standard lib (cmath) More information can be found at \href{https://www.linkedin.com/pulse/fast-inverse-square-root-still-armin-kassemi-langroodi}{\texttt{ Linked\+In}} \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{inv__sqrt_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{inv__sqrt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://medium.com/hard-mode/the-legendary-fast-inverse-square-root-e51fee3b49d9}{\texttt{ the inverse square root Root}}. 
+
+Two implementation to calculate inverse inverse root, from Quake III Arena (C++ version) and with a standard library ({\ttfamily cmath}). This algorithm is used to calculate shadows in Quake III Arena. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}\index{inv\_sqrt.cpp@{inv\_sqrt.cpp}!Fast\_InvSqrt@{Fast\_InvSqrt}}
+\index{Fast\_InvSqrt@{Fast\_InvSqrt}!inv\_sqrt.cpp@{inv\_sqrt.cpp}}
+\doxysubsubsection{\texorpdfstring{Fast\_InvSqrt()}{Fast\_InvSqrt()}}
+{\footnotesize\ttfamily \label{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52} 
+template$<$typename T  = double, char iterations = 2$>$ \\
+T Fast\+\_\+\+Inv\+Sqrt (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+for numeric\+\_\+limits 
+
+for assert for {\ttfamily std\+::sqrt} for IO operations
+
+This is the function that calculates the fast inverse square root. The following code is the fast inverse square root implementation from Quake III Arena (Adapted for C++). More information can be found at \href{https://en.wikipedia.org/wiki/Fast_inverse_square_root}{\texttt{ Wikipedia}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & floating type \\
+\hline
+{\em iterations} & inverse square root, the greater the number of iterations, the more exact the result will be (1 or 2). \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & value to calculate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the inverse square root 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{using\ }Tint\ =\ \textcolor{keyword}{typename}\ std::conditional<\textcolor{keyword}{sizeof}(T)\ ==\ 8,\ std::int64\_t,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::int32\_t>::type;}
+\DoxyCodeLine{00031\ \ \ \ \ T\ y\ =\ x;}
+\DoxyCodeLine{00032\ \ \ \ \ T\ x2\ =\ y\ *\ 0.5;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ Tint\ i\ =}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}Tint\ *\textcolor{keyword}{>}(\&y);\ \ \textcolor{comment}{//\ Store\ floating-\/point\ bits\ in\ integer}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ i\ =\ (\textcolor{keyword}{sizeof}(T)\ ==\ 8\ ?\ 0x5fe6eb50c7b537a9\ :\ 0x5f3759df)\ -\/}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ (i\ >>\ 1);\ \ \textcolor{comment}{//\ Initial\ guess\ for\ Newton's\ method}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ y\ =\ *\textcolor{keyword}{reinterpret\_cast<}T\ *\textcolor{keyword}{>}(\&i);\ \ \textcolor{comment}{//\ Convert\ new\ bits\ into\ float}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ y\ =\ y\ *\ (1.5\ -\/\ (x2\ *\ y\ *\ y));\ \ \textcolor{comment}{//\ 1st\ iteration\ Newton's\ method}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (iterations\ ==\ 2)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ y\ =\ y\ *\ (1.5\ -\/\ (x2\ *\ y\ *\ y));\ \ \textcolor{comment}{//\ 2nd\ iteration,\ the\ more\ exact\ result}}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+\Hypertarget{inv__sqrt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{inv\_sqrt.cpp@{inv\_sqrt.cpp}!main@{main}}
+\index{main@{main}!inv\_sqrt.cpp@{inv\_sqrt.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{inv__sqrt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{inv__sqrt_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00089\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ Fast\ inverse\ square\ root\ of\ 36\ is:\ "{}}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\_InvSqrt<float,\ 1>}}(36.0f)\ <<\ std::endl;}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ Fast\ inverse\ square\ root\ of\ 36\ is:\ "{}}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\_InvSqrt<double,\ 2>}}(36.0f)\ <<\ \textcolor{stringliteral}{"{}\ (2\ iterations)"{}}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00094\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ Fast\ inverse\ square\ root\ of\ 100\ is:\ "{}}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\_InvSqrt}}(100.0f)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ (With\ default\ template\ type\ and\ iterations:\ double,\ 2)"{}}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00098\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ Standard\ inverse\ square\ root\ of\ 36\ is:\ "{}}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}{Standard\_InvSqrt<float>}}(36.0f)\ <<\ std::endl;}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ Standard\ inverse\ square\ root\ of\ 100\ is:\ "{}}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}{Standard\_InvSqrt}}(100.0f)}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ (With\ default\ template\ type:\ double)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}
+\Hypertarget{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}\index{inv\_sqrt.cpp@{inv\_sqrt.cpp}!Standard\_InvSqrt@{Standard\_InvSqrt}}
+\index{Standard\_InvSqrt@{Standard\_InvSqrt}!inv\_sqrt.cpp@{inv\_sqrt.cpp}}
+\doxysubsubsection{\texorpdfstring{Standard\_InvSqrt()}{Standard\_InvSqrt()}}
+{\footnotesize\ttfamily \label{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97} 
+template$<$typename T  = double$>$ \\
+T Standard\+\_\+\+Inv\+Sqrt (\begin{DoxyParamCaption}\item[{T}]{number}{}\end{DoxyParamCaption})}
+
+
+
+This is the function that calculates the fast inverse square root. The following code is the fast inverse square root with standard lib (cmath) More information can be found at \href{https://www.linkedin.com/pulse/fast-inverse-square-root-still-armin-kassemi-langroodi}{\texttt{ Linked\+In}} 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & floating type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em number} & value to calculate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the inverse square root 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ T\ squareRoot\ =\ sqrt(number);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0f\ /\ squareRoot;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{inv__sqrt_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{inv\_sqrt.cpp@{inv\_sqrt.cpp}!test@{test}}
+\index{test@{test}!inv\_sqrt.cpp@{inv\_sqrt.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{inv__sqrt_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ epsilon\ =\ 1e-\/3f;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{/*\ Tests\ with\ multiple\ values\ */}}
+\DoxyCodeLine{00072\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}{Standard\_InvSqrt<float>}}(100.0f)\ -\/\ 0.0998449f)\ <\ epsilon);}
+\DoxyCodeLine{00073\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}{Standard\_InvSqrt<double>}}(36.0f)\ -\/\ 0.166667f)\ <\ epsilon);}
+\DoxyCodeLine{00074\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}{Standard\_InvSqrt}}(12.0f)\ -\/\ 0.288423f)\ <\ epsilon);}
+\DoxyCodeLine{00075\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_aa2703e5cf3fecde8becd9066b9666b97}{Standard\_InvSqrt<double>}}(5.0f)\ -\/\ 0.447141f)\ <\ epsilon);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\_InvSqrt<float,\ 1>}}(100.0f)\ -\/\ 0.0998449f)\ <\ epsilon);}
+\DoxyCodeLine{00078\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\_InvSqrt<double,\ 1>}}(36.0f)\ -\/\ 0.166667f)\ <\ epsilon);}
+\DoxyCodeLine{00079\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\_InvSqrt}}(12.0f)\ -\/\ 0.288423)\ <\ epsilon);}
+\DoxyCodeLine{00080\ \ \ \ \ assert(std::fabs(\mbox{\hyperlink{inv__sqrt_8cpp_ad219034bf5fba657f5035ec5a1d50f52}{Fast\_InvSqrt<double>}}(5.0f)\ -\/\ 0.447141)\ <\ epsilon);}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}

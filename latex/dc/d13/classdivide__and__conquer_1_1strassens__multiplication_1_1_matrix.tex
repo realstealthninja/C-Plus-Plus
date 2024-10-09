@@ -1,0 +1,753 @@
+\doxysection{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::Matrix\texorpdfstring{$<$}{<} T, typename \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{}\label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+
+
+\doxylink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix} class.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Integer , typename  = typename std\+::enable\+\_\+if$<$                  std\+::is\+\_\+integral$<$\+Integer$>$\+::value, Integer$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}} (const Integer \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Integer , typename  = typename std\+::enable\+\_\+if$<$                  std\+::is\+\_\+integral$<$\+Integer$>$\+::value, Integer$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a4aa49765cce39ce48b9241e993e0cfb9}{Matrix}} (const Integer rows, const Integer cols)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}} () const
+\begin{DoxyCompactList}\small\item\em Get the matrix shape. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Integer , typename  = typename std\+::enable\+\_\+if$<$                  std\+::is\+\_\+integral$<$\+Integer$>$\+::value, Integer$>$\+::type$>$ }\\std\+::vector$<$ T $>$ \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ac4c64e5723fa12a043fd0a7f5ed5bb37}{operator\mbox{[}$\,$\mbox{]}}} (const Integer index)
+\begin{DoxyCompactList}\small\item\em returns the address of the element at ith place (here ith row of the matrix) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}} (const size\+\_\+t row\+\_\+start, const size\+\_\+t row\+\_\+end=MAX\+\_\+\+SIZE, const size\+\_\+t col\+\_\+start=MAX\+\_\+\+SIZE, const size\+\_\+t col\+\_\+end=MAX\+\_\+\+SIZE) const
+\begin{DoxyCompactList}\small\item\em Creates a new matrix and returns a part of it. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   Number$>$\+::type$>$ }\\void \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ab6534125643a02c114bd4cddba9bc17f}{h\+\_\+stack}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Horizontally stack the matrix (one after the other) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   Number$>$\+::type$>$ }\\void \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_af12ceffdc07cc87eca8a4a8ac87d60fe}{v\+\_\+stack}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Horizontally stack the matrix (current matrix above the other) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ad36ec1f1a97298e49de605384e5f8211}{operator+}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Add two matrices and returns a new matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae190115f8d4d31e47d7290e0b6871391}{operator+=}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Add another matrices to current matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a678681c9f6266a8219bd6bee6972d70e}{operator-\/}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Subtract two matrices and returns a new matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a42c986fb57b74fe1b7c5953cb1922c3d}{operator-\/=}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Subtract another matrices to current matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a60599668b56001cef4bb59d4cb5c6c6c}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Multiply two matrices and returns a new matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_aedbe01e48a96fefa0b393ec577b0f19e}{operator\texorpdfstring{$\ast$}{*}}} (const Number other) const
+\begin{DoxyCompactList}\small\item\em Multiply matrix with a number and returns a new matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_af09566a6a59d30875434c140e18e0a12}{operator\texorpdfstring{$\ast$}{*}=}} (const Number other) const
+\begin{DoxyCompactList}\small\item\em Multiply a number to current matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a5d8eb669b37a27224376b08515b4ee50}{naive\+\_\+multiplication}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Naive multiplication performed on this. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ }\\\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a87c2ed8f19bda2ad21ee4cbed32c394a}{strassens\+\_\+multiplication}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Strassens method of multiplying two matrices References\+: \href{https://en.wikipedia.org/wiki/Strassen_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Strassen\+\_\+algorithm}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a562faa16a4b4ed5d4804823c56f99c9c}{operator==}} (const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ T $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Compares two matrices if each of them are equal or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a048f49ac4b28af539a9669e696c8a843}\label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a048f49ac4b28af539a9669e696c8a843} 
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ {\bfseries \+\_\+mat}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a6e6290aa94e1b8fc00732531b4842f6e}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ T $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$\newline
+class divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix$<$ T, typename $>$}
+\doxylink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Integer , typename  = typename std\+::enable\+\_\+if$<$                  std\+::is\+\_\+integral$<$\+Integer$>$\+::value, Integer$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::\+Matrix (\begin{DoxyParamCaption}\item[{const Integer}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Integer} & ensuring integers are being evaluated and not other data types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & denoting the size of \doxylink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix} as size x size \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}};\ ++i)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \_mat.emplace\_back(std::vector<T>(\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}},\ 0));}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a4aa49765cce39ce48b9241e993e0cfb9}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a4aa49765cce39ce48b9241e993e0cfb9} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Integer , typename  = typename std\+::enable\+\_\+if$<$                  std\+::is\+\_\+integral$<$\+Integer$>$\+::value, Integer$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::\+Matrix (\begin{DoxyParamCaption}\item[{const Integer}]{rows}{, }\item[{const Integer}]{cols}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Integer} & ensuring integers are being evaluated and not other data types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & denoting the total rows of \doxylink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix} \\
+\hline
+{\em cols} & denoting the total elements in each row of \doxylink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ rows;\ ++i)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \_mat.emplace\_back(std::vector<T>(cols,\ 0));}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ab6534125643a02c114bd4cddba9bc17f}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!h\_stack@{h\_stack}}
+\index{h\_stack@{h\_stack}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{h\_stack()}{h\_stack()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ab6534125643a02c114bd4cddba9bc17f} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   Number$>$\+::type$>$ \\
+void \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::h\+\_\+stack (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Horizontally stack the matrix (one after the other) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any type of number \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other matrix\+: note that this array is not modified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void, but modifies the current array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ assert(\_mat.size()\ ==\ other.\_mat.size());}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ other.\_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ other.\_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mat[i].push\_back(other.\_mat[i][j]);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a5d8eb669b37a27224376b08515b4ee50}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!naive\_multiplication@{naive\_multiplication}}
+\index{naive\_multiplication@{naive\_multiplication}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{naive\_multiplication()}{naive\_multiplication()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a5d8eb669b37a27224376b08515b4ee50} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::naive\+\_\+multiplication (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Naive multiplication performed on this. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to multiply \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to multiply to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C\ =\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix<Number>}}(\_mat.size(),\ other.\_mat[0].size());}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ <\ \_mat[0].size();\ ++\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}})\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ other.\_mat[0].size();\ ++j)\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C.\_mat[i][j]\ +=\ \_mat[i][\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}]\ *\ other.\_mat[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}][j];}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ C;}
+\DoxyCodeLine{00327\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a60599668b56001cef4bb59d4cb5c6c6c}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a60599668b56001cef4bb59d4cb5c6c6c} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiply two matrices and returns a new matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to multiply \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to multiply to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ assert(\_mat[0].\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}()\ ==\ other.\_mat.size());}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ =\ this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}();}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ row\ =\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}.first,\ col\ =\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}.second;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ condition\ for\ applying\ strassen's\ method:}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1:\ matrix\ should\ be\ a\ square\ matrix}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2:\ matrix\ should\ be\ of\ even\ size\ (mat.size()\ \%\ 2\ ==\ 0)}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (row\ ==\ col\ \&\&\ (row\ \&\ 1)\ ==\ 0)}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ this-\/>\mbox{\hyperlink{namespacestrassens__multiplication}{strassens\_multiplication}}(other)}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a5d8eb669b37a27224376b08515b4ee50}{naive\_multiplication}}(other);}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_aedbe01e48a96fefa0b393ec577b0f19e}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_aedbe01e48a96fefa0b393ec577b0f19e} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const Number}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiply matrix with a number and returns a new matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to multiply \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other real number to multiply to current matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C\ =\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix<Number>}}(\_mat.size(),\ \_mat[0].size());}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C.\_mat[i][j]\ =\ \_mat[i][j]\ *\ other;}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ C;}
+\DoxyCodeLine{00285\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_af09566a6a59d30875434c140e18e0a12}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_af09566a6a59d30875434c140e18e0a12} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const Number}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiply a number to current matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to multiply \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to multiply to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference of current matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mat[i][j]\ *=\ other;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ad36ec1f1a97298e49de605384e5f8211}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ad36ec1f1a97298e49de605384e5f8211} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add two matrices and returns a new matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to add \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to add to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ assert(this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}()\ ==\ other.size());}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C\ =\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix<Number>}}(\_mat.size(),\ \_mat[0].size());}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C.\_mat[i][j]\ =\ \_mat[i][j]\ +\ other.\_mat[i][j];}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ C;}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae190115f8d4d31e47d7290e0b6871391}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae190115f8d4d31e47d7290e0b6871391} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add another matrices to current matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to add \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to add to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference of current matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ assert(this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}()\ ==\ other.size());}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mat[i][j]\ +=\ other.\_mat[i][j];}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a678681c9f6266a8219bd6bee6972d70e}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a678681c9f6266a8219bd6bee6972d70e} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtract two matrices and returns a new matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to multiply \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to subtract to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ assert(this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}()\ ==\ other.size());}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C\ =\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix<Number>}}(\_mat.size(),\ \_mat[0].size());}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C.\_mat[i][j]\ =\ \_mat[i][j]\ -\/\ other.\_mat[i][j];}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ C;}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a42c986fb57b74fe1b7c5953cb1922c3d}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a42c986fb57b74fe1b7c5953cb1922c3d} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtract another matrices to current matrix. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to Subtract \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to Subtract to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference of current matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ assert(this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}()\ ==\ other.size());}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mat[i][j]\ -\/=\ other.\_mat[i][j];}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a562faa16a4b4ed5d4804823c56f99c9c}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a562faa16a4b4ed5d4804823c56f99c9c} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+bool \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compares two matrices if each of them are equal or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & other matrix to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether they are equal or not 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_mat.size()\ !=\ other.\_mat.size()\ ||}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \_mat[0].size()\ !=\ other.\_mat[0].size())\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_mat[i][j]\ !=\ other.\_mat[i][j])\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00406\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ac4c64e5723fa12a043fd0a7f5ed5bb37}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ac4c64e5723fa12a043fd0a7f5ed5bb37} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Integer , typename  = typename std\+::enable\+\_\+if$<$                  std\+::is\+\_\+integral$<$\+Integer$>$\+::value, Integer$>$\+::type$>$ \\
+std\+::vector$<$ T $>$ \& \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const Integer}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the address of the element at ith place (here ith row of the matrix) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Integer} & any valid integer \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index which is requested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the element (here ith row or array) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_mat[index];}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!size@{size}}
+\index{size@{size}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the matrix shape. 
+
+\begin{DoxyReturn}{Returns}
+pair of integer denoting total rows and columns 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\_mat.size(),\ \_mat[0].size()\};}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!slice@{slice}}
+\index{slice@{slice}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{slice()}{slice()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::slice (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{row\+\_\+start}{, }\item[{const size\+\_\+t}]{row\+\_\+end}{ = {\ttfamily MAX\+\_\+SIZE}, }\item[{const size\+\_\+t}]{col\+\_\+start}{ = {\ttfamily MAX\+\_\+SIZE}, }\item[{const size\+\_\+t}]{col\+\_\+end}{ = {\ttfamily MAX\+\_\+SIZE}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new matrix and returns a part of it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+\_\+start} & start of the row \\
+\hline
+{\em row\+\_\+end} & end of the row \\
+\hline
+{\em col\+\_\+start} & start of the col \\
+\hline
+{\em col\+\_\+end} & end of the column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A slice of (row\+\_\+end -\/ row\+\_\+start) x (col\+\_\+end -\/ col\+\_\+start) size of array starting from row\+\_\+start row and col\+\_\+start column 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ h\_size\ =}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ (row\_end\ !=\ MAX\_SIZE\ ?\ row\_end\ :\ \_mat.size())\ -\/\ row\_start;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ v\_size\ =\ (col\_end\ !=\ MAX\_SIZE\ ?\ col\_end\ :\ \_mat[0].size())\ -\/}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (col\_start\ !=\ MAX\_SIZE\ ?\ col\_start\ :\ 0);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix<T>}}(h\_size,\ v\_size);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ v\_start\ =\ (col\_start\ !=\ MAX\_SIZE\ ?\ col\_start\ :\ 0);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ h\_size;\ ++i)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ v\_size;\ ++j)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.\_mat[i][j]\ =\ \_mat[i\ +\ row\_start][j\ +\ v\_start];}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a87c2ed8f19bda2ad21ee4cbed32c394a}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!strassens\_multiplication@{strassens\_multiplication}}
+\index{strassens\_multiplication@{strassens\_multiplication}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{strassens\_multiplication()}{strassens\_multiplication()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a87c2ed8f19bda2ad21ee4cbed32c394a} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   bool$>$\+::type$>$ \\
+\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}} \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::strassens\+\_\+multiplication (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Strassens method of multiplying two matrices References\+: \href{https://en.wikipedia.org/wiki/Strassen_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Strassen\+\_\+algorithm}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any real value to multiply \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other matrix to multiply to this \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ =\ \_mat.size();}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Base\ case:\ when\ a\ matrix\ is\ small\ enough\ for\ faster\ naive}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ multiplication,\ or\ the\ matrix\ is\ of\ odd\ size,\ then\ go\ with\ the\ naive}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ multiplication\ route;}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else;\ go\ with\ the\ strassen's\ method.}}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ <=\ 64ULL\ ||\ (\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ \&\ 1ULL))\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a5d8eb669b37a27224376b08515b4ee50}{naive\_multiplication}}(other);}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix<Number>}}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ =\ this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ 0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1),}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ B\ =\ this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}),}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C\ =\ this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(size\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}},\ 0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1),}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D\ =\ this-\/>\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(size\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}},\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}),}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\ =\ other.\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ 0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1),}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ other.\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}),}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ G\ =\ other.\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}},\ 0ULL,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1),}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ H\ =\ other.\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a1fcb7db9bdeabd874712ec4f00483d17}{slice}}(\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}},\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}\ >>\ 1,\ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}});}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ P1\ =\ A.\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a87c2ed8f19bda2ad21ee4cbed32c394a}{strassens\_multiplication}}(F\ -\/\ H);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ P2\ =\ (A\ +\ B).\mbox{\hyperlink{namespacestrassens__multiplication}{strassens\_multiplication}}(H);}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ P3\ =\ (C\ +\ D).\mbox{\hyperlink{namespacestrassens__multiplication}{strassens\_multiplication}}(E);}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ P4\ =\ D.strassens\_multiplication(G\ -\/\ E);}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ P5\ =\ (A\ +\ D).\mbox{\hyperlink{namespacestrassens__multiplication}{strassens\_multiplication}}(E\ +\ H);}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ P6\ =\ (B\ -\/\ D).\mbox{\hyperlink{namespacestrassens__multiplication}{strassens\_multiplication}}(G\ +\ H);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ P7\ =\ (A\ -\/\ C).\mbox{\hyperlink{namespacestrassens__multiplication}{strassens\_multiplication}}(E\ +\ F);}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Building\ final\ matrix\ C11\ would\ be}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ [\ \ \ \ \ \ |\ \ \ \ \ \ ]}}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ [\ C11\ \ |\ \ C12\ ]}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ C\ =\ [\ \_\_\_\_\ |\ \_\_\_\_\ ]}}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ [\ \ \ \ \ \ |\ \ \ \ \ \ ]}}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ [\ C21\ \ |\ \ C22\ ]}}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ [\ \ \ \ \ \ |\ \ \ \ \ \ ]}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C11\ =\ P5\ +\ P4\ -\/\ P2\ +\ P6;}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C12\ =\ P1\ +\ P2;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C21\ =\ P3\ +\ P4;}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a01f3a05cf5abdc5d63999ef1bf9f9256}{Matrix}}\ C22\ =\ P1\ +\ P5\ -\/\ P3\ -\/\ P7;}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ C21.h\_stack(C22);}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ C11.h\_stack(C12);}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ C11.v\_stack(C21);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ C11;}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_af12ceffdc07cc87eca8a4a8ac87d60fe}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!v\_stack@{v\_stack}}
+\index{v\_stack@{v\_stack}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{v\_stack()}{v\_stack()}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_af12ceffdc07cc87eca8a4a8ac87d60fe} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+template$<$typename Number , typename  = typename std\+::enable\+\_\+if$<$                                   std\+::is\+\_\+integral$<$\+Number$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                                       std\+::is\+\_\+floating\+\_\+point$<$\+Number$>$\+::value,                                   Number$>$\+::type$>$ \\
+void \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{divide\+\_\+and\+\_\+conquer\+::strassens\+\_\+multiplication\+::\+Matrix}}$<$ T, typename $>$\+::v\+\_\+stack (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ Number $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Horizontally stack the matrix (current matrix above the other) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Number} & any type of number (Integer or floating point) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other matrix\+: note that this array is not modified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void, but modifies the current array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ assert(\_mat[0].\mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_ae4e183ec8eab778cb243e4ae0b22a0f1}{size}}()\ ==\ other.\_mat[0].size());}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ other.\_mat.size();\ ++i)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \_mat.emplace\_back(std::vector<T>(other.\_mat[i].size()));}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ other.\_mat[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mat.back()[j]\ =\ other.\_mat[i][j];}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a6e6290aa94e1b8fc00732531b4842f6e}\index{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$@{divide\_and\_conquer::strassens\_multiplication::Matrix$<$ T, typename $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix_a6e6290aa94e1b8fc00732531b4842f6e} 
+template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$              std\+::is\+\_\+integral$<$\+T$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+floating\+\_\+point$<$\+T$>$\+::value,              bool$>$\+::type$>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{const \mbox{\hyperlink{classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{mat}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&row\ :\ mat.\_mat)\ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&elem\ :\ row)\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ elem\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00416\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+divide\+\_\+and\+\_\+conquer/strassen\+\_\+matrix\+\_\+multiplication.\+cpp\end{DoxyCompactItemize}

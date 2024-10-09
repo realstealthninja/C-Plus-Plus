@@ -1,0 +1,211 @@
+\doxysection{stack\texorpdfstring{$<$}{<} Value\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classstack}{}\label{classstack}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+
+
+for std\+::invalid\+\_\+argument  
+
+
+
+
+{\ttfamily \#include $<$stack.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classstack_acd4f2a45d37824eecc4400673c9a840b}\label{classstack_acd4f2a45d37824eecc4400673c9a840b} 
+using {\bfseries value\+\_\+type} = Value\+Type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstack_a8bce109630118a34faae717f72986033}{display}} () const
+\item 
+std\+::vector$<$ value\+\_\+type $>$ \mbox{\hyperlink{classstack_a6bbcca5e5d3ab096095899d236edf767}{to\+Vector}} () const
+\item 
+bool \mbox{\hyperlink{classstack_a163eb9a6206c874c9bf98d032fca11c5}{is\+Empty\+Stack}} () const
+\item 
+void \mbox{\hyperlink{classstack_a90df277532c23519aa7ac3c08ed90a1d}{push}} (const value\+\_\+type \&item)
+\item 
+value\+\_\+type \mbox{\hyperlink{classstack_ae09630c4384903d187801921b2ddc709}{top}} () const
+\item 
+void \mbox{\hyperlink{classstack_a3647fb4418890f19e0dc414b8092b8b0}{pop}} ()
+\item 
+void \mbox{\hyperlink{classstack_a6f13157faa1a762c59e67da8b9516092}{clear}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstack_aef1fc81033eb301d0311edda0337eed4}{ensure\+Not\+Empty}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ value\+\_\+type $>$ $>$ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stack\+Top}}
+\item 
+\Hypertarget{classstack_a0a6b2b93ec970296940798ee98a5072e}\label{classstack_a0a6b2b93ec970296940798ee98a5072e} 
+std\+::size\+\_\+t {\bfseries size} = 0
+\begin{DoxyCompactList}\small\item\em size of stack \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Value\+Type$>$\newline
+class stack$<$ Value\+Type $>$}
+for std\+::invalid\+\_\+argument 
+
+for \doxylink{struct_node}{Node} Definition of the stack class 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em value\+\_\+type} & type of data nodes of the linked list in the stack should contain \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classstack_a6f13157faa1a762c59e67da8b9516092}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!clear@{clear}}
+\index{clear@{clear}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classstack_a6f13157faa1a762c59e67da8b9516092} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clear stack 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack_a8bce109630118a34faae717f72986033}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!display@{display}}
+\index{display@{display}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classstack_a8bce109630118a34faae717f72986033} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Show stack 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Top\ -\/-\/>\ "{}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ display\_all(this-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}.get());}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Size\ of\ stack:\ "{}}\ <<\ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}\ <<\ std::endl;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack_aef1fc81033eb301d0311edda0337eed4}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!ensureNotEmpty@{ensureNotEmpty}}
+\index{ensureNotEmpty@{ensureNotEmpty}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{ensureNotEmpty()}{ensureNotEmpty()}}
+{\footnotesize\ttfamily \label{classstack_aef1fc81033eb301d0311edda0337eed4} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::ensure\+Not\+Empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classstack_a163eb9a6206c874c9bf98d032fca11c5}{isEmptyStack}}())\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Stack\ is\ empty."{}});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack_a163eb9a6206c874c9bf98d032fca11c5}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!isEmptyStack@{isEmptyStack}}
+\index{isEmptyStack@{isEmptyStack}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{isEmptyStack()}{isEmptyStack()}}
+{\footnotesize\ttfamily \label{classstack_a163eb9a6206c874c9bf98d032fca11c5} 
+template$<$class Value\+Type $>$ \\
+bool \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::is\+Empty\+Stack (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Determine whether the stack is empty 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ ==\ \textcolor{keyword}{nullptr});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack_a3647fb4418890f19e0dc414b8092b8b0}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!pop@{pop}}
+\index{pop@{pop}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{classstack_a3647fb4418890f19e0dc414b8092b8b0} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove the top element of the stack 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ ensureNotEmpty();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ =\ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}-\/>next;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}-\/-\/;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack_a90df277532c23519aa7ac3c08ed90a1d}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!push@{push}}
+\index{push@{push}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{classstack_a90df277532c23519aa7ac3c08ed90a1d} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::push (\begin{DoxyParamCaption}\item[{const value\+\_\+type \&}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add new item to the stack 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newNode\ =\ std::make\_shared<Node<value\_type>>();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ newNode-\/>data\ =\ item;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ newNode-\/>next\ =\ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ =\ newNode;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}++;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack_ae09630c4384903d187801921b2ddc709}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!top@{top}}
+\index{top@{top}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily \label{classstack_ae09630c4384903d187801921b2ddc709} 
+template$<$class Value\+Type $>$ \\
+value\+\_\+type \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::top (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the top element of the stack 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ ensureNotEmpty();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}-\/>data;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack_a6bbcca5e5d3ab096095899d236edf767}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!toVector@{toVector}}
+\index{toVector@{toVector}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{toVector()}{toVector()}}
+{\footnotesize\ttfamily \label{classstack_a6bbcca5e5d3ab096095899d236edf767} 
+template$<$class Value\+Type $>$ \\
+std\+::vector$<$ value\+\_\+type $>$ \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::to\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ push\_all\_to\_vector(this-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}.get(),\ this-\/>size);}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}\index{stack$<$ ValueType $>$@{stack$<$ ValueType $>$}!stackTop@{stackTop}}
+\index{stackTop@{stackTop}!stack$<$ ValueType $>$@{stack$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{stackTop}{stackTop}}
+{\footnotesize\ttfamily \label{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8} 
+template$<$class Value\+Type $>$ \\
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{struct_node}{Node}}$<$value\+\_\+type$>$ $>$ \mbox{\hyperlink{classstack}{stack}}$<$ Value\+Type $>$\+::stack\+Top\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\}}
+
+\end{DoxyCode}
+Pointer to the stack 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ stack\ */}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{stack_8hpp}{stack.\+hpp}}\end{DoxyCompactItemize}

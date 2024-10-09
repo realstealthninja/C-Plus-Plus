@@ -1,0 +1,582 @@
+\doxysection{RBtree Class Reference}
+\hypertarget{class_r_btree}{}\label{class_r_btree}\index{RBtree@{RBtree}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_r_btree_a7079253fc09a70388a3c0b975e9fdc08}{insert}} ()
+\item 
+void \mbox{\hyperlink{class_r_btree_a65b1a4fad18419a577bcb5d7bdc29512}{insertfix}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_r_btree_a85750df7084f843206e83e8a68f5e761}{leftrotate}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_r_btree_a1359f8f04ad2046256f5a2b575ad3dd1}{rightrotate}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_r_btree_a5a9e8bcf8651413afec219b4b0d51704}{del}} ()
+\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_r_btree_a5b1979fe346534f63fe01358e3e0cdf8}{successor}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_r_btree_a01ade919cc34cb2fa24bc07bc631f440}{delfix}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_r_btree_a94a8072ec181ba69cbe3bfa2976beee8}{disp}} ()
+\item 
+void \mbox{\hyperlink{class_r_btree_a860d40eefb48ac948be2dad4d3990535}{display}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_r_btree_acf7a8e0285ac25ad885ac92726132e80}{search}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_r_btree_a84627c15a240f1e5821c54802fccf898}\label{class_r_btree_a84627c15a240f1e5821c54802fccf898} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} {\bfseries root}
+\item 
+\Hypertarget{class_r_btree_a3bea624ca2da11e4569bc1e9cda849b5}\label{class_r_btree_a3bea624ca2da11e4569bc1e9cda849b5} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} {\bfseries q}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_r_btree_a0f3e97969a8737098cea23d6b66ba981}\index{RBtree@{RBtree}!RBtree@{RBtree}}
+\index{RBtree@{RBtree}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{RBtree()}{RBtree()}}
+{\footnotesize\ttfamily \label{class_r_btree_a0f3e97969a8737098cea23d6b66ba981} 
+RBtree\+::\+RBtree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ q\ =\ NULL;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ root\ =\ NULL;}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_btree_a5a9e8bcf8651413afec219b4b0d51704}\index{RBtree@{RBtree}!del@{del}}
+\index{del@{del}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{del()}{del()}}
+{\footnotesize\ttfamily \label{class_r_btree_a5a9e8bcf8651413afec219b4b0d51704} 
+void RBtree\+::del (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ NULL)}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEmpty\ Tree."{}};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{00143\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ key\ of\ the\ node\ to\ be\ deleted:\ "{}};}
+\DoxyCodeLine{00144\ \ \ \ \ cin\ >>\ x;}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *p;}
+\DoxyCodeLine{00146\ \ \ \ \ p\ =\ root;}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *y\ =\ NULL;}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *q\ =\ NULL;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{int}\ found\ =\ 0;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{while}\ (p\ !=\ NULL\ \&\&\ found\ ==\ 0)}
+\DoxyCodeLine{00151\ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>key\ ==\ x)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ 1;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>key\ <\ x)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>right;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>left;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
+\DoxyCodeLine{00163\ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nElement\ Not\ Found."{}};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nDeleted\ Element:\ "{}}\ <<\ p-\/>key;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nColour:\ "{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Black\(\backslash\)n"{}};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Red\(\backslash\)n"{}};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent\ !=\ NULL)}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nParent:\ "{}}\ <<\ p-\/>parent-\/>key;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nThere\ is\ no\ parent\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>right\ !=\ NULL)}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nRight\ Child:\ "{}}\ <<\ p-\/>right-\/>key;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nThere\ is\ no\ right\ child\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nLeft\ Child:\ "{}}\ <<\ p-\/>left-\/>key;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nThere\ is\ no\ left\ child\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNode\ Deleted."{}};}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>left\ ==\ NULL\ ||\ p-\/>right\ ==\ NULL)}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ p;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ successor(p);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ y-\/>left;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y-\/>right\ !=\ NULL)}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ y-\/>right;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ NULL;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (q\ !=\ NULL)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ q-\/>parent\ =\ y-\/>parent;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y-\/>parent\ ==\ NULL)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ root\ =\ q;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ ==\ y-\/>parent-\/>left)}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y-\/>parent-\/>left\ =\ q;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y-\/>parent-\/>right\ =\ q;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ !=\ p)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>color\ =\ y-\/>color;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>key\ =\ y-\/>key;}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ delfix(q);}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a01ade919cc34cb2fa24bc07bc631f440}\index{RBtree@{RBtree}!delfix@{delfix}}
+\index{delfix@{delfix}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{delfix()}{delfix()}}
+{\footnotesize\ttfamily \label{class_r_btree_a01ade919cc34cb2fa24bc07bc631f440} 
+void RBtree\+::delfix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00224\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *s;}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{while}\ (p\ !=\ root\ \&\&\ p-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00227\ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent-\/>left\ ==\ p)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ p-\/>parent-\/>right;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s-\/>color\ ==\ \textcolor{charliteral}{'r'})}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftrotate(p-\/>parent);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ p-\/>parent-\/>right;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s-\/>right-\/>color\ ==\ \textcolor{charliteral}{'b'}\&\&s-\/>left-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>parent;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s-\/>right-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>left-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rightrotate(s);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ p-\/>parent-\/>right;}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ p-\/>parent-\/>color;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>right-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftrotate(p-\/>parent);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ root;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ p-\/>parent-\/>left;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s-\/>color\ ==\ \textcolor{charliteral}{'r'})}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rightrotate(p-\/>parent);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ p-\/>parent-\/>left;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s-\/>left-\/>color\ ==\ \textcolor{charliteral}{'b'}\&\&s-\/>right-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>parent;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s-\/>left-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>right-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftrotate(s);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ p-\/>parent-\/>left;}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>color\ =\ p-\/>parent-\/>color;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>left-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rightrotate(p-\/>parent);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ root;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ p-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ root-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a94a8072ec181ba69cbe3bfa2976beee8}\index{RBtree@{RBtree}!disp@{disp}}
+\index{disp@{disp}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{disp()}{disp()}}
+{\footnotesize\ttfamily \label{class_r_btree_a94a8072ec181ba69cbe3bfa2976beee8} 
+void RBtree\+::disp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00373\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ display(root);}
+\DoxyCodeLine{00375\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a860d40eefb48ac948be2dad4d3990535}\index{RBtree@{RBtree}!display@{display}}
+\index{display@{display}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{class_r_btree_a860d40eefb48ac948be2dad4d3990535} 
+void RBtree\+::display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00377\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ NULL)}
+\DoxyCodeLine{00379\ \ \ \ \ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEmpty\ Tree."{}};}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00382\ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ !=\ NULL)}
+\DoxyCodeLine{00384\ \ \ \ \ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\ NODE:\ "{}};}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Key:\ "{}}\ <<\ p-\/>key;}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Colour:\ "{}};}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Black"{}};}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Red"{}};}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent\ !=\ NULL)}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Parent:\ "{}}\ <<\ p-\/>parent-\/>key;}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ There\ is\ no\ parent\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>right\ !=\ NULL)}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Right\ Child:\ "{}}\ <<\ p-\/>right-\/>key;}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ There\ is\ no\ right\ child\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Left\ Child:\ "{}}\ <<\ p-\/>left-\/>key;}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ There\ is\ no\ left\ child\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ cout\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>left)}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nLeft:\(\backslash\)n"{}};}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ display(p-\/>left);}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*else}}
+\DoxyCodeLine{00411\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ cout<<"{}\(\backslash\)nNo\ Left\ Child.\(\backslash\)n"{};*/}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>right)}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nRight:\(\backslash\)n"{}};}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ display(p-\/>right);}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*else}}
+\DoxyCodeLine{00418\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ cout<<"{}\(\backslash\)nNo\ Right\ Child.\(\backslash\)n"{}*/}}
+\DoxyCodeLine{00419\ \ \ \ \ \}}
+\DoxyCodeLine{00420\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a7079253fc09a70388a3c0b975e9fdc08}\index{RBtree@{RBtree}!insert@{insert}}
+\index{insert@{insert}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{class_r_btree_a7079253fc09a70388a3c0b975e9fdc08} 
+void RBtree\+::insert (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ z,\ i\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ key\ of\ the\ node\ to\ be\ inserted:\ "{}};}
+\DoxyCodeLine{00038\ \ \ \ \ cin\ >>\ z;}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *p,\ *q;}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00041\ \ \ \ \ t-\/>key\ =\ z;}
+\DoxyCodeLine{00042\ \ \ \ \ t-\/>left\ =\ NULL;}
+\DoxyCodeLine{00043\ \ \ \ \ t-\/>right\ =\ NULL;}
+\DoxyCodeLine{00044\ \ \ \ \ t-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00045\ \ \ \ \ p\ =\ root;}
+\DoxyCodeLine{00046\ \ \ \ \ q\ =\ NULL;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ NULL)}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ root\ =\ t;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ t-\/>parent\ =\ NULL;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (p\ !=\ NULL)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ p;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>key\ <\ t-\/>key)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>right;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>left;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ t-\/>parent\ =\ q;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (q-\/>key\ <\ t-\/>key)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ q-\/>right\ =\ t;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ q-\/>left\ =\ t;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ insertfix(t);}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a65b1a4fad18419a577bcb5d7bdc29512}\index{RBtree@{RBtree}!insertfix@{insertfix}}
+\index{insertfix@{insertfix}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{insertfix()}{insertfix()}}
+{\footnotesize\ttfamily \label{class_r_btree_a65b1a4fad18419a577bcb5d7bdc29512} 
+void RBtree\+::insertfix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *u;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ t)}
+\DoxyCodeLine{00074\ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ t-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{while}\ (t-\/>parent\ !=\ NULL\ \&\&\ t-\/>parent-\/>color\ ==\ \textcolor{charliteral}{'r'})}
+\DoxyCodeLine{00079\ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *\mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ t-\/>parent-\/>parent;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>left\ ==\ t-\/>parent)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>right\ !=\ NULL)}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>right;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u-\/>color\ ==\ \textcolor{charliteral}{'r'})}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t-\/>parent-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t-\/>parent-\/>right\ ==\ t)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ t-\/>parent;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftrotate(t);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t-\/>parent-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rightrotate(g);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>left;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u-\/>color\ ==\ \textcolor{charliteral}{'r'})}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t-\/>parent-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t-\/>parent-\/>left\ ==\ t)}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ t-\/>parent;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rightrotate(t);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t-\/>parent-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}-\/>color\ =\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftrotate(g);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ root-\/>color\ =\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a85750df7084f843206e83e8a68f5e761}\index{RBtree@{RBtree}!leftrotate@{leftrotate}}
+\index{leftrotate@{leftrotate}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{leftrotate()}{leftrotate()}}
+{\footnotesize\ttfamily \label{class_r_btree_a85750df7084f843206e83e8a68f5e761} 
+void RBtree\+::leftrotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00296\ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>right\ ==\ NULL)}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00300\ \ \ \ \ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *y\ =\ p-\/>right;}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>right\ =\ y-\/>left;}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ y-\/>left-\/>parent\ =\ p;}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>right\ =\ NULL;}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent\ !=\ NULL)}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ y-\/>parent\ =\ p-\/>parent;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent\ ==\ NULL)}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ root\ =\ y;}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ ==\ p-\/>parent-\/>left)}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>left\ =\ y;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>right\ =\ y;}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ y-\/>left\ =\ p;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ p-\/>parent\ =\ y;}
+\DoxyCodeLine{00322\ \ \ \ \ \}}
+\DoxyCodeLine{00323\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a1359f8f04ad2046256f5a2b575ad3dd1}\index{RBtree@{RBtree}!rightrotate@{rightrotate}}
+\index{rightrotate@{rightrotate}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{rightrotate()}{rightrotate()}}
+{\footnotesize\ttfamily \label{class_r_btree_a1359f8f04ad2046256f5a2b575ad3dd1} 
+void RBtree\+::rightrotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00325\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>left\ ==\ NULL)}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00329\ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *y\ =\ p-\/>left;}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y-\/>right\ !=\ NULL)}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>left\ =\ y-\/>right;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ y-\/>right-\/>parent\ =\ p;}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>left\ =\ NULL;}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent\ !=\ NULL)}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ y-\/>parent\ =\ p-\/>parent;}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent\ ==\ NULL)}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ root\ =\ y;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ ==\ p-\/>parent-\/>left)}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>left\ =\ y;}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>parent-\/>right\ =\ y;}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ y-\/>right\ =\ p;}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ p-\/>parent\ =\ y;}
+\DoxyCodeLine{00351\ \ \ \ \ \}}
+\DoxyCodeLine{00352\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_acf7a8e0285ac25ad885ac92726132e80}\index{RBtree@{RBtree}!search@{search}}
+\index{search@{search}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily \label{class_r_btree_acf7a8e0285ac25ad885ac92726132e80} 
+void RBtree\+::search (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00422\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ NULL)}
+\DoxyCodeLine{00424\ \ \ \ \ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEmpty\ Tree\(\backslash\)n"{}};}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00427\ \ \ \ \ \}}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{00429\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Enter\ key\ of\ the\ node\ to\ be\ searched:\ "{}};}
+\DoxyCodeLine{00430\ \ \ \ \ cin\ >>\ x;}
+\DoxyCodeLine{00431\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *p\ =\ root;}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{int}\ found\ =\ 0;}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{while}\ (p\ !=\ NULL\ \&\&\ found\ ==\ 0)}
+\DoxyCodeLine{00434\ \ \ \ \ \{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>key\ ==\ x)}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ 1;}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>key\ <\ x)}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>right;}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>left;}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00444\ \ \ \ \ \}}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nElement\ Not\ Found."{}};}
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00448\ \ \ \ \ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\ FOUND\ NODE:\ "{}};}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Key:\ "{}}\ <<\ p-\/>key;}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Colour:\ "{}};}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>color\ ==\ \textcolor{charliteral}{'b'})}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Black"{}};}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Red"{}};}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>parent\ !=\ NULL)}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Parent:\ "{}}\ <<\ p-\/>parent-\/>key;}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ There\ is\ no\ parent\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>right\ !=\ NULL)}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Right\ Child:\ "{}}\ <<\ p-\/>right-\/>key;}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ There\ is\ no\ right\ child\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ Left\ Child:\ "{}}\ <<\ p-\/>left-\/>key;}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ There\ is\ no\ left\ child\ of\ the\ node.\ \ "{}};}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ cout\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ \ \ \ \ \}}
+\DoxyCodeLine{00471\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_r_btree_a5b1979fe346534f63fe01358e3e0cdf8}\index{RBtree@{RBtree}!successor@{successor}}
+\index{successor@{successor}!RBtree@{RBtree}}
+\doxysubsubsection{\texorpdfstring{successor()}{successor()}}
+{\footnotesize\ttfamily \label{class_r_btree_a5b1979fe346534f63fe01358e3e0cdf8} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} RBtree\+::successor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00355\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *y\ =\ NULL;}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00358\ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ y\ =\ p-\/>left;}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (y-\/>right\ !=\ NULL)}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ y-\/>right;}
+\DoxyCodeLine{00362\ \ \ \ \ \}}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00364\ \ \ \ \ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ y\ =\ p-\/>right;}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (y-\/>left\ !=\ NULL)}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ y-\/>left;}
+\DoxyCodeLine{00368\ \ \ \ \ \}}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{00370\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/rb\+\_\+tree.\+cpp\end{DoxyCompactItemize}

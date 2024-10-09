@@ -1,0 +1,326 @@
+\doxysection{Ordinary Differential Equations}
+\hypertarget{group__ode}{}\label{group__ode}\index{Ordinary Differential Equations@{Ordinary Differential Equations}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__ode_ga195d23bbdfcb80e83c9cda45c9ad5723}{forward\+\_\+euler\+\_\+step}} (const double dx, const double x, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}dy)
+\begin{DoxyCompactList}\small\item\em Compute next step approximation using the forward-\/\+Euler method. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__ode_gae0509f8843e2bc42de2abbd00a14b7b9}{forward\+\_\+euler}} (double dx, double x0, double x\+\_\+max, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, bool save\+\_\+to\+\_\+file=false)
+\begin{DoxyCompactList}\small\item\em Compute approximation using the forward-\/\+Euler method in the given limits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__ode_ga8c319db420c3d97a83e9dcca803b6812}{midpoint\+\_\+euler\+\_\+step}} (const double dx, const double \&x, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}dy)
+\begin{DoxyCompactList}\small\item\em Compute next step approximation using the midpoint-\/\+Euler method. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__ode_ga36ff0710861ca39d957046c0b09b2985}{midpoint\+\_\+euler}} (double dx, double x0, double x\+\_\+max, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, bool save\+\_\+to\+\_\+file=false)
+\begin{DoxyCompactList}\small\item\em Compute approximation using the midpoint-\/\+Euler method in the given limits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__ode_ga827bf009831ddc477c5fa8891d5cb35f}{semi\+\_\+implicit\+\_\+euler\+\_\+step}} (const double dx, const double \&x, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}dy)
+\begin{DoxyCompactList}\small\item\em Compute next step approximation using the semi-\/implicit-\/\+Euler method. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__ode_ga3874d294ab00fe9ce8731c5b7991a089}{semi\+\_\+implicit\+\_\+euler}} (double dx, double x0, double x\+\_\+max, std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}y, bool save\+\_\+to\+\_\+file=false)
+\begin{DoxyCompactList}\small\item\em Compute approximation using the semi-\/implicit-\/\+Euler method in the given limits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Integration functions for implementations with solving \href{https://en.wikipedia.org/wiki/Ordinary_differential_equation}{\texttt{ ordinary differential equations}} (ODEs) of any order and and any number of independent variables.
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__ode_gae0509f8843e2bc42de2abbd00a14b7b9}\index{Ordinary Differential Equations@{Ordinary Differential Equations}!forward\_euler@{forward\_euler}}
+\index{forward\_euler@{forward\_euler}!Ordinary Differential Equations@{Ordinary Differential Equations}}
+\doxysubsubsection{\texorpdfstring{forward\_euler()}{forward\_euler()}}
+{\footnotesize\ttfamily \label{group__ode_gae0509f8843e2bc42de2abbd00a14b7b9} 
+double forward\+\_\+euler (\begin{DoxyParamCaption}\item[{double}]{dx}{, }\item[{double}]{x0}{, }\item[{double}]{x\+\_\+max}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{bool}]{save\+\_\+to\+\_\+file}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Compute approximation using the forward-\/\+Euler method in the given limits. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dx} & step size \\
+\hline
+\mbox{\texttt{ in}}  & {\em x0} & initial value of independent variable \\
+\hline
+\mbox{\texttt{ in}}  & {\em x\+\_\+max} & final value of independent variable \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & take $y_n$ and compute $y_{n+1}$ \\
+\hline
+\mbox{\texttt{ in}}  & {\em save\+\_\+to\+\_\+file} & flag to save results to a CSV file (1) or not (0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time taken for computation in seconds 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ std::valarray<double>\ dy\ =\ *y;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ std::ofstream\ fp;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{if}\ (save\_to\_file)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ fp.open(\textcolor{stringliteral}{"{}forward\_euler.csv"{}},\ std::ofstream::out);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fp.is\_open())\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ std::perror(\textcolor{stringliteral}{"{}Error!\ "{}});}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ std::size\_t\ L\ =\ y-\/>size();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{/*\ start\ integration\ */}}
+\DoxyCodeLine{00117\ \ \ \ \ std::clock\_t\ t1\ =\ std::clock();}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ x0;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \textcolor{comment}{//\ iterate\ for\ each\ step\ of\ independent\ variable}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (save\_to\_file\ \&\&\ fp.is\_open())\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ to\ file}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ x\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ L\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ y[0][i]\ <<\ \textcolor{stringliteral}{"{},"{}};\ \ \textcolor{comment}{//\ NOLINT}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ y[0][L\ -\/\ 1]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \textcolor{comment}{//\ NOLINT}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__ode_ga195d23bbdfcb80e83c9cda45c9ad5723}{forward\_euler\_step}}(dx,\ x,\ y,\ \&dy);\ \ \textcolor{comment}{//\ perform\ integration}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ x\ +=\ dx;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ step}}
+\DoxyCodeLine{00132\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ <=\ x\_max);\ \ \textcolor{comment}{//\ till\ upper\ limit\ of\ independent\ variable}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{/*\ end\ of\ integration\ */}}
+\DoxyCodeLine{00134\ \ \ \ \ std::clock\_t\ t2\ =\ std::clock();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp.is\_open())\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ fp.close();}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(t2\ -\/\ t1)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__ode_ga195d23bbdfcb80e83c9cda45c9ad5723}\index{Ordinary Differential Equations@{Ordinary Differential Equations}!forward\_euler\_step@{forward\_euler\_step}}
+\index{forward\_euler\_step@{forward\_euler\_step}!Ordinary Differential Equations@{Ordinary Differential Equations}}
+\doxysubsubsection{\texorpdfstring{forward\_euler\_step()}{forward\_euler\_step()}}
+{\footnotesize\ttfamily \label{group__ode_ga195d23bbdfcb80e83c9cda45c9ad5723} 
+void forward\+\_\+euler\+\_\+step (\begin{DoxyParamCaption}\item[{const double}]{dx}{, }\item[{const double}]{x}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{dy}{}\end{DoxyParamCaption})}
+
+
+
+Compute next step approximation using the forward-\/\+Euler method. 
+
+\[y_{n+1}=y_n + dx\cdot f\left(x_n,y_n\right)\] 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dx} & step size \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & take $x_n$ and compute $x_{n+1}$ \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & take $y_n$ and compute $y_{n+1}$ \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em dy} & compute $f\left(x_n,y_n\right)$ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{ode__forward__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem}}(x,\ y,\ dy);}
+\DoxyCodeLine{00089\ \ \ \ \ *y\ +=\ *dy\ *\ dx;}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__ode_ga36ff0710861ca39d957046c0b09b2985}\index{Ordinary Differential Equations@{Ordinary Differential Equations}!midpoint\_euler@{midpoint\_euler}}
+\index{midpoint\_euler@{midpoint\_euler}!Ordinary Differential Equations@{Ordinary Differential Equations}}
+\doxysubsubsection{\texorpdfstring{midpoint\_euler()}{midpoint\_euler()}}
+{\footnotesize\ttfamily \label{group__ode_ga36ff0710861ca39d957046c0b09b2985} 
+double midpoint\+\_\+euler (\begin{DoxyParamCaption}\item[{double}]{dx}{, }\item[{double}]{x0}{, }\item[{double}]{x\+\_\+max}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{bool}]{save\+\_\+to\+\_\+file}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Compute approximation using the midpoint-\/\+Euler method in the given limits. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dx} & step size \\
+\hline
+\mbox{\texttt{ in}}  & {\em x0} & initial value of independent variable \\
+\hline
+\mbox{\texttt{ in}}  & {\em x\+\_\+max} & final value of independent variable \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & take $y_n$ and compute $y_{n+1}$ \\
+\hline
+\mbox{\texttt{ in}}  & {\em save\+\_\+to\+\_\+file} & flag to save results to a CSV file (1) or not (0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time taken for computation in seconds 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ std::valarray<double>\ dy\ =\ y[0];}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::ofstream\ fp;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (save\_to\_file)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ fp.open(\textcolor{stringliteral}{"{}midpoint\_euler.csv"{}},\ std::ofstream::out);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fp.is\_open())\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ std::perror(\textcolor{stringliteral}{"{}Error!\ "{}});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ std::size\_t\ L\ =\ y-\/>size();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{/*\ start\ integration\ */}}
+\DoxyCodeLine{00122\ \ \ \ \ std::clock\_t\ t1\ =\ std::clock();}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ x0;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \textcolor{comment}{//\ iterate\ for\ each\ step\ of\ independent\ variable}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (save\_to\_file\ \&\&\ fp.is\_open())\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ to\ file}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ x\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ L\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ y[0][i]\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ y[0][L\ -\/\ 1]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__ode_ga8c319db420c3d97a83e9dcca803b6812}{midpoint\_euler\_step}}(dx,\ x,\ y,\ \&dy);\ \ \textcolor{comment}{//\ perform\ integration}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ x\ +=\ dx;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ step}}
+\DoxyCodeLine{00136\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ <=\ x\_max);\ \ \textcolor{comment}{//\ till\ upper\ limit\ of\ independent\ variable}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{/*\ end\ of\ integration\ */}}
+\DoxyCodeLine{00138\ \ \ \ \ std::clock\_t\ t2\ =\ std::clock();}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp.is\_open())}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ fp.close();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(t2\ -\/\ t1)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00144\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__ode_ga8c319db420c3d97a83e9dcca803b6812}\index{Ordinary Differential Equations@{Ordinary Differential Equations}!midpoint\_euler\_step@{midpoint\_euler\_step}}
+\index{midpoint\_euler\_step@{midpoint\_euler\_step}!Ordinary Differential Equations@{Ordinary Differential Equations}}
+\doxysubsubsection{\texorpdfstring{midpoint\_euler\_step()}{midpoint\_euler\_step()}}
+{\footnotesize\ttfamily \label{group__ode_ga8c319db420c3d97a83e9dcca803b6812} 
+void midpoint\+\_\+euler\+\_\+step (\begin{DoxyParamCaption}\item[{const double}]{dx}{, }\item[{const double \&}]{x}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{dy}{}\end{DoxyParamCaption})}
+
+
+
+Compute next step approximation using the midpoint-\/\+Euler method. 
+
+\[y_{n+1} = y_n + dx\, f\left(x_n+\frac{1}{2}dx,
+y_n + \frac{1}{2}dx\,f\left(x_n,y_n\right)\right)\]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dx} & step size \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & take $x_n$ and compute $x_{n+1}$ \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & take $y_n$ and compute $y_{n+1}$ \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em dy} & compute $f\left(x_n,y_n\right)$ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{ode__midpoint__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem}}(x,\ y,\ dy);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ tmp\_x\ =\ x\ +\ 0.5\ *\ dx;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ std::valarray<double>\ tmp\_y\ =\ y[0]\ +\ dy[0]\ *\ (0.5\ *\ dx);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{ode__midpoint__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem}}(tmp\_x,\ \&tmp\_y,\ dy);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ y[0]\ +=\ dy[0]\ *\ dx;}
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__ode_ga3874d294ab00fe9ce8731c5b7991a089}\index{Ordinary Differential Equations@{Ordinary Differential Equations}!semi\_implicit\_euler@{semi\_implicit\_euler}}
+\index{semi\_implicit\_euler@{semi\_implicit\_euler}!Ordinary Differential Equations@{Ordinary Differential Equations}}
+\doxysubsubsection{\texorpdfstring{semi\_implicit\_euler()}{semi\_implicit\_euler()}}
+{\footnotesize\ttfamily \label{group__ode_ga3874d294ab00fe9ce8731c5b7991a089} 
+double semi\+\_\+implicit\+\_\+euler (\begin{DoxyParamCaption}\item[{double}]{dx}{, }\item[{double}]{x0}{, }\item[{double}]{x\+\_\+max}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{bool}]{save\+\_\+to\+\_\+file}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Compute approximation using the semi-\/implicit-\/\+Euler method in the given limits. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dx} & step size \\
+\hline
+\mbox{\texttt{ in}}  & {\em x0} & initial value of independent variable \\
+\hline
+\mbox{\texttt{ in}}  & {\em x\+\_\+max} & final value of independent variable \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & take $y_n$ and compute $y_{n+1}$ \\
+\hline
+\mbox{\texttt{ in}}  & {\em save\+\_\+to\+\_\+file} & flag to save results to a CSV file (1) or not (0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time taken for computation in seconds 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ std::valarray<double>\ dy\ =\ y[0];}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::ofstream\ fp;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (save\_to\_file)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ fp.open(\textcolor{stringliteral}{"{}semi\_implicit\_euler.csv"{}},\ std::ofstream::out);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fp.is\_open())\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ std::perror(\textcolor{stringliteral}{"{}Error!\ "{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ std::size\_t\ L\ =\ y-\/>size();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{/*\ start\ integration\ */}}
+\DoxyCodeLine{00119\ \ \ \ \ std::clock\_t\ t1\ =\ std::clock();}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ x0;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \textcolor{comment}{//\ iterate\ for\ each\ step\ of\ independent\ variable}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (save\_to\_file\ \&\&\ fp.is\_open())\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ to\ file}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ x\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ L\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ y[0][i]\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ y[0][L\ -\/\ 1]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__ode_ga827bf009831ddc477c5fa8891d5cb35f}{semi\_implicit\_euler\_step}}(dx,\ x,\ y,\ \&dy);\ \ \textcolor{comment}{//\ perform\ integration}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ x\ +=\ dx;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ step}}
+\DoxyCodeLine{00133\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ <=\ x\_max);\ \ \textcolor{comment}{//\ till\ upper\ limit\ of\ independent\ variable}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{/*\ end\ of\ integration\ */}}
+\DoxyCodeLine{00135\ \ \ \ \ std::clock\_t\ t2\ =\ std::clock();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp.is\_open())}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ fp.close();}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(t2\ -\/\ t1)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__ode_ga827bf009831ddc477c5fa8891d5cb35f}\index{Ordinary Differential Equations@{Ordinary Differential Equations}!semi\_implicit\_euler\_step@{semi\_implicit\_euler\_step}}
+\index{semi\_implicit\_euler\_step@{semi\_implicit\_euler\_step}!Ordinary Differential Equations@{Ordinary Differential Equations}}
+\doxysubsubsection{\texorpdfstring{semi\_implicit\_euler\_step()}{semi\_implicit\_euler\_step()}}
+{\footnotesize\ttfamily \label{group__ode_ga827bf009831ddc477c5fa8891d5cb35f} 
+void semi\+\_\+implicit\+\_\+euler\+\_\+step (\begin{DoxyParamCaption}\item[{const double}]{dx}{, }\item[{const double \&}]{x}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{std\+::valarray$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{dy}{}\end{DoxyParamCaption})}
+
+
+
+Compute next step approximation using the semi-\/implicit-\/\+Euler method. 
+
+\[y_{n+1}=y_n + dx\cdot f\left(x_n,y_n\right)\] 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dx} & step size \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & take $x_n$ and compute $x_{n+1}$ \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & take $y_n$ and compute $y_{n+1}$ \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em dy} & compute $f\left(x_n,y_n\right)$ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem}}(x,\ y,\ dy);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ dy\ once}}
+\DoxyCodeLine{00086\ \ \ \ \ y[0][0]\ +=\ dx\ *\ dy[0][0];\ \ \textcolor{comment}{//\ update\ y0}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{ode__semi__implicit__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem}}(x,\ y,\ dy);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ dy\ once\ more}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ dy[0][0]\ =\ 0.f;\ \ \ \ \ \ \textcolor{comment}{//\ ignore\ y0}}
+\DoxyCodeLine{00090\ \ \ \ \ y[0]\ +=\ dy[0]\ *\ dx;\ \ \textcolor{comment}{//\ update\ remaining\ using\ new\ dy}}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}

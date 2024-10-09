@@ -1,0 +1,80 @@
+\doxysection{probability/addition\+\_\+rule.cpp File Reference}
+\hypertarget{addition__rule_8cpp}{}\label{addition__rule_8cpp}\index{probability/addition\_rule.cpp@{probability/addition\_rule.cpp}}
+
+
+Addition rule of probabilities.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{addition__rule_8cpp_a4adfd055c758546456d440ee9133555d}{addition\+\_\+rule\+\_\+independent}} (double A, double B)
+\item 
+double \mbox{\hyperlink{addition__rule_8cpp_a565ffcbbdbe496ced37250bc8dc36bc0}{addition\+\_\+rule\+\_\+dependent}} (double A, double B, double B\+\_\+given\+\_\+A)
+\item 
+int \mbox{\hyperlink{addition__rule_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Addition rule of probabilities. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{addition__rule_8cpp_a565ffcbbdbe496ced37250bc8dc36bc0}\index{addition\_rule.cpp@{addition\_rule.cpp}!addition\_rule\_dependent@{addition\_rule\_dependent}}
+\index{addition\_rule\_dependent@{addition\_rule\_dependent}!addition\_rule.cpp@{addition\_rule.cpp}}
+\doxysubsubsection{\texorpdfstring{addition\_rule\_dependent()}{addition\_rule\_dependent()}}
+{\footnotesize\ttfamily \label{addition__rule_8cpp_a565ffcbbdbe496ced37250bc8dc36bc0} 
+double addition\+\_\+rule\+\_\+dependent (\begin{DoxyParamCaption}\item[{double}]{A}{, }\item[{double}]{B}{, }\item[{double}]{B\+\_\+given\+\_\+A}{}\end{DoxyParamCaption})}
+
+Calculates the probability of the events A or B for dependent events note that if value of B\+\_\+given\+\_\+A is unknown, use chainrule to find it \textbackslash{}parama \mbox{[}in\mbox{]} A probability of event A \textbackslash{}parama \mbox{[}in\mbox{]} B probability of event B \textbackslash{}parama \mbox{[}in\mbox{]} B\+\_\+given\+\_\+A probability of event B condition A \begin{DoxyReturn}{Returns}
+probability of A and B 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ (A\ +\ B)\ -\/\ (A\ *\ B\_given\_A);}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{addition__rule_8cpp_a4adfd055c758546456d440ee9133555d}\index{addition\_rule.cpp@{addition\_rule.cpp}!addition\_rule\_independent@{addition\_rule\_independent}}
+\index{addition\_rule\_independent@{addition\_rule\_independent}!addition\_rule.cpp@{addition\_rule.cpp}}
+\doxysubsubsection{\texorpdfstring{addition\_rule\_independent()}{addition\_rule\_independent()}}
+{\footnotesize\ttfamily \label{addition__rule_8cpp_a4adfd055c758546456d440ee9133555d} 
+double addition\+\_\+rule\+\_\+independent (\begin{DoxyParamCaption}\item[{double}]{A}{, }\item[{double}]{B}{}\end{DoxyParamCaption})}
+
+calculates the probability of the independent events A or B for independent events \textbackslash{}parama \mbox{[}in\mbox{]} A probability of event A \textbackslash{}parama \mbox{[}in\mbox{]} B probability of event B \begin{DoxyReturn}{Returns}
+probability of A and B 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{return}\ (A\ +\ B)\ -\/\ (A\ *\ B);}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+\Hypertarget{addition__rule_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{addition\_rule.cpp@{addition\_rule.cpp}!main@{main}}
+\index{main@{main}!addition\_rule.cpp@{addition\_rule.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{addition__rule_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ A\ =\ 0.5;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ B\ =\ 0.25;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ B\_given\_A\ =\ 0.05;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}independent\ P(A\ or\ B)\ =\ "{}}\ <<\ \mbox{\hyperlink{addition__rule_8cpp_a4adfd055c758546456d440ee9133555d}{addition\_rule\_independent}}(A,\ B)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}dependent\ P(A\ or\ B)\ =\ "{}}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{addition__rule_8cpp_a565ffcbbdbe496ced37250bc8dc36bc0}{addition\_rule\_dependent}}(A,\ B,\ B\_given\_A)\ <<\ std::endl;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

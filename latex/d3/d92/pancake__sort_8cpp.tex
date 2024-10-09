@@ -1,0 +1,201 @@
+\doxysection{sorting/pancake\+\_\+sort.cpp File Reference}
+\hypertarget{pancake__sort_8cpp}{}\label{pancake__sort_8cpp}\index{sorting/pancake\_sort.cpp@{sorting/pancake\_sort.cpp}}
+
+
+pancake sort sorts a disordered stack of pancakes by flipping any number of pancakes using a spatula using minimum number of flips.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacepancake__sort}{pancake\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Pancake_sorting}{\texttt{ Pancake sort}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{pancake__sort_8cpp_a99e27ad84ad43df9977776b1a8d5416e}{sorting\+::pancake\+\_\+sort\+::reverse}} (std\+::vector$<$ T $>$ \&arr, int start, int end)
+\begin{DoxyCompactList}\small\item\em This implementation is for reversing elements in a a C-\/style array . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{pancake__sort_8cpp_abff90bc0f54e4f8ea5f0330471781bd5}{sorting\+::pancake\+\_\+sort\+::pancake\+Sort}} (std\+::vector$<$ T $>$ \&arr, int size)
+\begin{DoxyCompactList}\small\item\em This implementation is for a C-\/style array input that gets modified in place. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{pancake__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pancake__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+pancake sort sorts a disordered stack of pancakes by flipping any number of pancakes using a spatula using minimum number of flips. 
+
+Unlike a traditional sorting algorithm, which attempts to sort with the fewest comparisons possible, the goal is to sort the sequence in as few reversals as possible. Overall time complexity of pancake sort is O(n\texorpdfstring{$^\wedge$}{\string^}2) For example\+: example 1\+:-\/ Disordered pancake sizes\+: \{2,5,3,7,8\} Sorted\+: \{2,3,5,7,8\} For example\+: example 2\+:-\/ Disordered pancake sizes\+: \{22,51,37,73,81\} Sorted\+: \{22,37,51,73,81\} \begin{DoxyAuthor}{Author}
+\href{https://github.com/divyansh12323}{\texttt{ Divyansh Gupta}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+more on \href{https://en.wikipedia.org/wiki/Pancake_sorting}{\texttt{ Pancake sort}} 
+
+related \doxylink{ode__forward__euler_8cpp_abaeae8f62a018d197f0187a1c80a90fe}{problem} at \href{https://leetcode.com/problems/pancake-sorting/}{\texttt{ Leetcode}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{pancake__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{pancake\_sort.cpp@{pancake\_sort.cpp}!main@{main}}
+\index{main@{main}!pancake\_sort.cpp@{pancake\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{pancake__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{pancake__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pancake__sort_8cpp_abff90bc0f54e4f8ea5f0330471781bd5}\index{pancake\_sort.cpp@{pancake\_sort.cpp}!pancakeSort@{pancakeSort}}
+\index{pancakeSort@{pancakeSort}!pancake\_sort.cpp@{pancake\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{pancakeSort()}{pancakeSort()}}
+{\footnotesize\ttfamily \label{pancake__sort_8cpp_abff90bc0f54e4f8ea5f0330471781bd5} 
+template$<$typename T $>$ \\
+int sorting\+::pancake\+\_\+sort\+::pancake\+Sort (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{arr}{, }\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+This implementation is for a C-\/style array input that gets modified in place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}start,end\mbox{]}} & arr our vector of elements. \\
+\hline
+{\em size} & size of given array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ size;\ i\ >\ 1;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_index\ =\ 0,\ j\ =\ 0;\ \ \textcolor{comment}{//\ intialize\ some\ variables.}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ T\ max\_value\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ i;\ j++)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j]\ >=\ max\_value)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_value\ =\ arr[j];}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_index\ =\ j;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (max\_index\ !=\ i\ -\/\ 1)\ \ \textcolor{comment}{//\ check\ for\ reversing}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ reverse(arr,\ 0,\ max\_index);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ reverse(arr,\ 0,\ i\ -\/\ 1);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pancake__sort_8cpp_a99e27ad84ad43df9977776b1a8d5416e}\index{pancake\_sort.cpp@{pancake\_sort.cpp}!reverse@{reverse}}
+\index{reverse@{reverse}!pancake\_sort.cpp@{pancake\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily \label{pancake__sort_8cpp_a99e27ad84ad43df9977776b1a8d5416e} 
+template$<$typename T $>$ \\
+void sorting\+::pancake\+\_\+sort\+::reverse (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{arr}{, }\item[{int}]{start}{, }\item[{int}]{end}{}\end{DoxyParamCaption})}
+
+
+
+This implementation is for reversing elements in a a C-\/style array . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}start,end\mbox{]}} & arr our vector of elements. \\
+\hline
+{\em start} & starting index of array \\
+\hline
+{\em end} & ending index of array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ T\ temp;\ \ \textcolor{comment}{//\ Temporary\ variable}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{while}\ (start\ <=\ end)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ temp\ =\ arr[start];}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ arr[start]\ =\ arr[end];}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ arr[end]\ =\ temp;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ start++;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ end-\/-\/;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pancake__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{pancake\_sort.cpp@{pancake\_sort.cpp}!test@{test}}
+\index{test@{test}!pancake\_sort.cpp@{pancake\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{pancake__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ example\ 1:\ vector\ of\ int}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size1\ =\ 7;}
+\DoxyCodeLine{00089\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 1-\/\ as\ std::vector<int>..."{}};}
+\DoxyCodeLine{00090\ \ \ \ \ std::vector<int>\ arr1\ =\ \{23,\ 10,\ 20,\ 11,\ 12,\ 6,\ 7\};}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{pancake__sort_8cpp_abff90bc0f54e4f8ea5f0330471781bd5}{sorting::pancake\_sort::pancakeSort}}(arr1,\ size1);}
+\DoxyCodeLine{00092\ \ \ \ \ assert(std::is\_sorted(arr1.begin(),\ arr1.end()));}
+\DoxyCodeLine{00093\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size1;\ i++)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr1[i]\ <<\ \textcolor{stringliteral}{"{}\ ,"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ example\ 2:\ vector\ of\ double}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size2\ =\ 8;}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 2-\/\ as\ std::vector<double>..."{}};}
+\DoxyCodeLine{00102\ \ \ \ \ std::vector<double>\ arr2\ =\ \{23.56,\ 10.62,\ 200.78,\ 111.484,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.9,\ \ \ 1.2,\ \ \ 61.77,\ \ 79.6\};}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{pancake__sort_8cpp_abff90bc0f54e4f8ea5f0330471781bd5}{sorting::pancake\_sort::pancakeSort}}(arr2,\ size2);}
+\DoxyCodeLine{00105\ \ \ \ \ assert(std::is\_sorted(arr2.begin(),\ arr2.end()));}
+\DoxyCodeLine{00106\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size2;\ i++)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr2[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ example\ 3:vector\ of\ float}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size3\ =\ 7;}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 3-\/\ as\ std::vector<float>..."{}};}
+\DoxyCodeLine{00115\ \ \ \ \ std::vector<float>\ arr3\ =\ \{6.56,\ 12.62,\ 200.78,\ 768.484,\ 19.27,\ 68.87,\ 9.6\};}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{pancake__sort_8cpp_abff90bc0f54e4f8ea5f0330471781bd5}{sorting::pancake\_sort::pancakeSort}}(arr3,\ size3);}
+\DoxyCodeLine{00117\ \ \ \ \ assert(std::is\_sorted(arr3.begin(),\ arr3.end()));}
+\DoxyCodeLine{00118\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size3;\ i++)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr3[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,94 @@
+\doxysection{data\+\_\+structures/segment\+\_\+tree.cpp File Reference}
+\hypertarget{segment__tree_8cpp}{}\label{segment__tree_8cpp}\index{data\_structures/segment\_tree.cpp@{data\_structures/segment\_tree.cpp}}
+
+
+A data structure to quickly do operations on ranges\+: the \href{https://en.wikipedia.org/wiki/Segment_tree}{\texttt{ Segment Tree}} algorithm implementation.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em class representation of the segment tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{segment__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{segment__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A data structure to quickly do operations on ranges\+: the \href{https://en.wikipedia.org/wiki/Segment_tree}{\texttt{ Segment Tree}} algorithm implementation. 
+
+Implementation of the segment tree data structre
+
+Can do point updates (updates the value of some position) and range queries, where it gives the value of some associative opperation done on a range
+
+Both of these operations take O(log N) time \begin{DoxyAuthor}{Author}
+\href{https://github.com/nishantc1527}{\texttt{ Nishant Chatterjee}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{segment__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{segment\_tree.cpp@{segment\_tree.cpp}!main@{main}}
+\index{main@{main}!segment\_tree.cpp@{segment\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{segment__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{segment__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{segment__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{segment\_tree.cpp@{segment\_tree.cpp}!test@{test}}
+\index{test@{test}!segment\_tree.cpp@{segment\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{segment__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\_structures::SegmentTree<int>}}\ t(5);}
+\DoxyCodeLine{00114\ \ \ \ \ t.update(1,\ 1);}
+\DoxyCodeLine{00115\ \ \ \ \ t.update(2,\ 2);}
+\DoxyCodeLine{00116\ \ \ \ \ t.update(3,\ 3);}
+\DoxyCodeLine{00117\ \ \ \ \ t.update(4,\ 4);}
+\DoxyCodeLine{00118\ \ \ \ \ t.update(5,\ 5);}
+\DoxyCodeLine{00119\ \ \ \ \ assert(t.range\_comb(1,\ 3)\ ==\ 6);\ \textcolor{comment}{//\ 1\ +\ 2\ +\ 3\ =\ 6}}
+\DoxyCodeLine{00120\ \ \ \ \ t.update(1,\ 3);}
+\DoxyCodeLine{00121\ \ \ \ \ assert(t.range\_comb(1,\ 3)\ ==\ 8);\ \textcolor{comment}{//\ 3\ +\ 2\ +\ 3\ =\ 8}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}

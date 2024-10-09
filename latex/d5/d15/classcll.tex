@@ -1,0 +1,216 @@
+\doxysection{cll Class Reference}
+\hypertarget{classcll}{}\label{classcll}\index{cll@{cll}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcll_ae957a9434f6d1ffef7461ea4d7c9a8fe}{display}} ()
+\item 
+void \mbox{\hyperlink{classcll_a9434bf2d7deca6d7fe1efe06c5341df0}{insert\+\_\+front}} (int new\+\_\+data)
+\item 
+void \mbox{\hyperlink{classcll_a2eb66b7c9d059dcf75090248fa521262}{insert\+\_\+tail}} (int new\+\_\+data)
+\item 
+int \mbox{\hyperlink{classcll_a04b61bb736525f28b8042c6145e1a265}{get\+\_\+size}} ()
+\item 
+bool \mbox{\hyperlink{classcll_abb6fb5834563d077a4eaff1b7fdc5b44}{find\+\_\+item}} (int item\+\_\+to\+\_\+find)
+\item 
+int \mbox{\hyperlink{classcll_a3665c1dd793c23873f4d8238b86c2021}{operator\texorpdfstring{$\ast$}{*}}} ()
+\item 
+void \mbox{\hyperlink{classcll_a1b49e807e33b6f11b2ea151df61a9f2f}{operator++}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcll_a852ab0b4ec38b8462df3f32ee6f11290}\label{classcll_a852ab0b4ec38b8462df3f32ee6f11290} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} {\bfseries head}
+\item 
+\Hypertarget{classcll_a23cbc56c51dafc17bd16cecd0f491731}\label{classcll_a23cbc56c51dafc17bd16cecd0f491731} 
+int {\bfseries total}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcll_a3f09a4ec2bc5a211a8409693b4cab4f8}\index{cll@{cll}!cll@{cll}}
+\index{cll@{cll}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{cll()}{cll()}}
+{\footnotesize\ttfamily \label{classcll_a3f09a4ec2bc5a211a8409693b4cab4f8} 
+cll\+::cll (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ head\ =\ NULL;}
+\DoxyCodeLine{00010\ \ \ \ \ total\ =\ 0;}
+\DoxyCodeLine{00011\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcll_a239fa940a9ca1defdecfeeb07cad351b}\index{cll@{cll}!````~cll@{\texorpdfstring{$\sim$}{\string~}cll}}
+\index{````~cll@{\texorpdfstring{$\sim$}{\string~}cll}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}cll()}{\string~cll()}}
+{\footnotesize\ttfamily \label{classcll_a239fa940a9ca1defdecfeeb07cad351b} 
+cll\+::\texorpdfstring{$\sim$}{\string~}cll (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{comment}{/*\ Desstructure,\ no\ need\ to\ fill\ */}}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcll_ae957a9434f6d1ffef7461ea4d7c9a8fe}\index{cll@{cll}!display@{display}}
+\index{display@{display}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classcll_ae957a9434f6d1ffef7461ea4d7c9a8fe} 
+void cll\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}List\ is\ empty\ !"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}CLL\ list:\ "{}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *current\ =\ head;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ total;\ i++)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ current-\/>data\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ "{}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ cout\ <<\ head-\/>data\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Total\ element:\ "{}}\ <<\ total\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcll_abb6fb5834563d077a4eaff1b7fdc5b44}\index{cll@{cll}!find\_item@{find\_item}}
+\index{find\_item@{find\_item}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{find\_item()}{find\_item()}}
+{\footnotesize\ttfamily \label{classcll_abb6fb5834563d077a4eaff1b7fdc5b44} 
+bool cll\+::find\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{item\+\_\+to\+\_\+find}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}List\ is\ empty\ !"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00082\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *current\ =\ head;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>next\ !=\ head)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current-\/>data\ ==\ item\_to\_find)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcll_a04b61bb736525f28b8042c6145e1a265}\index{cll@{cll}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily \label{classcll_a04b61bb736525f28b8042c6145e1a265} 
+int cll\+::get\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \{\ \textcolor{keywordflow}{return}\ total;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcll_a9434bf2d7deca6d7fe1efe06c5341df0}\index{cll@{cll}!insert\_front@{insert\_front}}
+\index{insert\_front@{insert\_front}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{insert\_front()}{insert\_front()}}
+{\footnotesize\ttfamily \label{classcll_a9434bf2d7deca6d7fe1efe06c5341df0} 
+void cll\+::insert\+\_\+front (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+data}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *newNode;}
+\DoxyCodeLine{00035\ \ \ \ \ newNode\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00036\ \ \ \ \ newNode-\/>data\ =\ new\_data;}
+\DoxyCodeLine{00037\ \ \ \ \ newNode-\/>next\ =\ NULL;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ head\ =\ newNode;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ head-\/>next\ =\ head;}
+\DoxyCodeLine{00041\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *current\ =\ head;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>next\ !=\ head)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ newNode-\/>next\ =\ head;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ current-\/>next\ =\ newNode;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ head\ =\ newNode;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ total++;}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcll_a2eb66b7c9d059dcf75090248fa521262}\index{cll@{cll}!insert\_tail@{insert\_tail}}
+\index{insert\_tail@{insert\_tail}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{insert\_tail()}{insert\_tail()}}
+{\footnotesize\ttfamily \label{classcll_a2eb66b7c9d059dcf75090248fa521262} 
+void cll\+::insert\+\_\+tail (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+data}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *newNode;}
+\DoxyCodeLine{00056\ \ \ \ \ newNode\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00057\ \ \ \ \ newNode-\/>data\ =\ new\_data;}
+\DoxyCodeLine{00058\ \ \ \ \ newNode-\/>next\ =\ NULL;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ head\ =\ newNode;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ head-\/>next\ =\ head;}
+\DoxyCodeLine{00062\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *current\ =\ head;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>next\ !=\ head)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ current-\/>next\ =\ newNode;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ newNode-\/>next\ =\ head;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ total++;}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcll_a3665c1dd793c23873f4d8238b86c2021}\index{cll@{cll}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{classcll_a3665c1dd793c23873f4d8238b86c2021} 
+int cll\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \{\ \textcolor{keywordflow}{return}\ head-\/>data;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcll_a1b49e807e33b6f11b2ea151df61a9f2f}\index{cll@{cll}!operator++@{operator++}}
+\index{operator++@{operator++}!cll@{cll}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily \label{classcll_a1b49e807e33b6f11b2ea151df61a9f2f} 
+void cll\+::operator++ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}List\ is\ empty\ !"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00101\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *current\ =\ head;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>next\ !=\ head)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ current-\/>next\ =\ head-\/>next;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ head\ =\ head-\/>next;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ total-\/-\/;}
+\DoxyCodeLine{00110\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/cll/cll.\+h\item 
+data\+\_\+structures/cll/cll.\+cpp\end{DoxyCompactItemize}

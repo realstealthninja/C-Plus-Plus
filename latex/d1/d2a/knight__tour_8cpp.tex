@@ -1,0 +1,178 @@
+\doxysection{backtracking/knight\+\_\+tour.cpp File Reference}
+\hypertarget{knight__tour_8cpp}{}\label{knight__tour_8cpp}\index{backtracking/knight\_tour.cpp@{backtracking/knight\_tour.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Knight\%27s_tour}{\texttt{ Knight\textquotesingle{}s tour}} algorithm  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceknight__tour}{knight\+\_\+tour}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Knight\%27s_tour}{\texttt{ Knight\textquotesingle{}s tour}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\bool \mbox{\hyperlink{knight__tour_8cpp_af27031fbff093ffd625f64010d98aab2}{backtracking\+::knight\+\_\+tour\+::issafe}} (int x, int y, const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&sol)
+\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\bool \mbox{\hyperlink{knight__tour_8cpp_aaa47356d98676cf5315d978f741e29c9}{backtracking\+::knight\+\_\+tour\+::solve}} (int x, int y, int \mbox{\hyperlink{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}{mov}}, std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&sol, const std\+::array$<$ int, V $>$ \&xmov, std\+::array$<$ int, V $>$ \&ymov)
+\item 
+int \mbox{\hyperlink{knight__tour_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Knight\%27s_tour}{\texttt{ Knight\textquotesingle{}s tour}} algorithm 
+
+A knight\textquotesingle{}s tour is a sequence of moves of a knight on a chessboard such that the knight visits every square only once. If the knight ends on a square that is one knight\textquotesingle{}s move from the beginning square (so that it could tour the board again immediately, following the same path, the tour is closed; otherwise, it is open.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/nikhilarora068}{\texttt{ Nikhil Arora}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{knight__tour_8cpp_af27031fbff093ffd625f64010d98aab2}\index{knight\_tour.cpp@{knight\_tour.cpp}!issafe@{issafe}}
+\index{issafe@{issafe}!knight\_tour.cpp@{knight\_tour.cpp}}
+\doxysubsubsection{\texorpdfstring{issafe()}{issafe()}}
+{\footnotesize\ttfamily \label{knight__tour_8cpp_af27031fbff093ffd625f64010d98aab2} 
+template$<$size\+\_\+t V$>$ \\
+bool backtracking\+::knight\+\_\+tour\+::issafe (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{sol}{}\end{DoxyParamCaption})}
+
+A utility function to check if i,j are valid indexes for N\texorpdfstring{$\ast$}{*}N chessboard 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & current index in rows \\
+\hline
+{\em y} & current index in columns \\
+\hline
+{\em sol} & matrix where numbers are saved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if .... 
+
+{\ttfamily false} if .... 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ <\ V\ \&\&\ x\ >=\ 0\ \&\&\ y\ <\ V\ \&\&\ y\ >=\ 0\ \&\&\ sol[x][y]\ ==\ -\/1);}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{knight__tour_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{knight\_tour.cpp@{knight\_tour.cpp}!main@{main}}
+\index{main@{main}!knight\_tour.cpp@{knight\_tour.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{knight__tour_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ 8;}
+\DoxyCodeLine{00090\ \ \ \ \ std::array<std::array<int,\ n>,\ n>\ sol\ =\ \{0\};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0,\ j\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ sol[i][j]\ =\ -\/1;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ std::array<int,\ n>\ xmov\ =\ \{2,\ 1,\ -\/1,\ -\/2,\ -\/2,\ -\/1,\ 1,\ 2\};}
+\DoxyCodeLine{00100\ \ \ \ \ std::array<int,\ n>\ ymov\ =\ \{1,\ 2,\ 2,\ 1,\ -\/1,\ -\/2,\ -\/2,\ -\/1\};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ sol[0][0]\ =\ 0;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ flag\ =\ backtracking::knight\_tour::solve<n>(0,\ 0,\ 1,\ sol,\ xmov,\ ymov);}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (flag\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Error:\ Solution\ does\ not\ exist\(\backslash\)n"{}};}
+\DoxyCodeLine{00107\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ sol[i][j]\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00116\ \}}
+
+\end{DoxyCode}
+\Hypertarget{knight__tour_8cpp_aaa47356d98676cf5315d978f741e29c9}\index{knight\_tour.cpp@{knight\_tour.cpp}!solve@{solve}}
+\index{solve@{solve}!knight\_tour.cpp@{knight\_tour.cpp}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \label{knight__tour_8cpp_aaa47356d98676cf5315d978f741e29c9} 
+template$<$size\+\_\+t V$>$ \\
+bool backtracking\+::knight\+\_\+tour\+::solve (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{mov}{, }\item[{std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{sol}{, }\item[{const std\+::array$<$ int, V $>$ \&}]{xmov}{, }\item[{std\+::array$<$ int, V $>$ \&}]{ymov}{}\end{DoxyParamCaption})}
+
+Knight\textquotesingle{}s tour algorithm 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & current index in rows \\
+\hline
+{\em y} & current index in columns \\
+\hline
+{\em mov} & movement to be done \\
+\hline
+{\em sol} & matrix where numbers are saved \\
+\hline
+{\em xmov} & next move of knight (x coordinate) \\
+\hline
+{\em ymov} & next move of knight (y coordinate) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if solution exists 
+
+{\ttfamily false} if solution does not exist 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ 0,\ xnext\ =\ 0,\ ynext\ =\ 0;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}{mov}}\ ==\ V\ *\ V)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (k\ =\ 0;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ <\ V;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ xnext\ =\ x\ +\ xmov[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}];}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ ynext\ =\ y\ +\ ymov[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}];}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (issafe<V>(xnext,\ ynext,\ sol))\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ sol[xnext][ynext]\ =\ \mbox{\hyperlink{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}{mov}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (solve<V>(xnext,\ ynext,\ \mbox{\hyperlink{tower__of__hanoi_8cpp_af4cfc41e546f1f8d25f01e0804e8b61d}{mov}}\ +\ 1,\ sol,\ xmov,\ ymov)\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sol[xnext][ynext]\ =\ -\/1;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}

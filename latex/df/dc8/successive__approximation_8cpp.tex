@@ -1,0 +1,79 @@
+\doxysection{numerical\+\_\+methods/successive\+\_\+approximation.cpp File Reference}
+\hypertarget{successive__approximation_8cpp}{}\label{successive__approximation_8cpp}\index{numerical\_methods/successive\_approximation.cpp@{numerical\_methods/successive\_approximation.cpp}}
+
+
+Method of successive approximations using \href{https://en.wikipedia.org/wiki/Fixed-point_iteration}{\texttt{ fixed-\/point iteration}} method.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \mbox{\hyperlink{successive__approximation_8cpp_a79c1d08919ff7780a5d7723172602389}{eq}} (float y)
+\item 
+static float \mbox{\hyperlink{successive__approximation_8cpp_ae89c36add7c55298c5195d0a83de1456}{eqd}} (float y)
+\item 
+int \mbox{\hyperlink{successive__approximation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Method of successive approximations using \href{https://en.wikipedia.org/wiki/Fixed-point_iteration}{\texttt{ fixed-\/point iteration}} method. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{successive__approximation_8cpp_a79c1d08919ff7780a5d7723172602389}\index{successive\_approximation.cpp@{successive\_approximation.cpp}!eq@{eq}}
+\index{eq@{eq}!successive\_approximation.cpp@{successive\_approximation.cpp}}
+\doxysubsubsection{\texorpdfstring{eq()}{eq()}}
+{\footnotesize\ttfamily \label{successive__approximation_8cpp_a79c1d08919ff7780a5d7723172602389} 
+static float eq (\begin{DoxyParamCaption}\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+equation 1 \[f(y) = 3y - \cos y -2\] 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{\ \textcolor{keywordflow}{return}\ (3\ *\ y)\ -\/\ cos(y)\ -\/\ 2;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{successive__approximation_8cpp_ae89c36add7c55298c5195d0a83de1456}\index{successive\_approximation.cpp@{successive\_approximation.cpp}!eqd@{eqd}}
+\index{eqd@{eqd}!successive\_approximation.cpp@{successive\_approximation.cpp}}
+\doxysubsubsection{\texorpdfstring{eqd()}{eqd()}}
+{\footnotesize\ttfamily \label{successive__approximation_8cpp_ae89c36add7c55298c5195d0a83de1456} 
+static float eqd (\begin{DoxyParamCaption}\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+equation 2 \[f(y) = \frac{\cos y+2}{2}\] 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \{\ \textcolor{keywordflow}{return}\ 0.5\ *\ (cos(y)\ +\ 2);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{successive__approximation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{successive\_approximation.cpp@{successive\_approximation.cpp}!main@{main}}
+\index{main@{main}!successive\_approximation.cpp@{successive\_approximation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{successive__approximation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ y,\ x1,\ x2,\ x3,\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}},\ s,\ a,\ f1,\ f2,\ gd;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ n;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ 10;\ i++)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ =\ \mbox{\hyperlink{successive__approximation_8cpp_a79c1d08919ff7780a5d7723172602389}{eq}}(y);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}value\ of\ equation\ at\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ y++;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}enter\ the\ x1-\/>"{}};}
+\DoxyCodeLine{00030\ \ \ \ \ std::cin\ >>\ x1;}
+\DoxyCodeLine{00031\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}enter\ the\ no\ iteration\ to\ perform-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <=\ n;\ i++)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ x2\ =\ \mbox{\hyperlink{successive__approximation_8cpp_ae89c36add7c55298c5195d0a83de1456}{eqd}}(x1);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nenter\ the\ x2-\/>"{}}\ <<\ x2;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ x1\ =\ x2;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}

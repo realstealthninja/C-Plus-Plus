@@ -1,0 +1,281 @@
+\doxysection{math/integral\+\_\+approximation2.cpp File Reference}
+\hypertarget{integral__approximation2_8cpp}{}\label{integral__approximation2_8cpp}\index{math/integral\_approximation2.cpp@{math/integral\_approximation2.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Monte_Carlo_integration}{\texttt{ Monte Carlo Integration}}  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemonte__carlo}{monte\+\_\+carlo}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Monte_Carlo_integration}{\texttt{ Monte Carlo Integration}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{integral__approximation2_8cpp_aa546b0e9315b7d9e9a8f6b71dd643de7}{math\+::monte\+\_\+carlo\+::\+Function}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{integral__approximation2_8cpp_a71249ee535f16f8ed2e9cc8f0199a2cf}{math\+::monte\+\_\+carlo\+::generate\+\_\+samples}} (const double \&start\+\_\+point, const Function \&pdf, const uint32\+\_\+t \&num\+\_\+samples, const uint32\+\_\+t \&discard=100000)
+\begin{DoxyCompactList}\small\item\em short-\/hand for std\+::functions used in this implementation \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{integral__approximation2_8cpp_af7da9ba8932f1f48b9bbc2d80471af51}{math\+::monte\+\_\+carlo\+::integral\+\_\+monte\+\_\+carlo}} (const double \&start\+\_\+point, const Function \&function, const Function \&pdf, const uint32\+\_\+t \&num\+\_\+samples=1000000)
+\begin{DoxyCompactList}\small\item\em Compute an approximation of an integral using Monte Carlo integration. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{integral__approximation2_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{integral__approximation2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Monte_Carlo_integration}{\texttt{ Monte Carlo Integration}} 
+
+In mathematics, Monte Carlo integration is a technique for numerical integration using random numbers. It is a particular Monte Carlo method that numerically computes a definite integral. While other algorithms usually evaluate the integrand at a regular grid, Monte Carlo randomly chooses points at which the integrand is evaluated. This method is particularly useful for higher-\/dimensional integrals.
+
+This implementation supports arbitrary pdfs. These pdfs are sampled using the \href{https://en.wikipedia.org/wiki/Metropolis\%E2\%80\%93Hastings_algorithm}{\texttt{ Metropolis-\/\+Hastings algorithm}}. This can be swapped out by every other sampling techniques for example the inverse method. Metropolis-\/\+Hastings was chosen because it is the most general and can also be extended for a higher dimensional sampling space.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/DerAndereDomenic}{\texttt{ Domenic Zingsheim}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{integral__approximation2_8cpp_aa546b0e9315b7d9e9a8f6b71dd643de7}\index{integral\_approximation2.cpp@{integral\_approximation2.cpp}!Function@{Function}}
+\index{Function@{Function}!integral\_approximation2.cpp@{integral\_approximation2.cpp}}
+\doxysubsubsection{\texorpdfstring{Function}{Function}}
+{\footnotesize\ttfamily \label{integral__approximation2_8cpp_aa546b0e9315b7d9e9a8f6b71dd643de7} 
+using math\+::monte\+\_\+carlo\+::\+Function}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::function<double(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\&)>}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{integral__approximation2_8cpp_a71249ee535f16f8ed2e9cc8f0199a2cf}\index{integral\_approximation2.cpp@{integral\_approximation2.cpp}!generate\_samples@{generate\_samples}}
+\index{generate\_samples@{generate\_samples}!integral\_approximation2.cpp@{integral\_approximation2.cpp}}
+\doxysubsubsection{\texorpdfstring{generate\_samples()}{generate\_samples()}}
+{\footnotesize\ttfamily \label{integral__approximation2_8cpp_a71249ee535f16f8ed2e9cc8f0199a2cf} 
+std\+::vector$<$ double $>$ math\+::monte\+\_\+carlo\+::generate\+\_\+samples (\begin{DoxyParamCaption}\item[{const double \&}]{start\+\_\+point}{, }\item[{const Function \&}]{pdf}{, }\item[{const uint32\+\_\+t \&}]{num\+\_\+samples}{, }\item[{const uint32\+\_\+t \&}]{discard}{ = {\ttfamily 100000}}\end{DoxyParamCaption})}
+
+
+
+short-\/hand for std\+::functions used in this implementation 
+
+Generate samples according to some pdf
+
+This function uses Metropolis-\/\+Hastings to generate random numbers. It generates a sequence of random numbers by using a markov chain. Therefore, we need to define a start\+\_\+point and the number of samples we want to generate. Because the first samples generated by the markov chain may not be distributed according to the given pdf, one can specify how many samples should be discarded before storing samples. 
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+point} & The starting point of the markov chain \\
+\hline
+{\em pdf} & The pdf to sample \\
+\hline
+{\em num\+\_\+samples} & The number of samples to generate \\
+\hline
+{\em discard} & How many samples should be discarded at the start \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of size num\+\_\+samples with samples distributed according to the pdf 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ std::vector<double>\ samples;}
+\DoxyCodeLine{00069\ \ \ \ \ samples.reserve(num\_samples);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ x\_t\ =\ start\_point;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::default\_random\_engine\ generator;}
+\DoxyCodeLine{00074\ \ \ \ \ std::uniform\_real\_distribution<double>\ uniform(0.0,\ 1.0);}
+\DoxyCodeLine{00075\ \ \ \ \ std::normal\_distribution<double>\ normal(0.0,\ 1.0);}
+\DoxyCodeLine{00076\ \ \ \ \ generator.seed(time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ t\ =\ 0;\ t\ <\ num\_samples\ +\ discard;\ ++t)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ a\ new\ proposal\ according\ to\ some\ mutation\ strategy.}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ arbitrary\ and\ can\ be\ swapped.}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\_dash\ =\ normal(generator)\ +\ x\_t;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ acceptance\_probability\ =\ std::min(pdf(x\_dash)\ /\ pdf(x\_t),\ 1.0);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ u\ =\ uniform(generator);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Accept\ "{}new\ state"{}\ according\ to\ the\ acceptance\_probability}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ <=\ acceptance\_probability)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ x\_t\ =\ x\_dash;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ >=\ discard)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ samples.push\_back(x\_t);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ samples;}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\Hypertarget{integral__approximation2_8cpp_af7da9ba8932f1f48b9bbc2d80471af51}\index{integral\_approximation2.cpp@{integral\_approximation2.cpp}!integral\_monte\_carlo@{integral\_monte\_carlo}}
+\index{integral\_monte\_carlo@{integral\_monte\_carlo}!integral\_approximation2.cpp@{integral\_approximation2.cpp}}
+\doxysubsubsection{\texorpdfstring{integral\_monte\_carlo()}{integral\_monte\_carlo()}}
+{\footnotesize\ttfamily \label{integral__approximation2_8cpp_af7da9ba8932f1f48b9bbc2d80471af51} 
+double math\+::monte\+\_\+carlo\+::integral\+\_\+monte\+\_\+carlo (\begin{DoxyParamCaption}\item[{const double \&}]{start\+\_\+point}{, }\item[{const Function \&}]{function}{, }\item[{const Function \&}]{pdf}{, }\item[{const uint32\+\_\+t \&}]{num\+\_\+samples}{ = {\ttfamily 1000000}}\end{DoxyParamCaption})}
+
+
+
+Compute an approximation of an integral using Monte Carlo integration. 
+
+The integration domain \mbox{[}a,b\mbox{]} is given by the pdf. The pdf has to fulfill the following conditions\+: 1) for all x \textbackslash{}in \mbox{[}a,b\mbox{]} \+: p(x) \texorpdfstring{$>$}{>} 0 2) for all x \textbackslash{}not\textbackslash{}in \mbox{[}a,b\mbox{]} \+: p(x) = 0 3) \textbackslash{}int\+\_\+a\texorpdfstring{$^\wedge$}{\string^}b p(x) dx = 1 
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+point} & The start point of the Markov Chain (see generate\+\_\+samples) \\
+\hline
+{\em function} & The function to integrate \\
+\hline
+{\em pdf} & The pdf to sample \\
+\hline
+{\em num\+\_\+samples} & The number of samples used to approximate the integral \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The approximation of the integral according to 1/N \textbackslash{}sum\+\_\+\{i\}\texorpdfstring{$^\wedge$}{\string^}N f(x\+\_\+i) / p(x\+\_\+i) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{double}\ integral\ =\ 0.0;}
+\DoxyCodeLine{00116\ \ \ \ \ std::vector<double>\ samples\ =}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{integral__approximation2_8cpp_a71249ee535f16f8ed2e9cc8f0199a2cf}{generate\_samples}}(start\_point,\ pdf,\ num\_samples);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{double}\ sample\ :\ samples)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ integral\ +=\ function(sample)\ /\ pdf(sample);}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{return}\ integral\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(samples.size());}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}
+\Hypertarget{integral__approximation2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{integral\_approximation2.cpp@{integral\_approximation2.cpp}!main@{main}}
+\index{main@{main}!integral\_approximation2.cpp@{integral\_approximation2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{integral__approximation2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \mbox{\hyperlink{integral__approximation2_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00218\ \}}
+
+\end{DoxyCode}
+\Hypertarget{integral__approximation2_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{integral\_approximation2.cpp@{integral\_approximation2.cpp}!test@{test}}
+\index{test@{test}!integral\_approximation2.cpp@{integral\_approximation2.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{integral__approximation2_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Disclaimer:\ Because\ this\ is\ a\ randomized\ algorithm,"{}}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00136\ \ \ \ \ std::cout}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}it\ may\ happen\ that\ singular\ samples\ deviate\ from\ the\ true\ result."{}}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ <<\ std::endl}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00140\ \ \ \ \ ;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ math::monte\_carlo::Function\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}};}
+\DoxyCodeLine{00143\ \ \ \ \ math::monte\_carlo::Function\ pdf;}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{double}\ integral\ =\ 0;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{double}\ lower\_bound\ =\ 0,\ upper\_bound\ =\ 0;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)int\_\{-\/2\}\string^\{2\}\ -\/x\string^2\ +\ 4\ dx\ */}}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}}\ =\ [\&](\textcolor{keywordtype}{double}\&\ x)\ \{\ \textcolor{keywordflow}{return}\ -\/x\ *\ x\ +\ 4.0;\ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ lower\_bound\ =\ -\/2.0;}
+\DoxyCodeLine{00151\ \ \ \ \ upper\_bound\ =\ 2.0;}
+\DoxyCodeLine{00152\ \ \ \ \ pdf\ =\ [\&](\textcolor{keywordtype}{double}\&\ x)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ lower\_bound\ \&\&\ x\ <=\ -\/1.0)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.1;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <=\ upper\_bound\ \&\&\ x\ >=\ 1.0)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.1;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ -\/1.0\ \&\&\ x\ <\ 1.0)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.4;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{00163\ \ \ \ \ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ integral\ =\ \mbox{\hyperlink{integral__approximation2_8cpp_af7da9ba8932f1f48b9bbc2d80471af51}{math::monte\_carlo::integral\_monte\_carlo}}(}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ (upper\_bound\ -\/\ lower\_bound)\ /\ 2.0,\ f,\ pdf);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ number\ should\ be\ close\ to\ 10.666666:\ "{}}\ <<\ integral}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)int\_\{0\}\string^\{1\}\ e\string^x\ dx\ */}}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}}\ =\ [\&](\textcolor{keywordtype}{double}\&\ x)\ \{\ \textcolor{keywordflow}{return}\ std::exp(x);\ \};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ lower\_bound\ =\ 0.0;}
+\DoxyCodeLine{00175\ \ \ \ \ upper\_bound\ =\ 1.0;}
+\DoxyCodeLine{00176\ \ \ \ \ pdf\ =\ [\&](\textcolor{keywordtype}{double}\&\ x)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ lower\_bound\ \&\&\ x\ <=\ 0.2)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.1;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ 0.2\ \&\&\ x\ <=\ 0.4)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.4;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ 0.4\ \&\&\ x\ <\ upper\_bound)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1.5;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{00187\ \ \ \ \ \};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ integral\ =\ \mbox{\hyperlink{integral__approximation2_8cpp_af7da9ba8932f1f48b9bbc2d80471af51}{math::monte\_carlo::integral\_monte\_carlo}}(}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ (upper\_bound\ -\/\ lower\_bound)\ /\ 2.0,\ f,\ pdf);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ number\ should\ be\ close\ to\ 1.7182818:\ "{}}\ <<\ integral}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)int\_\{-\/\(\backslash\)infty\}\string^\{\(\backslash\)infty\}\ sinc(x)\ dx,\ sinc(x)\ =\ sin(pi\ *\ x)\ /\ (pi\ *\ x)}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ \ \ \ \ \ \ This\ is\ a\ difficult\ integral\ because\ of\ its\ infinite\ domain.}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ \ \ \ \ \ \ Therefore,\ it\ may\ deviate\ largely\ from\ the\ expected\ result.}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}}\ =\ [\&](\textcolor{keywordtype}{double}\&\ x)\ \{\ \textcolor{keywordflow}{return}\ std::sin(M\_PI\ *\ x)\ /\ (M\_PI\ *\ x);\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ pdf\ =\ [\&](\textcolor{keywordtype}{double}\&\ x)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ std::sqrt(2.0\ *\ M\_PI)\ *\ std::exp(-\/x\ *\ x\ /\ 2.0);}
+\DoxyCodeLine{00203\ \ \ \ \ \};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ integral\ =\ \mbox{\hyperlink{integral__approximation2_8cpp_af7da9ba8932f1f48b9bbc2d80471af51}{math::monte\_carlo::integral\_monte\_carlo}}(0.0,\ f,\ pdf,\ 10000000);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ number\ should\ be\ close\ to\ 1.0:\ "{}}\ <<\ integral}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00209\ \}}
+
+\end{DoxyCode}

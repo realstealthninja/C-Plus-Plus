@@ -1,0 +1,170 @@
+\doxysection{search/median\+\_\+search.cpp File Reference}
+\hypertarget{median__search_8cpp}{}\label{median__search_8cpp}\index{search/median\_search.cpp@{search/median\_search.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Median_of_medians}{\texttt{ Median search}} algorithm. @cases from \href{https://brilliant.org/wiki/median-finding-algorithm/}{\texttt{ here}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesearch}{search}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemedian__search}{median\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Median_search}{\texttt{ Median search}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}{search\+::median\+\_\+search\+::median\+\_\+of\+\_\+medians}} (const std\+::vector$<$ int $>$ \&A, const int \&idx)
+\item 
+void \mbox{\hyperlink{median__search_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+int \mbox{\hyperlink{median__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Median_of_medians}{\texttt{ Median search}} algorithm. @cases from \href{https://brilliant.org/wiki/median-finding-algorithm/}{\texttt{ here}} 
+
+Given an array A\mbox{[}1,...,n\mbox{]} of n numbers and an index i, where 1 ≤ i ≤ n, find the i-\/th smallest element of A. median\+\_\+of\+\_\+medians(\+A, i)\+: \#divide A into sublists of len 5 sublists = \mbox{[}A\mbox{[}j\+:j+5\mbox{]} for j in range(0, len(\+A), 5)\mbox{]} medians = \mbox{[}sorted(sublist)\mbox{[}len(sublist)/2\mbox{]} for sublist in sublists\mbox{]} if len(medians) \texorpdfstring{$<$}{<}= 5\+: pivot = sorted(medians)\mbox{[}len(medians)/2\mbox{]} else\+: \#the pivot is the median of the medians pivot = median\+\_\+of\+\_\+medians(medians, len(medians)/2) \#partitioning step low = \mbox{[}j for j in A if j \texorpdfstring{$<$}{<} pivot\mbox{]} high = \mbox{[}j for j in A if j \texorpdfstring{$>$}{>} pivot\mbox{]} k = len(low) if i \texorpdfstring{$<$}{<} k\+: return median\+\_\+of\+\_\+medians(low,i) elif i \texorpdfstring{$>$}{>} k\+: return median\+\_\+of\+\_\+medians(high,i-\/k-\/1) else\+: \#pivot = k return pivot
+
+\begin{DoxyNote}{Note}
+this algorithm implements median search for only arrays which have distinct elements
+\end{DoxyNote}
+Here are some example lists you can use to see how the algorithm works A = \mbox{[}1,2,3,4,5,1000,8,9,99\mbox{]} (Contain Unique Elements) B = \mbox{[}1,2,3,4,5,6\mbox{]} (Contains Unique Elements) print median\+\_\+of\+\_\+medians(\+A, 0) \#should be 1 print median\+\_\+of\+\_\+medians(\+A,7) \#should be 99 print median\+\_\+of\+\_\+medians(\+B,4) \#should be 5
+
+\begin{DoxyAuthor}{Author}
+Unknown author 
+
+\href{https://github.com/Rp-sushil}{\texttt{ Sushil Kumar}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{median__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{median\_search.cpp@{median\_search.cpp}!main@{main}}
+\index{main@{main}!median\_search.cpp@{median\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{median__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{median__search_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 0;}
+\DoxyCodeLine{00132\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Size\ of\ Array:\ "{}};}
+\DoxyCodeLine{00133\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00134\ \ \ \ \ std::vector<int>\ a(n);}
+\DoxyCodeLine{00135\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Array:\ "{}};}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ std::cin\ >>\ a[i];}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Median:\ "{}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Median\ defination:\ https://en.wikipedia.org/wiki/Median}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ \mbox{\hyperlink{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}{search::median\_search::median\_of\_medians}}(a,\ \ (n\ -\/\ 1)\ /\ 2);}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}(n\ \%\ 2\ ==\ 0)\{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ \mbox{\hyperlink{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}{search::median\_search::median\_of\_medians}}(a,\ n\ /\ 2);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ std::cout\ <<\ (float(x)\ +\ float(y))/2.0;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ std::cout\ <<\ x;}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTo\ find\ i-\/th\ smallest\ element\ "{}};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ i:\ "{}};}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ 0;}
+\DoxyCodeLine{00151\ \ \ \ \ std::cin\ >>\ idx;}
+\DoxyCodeLine{00152\ \ \ \ \ idx-\/-\/;}
+\DoxyCodeLine{00153\ \ \ \ \ std::cout\ <<\ idx\ +\ 1<<\ \textcolor{stringliteral}{"{}-\/th\ smallest\ element:\ "{}}\ <<\ \mbox{\hyperlink{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}{search::median\_search::median\_of\_medians}}(a,\ idx)\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}
+\Hypertarget{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}\index{median\_search.cpp@{median\_search.cpp}!median\_of\_medians@{median\_of\_medians}}
+\index{median\_of\_medians@{median\_of\_medians}!median\_search.cpp@{median\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{median\_of\_medians()}{median\_of\_medians()}}
+{\footnotesize\ttfamily \label{median__search_8cpp_a868847218f694e78bf433a0ff7648bae} 
+int search\+::median\+\_\+search\+::median\+\_\+of\+\_\+medians (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{A}{, }\item[{const int \&}]{idx}{}\end{DoxyParamCaption})}
+
+This function search the element in an array for the given index. 
+\begin{DoxyParams}{Parameters}
+{\em A} & array where numbers are saved \\
+\hline
+{\em idx} & current index in array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+corresponding element which we want to search. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ pivot\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initialized\ with\ zero}}
+\DoxyCodeLine{00064\ \ \ \ \ std::vector<int>\ a(A.begin(),\ A.end());}
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<int>\ m;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ a.size();}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r;\ i\ +=\ 5)\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::sort(a.begin()\ +\ i,\ a.begin()\ +\ std::min(r,\ i\ +\ 5));}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ (i\ +\ std::min(r,\ i\ +\ 5))\ /\ 2;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ m.push\_back(a[mid]);}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ sz\ =\ int(m.size());}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}(sz\ <=\ 5)\{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ std::sort(m.begin(),\ m.end());}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ pivot\ =\ m[(sz-\/\ 1)\ /\ 2];}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ pivot\ =\ \mbox{\hyperlink{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}{median\_of\_medians}}(m,\ idx);}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ std::vector<int>\ low;}
+\DoxyCodeLine{00081\ \ \ \ \ std::vector<int>\ high;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r;\ i++)\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(a[i]\ <\ pivot)\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ low.push\_back(a[i]);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(a[i]\ >\ pivot)\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ high.push\_back(a[i]);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ int(low.size());}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}(idx\ <\ k)\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}{median\_of\_medians}}(low,\ idx);}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(idx\ >\ k)\{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{median__search_8cpp_a868847218f694e78bf433a0ff7648bae}{median\_of\_medians}}(high,\ idx-\/k-\/1);}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pivot;}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+\Hypertarget{median__search_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{median\_search.cpp@{median\_search.cpp}!test@{test}}
+\index{test@{test}!median\_search.cpp@{median\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{median__search_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function to test above algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ std::vector<int>\ A\{25,21,98,100,76,22,43,60,89,87\};}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 3;}
+\DoxyCodeLine{00110\ \ \ \ \ assert(A[6]\ ==\ search::median\_search::median\_of\_medians(A,\ i));\ \ \ \ \ \textcolor{comment}{//\ A[6]\ \ =\ 43,\ is\ the\ fourth\ smallest\ element.}}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:1\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ std::vector<int>\ B\{1,2,3,4,5,6\};}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 4;}
+\DoxyCodeLine{00115\ \ \ \ \ assert(B[4]\ ==\ search::median\_search::median\_of\_medians(B,\ j));\ \ \ \ \ \textcolor{comment}{//\ B[4]\ =\ 5,\ is\ the\ fifth\ smallest\ element.}}
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:2\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00117\ \ \ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ std::vector<int>\ C\{1,2,3,4,5,1000,8,9,99\};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ 3;}
+\DoxyCodeLine{00120\ \ \ \ \ assert(C[3]\ ==\ search::median\_search::median\_of\_medians(C,\ k));\ \ \ \ \ \textcolor{comment}{//\ C[3]\ =\ 4,\ is\ the\ fourth\ smallest\ element.}}
+\DoxyCodeLine{00121\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:3\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00122\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/All\ tests\ passed-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}

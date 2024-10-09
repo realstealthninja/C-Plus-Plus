@@ -1,0 +1,188 @@
+\doxysection{FCFS\texorpdfstring{$<$}{<} S, T, E \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_f_c_f_s}{}\label{class_f_c_f_s}\index{FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}}
+
+
+Class which implements the \doxylink{class_f_c_f_s}{FCFS} scheduling algorithm.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_f_c_f_s_a8fbfe4d85f7576b4a7aade07d29fbd69}{add\+Process}} (S id, T arrival, E burst)
+\begin{DoxyCompactList}\small\item\em Adds the process to the ready queue if it isn\textquotesingle{}t already there. \end{DoxyCompactList}\item 
+vector$<$ tuple$<$ S, T, E, double, double, double $>$ $>$ \mbox{\hyperlink{class_f_c_f_s_aa25dbe30ba9930b5a7c1a6d11758bd91}{schedule\+For\+Fcfs}} ()
+\begin{DoxyCompactList}\small\item\em Algorithm for scheduling CPU processes according to the First Come First Serve(\+FCFS) scheduling algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_f_c_f_s_abb361a612b18bb189aa6d3c49288b793}{print\+Result}} ()
+\begin{DoxyCompactList}\small\item\em Utility function for printing the status of each process after execution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+priority\+\_\+queue$<$ tuple$<$ S, T, E, double, double, double $>$, vector$<$ tuple$<$ S, T, E, double, double, double $>$ $>$, \mbox{\hyperlink{class_compare}{Compare}}$<$ S, T, E $>$ $>$ \mbox{\hyperlink{class_f_c_f_s_af2594e22a867b308e027623940193d46}{schedule}}
+\item 
+\Hypertarget{class_f_c_f_s_ac3abd3d9f23437599ff9a2131c8b631f}\label{class_f_c_f_s_ac3abd3d9f23437599ff9a2131c8b631f} 
+vector$<$ tuple$<$ S, T, E, double, double, double $>$ $>$ {\bfseries result}
+\item 
+\Hypertarget{class_f_c_f_s_a86e9908699e2ff89557c01f1a4b47d83}\label{class_f_c_f_s_a86e9908699e2ff89557c01f1a4b47d83} 
+unordered\+\_\+set$<$ S $>$ {\bfseries id\+List}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename S, typename T, typename E$>$\newline
+class FCFS$<$ S, T, E $>$}
+Class which implements the \doxylink{class_f_c_f_s}{FCFS} scheduling algorithm. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & Data type of Process ID \\
+\hline
+{\em T} & Data type of Arrival time \\
+\hline
+{\em E} & Data type of Burst time \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_f_c_f_s_a8fbfe4d85f7576b4a7aade07d29fbd69}\index{FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}!addProcess@{addProcess}}
+\index{addProcess@{addProcess}!FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}}
+\doxysubsubsection{\texorpdfstring{addProcess()}{addProcess()}}
+{\footnotesize\ttfamily \label{class_f_c_f_s_a8fbfe4d85f7576b4a7aade07d29fbd69} 
+template$<$typename S , typename T , typename E $>$ \\
+void \mbox{\hyperlink{class_f_c_f_s}{FCFS}}$<$ S, T, E $>$\+::add\+Process (\begin{DoxyParamCaption}\item[{S}]{id}{, }\item[{T}]{arrival}{, }\item[{E}]{burst}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the process to the ready queue if it isn\textquotesingle{}t already there. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Process ID \\
+\hline
+{\em arrival} & Arrival time of the process \\
+\hline
+{\em burst} & Burst time of the process \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ if\ a\ process\ with\ process\ ID\ as\ id\ is\ not\ found\ in\ idList.}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idList.find(\textcolor{keywordtype}{id})\ ==\ idList.end())\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ tuple<S,\ T,\ E,\ double,\ double,\ double>\ t\ =}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ make\_tuple(\textcolor{keywordtype}{id},\ arrival,\ burst,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_c_f_s_af2594e22a867b308e027623940193d46}{schedule}}.push(t);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ idList.insert(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_f_c_f_s_abb361a612b18bb189aa6d3c49288b793}\index{FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}!printResult@{printResult}}
+\index{printResult@{printResult}!FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}}
+\doxysubsubsection{\texorpdfstring{printResult()}{printResult()}}
+{\footnotesize\ttfamily \label{class_f_c_f_s_abb361a612b18bb189aa6d3c49288b793} 
+template$<$typename S , typename T , typename E $>$ \\
+void \mbox{\hyperlink{class_f_c_f_s}{FCFS}}$<$ S, T, E $>$\+::print\+Result (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utility function for printing the status of each process after execution. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Status\ of\ all\ the\ proceses\ post\ completion\ is\ as\ follows:"{}}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ cout\ <<\ std::setw(17)\ <<\ left\ <<\ \textcolor{stringliteral}{"{}Process\ ID"{}}\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Arrival\ Time"{}}\ <<\ std::setw(17)\ <<\ left\ <<\ \textcolor{stringliteral}{"{}Burst\ Time"{}}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::setw(17)\ <<\ left\ <<\ \textcolor{stringliteral}{"{}Completion\ Time"{}}\ <<\ std::setw(17)}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ left\ <<\ \textcolor{stringliteral}{"{}Turnaround\ Time"{}}\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Waiting\ Time"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\{\};\ i\ <\ result.size();\ i++)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ std::setprecision(2)\ <<\ std::fixed\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ get<0>(result[i])\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ get<1>(result[i])\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ get<2>(result[i])\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ get<3>(result[i])\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ get<4>(result[i])\ <<\ std::setw(17)\ <<\ left}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ get<5>(result[i])\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_f_c_f_s_aa25dbe30ba9930b5a7c1a6d11758bd91}\index{FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}!scheduleForFcfs@{scheduleForFcfs}}
+\index{scheduleForFcfs@{scheduleForFcfs}!FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}}
+\doxysubsubsection{\texorpdfstring{scheduleForFcfs()}{scheduleForFcfs()}}
+{\footnotesize\ttfamily \label{class_f_c_f_s_aa25dbe30ba9930b5a7c1a6d11758bd91} 
+template$<$typename S , typename T , typename E $>$ \\
+vector$<$ tuple$<$ S, T, E, double, double, double $>$ $>$ \mbox{\hyperlink{class_f_c_f_s}{FCFS}}$<$ S, T, E $>$\+::schedule\+For\+Fcfs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Algorithm for scheduling CPU processes according to the First Come First Serve(\+FCFS) scheduling algorithm. 
+
+\doxylink{class_f_c_f_s}{FCFS} is a non-\/preemptive algorithm in which the process which arrives first gets executed first. If two or more processes arrive together then the process with smaller process ID runs first (each process has a unique proces ID).
+
+I used a min priority queue of tuples to accomplish this task. The processes are ordered by their arrival times. If arrival times of some processes are equal, then they are ordered by their process ID.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Variable\ to\ keep\ track\ of\ time\ elapsed\ so\ far}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ timeElapsed\ =\ 0;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{class_f_c_f_s_af2594e22a867b308e027623940193d46}{schedule}}.empty())\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ tuple<S,\ T,\ E,\ double,\ double,\ double>\ cur\ =\ \mbox{\hyperlink{class_f_c_f_s_af2594e22a867b308e027623940193d46}{schedule}}.top();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ current\ process\ arrived\ at\ time\ t2,\ the\ last\ process}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ completed\ its\ execution\ at\ time\ t1,\ and\ t2\ >\ t1.}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (get<1>(cur)\ >\ timeElapsed)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timeElapsed\ +=\ get<1>(cur)\ -\/\ timeElapsed;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ Burst\ time\ to\ time\ elapsed}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ timeElapsed\ +=\ get<2>(cur);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Completion\ time\ of\ the\ current\ process\ will\ be\ same\ as\ time}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ elapsed\ so\ far}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ get<3>(cur)\ =\ timeElapsed;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Turnaround\ time\ =\ Completion\ time\ -\/\ Arrival\ time}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ get<4>(cur)\ =\ get<3>(cur)\ -\/\ get<1>(cur);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Waiting\ time\ =\ Turnaround\ time\ -\/\ Burst\ time}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ get<5>(cur)\ =\ get<4>(cur)\ -\/\ get<2>(cur);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ result.push\_back(cur);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_c_f_s_af2594e22a867b308e027623940193d46}{schedule}}.pop();}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_f_c_f_s_af2594e22a867b308e027623940193d46}\index{FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}!schedule@{schedule}}
+\index{schedule@{schedule}!FCFS$<$ S, T, E $>$@{FCFS$<$ S, T, E $>$}}
+\doxysubsubsection{\texorpdfstring{schedule}{schedule}}
+{\footnotesize\ttfamily \label{class_f_c_f_s_af2594e22a867b308e027623940193d46} 
+template$<$typename S , typename T , typename E $>$ \\
+priority\+\_\+queue$<$tuple$<$S, T, E, double, double, double$>$, vector$<$tuple$<$S, T, E, double, double, double$>$ $>$, \mbox{\hyperlink{class_compare}{Compare}}$<$S, T, E$>$ $>$ \mbox{\hyperlink{class_f_c_f_s}{FCFS}}$<$ S, T, E $>$\+::schedule\hspace{0.3cm}{\ttfamily [private]}}
+
+Priority queue of schedules(stored as tuples) of processes. In each tuple 1st element\+: Process ID 2nd element\+: Arrival Time 3rd element\+: Burst time 4th element\+: Completion time 5th element\+: Turnaround time 6th element\+: Waiting time 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cpu\+\_\+scheduling\+\_\+algorithms/\mbox{\hyperlink{fcfs__scheduling_8cpp}{fcfs\+\_\+scheduling.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,165 @@
+\doxysection{math/extended\+\_\+euclid\+\_\+algorithm.cpp File Reference}
+\hypertarget{extended__euclid__algorithm_8cpp}{}\label{extended__euclid__algorithm_8cpp}\index{math/extended\_euclid\_algorithm.cpp@{math/extended\_euclid\_algorithm.cpp}}
+
+
+GCD using \mbox{[}extended Euclid\textquotesingle{}s algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Extended\+\_\+\+Euclidean\+\_\+algorithm}})  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename T2 $>$ }\\void \mbox{\hyperlink{extended__euclid__algorithm_8cpp_abe92d63a0ff9bda7e304df510d5dd217}{update\+\_\+step}} (T \texorpdfstring{$\ast$}{*}r, T \texorpdfstring{$\ast$}{*}r0, const T2 quotient)
+\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{extended__euclid__algorithm_8cpp_a1792ac7c33aaf26b860ab55f5652ab25}{extended\+Euclid\+\_\+1}} (T1 A, T1 B, T1 \texorpdfstring{$\ast$}{*}GCD, T2 \texorpdfstring{$\ast$}{*}x, T2 \texorpdfstring{$\ast$}{*}y)
+\item 
+{\footnotesize template$<$typename T , typename T2 $>$ }\\void \mbox{\hyperlink{extended__euclid__algorithm_8cpp_acba15ca55b3e7dcb91f3c65d72ba052d}{extended\+Euclid}} (T A, T B, T \texorpdfstring{$\ast$}{*}GCD, T2 \texorpdfstring{$\ast$}{*}x, T2 \texorpdfstring{$\ast$}{*}y)
+\item 
+int \mbox{\hyperlink{extended__euclid__algorithm_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GCD using \mbox{[}extended Euclid\textquotesingle{}s algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Extended\+\_\+\+Euclidean\+\_\+algorithm}}) 
+
+Finding coefficients of a and b ie x and y in Bézout\textquotesingle{}s identity \[\text{gcd}(a, b) = a \times x + b \times y \] This is also used in finding Modular multiplicative inverse of a number. (A \texorpdfstring{$\ast$}{*} B)M == 1 Here B is the MMI of A for given M, so extended\+Euclid (A, M) gives B. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{extended__euclid__algorithm_8cpp_acba15ca55b3e7dcb91f3c65d72ba052d}\index{extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}!extendedEuclid@{extendedEuclid}}
+\index{extendedEuclid@{extendedEuclid}!extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{extendedEuclid()}{extendedEuclid()}}
+{\footnotesize\ttfamily \label{extended__euclid__algorithm_8cpp_acba15ca55b3e7dcb91f3c65d72ba052d} 
+template$<$typename T , typename T2 $>$ \\
+void extended\+Euclid (\begin{DoxyParamCaption}\item[{T}]{A}{, }\item[{T}]{B}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{GCD}{, }\item[{T2 \texorpdfstring{$\ast$}{*}}]{x}{, }\item[{T2 \texorpdfstring{$\ast$}{*}}]{y}{}\end{DoxyParamCaption})}
+
+Implementation using recursive algorithm
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em A} & unsigned \\
+\hline
+\mbox{\texttt{ in}}  & {\em B} & unsigned \\
+\hline
+\mbox{\texttt{ out}}  & {\em GCD} & unsigned \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & signed \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & signed \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (B\ >\ A)}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ std::swap(A,\ B);\ \ \textcolor{comment}{//\ Ensure\ that\ A\ >=\ B}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (B\ ==\ 0)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ *GCD\ =\ A;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ *x\ =\ 1;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ *y\ =\ 0;}
+\DoxyCodeLine{00079\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{extended__euclid__algorithm_8cpp_acba15ca55b3e7dcb91f3c65d72ba052d}{extendedEuclid}}(B,\ A\ \%\ B,\ GCD,\ x,\ y);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ T2\ temp\ =\ *x;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ *x\ =\ *y;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ *y\ =\ temp\ -\/\ (A\ /\ B)\ *\ (*y);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}
+\Hypertarget{extended__euclid__algorithm_8cpp_a1792ac7c33aaf26b860ab55f5652ab25}\index{extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}!extendedEuclid\_1@{extendedEuclid\_1}}
+\index{extendedEuclid\_1@{extendedEuclid\_1}!extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{extendedEuclid\_1()}{extendedEuclid\_1()}}
+{\footnotesize\ttfamily \label{extended__euclid__algorithm_8cpp_a1792ac7c33aaf26b860ab55f5652ab25} 
+template$<$typename T1 , typename T2 $>$ \\
+void extended\+Euclid\+\_\+1 (\begin{DoxyParamCaption}\item[{T1}]{A}{, }\item[{T1}]{B}{, }\item[{T1 \texorpdfstring{$\ast$}{*}}]{GCD}{, }\item[{T2 \texorpdfstring{$\ast$}{*}}]{x}{, }\item[{T2 \texorpdfstring{$\ast$}{*}}]{y}{}\end{DoxyParamCaption})}
+
+Implementation using iterative algorithm from \href{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm\#Pseudocode}{\texttt{ Wikipedia}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em A} & unsigned \\
+\hline
+\mbox{\texttt{ in}}  & {\em B} & unsigned \\
+\hline
+\mbox{\texttt{ out}}  & {\em GCD} & unsigned \\
+\hline
+\mbox{\texttt{ out}}  & {\em x} & signed \\
+\hline
+\mbox{\texttt{ out}}  & {\em y} & signed \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (B\ >\ A)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::swap(A,\ B);\ \ \textcolor{comment}{//\ Ensure\ that\ A\ >=\ B}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ T2\ s\ =\ 0,\ s0\ =\ 1;}
+\DoxyCodeLine{00047\ \ \ \ \ T2\ t\ =\ 1,\ t0\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ T1\ r\ =\ B,\ r0\ =\ A;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ !=\ 0)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ T1\ quotient\ =\ r0\ /\ r;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{extended__euclid__algorithm_8cpp_abe92d63a0ff9bda7e304df510d5dd217}{update\_step}}(\&r,\ \&r0,\ quotient);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{extended__euclid__algorithm_8cpp_abe92d63a0ff9bda7e304df510d5dd217}{update\_step}}(\&s,\ \&s0,\ quotient);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{extended__euclid__algorithm_8cpp_abe92d63a0ff9bda7e304df510d5dd217}{update\_step}}(\&t,\ \&t0,\ quotient);}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ *GCD\ =\ r0;}
+\DoxyCodeLine{00057\ \ \ \ \ *x\ =\ s0;}
+\DoxyCodeLine{00058\ \ \ \ \ *y\ =\ t0;}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{extended__euclid__algorithm_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}!main@{main}}
+\index{main@{main}!extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{extended__euclid__algorithm_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ uint32\_t\ a,\ b,\ \mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}};}
+\DoxyCodeLine{00090\ \ \ \ \ int32\_t\ x,\ y;}
+\DoxyCodeLine{00091\ \ \ \ \ std::cin\ >>\ a\ >>\ b;}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{extended__euclid__algorithm_8cpp_acba15ca55b3e7dcb91f3c65d72ba052d}{extendedEuclid}}(a,\ b,\ \&\mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}},\ \&x,\ \&y);}
+\DoxyCodeLine{00093\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ y\ <<\ std::endl;}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{extended__euclid__algorithm_8cpp_a1792ac7c33aaf26b860ab55f5652ab25}{extendedEuclid\_1}}(a,\ b,\ \&\mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}},\ \&x,\ \&y);}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{gcd__iterative__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ y\ <<\ std::endl;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
+\Hypertarget{extended__euclid__algorithm_8cpp_abe92d63a0ff9bda7e304df510d5dd217}\index{extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}!update\_step@{update\_step}}
+\index{update\_step@{update\_step}!extended\_euclid\_algorithm.cpp@{extended\_euclid\_algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{update\_step()}{update\_step()}}
+{\footnotesize\ttfamily \label{extended__euclid__algorithm_8cpp_abe92d63a0ff9bda7e304df510d5dd217} 
+template$<$typename T , typename T2 $>$ \\
+void update\+\_\+step (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{r}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{r0}{, }\item[{const T2}]{quotient}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+function to update the coefficients per iteration \[r_0,\,r = r,\, r_0 - \text{quotient}\times r\]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em r} & signed or unsigned \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em r0} & signed or unsigned \\
+\hline
+\mbox{\texttt{ in}}  & {\em quotient} & unsigned \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ T\ temp\ =\ *r;}
+\DoxyCodeLine{00027\ \ \ \ \ *r\ =\ *r0\ -\/\ (quotient\ *\ temp);}
+\DoxyCodeLine{00028\ \ \ \ \ *r0\ =\ temp;}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}

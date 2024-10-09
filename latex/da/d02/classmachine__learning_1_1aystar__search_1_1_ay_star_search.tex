@@ -1,0 +1,306 @@
+\doxysection{machine\+\_\+learning\+::aystar\+\_\+search\+::Ay\+Star\+Search\texorpdfstring{$<$}{<} Puzzle \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{}\label{classmachine__learning_1_1aystar__search_1_1_ay_star_search}\index{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}}
+
+
+A class defining \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}}. for some initial state and final state.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmachine__learning_1_1aystar__search_1_1_ay_star_search_1_1comparison__operator}{comparison\+\_\+operator}}
+\begin{DoxyCompactList}\small\item\em Custom comparator for open\+\_\+list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmachine__learning_1_1aystar__search_1_1_ay_star_search_1_1_info}{Info}}
+\begin{DoxyCompactList}\small\item\em Struct that handles all the information related to the current state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a9e0065bda9eeaa2247a32e89f326b9a8}{Map\+Of\+Puzzle\+Info\+With\+Puzzle\+Info}}
+\item 
+using \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a0c683b037f42e827a16420ce8bccfab9}{Map\+Of\+Puzzle\+Info\+With\+Integer}}
+\item 
+using \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search_ae8c3627dd2c94f297eb0fbbcad4ad101}{Set\+Of\+Puzzle\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search_abaff2ea6d309e1133fd95bbd1e39946e}{Ay\+Star\+Search}} (const Puzzle \&initial, const Puzzle \&final)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor for \doxylink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{Ay\+Star\+Search}. \end{DoxyCompactList}\item 
+std\+::vector$<$ Puzzle $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a0a26aa9ad3d73707370d9fe83707aca4}{Solution}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structmachine__learning_1_1aystar__search_1_1_ay_star_search_1_1_info}{Info}} $>$ Final\+State, const Map\+Of\+Puzzle\+Info\+With\+Puzzle\+Info \&parent\+\_\+of)
+\begin{DoxyCompactList}\small\item\em A helper solution\+: launches when a solution for \doxylink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{Ay\+Star\+Search} is found. \end{DoxyCompactList}\item 
+std\+::vector$<$ Puzzle $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a48284e156fdd48fd0c41008c7e48f201}{a\+\_\+star\+\_\+search}} (const std\+::function$<$ uint32\+\_\+t(const Puzzle \&, const Puzzle \&)$>$ \&dist, const uint32\+\_\+t permissible\+\_\+depth=30)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_acd897e6e519849edb9fb0d1e1bfa881a}\label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_acd897e6e519849edb9fb0d1e1bfa881a} 
+typedef struct machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search\+::\+Info {\bfseries Info}
+\begin{DoxyCompactList}\small\item\em Struct that handles all the information related to the current state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_ac11d62d01fac136efbd2bace6c55cea5}\label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_ac11d62d01fac136efbd2bace6c55cea5} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structmachine__learning_1_1aystar__search_1_1_ay_star_search_1_1_info}{Info}} $>$ {\bfseries Initial}
+\item 
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a1686cbc0c50ae9e6f949b1e4b46be9ff}\label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a1686cbc0c50ae9e6f949b1e4b46be9ff} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structmachine__learning_1_1aystar__search_1_1_ay_star_search_1_1_info}{Info}} $>$ {\bfseries Final}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Puzzle$>$\newline
+class machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search$<$ Puzzle $>$}
+A class defining \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}}. for some initial state and final state. 
+
+\doxylink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{Ay\+Star\+Search} class is defined as the informed search algorithm that is formulated in terms of weighted graphs\+: starting from a specific starting node of a graph (initial state), it aims to find a path to the given goal node having the smallest cost (least distance travelled, shortest time, etc.) The weighted edges (or cost) is evaluated on two factors, G score (cost required from starting node or initial state to current state) and H score (cost required from current state to final state). The {\ttfamily F(state)}, then is evaluated as\+: {\ttfamily F(state) = G(state) + H(state)}. The best search would be the final state having minimum {\ttfamily F(state)} value 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Puzzle} & denotes the puzzle or problem involving initial state and final state to be solved by A\texorpdfstring{$\ast$}{*} search. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+1. The algorithm is referred from pesudocode from \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ Wikipedia page}} as is.
+\begin{DoxyEnumerate}
+\item For {\ttfamily \doxylink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{Ay\+Star\+Search}} to work, the definitions for template Puzzle is compulsory. a. Comparison operator for template Puzzle ({\ttfamily \texorpdfstring{$<$}{<}}, {\ttfamily ==}, and {\ttfamily \texorpdfstring{$<$}{<}=}) b. {\ttfamily generate\+\_\+possible\+\_\+moves()} 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a0c683b037f42e827a16420ce8bccfab9}\index{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}!MapOfPuzzleInfoWithInteger@{MapOfPuzzleInfoWithInteger}}
+\index{MapOfPuzzleInfoWithInteger@{MapOfPuzzleInfoWithInteger}!machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}}
+\doxysubsubsection{\texorpdfstring{MapOfPuzzleInfoWithInteger}{MapOfPuzzleInfoWithInteger}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a0c683b037f42e827a16420ce8bccfab9} 
+template$<$typename Puzzle $>$ \\
+using \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search}}$<$ Puzzle $>$\+::\+Map\+Of\+Puzzle\+Info\+With\+Integer}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::map<std::shared\_ptr<Info>,\ uint32\_t,\ comparison\_operator>}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a9e0065bda9eeaa2247a32e89f326b9a8}\index{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}!MapOfPuzzleInfoWithPuzzleInfo@{MapOfPuzzleInfoWithPuzzleInfo}}
+\index{MapOfPuzzleInfoWithPuzzleInfo@{MapOfPuzzleInfoWithPuzzleInfo}!machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}}
+\doxysubsubsection{\texorpdfstring{MapOfPuzzleInfoWithPuzzleInfo}{MapOfPuzzleInfoWithPuzzleInfo}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a9e0065bda9eeaa2247a32e89f326b9a8} 
+template$<$typename Puzzle $>$ \\
+using \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search}}$<$ Puzzle $>$\+::\+Map\+Of\+Puzzle\+Info\+With\+Puzzle\+Info}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::map<std::shared\_ptr<Info>,\ std::shared\_ptr<Info>,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comparison\_operator>}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_ae8c3627dd2c94f297eb0fbbcad4ad101}\index{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}!SetOfPuzzleInfo@{SetOfPuzzleInfo}}
+\index{SetOfPuzzleInfo@{SetOfPuzzleInfo}!machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}}
+\doxysubsubsection{\texorpdfstring{SetOfPuzzleInfo}{SetOfPuzzleInfo}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_ae8c3627dd2c94f297eb0fbbcad4ad101} 
+template$<$typename Puzzle $>$ \\
+using \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search}}$<$ Puzzle $>$\+::\+Set\+Of\+Puzzle\+Info}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::set<std::shared\_ptr<Info>,\ comparison\_operator>}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_abaff2ea6d309e1133fd95bbd1e39946e}\index{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}!AyStarSearch@{AyStarSearch}}
+\index{AyStarSearch@{AyStarSearch}!machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}}
+\doxysubsubsection{\texorpdfstring{AyStarSearch()}{AyStarSearch()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_abaff2ea6d309e1133fd95bbd1e39946e} 
+template$<$typename Puzzle $>$ \\
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search}}$<$ Puzzle $>$\+::\+Ay\+Star\+Search (\begin{DoxyParamCaption}\item[{const Puzzle \&}]{initial}{, }\item[{const Puzzle \&}]{final}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Parameterized constructor for \doxylink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{Ay\+Star\+Search}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial} & denoting initial state of the puzzle \\
+\hline
+{\em final} & denoting final state of the puzzle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ Initial\ =\ std::make\_shared<Info>(initial);}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ Final\ =\ std::make\_shared<Info>(\textcolor{keyword}{final});}
+\DoxyCodeLine{00395\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a48284e156fdd48fd0c41008c7e48f201}\index{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}!a\_star\_search@{a\_star\_search}}
+\index{a\_star\_search@{a\_star\_search}!machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}}
+\doxysubsubsection{\texorpdfstring{a\_star\_search()}{a\_star\_search()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a48284e156fdd48fd0c41008c7e48f201} 
+template$<$typename Puzzle $>$ \\
+std\+::vector$<$ Puzzle $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search}}$<$ Puzzle $>$\+::a\+\_\+star\+\_\+search (\begin{DoxyParamCaption}\item[{const std\+::function$<$ uint32\+\_\+t(const Puzzle \&, const Puzzle \&)$>$ \&}]{dist}{, }\item[{const uint32\+\_\+t}]{permissible\+\_\+depth}{ = {\ttfamily 30}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Main algorithm for finding {\ttfamily Final\+State}, given the {\ttfamily Initial\+State} 
+\begin{DoxyParams}{Parameters}
+{\em dist} & the heuristic finction, defined by the user \\
+\hline
+{\em permissible\+\_\+depth} & the depth at which the A\texorpdfstring{$\ast$}{*} search discards searching for solution \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of moves from Final state to initial state, if evaluated, else returns an empty array 
+\end{DoxyReturn}
+Stores the parent of the states
+
+Stores the g\+\_\+score
+
+Stores the list to explore
+
+Stores the list that are explored
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ MapOfPuzzleInfoWithPuzzleInfo}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ parent\_of;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///\ Stores\ the\ parent\ of\ the\ states}}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ MapOfPuzzleInfoWithInteger\ g\_score;\ \ \textcolor{comment}{///\ Stores\ the\ g\_score}}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ SetOfPuzzleInfo\ open\_list;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///\ Stores\ the\ list\ to\ explore}}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ SetOfPuzzleInfo\ closed\_list;\ \ \textcolor{comment}{///\ Stores\ the\ list\ that\ are\ explored}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Before\ starting\ the\ AyStartSearch,\ initialize\ the\ set\ and\ maps}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ open\_list.emplace(Initial);}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ parent\_of[Initial]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ g\_score[Initial]\ =\ 0;}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!open\_list.empty())\ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iterator\ for\ state\ having\ having\ lowest\ f\_score.}}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ SetOfPuzzleInfo::iterator\ it\_low\_f\_score;}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ min\_f\_score\ =\ 1e9;}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ iter\ =\ open\_list.begin();\ iter\ !=\ open\_list.end();}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++iter)\ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ f\ score\ here\ is\ evaluated\ by\ g\ score\ (depth)\ and\ h\ score}}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (distance\ between\ current\ state\ and\ final\ state)}}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ f\_score\ =\ (*iter)-\/>heuristic\_value\ +\ (*iter)-\/>depth;}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f\_score\ <\ min\_f\_score)\ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_f\_score\ =\ f\_score;}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it\_low\_f\_score\ =\ iter;}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ current\_state,\ stores\ lowest\ f\ score\ so\ far\ for\ this\ state.}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Info>\ current\_state\ =\ *it\_low\_f\_score;}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ this\ current\ state\ is\ equal\ to\ final,\ return}}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*(current\_state-\/>state)\ ==\ *(Final-\/>state))\ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a0a26aa9ad3d73707370d9fe83707aca4}{Solution}}(current\_state,\ parent\_of);}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ remove\ from\ open\ list\ as\ visited.}}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ open\_list.erase(it\_low\_f\_score);}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ current\_state\ has\ exceeded\ the\ allowed\ depth,\ skip}}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ neighbor\ checking}}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_state-\/>depth\ >=\ permissible\_depth)\ \{}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ all\ possible\ moves\ (neighbors)\ given\ the\ current}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ state}}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Puzzle>\ total\_possible\_moves\ =}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_state-\/>state-\/>generate\_possible\_moves();}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Puzzle\ \&neighbor\ :\ total\_possible\_moves)\ \{}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ calculate\ score\ of\ neighbors\ with\ respect\ to}}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ current\_state}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Info>\ Neighbor\ =\ std::make\_shared<Info>(}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neighbor,\ dist(neighbor,\ *(Final-\/>state)),}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_state-\/>depth\ +\ 1U);}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ temp\_g\_score\ =\ Neighbor-\/>depth;}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ whether\ this\ state\ is\ explored.}}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ this\ state\ is\ discovered\ at\ greater\ depth,\ then\ discard,}}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ remove\ from\ closed\ list\ and\ explore\ the\ node}}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ closed\_list\_iter\ =\ closed\_list.find(Neighbor);}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (closed\_list\_iter\ !=\ closed\_list.end())\ \{}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ If\ state\ in\ closed\ list\ has\ higher\ depth,\ then\ remove}}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ from\ list\ since\ we\ have\ found\ better\ option,}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ Else\ don't\ explore\ this\ state.}}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Neighbor-\/>depth\ <\ (*closed\_list\_iter)-\/>depth)\ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ closed\_list.erase(closed\_list\_iter);}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ neighbor\_g\_score\_iter\ =\ g\_score.find(Neighbor);}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ the\ neighbor\ is\ already\ created\ and\ has\ minimum}}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ g\_score,\ then\ update\ g\_score\ and\ f\_score\ else\ insert\ new}}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (neighbor\_g\_score\_iter\ !=\ g\_score.end())\ \{}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (neighbor\_g\_score\_iter-\/>second\ >\ temp\_g\_score)\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neighbor\_g\_score\_iter-\/>second\ =\ temp\_g\_score;}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent\_of[Neighbor]\ =\ current\_state;}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_score[Neighbor]\ =\ temp\_g\_score;}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent\_of[Neighbor]\ =\ current\_state;}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ this\ is\ a\ new\ state,\ insert\ into\ open\_list}}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ update\ if\ the\ this\ state\ has\ better\ g\ score\ than}}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ existing\ one.}}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ iter\ =\ open\_list.find(Neighbor);}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iter\ ==\ open\_list.end())\ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ open\_list.emplace(Neighbor);}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((*iter)-\/>depth\ >\ Neighbor-\/>depth)\ \{}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*iter)-\/>depth\ =\ Neighbor-\/>depth;}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ closed\_list.emplace(current\_state);}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cannot\ find\ the\ solution,\ return\ empty\ vector}}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::vector<Puzzle>(0);}
+\DoxyCodeLine{00525\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a0a26aa9ad3d73707370d9fe83707aca4}\index{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}!Solution@{Solution}}
+\index{Solution@{Solution}!machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$@{machine\_learning::aystar\_search::AyStarSearch$<$ Puzzle $>$}}
+\doxysubsubsection{\texorpdfstring{Solution()}{Solution()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_ay_star_search_a0a26aa9ad3d73707370d9fe83707aca4} 
+template$<$typename Puzzle $>$ \\
+std\+::vector$<$ Puzzle $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Ay\+Star\+Search}}$<$ Puzzle $>$\mbox{\hyperlink{class_solution}{\+::\+Solution}} (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structmachine__learning_1_1aystar__search_1_1_ay_star_search_1_1_info}{Info}} $>$}]{Final\+State}{, }\item[{const Map\+Of\+Puzzle\+Info\+With\+Puzzle\+Info \&}]{parent\+\_\+of}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A helper solution\+: launches when a solution for \doxylink{classmachine__learning_1_1aystar__search_1_1_ay_star_search}{Ay\+Star\+Search} is found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Final\+State} & the pointer to the obtained final state \\
+\hline
+{\em parent\+\_\+of} & the list of all parents of nodes stored during A\texorpdfstring{$\ast$}{*} search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the list of moves denoting moves from final state to initial state (in reverse) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Useful\ for\ traversing\ from\ final\ state\ to\ current\ state.}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ current\_state\ =\ FinalState;}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00411\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ For\ storing\ the\ solution\ tree\ starting\ from\ initial\ state\ to}}
+\DoxyCodeLine{00412\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ final\ state}}
+\DoxyCodeLine{00413\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ std::vector<Puzzle>\ answer;}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current\_state\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ answer.emplace\_back(*current\_state-\/>state);}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ current\_state\ =\ parent\_of.find(current\_state)-\/>second;}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ answer;}
+\DoxyCodeLine{00420\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+machine\+\_\+learning/a\+\_\+star\+\_\+search.\+cpp\end{DoxyCompactItemize}

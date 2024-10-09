@@ -1,0 +1,103 @@
+\doxysection{greedy\+\_\+algorithms/gale\+\_\+shapley.cpp File Reference}
+\hypertarget{gale__shapley_8cpp}{}\label{gale__shapley_8cpp}\index{greedy\_algorithms/gale\_shapley.cpp@{greedy\_algorithms/gale\_shapley.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Gale\%E2\%80\%93Shapley_algorithm}{\texttt{ Gale Shapley Algorithm}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms}{greedy\+\_\+algorithms}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching}{greedy\+\_\+algorithms\+::stable\+\_\+matching}}
+\begin{DoxyCompactList}\small\item\em Functions for the Gale-\/\+Shapley Algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::uint32\+\_\+t $>$ \mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c}{greedy\+\_\+algorithms\+::stable\+\_\+matching\+::gale\+\_\+shapley}} (const std\+::vector$<$ std\+::vector$<$ std\+::uint32\+\_\+t $>$ $>$ \&secondary\+\_\+preferences, const std\+::vector$<$ std\+::vector$<$ std\+::uint32\+\_\+t $>$ $>$ \&primary\+\_\+preferences)
+\begin{DoxyCompactList}\small\item\em The main function that finds the stable matching between two sets of elements using the Gale-\/\+Shapley Algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{gale__shapley_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gale__shapley_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Gale\%E2\%80\%93Shapley_algorithm}{\texttt{ Gale Shapley Algorithm}} 
+
+This implementation utilizes the Gale-\/\+Shapley algorithm to find stable matches.
+
+{\bfseries{Gale Shapley Algorithm}} aims to find a stable matching between two equally sized sets of elements given an ordinal preference for each element. The algorithm was introduced by David Gale and Lloyd Shapley in 1962.
+
+Reference\+: \href{https://en.wikipedia.org/wiki/Gale\%E2\%80\%93Shapley_algorithm}{\texttt{ Wikipedia}} \href{https://en.wikipedia.org/wiki/Stable_matching_problem}{\texttt{ Wikipedia}}
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/BKarthik7}{\texttt{ B Karthik}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gale__shapley_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{gale\_shapley.cpp@{gale\_shapley.cpp}!main@{main}}
+\index{main@{main}!gale\_shapley.cpp@{gale\_shapley.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{gale__shapley_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{gale__shapley_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \textcolor{comment}{//\ Run\ self-\/test\ implementations}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00129\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gale__shapley_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{gale\_shapley.cpp@{gale\_shapley.cpp}!tests@{tests}}
+\index{tests@{tests}!gale\_shapley.cpp@{gale\_shapley.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{gale__shapley_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ 1}}
+\DoxyCodeLine{00102\ \ \ \ \ std::vector<std::vector<std::uint32\_t>>\ primary\_preferences\ =\ \{\{0,\ 1,\ 2,\ 3\},\ \{2,\ 1,\ 3,\ 0\},\ \{1,\ 2,\ 0,\ 3\},\ \{3,\ 0,\ 1,\ 2\}\};}
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<std::vector<std::uint32\_t>>\ secondary\_preferences\ =\ \{\{1,\ 0,\ 2,\ 3\},\ \{3,\ 0,\ 1,\ 2\},\ \{0,\ 2,\ 1,\ 3\},\ \{1,\ 2,\ 0,\ 3\}\};}
+\DoxyCodeLine{00104\ \ \ \ \ assert(\mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c}{greedy\_algorithms::stable\_matching::gale\_shapley}}(secondary\_preferences,\ primary\_preferences)\ ==\ std::vector<std::uint32\_t>(\{0,\ 2,\ 1,\ 3\}));}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ 2}}
+\DoxyCodeLine{00107\ \ \ \ \ primary\_preferences\ =\ \{\{0,\ 2,\ 1,\ 3\},\ \{2,\ 3,\ 0,\ 1\},\ \{3,\ 1,\ 2,\ 0\},\ \{2,\ 1,\ 0,\ 3\}\};}
+\DoxyCodeLine{00108\ \ \ \ \ secondary\_preferences\ =\ \{\{1,\ 0,\ 2,\ 3\},\ \{3,\ 0,\ 1,\ 2\},\ \{0,\ 2,\ 1,\ 3\},\ \{1,\ 2,\ 0,\ 3\}\};}
+\DoxyCodeLine{00109\ \ \ \ \ assert(\mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c}{greedy\_algorithms::stable\_matching::gale\_shapley}}(secondary\_preferences,\ primary\_preferences)\ ==\ std::vector<std::uint32\_t>(\{0,\ 3,\ 1,\ 2\}));}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ 3}}
+\DoxyCodeLine{00112\ \ \ \ \ primary\_preferences\ =\ \{\{0,\ 1,\ 2\},\ \{2,\ 1,\ 0\},\ \{1,\ 2,\ 0\}\};}
+\DoxyCodeLine{00113\ \ \ \ \ secondary\_preferences\ =\ \{\{1,\ 0,\ 2\},\ \{2,\ 0,\ 1\},\ \{0,\ 2,\ 1\}\};}
+\DoxyCodeLine{00114\ \ \ \ \ assert(\mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c}{greedy\_algorithms::stable\_matching::gale\_shapley}}(secondary\_preferences,\ primary\_preferences)\ ==\ std::vector<std::uint32\_t>(\{0,\ 2,\ 1\}));}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ 4}}
+\DoxyCodeLine{00117\ \ \ \ \ primary\_preferences\ =\ \{\};}
+\DoxyCodeLine{00118\ \ \ \ \ secondary\_preferences\ =\ \{\};}
+\DoxyCodeLine{00119\ \ \ \ \ assert(\mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c}{greedy\_algorithms::stable\_matching::gale\_shapley}}(secondary\_preferences,\ primary\_preferences)\ ==\ std::vector<std::uint32\_t>(\{\}));}
+\DoxyCodeLine{00120\ \}}
+
+\end{DoxyCode}

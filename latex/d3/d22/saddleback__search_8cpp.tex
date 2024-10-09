@@ -1,0 +1,156 @@
+\doxysection{search/saddleback\+\_\+search.cpp File Reference}
+\hypertarget{saddleback__search_8cpp}{}\label{saddleback__search_8cpp}\index{search/saddleback\_search.cpp@{search/saddleback\_search.cpp}}
+
+
+Implementation of \href{https://www.geeksforgeeks.org/saddleback-search-algorithm-in-a-2d-array}{\texttt{ Saddleback Algorithm}} for 2D arrays.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesearch}{search}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacesaddleback}{saddleback}}
+\begin{DoxyCompactList}\small\item\em Function for implementing \href{https://www.geeksforgeeks.org/saddleback-search-algorithm-in-a-2d-array}{\texttt{ Saddleback Algorithm}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ uint32\+\_\+t, uint32\+\_\+t $>$ \mbox{\hyperlink{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6}{search\+::saddleback\+::saddleback}} (std\+::vector$<$ std\+::vector$<$ int32\+\_\+t $>$ $>$ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}, int32\+\_\+t element)
+\item 
+static void \mbox{\hyperlink{saddleback__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{saddleback__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://www.geeksforgeeks.org/saddleback-search-algorithm-in-a-2d-array}{\texttt{ Saddleback Algorithm}} for 2D arrays. 
+
+Saddleback Algorithm is an algorithm that searches 2D array in linear time, i.\+e, O(m + n), where m is number of rows and n is number of columns of 2D array. Also, each row and column of the matrix should be sorted beforehand for this algorithm to work.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/HashirGJ8842}{\texttt{ Hashir Niazi}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{saddleback__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{saddleback\_search.cpp@{saddleback\_search.cpp}!main@{main}}
+\index{main@{main}!saddleback\_search.cpp@{saddleback\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{saddleback__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{saddleback__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \ \ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6}\index{saddleback\_search.cpp@{saddleback\_search.cpp}!saddleback@{saddleback}}
+\index{saddleback@{saddleback}!saddleback\_search.cpp@{saddleback\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{saddleback()}{saddleback()}}
+{\footnotesize\ttfamily \label{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6} 
+std\+::pair$<$ uint32\+\_\+t, uint32\+\_\+t $>$ search\+::saddleback\+::saddleback (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int32\+\_\+t $>$ $>$}]{matrix}{, }\item[{int32\+\_\+t}]{element}{}\end{DoxyParamCaption})}
+
+This function implements \href{https://www.geeksforgeeks.org/saddleback-search-algorithm-in-a-2d-array}{\texttt{ Saddleback Algorithm}}, on a sorted 2D array, and finds the location of the element needed to search 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & 2D matrix which is sorted on the basis of rows and columns \\
+\hline
+{\em element} & element to be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An std\+::pair of with row and column populated within it, if the element is present. 
+
+An std\+::pair with (0, 0), if the element is not present. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ uint32\_t\ left\_index\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ uint32\_t\ right\_index\ =\ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}[0].size()\ -\/\ 1;\ \ \textcolor{comment}{//\ Start\ from\ top\ right\ corner}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{while}\ (left\_index\ <\ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}.size())\ \{\ \ \textcolor{comment}{//\ Exit\ once\ the\ value\ of\ indexes\ get\ out\ of\ range.}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (element\ ==}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}[left\_index]}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [right\_index])\ \{\ \ \textcolor{comment}{//\ If\ value\ on\ this\ position\ of\ matrix\ is}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ equal\ to\ element,\ return\ (row,\ column).}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(left\_index+1,\ right\_index+1);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (element\ >}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}[left\_index]}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [right\_index])\ \{\ \ \textcolor{comment}{//\ Else\ if\ value\ on\ this\ position\ of}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ matrix\ is\ less\ than\ the\ element,}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ move\ left.}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ ++left\_index;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (element\ <}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}[left\_index]}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [right\_index])\ \{\ \ \textcolor{comment}{//\ Else\ if\ value\ on\ this\ position\ of}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ matrix\ is\ greater\ than\ the}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ element,\ move\ down.}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!right\_index)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ -\/-\/right\_index;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ 0,\ 0);\ \ \textcolor{comment}{//\ If\ the\ program\ reaches\ here,\ that\ means\ one\ of\ the\ index}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ went\ out\ of\ index,\ hence\ no\ element\ present.}}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{saddleback__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{saddleback\_search.cpp@{saddleback\_search.cpp}!test@{test}}
+\index{test@{test}!saddleback\_search.cpp@{saddleback\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{saddleback__search_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ std::vector<std::vector<int32\_t>>\ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}\ =\ \{\{1,\ 10,\ 100,\ 1000,\ 10000\},}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{2,\ 20,\ 200,\ 2000,\ 20000\},}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ 30,\ 300,\ 3000,\ 30000\},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ 40,\ 400,\ 4000,\ 40000\},}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{5,\ 50,\ 500,\ 5000,\ 50000\}\};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ std::pair<uint32\_t,\ uint32\_t>\ not\_found\ =\ std::make\_pair(0,\ 0);}
+\DoxyCodeLine{00078\ \ \ \ \ std::pair<uint32\_t,\ uint32\_t>\ test\_answer;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00080\ \ \ \ \ std::pair<uint32\_t,\ uint32\_t>\ answer1\ =\ \mbox{\hyperlink{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6}{search::saddleback::saddleback}}(\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}},\ 123);}
+\DoxyCodeLine{00081\ \ \ \ \ assert(not\_found\ ==\ answer1);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Test\ 2}}
+\DoxyCodeLine{00083\ \ \ \ \ answer1\ =\ \mbox{\hyperlink{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6}{search::saddleback::saddleback}}(\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}},\ 0);}
+\DoxyCodeLine{00084\ \ \ \ \ assert(not\_found\ ==\ answer1);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Test\ 3}}
+\DoxyCodeLine{00086\ \ \ \ \ answer1\ =\ \mbox{\hyperlink{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6}{search::saddleback::saddleback}}(\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}},\ 1);}
+\DoxyCodeLine{00087\ \ \ \ \ test\_answer\ =\ std::make\_pair(1,\ 1);}
+\DoxyCodeLine{00088\ \ \ \ \ assert(test\_answer\ ==\ answer1);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ Test\ 4}}
+\DoxyCodeLine{00090\ \ \ \ \ answer1\ =\ \mbox{\hyperlink{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6}{search::saddleback::saddleback}}(\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}},\ 50000);}
+\DoxyCodeLine{00091\ \ \ \ \ test\_answer\ =\ std::make\_pair(5,\ 5);}
+\DoxyCodeLine{00092\ \ \ \ \ assert(test\_answer\ ==\ answer1);}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ Test\ 5}}
+\DoxyCodeLine{00094\ \ \ \ \ answer1\ =\ \mbox{\hyperlink{saddleback__search_8cpp_ad1e0ca34797d88490747c08eca70a2e6}{search::saddleback::saddleback}}(\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}},\ 300);}
+\DoxyCodeLine{00095\ \ \ \ \ test\_answer\ =\ std::make\_pair(3,\ 3);}
+\DoxyCodeLine{00096\ \ \ \ \ assert(test\_answer\ ==\ answer1);}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}

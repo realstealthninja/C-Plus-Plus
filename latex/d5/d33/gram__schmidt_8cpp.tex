@@ -1,0 +1,390 @@
+\doxysection{numerical\+\_\+methods/gram\+\_\+schmidt.cpp File Reference}
+\hypertarget{gram__schmidt_8cpp}{}\label{gram__schmidt_8cpp}\index{numerical\_methods/gram\_schmidt.cpp@{numerical\_methods/gram\_schmidt.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Gram\%E2\%80\%93Schmidt_process}{\texttt{ Gram Schmidt Orthogonalisation Process}}  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}math.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacenumerical__methods}{numerical\+\_\+methods}}
+\begin{DoxyCompactList}\small\item\em for assert \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacegram__schmidt}{gram\+\_\+schmidt}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Gram\%E2\%80\%93Schmidt_process}{\texttt{ Gram Schmidt Orthogonalisation Process}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{gram__schmidt_8cpp_ac4a4504924ecc9f12a2ebd80788ec01d}{numerical\+\_\+methods\+::gram\+\_\+schmidt\+::dot\+\_\+product}} (const std\+::array$<$ double, 10 $>$ \&x, const std\+::array$<$ double, 10 $>$ \&y, const int \&c)
+\item 
+double \mbox{\hyperlink{gram__schmidt_8cpp_a8eeaafdde8b56f459aadc6013cf078bc}{numerical\+\_\+methods\+::gram\+\_\+schmidt\+::projection}} (const std\+::array$<$ double, 10 $>$ \&x, const std\+::array$<$ double, 10 $>$ \&y, const int \&c)
+\item 
+void \mbox{\hyperlink{gram__schmidt_8cpp_ae6b496dce691e04f7f95ba0f0d33a289}{numerical\+\_\+methods\+::gram\+\_\+schmidt\+::display}} (const int \&r, const int \&c, const std\+::array$<$ std\+::array$<$ double, 10 $>$, 20 $>$ \&B)
+\item 
+void \mbox{\hyperlink{gram__schmidt_8cpp_a0837468e1a653ed056e2cce3c914afa5}{numerical\+\_\+methods\+::gram\+\_\+schmidt\+::gram\+\_\+schmidt}} (int r, const int \&c, const std\+::array$<$ std\+::array$<$ double, 10 $>$, 20 $>$ \&A, std\+::array$<$ std\+::array$<$ double, 10 $>$, 20 $>$ B)
+\item 
+static void \mbox{\hyperlink{gram__schmidt_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{gram__schmidt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Gram\%E2\%80\%93Schmidt_process}{\texttt{ Gram Schmidt Orthogonalisation Process}} 
+
+Takes the input of Linearly Independent Vectors, returns vectors orthogonal to each other.\hypertarget{gram__schmidt_8cpp_autotoc_md87}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{gram__schmidt_8cpp_autotoc_md87}
+Take the first vector of given LI vectors as first vector of Orthogonal vectors. Take projection of second input vector on the first vector of Orthogonal vector and subtract it from the 2nd LI vector. Take projection of third vector on the second vector of Othogonal vectors and subtract it from the 3rd LI vector. Keep repeating the above process until all the vectors in the given input array are exhausted.
+
+For Example\+: In R2, Input LI Vectors=\{(3,1),(2,2)\} then Orthogonal Vectors= \{(3, 1),(-\/0.\+4, 1.\+2)\}
+
+Have defined maximum dimension of vectors to be 10 and number of vectors taken is 20. Please do not give linearly dependent vectors
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Akanksha-Gupta920}{\texttt{ Akanksha Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gram__schmidt_8cpp_ae6b496dce691e04f7f95ba0f0d33a289}\index{gram\_schmidt.cpp@{gram\_schmidt.cpp}!display@{display}}
+\index{display@{display}!gram\_schmidt.cpp@{gram\_schmidt.cpp}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{gram__schmidt_8cpp_ae6b496dce691e04f7f95ba0f0d33a289} 
+void numerical\+\_\+methods\+::gram\+\_\+schmidt\+::display (\begin{DoxyParamCaption}\item[{const int \&}]{r}{, }\item[{const int \&}]{c}{, }\item[{const std\+::array$<$ std\+::array$<$ double, 10 $>$, 20 $>$ \&}]{B}{}\end{DoxyParamCaption})}
+
+Function to print the orthogonalised vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & number of vectors \\
+\hline
+{\em c} & dimenaion of vectors \\
+\hline
+{\em B} & stores orthogonalised vectors\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r;\ ++i)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vector\ "{}}\ <<\ i\ +\ 1\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ c;\ ++j)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ B[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gram__schmidt_8cpp_ac4a4504924ecc9f12a2ebd80788ec01d}\index{gram\_schmidt.cpp@{gram\_schmidt.cpp}!dot\_product@{dot\_product}}
+\index{dot\_product@{dot\_product}!gram\_schmidt.cpp@{gram\_schmidt.cpp}}
+\doxysubsubsection{\texorpdfstring{dot\_product()}{dot\_product()}}
+{\footnotesize\ttfamily \label{gram__schmidt_8cpp_ac4a4504924ecc9f12a2ebd80788ec01d} 
+double numerical\+\_\+methods\+::gram\+\_\+schmidt\+::dot\+\_\+product (\begin{DoxyParamCaption}\item[{const std\+::array$<$ double, 10 $>$ \&}]{x}{, }\item[{const std\+::array$<$ double, 10 $>$ \&}]{y}{, }\item[{const int \&}]{c}{}\end{DoxyParamCaption})}
+
+Dot product function. Takes 2 vectors along with their dimension as input and returns the dot product. 
+\begin{DoxyParams}{Parameters}
+{\em x} & vector 1 \\
+\hline
+{\em y} & vector 2 \\
+\hline
+{\em c} & dimension of the vectors\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sum 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ =\ 0;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ c;\ ++i)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ +=\ x[i]\ *\ y[i];}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}};}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gram__schmidt_8cpp_a0837468e1a653ed056e2cce3c914afa5}\index{gram\_schmidt.cpp@{gram\_schmidt.cpp}!gram\_schmidt@{gram\_schmidt}}
+\index{gram\_schmidt@{gram\_schmidt}!gram\_schmidt.cpp@{gram\_schmidt.cpp}}
+\doxysubsubsection{\texorpdfstring{gram\_schmidt()}{gram\_schmidt()}}
+{\footnotesize\ttfamily \label{gram__schmidt_8cpp_a0837468e1a653ed056e2cce3c914afa5} 
+void numerical\+\_\+methods\+::gram\+\_\+schmidt\+::gram\+\_\+schmidt (\begin{DoxyParamCaption}\item[{int}]{r}{, }\item[{const int \&}]{c}{, }\item[{const std\+::array$<$ std\+::array$<$ double, 10 $>$, 20 $>$ \&}]{A}{, }\item[{std\+::array$<$ std\+::array$<$ double, 10 $>$, 20 $>$}]{B}{}\end{DoxyParamCaption})}
+
+Function for the process of Gram Schimdt Process 
+\begin{DoxyParams}{Parameters}
+{\em r} & number of vectors \\
+\hline
+{\em c} & dimension of vectors \\
+\hline
+{\em A} & stores input of given LI vectors \\
+\hline
+{\em B} & stores orthogonalised vectors\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+we check whether appropriate dimensions are given or not.
+
+First vector is copied as it is.
+
+array to store projections
+
+First initialised to zero
+
+to store previous projected array
+
+to store the factor by which the previous array will change
+
+projected array created
+
+we take the projection with all the previous vector and add them.
+
+subtract total projection vector from the input vector
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ <\ r)\ \{\ \ \textcolor{comment}{///\ we\ check\ whether\ appropriate\ dimensions\ are\ given\ or\ not.}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Dimension\ of\ vector\ is\ less\ than\ number\ of\ vector,\ hence\ "{}}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n\ first\ "{}}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ c\ <<\ \textcolor{stringliteral}{"{}\ vectors\ are\ orthogonalised\(\backslash\)n"{}};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ r\ =\ c;}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ 1;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{while}\ (k\ <=\ r)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ 1)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ c;\ j++)}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ B[0][j]\ =\ A[0][j];\ \ \textcolor{comment}{///\ First\ vector\ is\ copied\ as\ it\ is.}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ std::array<double,\ 10>}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_projection\{\};\ \ \textcolor{comment}{///\ array\ to\ store\ projections}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ c;\ ++i)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_projection[i]\ =\ 0;\ \ \textcolor{comment}{///\ First\ initialised\ to\ zero}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ =\ 1;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <\ k)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<double,\ 10>}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\{\};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///\ to\ store\ previous\ projected\ array}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ factor\ =\ NAN;\ \ \textcolor{comment}{///\ to\ store\ the\ factor\ by\ which\ the}\textcolor{comment}{}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ previous\ array\ will\ change}}
+\DoxyCodeLine{00152\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ factor\ =\ \mbox{\hyperlink{gram__schmidt_8cpp_a8eeaafdde8b56f459aadc6013cf078bc}{projection}}(A[k\ -\/\ 1],\ B[l\ -\/\ 1],\ c);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ c;\ ++i)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[i]\ =\ B[\mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ -\/\ 1][i]\ *\ factor;\ \ \textcolor{comment}{///\ projected\ array\ created}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ c;\ ++j)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_projection[j]\ =}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_projection[j]\ +}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[j];\ \ \textcolor{comment}{///\ we\ take\ the\ projection\ with\ all\ the}\textcolor{comment}{}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ previous\ vector\ and\ add\ them.}}
+\DoxyCodeLine{00161\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}++;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ c;\ ++i)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ B[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ -\/\ 1][i]\ =}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ -\/\ 1][i]\ -\/}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_projection[i];\ \ \textcolor{comment}{///\ subtract\ total\ projection\ vector}\textcolor{comment}{}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ from\ the\ input\ vector}}
+\DoxyCodeLine{00169\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++;}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ display(r,\ c,\ B);\ \ \textcolor{comment}{//\ for\ displaying\ orthogoanlised\ vectors}}
+\DoxyCodeLine{00174\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gram__schmidt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{gram\_schmidt.cpp@{gram\_schmidt.cpp}!main@{main}}
+\index{main@{main}!gram\_schmidt.cpp@{gram\_schmidt.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{gram__schmidt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main Function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+a 2-\/D array for storing all vectors
+
+a 2-\/D array for storing orthogonalised vectors
+
+storing vectors in array A
+
+Input of vectors is taken
+
+To check whether vectors are orthogonal or not
+
+take make the process numerically stable, upper bound for the dot product take 0.\+1
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ 0,\ c\ =\ 0;}
+\DoxyCodeLine{00250\ \ \ \ \ \mbox{\hyperlink{gram__schmidt_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ perform\ self\ tests}}
+\DoxyCodeLine{00251\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ dimension\ of\ your\ vectors\(\backslash\)n"{}};}
+\DoxyCodeLine{00252\ \ \ \ \ std::cin\ >>\ c;}
+\DoxyCodeLine{00253\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ vectors\ you\ will\ enter\(\backslash\)n"{}};}
+\DoxyCodeLine{00254\ \ \ \ \ std::cin\ >>\ r;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ A\{\};\ \ \textcolor{comment}{///\ a\ 2-\/D\ array\ for\ storing\ all\ vectors}}
+\DoxyCodeLine{00258\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>\ B\ =\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \{0\}\};\ \ \textcolor{comment}{///\ a\ 2-\/D\ array\ for\ storing\ orthogonalised\ vectors}\textcolor{comment}{}}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ \ \ \ ///\ storing\ vectors\ in\ array\ A}}
+\DoxyCodeLine{00261\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r;\ ++i)\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ vector\ "{}}\ <<\ i\ +\ 1}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)n'};\ \ \textcolor{comment}{///\ Input\ of\ vectors\ is\ taken}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ c;\ ++j)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Value\ "{}}\ <<\ j\ +\ 1\ <<\ \textcolor{stringliteral}{"{}th\ of\ vector:\ "{}};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ A[i][j];}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \mbox{\hyperlink{gram__schmidt_8cpp_a0837468e1a653ed056e2cce3c914afa5}{numerical\_methods::gram\_schmidt::gram\_schmidt}}(r,\ c,\ A,\ B);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{double}\ dot\ =\ 0;}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{int}\ flag\ =\ 1;\ \ \textcolor{comment}{///\ To\ check\ whether\ vectors\ are\ orthogonal\ or\ \ not}}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r\ -\/\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ r;\ ++j)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ dot\ =\ fabs(}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numerical\_methods::gram\_schmidt::dot\_product(B[i],\ B[j],\ c));}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dot\ >\ 0.1)\ \ \textcolor{comment}{///\ take\ make\ the\ process\ numerically\ stable,\ upper}\textcolor{comment}{}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ bound\ for\ the\ dot\ product\ take\ 0.1}}
+\DoxyCodeLine{00281\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\ =\ 0;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{if}\ (flag\ ==\ 0)}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vectors\ are\ linearly\ dependent\(\backslash\)n"{}};}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00290\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gram__schmidt_8cpp_a8eeaafdde8b56f459aadc6013cf078bc}\index{gram\_schmidt.cpp@{gram\_schmidt.cpp}!projection@{projection}}
+\index{projection@{projection}!gram\_schmidt.cpp@{gram\_schmidt.cpp}}
+\doxysubsubsection{\texorpdfstring{projection()}{projection()}}
+{\footnotesize\ttfamily \label{gram__schmidt_8cpp_a8eeaafdde8b56f459aadc6013cf078bc} 
+double numerical\+\_\+methods\+::gram\+\_\+schmidt\+::projection (\begin{DoxyParamCaption}\item[{const std\+::array$<$ double, 10 $>$ \&}]{x}{, }\item[{const std\+::array$<$ double, 10 $>$ \&}]{y}{, }\item[{const int \&}]{c}{}\end{DoxyParamCaption})}
+
+Projection Function Takes input of 2 vectors along with their dimension and evaluates their projection in temp
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Vector 1 \\
+\hline
+{\em y} & Vector 2 \\
+\hline
+{\em c} & dimension of each vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+factor 
+\end{DoxyReturn}
+The dot product of two vectors is taken
+
+The norm of the second vector is taken.
+
+multiply that factor with every element in a 3rd vector, whose initial values are same as the 2nd vector.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{double}\ dot\ =}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gram__schmidt_8cpp_ac4a4504924ecc9f12a2ebd80788ec01d}{dot\_product}}(x,\ y,\ c);\ \ \textcolor{comment}{///\ The\ dot\ product\ of\ two\ vectors\ is\ taken}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{double}\ anorm\ =}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gram__schmidt_8cpp_ac4a4504924ecc9f12a2ebd80788ec01d}{dot\_product}}(y,\ y,\ c);\ \ \textcolor{comment}{///\ The\ norm\ of\ the\ second\ vector\ is\ taken.}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{double}\ factor\ =}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ dot\ /}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ anorm;\ \ \textcolor{comment}{///\ multiply\ that\ factor\ with\ every\ element\ in\ a\ 3rd\ vector,}\textcolor{comment}{}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ whose\ initial\ values\ are\ same\ as\ the\ 2nd\ vector.}}
+\DoxyCodeLine{00089\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{return}\ factor;}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gram__schmidt_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{gram\_schmidt.cpp@{gram\_schmidt.cpp}!test@{test}}
+\index{test@{test}!gram\_schmidt.cpp@{gram\_schmidt.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{gram__schmidt_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test Function. Process has been tested for 3 Sample Inputs \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>\ a1\ =\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \{\{1,\ 0,\ 1,\ 0\},\ \{1,\ 1,\ 1,\ 1\},\ \{0,\ 1,\ 2,\ 1\}\}\};}
+\DoxyCodeLine{00184\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>\ b1\ =\ \{\{0\}\};}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{double}\ dot1\ =\ 0;}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{gram__schmidt_8cpp_a0837468e1a653ed056e2cce3c914afa5}{numerical\_methods::gram\_schmidt::gram\_schmidt}}(3,\ 4,\ a1,\ b1);}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ flag\ =\ 1;}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ ++i)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ 3;\ ++j)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ dot1\ =\ fabs(}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numerical\_methods::gram\_schmidt::dot\_product(b1[i],\ b1[j],\ 4));}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dot1\ >\ 0.1)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\ =\ 0;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{if}\ (flag\ ==\ 0)}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vectors\ are\ linearly\ dependent\(\backslash\)n"{}};}
+\DoxyCodeLine{00200\ \ \ \ \ assert(flag\ ==\ 1);}
+\DoxyCodeLine{00201\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ Case\ 1\(\backslash\)n\ "{}};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>\ a2\ =\ \{\{\{3,\ 1\},\ \{2,\ 2\}\}\};}
+\DoxyCodeLine{00204\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>\ b2\ =\ \{\{0\}\};}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{double}\ dot2\ =\ 0;}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{gram__schmidt_8cpp_a0837468e1a653ed056e2cce3c914afa5}{numerical\_methods::gram\_schmidt::gram\_schmidt}}(2,\ 2,\ a2,\ b2);}
+\DoxyCodeLine{00207\ \ \ \ \ flag\ =\ 1;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ 2;\ ++j)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ dot2\ =\ fabs(}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numerical\_methods::gram\_schmidt::dot\_product(b2[i],\ b2[j],\ 2));}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dot2\ >\ 0.1)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\ =\ 0;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{if}\ (flag\ ==\ 0)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vectors\ are\ linearly\ dependent\(\backslash\)n"{}};}
+\DoxyCodeLine{00220\ \ \ \ \ assert(flag\ ==\ 1);}
+\DoxyCodeLine{00221\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ Case\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>\ a3\ =\ \{\{\{1,\ 2,\ 2\},\ \{-\/4,\ 3,\ 2\}\}\};}
+\DoxyCodeLine{00224\ \ \ \ \ std::array<std::array<double,\ 10>,\ 20>\ b3\ =\ \{\{0\}\};}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{double}\ dot3\ =\ 0;}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{gram__schmidt_8cpp_a0837468e1a653ed056e2cce3c914afa5}{numerical\_methods::gram\_schmidt::gram\_schmidt}}(2,\ 3,\ a3,\ b3);}
+\DoxyCodeLine{00227\ \ \ \ \ flag\ =\ 1;}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ 2;\ ++j)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ dot3\ =\ fabs(}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numerical\_methods::gram\_schmidt::dot\_product(b3[i],\ b3[j],\ 3));}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dot3\ >\ 0.1)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\ =\ 0;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordflow}{if}\ (flag\ ==\ 0)}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vectors\ are\ linearly\ dependent\(\backslash\)n"{}};}
+\DoxyCodeLine{00240\ \ \ \ \ assert(flag\ ==\ 1);}
+\DoxyCodeLine{00241\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ Case\ 3\(\backslash\)n"{}};}
+\DoxyCodeLine{00242\ \}}
+
+\end{DoxyCode}

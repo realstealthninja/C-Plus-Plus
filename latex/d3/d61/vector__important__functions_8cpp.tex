@@ -1,0 +1,67 @@
+\doxysection{others/vector\+\_\+important\+\_\+functions.cpp File Reference}
+\hypertarget{vector__important__functions_8cpp}{}\label{vector__important__functions_8cpp}\index{others/vector\_important\_functions.cpp@{others/vector\_important\_functions.cpp}}
+
+
+A C++ program to demonstrate working of std\+::sort(), std\+::reverse()  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{vector__important__functions_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A C++ program to demonstrate working of std\+::sort(), std\+::reverse() 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{vector__important__functions_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{vector\_important\_functions.cpp@{vector\_important\_functions.cpp}!main@{main}}
+\index{main@{main}!vector\_important\_functions.cpp@{vector\_important\_functions.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{vector__important__functions_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Initializing\ vector\ with\ array\ values}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ arr[]\ =\ \{10,\ 20,\ 5,\ 23,\ 42,\ 15\};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \textcolor{keyword}{sizeof}(arr)\ /\ \textcolor{keyword}{sizeof}(arr[0]);}
+\DoxyCodeLine{00015\ \ \ \ \ std::vector<int>\ vect(arr,\ arr\ +\ n);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vector\ is:\ "{}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ std::cout\ <<\ vect[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Sorting\ the\ Vector\ in\ Ascending\ order}}
+\DoxyCodeLine{00021\ \ \ \ \ std::sort(vect.begin(),\ vect.end());}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nVector\ after\ sorting\ is:\ "{}};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ std::cout\ <<\ vect[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Reversing\ the\ Vector}}
+\DoxyCodeLine{00027\ \ \ \ \ std::reverse(vect.begin(),\ vect.end());}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nVector\ after\ reversing\ is:\ "{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 6;\ i++)\ std::cout\ <<\ vect[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nMaximum\ element\ of\ vector\ is:\ "{}};}
+\DoxyCodeLine{00033\ \ \ \ \ std::cout\ <<\ *max\_element(vect.begin(),\ vect.end());}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nMinimum\ element\ of\ vector\ is:\ "{}};}
+\DoxyCodeLine{00036\ \ \ \ \ std::cout\ <<\ *min\_element(vect.begin(),\ vect.end());}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Starting\ the\ summation\ from\ 0}}
+\DoxyCodeLine{00039\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nThe\ summation\ of\ vector\ elements\ is:\ "{}};}
+\DoxyCodeLine{00040\ \ \ \ \ std::cout\ <<\ accumulate(vect.begin(),\ vect.end(),\ 0);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}

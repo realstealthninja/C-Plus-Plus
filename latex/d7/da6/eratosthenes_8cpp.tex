@@ -1,0 +1,130 @@
+\doxysection{math/eratosthenes.cpp File Reference}
+\hypertarget{eratosthenes_8cpp}{}\label{eratosthenes_8cpp}\index{math/eratosthenes.cpp@{math/eratosthenes.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}{\texttt{ The Sieve of Eratosthenes}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacemath_a91366864111e1fac29722ca45e02ea8f}{math\+::sieve}} (std\+::vector$<$ bool $>$ \texorpdfstring{$\ast$}{*}vec)
+\begin{DoxyCompactList}\small\item\em Performs the sieve. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemath_ad09d59850865012a6fd95d89954c82e4}{math\+::print\+\_\+primes}} (std\+::vector$<$ bool $>$ const \&\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}})
+\begin{DoxyCompactList}\small\item\em Prints all the indexes of true values in the passed std\+::vector. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{eratosthenes_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/tests the sieve function for major inconsistencies. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{eratosthenes_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}{\texttt{ The Sieve of Eratosthenes}} 
+
+Store an array of booleans where a true value indicates that it\textquotesingle{}s index is prime. For all the values in the array starting from 2 which we know is prime, we walk the array in multiples of the current outer value setting them to not prime. If we remove all multiples of a value as we see it, we\textquotesingle{}ll be left with just primes.
+
+Pass "{}print"{} as a command line arg to see the generated list of primes \begin{DoxyAuthor}{Author}
+\href{https://github.com/thechubbypanda}{\texttt{ Keval Kapdee}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{eratosthenes_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{eratosthenes.cpp@{eratosthenes.cpp}!main@{main}}
+\index{main@{main}!eratosthenes.cpp@{eratosthenes.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{eratosthenes_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count \\
+\hline
+{\em argv} & commandline array of arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{eratosthenes_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ The\ largest\ prime\ we\ will\ check\ for}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{auto}\ max\ =\ 10000;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ Store\ a\ boolean\ for\ every\ number\ which\ states\ if\ that\ index\ is\ prime\ or}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ not}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}\ =\ std::vector<bool>(max,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Store\ the\ algorithm\ start\ time}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ Run\ the\ sieve}}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{namespacemath_a91366864111e1fac29722ca45e02ea8f}{math::sieve}}(\&\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}});}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ Time\ difference\ calculation}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{auto}\ time\ =\ std::chrono::duration\_cast<}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration<double,\ std::ratio<1>>>(}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::high\_resolution\_clock::now()\ -\/\ start)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .count();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ Print\ the\ primes\ if\ we\ see\ that\ "{}print"{}\ was\ passed\ as\ an\ arg}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >\ 1\ \&\&\ argv[1]\ ==\ std::string(\textcolor{stringliteral}{"{}print"{}}))\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_ad09d59850865012a6fd95d89954c82e4}{math::print\_primes}}(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}});}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Print\ the\ time\ taken\ we\ found\ earlier}}
+\DoxyCodeLine{00115\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}\ <<\ time\ <<\ \textcolor{stringliteral}{"{}\ seconds"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00118\ \}}
+
+\end{DoxyCode}
+\Hypertarget{eratosthenes_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{eratosthenes.cpp@{eratosthenes.cpp}!test@{test}}
+\index{test@{test}!eratosthenes.cpp@{eratosthenes.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{eratosthenes_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/tests the sieve function for major inconsistencies. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}\ =\ std::vector<bool>(10,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{namespacemath_a91366864111e1fac29722ca45e02ea8f}{math::sieve}}(\&\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}});}
+\DoxyCodeLine{00067\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[0]\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00068\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[1]\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00069\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[2]\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00070\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[3]\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00071\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[4]\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00072\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[5]\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00073\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[6]\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00074\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[7]\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00075\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[8]\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00076\ \ \ \ \ assert(\mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}[9]\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}

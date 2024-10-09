@@ -1,0 +1,144 @@
+\doxysection{math/power\+\_\+for\+\_\+huge\+\_\+numbers.cpp File Reference}
+\hypertarget{power__for__huge__numbers_8cpp}{}\label{power__for__huge__numbers_8cpp}\index{math/power\_for\_huge\_numbers.cpp@{math/power\_for\_huge\_numbers.cpp}}
+
+
+Compute powers of large numbers.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{power__for__huge__numbers_8cpp_a392fb874e547e582e9c66a08a1f23326}{MAX}}~100000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}} (int x, int res\mbox{[}$\,$\mbox{]}, int res\+\_\+size)
+\item 
+void \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}} (int x, int n)
+\item 
+int \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute powers of large numbers. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{power__for__huge__numbers_8cpp_a392fb874e547e582e9c66a08a1f23326}\index{power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}!MAX@{MAX}}
+\index{MAX@{MAX}!power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX}{MAX}}
+{\footnotesize\ttfamily \label{power__for__huge__numbers_8cpp_a392fb874e547e582e9c66a08a1f23326} 
+\#define MAX~100000}
+
+Maximum number of digits in output $x^n$ where $1 <= x,\; n <= 10000$ and overflow may happen 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{power__for__huge__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}!main@{main}}
+\index{main@{main}!power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{power__for__huge__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ exponent,\ base;}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ base\ "{}};}
+\DoxyCodeLine{00085\ \ \ \ \ std::cin\ >>\ base;}
+\DoxyCodeLine{00086\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ exponent\ "{}};}
+\DoxyCodeLine{00087\ \ \ \ \ std::cin\ >>\ exponent;}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}}(base,\ exponent);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\Hypertarget{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}\index{power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}!multiply@{multiply}}
+\index{multiply@{multiply}!power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
+{\footnotesize\ttfamily \label{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9} 
+int multiply (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{res}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{res\+\_\+size}{}\end{DoxyParamCaption})}
+
+This function multiplies x with the number represented by res\mbox{[}\mbox{]}. res\+\_\+size is size of res\mbox{[}\mbox{]} or number of digits in the number represented by res\mbox{[}\mbox{]}. This function uses simple school mathematics for multiplication. This function may value of res\+\_\+size and returns the new value of res\+\_\+size 
+\begin{DoxyParams}{Parameters}
+{\em x} & multiplicand \\
+\hline
+{\em res} & large number representation using array \\
+\hline
+{\em res\+\_\+size} & number of digits in {\ttfamily res} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Initialize\ carry}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ carry\ =\ 0;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ One\ by\ one\ multiply\ n\ with}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ individual\ digits\ of\ res[]}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ res\_size;\ i++)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ prod\ =\ res[i]\ *\ x\ +\ carry;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ last\ digit\ of}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 'prod'\ in\ res[]}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ res[i]\ =\ prod\ \%\ 10;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Put\ rest\ in\ carry}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ carry\ =\ prod\ /\ 10;}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Put\ carry\ in\ res\ and}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ increase\ result\ size}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{while}\ (carry)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ res[res\_size]\ =\ carry\ \%\ 10;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ carry\ =\ carry\ /\ 10;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ res\_size++;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ res\_size;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}\index{power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}!power@{power}}
+\index{power@{power}!power\_for\_huge\_numbers.cpp@{power\_for\_huge\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily \label{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f} 
+void power (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+This function finds power of a number x and print $x^n$ 
+\begin{DoxyParams}{Parameters}
+{\em x} & base \\
+\hline
+{\em n} & exponent \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ printing\ value\ "{}1"{}\ for\ power\ =\ 0}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ res[\mbox{\hyperlink{power__for__huge__numbers_8cpp_a392fb874e547e582e9c66a08a1f23326}{MAX}}];}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ res\_size\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ x;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Initialize\ result}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ 0)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ res[res\_size++]\ =\ temp\ \%\ 10;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ temp\ =\ temp\ /\ 10;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Multiply\ x\ n\ times}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ (x\string^n\ =\ x*x*x....n\ times)}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <=\ n;\ i++)\ res\_size\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}}(x,\ res,\ res\_size);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\string^"{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ =\ "{}};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ res\_size\ -\/\ 1;\ i\ >=\ 0;\ i-\/-\/)\ std::cout\ <<\ res[i];}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}

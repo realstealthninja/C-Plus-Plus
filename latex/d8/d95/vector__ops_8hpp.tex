@@ -1,0 +1,73 @@
+\doxysection{machine\+\_\+learning/vector\+\_\+ops.hpp File Reference}
+\hypertarget{vector__ops_8hpp}{}\label{vector__ops_8hpp}\index{machine\_learning/vector\_ops.hpp@{machine\_learning/vector\_ops.hpp}}
+
+
+Various functions for vectors associated with \mbox{[}Neural\+Network (aka Multilayer Perceptron)\mbox{]} (\href{https://en.wikipedia.org/wiki/Multilayer_perceptron}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Multilayer\+\_\+perceptron}}).  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemachine__learning}{machine\+\_\+learning}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacemachine__learning_a84260cb1be9b63d6e38107000ac4b7e7}{machine\+\_\+learning\+::operator$<$$<$}} (std\+::ostream \&out, std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ const \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacemachine__learning_af4986b23760039711848155739c31b35}{machine\+\_\+learning\+::operator$<$$<$}} (std\+::ostream \&out, const std\+::pair$<$ T, T $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacemachine__learning_a54bf1f3c43271a5fc93101f6ae2e6269}{machine\+\_\+learning\+::operator$<$$<$}} (std\+::ostream \&out, const std\+::valarray$<$ T $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::valarray$<$ T $>$ \mbox{\hyperlink{namespacemachine__learning_a496302e3371aa7b478cb7d5917904bdd}{machine\+\_\+learning\+::insert\+\_\+element}} (const std\+::valarray$<$ T $>$ \&A, const T \&ele)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::valarray$<$ T $>$ \mbox{\hyperlink{namespacemachine__learning_a912cf68863063a38d6e63545be5eb093}{machine\+\_\+learning\+::pop\+\_\+front}} (const std\+::valarray$<$ T $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::valarray$<$ T $>$ \mbox{\hyperlink{namespacemachine__learning_ae10178b082f0205c326550877d998e5d}{machine\+\_\+learning\+::pop\+\_\+back}} (const std\+::valarray$<$ T $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacemachine__learning_af801bf30591ca6b2c38ff4fed0ded23f}{machine\+\_\+learning\+::equal\+\_\+shuffle}} (std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ $>$ \&A, std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ $>$ \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacemachine__learning_abee7b35403af3612222d3b7a53074905}{machine\+\_\+learning\+::uniform\+\_\+random\+\_\+initialization}} (std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ \&shape, const T \&low, const T \&high)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacemachine__learning_a8dd3f1ffbc2f26a3c88da1b1f8b7e9c4}{machine\+\_\+learning\+::unit\+\_\+matrix\+\_\+initialization}} (std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ \&shape)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacemachine__learning_ac1bdaa2a724b4ce6a6bb371a5dbe2e7e}{machine\+\_\+learning\+::zeroes\+\_\+initialization}} (std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ \&shape)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{machine\+\_\+learning\+::sum}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{machine\+\_\+learning\+::get\+\_\+shape}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_ac332d152078e96311e43ac5e7183ea26}{machine\+\_\+learning\+::minmax\+\_\+scaler}} (const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ $>$ \&A, const T \&low, const T \&high)
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{machine\+\_\+learning\+::argmax}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_ad0bdc88e5f1be47c46c0f0c8ebf754bb}{machine\+\_\+learning\+::apply\+\_\+function}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, T(\texorpdfstring{$\ast$}{*}func)(const T \&))
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_a16f34574b7e0dd51bc3b3fda37446695}{machine\+\_\+learning\+::operator\texorpdfstring{$\ast$}{*}}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const T \&val)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_ae6ec42318d172b97fbdf45638d09d7b5}{machine\+\_\+learning\+::operator/}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const T \&val)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_a89fde571b38f9483576594f66572958a}{machine\+\_\+learning\+::transpose}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_a2466857dab977a49f117029835b3b6d2}{machine\+\_\+learning\+::operator+}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_a0cc29566568e0383dd7d374068cbe6b3}{machine\+\_\+learning\+::operator-\/}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_a5342906d42b80fc6b6b3ad17bf00fcb9}{machine\+\_\+learning\+::multiply}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \mbox{\hyperlink{namespacemachine__learning_acafa3e62b686aebdbad81c4f89913f43}{machine\+\_\+learning\+::hadamard\+\_\+product}} (const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&A, const std\+::vector$<$ std\+::valarray$<$ T $>$ $>$ \&B)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Various functions for vectors associated with \mbox{[}Neural\+Network (aka Multilayer Perceptron)\mbox{]} (\href{https://en.wikipedia.org/wiki/Multilayer_perceptron}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Multilayer\+\_\+perceptron}}). 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/imdeep2905}{\texttt{ Deep Raval}}
+\end{DoxyAuthor}

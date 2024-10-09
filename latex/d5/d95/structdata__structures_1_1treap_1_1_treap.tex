@@ -1,0 +1,535 @@
+\doxysection{data\+\_\+structures\+::treap\+::Treap Struct Reference}
+\hypertarget{structdata__structures_1_1treap_1_1_treap}{}\label{structdata__structures_1_1treap_1_1_treap}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+
+
+Struct representation of the treap.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5d200493aeaa02a269f6b6deda39a683}{Treap}} ()
+\begin{DoxyCompactList}\small\item\em Initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aae9facaede462ad924856c4d707646d7}{update}} (int x)
+\begin{DoxyCompactList}\small\item\em Update the subtree size of the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a75a48584a6560de20484fbba6229fd29}{rotate}} (int \&x, int t)
+\begin{DoxyCompactList}\small\item\em Rotate without breaking the property of BST. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a6a023a4f0c42fb8ed5b3368fba1a5f2c}{\+\_\+insert}} (int \&x, int k)
+\begin{DoxyCompactList}\small\item\em Insert a value into the specified subtree (internal method) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aeb4bb0db68c7c04ef9498c88c3777887}{\+\_\+erase}} (int \&x, int k)
+\begin{DoxyCompactList}\small\item\em Erase a value from the specified subtree (internal method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ad08520c0617eb8dcfcbfa90d258aa6b2}{\+\_\+get\+\_\+k\+\_\+th}} (int \&x, int k)
+\begin{DoxyCompactList}\small\item\em Find the KTH largest value (internal method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a9a77d22f97add119123108211c6655ec}{\+\_\+get\+\_\+rank}} (int x, int k)
+\begin{DoxyCompactList}\small\item\em Query the rank of specified element (internal method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab8b9899f22070cfa01db5bf874296126}{get\+\_\+predecessor}} (int k)
+\begin{DoxyCompactList}\small\item\em Get the predecessor node of element k. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a767b28f9911fc32b8462862be058a4a4}{get\+\_\+next}} (int k)
+\begin{DoxyCompactList}\small\item\em Get the successor node of element k. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}} (int k)
+\begin{DoxyCompactList}\small\item\em Insert element (External method) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a9ea2becd904e2e7d22f23a001b444469}{erase}} (int k)
+\begin{DoxyCompactList}\small\item\em Erase element (External method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab2db3ad3aecc240011e0c8b8604d2c69}{get\+\_\+k\+\_\+th}} (int k)
+\begin{DoxyCompactList}\small\item\em Get the KTH largest value (External method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ac94e9d69305940f6d8804031455af039}{get\+\_\+rank}} (int k)
+\begin{DoxyCompactList}\small\item\em Get the rank of specified element (External method) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c}\label{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c} 
+int {\bfseries root} = 0
+\begin{DoxyCompactList}\small\item\em root of the treap \end{DoxyCompactList}\item 
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a1ab082fe0aa95a238bbbc68ab6a72425}\label{structdata__structures_1_1treap_1_1_treap_a1ab082fe0aa95a238bbbc68ab6a72425} 
+int {\bfseries treap\+Cnt} = 0
+\begin{DoxyCompactList}\small\item\em Total number of current nodes in the treap. \end{DoxyCompactList}\item 
+std\+::array$<$ int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}} $>$ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}} = \{\}
+\begin{DoxyCompactList}\small\item\em \doxylink{structdata__structures_1_1_node}{Node} identifier. \end{DoxyCompactList}\item 
+std\+::array$<$ int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}} $>$ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}{priority}} = \{\}
+\begin{DoxyCompactList}\small\item\em Random priority. \end{DoxyCompactList}\item 
+std\+::array$<$ std\+::array$<$ int, 2 $>$, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}} $>$ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}
+\item 
+std\+::array$<$ int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}} $>$ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}
+\begin{DoxyCompactList}\small\item\em Maintains the subtree size for ranking query. \end{DoxyCompactList}\item 
+std\+::array$<$ int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}} $>$ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}} = \{\}
+\begin{DoxyCompactList}\small\item\em The number of copies per node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct representation of the treap. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a5d200493aeaa02a269f6b6deda39a683}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!Treap@{Treap}}
+\index{Treap@{Treap}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{Treap()}{Treap()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a5d200493aeaa02a269f6b6deda39a683} 
+data\+\_\+structures\+::treap\+::\+Treap\+::\+Treap (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialization. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a1ab082fe0aa95a238bbbc68ab6a72425}{treapCnt}}(1)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}{priority}}[0]\ =\ INT32\_MAX;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[0]\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_aeb4bb0db68c7c04ef9498c88c3777887}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!\_erase@{\_erase}}
+\index{\_erase@{\_erase}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{\_erase()}{\_erase()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_aeb4bb0db68c7c04ef9498c88c3777887} 
+void data\+\_\+structures\+::treap\+::\+Treap\+::\+\_\+erase (\begin{DoxyParamCaption}\item[{int \&}]{x}{, }\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Erase a value from the specified subtree (internal method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Erase from the subtree of node x (Usually x=root) \\
+\hline
+{\em k} & Key to erase \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x]\ ==\ k)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}[x]\ >\ 1)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}[x]-\/-\/;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \textcolor{comment}{//\ If\ the\ node\ has\ more\ than\ one\ copy,\ the\ number\ of\ copies\ -\/-\/}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]\ ==\ 0\ \&\&\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1]\ ==\ 0)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \textcolor{comment}{//\ If\ there\ are\ no\ children,\ delete\ and\ return}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Otherwise,\ we\ need\ to\ rotate\ the\ sons\ and\ delete\ them}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recursively}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ t\ =\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}{priority}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]]\ >\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}{priority}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1]]);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a75a48584a6560de20484fbba6229fd29}{rotate}}(x,\ t);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aeb4bb0db68c7c04ef9498c88c3777887}{\_erase}}(x,\ k);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \textcolor{comment}{//\ Find\ the\ target\ value\ based\ on\ BST\ properties}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aeb4bb0db68c7c04ef9498c88c3777887}{\_erase}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x]\ <\ k],\ k);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aae9facaede462ad924856c4d707646d7}{update}}(x);}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_ad08520c0617eb8dcfcbfa90d258aa6b2}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!\_get\_k\_th@{\_get\_k\_th}}
+\index{\_get\_k\_th@{\_get\_k\_th}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{\_get\_k\_th()}{\_get\_k\_th()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_ad08520c0617eb8dcfcbfa90d258aa6b2} 
+int data\+\_\+structures\+::treap\+::\+Treap\+::\+\_\+get\+\_\+k\+\_\+th (\begin{DoxyParamCaption}\item[{int \&}]{x}{, }\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find the KTH largest value (internal method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Query the subtree of node x (Usually x=root) \\
+\hline
+{\em k} & The queried rank \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element ranked number k 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <=\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]])\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ad08520c0617eb8dcfcbfa90d258aa6b2}{\_get\_k\_th}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0],\ k);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ -\/=\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]]\ +\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}[x];}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <=\ 0)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x];}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ad08520c0617eb8dcfcbfa90d258aa6b2}{\_get\_k\_th}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1],\ k);}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a9a77d22f97add119123108211c6655ec}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!\_get\_rank@{\_get\_rank}}
+\index{\_get\_rank@{\_get\_rank}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{\_get\_rank()}{\_get\_rank()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a9a77d22f97add119123108211c6655ec} 
+int data\+\_\+structures\+::treap\+::\+Treap\+::\+\_\+get\+\_\+rank (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Query the rank of specified element (internal method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Query the subtree of node x (Usually x=root) \\
+\hline
+{\em k} & The queried element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rank of element k 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!x)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x])\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]]\ +\ 1;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (k\ <\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x])\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a9a77d22f97add119123108211c6655ec}{\_get\_rank}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0],\ k);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]]\ +\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}[x]\ +\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a9a77d22f97add119123108211c6655ec}{\_get\_rank}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1],\ k);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a6a023a4f0c42fb8ed5b3368fba1a5f2c}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!\_insert@{\_insert}}
+\index{\_insert@{\_insert}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{\_insert()}{\_insert()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a6a023a4f0c42fb8ed5b3368fba1a5f2c} 
+void data\+\_\+structures\+::treap\+::\+Treap\+::\+\_\+insert (\begin{DoxyParamCaption}\item[{int \&}]{x}{, }\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert a value into the specified subtree (internal method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Insert into the subtree of node x (Usually x=root) \\
+\hline
+{\em k} & Key to insert \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x]\ ==\ k)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}[x]++;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \textcolor{comment}{//\ If\ the\ node\ already\ exists,\ the\ number\ of\ copies\ is\ ++}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ t\ =\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x]\ <\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}});\ \ \textcolor{comment}{//\ Insert\ according\ to\ BST\ properties}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a6a023a4f0c42fb8ed5b3368fba1a5f2c}{\_insert}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][t],\ k);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ After\ insertion,\ the\ heap\ properties\ are\ retained\ by\ rotation}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}{priority}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][t]]\ <\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}{priority}}[x])\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a75a48584a6560de20484fbba6229fd29}{rotate}}(x,\ t);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \textcolor{comment}{//\ Create\ a\ new\ node}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a1ab082fe0aa95a238bbbc68ab6a72425}{treapCnt}}++;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x]\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}[x]\ =\ 1;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}{priority}}[x]\ =\ rand();\ \ \textcolor{comment}{//\ Random\ priority}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1]\ =\ 0;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aae9facaede462ad924856c4d707646d7}{update}}(x);}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a9ea2becd904e2e7d22f23a001b444469}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!erase@{erase}}
+\index{erase@{erase}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a9ea2becd904e2e7d22f23a001b444469} 
+void data\+\_\+structures\+::treap\+::\+Treap\+::erase (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Erase element (External method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & Key to erase \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00209\ \{\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aeb4bb0db68c7c04ef9498c88c3777887}{\_erase}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c}{root}},\ k);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_ab2db3ad3aecc240011e0c8b8604d2c69}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!get\_k\_th@{get\_k\_th}}
+\index{get\_k\_th@{get\_k\_th}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{get\_k\_th()}{get\_k\_th()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_ab2db3ad3aecc240011e0c8b8604d2c69} 
+int data\+\_\+structures\+::treap\+::\+Treap\+::get\+\_\+k\+\_\+th (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the KTH largest value (External method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The queried rank \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element ranked number x 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00215\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ad08520c0617eb8dcfcbfa90d258aa6b2}{\_get\_k\_th}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c}{root}},\ k);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a767b28f9911fc32b8462862be058a4a4}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!get\_next@{get\_next}}
+\index{get\_next@{get\_next}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{get\_next()}{get\_next()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a767b28f9911fc32b8462862be058a4a4} 
+int data\+\_\+structures\+::treap\+::\+Treap\+::get\+\_\+next (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the successor node of element k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The queried element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The successor 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c}{root}},\ next\ =\ -\/1;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (x)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x]\ >\ k)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x],\ x\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0];}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1];}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ next;}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_ab8b9899f22070cfa01db5bf874296126}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!get\_predecessor@{get\_predecessor}}
+\index{get\_predecessor@{get\_predecessor}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{get\_predecessor()}{get\_predecessor()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_ab8b9899f22070cfa01db5bf874296126} 
+int data\+\_\+structures\+::treap\+::\+Treap\+::get\+\_\+predecessor (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the predecessor node of element k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The queried element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The predecessor 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c}{root}},\ pre\ =\ -\/1;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (x)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x]\ <\ k)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pre\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}{key}}[x],\ x\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1];}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0];}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pre;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_ac94e9d69305940f6d8804031455af039}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!get\_rank@{get\_rank}}
+\index{get\_rank@{get\_rank}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{get\_rank()}{get\_rank()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_ac94e9d69305940f6d8804031455af039} 
+int data\+\_\+structures\+::treap\+::\+Treap\+::get\+\_\+rank (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the rank of specified element (External method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The queried element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rank of element k 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00221\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a9a77d22f97add119123108211c6655ec}{\_get\_rank}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c}{root}},\ k);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!insert@{insert}}
+\index{insert@{insert}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f} 
+void data\+\_\+structures\+::treap\+::\+Treap\+::insert (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert element (External method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & Key to insert \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00204\ \{\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a6a023a4f0c42fb8ed5b3368fba1a5f2c}{\_insert}}(\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a3081969b2714a8101f7df28b1ce5ed2c}{root}},\ k);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a75a48584a6560de20484fbba6229fd29}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!rotate@{rotate}}
+\index{rotate@{rotate}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a75a48584a6560de20484fbba6229fd29} 
+void data\+\_\+structures\+::treap\+::\+Treap\+::rotate (\begin{DoxyParamCaption}\item[{int \&}]{x}{, }\item[{int}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotate without breaking the property of BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The node to rotate \\
+\hline
+{\em t} & 0 represent left hand, while 1 right hand \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][t];}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][t]\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[y][1\ -\/\ t];}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[y][1\ -\/\ t]\ =\ x;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ rotation\ will\ only\ change\ itself\ and\ its\ son\ nodes}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aae9facaede462ad924856c4d707646d7}{update}}(x);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_aae9facaede462ad924856c4d707646d7}{update}}(y);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ x\ =\ y;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_aae9facaede462ad924856c4d707646d7}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!update@{update}}
+\index{update@{update}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_aae9facaede462ad924856c4d707646d7} 
+void data\+\_\+structures\+::treap\+::\+Treap\+::update (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the subtree size of the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The node to update \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[x]\ =\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][0]]\ +\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}{cnt}}[x]\ +\ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}{size}}[\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}{childs}}[x][1]];}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!childs@{childs}}
+\index{childs@{childs}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{childs}{childs}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_ab99f68b79e1c4ff0f1cd6f2f0b6a545f} 
+std\+::array$<$std\+::array$<$int, 2$>$, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}}$>$ data\+\_\+structures\+::treap\+::\+Treap\+::childs}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\}\}}
+
+\end{DoxyCode}
+\mbox{[}i\mbox{]}\mbox{[}0\mbox{]} represents the left child of node i, and \mbox{[}i\mbox{]}\mbox{[}1\mbox{]} represents the right 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{\}\};\ \ \textcolor{comment}{///<\ [i][0]\ represents\ the}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!cnt@{cnt}}
+\index{cnt@{cnt}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{cnt}{cnt}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_af7e6c6620ab32bc96633d101245fa919} 
+std\+::array$<$int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}}$>$ data\+\_\+structures\+::treap\+::\+Treap\+::cnt}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\}}
+
+\end{DoxyCode}
+
+
+Maintains the subtree size for ranking query. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{\};\ \ \textcolor{comment}{///<\ Maintains\ the\ subtree\ size\ for\ ranking\ query}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!key@{key}}
+\index{key@{key}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a32db3ba3b2630943faacd27b2ecd1b04} 
+std\+::array$<$int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}}$>$ data\+\_\+structures\+::treap\+::\+Treap\+::key = \{\}}
+
+
+
+\doxylink{structdata__structures_1_1_node}{Node} identifier. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \{\};\ \ \ \ \ \ \ \textcolor{comment}{///<\ Node\ identifier}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!priority@{priority}}
+\index{priority@{priority}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{priority}{priority}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_a8be70f0a25e53e870e97d8d23968d723} 
+std\+::array$<$int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}}$>$ data\+\_\+structures\+::treap\+::\+Treap\+::priority = \{\}}
+
+
+
+Random priority. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{\};\ \ \textcolor{comment}{///<\ Random\ priority}}
+
+\end{DoxyCode}
+\Hypertarget{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c}\index{data\_structures::treap::Treap@{data\_structures::treap::Treap}!size@{size}}
+\index{size@{size}!data\_structures::treap::Treap@{data\_structures::treap::Treap}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1treap_1_1_treap_af5f0b8263339485989f8a02ae026114c} 
+std\+::array$<$int, \mbox{\hyperlink{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}{max\+Node}}$>$ data\+\_\+structures\+::treap\+::\+Treap\+::size = \{\}}
+
+
+
+The number of copies per node. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \{\};\ \ \textcolor{comment}{///<\ The\ number\ of\ copies\ per\ node}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{treap_8cpp}{treap.\+cpp}}\end{DoxyCompactItemize}

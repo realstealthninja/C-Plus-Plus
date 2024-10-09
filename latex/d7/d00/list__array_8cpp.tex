@@ -1,0 +1,113 @@
+\doxysection{data\+\_\+structures/list\+\_\+array.cpp File Reference}
+\hypertarget{list__array_8cpp}{}\label{list__array_8cpp}\index{data\_structures/list\_array.cpp@{data\_structures/list\_array.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Dynamic_array}{\texttt{ Dynamic Array}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\+\_\+structures\+::list\+\_\+array\+::list$<$ N $>$}}
+\begin{DoxyCompactList}\small\item\em Structure of List with supporting methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacelist__array}{list\+\_\+array}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Dynamic_array}{\texttt{ Dynamic Array}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{list__array_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{list__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Dynamic_array}{\texttt{ Dynamic Array}} 
+
+The \doxylink{namespacelist__array}{list\+\_\+array} is the implementation of list represented using array. We can perform basic CRUD operations as well as other operations like sorting etc.\hypertarget{list__array_8cpp_autotoc_md42}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{list__array_8cpp_autotoc_md42}
+It implements various method like insert, sort, search etc. efficiently. You can select the operation and methods will do the rest work for you. You can insert element, sort them in order, search efficiently, delete values and print the list. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{list__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{list\_array.cpp@{list\_array.cpp}!main@{main}}
+\index{main@{main}!list\_array.cpp@{list\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{list__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{list__array_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \textcolor{comment}{//\ Execute\ the\ tests}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00251\ \}}
+
+\end{DoxyCode}
+\Hypertarget{list__array_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{list\_array.cpp@{list\_array.cpp}!test@{test}}
+\index{test@{test}!list\_array.cpp@{list\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{list__array_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1list__array_1_1list}{data\_structures::list\_array::list<50>}}\ L;}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//\ Insert\ testing}}
+\DoxyCodeLine{00210\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}}(11);}
+\DoxyCodeLine{00211\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}}(12);}
+\DoxyCodeLine{00212\ \ \ \ \ assert(L.top\ ==\ 2);}
+\DoxyCodeLine{00213\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}}(15);}
+\DoxyCodeLine{00214\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}}(10);}
+\DoxyCodeLine{00215\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}}(12);}
+\DoxyCodeLine{00216\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}}(20);}
+\DoxyCodeLine{00217\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_aa960d714d449612f25256850d72325f1}{insert}}(18);}
+\DoxyCodeLine{00218\ \ \ \ \ assert(L.top\ ==\ 7);}
+\DoxyCodeLine{00219\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a0b7acf65026df1e9dd13eebf309dda5e}{show}}();\ \textcolor{comment}{//\ To\ print\ the\ array}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ Remove\ testing}}
+\DoxyCodeLine{00222\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a98f7d9079c0868e0f4e67d5c52174fb6}{remove}}(12);\ \textcolor{comment}{//\ Remove\ Duplicate\ value\ in\ the\ list}}
+\DoxyCodeLine{00223\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a98f7d9079c0868e0f4e67d5c52174fb6}{remove}}(15);\ \textcolor{comment}{//\ Remove\ the\ existing\ value\ in\ the\ list}}
+\DoxyCodeLine{00224\ \ \ \ \ assert(L.top\ ==\ 5);}
+\DoxyCodeLine{00225\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a98f7d9079c0868e0f4e67d5c52174fb6}{remove}}(50);\ \textcolor{comment}{//\ Try\ to\ remove\ the\ non-\/existing\ value\ in\ the\ list}}
+\DoxyCodeLine{00226\ \ \ \ \ assert(L.top\ ==\ 5);}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ LinearSearch\ testing}}
+\DoxyCodeLine{00229\ \ \ \ \ assert(L.search(11)\ ==\ 0);\ \textcolor{comment}{//\ search\ for\ the\ existing\ element}}
+\DoxyCodeLine{00230\ \ \ \ \ assert(L.search(12)\ ==\ 2);}
+\DoxyCodeLine{00231\ \ \ \ \ assert(L.search(50)\ ==\ -\/1);\ \textcolor{comment}{//\ search\ for\ the\ non-\/existing\ element}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{comment}{//\ Sort\ testing}}
+\DoxyCodeLine{00234\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a133635ad53bd89e3947ca02448819180}{sort}}();}
+\DoxyCodeLine{00235\ \ \ \ \ assert(L.isSorted\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00236\ \ \ \ \ L.\mbox{\hyperlink{structdata__structures_1_1list__array_1_1list_a0b7acf65026df1e9dd13eebf309dda5e}{show}}();}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ BinarySearch\ testing}}
+\DoxyCodeLine{00239\ \ \ \ \ assert(L.search(11)\ ==\ 1);\ \textcolor{comment}{//\ search\ for\ the\ existing\ element}}
+\DoxyCodeLine{00240\ \ \ \ \ assert(L.search(12)\ ==\ 2);}
+\DoxyCodeLine{00241\ \ \ \ \ assert(L.search(50)\ ==\ -\/1);\ \textcolor{comment}{//\ search\ for\ the\ non-\/existing\ element}}
+\DoxyCodeLine{00242\ \}}
+
+\end{DoxyCode}

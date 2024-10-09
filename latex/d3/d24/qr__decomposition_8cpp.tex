@@ -1,0 +1,75 @@
+\doxysection{numerical\+\_\+methods/qr\+\_\+decomposition.cpp File Reference}
+\hypertarget{qr__decomposition_8cpp}{}\label{qr__decomposition_8cpp}\index{numerical\_methods/qr\_decomposition.cpp@{numerical\_methods/qr\_decomposition.cpp}}
+
+
+Program to compute the \href{https://en.wikipedia.org/wiki/QR_decomposition}{\texttt{ QR decomposition}} of a given matrix.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}./qr\+\_\+decompose.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{qr__decomposition_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Program to compute the \href{https://en.wikipedia.org/wiki/QR_decomposition}{\texttt{ QR decomposition}} of a given matrix. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{qr__decomposition_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\index{qr\_decomposition.cpp@{qr\_decomposition.cpp}!main@{main}}
+\index{main@{main}!qr\_decomposition.cpp@{qr\_decomposition.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{qr__decomposition_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ ROWS,\ COLUMNS;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ rows\ and\ columns:\ "{}};}
+\DoxyCodeLine{00027\ \ \ \ \ std::cin\ >>\ ROWS\ >>\ COLUMNS;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ matrix\ elements\ row-\/wise:\(\backslash\)n"{}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::valarray<std::valarray<double>>\ A(ROWS);}
+\DoxyCodeLine{00032\ \ \ \ \ std::valarray<std::valarray<double>>\ Q(ROWS);}
+\DoxyCodeLine{00033\ \ \ \ \ std::valarray<std::valarray<double>>\ R(COLUMNS);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ std::max(ROWS,\ COLUMNS);\ i++)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ ROWS)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ A[i]\ =\ std::valarray<double>(COLUMNS);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ Q[i]\ =\ std::valarray<double>(COLUMNS);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ COLUMNS)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ R[i]\ =\ std::valarray<double>(COLUMNS);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ROWS;\ i++)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ COLUMNS;\ j++)\ std::cin\ >>\ A[i][j];}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::cout\ <<\ A\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ clock\_t\ t1\ =\ clock();}
+\DoxyCodeLine{00050\ \ \ \ \ qr\_decompose(A,\ \&Q,\ \&R);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ dtime\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(clock()\ -\/\ t1)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ Q\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00054\ \ \ \ \ std::cout\ <<\ R\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00055\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ taken\ to\ compute:\ "{}}\ <<\ dtime\ <<\ \textcolor{stringliteral}{"{}\ sec\(\backslash\)n\ "{}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,75 @@
+\doxysection{math/prime\+\_\+numbers.cpp File Reference}
+\hypertarget{prime__numbers_8cpp}{}\label{prime__numbers_8cpp}\index{math/prime\_numbers.cpp@{math/prime\_numbers.cpp}}
+
+
+Get list of prime numbers.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}} (size\+\_\+t max)
+\item 
+int \mbox{\hyperlink{prime__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Get list of prime numbers. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{primes__up__to__billion_8cpp}{primes\+\_\+up\+\_\+to\+\_\+billion.\+cpp} \doxylink{sieve__of__eratosthenes_8cpp}{sieve\+\_\+of\+\_\+eratosthenes.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{prime__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{prime\_numbers.cpp@{prime\_numbers.cpp}!main@{main}}
+\index{main@{main}!prime\_numbers.cpp@{prime\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{prime__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Calculate\ primes\ up\ to:\(\backslash\)n>>\ "{}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00038\ \ \ \ \ std::vector<int>\ ans\ =\ \mbox{\hyperlink{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}{primes}}(n);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ p\ :\ ans)\ std::cout\ <<\ p\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00040\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a}\index{prime\_numbers.cpp@{prime\_numbers.cpp}!primes@{primes}}
+\index{primes@{primes}!prime\_numbers.cpp@{prime\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{primes()}{primes()}}
+{\footnotesize\ttfamily \label{prime__numbers_8cpp_a9575f3a51eeb8a57d657b3db6a4b441a} 
+std\+::vector$<$ int $>$ primes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{max}{}\end{DoxyParamCaption})}
+
+Generate an increasingly large number of primes and store in a list 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<int>\ res;}
+\DoxyCodeLine{00014\ \ \ \ \ std::vector<bool>\ is\_not\_prime(max\ +\ 1,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 2;\ i\ <=\ max;\ i++)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_not\_prime[i])\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ res.emplace\_back(i);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ p\ :\ res)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ i\ *\ p;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ >\ max)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ is\_not\_prime[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ \%\ p\ ==\ 0)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}

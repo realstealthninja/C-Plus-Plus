@@ -1,0 +1,313 @@
+\doxysection{data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::Trie Class Reference}
+\hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie}{}\label{classdata__structures_1_1trie__using__hashmap_1_1_trie}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+
+
+\doxylink{classdata__structures_1_1trie__using__hashmap_1_1_trie}{Trie} class, implementation of trie using hashmap in each trie node for all the characters of char16\+\_\+t(UTF-\/16)type with methods to insert, delete, search, start with and to recommend words based on a given prefix.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node}{Node}}
+\begin{DoxyCompactList}\small\item\em struct representing a trie node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_a092d0805a9e647c2048777dbe67b35ab}\label{classdata__structures_1_1trie__using__hashmap_1_1_trie_a092d0805a9e647c2048777dbe67b35ab} 
+{\bfseries Trie} ()=default
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Constructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}} (const std\+::string \&word)
+\begin{DoxyCompactList}\small\item\em insert the string into the trie \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}} (const std\+::string \&word)
+\begin{DoxyCompactList}\small\item\em search a word/string inside the trie \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}} (const std\+::string \&prefix)
+\begin{DoxyCompactList}\small\item\em search a word/string that starts with a given prefix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ac0bf3d6791cba144b3f539835d835e75}{delete\+\_\+word}} (std\+::string word)
+\begin{DoxyCompactList}\small\item\em delete a word/string from a trie \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a7bbe538c8015e8ce158e7ed43f605ebd}{get\+\_\+all\+\_\+words}} (std\+::vector$<$ std\+::string $>$ results, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node}{Node}} $>$ \&element, std\+::string prefix)
+\begin{DoxyCompactList}\small\item\em helper function to predict/recommend words that starts with a given prefix from the end of prefix\textquotesingle{}s node iterate through all the child nodes by recursively appending all the possible words below the trie \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\+\_\+words}} (const std\+::string \&prefix)
+\begin{DoxyCompactList}\small\item\em predict/recommend a word that starts with a given prefix \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node}{Node}} $>$ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}{root\+\_\+node}}
+\begin{DoxyCompactList}\small\item\em declaring root node of trie \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classdata__structures_1_1trie__using__hashmap_1_1_trie}{Trie} class, implementation of trie using hashmap in each trie node for all the characters of char16\+\_\+t(UTF-\/16)type with methods to insert, delete, search, start with and to recommend words based on a given prefix. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_ac0bf3d6791cba144b3f539835d835e75}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}!delete\_word@{delete\_word}}
+\index{delete\_word@{delete\_word}!data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+\doxysubsubsection{\texorpdfstring{delete\_word()}{delete\_word()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie__using__hashmap_1_1_trie_ac0bf3d6791cba144b3f539835d835e75} 
+void data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::delete\+\_\+word (\begin{DoxyParamCaption}\item[{std\+::string}]{word}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+delete a word/string from a trie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & string to delete from trie \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ curr\ =\ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}{root\_node}};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::stack<std::shared\_ptr<Node>>\ nodes;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ 0;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ :\ word)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>children.find(ch)\ ==\ curr-\/>children.end())\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>word\_end)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cnt++;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ nodes.push(curr-\/>children[ch]);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>children[ch];}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ only\ when\ it's\ a\ word,\ and\ it\ has\ children\ after}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ or\ prefix\ in\ the\ line}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nodes.top()-\/>word\_end)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ nodes.top()-\/>word\_end\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ only\ when\ it\ has\ no\ children\ after}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ also\ no\ prefix\ in\ the\ line}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!(nodes.top()-\/>word\_end)\ \&\&\ nodes.top()-\/>children.empty())\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ nodes.pop();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ nodes.top()-\/>children.erase(word.back());}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ word.pop\_back();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_a7bbe538c8015e8ce158e7ed43f605ebd}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}!get\_all\_words@{get\_all\_words}}
+\index{get\_all\_words@{get\_all\_words}!data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+\doxysubsubsection{\texorpdfstring{get\_all\_words()}{get\_all\_words()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie__using__hashmap_1_1_trie_a7bbe538c8015e8ce158e7ed43f605ebd} 
+std\+::vector$<$ std\+::string $>$ data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::get\+\_\+all\+\_\+words (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{results}{, }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node}{Node}} $>$ \&}]{element}{, }\item[{std\+::string}]{prefix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+helper function to predict/recommend words that starts with a given prefix from the end of prefix\textquotesingle{}s node iterate through all the child nodes by recursively appending all the possible words below the trie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & string to recommend the words \\
+\hline
+{\em element} & node at the end of the given prefix \\
+\hline
+{\em results} & list to store the all possible words \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of recommended words 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (element-\/>\mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node_a3cdb077745d3dc97212d693132371219}{word\_end}})\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ results.push\_back(prefix);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (element-\/>\mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node_a08212cdc99164b59da91b81f45e2f88e}{children}}.empty())\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ results;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ x\ :\ element-\/>\mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node_a08212cdc99164b59da91b81f45e2f88e}{children}})\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ key\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ key\ =\ x.first;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ prefix\ +=\ key;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ results\ =}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a7bbe538c8015e8ce158e7ed43f605ebd}{get\_all\_words}}(results,\ element-\/>\mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node_a08212cdc99164b59da91b81f45e2f88e}{children}}[x.first],\ prefix);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ prefix.pop\_back();}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ results;}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}!insert@{insert}}
+\index{insert@{insert}!data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2} 
+void data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::insert (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert the string into the trie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & string to insert in the trie \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ curr\ =\ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}{root\_node}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ :\ word)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>children.find(ch)\ ==\ curr-\/>children.end())\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>children[ch]\ =\ std::make\_shared<Node>();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>children[ch];}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!curr-\/>word\_end\ \&\&\ curr\ !=\ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}{root\_node}})\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>word\_end\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}!predict\_words@{predict\_words}}
+\index{predict\_words@{predict\_words}!data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+\doxysubsubsection{\texorpdfstring{predict\_words()}{predict\_words()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4} 
+std\+::vector$<$ std\+::string $>$ data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::predict\+\_\+words (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+predict/recommend a word that starts with a given prefix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & string to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of recommended words 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} iteratively and recursively get the recommended words
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ curr\ =\ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}{root\_node}};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ traversing\ until\ the\ end\ of\ the\ given\ prefix\ in\ trie}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ :\ prefix)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>children.find(ch)\ ==\ curr-\/>children.end())\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>children[ch];}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ the\ given\ prefix\ is\ the\ only\ word\ without\ children}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>word\_end\ \&\&\ curr-\/>children.empty())\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(prefix);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a7bbe538c8015e8ce158e7ed43f605ebd}{get\_all\_words}}(}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ result,\ curr,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ prefix);\ \ \textcolor{comment}{///<\ iteratively\ and\ recursively\ get\ the\ recommended\ words}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}!search@{search}}
+\index{search@{search}!data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f} 
+bool data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::search (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+search a word/string inside the trie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & string to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if found 
+
+{\ttfamily false} if not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ curr\ =\ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}{root\_node}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ :\ word)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>children.find(ch)\ ==\ curr-\/>children.end())\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>children[ch];}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!curr)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>word\_end)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}!startwith@{startwith}}
+\index{startwith@{startwith}!data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+\doxysubsubsection{\texorpdfstring{startwith()}{startwith()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17} 
+bool data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::startwith (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+search a word/string that starts with a given prefix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & string to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if found 
+
+{\ttfamily false} if not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ curr\ =\ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}{root\_node}};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ :\ prefix)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>children.find(ch)\ ==\ curr-\/>children.end())\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>children[ch];}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248}\index{data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}!root\_node@{root\_node}}
+\index{root\_node@{root\_node}!data\_structures::trie\_using\_hashmap::Trie@{data\_structures::trie\_using\_hashmap::Trie}}
+\doxysubsubsection{\texorpdfstring{root\_node}{root\_node}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie__using__hashmap_1_1_trie_a832072498abeaa52ad43c4fc99cba248} 
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node}{Node}}$>$ data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::root\+\_\+node\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::make\_shared<Node>()}
+
+\end{DoxyCode}
+
+
+declaring root node of trie 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{trie__using__hashmap_8cpp}{trie\+\_\+using\+\_\+hashmap.\+cpp}}\end{DoxyCompactItemize}

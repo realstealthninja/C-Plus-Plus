@@ -1,0 +1,124 @@
+\doxysection{math/double\+\_\+factorial.cpp File Reference}
+\hypertarget{double__factorial_8cpp}{}\label{double__factorial_8cpp}\index{math/double\_factorial.cpp@{math/double\_factorial.cpp}}
+
+
+Compute \href{https://en.wikipedia.org/wiki/Double_factorial}{\texttt{ double factorial}}\+: $n!!$.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{double__factorial_8cpp_a0a3c417360400093891a9ccddaa4be26}{double\+\_\+factorial\+\_\+iterative}} (uint64\+\_\+t n)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{double__factorial_8cpp_a68ba20fed2ce427f6469c7689437829d}{double\+\_\+factorial\+\_\+recursive}} (uint64\+\_\+t n)
+\item 
+void \mbox{\hyperlink{double__factorial_8cpp_abbbcebf3a2d0c67f4c3cfb5511a97981}{test}} (uint64\+\_\+t n, uint64\+\_\+t expected)
+\item 
+void \mbox{\hyperlink{double__factorial_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{double__factorial_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute \href{https://en.wikipedia.org/wiki/Double_factorial}{\texttt{ double factorial}}\+: $n!!$. 
+
+Double factorial of a non-\/negative integer {\ttfamily n}, is defined as the product of all the integers from 1 to n that have the same parity (odd or even) as n. ~\newline
+It is also called as semifactorial of a number and is denoted by $n!!$ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{double__factorial_8cpp_a0a3c417360400093891a9ccddaa4be26}\index{double\_factorial.cpp@{double\_factorial.cpp}!double\_factorial\_iterative@{double\_factorial\_iterative}}
+\index{double\_factorial\_iterative@{double\_factorial\_iterative}!double\_factorial.cpp@{double\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{double\_factorial\_iterative()}{double\_factorial\_iterative()}}
+{\footnotesize\ttfamily \label{double__factorial_8cpp_a0a3c417360400093891a9ccddaa4be26} 
+uint64\+\_\+t double\+\_\+factorial\+\_\+iterative (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+Compute double factorial using iterative method 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ uint64\_t\ res\ =\ 1;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ n;;\ i\ -\/=\ 2)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0\ ||\ i\ ==\ 1)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ res\ *=\ i;}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}
+\Hypertarget{double__factorial_8cpp_a68ba20fed2ce427f6469c7689437829d}\index{double\_factorial.cpp@{double\_factorial.cpp}!double\_factorial\_recursive@{double\_factorial\_recursive}}
+\index{double\_factorial\_recursive@{double\_factorial\_recursive}!double\_factorial.cpp@{double\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{double\_factorial\_recursive()}{double\_factorial\_recursive()}}
+{\footnotesize\ttfamily \label{double__factorial_8cpp_a68ba20fed2ce427f6469c7689437829d} 
+uint64\+\_\+t double\+\_\+factorial\+\_\+recursive (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+Compute double factorial using resursive method. ~\newline
+Recursion can be costly for large numbers. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <=\ 1)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ n\ *\ \mbox{\hyperlink{double__factorial_8cpp_a68ba20fed2ce427f6469c7689437829d}{double\_factorial\_recursive}}(n\ -\/\ 2);}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{double__factorial_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{double\_factorial.cpp@{double\_factorial.cpp}!main@{main}}
+\index{main@{main}!double\_factorial.cpp@{double\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{double__factorial_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{double__factorial_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+\Hypertarget{double__factorial_8cpp_abbbcebf3a2d0c67f4c3cfb5511a97981}\index{double\_factorial.cpp@{double\_factorial.cpp}!test@{test}}
+\index{test@{test}!double\_factorial.cpp@{double\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{double__factorial_8cpp_abbbcebf3a2d0c67f4c3cfb5511a97981} 
+void test (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{, }\item[{uint64\+\_\+t}]{expected}{}\end{DoxyParamCaption})}
+
+Wrapper to run tests using both recursive and iterative implementations. The checks are only valid in debug builds due to the use of {\ttfamily assert()} statements. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & number to check double factorial for \\
+\hline
+\mbox{\texttt{ in}}  & {\em expected} & expected result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ assert(\mbox{\hyperlink{double__factorial_8cpp_a0a3c417360400093891a9ccddaa4be26}{double\_factorial\_iterative}}(n)\ ==\ expected);}
+\DoxyCodeLine{00044\ \ \ \ \ assert(\mbox{\hyperlink{double__factorial_8cpp_a68ba20fed2ce427f6469c7689437829d}{double\_factorial\_recursive}}(n)\ ==\ expected);}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+\Hypertarget{double__factorial_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{double\_factorial.cpp@{double\_factorial.cpp}!tests@{tests}}
+\index{tests@{tests}!double\_factorial.cpp@{double\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{double__factorial_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test implementations 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1:\(\backslash\)t\ n=5\(\backslash\)t..."{}};}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(5,\ 15);}
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2:\(\backslash\)t\ n=15\(\backslash\)t..."{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(15,\ 2027025);}
+\DoxyCodeLine{00057\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3:\(\backslash\)t\ n=0\(\backslash\)t..."{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(0,\ 1);}
+\DoxyCodeLine{00061\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

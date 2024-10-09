@@ -1,0 +1,133 @@
+\doxysection{greedy\+\_\+algorithms/digit\+\_\+separation.cpp File Reference}
+\hypertarget{digit__separation_8cpp}{}\label{digit__separation_8cpp}\index{greedy\_algorithms/digit\_separation.cpp@{greedy\_algorithms/digit\_separation.cpp}}
+
+
+Separates digits from numbers in forward and reverse order.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation}{greedy\+\_\+algorithms\+::\+Digit\+Separation}}
+\begin{DoxyCompactList}\small\item\em A class that provides methods to separate the digits of a large positive number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms}{greedy\+\_\+algorithms}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{digit__separation_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em self test implementation \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{digit__separation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Separates digits from numbers in forward and reverse order. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://www.log2base2.com/c-examples/loop/split-a-number-into-digits-in-c.html}{\texttt{ https\+://www.\+log2base2.\+com/c-\/examples/loop/split-\/a-\/number-\/into-\/digits-\/in-\/c.\+html}}
+\end{DoxySeeAlso}
+The Digit\+Separation class provides two methods to separate the digits of large integers\+: digit\+Separation\+Reverse\+Order and digit\+Separation\+Forward\+Order. The digit\+Separation\+Reverse\+Order method extracts digits by repeatedly applying the modulus operation (\% 10) to isolate the last digit, then divides the number by 10 to remove it. This process continues until the entire number is broken down into its digits, which are stored in reverse order. If the number is zero, the method directly returns a vector containing \{0\} to handle this edge case. Negative numbers are handled by taking the absolute value, ensuring consistent behavior regardless of the sign. \begin{DoxyAuthor}{Author}
+\href{https://github.com/mjk22071998}{\texttt{ Muhammad Junaid Khalid}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{digit__separation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{digit\_separation.cpp@{digit\_separation.cpp}!main@{main}}
+\index{main@{main}!digit\_separation.cpp@{digit\_separation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{digit__separation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+main function 
+
+\begin{DoxyReturn}{Returns}
+0 on successful exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{digit__separation_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self\ test\ implementation}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00142\ \}}
+
+\end{DoxyCode}
+\Hypertarget{digit__separation_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{digit\_separation.cpp@{digit\_separation.cpp}!tests@{tests}}
+\index{tests@{tests}!digit\_separation.cpp@{digit\_separation.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{digit__separation_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+self test implementation 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation}{greedy\_algorithms::DigitSeparation}}\ ds;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Test\ case:\ Positive\ number}}
+\DoxyCodeLine{00087\ \ \ \ \ std::int64\_t\ number\ =\ 1234567890;}
+\DoxyCodeLine{00088\ \ \ \ \ std::vector<std::int64\_t>\ expectedReverse\ =\ \{0,\ 9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1\};}
+\DoxyCodeLine{00089\ \ \ \ \ std::vector<std::int64\_t>\ expectedForward\ =\ \{1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9,\ 0\};}
+\DoxyCodeLine{00090\ \ \ \ \ std::vector<std::int64\_t>\ reverseOrder\ =}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}{digitSeparationReverseOrder}}(number);}
+\DoxyCodeLine{00092\ \ \ \ \ assert(reverseOrder\ ==\ expectedReverse);}
+\DoxyCodeLine{00093\ \ \ \ \ std::vector<std::int64\_t>\ forwardOrder\ =}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8}{digitSeparationForwardOrder}}(number);}
+\DoxyCodeLine{00095\ \ \ \ \ assert(forwardOrder\ ==\ expectedForward);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Test\ case:\ Single\ digit\ number}}
+\DoxyCodeLine{00098\ \ \ \ \ number\ =\ 5;}
+\DoxyCodeLine{00099\ \ \ \ \ expectedReverse\ =\ \{5\};}
+\DoxyCodeLine{00100\ \ \ \ \ expectedForward\ =\ \{5\};}
+\DoxyCodeLine{00101\ \ \ \ \ reverseOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}{digitSeparationReverseOrder}}(number);}
+\DoxyCodeLine{00102\ \ \ \ \ assert(reverseOrder\ ==\ expectedReverse);}
+\DoxyCodeLine{00103\ \ \ \ \ forwardOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8}{digitSeparationForwardOrder}}(number);}
+\DoxyCodeLine{00104\ \ \ \ \ assert(forwardOrder\ ==\ expectedForward);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Test\ case:\ Zero}}
+\DoxyCodeLine{00107\ \ \ \ \ number\ =\ 0;}
+\DoxyCodeLine{00108\ \ \ \ \ expectedReverse\ =\ \{0\};}
+\DoxyCodeLine{00109\ \ \ \ \ expectedForward\ =\ \{0\};}
+\DoxyCodeLine{00110\ \ \ \ \ reverseOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}{digitSeparationReverseOrder}}(number);}
+\DoxyCodeLine{00111\ \ \ \ \ assert(reverseOrder\ ==\ expectedReverse);}
+\DoxyCodeLine{00112\ \ \ \ \ forwardOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8}{digitSeparationForwardOrder}}(number);}
+\DoxyCodeLine{00113\ \ \ \ \ assert(forwardOrder\ ==\ expectedForward);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ Test\ case:\ Large\ number}}
+\DoxyCodeLine{00116\ \ \ \ \ number\ =\ 987654321012345;}
+\DoxyCodeLine{00117\ \ \ \ \ expectedReverse\ =\ \{5,\ 4,\ 3,\ 2,\ 1,\ 0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00118\ \ \ \ \ expectedForward\ =\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0,\ 1,\ 2,\ 3,\ 4,\ 5\};}
+\DoxyCodeLine{00119\ \ \ \ \ reverseOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}{digitSeparationReverseOrder}}(number);}
+\DoxyCodeLine{00120\ \ \ \ \ assert(reverseOrder\ ==\ expectedReverse);}
+\DoxyCodeLine{00121\ \ \ \ \ forwardOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8}{digitSeparationForwardOrder}}(number);}
+\DoxyCodeLine{00122\ \ \ \ \ assert(forwardOrder\ ==\ expectedForward);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ Test\ case:\ Negative\ number}}
+\DoxyCodeLine{00125\ \ \ \ \ number\ =\ -\/987654321012345;}
+\DoxyCodeLine{00126\ \ \ \ \ expectedReverse\ =\ \{5,\ 4,\ 3,\ 2,\ 1,\ 0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00127\ \ \ \ \ expectedForward\ =\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0,\ 1,\ 2,\ 3,\ 4,\ 5\};}
+\DoxyCodeLine{00128\ \ \ \ \ reverseOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a34769a780845e9d4279152899bd3bf79}{digitSeparationReverseOrder}}(number);}
+\DoxyCodeLine{00129\ \ \ \ \ assert(reverseOrder\ ==\ expectedReverse);}
+\DoxyCodeLine{00130\ \ \ \ \ forwardOrder\ =\ ds.\mbox{\hyperlink{classgreedy__algorithms_1_1_digit_separation_a1809ae6828223999374bde5b197a59c8}{digitSeparationForwardOrder}}(number);}
+\DoxyCodeLine{00131\ \ \ \ \ assert(forwardOrder\ ==\ expectedForward);}
+\DoxyCodeLine{00132\ \}}
+
+\end{DoxyCode}

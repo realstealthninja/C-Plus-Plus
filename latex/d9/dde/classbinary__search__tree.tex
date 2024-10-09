@@ -1,0 +1,682 @@
+\doxysection{binary\+\_\+search\+\_\+tree\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classbinary__search__tree}{}\label{classbinary__search__tree}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+
+
+The Binary Search Tree class.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}}
+\begin{DoxyCompactList}\small\item\em A struct to represent a node in the Binary Search Tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbinary__search__tree_aa67321ed575ca313cd71d833d91234a6}{binary\+\_\+search\+\_\+tree}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Binary Search Tree object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_a8168edf29316f2b436eac1fc416c52e0}{insert}} (T new\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Insert a new value into the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_a99771c2e1353e8ddfd4bb9d30b7a98fb}{remove}} (T rm\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Remove a specified value from the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_a6bf5b410299df2320ddf2709dda61f63}{contains}} (T value)
+\begin{DoxyCompactList}\small\item\em Check if a value is in the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_ad9912e8574538e86f9bd2c38e7e63d03}{find\+\_\+min}} (T \&ret\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Find the smallest value in the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_a42b16f26928b5e994925100594a167a0}{find\+\_\+max}} (T \&ret\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Find the largest value in the BST. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}{size}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of values in the BST. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classbinary__search__tree_a1f23830316204664514f396a4eb5275a}{get\+\_\+elements\+\_\+inorder}} ()
+\begin{DoxyCompactList}\small\item\em Get all values of the BST in in-\/order order. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classbinary__search__tree_a5764c1cf848f84a5b77462036a6d8c13}{get\+\_\+elements\+\_\+preorder}} ()
+\begin{DoxyCompactList}\small\item\em Get all values of the BST in pre-\/order order. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classbinary__search__tree_a5c011e1b0863d79c3a7c11a0426bdcff}{get\+\_\+elements\+\_\+postorder}} ()
+\begin{DoxyCompactList}\small\item\em Get all values of the BST in post-\/order order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\+\_\+max}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}}, T \&ret\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Recursive function to find the maximum value in the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\+\_\+min}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}}, T \&ret\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Recursive function to find the minimum value in the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}}, T new\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Recursive function to insert a value into the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&parent, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}}, T rm\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Recursive function to remove a value from the BST. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}}, T value)
+\begin{DoxyCompactList}\small\item\em Recursive function to check if a value is in the BST. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbinary__search__tree_a2fcf37549bd002c174a45b0b4203c2bd}{traverse\+\_\+inorder}} (std\+::function$<$ void(T)$>$ callback, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em Recursive function to traverse the tree in in-\/order order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbinary__search__tree_ab81edd415324d372632c42dc7dbcb9e1}{traverse\+\_\+preorder}} (std\+::function$<$ void(T)$>$ callback, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em Recursive function to traverse the tree in pre-\/order order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbinary__search__tree_a87c0a35845d27e0f6fc1f4eaa0333362}{traverse\+\_\+postorder}} (std\+::function$<$ void(T)$>$ callback, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em Recursive function to traverse the tree in post-\/order order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\+\_\+}}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classbinary__search__tree_a07ba32ce1a2af6e357600ac8c8e98dbc}{size\+\_\+}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class binary\+\_\+search\+\_\+tree$<$ T $>$}
+The Binary Search Tree class. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the binary search tree key. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classbinary__search__tree_aa67321ed575ca313cd71d833d91234a6}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!binary\_search\_tree@{binary\_search\_tree}}
+\index{binary\_search\_tree@{binary\_search\_tree}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{binary\_search\_tree()}{binary\_search\_tree()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_aa67321ed575ca313cd71d833d91234a6} 
+template$<$class T $>$ \\
+\mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\mbox{\hyperlink{classbinary__search__tree}{\+::binary\+\_\+search\+\_\+tree}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Binary Search Tree object. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a07ba32ce1a2af6e357600ac8c8e98dbc}{size\_}}\ =\ 0;}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!contains@{contains}}
+\index{contains@{contains}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::contains (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{, }\item[{T}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to check if a value is in the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The node to search from. \\
+\hline
+{\em value} & The value to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the value was found in the BST. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ node-\/>value)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(\mbox{\hyperlink{structnode}{node}}-\/>left,\ value);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (value\ >\ \mbox{\hyperlink{structnode}{node}}-\/>value)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(\mbox{\hyperlink{structnode}{node}}-\/>right,\ value);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a6bf5b410299df2320ddf2709dda61f63}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!contains@{contains}}
+\index{contains@{contains}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a6bf5b410299df2320ddf2709dda61f63} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::contains (\begin{DoxyParamCaption}\item[{T}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if a value is in the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If value is in the BST. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00289\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ value);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!find\_max@{find\_max}}
+\index{find\_max@{find\_max}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_max()}{find\_max()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::find\+\_\+max (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{, }\item[{T \&}]{ret\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to find the maximum value in the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The node to search from. \\
+\hline
+{\em ret\+\_\+value} & Variable to hold the maximum value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the maximum value was successfully found. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}}-\/>right)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ ret\_value\ =\ \mbox{\hyperlink{structnode}{node}}-\/>value;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(\mbox{\hyperlink{structnode}{node}}-\/>right,\ ret\_value);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a42b16f26928b5e994925100594a167a0}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!find\_max@{find\_max}}
+\index{find\_max@{find\_max}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_max()}{find\_max()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a42b16f26928b5e994925100594a167a0} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::find\+\_\+max (\begin{DoxyParamCaption}\item[{T \&}]{ret\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find the largest value in the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ret\+\_\+value} & Variable to hold the maximum value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If maximum value was successfully found. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00307\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ ret\_value);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!find\_min@{find\_min}}
+\index{find\_min@{find\_min}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_min()}{find\_min()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::find\+\_\+min (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{, }\item[{T \&}]{ret\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to find the minimum value in the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The node to search from. \\
+\hline
+{\em ret\+\_\+value} & Variable to hold the minimum value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the minimum value was successfully found. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}}-\/>left)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ ret\_value\ =\ \mbox{\hyperlink{structnode}{node}}-\/>value;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\_min}}(\mbox{\hyperlink{structnode}{node}}-\/>left,\ ret\_value);}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_ad9912e8574538e86f9bd2c38e7e63d03}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!find\_min@{find\_min}}
+\index{find\_min@{find\_min}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_min()}{find\_min()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_ad9912e8574538e86f9bd2c38e7e63d03} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::find\+\_\+min (\begin{DoxyParamCaption}\item[{T \&}]{ret\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find the smallest value in the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ret\+\_\+value} & Variable to hold the minimum value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If minimum value was successfully found. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00298\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\_min}}(\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ ret\_value);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a1f23830316204664514f396a4eb5275a}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!get\_elements\_inorder@{get\_elements\_inorder}}
+\index{get\_elements\_inorder@{get\_elements\_inorder}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_elements\_inorder()}{get\_elements\_inorder()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a1f23830316204664514f396a4eb5275a} 
+template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::get\+\_\+elements\+\_\+inorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all values of the BST in in-\/order order. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ List of values, sorted in in-\/order order. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a2fcf37549bd002c174a45b0b4203c2bd}{traverse\_inorder}}([\&](T\ node\_value)\ \{\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(node\_value);\ \},}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}});}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a5c011e1b0863d79c3a7c11a0426bdcff}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!get\_elements\_postorder@{get\_elements\_postorder}}
+\index{get\_elements\_postorder@{get\_elements\_postorder}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_elements\_postorder()}{get\_elements\_postorder()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a5c011e1b0863d79c3a7c11a0426bdcff} 
+template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::get\+\_\+elements\+\_\+postorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all values of the BST in post-\/order order. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ List of values, sorted in post-\/order order. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a87c0a35845d27e0f6fc1f4eaa0333362}{traverse\_postorder}}([\&](T\ node\_value)\ \{\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(node\_value);\ \},}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}});}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00350\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a5764c1cf848f84a5b77462036a6d8c13}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!get\_elements\_preorder@{get\_elements\_preorder}}
+\index{get\_elements\_preorder@{get\_elements\_preorder}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_elements\_preorder()}{get\_elements\_preorder()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a5764c1cf848f84a5b77462036a6d8c13} 
+template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::get\+\_\+elements\+\_\+preorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all values of the BST in pre-\/order order. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ List of values, sorted in pre-\/order order. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_ab81edd415324d372632c42dc7dbcb9e1}{traverse\_preorder}}([\&](T\ node\_value)\ \{\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(node\_value);\ \},}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}});}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00338\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{, }\item[{T}]{new\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to insert a value into the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The node to search from. \\
+\hline
+{\em new\+\_\+value} & The value to insert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the insert operation was successful. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}}\ ==\ \mbox{\hyperlink{structnode}{node}}\ \&\&\ !\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}})\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}}\ =\ std::unique\_ptr<bst\_node>(\textcolor{keyword}{new}\ bst\_node(new\_value));}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_value\ <\ node-\/>value)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}}-\/>left)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>left\ =\ std::unique\_ptr<bst\_node>(\textcolor{keyword}{new}\ bst\_node(new\_value));}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(\mbox{\hyperlink{structnode}{node}}-\/>left,\ new\_value);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (new\_value\ >\ \mbox{\hyperlink{structnode}{node}}-\/>value)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}}-\/>right)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>right\ =}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<bst\_node>(\textcolor{keyword}{new}\ bst\_node(new\_value));}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(\mbox{\hyperlink{structnode}{node}}-\/>right,\ new\_value);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a8168edf29316f2b436eac1fc416c52e0}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a8168edf29316f2b436eac1fc416c52e0} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{T}]{new\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert a new value into the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+value} & The value to insert into the BST. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the insertion was successful. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ new\_value);}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result)\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a07ba32ce1a2af6e357600ac8c8e98dbc}{size\_}}++;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_af4a865ce5244608819b169fc78a41153} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{parent}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{, }\item[{T}]{rm\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to remove a value from the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent node of node. \\
+\hline
+{\em node} & The node to search from. \\
+\hline
+{\em rm\+\_\+value} & The value to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the removal operation was successful. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>value\ ==\ rm\_value)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>left\ \&\&\ \mbox{\hyperlink{structnode}{node}}-\/>right)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ successor\_node\_value\{\};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(\mbox{\hyperlink{structnode}{node}}-\/>left,\ successor\_node\_value);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ successor\_node\_value);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>value\ =\ successor\_node\_value;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>left\ ||\ \mbox{\hyperlink{structnode}{node}}-\/>right)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<bst\_node>\&\ non\_null\ =}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{structnode}{node}}-\/>left\ ?\ \mbox{\hyperlink{structnode}{node}}-\/>left\ :\ \mbox{\hyperlink{structnode}{node}}-\/>right);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}\ ==\ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}})\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}}\ =\ std::move(non\_null);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rm\_value\ <\ parent-\/>value)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>left\ =\ std::move(non\_null);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>right\ =\ std::move(non\_null);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}\ ==\ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}})\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}}.reset(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rm\_value\ <\ parent-\/>value)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>left.reset(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>right.reset(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rm\_value\ <\ node-\/>value)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(\mbox{\hyperlink{structnode}{node}},\ \mbox{\hyperlink{structnode}{node}}-\/>left,\ rm\_value);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(\mbox{\hyperlink{structnode}{node}},\ \mbox{\hyperlink{structnode}{node}}-\/>right,\ rm\_value);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a99771c2e1353e8ddfd4bb9d30b7a98fb}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a99771c2e1353e8ddfd4bb9d30b7a98fb} 
+template$<$class T $>$ \\
+bool \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{T}]{rm\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a specified value from the BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rm\+\_\+value} & The value to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the removal was successful. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(\mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ \mbox{\hyperlink{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}{root\_}},\ rm\_value);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a07ba32ce1a2af6e357600ac8c8e98dbc}{size\_}}-\/-\/;}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00280\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!size@{size}}
+\index{size@{size}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3} 
+template$<$class T $>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of values in the BST. 
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t Number of values in the BST. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classbinary__search__tree_a07ba32ce1a2af6e357600ac8c8e98dbc}{size\_}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a2fcf37549bd002c174a45b0b4203c2bd}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!traverse\_inorder@{traverse\_inorder}}
+\index{traverse\_inorder@{traverse\_inorder}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{traverse\_inorder()}{traverse\_inorder()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a2fcf37549bd002c174a45b0b4203c2bd} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::traverse\+\_\+inorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T)$>$}]{callback}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to traverse the tree in in-\/order order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & Function that is called when a value needs to processed. \\
+\hline
+{\em node} & The node to traverse from. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a2fcf37549bd002c174a45b0b4203c2bd}{traverse\_inorder}}(callback,\ \mbox{\hyperlink{structnode}{node}}-\/>left);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ callback(\mbox{\hyperlink{structnode}{node}}-\/>value);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a2fcf37549bd002c174a45b0b4203c2bd}{traverse\_inorder}}(callback,\ \mbox{\hyperlink{structnode}{node}}-\/>right);}
+\DoxyCodeLine{00206\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_a87c0a35845d27e0f6fc1f4eaa0333362}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!traverse\_postorder@{traverse\_postorder}}
+\index{traverse\_postorder@{traverse\_postorder}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{traverse\_postorder()}{traverse\_postorder()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a87c0a35845d27e0f6fc1f4eaa0333362} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::traverse\+\_\+postorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T)$>$}]{callback}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to traverse the tree in post-\/order order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & Function that is called when a value needs to processed. \\
+\hline
+{\em node} & The node to traverse from. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a87c0a35845d27e0f6fc1f4eaa0333362}{traverse\_postorder}}(callback,\ \mbox{\hyperlink{structnode}{node}}-\/>left);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_a87c0a35845d27e0f6fc1f4eaa0333362}{traverse\_postorder}}(callback,\ \mbox{\hyperlink{structnode}{node}}-\/>right);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ callback(\mbox{\hyperlink{structnode}{node}}-\/>value);}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classbinary__search__tree_ab81edd415324d372632c42dc7dbcb9e1}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!traverse\_preorder@{traverse\_preorder}}
+\index{traverse\_preorder@{traverse\_preorder}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{traverse\_preorder()}{traverse\_preorder()}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_ab81edd415324d372632c42dc7dbcb9e1} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::traverse\+\_\+preorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T)$>$}]{callback}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}} $>$ \&}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Recursive function to traverse the tree in pre-\/order order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & Function that is called when a value needs to processed. \\
+\hline
+{\em node} & The node to traverse from. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ callback(\mbox{\hyperlink{structnode}{node}}-\/>value);}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_ab81edd415324d372632c42dc7dbcb9e1}{traverse\_preorder}}(callback,\ \mbox{\hyperlink{structnode}{node}}-\/>left);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree_ab81edd415324d372632c42dc7dbcb9e1}{traverse\_preorder}}(callback,\ \mbox{\hyperlink{structnode}{node}}-\/>right);}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!root\_@{root\_}}
+\index{root\_@{root\_}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{root\_}{root\_}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_aa08f65f6f3bfcb14f8c3d1e65305ae50} 
+template$<$class T $>$ \\
+std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{bst\+\_\+node}}$>$ \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::root\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointer to the root of the BST. \Hypertarget{classbinary__search__tree_a07ba32ce1a2af6e357600ac8c8e98dbc}\index{binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}!size\_@{size\_}}
+\index{size\_@{size\_}!binary\_search\_tree$<$ T $>$@{binary\_search\_tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size\_}{size\_}}
+{\footnotesize\ttfamily \label{classbinary__search__tree_a07ba32ce1a2af6e357600ac8c8e98dbc} 
+template$<$class T $>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree}}$<$ T $>$\+::size\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+Number of elements/nodes in the BST. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{binary__search__tree2_8cpp}{binary\+\_\+search\+\_\+tree2.\+cpp}}\end{DoxyCompactItemize}

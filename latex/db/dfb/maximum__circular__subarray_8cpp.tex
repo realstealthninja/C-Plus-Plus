@@ -1,0 +1,92 @@
+\doxysection{dynamic\+\_\+programming/maximum\+\_\+circular\+\_\+subarray.cpp File Reference}
+\hypertarget{maximum__circular__subarray_8cpp}{}\label{maximum__circular__subarray_8cpp}\index{dynamic\_programming/maximum\_circular\_subarray.cpp@{dynamic\_programming/maximum\_circular\_subarray.cpp}}
+
+
+C++ program for maximum contiguous circular sum problem using \href{https://en.wikipedia.org/wiki/Maximum_subarray_problem}{\texttt{ Kadane\textquotesingle{}s Algorithm}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacedynamic__programming_a5239174fa0d987f2c67edc1f2af82beb}{dynamic\+\_\+programming\+::max\+Circular\+Sum}} (std\+::vector$<$ int $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em returns the maximum contiguous circular sum of an array \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{maximum__circular__subarray_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{maximum__circular__subarray_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C++ program for maximum contiguous circular sum problem using \href{https://en.wikipedia.org/wiki/Maximum_subarray_problem}{\texttt{ Kadane\textquotesingle{}s Algorithm}} 
+
+The idea is to modify Kadane’s algorithm to find a minimum contiguous subarray sum and the maximum contiguous subarray sum, then check for the maximum value between the max\+\_\+value and the value left after subtracting min\+\_\+value from the total sum. For more information, check \href{https://www.geeksforgeeks.org/maximum-contiguous-circular-sum/}{\texttt{ Geeks For Geeks}} explanation page. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{maximum__circular__subarray_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{maximum\_circular\_subarray.cpp@{maximum\_circular\_subarray.cpp}!main@{main}}
+\index{main@{main}!maximum\_circular\_subarray.cpp@{maximum\_circular\_subarray.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{maximum__circular__subarray_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \mbox{\hyperlink{maximum__circular__subarray_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\Hypertarget{maximum__circular__subarray_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{maximum\_circular\_subarray.cpp@{maximum\_circular\_subarray.cpp}!test@{test}}
+\index{test@{test}!maximum\_circular\_subarray.cpp@{maximum\_circular\_subarray.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{maximum__circular__subarray_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementation. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ Description\ of\ the\ test}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Input:\ arr[]\ =\ \{8,\ -\/8,\ 9,\ -\/9,\ 10,\ -\/11,\ 12\}}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Output:\ 22\ }}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Explanation:\ Subarray\ 12,\ 8,\ -\/8,\ 9,\ -\/9,\ 10\ gives\ the\ maximum\ sum,\ that\ is\ 22.}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 7;\ \textcolor{comment}{//\ size\ of\ the\ array}}
+\DoxyCodeLine{00071\ \ \ \ \ std::vector<int>\ arr\ =\ \{8,\ -\/8,\ 9,\ -\/9,\ 10,\ -\/11,\ 12\};\ }
+\DoxyCodeLine{00072\ \ \ \ \ assert(\mbox{\hyperlink{namespacedynamic__programming_a5239174fa0d987f2c67edc1f2af82beb}{dynamic\_programming::maxCircularSum}}(arr)\ ==\ 22);\ \textcolor{comment}{//\ this\ ensures\ that\ the\ algorithm\ works\ as\ expected}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ arr\ =\ \{8,\ -\/8,\ 10,\ -\/9,\ 10,\ -\/11,\ 12\};}
+\DoxyCodeLine{00075\ \ \ \ \ assert(\mbox{\hyperlink{namespacedynamic__programming_a5239174fa0d987f2c67edc1f2af82beb}{dynamic\_programming::maxCircularSum}}(arr)\ ==\ 23);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}

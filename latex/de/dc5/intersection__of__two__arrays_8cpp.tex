@@ -1,0 +1,101 @@
+\doxysection{operations\+\_\+on\+\_\+datastructures/intersection\+\_\+of\+\_\+two\+\_\+arrays.cpp File Reference}
+\hypertarget{intersection__of__two__arrays_8cpp}{}\label{intersection__of__two__arrays_8cpp}\index{operations\_on\_datastructures/intersection\_of\_two\_arrays.cpp@{operations\_on\_datastructures/intersection\_of\_two\_arrays.cpp}}
+
+
+Implementation for the \href{https://en.wikipedia.org/wiki/Intersection_(set_theory)}{\texttt{ Intersection of two sorted Arrays}} algorithm.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceoperations__on__datastructures}{operations\+\_\+on\+\_\+datastructures}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetests}{tests}}
+\begin{DoxyCompactList}\small\item\em Testcases to check Union of Two Arrays. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceoperations__on__datastructures_a6109193567a5b7e36a27f2b4865fce20}{operations\+\_\+on\+\_\+datastructures\+::print}} (const std\+::vector$<$ int32\+\_\+t $>$ \&array)
+\begin{DoxyCompactList}\small\item\em Prints the values of a vector sequentially, ending with a newline character. \end{DoxyCompactList}\item 
+std\+::vector$<$ int32\+\_\+t $>$ \mbox{\hyperlink{namespaceoperations__on__datastructures_adaf9a06f0c236c2d95c97e441ea2d12e}{operations\+\_\+on\+\_\+datastructures\+::get\+\_\+intersection}} (const std\+::vector$<$ int32\+\_\+t $>$ \&first, const std\+::vector$<$ int32\+\_\+t $>$ \&second)
+\begin{DoxyCompactList}\small\item\em Gets the intersection of two sorted arrays, and returns them in a vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_a167c24bd817469ae47358d12e034f2d5}{tests\+::test1}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check an simple case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_abdd77344d4af8fd56d14a5cabbf2f669}{tests\+::test2}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check an empty vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_aa515639572647508b94986489aab6d76}{tests\+::test3}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check an invalid shift value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_a2b9769e44683dcb67fe1083ad91e134d}{tests\+::test4}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check a very large input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_af7b81d7a1534216af6a36a80135beb86}{tests\+::test5}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check a shift of zero. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_aacafde185abd8670abee51157f273dc2}{tests\+::test6}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check correct functionality with an array sorted using std\+::sort. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{intersection__of__two__arrays_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the correctness of get\+\_\+intersection() function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{intersection__of__two__arrays_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation for the \href{https://en.wikipedia.org/wiki/Intersection_(set_theory)}{\texttt{ Intersection of two sorted Arrays}} algorithm. 
+
+The intersection of two arrays is the collection of all the elements that are common in both the first and second arrays. This implementation uses ordered arrays, and an algorithm to correctly order them and return the result as a new array (vector). \begin{DoxySeeAlso}{See also}
+\doxylink{union__of__two__arrays_8cpp}{union\+\_\+of\+\_\+two\+\_\+arrays.\+cpp} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/polarvoid}{\texttt{ Alvin}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{intersection__of__two__arrays_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{intersection\_of\_two\_arrays.cpp@{intersection\_of\_two\_arrays.cpp}!main@{main}}
+\index{main@{main}!intersection\_of\_two\_arrays.cpp@{intersection\_of\_two\_arrays.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{intersection__of__two__arrays_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+main function 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \mbox{\hyperlink{intersection__of__two__arrays_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00203\ \}}
+
+\end{DoxyCode}
+\Hypertarget{intersection__of__two__arrays_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{intersection\_of\_two\_arrays.cpp@{intersection\_of\_two\_arrays.cpp}!test@{test}}
+\index{test@{test}!intersection\_of\_two\_arrays.cpp@{intersection\_of\_two\_arrays.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{intersection__of__two__arrays_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the correctness of get\+\_\+intersection() function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{namespacetests_a167c24bd817469ae47358d12e034f2d5}{tests::test1}}();}
+\DoxyCodeLine{00189\ \ \ \ \ \mbox{\hyperlink{namespacetests_abdd77344d4af8fd56d14a5cabbf2f669}{tests::test2}}();}
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{namespacetests_aa515639572647508b94986489aab6d76}{tests::test3}}();}
+\DoxyCodeLine{00191\ \ \ \ \ \mbox{\hyperlink{namespacetests_a2b9769e44683dcb67fe1083ad91e134d}{tests::test4}}();}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{namespacetests_af7b81d7a1534216af6a36a80135beb86}{tests::test5}}();}
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{namespacetests_aacafde185abd8670abee51157f273dc2}{tests::test6}}();}
+\DoxyCodeLine{00194\ \}}
+
+\end{DoxyCode}

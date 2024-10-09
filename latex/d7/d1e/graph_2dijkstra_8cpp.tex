@@ -1,0 +1,137 @@
+\doxysection{graph/dijkstra.cpp File Reference}
+\hypertarget{graph_2dijkstra_8cpp}{}\label{graph_2dijkstra_8cpp}\index{graph/dijkstra.cpp@{graph/dijkstra.cpp}}
+
+
+\mbox{[}\doxylink{class_graph}{Graph} Dijkstras Shortest Path Algorithm (Dijkstra\textquotesingle{}s Shortest Path)\mbox{]} (\href{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Dijkstra\%27s\+\_\+algorithm}})  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacegraph_a0e30e0dca68cb6e4f671440819b35b6a}{graph\+::add\+Edge}} (std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}adj, int u, int v, int w)
+\begin{DoxyCompactList}\small\item\em Function that add edge between two nodes or vertices of graph. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacegraph_adc68cbc8ba09eb1142265935c0d45b84}{graph\+::dijkstra}} (std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}adj, int s, int t)
+\begin{DoxyCompactList}\small\item\em Function runs the dijkstra algorithm for some source vertex and target vertex in the graph and returns the shortest distance of target from the source. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_2dijkstra_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{graph_2dijkstra_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{graph_2dijkstra_8cpp_a330a2b0a904f01802ada1f8f3b28e76c}\label{graph_2dijkstra_8cpp_a330a2b0a904f01802ada1f8f3b28e76c} 
+constexpr int64\+\_\+t {\bfseries INF} = std\+::numeric\+\_\+limits$<$int64\+\_\+t$>$\+::max()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}\doxylink{class_graph}{Graph} Dijkstras Shortest Path Algorithm (Dijkstra\textquotesingle{}s Shortest Path)\mbox{]} (\href{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Dijkstra\%27s\+\_\+algorithm}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/ayaankhan98}{\texttt{ Ayaan Khan}}
+\end{DoxyAuthor}
+Dijkstra\textquotesingle{}s Algorithm is used to find the shortest path from a source vertex to all other reachable vertex in the graph. The algorithm initially assumes all the nodes are unreachable from the given source vertex so we mark the distances of all vertices as INF (infinity) from source vertex (INF / infinity denotes unable to reach).
+
+in similar fashion with BFS we assume the distance of source vertex as 0 and pushes the vertex in a priority queue with it\textquotesingle{}s distance. we maintain the priority queue as a min heap so that we can get the minimum element at the top of heap
+
+Basically what we do in this algorithm is that we try to minimize the distances of all the reachable vertices from the current vertex, look at the code below to understand in better way. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graph_2dijkstra_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{dijkstra.cpp@{dijkstra.cpp}!main@{main}}
+\index{main@{main}!dijkstra.cpp@{dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{graph_2dijkstra_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ running\ predefined\ tests}}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{graph_2dijkstra_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{int}\ vertices\ =\ int(),\ edges\ =\ int();}
+\DoxyCodeLine{00157\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ vertices\ :\ "{}};}
+\DoxyCodeLine{00158\ \ \ \ \ std::cin\ >>\ vertices;}
+\DoxyCodeLine{00159\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ edges\ :\ "{}};}
+\DoxyCodeLine{00160\ \ \ \ \ std::cin\ >>\ edges;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ std::vector<std::vector<std::pair<int,\ int>>>\ adj(}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ vertices,\ std::vector<std::pair<int,\ int>>());}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ int(),\ v\ =\ int(),\ w\ =\ int();}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges-\/-\/)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ std::cin\ >>\ u\ >>\ v\ >>\ w;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj,\ u,\ v,\ w);}
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{int}\ s\ =\ int(),\ t\ =\ int();}
+\DoxyCodeLine{00172\ \ \ \ \ std::cin\ >>\ s\ >>\ t;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{int}\ dist\ =\ \mbox{\hyperlink{namespacegraph_adc68cbc8ba09eb1142265935c0d45b84}{graph::dijkstra}}(\&adj,\ s\ -\/\ 1,\ t\ -\/\ 1);}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{if}\ (dist\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Target\ not\ reachable\ from\ source"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00176\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Shortest\ Path\ Distance\ :\ "{}}\ <<\ dist\ <<\ std::endl;}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00180\ \}}
+
+\end{DoxyCode}
+\Hypertarget{graph_2dijkstra_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{dijkstra.cpp@{dijkstra.cpp}!tests@{tests}}
+\index{tests@{tests}!dijkstra.cpp@{dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{graph_2dijkstra_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function to test the Algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiatinig\ Predefined\ Tests..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00115\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 1..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00116\ \ \ \ \ std::vector<std::vector<std::pair<int,\ int>>>\ adj1(}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ 4,\ std::vector<std::pair<int,\ int>>());}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 1,\ 2,\ 1);}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 4,\ 1,\ 2);}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 2,\ 3,\ 2);}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 1,\ 3,\ 5);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ s\ =\ 1,\ t\ =\ 3;}
+\DoxyCodeLine{00124\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_adc68cbc8ba09eb1142265935c0d45b84}{graph::dijkstra}}(\&adj1,\ s\ -\/\ 1,\ t\ -\/\ 1)\ ==\ 3);}
+\DoxyCodeLine{00125\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ s\ =\ 4,\ t\ =\ 3;}
+\DoxyCodeLine{00128\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 2..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00129\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_adc68cbc8ba09eb1142265935c0d45b84}{graph::dijkstra}}(\&adj1,\ s\ -\/\ 1,\ t\ -\/\ 1)\ ==\ 5);}
+\DoxyCodeLine{00130\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ std::vector<std::vector<std::pair<int,\ int>>>\ adj2(}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ 5,\ std::vector<std::pair<int,\ int>>());}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 1,\ 2,\ 4);}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 1,\ 3,\ 2);}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 2,\ 3,\ 2);}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 3,\ 2,\ 1);}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 2,\ 4,\ 2);}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 3,\ 5,\ 4);}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 5,\ 4,\ 1);}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 2,\ 5,\ 3);}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 3,\ 4,\ 4);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ s\ =\ 1,\ t\ =\ 5;}
+\DoxyCodeLine{00145\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 3..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00146\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_adc68cbc8ba09eb1142265935c0d45b84}{graph::dijkstra}}(\&adj2,\ s\ -\/\ 1,\ t\ -\/\ 1)\ ==\ 6);}
+\DoxyCodeLine{00147\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00148\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ Test\ Passed..."{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00149\ \}}
+
+\end{DoxyCode}

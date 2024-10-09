@@ -1,0 +1,500 @@
+\doxysection{Graph Class Reference}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph@{Graph}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_ad3b98f95ee53f91afad11b8eaddc35e0}{Graph}} (int V, int E)
+\item 
+void \mbox{\hyperlink{class_graph_a6dc4dd4ce49c4052ad2a5d27523881f4}{add\+Edge}} (int src, int dst, int weight)
+\item 
+\mbox{\hyperlink{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915}{Graph}} (int V)
+\item 
+void \mbox{\hyperlink{class_graph_a6dc4dd4ce49c4052ad2a5d27523881f4}{add\+Edge}} (int src, int dst, int weight)
+\item 
+\Hypertarget{class_graph_ade809d353b640b9c2773d71d4f57d57d}\label{class_graph_ade809d353b640b9c2773d71d4f57d57d} 
+{\bfseries Graph} (\mbox{\hyperlink{class_graph}{Graph}} \&\&)=default
+\item 
+\Hypertarget{class_graph_afd81de5588485ebca8498c06a07e8718}\label{class_graph_afd81de5588485ebca8498c06a07e8718} 
+\mbox{\hyperlink{class_graph}{Graph}} \& {\bfseries operator=} (\mbox{\hyperlink{class_graph}{Graph}} \&\&)=default
+\item 
+\Hypertarget{class_graph_a04365fc6f13bf330e38dbc1424134827}\label{class_graph_a04365fc6f13bf330e38dbc1424134827} 
+{\bfseries Graph} (\mbox{\hyperlink{class_graph}{Graph}} const \&)=default
+\item 
+\Hypertarget{class_graph_ab08a73091aea1a70c34cd15200401596}\label{class_graph_ab08a73091aea1a70c34cd15200401596} 
+\mbox{\hyperlink{class_graph}{Graph}} \& {\bfseries operator=} (\mbox{\hyperlink{class_graph}{Graph}} const \&)=default
+\item 
+\mbox{\hyperlink{class_graph_adcbd1b60cab30b97c54d700eee8e456d}{Graph}} (unsigned int vertices, Adj\+List adj\+List)
+\item 
+\mbox{\hyperlink{class_graph_a8c95e00effaea0cd9404dd74cd802ae3}{Graph}} (unsigned int vertices, Adj\+List \&\&adj\+List)
+\item 
+\mbox{\hyperlink{class_graph_aa99d44d3179d5bbbfa84a5031cf80cb1}{Graph}} (unsigned int vertices, std\+::vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ const \&edges)
+\item 
+std\+::remove\+\_\+reference$<$ Adj\+List $>$\+::type const \& \mbox{\hyperlink{class_graph_a5a090e1a63a5c47bdd1a539b21f7fd1d}{get\+Adj\+List}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_graph_a8dcb5ce0b4a6f65827f5055d9d53a3f1}{get\+Vertices}} () const
+\item 
+void \mbox{\hyperlink{class_graph_ac5a4d9a4f894a179198936042c778413}{add\+Vertices}} (unsigned int num=1)
+\item 
+void \mbox{\hyperlink{class_graph_af765dda8f21280e1cecea19e129f1bc5}{add\+Edge}} (\mbox{\hyperlink{class_edge}{Edge}} const \&edge)
+\item 
+void \mbox{\hyperlink{class_graph_ac85c63bcca4764a621f9f8609a8e5910}{add\+Edge}} (unsigned int source, unsigned int destination)
+\item 
+void \mbox{\hyperlink{class_graph_a6d95f41d2df61697379ccc209c78f801}{set\+\_\+graph}} ()
+\item 
+void \mbox{\hyperlink{class_graph_ab7a517eb1a45f6539a53dffe5d790b12}{ford\+\_\+fulkerson}} ()
+\item 
+void \mbox{\hyperlink{class_graph_ac93ec6a876da0b5a61ebf3bebc347ba5}{print\+\_\+flow\+\_\+info}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graph_a6afcd41564ea00294a4c089414979ca1}\label{class_graph_a6afcd41564ea00294a4c089414979ca1} 
+int {\bfseries vertex\+Num}
+\item 
+\Hypertarget{class_graph_a10ff9c6c323cf435f18e424dbb62235e}\label{class_graph_a10ff9c6c323cf435f18e424dbb62235e} 
+int {\bfseries edge\+Num}
+\item 
+\Hypertarget{class_graph_a2a546eb4062eb56cb88eb0a381d10a12}\label{class_graph_a2a546eb4062eb56cb88eb0a381d10a12} 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} {\bfseries edges}
+\item 
+\Hypertarget{class_graph_a268ba18d421817ad8713c2e92f19d82a}\label{class_graph_a268ba18d421817ad8713c2e92f19d82a} 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries edges}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_graph_acfd6fbc5243626bfb7b7116b76fedab0}{bfs}} (int source, int sink)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graph_a61943646676002a5e75f7b6493c25713}\label{class_graph_a61943646676002a5e75f7b6493c25713} 
+unsigned int {\bfseries m\+\_\+vertices} = 0
+\item 
+\Hypertarget{class_graph_a13697caf8be6275ebb7b9497c9a9d6e5}\label{class_graph_a13697caf8be6275ebb7b9497c9a9d6e5} 
+Adj\+List {\bfseries m\+\_\+adj\+List}
+\item 
+\Hypertarget{class_graph_a92a601c0ada840011e2719cb753b490b}\label{class_graph_a92a601c0ada840011e2719cb753b490b} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries residual\+\_\+capacity}
+\item 
+\Hypertarget{class_graph_a8a34b80e2f3749992e0e9b83de742fba}\label{class_graph_a8a34b80e2f3749992e0e9b83de742fba} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries capacity}
+\item 
+\Hypertarget{class_graph_ae93ae98711b868af601d424954fe94ac}\label{class_graph_ae93ae98711b868af601d424954fe94ac} 
+int {\bfseries total\+\_\+nodes} = 0
+\item 
+\Hypertarget{class_graph_ad621c5393837c21780ff3477431707ac}\label{class_graph_ad621c5393837c21780ff3477431707ac} 
+int {\bfseries total\+\_\+edges} = 0
+\item 
+\Hypertarget{class_graph_a9912e31b32405d21a4c22a9ab8dece30}\label{class_graph_a9912e31b32405d21a4c22a9ab8dece30} 
+int {\bfseries source} = 0
+\item 
+\Hypertarget{class_graph_a47336f7cfe4698ef887a34e03f1a3856}\label{class_graph_a47336f7cfe4698ef887a34e03f1a3856} 
+int {\bfseries sink} = 0
+\item 
+\Hypertarget{class_graph_a9474bfdf769cc0d23f5b16c181a29431}\label{class_graph_a9474bfdf769cc0d23f5b16c181a29431} 
+std\+::vector$<$ int $>$ {\bfseries parent}
+\item 
+\Hypertarget{class_graph_a73268574e2528b8e760191113ef6d1eb}\label{class_graph_a73268574e2528b8e760191113ef6d1eb} 
+std\+::vector$<$ std\+::tuple$<$ int, int, int $>$ $>$ {\bfseries edge\+\_\+participated}
+\item 
+\Hypertarget{class_graph_af1abf6ea5346e12dea4df46262ff35aa}\label{class_graph_af1abf6ea5346e12dea4df46262ff35aa} 
+std\+::bitset$<$ MAXN $>$ {\bfseries visited}
+\item 
+\Hypertarget{class_graph_aa0aaff1a0c13bdf209ea40b83ac01ae6}\label{class_graph_aa0aaff1a0c13bdf209ea40b83ac01ae6} 
+int {\bfseries max\+\_\+flow} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of graph class.
+
+The graph will be represented using Adjacency List representation. This class contains 2 data members "{}m\+\_\+vertices"{} \& "{}m\+\_\+adj\+List"{} used to represent the number of vertices and adjacency list of the graph respectively. The vertices are labelled 0 -\/ (m\+\_\+vertices -\/ 1). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_graph_ad3b98f95ee53f91afad11b8eaddc35e0}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_graph_ad3b98f95ee53f91afad11b8eaddc35e0} 
+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{int}]{V}{, }\item[{int}]{E}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ this-\/>vertexNum\ =\ V;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ this-\/>edgeNum\ =\ E;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ this-\/>edges\ =\ (\mbox{\hyperlink{class_edge}{Edge}}\ *)malloc(E\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_edge}{Edge}}));}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_graph_af3ff6b295df8bf3bee0bafd7c7d56915} 
+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{int}]{V}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ this-\/>vertexNum\ =\ V;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ this-\/>edges\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}\ *[V];}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ V;\ i++)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>edges[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[V];}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ V;\ j++)\ this-\/>edges[i][j]\ =\ INT\_MAX;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>edges[i][i]\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_a902c5b3eacb66d60752525ab23297a95}\index{Graph@{Graph}!````~Graph@{\texorpdfstring{$\sim$}{\string~}Graph}}
+\index{````~Graph@{\texorpdfstring{$\sim$}{\string~}Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Graph()}{\string~Graph()}}
+{\footnotesize\ttfamily \label{class_graph_a902c5b3eacb66d60752525ab23297a95} 
+Graph\+::\texorpdfstring{$\sim$}{\string~}\+Graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ vertexNum;\ i++)\ \textcolor{keyword}{delete}[]\ edges[i];}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ edges;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_ae4c72b8ac4d693c49800a4c7e273654f}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_graph_ae4c72b8ac4d693c49800a4c7e273654f} 
+Graph\+::\+Graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ :\ m\_adjList(\{\})\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_adcbd1b60cab30b97c54d700eee8e456d}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_graph_adcbd1b60cab30b97c54d700eee8e456d} 
+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{unsigned int}]{vertices}{, }\item[{Adj\+List}]{adj\+List}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a graph from vertices and adjacency list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & specify the number of vertices the graph would contain. \\
+\hline
+{\em adj\+List} & is the adjacency list representation of graph. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ :\ m\_vertices(vertices),\ m\_adjList(std::move(adjList))\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_a8c95e00effaea0cd9404dd74cd802ae3}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_graph_a8c95e00effaea0cd9404dd74cd802ae3} 
+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{unsigned int}]{vertices}{, }\item[{Adj\+List \&\&}]{adj\+List}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a graph from vertices and adjacency list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & specify the number of vertices the graph would contain. \\
+\hline
+{\em adj\+List} & is the adjacency list representation of graph. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ :\ m\_vertices(vertices),\ m\_adjList(std::move(adjList))\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_aa99d44d3179d5bbbfa84a5031cf80cb1}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_graph_aa99d44d3179d5bbbfa84a5031cf80cb1} 
+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{unsigned int}]{vertices}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ const \&}]{edges}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a graph from vertices and a set of edges.
+
+Adjacency list of the graph would be created from the set of edges. If the source or destination of any edge has a value greater or equal to number of vertices, then it would throw a range\+\_\+error.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & specify the number of vertices the graph would contain. \\
+\hline
+{\em edges} & is a vector of edges. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ :\ m\_vertices(vertices)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ edge\ :\ edges)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edge.src\ >=\ vertices\ ||\ edge.dest\ >=\ vertices)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::range\_error(}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Either\ src\ or\ dest\ of\ edge\ out\ of\ range"{}});}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ m\_adjList[edge.src].emplace\_back(edge.dest);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_af765dda8f21280e1cecea19e129f1bc5}\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_graph_af765dda8f21280e1cecea19e129f1bc5} 
+void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} const \&}]{edge}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add an edge in the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & that needs to be added. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edge.src\ >=\ m\_vertices\ ||\ edge.dest\ >=\ m\_vertices)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}Either\ src\ or\ dest\ of\ edge\ out\ of\ range"{}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ m\_adjList[edge.src].emplace\_back(edge.dest);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_a6dc4dd4ce49c4052ad2a5d27523881f4}\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_graph_a6dc4dd4ce49c4052ad2a5d27523881f4} 
+void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{src}{, }\item[{int}]{dst}{, }\item[{int}]{weight}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ edgeInd\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edgeInd\ <\ this-\/>edgeNum)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_edge}{Edge}}\ newEdge;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ newEdge.src\ =\ src;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ newEdge.dst\ =\ dst;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ newEdge.weight\ =\ weight;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>edges[edgeInd++]\ =\ newEdge;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_a6dc4dd4ce49c4052ad2a5d27523881f4}\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_graph_a6dc4dd4ce49c4052ad2a5d27523881f4} 
+void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{src}{, }\item[{int}]{dst}{, }\item[{int}]{weight}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ this-\/>edges[src][dst]\ =\ weight;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_ac85c63bcca4764a621f9f8609a8e5910}\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_graph_ac85c63bcca4764a621f9f8609a8e5910} 
+void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{unsigned int}]{source}{, }\item[{unsigned int}]{destination}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add an \doxylink{class_edge}{Edge} in the graph
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & is source vertex of the edge. \\
+\hline
+{\em destination} & is the destination vertex of the edge. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (source\ >=\ m\_vertices\ ||\ destination\ >=\ m\_vertices)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::range\_error(}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Either\ source\ or\ destination\ of\ edge\ out\ of\ range"{}});}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ m\_adjList[source].emplace\_back(destination);}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_ac5a4d9a4f894a179198936042c778413}\index{Graph@{Graph}!addVertices@{addVertices}}
+\index{addVertices@{addVertices}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addVertices()}{addVertices()}}
+{\footnotesize\ttfamily \label{class_graph_ac5a4d9a4f894a179198936042c778413} 
+void Graph\+::add\+Vertices (\begin{DoxyParamCaption}\item[{unsigned int}]{num}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add vertices in the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & is the number of vertices to be added. It adds 1 vertex by default. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \{\ m\_vertices\ +=\ num;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_acfd6fbc5243626bfb7b7116b76fedab0}\index{Graph@{Graph}!bfs@{bfs}}
+\index{bfs@{bfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}}
+{\footnotesize\ttfamily \label{class_graph_acfd6fbc5243626bfb7b7116b76fedab0} 
+bool Graph\+::bfs (\begin{DoxyParamCaption}\item[{int}]{source}{, }\item[{int}]{sink}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ \ to\ find\ the\ augmented\ -\/\ path}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ visited.reset();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::queue<int>\ q;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ q.push(source);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_path\_found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (q.empty()\ ==\ \textcolor{keyword}{false}\ \&\&\ is\_path\_found\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ current\_node\ =\ q.front();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ visited.set(current\_node);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ total\_nodes;\ ++i)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (residual\_capacity[current\_node][i]\ >\ 0\ \&\&\ !visited[i])\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ visited.set(i);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[i]\ =\ current\_node;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ sink)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(i);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_ab7a517eb1a45f6539a53dffe5d790b12}\index{Graph@{Graph}!ford\_fulkerson@{ford\_fulkerson}}
+\index{ford\_fulkerson@{ford\_fulkerson}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{ford\_fulkerson()}{ford\_fulkerson()}}
+{\footnotesize\ttfamily \label{class_graph_ab7a517eb1a45f6539a53dffe5d790b12} 
+void Graph\+::ford\+\_\+fulkerson (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (bfs(source,\ sink))\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ current\_node\ =\ sink;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ flow\ =\ std::numeric\_limits<int>::max();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current\_node\ !=\ source)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parent\_\ =\ parent[current\_node];}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flow\ =\ std::min(flow,\ residual\_capacity[parent\_][current\_node]);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_node\ =\ parent\_;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ current\_node\ =\ sink;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ max\_flow\ +=\ flow;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current\_node\ !=\ source)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parent\_\ =\ parent[current\_node];}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ residual\_capacity[parent\_][current\_node]\ -\/=\ flow;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ residual\_capacity[current\_node][parent\_]\ +=\ flow;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_node\ =\ parent\_;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_a5a090e1a63a5c47bdd1a539b21f7fd1d}\index{Graph@{Graph}!getAdjList@{getAdjList}}
+\index{getAdjList@{getAdjList}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getAdjList()}{getAdjList()}}
+{\footnotesize\ttfamily \label{class_graph_a5a090e1a63a5c47bdd1a539b21f7fd1d} 
+std\+::remove\+\_\+reference$<$ Adj\+List $>$\+::type const  \& Graph\+::get\+Adj\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return a const reference of the adjacency list.
+
+\begin{DoxyReturn}{Returns}
+const reference to the adjacency list 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_adjList;}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_a8dcb5ce0b4a6f65827f5055d9d53a3f1}\index{Graph@{Graph}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getVertices()}{getVertices()}}
+{\footnotesize\ttfamily \label{class_graph_a8dcb5ce0b4a6f65827f5055d9d53a3f1} 
+unsigned int Graph\+::get\+Vertices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+number of vertices in the graph. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \{\ \textcolor{keywordflow}{return}\ m\_vertices;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_ac93ec6a876da0b5a61ebf3bebc347ba5}\index{Graph@{Graph}!print\_flow\_info@{print\_flow\_info}}
+\index{print\_flow\_info@{print\_flow\_info}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{print\_flow\_info()}{print\_flow\_info()}}
+{\footnotesize\ttfamily \label{class_graph_ac93ec6a876da0b5a61ebf3bebc347ba5} 
+void Graph\+::print\+\_\+flow\+\_\+info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ total\_nodes;\ ++i)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ total\_nodes;\ ++j)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (capacity[i][j]\ \&\&}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ residual\_capacity[i][j]\ <\ capacity[i][j])\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ edge\_participated.emplace\_back(std::make\_tuple(}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i,\ j,\ capacity[i][j]\ -\/\ residual\_capacity[i][j]));}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNodes\ :\ "{}}\ <<\ total\_nodes\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nMax\ flow:\ "{}}\ <<\ max\_flow}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEdge\ present\ in\ flow:\ "{}}\ <<\ edge\_participated.size()}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nSource\(\backslash\)tDestination\(\backslash\)tCapacity\(\backslash\)total\_nodes"{}};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ edge\_data\ :\ edge\_participated)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ source\ =\ 0,\ destination\ =\ 0,\ capacity\_\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ std::tie(source,\ destination,\ capacity\_)\ =\ edge\_data;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ source\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ destination\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t"{}}\ <<\ capacity\_}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)t'};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_graph_a6d95f41d2df61697379ccc209c78f801}\index{Graph@{Graph}!set\_graph@{set\_graph}}
+\index{set\_graph@{set\_graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{set\_graph()}{set\_graph()}}
+{\footnotesize\ttfamily \label{class_graph_a6d95f41d2df61697379ccc209c78f801} 
+void Graph\+::set\+\_\+graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::cin\ >>\ total\_nodes\ >>\ total\_edges\ >>\ source\ >>\ sink;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ parent\ =\ std::vector<int>(total\_nodes,\ -\/1);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ capacity\ =\ residual\_capacity\ =\ std::vector<std::vector<int>\ >(}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ total\_nodes,\ std::vector<int>(total\_nodes));}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ start\ =\ 0,\ destination\ =\ 0,\ capacity\_\ =\ 0,\ i\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ <\ total\_edges;\ ++i)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ start\ >>\ destination\ >>\ capacity\_;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ residual\_capacity[start][destination]\ =\ capacity\_;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ capacity[start][destination]\ =\ capacity\_;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dynamic\+\_\+programming/bellman\+\_\+ford.\+cpp\item 
+dynamic\+\_\+programming/floyd\+\_\+warshall.\+cpp\item 
+graph/cycle\+\_\+check\+\_\+directed\+\_\+graph.\+cpp\item 
+graph/max\+\_\+flow\+\_\+with\+\_\+ford\+\_\+fulkerson\+\_\+and\+\_\+edmond\+\_\+karp\+\_\+algo.\+cpp\end{DoxyCompactItemize}

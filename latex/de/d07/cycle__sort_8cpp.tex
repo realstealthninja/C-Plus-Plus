@@ -1,0 +1,182 @@
+\doxysection{sorting/cycle\+\_\+sort.cpp File Reference}
+\hypertarget{cycle__sort_8cpp}{}\label{cycle__sort_8cpp}\index{sorting/cycle\_sort.cpp@{sorting/cycle\_sort.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Cycle_sort}{\texttt{ Cycle sort}} algorithm.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecycle__sort}{cycle\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Cycle_sort}{\texttt{ Cycle sort}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{cycle__sort_8cpp_ae79a9d247691fce0d655fce75f1c04fa}{sorting\+::cycle\+\_\+sort\+::cycle\+Sort}} (const std\+::vector$<$ T $>$ \&in\+\_\+arr)
+\begin{DoxyCompactList}\small\item\em The main function implements cycle\+Sort. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{cycle__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cycle__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Cycle_sort}{\texttt{ Cycle sort}} algorithm. 
+
+Cycle Sort is a sorting algorithm that works in $O(n^2)$ time in the best case and works in $O(n^2)$ in worst case. If a element is already at its correct position, do nothing. If a element is not at its correct position, we then need to move it to its correct position by computing the correct positions.\+Therefore, we should make sure the duplicate elements. \begin{DoxyAuthor}{Author}
+\href{https://github.com/dalaoqi}{\texttt{ Tsung\+Han Ho}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{cycle__sort_8cpp_ae79a9d247691fce0d655fce75f1c04fa}\index{cycle\_sort.cpp@{cycle\_sort.cpp}!cycleSort@{cycleSort}}
+\index{cycleSort@{cycleSort}!cycle\_sort.cpp@{cycle\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{cycleSort()}{cycleSort()}}
+{\footnotesize\ttfamily \label{cycle__sort_8cpp_ae79a9d247691fce0d655fce75f1c04fa} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ sorting\+::cycle\+\_\+sort\+::cycle\+Sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{in\+\_\+arr}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements cycle\+Sort. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+arr} & array to be sorted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::vector<T>\ arr(in\_arr);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cycle\_start\ =\ 0;\ cycle\_start\ <=\ arr.size()\ -\/\ 1;\ cycle\_start++)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initialize\ item}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ T\ item\ =\ arr[cycle\_start];}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Count\ the\ number\ of\ elements\ smaller\ than\ item,\ this\ \ number\ is\ the}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ correct\ index\ of\ item.}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pos\ =\ cycle\_start;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ cycle\_start\ +\ 1;\ i\ <\ arr.size();\ i++)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ <\ item)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos++;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ item\ is\ already\ in\ correct\ position}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ cycle\_start)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ duplicate\ \ elements}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (item\ ==\ arr[pos])\ pos\ +=\ 1;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ cycle\_start)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(item,\ arr[pos]);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rest\ of\ the\ \ elements}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (pos\ !=\ cycle\_start)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ cycle\_start;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ position\ where\ we\ put\ the\ element}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ cycle\_start\ +\ 1;\ i\ <\ arr.size();\ i++)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ <\ item)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ +=\ 1;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ duplicate\ \ elements}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (item\ ==\ arr[pos])\ pos\ +=\ 1;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (item\ ==\ arr[pos])\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(item,\ arr[pos]);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{cycle__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{cycle\_sort.cpp@{cycle\_sort.cpp}!main@{main}}
+\index{main@{main}!cycle\_sort.cpp@{cycle\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{cycle__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{cycle__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ test}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00130\ \}}
+
+\end{DoxyCode}
+\Hypertarget{cycle__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{cycle\_sort.cpp@{cycle\_sort.cpp}!test@{test}}
+\index{test@{test}!cycle\_sort.cpp@{cycle\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{cycle__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ [4,\ 3,\ 2,\ 1]\ return\ [1,\ 2,\ 3,\ 4]}}
+\DoxyCodeLine{00094\ \ \ \ \ std::vector<uint32\_t>\ array1\ =\ \{4,\ 3,\ 2,\ 1\};}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...\ "{}};}
+\DoxyCodeLine{00096\ \ \ \ \ std::vector<uint32\_t>\ arr1\ =\ \mbox{\hyperlink{cycle__sort_8cpp_ae79a9d247691fce0d655fce75f1c04fa}{sorting::cycle\_sort::cycleSort}}(array1);}
+\DoxyCodeLine{00097\ \ \ \ \ assert(std::is\_sorted(std::begin(arr1),\ std::end(arr1)));}
+\DoxyCodeLine{00098\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ [4.3,\ -\/6.5,\ -\/7.4,\ 0,\ 2.7,\ 1.8]\ return\ [-\/7.4,\ -\/6.5,\ 0,\ 1.8,\ 2.7,\ 4.3]}}
+\DoxyCodeLine{00101\ \ \ \ \ std::vector<double>\ array2\ =\ \{4.3,\ -\/6.5,\ -\/7.4,\ 0,\ 2.7,\ 1.8\};}
+\DoxyCodeLine{00102\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...\ "{}};}
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<double>\ arr2\ =\ \mbox{\hyperlink{cycle__sort_8cpp_ae79a9d247691fce0d655fce75f1c04fa}{sorting::cycle\_sort::cycleSort}}(array2);}
+\DoxyCodeLine{00104\ \ \ \ \ assert(std::is\_sorted(std::begin(arr2),\ std::end(arr2)));}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ Test\ 3}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ [3,\ 3,\ 3,\ 3]\ return\ [3,\ 3,\ 3,\ 3]}}
+\DoxyCodeLine{00109\ \ \ \ \ std::vector<uint32\_t>\ array3\ =\ \{3,\ 3,\ 3,\ 3\};}
+\DoxyCodeLine{00110\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...\ "{}};}
+\DoxyCodeLine{00111\ \ \ \ \ std::vector<uint32\_t>\ arr3\ =\ \mbox{\hyperlink{cycle__sort_8cpp_ae79a9d247691fce0d655fce75f1c04fa}{sorting::cycle\_sort::cycleSort}}(array3);}
+\DoxyCodeLine{00112\ \ \ \ \ assert(std::is\_sorted(std::begin(arr3),\ std::end(arr3)));}
+\DoxyCodeLine{00113\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ [9,\ 4,\ 6,\ 8,\ 14,\ 3]\ return\ [9,\ 4,\ 6,\ 8,\ 14,\ 3]}}
+\DoxyCodeLine{00116\ \ \ \ \ std::vector<uint32\_t>\ array4\ =\ \{3,\ 4,\ 6,\ 8,\ 9,\ 14\};}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 4...\ "{}};}
+\DoxyCodeLine{00118\ \ \ \ \ std::vector<uint32\_t>\ arr4\ =\ \mbox{\hyperlink{cycle__sort_8cpp_ae79a9d247691fce0d655fce75f1c04fa}{sorting::cycle\_sort::cycleSort}}(array4);}
+\DoxyCodeLine{00119\ \ \ \ \ assert(std::is\_sorted(std::begin(arr4),\ std::end(arr4)));}
+\DoxyCodeLine{00120\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,135 @@
+\doxysection{bit\+\_\+manipulation Namespace Reference}
+\hypertarget{namespacebit__manipulation}{}\label{namespacebit__manipulation}\index{bit\_manipulation@{bit\_manipulation}}
+
+
+for IO operations  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{next\+\_\+higher\+\_\+number}} (uint64\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em The main function implements checking the next number. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacebit__manipulation_a5032470c9974bbd6ec254bf296530a5f}{is\+Power\+Of\+Two}} (std \+::int64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em The main function implements check for power of 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+for IO operations 
+
+Bit manipulation algorithms.
+
+for io operations
+
+Program to generate n-\/bit \href{https://en.wikipedia.org/wiki/Gray_code}{\texttt{ Gray code}}
+
+storing the numbers
+
+for assert
+
+Bit manipulation algorithms
+
+for assert for IO operations
+
+Bit manipulation algorithms
+
+Gray code is a binary numeral system where consecutive values differ in exactly 1 bit. The following code offers one of many possible Gray codes given some pre-\/determined number of bits. for gray code representation for assert for IO operations for vector data structure
+
+Bit manipulation algorithms
+
+for assert
+
+Bit Manipulation algorithms
+
+for std\+::min for assert for IO operations for limits of integral types for std\+::vector 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacebit__manipulation_a5032470c9974bbd6ec254bf296530a5f}\index{bit\_manipulation@{bit\_manipulation}!isPowerOfTwo@{isPowerOfTwo}}
+\index{isPowerOfTwo@{isPowerOfTwo}!bit\_manipulation@{bit\_manipulation}}
+\doxysubsubsection{\texorpdfstring{isPowerOfTwo()}{isPowerOfTwo()}}
+{\footnotesize\ttfamily \label{namespacebit__manipulation_a5032470c9974bbd6ec254bf296530a5f} 
+bool bit\+\_\+manipulation\+::is\+Power\+Of\+Two (\begin{DoxyParamCaption}\item[{std \+::int64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements check for power of 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & is the number who will be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+either true or false 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ int64\_t\ is\ preferred\ over\ int\ so\ that}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ no\ Overflow\ can\ be\ there.}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ n\ >\ 0\ \&\&\ !(n\ \&\ n\ -\/\ 1);\ \ \textcolor{comment}{//\ If\ we\ subtract\ a\ power\ of\ 2\ numbers\ by\ 1}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ then\ all\ unset\ bits\ after\ the\ only\ set\ bit\ become\ set;\ and\ the\ set\ bit}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ becomes\ unset.}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ If\ a\ number\ n\ is\ a\ power\ of\ 2\ then\ bitwise\ and\ of\ n-\/1\ and\ n\ will\ be\ zero.}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ The\ expression\ n\&(n-\/1)\ will\ not\ work\ when\ n\ is\ 0.}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ To\ handle\ this\ case\ also,\ our\ expression\ will\ become\ n\&\ (!n\&(n-\/1))}}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}\index{bit\_manipulation@{bit\_manipulation}!next\_higher\_number@{next\_higher\_number}}
+\index{next\_higher\_number@{next\_higher\_number}!bit\_manipulation@{bit\_manipulation}}
+\doxysubsubsection{\texorpdfstring{next\_higher\_number()}{next\_higher\_number()}}
+{\footnotesize\ttfamily \label{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e} 
+uint64\+\_\+t bit\+\_\+manipulation\+::next\+\_\+higher\+\_\+number (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{x}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements checking the next number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the number that will be calculated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a number 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ uint64\_t\ rightOne\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ uint64\_t\ nextHigherOneBit\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ uint64\_t\ rightOnesPattern\ =\ 0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ uint64\_t\ next\ =\ 0;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (x)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ right\ most\ set\ bit}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ rightOne\ =\ x\ \&\ -\/\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{signed}\textcolor{keyword}{>}(x);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reset\ the\ pattern\ and\ set\ next\ higher\ bit}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ left\ part\ of\ x\ will\ be\ here}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ nextHigherOneBit\ =\ x\ +\ rightOne;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ nextHigherOneBit\ is\ now\ part\ [D]\ of\ the\ above\ explanation.}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ isolate\ the\ pattern}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ rightOnesPattern\ =\ x\ \string^\ nextHigherOneBit;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ right\ adjust\ pattern}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ rightOnesPattern\ =\ (rightOnesPattern)\ /\ rightOne;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ correction\ factor}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ rightOnesPattern\ >>=\ 2;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ rightOnesPattern\ is\ now\ part\ [A]\ of\ the\ above\ explanation.}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ integrate\ new\ pattern\ (Add\ [D]\ and\ [A])}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ next\ =\ nextHigherOneBit\ |\ rightOnesPattern;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ next;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}

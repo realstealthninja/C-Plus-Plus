@@ -1,0 +1,81 @@
+\doxysection{math/gcd\+\_\+recursive\+\_\+euclidean.cpp File Reference}
+\hypertarget{gcd__recursive__euclidean_8cpp}{}\label{gcd__recursive__euclidean_8cpp}\index{math/gcd\_recursive\_euclidean.cpp@{math/gcd\_recursive\_euclidean.cpp}}
+
+
+Compute the greatest common denominator of two integers using {\itshape recursive form} of \href{https://en.wikipedia.org/wiki/Euclidean_algorithm}{\texttt{ Euclidean algorithm}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}} (int num1, int num2)
+\item 
+int \mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute the greatest common denominator of two integers using {\itshape recursive form} of \href{https://en.wikipedia.org/wiki/Euclidean_algorithm}{\texttt{ Euclidean algorithm}} 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{gcd__iterative__euclidean_8cpp}{gcd\+\_\+iterative\+\_\+euclidean.\+cpp}, \doxylink{gcd__of__n__numbers_8cpp}{gcd\+\_\+of\+\_\+n\+\_\+numbers.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}\index{gcd\_recursive\_euclidean.cpp@{gcd\_recursive\_euclidean.cpp}!gcd@{gcd}}
+\index{gcd@{gcd}!gcd\_recursive\_euclidean.cpp@{gcd\_recursive\_euclidean.cpp}}
+\doxysubsubsection{\texorpdfstring{gcd()}{gcd()}}
+{\footnotesize\ttfamily \label{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e} 
+int gcd (\begin{DoxyParamCaption}\item[{int}]{num1}{, }\item[{int}]{num2}{}\end{DoxyParamCaption})}
+
+algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ <=\ 0\ |\ num2\ <=\ 0)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::domain\_error(\textcolor{stringliteral}{"{}Euclidean\ algorithm\ domain\ is\ for\ ints\ >\ 0"{}});}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ ==\ num2)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ num1;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Everything\ divides\ 0}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ ==\ 0)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ num2;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (num2\ ==\ 0)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ num1;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ base\ case}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ ==\ num2)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ num1;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ a\ is\ greater}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (num1\ >\ num2)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(num1\ -\/\ num2,\ num2);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(num1,\ num2\ -\/\ num1);}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+\Hypertarget{gcd__recursive__euclidean_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{gcd\_recursive\_euclidean.cpp@{gcd\_recursive\_euclidean.cpp}!main@{main}}
+\index{main@{main}!gcd\_recursive\_euclidean.cpp@{gcd\_recursive\_euclidean.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{gcd__recursive__euclidean_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ 120,7\ is\ "{}}\ <<\ (\mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(120,\ 7))\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ -\/120,10\ is\ "{}}\ <<\ \mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(-\/120,\ 10)\ <<\ std::endl;}
+\DoxyCodeLine{00046\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::domain\_error\ \&e)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Error\ handling\ was\ successful"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ 312,221\ is\ "{}}\ <<\ (\mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(312,\ 221))\ <<\ std::endl;}
+\DoxyCodeLine{00050\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}gcd\ of\ 289,204\ is\ "{}}\ <<\ (\mbox{\hyperlink{gcd__recursive__euclidean_8cpp_ae48807fa2b7000afae599e67f327545e}{gcd}}(289,\ 204))\ <<\ std::endl;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}

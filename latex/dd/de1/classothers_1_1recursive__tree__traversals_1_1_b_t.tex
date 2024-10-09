@@ -1,0 +1,159 @@
+\doxysection{others\+::recursive\+\_\+tree\+\_\+traversals\+::BT Class Reference}
+\hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t}{}\label{classothers_1_1recursive__tree__traversals_1_1_b_t}\index{others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}}
+
+
+\doxylink{classothers_1_1recursive__tree__traversals_1_1_b_t}{BT} used to make the entire structure of the binary tree and the functions associated with the binary tree.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{create\+New\+Node}} (std\+::uint64\+\_\+t)
+\begin{DoxyCompactList}\small\item\em will allocate the memory for a node and, along the data and return the node. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_a142689a84eaafcd22b68fad887b14540}{inorder}} (\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*})
+\item 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5}{preorder}} (\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em preorder function that will perform the preorder traversal recursively, and return the resultant vector that contain the preorder traversal of a tree. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c}{postorder}} (\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em postorder function that will perform the postorder traversal recursively, and return the result vector that contain the postorder traversal of a tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t_a56cf8c75b7d9775841afb54f34df7548}\label{classothers_1_1recursive__tree__traversals_1_1_b_t_a56cf8c75b7d9775841afb54f34df7548} 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ {\bfseries inorder\+\_\+result}
+\item 
+\Hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t_ad3aa0b0a663f1cf17ac98345d2cd7072}\label{classothers_1_1recursive__tree__traversals_1_1_b_t_ad3aa0b0a663f1cf17ac98345d2cd7072} 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ {\bfseries preorder\+\_\+result}
+\item 
+\Hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t_a25989ceb1bd110da23805a5d99527ecb}\label{classothers_1_1recursive__tree__traversals_1_1_b_t_a25989ceb1bd110da23805a5d99527ecb} 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ {\bfseries postorder\+\_\+result}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classothers_1_1recursive__tree__traversals_1_1_b_t}{BT} used to make the entire structure of the binary tree and the functions associated with the binary tree. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}\index{others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}!createNewNode@{createNewNode}}
+\index{createNewNode@{createNewNode}!others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}}
+\doxysubsubsection{\texorpdfstring{createNewNode()}{createNewNode()}}
+{\footnotesize\ttfamily \label{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114} 
+\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} others\+::recursive\+\_\+tree\+\_\+traversals\+::\+BT\+::create\+New\+Node (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+will allocate the memory for a node and, along the data and return the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & value that a particular node will contain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the newly created node with assigned data. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{structnode}{node}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}();}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>data\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>left\ =\ \mbox{\hyperlink{structnode}{node}}-\/>right\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t_a142689a84eaafcd22b68fad887b14540}\index{others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}!inorder@{inorder}}
+\index{inorder@{inorder}!others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}}
+\doxysubsubsection{\texorpdfstring{inorder()}{inorder()}}
+{\footnotesize\ttfamily \label{classothers_1_1recursive__tree__traversals_1_1_b_t_a142689a84eaafcd22b68fad887b14540} 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ others\+::recursive\+\_\+tree\+\_\+traversals\+::\+BT\+::inorder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ \textcolor{keyword}{nullptr})\ \{\ \ \textcolor{comment}{//\ return\ if\ the\ current\ node\ is\ empty}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ inorder(root-\/>left);\ \ \textcolor{comment}{//\ Traverse\ the\ left\ subtree}}
+\DoxyCodeLine{00138\ \ \ \ \ BT::inorder\_result.push\_back(}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ root-\/>data);\ \ \textcolor{comment}{//\ Display\ the\ data\ part\ of\ the\ root\ (or\ current\ node)}}
+\DoxyCodeLine{00140\ \ \ \ \ inorder(root-\/>right);\ \ \textcolor{comment}{//\ Traverse\ the\ right\ subtree}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{return}\ inorder\_result;}
+\DoxyCodeLine{00143\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c}\index{others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}!postorder@{postorder}}
+\index{postorder@{postorder}!others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}}
+\doxysubsubsection{\texorpdfstring{postorder()}{postorder()}}
+{\footnotesize\ttfamily \label{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c} 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ others\+::recursive\+\_\+tree\+\_\+traversals\+::\+BT\+::postorder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+
+postorder function that will perform the postorder traversal recursively, and return the result vector that contain the postorder traversal of a tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result that is containing the postorder traversal of a tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ \textcolor{keyword}{nullptr})\ \{\ \ \textcolor{comment}{//\ if\ the\ current\ node\ is\ empty}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c}{postorder}}(root-\/>left);\ \ \ \textcolor{comment}{//\ Traverse\ the\ left\ subtree}}
+\DoxyCodeLine{00178\ \ \ \ \ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c}{postorder}}(root-\/>right);\ \ \textcolor{comment}{//\ Traverse\ the\ right\ subtree}}
+\DoxyCodeLine{00179\ \ \ \ \ BT::postorder\_result.push\_back(}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ root-\/>data);\ \ \textcolor{comment}{//\ Display\ the\ data\ part\ of\ the\ root\ (or\ current\ node)}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ postorder\_result;}
+\DoxyCodeLine{00183\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5}\index{others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}!preorder@{preorder}}
+\index{preorder@{preorder}!others::recursive\_tree\_traversals::BT@{others::recursive\_tree\_traversals::BT}}
+\doxysubsubsection{\texorpdfstring{preorder()}{preorder()}}
+{\footnotesize\ttfamily \label{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5} 
+std\+::vector$<$ std\+::uint64\+\_\+t $>$ others\+::recursive\+\_\+tree\+\_\+traversals\+::\+BT\+::preorder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+
+preorder function that will perform the preorder traversal recursively, and return the resultant vector that contain the preorder traversal of a tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & head/root node of a tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result that is containing the preorder traversal of a tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ \textcolor{keyword}{nullptr})\ \{\ \ \textcolor{comment}{//\ if\ the\ current\ node\ is\ empty}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ BT::preorder\_result.push\_back(}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ root-\/>data);\ \ \textcolor{comment}{//\ Display\ the\ data\ part\ of\ the\ root\ (or\ current\ node)}}
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5}{preorder}}(root-\/>left);\ \ \ \textcolor{comment}{//\ Traverse\ the\ left\ subtree}}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5}{preorder}}(root-\/>right);\ \ \textcolor{comment}{//\ Traverse\ the\ right\ subtree}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{return}\ preorder\_result;}
+\DoxyCodeLine{00163\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+others/\mbox{\hyperlink{recursive__tree__traversal_8cpp}{recursive\+\_\+tree\+\_\+traversal.\+cpp}}\end{DoxyCompactItemize}

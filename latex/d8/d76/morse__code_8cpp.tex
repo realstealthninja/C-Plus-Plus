@@ -1,0 +1,365 @@
+\doxysection{ciphers/morse\+\_\+code.cpp File Reference}
+\hypertarget{morse__code_8cpp}{}\label{morse__code_8cpp}\index{ciphers/morse\_code.cpp@{ciphers/morse\_code.cpp}}
+
+
+Implementation of \mbox{[}Morse Code\mbox{]} (\href{https://en.wikipedia.org/wiki/Morse_code}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Morse\+\_\+code}}).  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceciphers}{ciphers}}
+\begin{DoxyCompactList}\small\item\em Algorithms for encryption and decryption. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemorse}{morse}}
+\begin{DoxyCompactList}\small\item\em Functions for \mbox{[}Morse Code\mbox{]} (\href{https://en.wikipedia.org/wiki/Morse_code}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Morse\+\_\+code}}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{morse__code_8cpp_ab31773fd11555d21f70d6914138d9535}{ciphers\+::morse\+::char\+\_\+to\+\_\+morse}} (const char \&c)
+\item 
+char \mbox{\hyperlink{morse__code_8cpp_ac9f294b0dec08a4a11d477a32f9bd829}{ciphers\+::morse\+::morse\+\_\+to\+\_\+char}} (const std\+::string \&s)
+\item 
+std\+::string \mbox{\hyperlink{morse__code_8cpp_a0242e458904de8a242fcdaffe9e3ba1a}{ciphers\+::morse\+::encrypt}} (const std\+::string \&text)
+\item 
+std\+::string \mbox{\hyperlink{morse__code_8cpp_a15c66ec8cf4cef0a35c50cbab86965dc}{ciphers\+::morse\+::decrypt}} (const std\+::string \&text)
+\item 
+static void \mbox{\hyperlink{morse__code_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test above algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{morse__code_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \mbox{[}Morse Code\mbox{]} (\href{https://en.wikipedia.org/wiki/Morse_code}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Morse\+\_\+code}}). 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/imdeep2905}{\texttt{ Deep Raval}}
+\end{DoxyAuthor}
+
+
+Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes or dits and dahs. Morse code is named after Samuel Morse, an inventor of the telegraph. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{morse__code_8cpp_ab31773fd11555d21f70d6914138d9535}\index{morse\_code.cpp@{morse\_code.cpp}!char\_to\_morse@{char\_to\_morse}}
+\index{char\_to\_morse@{char\_to\_morse}!morse\_code.cpp@{morse\_code.cpp}}
+\doxysubsubsection{\texorpdfstring{char\_to\_morse()}{char\_to\_morse()}}
+{\footnotesize\ttfamily \label{morse__code_8cpp_ab31773fd11555d21f70d6914138d9535} 
+std\+::string ciphers\+::morse\+::char\+\_\+to\+\_\+morse (\begin{DoxyParamCaption}\item[{const char \&}]{c}{}\end{DoxyParamCaption})}
+
+Get the morse representation for given character. 
+\begin{DoxyParams}{Parameters}
+{\em c} & Character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+morse representation string of character 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ return\ corresponding\ morse\ code}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'a'}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.-\/"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'b'}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/..."{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/.-\/."{}};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'d'}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/.."{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'e'}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'f'}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}..-\/."{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'g'}:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/."{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'h'}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}...."{}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'i'}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.."{}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'j'}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.-\/-\/-\/"{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'k'}:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/.-\/"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'l'}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.-\/.."{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'m'}:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/"{}};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/."{}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'o'}:}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/-\/"{}};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'p'}:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.-\/-\/."{}};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'q'}:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/.-\/"{}};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'r'}:}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.-\/."{}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}:}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}..."{}};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'t'}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/"{}};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'u'}:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}..-\/"{}};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'v'}:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}...-\/"{}};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'w'}:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.-\/-\/"{}};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'x'}:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/..-\/"{}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'y'}:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/.-\/-\/"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'z'}:}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/.."{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'1'}:}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.-\/-\/-\/-\/"{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'2'}:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}..-\/-\/-\/"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'3'}:}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}...-\/-\/"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'4'}:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}....-\/"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'5'}:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}....."{}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'6'}:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/...."{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'7'}:}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/..."{}};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'8'}:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/-\/.."{}};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'9'}:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/."{}};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'0'}:}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/"{}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Found\ invalid\ character:\ "{}}\ <<\ c\ <<\ \textcolor{charliteral}{'\ '}\ <<\ std::endl;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(0);}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \}}
+
+\end{DoxyCode}
+\Hypertarget{morse__code_8cpp_a15c66ec8cf4cef0a35c50cbab86965dc}\index{morse\_code.cpp@{morse\_code.cpp}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!morse\_code.cpp@{morse\_code.cpp}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily \label{morse__code_8cpp_a15c66ec8cf4cef0a35c50cbab86965dc} 
+std\+::string ciphers\+::morse\+::decrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+Decrypt given morse coded text. 
+\begin{DoxyParams}{Parameters}
+{\em text} & text to be decrypted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new decrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{comment}{//\ Going\ through\ each\ character\ of\ text\ and\ converting\ it}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ back\ to\ normal\ representation.}}
+\DoxyCodeLine{00219\ \ \ \ \ std::string\ decrypted\_text\ =\ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ Empty\ string\ to\ store\ decrypted\ text}}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{comment}{//\ Spliting\ string\ (with\ delimiter\ =\ "{}\ "{})\ and\ storing\ it}}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ in\ vector}}
+\DoxyCodeLine{00222\ \ \ \ \ std::size\_t\ pos\_start\ =\ 0,\ pos\_end\ =\ 0,\ delim\_len\ =\ 1;}
+\DoxyCodeLine{00223\ \ \ \ \ std::vector<std::string>\ splits;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{while}\ ((pos\_end\ =\ text.find(\textcolor{charliteral}{'\ '},\ pos\_start))\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ std::string\ token\ =\ text.substr(pos\_start,\ pos\_end\ -\/\ pos\_start);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ pos\_start\ =\ pos\_end\ +\ delim\_len;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ splits.push\_back(token);}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ Traversing\ through\ each\ morse\ code\ string}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\ \&s\ :\ splits)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ corresponding\ character}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ decrypted\_text\ +=\ \mbox{\hyperlink{morse__code_8cpp_ac9f294b0dec08a4a11d477a32f9bd829}{ciphers::morse::morse\_to\_char}}(s);}
+\DoxyCodeLine{00234\ \ \ \ \ \}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{return}\ decrypted\_text;\ \ \textcolor{comment}{//\ Returning\ decrypted\ text}}
+\DoxyCodeLine{00237\ \}}
+
+\end{DoxyCode}
+\Hypertarget{morse__code_8cpp_a0242e458904de8a242fcdaffe9e3ba1a}\index{morse\_code.cpp@{morse\_code.cpp}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!morse\_code.cpp@{morse\_code.cpp}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily \label{morse__code_8cpp_a0242e458904de8a242fcdaffe9e3ba1a} 
+std\+::string ciphers\+::morse\+::encrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+Encrypt given text using morse code. 
+\begin{DoxyParams}{Parameters}
+{\em text} & text to be encrypted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new encrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ std::string\ encrypted\_text\ =\ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ Empty\ string\ to\ store\ encrypted\ text}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{comment}{//\ Going\ through\ each\ character\ of\ text\ and\ converting\ it}}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{//\ to\ morse\ representation}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&c\ :\ text)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ encrypted\_text\ +=\ \mbox{\hyperlink{morse__code_8cpp_ab31773fd11555d21f70d6914138d9535}{ciphers::morse::char\_to\_morse}}(c)\ +\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{return}\ encrypted\_text;\ \ \textcolor{comment}{//\ Returning\ encrypted\ text}}
+\DoxyCodeLine{00210\ \}}
+
+\end{DoxyCode}
+\Hypertarget{morse__code_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{morse\_code.cpp@{morse\_code.cpp}!main@{main}}
+\index{main@{main}!morse\_code.cpp@{morse\_code.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{morse__code_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ Testing}}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{morse__code_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00272\ \}}
+
+\end{DoxyCode}
+\Hypertarget{morse__code_8cpp_ac9f294b0dec08a4a11d477a32f9bd829}\index{morse\_code.cpp@{morse\_code.cpp}!morse\_to\_char@{morse\_to\_char}}
+\index{morse\_to\_char@{morse\_to\_char}!morse\_code.cpp@{morse\_code.cpp}}
+\doxysubsubsection{\texorpdfstring{morse\_to\_char()}{morse\_to\_char()}}
+{\footnotesize\ttfamily \label{morse__code_8cpp_ac9f294b0dec08a4a11d477a32f9bd829} 
+char ciphers\+::morse\+::morse\+\_\+to\+\_\+char (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{}\end{DoxyParamCaption})}
+
+Get character from the morse representation. 
+\begin{DoxyParams}{Parameters}
+{\em s} & Morse representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+corresponding character 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ return\ corresponding\ character}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.-\/"{}})\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{00122\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/..."{}})\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'b'};}
+\DoxyCodeLine{00124\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/.-\/."{}})\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'c'};}
+\DoxyCodeLine{00126\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/.."{}})\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'d'};}
+\DoxyCodeLine{00128\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}."{}})\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'e'};}
+\DoxyCodeLine{00130\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}..-\/."{}})\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'f'};}
+\DoxyCodeLine{00132\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/."{}})\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{00134\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}...."{}})\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'h'};}
+\DoxyCodeLine{00136\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.."{}})\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'i'};}
+\DoxyCodeLine{00138\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.-\/-\/-\/"{}})\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'j'};}
+\DoxyCodeLine{00140\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/.-\/"{}})\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'k'};}
+\DoxyCodeLine{00142\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.-\/.."{}})\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'l'};}
+\DoxyCodeLine{00144\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/"{}})\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'m'};}
+\DoxyCodeLine{00146\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/."{}})\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'n'};}
+\DoxyCodeLine{00148\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/-\/"{}})\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'o'};}
+\DoxyCodeLine{00150\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.-\/-\/."{}})\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'p'};}
+\DoxyCodeLine{00152\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/.-\/"{}})\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'q'};}
+\DoxyCodeLine{00154\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.-\/."{}})\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{00156\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}..."{}})\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'s'};}
+\DoxyCodeLine{00158\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/"{}})\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'t'};}
+\DoxyCodeLine{00160\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}..-\/"{}})\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'u'};}
+\DoxyCodeLine{00162\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}...-\/"{}})\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'v'};}
+\DoxyCodeLine{00164\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.-\/-\/"{}})\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'w'};}
+\DoxyCodeLine{00166\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/..-\/"{}})\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'x'};}
+\DoxyCodeLine{00168\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/.-\/-\/"{}})\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'y'};}
+\DoxyCodeLine{00170\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/.."{}})\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'z'};}
+\DoxyCodeLine{00172\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}.-\/-\/-\/-\/"{}})\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'1'};}
+\DoxyCodeLine{00174\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}..-\/-\/-\/"{}})\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'2'};}
+\DoxyCodeLine{00176\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}...-\/-\/"{}})\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'3'};}
+\DoxyCodeLine{00178\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}....-\/"{}})\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'4'};}
+\DoxyCodeLine{00180\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}....."{}})\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'5'};}
+\DoxyCodeLine{00182\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/...."{}})\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'6'};}
+\DoxyCodeLine{00184\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/..."{}})\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'7'};}
+\DoxyCodeLine{00186\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/-\/.."{}})\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'8'};}
+\DoxyCodeLine{00188\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/."{}})\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'9'};}
+\DoxyCodeLine{00190\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/"{}})\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00192\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Found\ invalid\ Morse\ code:\ "{}}\ <<\ s\ <<\ \textcolor{charliteral}{'\ '}\ <<\ std::endl;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ std::exit(0);}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \}}
+
+\end{DoxyCode}
+\Hypertarget{morse__code_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{morse\_code.cpp@{morse\_code.cpp}!test@{test}}
+\index{test@{test}!morse\_code.cpp@{morse\_code.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{morse__code_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test above algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00247\ \ \ \ \ std::string\ text1\ =\ \textcolor{stringliteral}{"{}01234567890"{}};}
+\DoxyCodeLine{00248\ \ \ \ \ std::string\ encrypted1\ =\ \mbox{\hyperlink{morse__code_8cpp_a0242e458904de8a242fcdaffe9e3ba1a}{ciphers::morse::encrypt}}(text1);}
+\DoxyCodeLine{00249\ \ \ \ \ std::string\ decrypted1\ =\ \mbox{\hyperlink{morse__code_8cpp_a15c66ec8cf4cef0a35c50cbab86965dc}{ciphers::morse::decrypt}}(encrypted1);}
+\DoxyCodeLine{00250\ \ \ \ \ assert(text1\ ==\ decrypted1);}
+\DoxyCodeLine{00251\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ text\ :\ "{}}\ <<\ text1\ <<\ std::endl;}
+\DoxyCodeLine{00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Encrypted\ text\ :\ "{}}\ <<\ encrypted1\ <<\ std::endl;}
+\DoxyCodeLine{00253\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Decrypted\ text\ :\ "{}}\ <<\ decrypted1\ <<\ std::endl;}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{//\ Test\ 2}}
+\DoxyCodeLine{00255\ \ \ \ \ std::string\ text2\ =\ \textcolor{stringliteral}{"{}abcdefghijklmnopqrstuvwxyz"{}};}
+\DoxyCodeLine{00256\ \ \ \ \ std::string\ encrypted2\ =\ \mbox{\hyperlink{morse__code_8cpp_a0242e458904de8a242fcdaffe9e3ba1a}{ciphers::morse::encrypt}}(text2);}
+\DoxyCodeLine{00257\ \ \ \ \ std::string\ decrypted2\ =\ \mbox{\hyperlink{morse__code_8cpp_a15c66ec8cf4cef0a35c50cbab86965dc}{ciphers::morse::decrypt}}(encrypted2);}
+\DoxyCodeLine{00258\ \ \ \ \ assert(text2\ ==\ decrypted2);}
+\DoxyCodeLine{00259\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ text\ :\ "{}}\ <<\ text2\ <<\ std::endl;}
+\DoxyCodeLine{00260\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Encrypted\ text\ :\ "{}}\ <<\ encrypted2\ <<\ std::endl;}
+\DoxyCodeLine{00261\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Decrypted\ text\ :\ "{}}\ <<\ decrypted2\ <<\ std::endl;}
+\DoxyCodeLine{00262\ \}}
+
+\end{DoxyCode}

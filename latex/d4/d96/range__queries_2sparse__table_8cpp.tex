@@ -1,0 +1,165 @@
+\doxysection{range\+\_\+queries/sparse\+\_\+table.cpp File Reference}
+\hypertarget{range__queries_2sparse__table_8cpp}{}\label{range__queries_2sparse__table_8cpp}\index{range\_queries/sparse\_table.cpp@{range\_queries/sparse\_table.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Range_minimum_query}{\texttt{ Sparse Table}} data structure.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerange__queries}{range\+\_\+queries}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacesparse__table}{sparse\+\_\+table}}
+\begin{DoxyCompactList}\small\item\em Functions for Implementation of \href{https://brilliant.org/wiki/sparse-table/}{\texttt{ Sparse Table}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{range__queries_2sparse__table_8cpp_a40810d8c0fe3f8cf432ab128b1ae0300}{range\+\_\+queries\+::sparse\+\_\+table\+::compute\+Logs}} (const std\+::vector$<$ T $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{range__queries_2sparse__table_8cpp_a803a2451e87021d14ae06f148383e6bc}{range\+\_\+queries\+::sparse\+\_\+table\+::build\+Table}} (const std\+::vector$<$ T $>$ \&A, const std\+::vector$<$ T $>$ \&logs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{range__queries_2sparse__table_8cpp_a932816c3de9e5ad122b180de60978e8f}{range\+\_\+queries\+::sparse\+\_\+table\+::get\+Minimum}} (int beg, int end, const std\+::vector$<$ T $>$ \&logs, const std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&table)
+\item 
+int \mbox{\hyperlink{range__queries_2sparse__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Range_minimum_query}{\texttt{ Sparse Table}} data structure. 
+
+Sparse Table is a data structure, that allows answering range queries. It can answer most range queries in O(logn), but its true power is answering range minimum queries or equivalent range maximum queries). For those queries it can compute the answer in O(1) time.
+
+
+\begin{DoxyItemize}
+\item Running Time Complexity ~\newline
+
+\item Build \+: O(\+Nlog\+N) ~\newline
+
+\item Range Query \+: O(1) ~\newline
+
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{range__queries_2sparse__table_8cpp_a803a2451e87021d14ae06f148383e6bc}\index{sparse\_table.cpp@{sparse\_table.cpp}!buildTable@{buildTable}}
+\index{buildTable@{buildTable}!sparse\_table.cpp@{sparse\_table.cpp}}
+\doxysubsubsection{\texorpdfstring{buildTable()}{buildTable()}}
+{\footnotesize\ttfamily \label{range__queries_2sparse__table_8cpp_a803a2451e87021d14ae06f148383e6bc} 
+template$<$typename T $>$ \\
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ range\+\_\+queries\+::sparse\+\_\+table\+::build\+Table (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{A}{, }\item[{const std\+::vector$<$ T $>$ \&}]{logs}{}\end{DoxyParamCaption})}
+
+This functions builds the primary data structure sparse table 
+\begin{DoxyParams}{Parameters}
+{\em n} & value of the size of the input array \\
+\hline
+{\em A} & array of the input integers \\
+\hline
+{\em logs} & array of the log table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+created sparse table data structure 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ A.size();}
+\DoxyCodeLine{00059\ \ \ \ \ std::vector<std::vector<T>\ >\ table(20,\ std::vector<T>(n\ +\ 5,\ 0));}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ curLen\ =\ 0;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ logs[n];\ i++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ curLen\ =\ 1\ <<\ i;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ +\ curLen\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curLen\ ==\ 1)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ table[i][j]\ =\ A[j];}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ table[i][j]\ =}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::min(table[i\ -\/\ 1][j],\ table[i\ -\/\ 1][j\ +\ curLen\ /\ 2]);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ table;}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{range__queries_2sparse__table_8cpp_a40810d8c0fe3f8cf432ab128b1ae0300}\index{sparse\_table.cpp@{sparse\_table.cpp}!computeLogs@{computeLogs}}
+\index{computeLogs@{computeLogs}!sparse\_table.cpp@{sparse\_table.cpp}}
+\doxysubsubsection{\texorpdfstring{computeLogs()}{computeLogs()}}
+{\footnotesize\ttfamily \label{range__queries_2sparse__table_8cpp_a40810d8c0fe3f8cf432ab128b1ae0300} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ range\+\_\+queries\+::sparse\+\_\+table\+::compute\+Logs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})}
+
+This function precomputes intial log table for further use. 
+\begin{DoxyParams}{Parameters}
+{\em n} & value of the size of the input array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+corresponding vector of the log table 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ A.size();}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<T>\ logs(n);}
+\DoxyCodeLine{00041\ \ \ \ \ logs[1]\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ logs[i]\ =\ logs[i\ /\ 2]\ +\ 1;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ logs;}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+\Hypertarget{range__queries_2sparse__table_8cpp_a932816c3de9e5ad122b180de60978e8f}\index{sparse\_table.cpp@{sparse\_table.cpp}!getMinimum@{getMinimum}}
+\index{getMinimum@{getMinimum}!sparse\_table.cpp@{sparse\_table.cpp}}
+\doxysubsubsection{\texorpdfstring{getMinimum()}{getMinimum()}}
+{\footnotesize\ttfamily \label{range__queries_2sparse__table_8cpp_a932816c3de9e5ad122b180de60978e8f} 
+template$<$typename T $>$ \\
+int range\+\_\+queries\+::sparse\+\_\+table\+::get\+Minimum (\begin{DoxyParamCaption}\item[{int}]{beg}{, }\item[{int}]{end}{, }\item[{const std\+::vector$<$ T $>$ \&}]{logs}{, }\item[{const std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&}]{table}{}\end{DoxyParamCaption})}
+
+This function is the query function to get the range minimum value 
+\begin{DoxyParams}{Parameters}
+{\em beg} & beginning index of the query range \\
+\hline
+{\em end} & ending index of the query range \\
+\hline
+{\em logs} & array of the log table \\
+\hline
+{\em table} & sparse table data structure for the input array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum value for the \mbox{[}beg, end\mbox{]} range for the input array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ logs[end\ -\/\ beg\ +\ 1];}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ pLen\ =\ 1\ <<\ p;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ std::min(table[p][beg],\ table[p][end\ -\/\ pLen\ +\ 1]);}
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}
+\Hypertarget{range__queries_2sparse__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sparse\_table.cpp@{sparse\_table.cpp}!main@{main}}
+\index{main@{main}!sparse\_table.cpp@{sparse\_table.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{range__queries_2sparse__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<int>\ A\{1,\ 2,\ 0,\ 3,\ 9\};}
+\DoxyCodeLine{00098\ \ \ \ \ std::vector<int>\ logs\ =\ \mbox{\hyperlink{range__queries_2sparse__table_8cpp_a40810d8c0fe3f8cf432ab128b1ae0300}{range\_queries::sparse\_table::computeLogs}}(A);}
+\DoxyCodeLine{00099\ \ \ \ \ std::vector<std::vector<int>\ >\ table\ =}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{range__queries_2sparse__table_8cpp_a803a2451e87021d14ae06f148383e6bc}{range\_queries::sparse\_table::buildTable}}(A,\ logs);}
+\DoxyCodeLine{00101\ \ \ \ \ assert(range\_queries::sparse\_table::getMinimum(0,\ 0,\ logs,\ table)\ ==\ 1);}
+\DoxyCodeLine{00102\ \ \ \ \ assert(range\_queries::sparse\_table::getMinimum(0,\ 4,\ logs,\ table)\ ==\ 0);}
+\DoxyCodeLine{00103\ \ \ \ \ assert(range\_queries::sparse\_table::getMinimum(2,\ 4,\ logs,\ table)\ ==\ 0);}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00105\ \}}
+
+\end{DoxyCode}

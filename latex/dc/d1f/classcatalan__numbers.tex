@@ -1,0 +1,106 @@
+\doxysection{catalan\+\_\+numbers Class Reference}
+\hypertarget{classcatalan__numbers}{}\label{classcatalan__numbers}\index{catalan\_numbers@{catalan\_numbers}}
+
+
+computes and caches Catalan numbers  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+value\+\_\+type \mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}} (std\+::size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em computes the n-\/th Catalan number and updates the cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcatalan__numbers_a0bfc8c78494c93dbb4c7d67b7300cf1a}\label{classcatalan__numbers_a0bfc8c78494c93dbb4c7d67b7300cf1a} 
+using {\bfseries value\+\_\+type} = std\+::uint64\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+value\+\_\+type \mbox{\hyperlink{classcatalan__numbers_a141beca0f50fbb4cd5ca8d53819bc43d}{compute\+\_\+next}} ()
+\item 
+void \mbox{\hyperlink{classcatalan__numbers_abf882dee674593be3df61a36443b5632}{add}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ value\+\_\+type $>$ \mbox{\hyperlink{classcatalan__numbers_ad37c6891d102bb758d3d3d85fb7f1798}{known}} \{1, 1\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+computes and caches Catalan numbers 
+
+for assert for std\+::uint64\+\_\+t for std\+::size\+\_\+t for std\+::transform\+\_\+reduce for std\+::vector 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcatalan__numbers_abf882dee674593be3df61a36443b5632}\index{catalan\_numbers@{catalan\_numbers}!add@{add}}
+\index{add@{add}!catalan\_numbers@{catalan\_numbers}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{classcatalan__numbers_abf882dee674593be3df61a36443b5632} 
+void catalan\+\_\+numbers\+::add (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ known.push\_back(this-\/>compute\_next());\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcatalan__numbers_a141beca0f50fbb4cd5ca8d53819bc43d}\index{catalan\_numbers@{catalan\_numbers}!compute\_next@{compute\_next}}
+\index{compute\_next@{compute\_next}!catalan\_numbers@{catalan\_numbers}}
+\doxysubsubsection{\texorpdfstring{compute\_next()}{compute\_next()}}
+{\footnotesize\ttfamily \label{classcatalan__numbers_a141beca0f50fbb4cd5ca8d53819bc43d} 
+value\+\_\+type catalan\+\_\+numbers\+::compute\+\_\+next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::transform\_reduce(known.begin(),\ known.end(),\ known.rbegin(),}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}value\_type\textcolor{keyword}{>}(),\ std::plus<>(),}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::multiplies<>());}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}\index{catalan\_numbers@{catalan\_numbers}!get@{get}}
+\index{get@{get}!catalan\_numbers@{catalan\_numbers}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8} 
+value\+\_\+type catalan\+\_\+numbers\+::get (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+computes the n-\/th Catalan number and updates the cache. 
+
+\begin{DoxyReturn}{Returns}
+the n-\/th Catalan number 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (known.size()\ <=\ n)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>add();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ known[n];}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classcatalan__numbers_ad37c6891d102bb758d3d3d85fb7f1798}\index{catalan\_numbers@{catalan\_numbers}!known@{known}}
+\index{known@{known}!catalan\_numbers@{catalan\_numbers}}
+\doxysubsubsection{\texorpdfstring{known}{known}}
+{\footnotesize\ttfamily \label{classcatalan__numbers_ad37c6891d102bb758d3d3d85fb7f1798} 
+std\+::vector$<$value\+\_\+type$>$ catalan\+\_\+numbers\+::known \{1, 1\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \{1,\ 1\};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dynamic\+\_\+programming/\mbox{\hyperlink{catalan__numbers_8cpp}{catalan\+\_\+numbers.\+cpp}}\end{DoxyCompactItemize}

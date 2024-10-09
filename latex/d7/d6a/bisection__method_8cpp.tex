@@ -1,0 +1,133 @@
+\doxysection{numerical\+\_\+methods/bisection\+\_\+method.cpp File Reference}
+\hypertarget{bisection__method_8cpp}{}\label{bisection__method_8cpp}\index{numerical\_methods/bisection\_method.cpp@{numerical\_methods/bisection\_method.cpp}}
+
+
+Solve the equation $f(x)=0$ using \href{https://en.wikipedia.org/wiki/Bisection_method}{\texttt{ bisection method}}  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bisection__method_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}}~    1e-\/6
+\item 
+\Hypertarget{bisection__method_8cpp_a0a3abbca80bc98e7abcb3ae73abe0f14}\label{bisection__method_8cpp_a0a3abbca80bc98e7abcb3ae73abe0f14} 
+\#define {\bfseries MAX\+\_\+\+ITERATIONS}~50000
+\begin{DoxyCompactList}\small\item\em Maximum number of iterations to check. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{bisection__method_8cpp_a2003b5b2dcfff0769b957ab5c968b03d}{eq}} (double i)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{bisection__method_8cpp_a1ab31b90bc584c635ec159468ceed9b2}{sgn}} (T val)
+\item 
+int \mbox{\hyperlink{bisection__method_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solve the equation $f(x)=0$ using \href{https://en.wikipedia.org/wiki/Bisection_method}{\texttt{ bisection method}} 
+
+Given two points $a$ and $b$ such that $f(a)<0$ and $f(b)>0$, then the $(i+1)^\text{th}$ approximation is given by\+:   \[
+x_{i+1} = \frac{a_i+b_i}{2}
+\] For the next iteration, the interval is selected as\+: $[a,x]$ if $x>0$ or $[x,b]$ if $x<0$. The Process is continued till a close enough approximation is achieved.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{newton__raphson__method_8cpp}{newton\+\_\+raphson\+\_\+method.\+cpp}, \doxylink{false__position_8cpp}{false\+\_\+position.\+cpp}, secant\+\_\+method.\+cpp 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{bisection__method_8cpp_a002b2f4894492820fe708b1b7e7c5e70}\index{bisection\_method.cpp@{bisection\_method.cpp}!EPSILON@{EPSILON}}
+\index{EPSILON@{EPSILON}!bisection\_method.cpp@{bisection\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{EPSILON}{EPSILON}}
+{\footnotesize\ttfamily \label{bisection__method_8cpp_a002b2f4894492820fe708b1b7e7c5e70} 
+\#define EPSILON~    1e-\/6}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ EPSILON\ \(\backslash\)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ 1e-\/6\ \ }\textcolor{comment}{//\ std::numeric\_limits<double>::epsilon()\ \ ///<\ system\ accuracy\ limit}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bisection__method_8cpp_a2003b5b2dcfff0769b957ab5c968b03d}\index{bisection\_method.cpp@{bisection\_method.cpp}!eq@{eq}}
+\index{eq@{eq}!bisection\_method.cpp@{bisection\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{eq()}{eq()}}
+{\footnotesize\ttfamily \label{bisection__method_8cpp_a2003b5b2dcfff0769b957ab5c968b03d} 
+static double eq (\begin{DoxyParamCaption}\item[{double}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+define $f(x)$ to find root for 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ (std::pow(i,\ 3)\ -\/\ (4\ *\ i)\ -\/\ 9);\ \ \textcolor{comment}{//\ original\ equation}}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bisection__method_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{bisection\_method.cpp@{bisection\_method.cpp}!main@{main}}
+\index{main@{main}!bisection\_method.cpp@{bisection\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{bisection__method_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ -\/1,\ b\ =\ 1,\ x,\ z;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ loop\ to\ find\ initial\ intervals\ a,\ b}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{bisection__method_8cpp_a0a3abbca80bc98e7abcb3ae73abe0f14}{MAX\_ITERATIONS}};\ i++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ z\ =\ \mbox{\hyperlink{bisection__method_8cpp_a2003b5b2dcfff0769b957ab5c968b03d}{eq}}(a);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ x\ =\ \mbox{\hyperlink{bisection__method_8cpp_a2003b5b2dcfff0769b957ab5c968b03d}{eq}}(b);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{bisection__method_8cpp_a1ab31b90bc584c635ec159468ceed9b2}{sgn}}(z)\ ==\ \mbox{\hyperlink{bisection__method_8cpp_a1ab31b90bc584c635ec159468ceed9b2}{sgn}}(x))\ \{\ \ \textcolor{comment}{//\ same\ signs,\ increase\ interval}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ b++;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ a-\/-\/;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \textcolor{comment}{//\ if\ opposite\ signs,\ we\ got\ our\ interval}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nFirst\ initial:\ "{}}\ <<\ a;}
+\DoxyCodeLine{00054\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nSecond\ initial:\ "{}}\ <<\ b;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ start\ iterations}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{bisection__method_8cpp_a0a3abbca80bc98e7abcb3ae73abe0f14}{MAX\_ITERATIONS}};\ i++)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ x\ =\ (a\ +\ b)\ /\ 2;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ z\ =\ \mbox{\hyperlink{bisection__method_8cpp_a2003b5b2dcfff0769b957ab5c968b03d}{eq}}(x);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nz:\ "{}}\ <<\ z\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t["{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}\ ,\ "{}}\ <<\ b}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ |\ Bisect:\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (z\ <\ 0)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ x;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ x;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(z)\ <\ EPSILON)\ \ \textcolor{comment}{//\ stoping\ criteria}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nRoot:\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tSteps:\ "{}}\ <<\ i\ <<\ std::endl;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bisection__method_8cpp_a1ab31b90bc584c635ec159468ceed9b2}\index{bisection\_method.cpp@{bisection\_method.cpp}!sgn@{sgn}}
+\index{sgn@{sgn}!bisection\_method.cpp@{bisection\_method.cpp}}
+\doxysubsubsection{\texorpdfstring{sgn()}{sgn()}}
+{\footnotesize\ttfamily \label{bisection__method_8cpp_a1ab31b90bc584c635ec159468ceed9b2} 
+template$<$typename T $>$ \\
+int sgn (\begin{DoxyParamCaption}\item[{T}]{val}{}\end{DoxyParamCaption})}
+
+get the sign of any given number 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ (T(0)\ <\ val)\ -\/\ (val\ <\ T(0));}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}

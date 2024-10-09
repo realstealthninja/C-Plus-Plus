@@ -1,0 +1,99 @@
+\doxysection{math/lcm\+\_\+sum.cpp File Reference}
+\hypertarget{lcm__sum_8cpp}{}\label{lcm__sum_8cpp}\index{math/lcm\_sum.cpp@{math/lcm\_sum.cpp}}
+
+
+An algorithm to calculate the sum of LCM\+:  $\mathrm{LCM}(1,n) +
+\mathrm{LCM}(2,n) + \ldots + \mathrm{LCM}(n,n)$.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{namespacemath_a04065193d190d605e1f0d0d93a87e244}{math\+::lcm\+Sum}} (const uint16\+\_\+t \&num)
+\item 
+static void \mbox{\hyperlink{lcm__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{lcm__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An algorithm to calculate the sum of LCM\+:  $\mathrm{LCM}(1,n) +
+\mathrm{LCM}(2,n) + \ldots + \mathrm{LCM}(n,n)$. 
+
+An algorithm to calculate the sum of LCM\+:  $\mathrm{LCM}(1,n) +
+\mathrm{LCM}(2,n) + \ldots + \mathrm{LCM}(n,n)$ where $\mathrm{LCM}(i,n)$ denotes the Least Common Multiple of the integers i and n. For n greater than or equal to 1. The value of the sum is calculated by formula\+:  \[ \sum\mathrm{LCM}(i, n) = \frac{1}{2} \left[\left(\sum (d *
+\mathrm{ETF}(d)) + 1\right) * n\right] \] where \textbackslash{}mathrm\{ETF\}(i) represents Euler totient function of i. \begin{DoxyAuthor}{Author}
+\href{https://github.com/chestamittal}{\texttt{ Chesta Mittal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lcm__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{lcm\_sum.cpp@{lcm\_sum.cpp}!main@{main}}
+\index{main@{main}!lcm\_sum.cpp@{lcm\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{lcm__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{lcm__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lcm__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{lcm\_sum.cpp@{lcm\_sum.cpp}!test@{test}}
+\index{test@{test}!lcm\_sum.cpp@{lcm\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{lcm__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function for testing lcm\+Sum function. test cases and assert statement. \begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ uint64\_t\ n\ =\ 2;}
+\DoxyCodeLine{00067\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\_1}}\ =\ \mbox{\hyperlink{namespacemath_a04065193d190d605e1f0d0d93a87e244}{math::lcmSum}}(n);}
+\DoxyCodeLine{00068\ \ \ \ \ assert(\mbox{\hyperlink{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\_1}}\ ==\ 4);}
+\DoxyCodeLine{00069\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 1!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ n\ =\ 5;}
+\DoxyCodeLine{00072\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}{test\_2}}\ =\ \mbox{\hyperlink{namespacemath_a04065193d190d605e1f0d0d93a87e244}{math::lcmSum}}(n);}
+\DoxyCodeLine{00073\ \ \ \ \ assert(\mbox{\hyperlink{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}{test\_2}}\ ==\ 55);}
+\DoxyCodeLine{00074\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 2!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ n\ =\ 10;}
+\DoxyCodeLine{00077\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}{test\_3}}\ =\ \mbox{\hyperlink{namespacemath_a04065193d190d605e1f0d0d93a87e244}{math::lcmSum}}(n);}
+\DoxyCodeLine{00078\ \ \ \ \ assert(\mbox{\hyperlink{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}{test\_3}}\ ==\ 320);}
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 3!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ n\ =\ 11;}
+\DoxyCodeLine{00082\ \ \ \ \ uint64\_t\ test\_4\ =\ \mbox{\hyperlink{namespacemath_a04065193d190d605e1f0d0d93a87e244}{math::lcmSum}}(n);}
+\DoxyCodeLine{00083\ \ \ \ \ assert(test\_4\ ==\ 616);}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 4!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ n\ =\ 15;}
+\DoxyCodeLine{00087\ \ \ \ \ uint64\_t\ test\_5\ =\ \mbox{\hyperlink{namespacemath_a04065193d190d605e1f0d0d93a87e244}{math::lcmSum}}(n);}
+\DoxyCodeLine{00088\ \ \ \ \ assert(test\_5\ ==\ 1110);}
+\DoxyCodeLine{00089\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 5!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}

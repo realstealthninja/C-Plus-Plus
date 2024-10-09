@@ -1,0 +1,134 @@
+\doxysection{probability/poisson\+\_\+dist.cpp File Reference}
+\hypertarget{poisson__dist_8cpp}{}\label{poisson__dist_8cpp}\index{probability/poisson\_dist.cpp@{probability/poisson\_dist.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Poisson_distribution}{\texttt{ Poisson statistics}}  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{poisson__dist_8cpp_ac217ab9a06291f360d816700a6958ca8}{poisson\+\_\+rate}} (double events, double timeframe)
+\item 
+double \mbox{\hyperlink{poisson__dist_8cpp_ad0aa718023ce802dd5899f0e03a7ac71}{poisson\+\_\+expected}} (double rate, double time)
+\item 
+double \mbox{\hyperlink{poisson__dist_8cpp_a63ffd347e75d5ed7a518cbcfbfeec71a}{fact}} (double x)
+\item 
+double \mbox{\hyperlink{poisson__dist_8cpp_a69a136b32707bdc7950fb9057b5fa1e1}{poisson\+\_\+x\+\_\+successes}} (double expected, double x)
+\item 
+double \mbox{\hyperlink{poisson__dist_8cpp_ad9c9e74079278ca10e3b97a8d5391c9a}{poisson\+\_\+range\+\_\+successes}} (double expected, double \mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}}, double upper)
+\item 
+int \mbox{\hyperlink{poisson__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Poisson_distribution}{\texttt{ Poisson statistics}} 
+
+The Poisson distribution counts how many events occur over a set time interval. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{poisson__dist_8cpp_a63ffd347e75d5ed7a518cbcfbfeec71a}\index{poisson\_dist.cpp@{poisson\_dist.cpp}!fact@{fact}}
+\index{fact@{fact}!poisson\_dist.cpp@{poisson\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{fact()}{fact()}}
+{\footnotesize\ttfamily \label{poisson__dist_8cpp_a63ffd347e75d5ed7a518cbcfbfeec71a} 
+double fact (\begin{DoxyParamCaption}\item[{double}]{x}{}\end{DoxyParamCaption})}
+
+Compute factorial of a given number 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ x\_fact\ =\ x;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ x\ -\/\ 1;\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ x\_fact\ *=\ i;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\_fact\ <=\ 0)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ x\_fact\ =\ 1;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ x\_fact;}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}
+\Hypertarget{poisson__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{poisson\_dist.cpp@{poisson\_dist.cpp}!main@{main}}
+\index{main@{main}!poisson\_dist.cpp@{poisson\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{poisson__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ rate,\ expected;}
+\DoxyCodeLine{00067\ \ \ \ \ rate\ =\ \mbox{\hyperlink{poisson__dist_8cpp_ac217ab9a06291f360d816700a6958ca8}{poisson\_rate}}(3,\ 1);}
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Poisson\ rate\ :\ "{}}\ <<\ rate\ <<\ std::endl;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ expected\ =\ \mbox{\hyperlink{poisson__dist_8cpp_ad0aa718023ce802dd5899f0e03a7ac71}{poisson\_expected}}(rate,\ 2);}
+\DoxyCodeLine{00071\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Poisson\ expected\ :\ "{}}\ <<\ expected\ <<\ std::endl;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Poisson\ 0\ successes\ :\ "{}}\ <<\ \mbox{\hyperlink{poisson__dist_8cpp_a69a136b32707bdc7950fb9057b5fa1e1}{poisson\_x\_successes}}(expected,\ 0)}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00075\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Poisson\ 0-\/8\ successes\ :\ "{}}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{poisson__dist_8cpp_ad9c9e74079278ca10e3b97a8d5391c9a}{poisson\_range\_successes}}(expected,\ 0,\ 8)\ <<\ std::endl;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+\Hypertarget{poisson__dist_8cpp_ad0aa718023ce802dd5899f0e03a7ac71}\index{poisson\_dist.cpp@{poisson\_dist.cpp}!poisson\_expected@{poisson\_expected}}
+\index{poisson\_expected@{poisson\_expected}!poisson\_dist.cpp@{poisson\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{poisson\_expected()}{poisson\_expected()}}
+{\footnotesize\ttfamily \label{poisson__dist_8cpp_ad0aa718023ce802dd5899f0e03a7ac71} 
+double poisson\+\_\+expected (\begin{DoxyParamCaption}\item[{double}]{rate}{, }\item[{double}]{time}{}\end{DoxyParamCaption})}
+
+calculate the expected value over a time e.\+g rate of 2.\+5 over 10 mins = 2.\+5 x 10 = 25 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{\ \textcolor{keywordflow}{return}\ rate\ *\ time;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{poisson__dist_8cpp_ad9c9e74079278ca10e3b97a8d5391c9a}\index{poisson\_dist.cpp@{poisson\_dist.cpp}!poisson\_range\_successes@{poisson\_range\_successes}}
+\index{poisson\_range\_successes@{poisson\_range\_successes}!poisson\_dist.cpp@{poisson\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{poisson\_range\_successes()}{poisson\_range\_successes()}}
+{\footnotesize\ttfamily \label{poisson__dist_8cpp_ad9c9e74079278ca10e3b97a8d5391c9a} 
+double poisson\+\_\+range\+\_\+successes (\begin{DoxyParamCaption}\item[{double}]{expected}{, }\item[{double}]{lower}{, }\item[{double}]{upper}{}\end{DoxyParamCaption})}
+
+probability of a success in range for Poisson dist (inclusive, inclusive) \[P = \sum_i p(\mu,i)\] 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceprobability}{probability}}\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}};\ i\ <=\ upper;\ i++)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceprobability}{probability}}\ +=\ \mbox{\hyperlink{poisson__dist_8cpp_a69a136b32707bdc7950fb9057b5fa1e1}{poisson\_x\_successes}}(expected,\ i);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceprobability}{probability}};}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{poisson__dist_8cpp_ac217ab9a06291f360d816700a6958ca8}\index{poisson\_dist.cpp@{poisson\_dist.cpp}!poisson\_rate@{poisson\_rate}}
+\index{poisson\_rate@{poisson\_rate}!poisson\_dist.cpp@{poisson\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{poisson\_rate()}{poisson\_rate()}}
+{\footnotesize\ttfamily \label{poisson__dist_8cpp_ac217ab9a06291f360d816700a6958ca8} 
+double poisson\+\_\+rate (\begin{DoxyParamCaption}\item[{double}]{events}{, }\item[{double}]{timeframe}{}\end{DoxyParamCaption})}
+
+poisson rate\+:~\newline
+calculate the events per unit time~\newline
+e.\+g 5 dollars every 2 mins = 5 / 2 = 2.\+5 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{return}\ events\ /\ timeframe;}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+\Hypertarget{poisson__dist_8cpp_a69a136b32707bdc7950fb9057b5fa1e1}\index{poisson\_dist.cpp@{poisson\_dist.cpp}!poisson\_x\_successes@{poisson\_x\_successes}}
+\index{poisson\_x\_successes@{poisson\_x\_successes}!poisson\_dist.cpp@{poisson\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{poisson\_x\_successes()}{poisson\_x\_successes()}}
+{\footnotesize\ttfamily \label{poisson__dist_8cpp_a69a136b32707bdc7950fb9057b5fa1e1} 
+double poisson\+\_\+x\+\_\+successes (\begin{DoxyParamCaption}\item[{double}]{expected}{, }\item[{double}]{x}{}\end{DoxyParamCaption})}
+
+Find the probability of x successes in a Poisson dist. \[p(\mu,x) = \frac{\mu^x e^{-\mu}}{x!}\] 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ (std::pow(expected,\ x)\ *\ std::exp(-\/expected))\ /\ \mbox{\hyperlink{poisson__dist_8cpp_a63ffd347e75d5ed7a518cbcfbfeec71a}{fact}}(x);}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

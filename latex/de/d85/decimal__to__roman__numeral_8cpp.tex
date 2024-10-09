@@ -1,0 +1,147 @@
+\doxysection{others/decimal\+\_\+to\+\_\+roman\+\_\+numeral.cpp File Reference}
+\hypertarget{decimal__to__roman__numeral_8cpp}{}\label{decimal__to__roman__numeral_8cpp}\index{others/decimal\_to\_roman\_numeral.cpp@{others/decimal\_to\_roman\_numeral.cpp}}
+
+
+This Programme Converts a given decimal number in the range \mbox{[}0,4000) to both Lower case and Upper case Roman Numeral.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}} (char c, int n)
+\item 
+std\+::string \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolower\+Roman}} (int n)
+\item 
+std\+::string \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupper\+Roman}} (int n)
+\item 
+int \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This Programme Converts a given decimal number in the range \mbox{[}0,4000) to both Lower case and Upper case Roman Numeral. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}\index{decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}!fill@{fill}}
+\index{fill@{fill}!decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily \label{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780} 
+std\+::string fill (\begin{DoxyParamCaption}\item[{char}]{c}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+This functions fills a string with character c, n times and returns it \begin{DoxyNote}{Note}
+This can probably be replace by {\ttfamily memcpy} function. 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ s\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{while}\ (n-\/-\/)\ s\ +=\ c;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+\Hypertarget{decimal__to__roman__numeral_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}!main@{main}}
+\index{main@{main}!decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{decimal__to__roman__numeral_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00092\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tRoman\ numbers\ converter\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00093\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Type\ in\ decimal\ number\ between\ 0\ up\ to\ 4000\ (exclusive):\ "{}};}
+\DoxyCodeLine{00094\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ in\ Upper\ Roman\ Numerals\ is\ "{}}\ <<\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ std::cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ in\ Lower\ Roman\ Numerals\ is\ "{}}\ <<\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}\index{decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}!tolowerRoman@{tolowerRoman}}
+\index{tolowerRoman@{tolowerRoman}!decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}}
+\doxysubsubsection{\texorpdfstring{tolowerRoman()}{tolowerRoman()}}
+{\footnotesize\ttfamily \label{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d} 
+std\+::string tolower\+Roman (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+to convert to lowercase Roman Numeral the function works recursively 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 4)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'i'},\ n);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 6)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'i'},\ 5\ -\/\ n)\ +\ \textcolor{stringliteral}{"{}v"{}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 9)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\textcolor{stringliteral}{"{}v"{}})\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'i'},\ n\ -\/\ 5);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 11)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'i'},\ 10\ -\/\ n)\ +\ \textcolor{stringliteral}{"{}x"{}};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 40)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'x'},\ n\ /\ 10)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 60)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'x'},\ 5\ -\/\ n\ /\ 10)\ +\ \textcolor{charliteral}{'l'}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 90)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\textcolor{stringliteral}{"{}l"{}})\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'x'},\ n\ /\ 10\ -\/\ 5)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 110)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'x'},\ 10\ -\/\ n\ /\ 10)\ +\ \textcolor{stringliteral}{"{}c"{}}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 400)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'c'},\ n\ /\ 100)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 600)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'c'},\ 5\ -\/\ n\ /\ 100)\ +\ \textcolor{charliteral}{'d'}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 900)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\textcolor{stringliteral}{"{}d"{}})\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'c'},\ n\ /\ 100\ -\/\ 5)\ +}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 1100)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'c'},\ 10\ -\/\ n\ /\ 100)\ +\ \textcolor{stringliteral}{"{}m"{}}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 4000)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'m'},\ n\ /\ 1000)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a003fb4e1b08279fe4cd50fbbc2782c2d}{tolowerRoman}}(n\ \%\ 1000);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}?"{}};}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}
+\Hypertarget{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}\index{decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}!toupperRoman@{toupperRoman}}
+\index{toupperRoman@{toupperRoman}!decimal\_to\_roman\_numeral.cpp@{decimal\_to\_roman\_numeral.cpp}}
+\doxysubsubsection{\texorpdfstring{toupperRoman()}{toupperRoman()}}
+{\footnotesize\ttfamily \label{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979} 
+std\+::string toupper\+Roman (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+to convert to uppercase Roman Numeral the function works recursively 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 4)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'I'},\ n);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 6)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'I'},\ 5\ -\/\ n)\ +\ \textcolor{stringliteral}{"{}V"{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 9)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\textcolor{stringliteral}{"{}V"{}})\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'I'},\ n\ -\/\ 5);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 11)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'I'},\ 10\ -\/\ n)\ +\ \textcolor{stringliteral}{"{}X"{}};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 40)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'X'},\ n\ /\ 10)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 60)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'X'},\ 5\ -\/\ n\ /\ 10)\ +\ \textcolor{charliteral}{'L'}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 90)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\textcolor{stringliteral}{"{}L"{}})\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'X'},\ n\ /\ 10\ -\/\ 5)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 110)}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'X'},\ 10\ -\/\ n\ /\ 10)\ +\ \textcolor{stringliteral}{"{}C"{}}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 10);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 400)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'C'},\ n\ /\ 100)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 600)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'C'},\ 5\ -\/\ n\ /\ 100)\ +\ \textcolor{charliteral}{'D'}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 900)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\textcolor{stringliteral}{"{}D"{}})\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'C'},\ n\ /\ 100\ -\/\ 5)\ +}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 1100)}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'C'},\ 10\ -\/\ n\ /\ 100)\ +\ \textcolor{stringliteral}{"{}M"{}}\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 100);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 4000)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(\textcolor{charliteral}{'M'},\ n\ /\ 1000)\ +\ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a214743638eff1336f835310049aef979}{toupperRoman}}(n\ \%\ 1000);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}?"{}};}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}

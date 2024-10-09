@@ -1,0 +1,629 @@
+\doxysection{ciphers\+::Hill\+Cipher Class Reference}
+\hypertarget{classciphers_1_1_hill_cipher}{}\label{classciphers_1_1_hill_cipher}\index{ciphers::HillCipher@{ciphers::HillCipher}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Hill_cipher}{\texttt{ Hill Cipher}} algorithm.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a642f70fb54cb50b00fb6df7c3f2b120e}{generate\+\_\+encryption\+\_\+key}} (size\+\_\+t size, int limit1=0, int limit2=10)
+\begin{DoxyCompactList}\small\item\em Generate encryption matrix of a given size. Larger size matrices are difficult to generate but provide more security. Important conditions are\+: \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ab02c7563889bf1e363deb8e21967b706}{generate\+\_\+decryption\+\_\+key}} (\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ const \&encrypt\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Generate decryption matrix from an encryption matrix key. \end{DoxyCompactList}\item 
+static std\+::pair$<$ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$, \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ $>$ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a405b0a28d66a61239d3565d5256f9cb5}{generate\+\_\+keys}} (size\+\_\+t size, int limit1=0, int limit2=10)
+\begin{DoxyCompactList}\small\item\em Generate encryption and decryption key pair. \end{DoxyCompactList}\item 
+static const std\+::string \mbox{\hyperlink{classciphers_1_1_hill_cipher_aa8bbb6e4a5749f6008b06602d5103917}{encrypt\+\_\+text}} (const std\+::string \&text, const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&encrypt\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Encrypt a given text using a given key. \end{DoxyCompactList}\item 
+static const std\+::string \mbox{\hyperlink{classciphers_1_1_hill_cipher_a427acfac1dbff3f48a2b071d449d965b}{decrypt\+\_\+text}} (const std\+::string \&text, const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&decrypt\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Decrypt a given text using a given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\static const T2 \mbox{\hyperlink{classciphers_1_1_hill_cipher_a629be41c1ab78850963e4ce14e1d11d9}{rand\+\_\+range}} (T1 a, T1 b)
+\begin{DoxyCompactList}\small\item\em Function to generate a random integer in a given interval. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\static double \mbox{\hyperlink{classciphers_1_1_hill_cipher_a716d0313141499d16f57c0c107f04395}{rand\+\_\+range}} (\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T2 $>$ \texorpdfstring{$\ast$}{*}M, T1 a, T1 b)
+\begin{DoxyCompactList}\small\item\em Function overload to fill a matrix with random integers in a given interval. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\static const T \mbox{\hyperlink{classciphers_1_1_hill_cipher_a7760f3665651a0a37937c79c62f219c0}{gcd}} (T a, T b)
+\begin{DoxyCompactList}\small\item\em Compute \href{https://en.wikipedia.org/wiki/Greatest_common_divisor}{\texttt{ GCD}} of two integers using Euler\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+static const std\+::valarray$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ad36cbcc7a458b3f3a2af0c4aa1126590}{mat\+\_\+mul}} (const std\+::valarray$<$ uint8\+\_\+t $>$ \&vector, const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&key)
+\begin{DoxyCompactList}\small\item\em helper function to perform vector multiplication with encryption or decryption matrix \end{DoxyCompactList}\item 
+static char \mbox{\hyperlink{classciphers_1_1_hill_cipher_a12f727cca9e21f9539cd74b6603adf0c}{get\+\_\+idx\+\_\+char}} (const uint8\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em Get the character at a given index in the \doxylink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}. \end{DoxyCompactList}\item 
+static uint8\+\_\+t \mbox{\hyperlink{classciphers_1_1_hill_cipher_ae77cad522fa44b8c985779a7188d2f41}{get\+\_\+char\+\_\+idx}} (const char ch)
+\begin{DoxyCompactList}\small\item\em Get the index of a character in the \doxylink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}. \end{DoxyCompactList}\item 
+static const std\+::string \mbox{\hyperlink{classciphers_1_1_hill_cipher_ad667fa0860977f6d6d443fa1dbcd80aa}{codec}} (const std\+::string \&text, const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&key)
+\begin{DoxyCompactList}\small\item\em Convenience function to perform block cipher operations. The operations are identical for both encryption and decryption. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ double $>$ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a2eb58750b978a93ac5e6eb29e3e570b7}{get\+\_\+inverse}} (\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ const \&A)
+\item 
+static int \mbox{\hyperlink{classciphers_1_1_hill_cipher_a63e7b8e92dff8b9260d6d21c31ecebd0}{modulo}} (int a, int b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Hill_cipher}{\texttt{ Hill Cipher}} algorithm. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classciphers_1_1_hill_cipher_ad667fa0860977f6d6d443fa1dbcd80aa}\index{ciphers::HillCipher@{ciphers::HillCipher}!codec@{codec}}
+\index{codec@{codec}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{codec()}{codec()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_ad667fa0860977f6d6d443fa1dbcd80aa} 
+static const std\+::string ciphers\+::\+Hill\+Cipher\+::codec (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Convenience function to perform block cipher operations. The operations are identical for both encryption and decryption. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & input text to encrypt or decrypt \\
+\hline
+{\em key} & key for encryption or decryption \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+encrypted/decrypted output 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ text\_len\ =\ text.length();}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ key\_len\ =\ key.size();}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ length\ of\ output\ string\ must\ be\ a\ multiple\ of\ key\_len}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ output\ string\ and\ initialize\ with\ '\(\backslash\)0'\ character}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ L2\ =\ text\_len\ \%\ key\_len\ ==\ 0}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ text\_len}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ text\_len\ +\ key\_len\ -\/\ (text\_len\ \%\ key\_len);}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ std::string\ coded\_text(L2,\ \textcolor{charliteral}{'\(\backslash\)0'});}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temporary\ array\ for\ batch\ processing}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#pragma\ parallel\ omp\ for\ private(i)}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ L2\ -\/\ key\_len\ +\ 1;\ i\ +=\ key\_len)\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ std::valarray<uint8\_t>\ batch\_int(key\_len);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ key\_len;\ j++)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ batch\_int[j]\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ae77cad522fa44b8c985779a7188d2f41}{get\_char\_idx}}(text[i\ +\ j]);}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ batch\_int\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ad36cbcc7a458b3f3a2af0c4aa1126590}{mat\_mul}}(batch\_int,\ key);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ key\_len;\ j++)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ coded\_text[i\ +\ j]\ =}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}}[batch\_int[j]];\ \ \textcolor{comment}{//\ get\ character\ at\ key}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coded\_text;}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a427acfac1dbff3f48a2b071d449d965b}\index{ciphers::HillCipher@{ciphers::HillCipher}!decrypt\_text@{decrypt\_text}}
+\index{decrypt\_text@{decrypt\_text}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{decrypt\_text()}{decrypt\_text()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a427acfac1dbff3f48a2b071d449d965b} 
+static const std\+::string ciphers\+::\+Hill\+Cipher\+::decrypt\+\_\+text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&}]{decrypt\+\_\+key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Decrypt a given text using a given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & string to decrypt \\
+\hline
+{\em decrypt\+\_\+key} & key for decryption \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+decrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ad667fa0860977f6d6d443fa1dbcd80aa}{codec}}(text,\ decrypt\_key);}
+\DoxyCodeLine{00460\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_aa8bbb6e4a5749f6008b06602d5103917}\index{ciphers::HillCipher@{ciphers::HillCipher}!encrypt\_text@{encrypt\_text}}
+\index{encrypt\_text@{encrypt\_text}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{encrypt\_text()}{encrypt\_text()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_aa8bbb6e4a5749f6008b06602d5103917} 
+static const std\+::string ciphers\+::\+Hill\+Cipher\+::encrypt\+\_\+text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&}]{encrypt\+\_\+key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Encrypt a given text using a given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & string to encrypt \\
+\hline
+{\em encrypt\+\_\+key} & key for encryption \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+encrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ad667fa0860977f6d6d443fa1dbcd80aa}{codec}}(text,\ encrypt\_key);}
+\DoxyCodeLine{00448\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a7760f3665651a0a37937c79c62f219c0}\index{ciphers::HillCipher@{ciphers::HillCipher}!gcd@{gcd}}
+\index{gcd@{gcd}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{gcd()}{gcd()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a7760f3665651a0a37937c79c62f219c0} 
+template$<$typename T $>$ \\
+static const T ciphers\+::\+Hill\+Cipher\+::gcd (\begin{DoxyParamCaption}\item[{T}]{a}{, }\item[{T}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Compute \href{https://en.wikipedia.org/wiki/Greatest_common_divisor}{\texttt{ GCD}} of two integers using Euler\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first number \\
+\hline
+{\em b} & second number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+GCD of $a$ and $b$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ >\ a)\ \ \textcolor{comment}{//\ ensure\ always\ a\ <\ b}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(a,\ b);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (b\ !=\ 0)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ T\ tmp\ =\ b;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ a\ \%\ b;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ tmp;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_ab02c7563889bf1e363deb8e21967b706}\index{ciphers::HillCipher@{ciphers::HillCipher}!generate\_decryption\_key@{generate\_decryption\_key}}
+\index{generate\_decryption\_key@{generate\_decryption\_key}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{generate\_decryption\_key()}{generate\_decryption\_key()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_ab02c7563889bf1e363deb8e21967b706} 
+static \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ ciphers\+::\+Hill\+Cipher\+::generate\+\_\+decryption\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ const \&}]{encrypt\+\_\+key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Generate decryption matrix from an encryption matrix key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypt\+\_\+key} & encryption key for which to create a decrypt key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Decryption martix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size\ =\ encrypt\_key.size();}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ L\ =\ std::strlen(\mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}});}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ decrypt\_key(size,\ std::valarray<int>(size));}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ det\_encrypt\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(encrypt\_key));}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mat\_determinant\ =\ det\_encrypt\ <\ 0\ ?\ det\_encrypt\ \%\ L\ :\ det\_encrypt;}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ tmp\_inverse\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a2eb58750b978a93ac5e6eb29e3e570b7}{get\_inverse}}(encrypt\_key);}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ d2\ =\ \mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(decrypt\_key);}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ find\ co-\/prime\ factor\ for\ inversion}}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ det\_inv\ =\ -\/1;}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ L;\ i++)\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (modulo(mat\_determinant\ *\ i,\ L)\ ==\ 1)\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ det\_inv\ =\ i;}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (det\_inv\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Could\ not\ find\ a\ co-\/prime\ for\ inversion\(\backslash\)n"{}};}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ mat\_determinant\ =\ det\_inv\ *\ det\_encrypt;}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ perform\ modular\ inverse\ of\ encryption\ matrix}}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#pragma\ parallel\ omp\ for\ private(i)}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ size;\ j++)\ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ std::round(tmp\_inverse[i][j]\ *\ mat\_determinant);}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ decrypt\_key[i][j]\ =\ modulo(temp,\ L);}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ decrypt\_key;}
+\DoxyCodeLine{00411\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a642f70fb54cb50b00fb6df7c3f2b120e}\index{ciphers::HillCipher@{ciphers::HillCipher}!generate\_encryption\_key@{generate\_encryption\_key}}
+\index{generate\_encryption\_key@{generate\_encryption\_key}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{generate\_encryption\_key()}{generate\_encryption\_key()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a642f70fb54cb50b00fb6df7c3f2b120e} 
+static \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ ciphers\+::\+Hill\+Cipher\+::generate\+\_\+encryption\+\_\+key (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{, }\item[{int}]{limit1}{ = {\ttfamily 0}, }\item[{int}]{limit2}{ = {\ttfamily 10}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Generate encryption matrix of a given size. Larger size matrices are difficult to generate but provide more security. Important conditions are\+: 
+
+
+\begin{DoxyEnumerate}
+\item matrix should be invertible
+\item determinant must not have any common factors with the length of character key There is no head-\/fast way to generate hte matrix under the given numerical restrictions of the machine but the conditions added achieve the goals. Bigger the matrix, greater is the probability of the matrix being ill-\/defined.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & size of matrix (typically $\text{size}\le10$) \\
+\hline
+{\em limit1} & lower limit of range of random elements (default=0) \\
+\hline
+{\em limit2} & upper limit of range of random elements (default=10) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Encryption martix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ encrypt\_key(size,\ std::valarray<int>(size));}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ min\_mat\ =\ encrypt\_key;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mat\_determinant\ =\ -\/1;\ \ \textcolor{comment}{//\ because\ matrix\ has\ only\ ints,\ the}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ determinant\ will\ also\ be\ an\ int}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ L\ =\ std::strlen(\mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}});}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dd;}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ keeping\ the\ random\ number\ range\ smaller\ generates\ better}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ defined\ matrices\ with\ more\ ease\ of\ cracking}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ dd\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a629be41c1ab78850963e4ce14e1d11d9}{rand\_range}}(\&encrypt\_key,\ limit1,\ limit2);}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ mat\_determinant\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(dd);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mat\_determinant\ <\ 0)}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat\_determinant\ =\ (mat\_determinant\ \%\ L);}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (std::abs(dd)\ >\ 1e3\ ||\ \ \textcolor{comment}{//\ while\ ill-\/defined}}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dd\ <\ 0.1\ ||\ \ \textcolor{comment}{//\ while\ singular\ or\ negative\ determinant}}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !std::isfinite(dd)\ ||\ \ \textcolor{comment}{//\ while\ determinant\ is\ not\ finite}}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a7760f3665651a0a37937c79c62f219c0}{gcd}}(mat\_determinant,\ L)\ !=\ 1);\ \ \textcolor{comment}{//\ while\ no\ common\ factors}}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ encrypt\_key;}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a405b0a28d66a61239d3565d5256f9cb5}\index{ciphers::HillCipher@{ciphers::HillCipher}!generate\_keys@{generate\_keys}}
+\index{generate\_keys@{generate\_keys}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{generate\_keys()}{generate\_keys()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a405b0a28d66a61239d3565d5256f9cb5} 
+static std\+::pair$<$ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$, \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ $>$ ciphers\+::\+Hill\+Cipher\+::generate\+\_\+keys (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{, }\item[{int}]{limit1}{ = {\ttfamily 0}, }\item[{int}]{limit2}{ = {\ttfamily 10}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Generate encryption and decryption key pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & size of matrix key (typically $\text{size}\le10$) \\
+\hline
+{\em limit1} & lower limit of range of random elements (default=0) \\
+\hline
+{\em limit2} & upper limit of range of random elements (default=10) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair\texorpdfstring{$<$}{<}matrix$<$int$>$, matrix$<$int$>$\texorpdfstring{$>$}{>} encryption and decryption keys as a pair
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classciphers_1_1_hill_cipher_a642f70fb54cb50b00fb6df7c3f2b120e}{generate\+\_\+encryption\+\_\+key} 
+\end{DoxySeeAlso}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ encrypt\_key\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a642f70fb54cb50b00fb6df7c3f2b120e}{generate\_encryption\_key}}(size);}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ decrypt\_key\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ab02c7563889bf1e363deb8e21967b706}{generate\_decryption\_key}}(encrypt\_key);}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ det2\ =\ \mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(decrypt\_key);}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::abs(det2)\ <\ 0.1\ ||\ std::abs(det2)\ >\ 1e3)\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ encrypt\_key\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a642f70fb54cb50b00fb6df7c3f2b120e}{generate\_encryption\_key}}(size,\ limit1,\ limit2);}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ decrypt\_key\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_ab02c7563889bf1e363deb8e21967b706}{generate\_decryption\_key}}(encrypt\_key);}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ det2\ =\ \mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(decrypt\_key);}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(encrypt\_key,\ decrypt\_key);}
+\DoxyCodeLine{00436\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_ae77cad522fa44b8c985779a7188d2f41}\index{ciphers::HillCipher@{ciphers::HillCipher}!get\_char\_idx@{get\_char\_idx}}
+\index{get\_char\_idx@{get\_char\_idx}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{get\_char\_idx()}{get\_char\_idx()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_ae77cad522fa44b8c985779a7188d2f41} 
+static uint8\+\_\+t ciphers\+::\+Hill\+Cipher\+::get\+\_\+char\+\_\+idx (\begin{DoxyParamCaption}\item[{const char}]{ch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Get the index of a character in the \doxylink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & character to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of character 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ L\ =\ std::strlen(\mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}});}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ idx\ =\ 0;\ idx\ <=\ L;\ idx++)}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}}[idx]\ ==\ ch)}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ idx;}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ \_\_LINE\_\_\ <<\ \textcolor{stringliteral}{"{}:\ ("{}}\ <<\ ch}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{})\ Should\ not\ reach\ here!\(\backslash\)n"{}};}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a12f727cca9e21f9539cd74b6603adf0c}\index{ciphers::HillCipher@{ciphers::HillCipher}!get\_idx\_char@{get\_idx\_char}}
+\index{get\_idx\_char@{get\_idx\_char}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{get\_idx\_char()}{get\_idx\_char()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a12f727cca9e21f9539cd74b6603adf0c} 
+static char ciphers\+::\+Hill\+Cipher\+::get\+\_\+idx\+\_\+char (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Get the character at a given index in the \doxylink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & index value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+character at the index 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}}[idx];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a2eb58750b978a93ac5e6eb29e3e570b7}\index{ciphers::HillCipher@{ciphers::HillCipher}!get\_inverse@{get\_inverse}}
+\index{get\_inverse@{get\_inverse}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{get\_inverse()}{get\_inverse()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a2eb58750b978a93ac5e6eb29e3e570b7} 
+template$<$typename T $>$ \\
+static \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ double $>$ ciphers\+::\+Hill\+Cipher\+::get\+\_\+inverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ const \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Get matrix inverse using Row-\/transformations. Given matrix must be a square and non-\/singular. \begin{DoxyReturn}{Returns}
+inverse matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assuming\ A\ is\ square\ matrix}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ A.size();}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ inverse(N,\ std::valarray<double>(N));}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ col++)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ identity\ matrix}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row][col]\ =\ (row\ ==\ col)\ ?\ 1.f\ :\ 0.f;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A.size()\ !=\ A[0].size())\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}A\ must\ be\ a\ square\ matrix!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inverse;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ preallocate\ a\ temporary\ matrix\ identical\ to\ A}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ temp(N,\ std::valarray<double>(N));}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ col++)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[row][col]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(A[row][col]);}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ start\ transformations}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row++)\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row2\ =\ row;\ row2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ \&\&\ temp[row][row]\ ==\ 0;\ row2++)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ to\ ensure\ diagonal\ elements\ are\ not\ 0}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[row]\ =\ temp[row]\ +\ temp[row2];}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row]\ =\ inverse[row]\ +\ inverse[row2];}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col2\ =\ row;\ col2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ \&\&\ temp[row][row]\ ==\ 0;\ col2++)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ to\ further\ ensure\ diagonal\ elements\ are\ not\ 0}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row2\ =\ 0;\ row2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row2++)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[row2][row]\ =\ temp[row2][row]\ +\ temp[row2][col2];}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row2][row]\ =}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row2][row]\ +\ inverse[row2][col2];}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp[row][row]\ ==\ 0)\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Probably\ a\ low-\/rank\ matrix\ and\ hence\ singular}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Low-\/rank\ matrix,\ no\ inverse!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inverse;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ diagonal\ to\ 1}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ divisor\ =\ temp[row][row];}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ temp[row]\ =\ temp[row]\ /\ divisor;}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row]\ =\ inverse[row]\ /\ divisor;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Row\ transformations}}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row2\ =\ 0;\ row2\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ row2++)\ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row2\ ==\ row)}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ factor\ =\ temp[row2][row];}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[row2]\ =\ temp[row2]\ -\/\ factor\ *\ temp[row];}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row2]\ =\ inverse[row2]\ -\/\ factor\ *\ inverse[row];}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inverse;}
+\DoxyCodeLine{00312\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_ad36cbcc7a458b3f3a2af0c4aa1126590}\index{ciphers::HillCipher@{ciphers::HillCipher}!mat\_mul@{mat\_mul}}
+\index{mat\_mul@{mat\_mul}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{mat\_mul()}{mat\_mul()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_ad36cbcc7a458b3f3a2af0c4aa1126590} 
+static const std\+::valarray$<$ uint8\+\_\+t $>$ ciphers\+::\+Hill\+Cipher\+::mat\+\_\+mul (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ uint8\+\_\+t $>$ \&}]{vector}{, }\item[{const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ int $>$ \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+helper function to perform vector multiplication with encryption or decryption matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & vector to multiply \\
+\hline
+{\em key} & encryption or decryption key matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+corresponding encrypted or decrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::valarray<uint8\_t>\ out(vector);\ \ \textcolor{comment}{//\ make\ a\ copy}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ L\ =\ std::strlen(\mbox{\hyperlink{namespaceciphers_ab9aec0ccf4b6809f652bb540be87c216}{STRKEY}});}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ key.size();\ i++)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tmp\ =\ 0;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ vector.size();\ j++)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ +=\ key[i][j]\ *\ vector[j];}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ out[i]\ =\ \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(tmp\ \%\ L);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a63e7b8e92dff8b9260d6d21c31ecebd0}\index{ciphers::HillCipher@{ciphers::HillCipher}!modulo@{modulo}}
+\index{modulo@{modulo}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{modulo()}{modulo()}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a63e7b8e92dff8b9260d6d21c31ecebd0} 
+static int ciphers\+::\+Hill\+Cipher\+::modulo (\begin{DoxyParamCaption}\item[{int}]{a}{, }\item[{int}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ a\ \%\ b;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0)}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ ret\ +=\ b;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00319\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a716d0313141499d16f57c0c107f04395}\index{ciphers::HillCipher@{ciphers::HillCipher}!rand\_range@{rand\_range}}
+\index{rand\_range@{rand\_range}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{rand\_range()}{rand\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a716d0313141499d16f57c0c107f04395} 
+template$<$typename T1 , typename T2 $>$ \\
+static double ciphers\+::\+Hill\+Cipher\+::rand\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T2 $>$ \texorpdfstring{$\ast$}{*}}]{M}{, }\item[{T1}]{a}{, }\item[{T1}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Function overload to fill a matrix with random integers in a given interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & pointer to matrix to be filled with random numbers \\
+\hline
+{\em a} & lower limit of interval \\
+\hline
+{\em b} & upper limit of interval \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T1} & type of input range \\
+\hline
+{\em T2} & type of matrix \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+determinant of generated random matrix
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+There will need to be a balance between the matrix size and the range of random numbers. If the matrix is large, the range of random numbers must be small to have a well defined keys. Or if the matrix is smaller, the random numbers range can be larger. For an 8x8 matrix, range should be no more than $[0,10]$ 
+\end{DoxyWarning}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_af7db62f21983565c64d5d42d2a49888e}{M}}-\/>size();\ i++)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_af7db62f21983565c64d5d42d2a49888e}{M}}[0][0].size();\ j++)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_af7db62f21983565c64d5d42d2a49888e}{M}}[0][i][j]\ =\ \mbox{\hyperlink{classciphers_1_1_hill_cipher_a629be41c1ab78850963e4ce14e1d11d9}{rand\_range<T1,\ T2>}}(a,\ b);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(*M);}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classciphers_1_1_hill_cipher_a629be41c1ab78850963e4ce14e1d11d9}\index{ciphers::HillCipher@{ciphers::HillCipher}!rand\_range@{rand\_range}}
+\index{rand\_range@{rand\_range}!ciphers::HillCipher@{ciphers::HillCipher}}
+\doxysubsubsection{\texorpdfstring{rand\_range()}{rand\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classciphers_1_1_hill_cipher_a629be41c1ab78850963e4ce14e1d11d9} 
+template$<$typename T1 , typename T2 $>$ \\
+static const T2 ciphers\+::\+Hill\+Cipher\+::rand\+\_\+range (\begin{DoxyParamCaption}\item[{T1}]{a}{, }\item[{T1}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Function to generate a random integer in a given interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & lower limit of interval \\
+\hline
+{\em b} & upper limit of interval \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of output \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+random integer in the interval $[a,b)$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ generate\ random\ number\ between\ 0\ and\ 1}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ r\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand())\ /\ RAND\_MAX;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ scale\ and\ return\ random\ number\ as\ integer}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T2\textcolor{keyword}{>}(r\ *\ (b\ -\/\ a)\ +\ a);}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ciphers/\mbox{\hyperlink{hill__cipher_8cpp}{hill\+\_\+cipher.\+cpp}}\end{DoxyCompactItemize}

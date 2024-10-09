@@ -1,0 +1,156 @@
+\doxysection{range\+\_\+queries/prefix\+\_\+sum\+\_\+array.cpp File Reference}
+\hypertarget{prefix__sum__array_8cpp}{}\label{prefix__sum__array_8cpp}\index{range\_queries/prefix\_sum\_array.cpp@{range\_queries/prefix\_sum\_array.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Prefix_sum}{\texttt{ Prefix Sum Array}} data structure implementation.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerange__queries}{range\+\_\+queries}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceprefix__sum__array}{prefix\+\_\+sum\+\_\+array}}
+\begin{DoxyCompactList}\small\item\em Range sum queries using prefix-\/sum-\/array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{prefix__sum__array_8cpp_adae5ede93421c239b4a15a3689320ac1}\label{prefix__sum__array_8cpp_adae5ede93421c239b4a15a3689320ac1} 
+std\+::vector$<$ int64\+\_\+t $>$ {\bfseries range\+\_\+queries\+::prefix\+\_\+sum\+\_\+array\+::\+PSA} (1, 0)
+\item 
+void \mbox{\hyperlink{prefix__sum__array_8cpp_ab36151479ad37d53ef9fcb60a274b1d9}{range\+\_\+queries\+::prefix\+\_\+sum\+\_\+array\+::build}} (std\+::vector$<$ int64\+\_\+t $>$ original\+\_\+array)
+\begin{DoxyCompactList}\small\item\em function that builds the PSA \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{prefix__sum__array_8cpp_a7c8fd967c36dbba5fdf9c71faed604cf}{range\+\_\+queries\+::prefix\+\_\+sum\+\_\+array\+::query}} (int64\+\_\+t beg, int64\+\_\+t end)
+\begin{DoxyCompactList}\small\item\em query function \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{prefix__sum__array_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{prefix__sum__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Prefix_sum}{\texttt{ Prefix Sum Array}} data structure implementation. 
+
+Prefix Sum Array is a data structure, that allows answering sum in some range queries. It can answer most sum range queries in O(1), with a build time complexity of O(\+N). But it hasn\textquotesingle{}t an update querie.
+
+
+\begin{DoxyItemize}
+\item Running Time Complexity ~\newline
+
+\item Build \+: O(\+N) ~\newline
+
+\item Range Query \+: O(1) ~\newline
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/PauloVLB}{\texttt{ Paulo Vitor Lima Borges}} 
+\end{DoxyAuthor}
+
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{prefix__sum__array_8cpp_ab36151479ad37d53ef9fcb60a274b1d9}\index{prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}!build@{build}}
+\index{build@{build}!prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily \label{prefix__sum__array_8cpp_ab36151479ad37d53ef9fcb60a274b1d9} 
+void range\+\_\+queries\+::prefix\+\_\+sum\+\_\+array\+::build (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int64\+\_\+t $>$}]{original\+\_\+array}{}\end{DoxyParamCaption})}
+
+
+
+function that builds the PSA 
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+\_\+array} & original array of values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ static\_cast<int>(original\_array.size());\ i++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ PSA.push\_back(PSA[i\ -\/\ 1]\ +\ original\_array[i]);}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+\Hypertarget{prefix__sum__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}!main@{main}}
+\index{main@{main}!prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{prefix__sum__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{prefix__sum__array_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{prefix__sum__array_8cpp_a7c8fd967c36dbba5fdf9c71faed604cf}\index{prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}!query@{query}}
+\index{query@{query}!prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily \label{prefix__sum__array_8cpp_a7c8fd967c36dbba5fdf9c71faed604cf} 
+int64\+\_\+t range\+\_\+queries\+::prefix\+\_\+sum\+\_\+array\+::query (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{beg}{, }\item[{int64\+\_\+t}]{end}{}\end{DoxyParamCaption})}
+
+
+
+query function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em beg} & begin of the interval to sum \\
+\hline
+{\em end} & end of the interval to sum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sum of the range \mbox{[}beg, end\mbox{]} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \{\ \textcolor{keywordflow}{return}\ PSA[end]\ -\/\ PSA[beg\ -\/\ 1];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{prefix__sum__array_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}!test@{test}}
+\index{test@{test}!prefix\_sum\_array.cpp@{prefix\_sum\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{prefix__sum__array_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ std::vector<int64\_t>\ values\{0,\ \ 123,\ 0,\ \ 2,\ \ -\/2,\ 5,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 24,\ 0,\ \ \ 23,\ -\/1,\ -\/1\};\ \ \textcolor{comment}{//\ original\ array}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{prefix__sum__array_8cpp_ab36151479ad37d53ef9fcb60a274b1d9}{range\_queries::prefix\_sum\_array::build}}(values);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ queries\ are\ of\ the\ type:\ sum\ of\ the\ range\ [a,\ b]\ =\ psa[b]\ -\/\ psa[a-\/1]}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ assert(range\_queries::prefix\_sum\_array::query(1,\ 10)\ ==}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ 173);\ \ \textcolor{comment}{//\ sum\ of\ the\ entire\ array}}
+\DoxyCodeLine{00070\ \ \ \ \ assert(range\_queries::prefix\_sum\_array::query(4,\ 6)\ ==}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ 27);\ \ \textcolor{comment}{//\ the\ sum\ of\ the\ interval\ [4,\ 6]}}
+\DoxyCodeLine{00072\ \ \ \ \ assert(range\_queries::prefix\_sum\_array::query(5,\ 9)\ ==}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ 51);\ \ \textcolor{comment}{//\ the\ sum\ of\ the\ interval\ [5,\ 9]}}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}

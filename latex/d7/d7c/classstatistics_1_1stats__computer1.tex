@@ -1,0 +1,127 @@
+\doxysection{statistics\+::stats\+\_\+computer1\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classstatistics_1_1stats__computer1}{}\label{classstatistics_1_1stats__computer1}\index{statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstatistics_1_1stats__computer1_aa13bf7c38de112f71921a5525d71a2f2}{new\+\_\+val}} (T x)
+\item 
+double \mbox{\hyperlink{classstatistics_1_1stats__computer1_a390697dcee210b91823ceff04b25081b}{mean}} () const
+\item 
+double \mbox{\hyperlink{classstatistics_1_1stats__computer1_a27f0a03e2fd2254f1c81fe668226bd92}{variance}} () const
+\item 
+double \mbox{\hyperlink{classstatistics_1_1stats__computer1_af57e942d49f4fd70f059f224b4ac07e1}{std}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classstatistics_1_1stats__computer1_ab2e69e75fe0da096bf61fa13420b43eb}\label{classstatistics_1_1stats__computer1_ab2e69e75fe0da096bf61fa13420b43eb} 
+unsigned int {\bfseries n} = 0
+\item 
+\Hypertarget{classstatistics_1_1stats__computer1_a2a097b80909181880f13b54a264ed337}\label{classstatistics_1_1stats__computer1_a2a097b80909181880f13b54a264ed337} 
+double {\bfseries Ex}
+\item 
+\Hypertarget{classstatistics_1_1stats__computer1_a8ab2b14d5650b14e46b70b412573f60a}\label{classstatistics_1_1stats__computer1_a8ab2b14d5650b14e46b70b412573f60a} 
+double {\bfseries Ex2}
+\item 
+\Hypertarget{classstatistics_1_1stats__computer1_a48c03a44c784eb6913ad186d34c302db}\label{classstatistics_1_1stats__computer1_a48c03a44c784eb6913ad186d34c302db} 
+T {\bfseries K}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{classstatistics_1_1stats__computer1_a350bf6c429691d3578c4dfc6679a0797}{operator$>$$>$}} (std\+::istream \&input, \mbox{\hyperlink{classstatistics_1_1stats__computer1}{stats\+\_\+computer1}} \&stat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class statistics\+::stats\+\_\+computer1$<$ T $>$}
+continuous mean and variance computance using first value as an approximation for the mean. If the first number is much far form the mean, the algorithm becomes very inaccurate to compute variance and standard deviation. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classstatistics_1_1stats__computer1_a390697dcee210b91823ceff04b25081b}\index{statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}!mean@{mean}}
+\index{mean@{mean}!statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer1_a390697dcee210b91823ceff04b25081b} 
+template$<$typename T $>$ \\
+double \mbox{\hyperlink{classstatistics_1_1stats__computer1}{statistics\+::stats\+\_\+computer1}}$<$ T $>$\+::mean (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+return sample mean computed till last sample 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \{\ \textcolor{keywordflow}{return}\ K\ +\ Ex\ /\ n;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstatistics_1_1stats__computer1_aa13bf7c38de112f71921a5525d71a2f2}\index{statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}!new\_val@{new\_val}}
+\index{new\_val@{new\_val}!statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{new\_val()}{new\_val()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer1_aa13bf7c38de112f71921a5525d71a2f2} 
+template$<$typename T $>$ \\
+void \mbox{\hyperlink{classstatistics_1_1stats__computer1}{statistics\+::stats\+\_\+computer1}}$<$ T $>$\+::new\+\_\+val (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & new data sample \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ K\ =\ x;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ n++;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ T\ tmp\ =\ x\ -\/\ K;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ Ex\ +=\ tmp;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ Ex2\ +=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(tmp)\ *\ tmp;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstatistics_1_1stats__computer1_af57e942d49f4fd70f059f224b4ac07e1}\index{statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}!std@{std}}
+\index{std@{std}!statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{std()}{std()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer1_af57e942d49f4fd70f059f224b4ac07e1} 
+template$<$typename T $>$ \\
+double \mbox{\hyperlink{classstatistics_1_1stats__computer1}{statistics\+::stats\+\_\+computer1}}$<$ T $>$\+::std (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+return sample standard deviation computed till last sample 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{\ \textcolor{keywordflow}{return}\ std::sqrt(this-\/>\mbox{\hyperlink{classstatistics_1_1stats__computer1_a27f0a03e2fd2254f1c81fe668226bd92}{variance}}());\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstatistics_1_1stats__computer1_a27f0a03e2fd2254f1c81fe668226bd92}\index{statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}!variance@{variance}}
+\index{variance@{variance}!statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{variance()}{variance()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer1_a27f0a03e2fd2254f1c81fe668226bd92} 
+template$<$typename T $>$ \\
+double \mbox{\hyperlink{classstatistics_1_1stats__computer1}{statistics\+::stats\+\_\+computer1}}$<$ T $>$\+::variance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+return data variance computed till last sample 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{\ \textcolor{keywordflow}{return}\ (Ex2\ -\/\ (Ex\ *\ Ex)\ /\ n)\ /\ (n\ -\/\ 1);\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classstatistics_1_1stats__computer1_a350bf6c429691d3578c4dfc6679a0797}\index{statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!statistics::stats\_computer1$<$ T $>$@{statistics::stats\_computer1$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer1_a350bf6c429691d3578c4dfc6679a0797} 
+template$<$typename T $>$ \\
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input}{, }\item[{\mbox{\hyperlink{classstatistics_1_1stats__computer1}{stats\+\_\+computer1}}$<$ T $>$ \&}]{stat}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+short-\/hand operator to read new sample from input stream ~\newline
+ e.\+g.\+: {\ttfamily std\+::cin \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} stats1;} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ T\ val;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ input\ >>\ val;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ stat.\mbox{\hyperlink{classstatistics_1_1stats__computer1_aa13bf7c38de112f71921a5525d71a2f2}{new\_val}}(val);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ input;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+math/\mbox{\hyperlink{realtime__stats_8cpp}{realtime\+\_\+stats.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,93 @@
+\doxysection{math/magic\+\_\+number.cpp File Reference}
+\hypertarget{magic__number_8cpp}{}\label{magic__number_8cpp}\index{math/magic\_number.cpp@{math/magic\_number.cpp}}
+
+
+A simple program to check if the given number is a magic number or not. A number is said to be a magic number, if the sum of its digits are calculated till a single digit recursively by adding the sum of the digits after every addition. If the single digit comes out to be 1,then the number is a magic number.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacemath_a8d8e81a7cd59644b311ef9adb268f5f0}{math\+::magic\+\_\+number}} (const uint64\+\_\+t \&n)
+\item 
+static void \mbox{\hyperlink{magic__number_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Test function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{magic__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple program to check if the given number is a magic number or not. A number is said to be a magic number, if the sum of its digits are calculated till a single digit recursively by adding the sum of the digits after every addition. If the single digit comes out to be 1,then the number is a magic number. 
+
+This is a shortcut method to verify Magic Number. On dividing the input by 9, if the remainder is 1 then the number is a magic number else not. The divisibility rule of 9 says that a number is divisible by 9 if the sum of its digits are also divisible by 9. Therefore, if a number is divisible by 9, then, recursively, all the digit sums are also divisible by 9. The final digit sum is always 9. An increase of 1 in the original number will increase the ultimate value by 1, making it 10 and the ultimate sum will be 1, thus verifying that it is a magic number. \begin{DoxyAuthor}{Author}
+\href{https://github.com/neha-hasija17}{\texttt{ Neha Hasija}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{magic__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{magic\_number.cpp@{magic\_number.cpp}!main@{main}}
+\index{main@{main}!magic\_number.cpp@{magic\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{magic__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{magic__number_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
+\Hypertarget{magic__number_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{magic\_number.cpp@{magic\_number.cpp}!tests@{tests}}
+\index{tests@{tests}!magic\_number.cpp@{magic\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{magic__number_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1:\(\backslash\)t\ n=60\(\backslash\)n"{}};}
+\DoxyCodeLine{00053\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8d8e81a7cd59644b311ef9adb268f5f0}{math::magic\_number}}(60)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00054\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2:\(\backslash\)t\ n=730\(\backslash\)n"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8d8e81a7cd59644b311ef9adb268f5f0}{math::magic\_number}}(730)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00058\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3:\(\backslash\)t\ n=0\(\backslash\)n"{}};}
+\DoxyCodeLine{00061\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8d8e81a7cd59644b311ef9adb268f5f0}{math::magic\_number}}(0)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00062\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 4:\(\backslash\)t\ n=479001600\(\backslash\)n"{}};}
+\DoxyCodeLine{00065\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8d8e81a7cd59644b311ef9adb268f5f0}{math::magic\_number}}(479001600)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00066\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 5:\(\backslash\)t\ n=-\/35\(\backslash\)n"{}};}
+\DoxyCodeLine{00069\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8d8e81a7cd59644b311ef9adb268f5f0}{math::magic\_number}}(-\/35)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}

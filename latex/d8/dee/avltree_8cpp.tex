@@ -1,0 +1,421 @@
+\doxysection{data\+\_\+structures/avltree.cpp File Reference}
+\hypertarget{avltree_8cpp}{}\label{avltree_8cpp}\index{data\_structures/avltree.cpp@{data\_structures/avltree.cpp}}
+
+
+A simple tree implementation using nodes.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}}
+\begin{DoxyCompactList}\small\item\em for std\+::queue \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{avltree_8cpp_a48d897353aeb6a721dbc6b6c57e035e6}{create\+Node}} (int \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})
+\begin{DoxyCompactList}\small\item\em creates and returns a new node \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root)
+\item 
+int \mbox{\hyperlink{avltree_8cpp_aaa457ffec24c9643f2768e7a65e96546}{get\+Balance}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root)
+\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{avltree_8cpp_adfc1d482a564c041756719667b955b8c}{right\+Rotate}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root)
+\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{avltree_8cpp_a473eee1803e4e44a54d685e4b0eef5a6}{left\+Rotate}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root)
+\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{avltree_8cpp_a5fa160a678a34dd51c0aea1c0c00ed5e}{min\+Value}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root)
+\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b}{insert}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root, int item)
+\begin{DoxyCompactList}\small\item\em inserts a new element into AVL tree \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5}{delete\+Node}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root, int element)
+\begin{DoxyCompactList}\small\item\em removes a given element from AVL tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{avltree_8cpp_a82659e9e223e520cf91d7e55c4a3f88c}{delete\+All\+Nodes}} (const \mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}const root)
+\begin{DoxyCompactList}\small\item\em calls delete on every node \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{avltree_8cpp_ae197eb50188fb761346952b9b5f6be59}{level\+Order}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em prints given tree in the Level\+Order \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{avltree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple tree implementation using nodes. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]update code to use C++ STL library features and OO structure \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+This program is a poor implementation and does not utilize any of the C++ STL features. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}\index{avltree.cpp@{avltree.cpp}!node@{node}}
+\index{node@{node}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{node}{node}}
+{\footnotesize\ttfamily \label{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287} 
+using node}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ data;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *left;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *right;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+for std\+::queue 
+
+for std\+::max for std\+::cout 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *left;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *right;}
+\DoxyCodeLine{00018\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{avltree_8cpp_a48d897353aeb6a721dbc6b6c57e035e6}\index{avltree.cpp@{avltree.cpp}!createNode@{createNode}}
+\index{createNode@{createNode}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{createNode()}{createNode()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_a48d897353aeb6a721dbc6b6c57e035e6} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} create\+Node (\begin{DoxyParamCaption}\item[{int}]{data}{}\end{DoxyParamCaption})}
+
+
+
+creates and returns a new node 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & value stored in the node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+newly created node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *nn\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}}();}
+\DoxyCodeLine{00027\ \ \ \ \ nn-\/>data\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00028\ \ \ \ \ nn-\/>height\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ nn-\/>left\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00030\ \ \ \ \ nn-\/>right\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ nn;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_a82659e9e223e520cf91d7e55c4a3f88c}\index{avltree.cpp@{avltree.cpp}!deleteAllNodes@{deleteAllNodes}}
+\index{deleteAllNodes@{deleteAllNodes}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteAllNodes()}{deleteAllNodes()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_a82659e9e223e520cf91d7e55c4a3f88c} 
+void delete\+All\+Nodes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}const}]{root}{}\end{DoxyParamCaption})}
+
+
+
+calls delete on every node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & of the tree \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (root)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{avltree_8cpp_a82659e9e223e520cf91d7e55c4a3f88c}{deleteAllNodes}}(root-\/>left);}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{avltree_8cpp_a82659e9e223e520cf91d7e55c4a3f88c}{deleteAllNodes}}(root-\/>right);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ root;}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5}\index{avltree.cpp@{avltree.cpp}!deleteNode@{deleteNode}}
+\index{deleteNode@{deleteNode}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteNode()}{deleteNode()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} delete\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{element}{}\end{DoxyParamCaption})}
+
+
+
+removes a given element from AVL tree 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em root} & of the tree \\
+\hline
+\mbox{\texttt{ in}}  & {\em element} & the element to be deleted from the tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+root of the updated tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ root;}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{if}\ (element\ <\ root-\/>\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ root-\/>left\ =\ \mbox{\hyperlink{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5}{deleteNode}}(root-\/>left,\ element);}
+\DoxyCodeLine{00128\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (element\ >\ root-\/>data)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ root-\/>right\ =\ \mbox{\hyperlink{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5}{deleteNode}}(root-\/>right,\ element);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Node\ to\ be\ deleted\ is\ leaf\ node\ or\ have\ only\ one\ Child}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!root-\/>right\ ||\ !root-\/>left)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *temp\ =\ !root-\/>right\ ?\ root-\/>left\ :\ root-\/>right;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ root;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Node\ to\ be\ deleted\ have\ both\ left\ and\ right\ subtrees}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *temp\ =\ \mbox{\hyperlink{avltree_8cpp_a5fa160a678a34dd51c0aea1c0c00ed5e}{minValue}}(root-\/>right);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ root-\/>data\ =\ temp-\/>data;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ root-\/>right\ =\ \mbox{\hyperlink{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5}{deleteNode}}(root-\/>right,\ temp-\/>data);}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ Balancing\ Tree\ after\ deletion}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ root;}
+\DoxyCodeLine{00145\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_aaa457ffec24c9643f2768e7a65e96546}\index{avltree.cpp@{avltree.cpp}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_aaa457ffec24c9643f2768e7a65e96546} 
+int get\+Balance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em root} & of the tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+difference between height of left and right subtree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}(root-\/>left)\ -\/\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}(root-\/>right);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}\index{avltree.cpp@{avltree.cpp}!height@{height}}
+\index{height@{height}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83} 
+int height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em root} & the root of the tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+height of tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ 1\ +\ std::max(\mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}(root-\/>left),\ \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}(root-\/>right));}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b}\index{avltree.cpp@{avltree.cpp}!insert@{insert}}
+\index{insert@{insert}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{item}{}\end{DoxyParamCaption})}
+
+
+
+inserts a new element into AVL tree 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em root} & of the tree \\
+\hline
+\mbox{\texttt{ in}}  & {\em item} & the element to be insterted into the tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+root of the updated tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{avltree_8cpp_a48d897353aeb6a721dbc6b6c57e035e6}{createNode}}(item);}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (item\ <\ root-\/>\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ root-\/>left\ =\ \mbox{\hyperlink{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b}{insert}}(root-\/>left,\ item);}
+\DoxyCodeLine{00098\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ root-\/>right\ =\ \mbox{\hyperlink{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b}{insert}}(root-\/>right,\ item);}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ b\ =\ \mbox{\hyperlink{avltree_8cpp_aaa457ffec24c9643f2768e7a65e96546}{getBalance}}(root);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ >\ 1)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{avltree_8cpp_aaa457ffec24c9643f2768e7a65e96546}{getBalance}}(root-\/>left)\ <\ 0)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ root-\/>left\ =\ \mbox{\hyperlink{avltree_8cpp_a473eee1803e4e44a54d685e4b0eef5a6}{leftRotate}}(root-\/>left);\ \ \textcolor{comment}{//\ Left-\/Right\ Case}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{avltree_8cpp_adfc1d482a564c041756719667b955b8c}{rightRotate}}(root);\ \ \textcolor{comment}{//\ Left-\/Left\ Case}}
+\DoxyCodeLine{00107\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (b\ <\ -\/1)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{avltree_8cpp_aaa457ffec24c9643f2768e7a65e96546}{getBalance}}(root-\/>right)\ >\ 0)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ root-\/>right\ =\ \mbox{\hyperlink{avltree_8cpp_adfc1d482a564c041756719667b955b8c}{rightRotate}}(root-\/>right);\ \ \textcolor{comment}{//\ Right-\/Left\ Case}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{avltree_8cpp_a473eee1803e4e44a54d685e4b0eef5a6}{leftRotate}}(root);\ \ \textcolor{comment}{//\ Right-\/Right\ Case}}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ root;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_a473eee1803e4e44a54d685e4b0eef5a6}\index{avltree.cpp@{avltree.cpp}!leftRotate@{leftRotate}}
+\index{leftRotate@{leftRotate}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{leftRotate()}{leftRotate()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_a473eee1803e4e44a54d685e4b0eef5a6} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} left\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & of the tree to be rotated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+node after left rotation 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ root-\/>right;}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *u\ =\ t-\/>left;}
+\DoxyCodeLine{00070\ \ \ \ \ t-\/>left\ =\ root;}
+\DoxyCodeLine{00071\ \ \ \ \ root-\/>right\ =\ u;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_ae197eb50188fb761346952b9b5f6be59}\index{avltree.cpp@{avltree.cpp}!levelOrder@{levelOrder}}
+\index{levelOrder@{levelOrder}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{levelOrder()}{levelOrder()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_ae197eb50188fb761346952b9b5f6be59} 
+void level\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+
+prints given tree in the Level\+Order 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em root} & of the tree \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ std::queue<node\ *>\ q;}
+\DoxyCodeLine{00165\ \ \ \ \ q.push(root);}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{while}\ (!q.empty())\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ root\ =\ q.front();}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ std::cout\ <<\ root-\/>data\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (root-\/>left)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ q.push(root-\/>left);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (root-\/>right)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ q.push(root-\/>right);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{avltree.cpp@{avltree.cpp}!main@{main}}
+\index{main@{main}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ Testing\ AVL\ Tree}}
+\DoxyCodeLine{00185\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *root\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 1;\ i\ <=\ 7;\ i++)\ root\ =\ \mbox{\hyperlink{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b}{insert}}(root,\ i);}
+\DoxyCodeLine{00188\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}LevelOrder:\ "{}};}
+\DoxyCodeLine{00189\ \ \ \ \ \mbox{\hyperlink{avltree_8cpp_ae197eb50188fb761346952b9b5f6be59}{levelOrder}}(root);}
+\DoxyCodeLine{00190\ \ \ \ \ root\ =\ \mbox{\hyperlink{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5}{deleteNode}}(root,\ 1);\ \ \textcolor{comment}{//\ Deleting\ key\ with\ value\ 1}}
+\DoxyCodeLine{00191\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nLevelOrder:\ "{}};}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{avltree_8cpp_ae197eb50188fb761346952b9b5f6be59}{levelOrder}}(root);}
+\DoxyCodeLine{00193\ \ \ \ \ root\ =\ \mbox{\hyperlink{avltree_8cpp_aa29a7fdc2db1784f5a6e25025ff7cbf5}{deleteNode}}(root,\ 4);\ \ \textcolor{comment}{//\ Deletin\ key\ with\ value\ 4}}
+\DoxyCodeLine{00194\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nLevelOrder:\ "{}};}
+\DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{avltree_8cpp_ae197eb50188fb761346952b9b5f6be59}{levelOrder}}(root);}
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{avltree_8cpp_a82659e9e223e520cf91d7e55c4a3f88c}{deleteAllNodes}}(root);}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00198\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_a5fa160a678a34dd51c0aea1c0c00ed5e}\index{avltree.cpp@{avltree.cpp}!minValue@{minValue}}
+\index{minValue@{minValue}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{minValue()}{minValue()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_a5fa160a678a34dd51c0aea1c0c00ed5e} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} min\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & of the tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+node with minimum value in the tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (root-\/>left\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ root;}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{avltree_8cpp_a5fa160a678a34dd51c0aea1c0c00ed5e}{minValue}}(root-\/>left);}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{avltree_8cpp_adfc1d482a564c041756719667b955b8c}\index{avltree.cpp@{avltree.cpp}!rightRotate@{rightRotate}}
+\index{rightRotate@{rightRotate}!avltree.cpp@{avltree.cpp}}
+\doxysubsubsection{\texorpdfstring{rightRotate()}{rightRotate()}}
+{\footnotesize\ttfamily \label{avltree_8cpp_adfc1d482a564c041756719667b955b8c} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} right\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & of the tree to be rotated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+node after right rotation 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *t\ =\ root-\/>left;}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *u\ =\ t-\/>right;}
+\DoxyCodeLine{00058\ \ \ \ \ t-\/>right\ =\ root;}
+\DoxyCodeLine{00059\ \ \ \ \ root-\/>left\ =\ u;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}

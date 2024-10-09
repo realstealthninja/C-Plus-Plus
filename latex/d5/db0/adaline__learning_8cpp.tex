@@ -1,0 +1,247 @@
+\doxysection{machine\+\_\+learning/adaline\+\_\+learning.cpp File Reference}
+\hypertarget{adaline__learning_8cpp}{}\label{adaline__learning_8cpp}\index{machine\_learning/adaline\_learning.cpp@{machine\_learning/adaline\_learning.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/ADALINE}{\texttt{ Adaptive Linear Neuron (ADALINE)}} implementation  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmachine__learning_1_1adaline}{machine\+\_\+learning\+::adaline}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemachine__learning}{machine\+\_\+learning}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{adaline__learning_8cpp_a52053d88ea1bcbbed9aca67ab4eeb499}{test1}} (double eta=0.\+01)
+\item 
+void \mbox{\hyperlink{adaline__learning_8cpp_a379f7488a305f2571f2932b319931f82}{test2}} (double eta=0.\+01)
+\item 
+void \mbox{\hyperlink{adaline__learning_8cpp_a992bdf1fdb0b9d414bcf7981d2d87aa9}{test3}} (double eta=0.\+01)
+\item 
+int \mbox{\hyperlink{adaline__learning_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{group__machine__learning_ga5118e5cbc4f0886e27b3a7a2544dded1}{MAX\+\_\+\+ITER}} = 500
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/ADALINE}{\texttt{ Adaptive Linear Neuron (ADALINE)}} implementation 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}}
+\end{DoxyAuthor}
+\href{https://commons.wikimedia.org/wiki/File:Adaline_flow_chart.gif}{\texttt{ }}
+
+ADALINE is one of the first and simplest single layer artificial neural network. The algorithm essentially implements a linear function   \[ f\left(x_0,x_1,x_2,\ldots\right) =
+\sum_j x_jw_j+\theta
+\] where $x_j$ are the input features of a sample, $w_j$ are the coefficients of the linear function and $\theta$ is a constant. If we know the $w_j$, then for any given set of features, $y$ can be computed. Computing the $w_j$ is a supervised learning algorithm wherein a set of features and their corresponding outputs are given and weights are computed using stochastic gradient descent method. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{adaline__learning_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{adaline\_learning.cpp@{adaline\_learning.cpp}!main@{main}}
+\index{main@{main}!adaline\_learning.cpp@{adaline\_learning.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{adaline__learning_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00358\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));\ \ \textcolor{comment}{//\ initialize\ random\ number\ generator}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordtype}{double}\ eta\ =\ 0.1;\ \ \textcolor{comment}{//\ default\ value\ of\ eta}}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{\ \ \ \textcolor{comment}{//\ read\ eta\ value\ from\ commandline\ argument\ if\ present}}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ eta\ =\ strtof(argv[1],\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_ae7880ce913f3058a35ff106d5be9e243}{test1}}(eta);}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Press\ ENTER\ to\ continue..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00368\ \ \ \ \ std::cin.get();}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}{test2}}(eta);}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Press\ ENTER\ to\ continue..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00373\ \ \ \ \ std::cin.get();}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \mbox{\hyperlink{hamiltons__cycle_8cpp_a0cc94918b6831f308d4fe4fa27f08299}{test3}}(eta);}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00378\ \}}
+
+\end{DoxyCode}
+\Hypertarget{adaline__learning_8cpp_a52053d88ea1bcbbed9aca67ab4eeb499}\index{adaline\_learning.cpp@{adaline\_learning.cpp}!test1@{test1}}
+\index{test1@{test1}!adaline\_learning.cpp@{adaline\_learning.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{adaline__learning_8cpp_a52053d88ea1bcbbed9aca67ab4eeb499} 
+void test1 (\begin{DoxyParamCaption}\item[{double}]{eta}{ = {\ttfamily 0.01}}\end{DoxyParamCaption})}
+
+test function to predict points in a 2D coordinate system above the line $x=y$ as +1 and others as -\/1. Note that each point is defined by 2 values or 2 features. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em eta} & learning rate (optional, default=0.\+01) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{classmachine__learning_1_1adaline}{adaline}}\ ada(2,\ eta);\ \ \textcolor{comment}{//\ 2\ features}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 10;\ \ \textcolor{comment}{//\ number\ of\ sample\ points}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ std::array<std::vector<double>,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}>\ X\ =\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ std::vector<double>(\{0,\ 1\}),\ \ \ std::vector<double>(\{1,\ -\/2\}),}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ std::vector<double>(\{2,\ 3\}),\ \ \ std::vector<double>(\{3,\ -\/1\}),}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ std::vector<double>(\{4,\ 1\}),\ \ \ std::vector<double>(\{6,\ -\/5\}),}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ std::vector<double>(\{-\/7,\ -\/3\}),\ std::vector<double>(\{-\/8,\ 5\}),}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ std::vector<double>(\{-\/9,\ 2\}),\ \ std::vector<double>(\{-\/10,\ -\/15\})\};}
+\DoxyCodeLine{00235\ \ \ \ \ std::array<int,\ N>\ y\ =\ \{1,\ \ -\/1,\ 1,\ -\/1,\ -\/1,}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/1,\ 1,\ \ 1,\ 1,\ \ -\/1\};\ \ \textcolor{comment}{//\ corresponding\ y-\/values}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/\ Test\ 1\ -\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00239\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Model\ before\ fit:\ "{}}\ <<\ ada\ <<\ std::endl;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ ada.fit<\mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}>(X,\ y);}
+\DoxyCodeLine{00242\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Model\ after\ fit:\ "{}}\ <<\ ada\ <<\ std::endl;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{int}\ predict\ =\ ada.predict(\{5,\ -\/3\});}
+\DoxyCodeLine{00245\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Predict\ for\ x=(5,-\/3):\ "{}}\ <<\ predict;}
+\DoxyCodeLine{00246\ \ \ \ \ assert(predict\ ==\ -\/1);}
+\DoxyCodeLine{00247\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ...passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ predict\ =\ ada.predict(\{5,\ 8\});}
+\DoxyCodeLine{00250\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Predict\ for\ x=(5,8):\ "{}}\ <<\ predict;}
+\DoxyCodeLine{00251\ \ \ \ \ assert(predict\ ==\ 1);}
+\DoxyCodeLine{00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ...passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00253\ \}}
+
+\end{DoxyCode}
+\Hypertarget{adaline__learning_8cpp_a379f7488a305f2571f2932b319931f82}\index{adaline\_learning.cpp@{adaline\_learning.cpp}!test2@{test2}}
+\index{test2@{test2}!adaline\_learning.cpp@{adaline\_learning.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{adaline__learning_8cpp_a379f7488a305f2571f2932b319931f82} 
+void test2 (\begin{DoxyParamCaption}\item[{double}]{eta}{ = {\ttfamily 0.01}}\end{DoxyParamCaption})}
+
+test function to predict points in a 2D coordinate system above the line $x+3y=-1$ as +1 and others as -\/1. Note that each point is defined by 2 values or 2 features. The function will create random sample points for training and test purposes. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em eta} & learning rate (optional, default=0.\+01) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{classmachine__learning_1_1adaline}{adaline}}\ ada(2,\ eta);\ \ \textcolor{comment}{//\ 2\ features}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 50;\ \ \textcolor{comment}{//\ number\ of\ sample\ points}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ std::array<std::vector<double>,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}>\ X;}
+\DoxyCodeLine{00268\ \ \ \ \ std::array<int,\ N>\ Y\{\};\ \ \textcolor{comment}{//\ corresponding\ y-\/values}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ generate\ sample\ points\ in\ the\ interval}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ [-\/range2/100\ ,\ (range2-\/1)/100]}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{int}\ range\ =\ 500;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sample\ points\ full-\/range}}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{int}\ range2\ =\ range\ >>\ 1;\ \ \textcolor{comment}{//\ sample\ points\ half-\/range}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x0\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x1\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ X[i]\ =\ std::vector<double>(\{x0,\ x1\});}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ Y[i]\ =\ (x0\ +\ 3.\ *\ x1)\ >\ -\/1\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/\ Test\ 2\ -\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00282\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Model\ before\ fit:\ "{}}\ <<\ ada\ <<\ std::endl;}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ ada.fit(X,\ Y);}
+\DoxyCodeLine{00285\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Model\ after\ fit:\ "{}}\ <<\ ada\ <<\ std::endl;}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{int}\ N\_test\_cases\ =\ 5;}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ N\_test\_cases;\ i++)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x0\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x1\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ predict\ =\ ada.predict(\{x0,\ x1\});}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Predict\ for\ x=("{}}\ <<\ x0\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ x1\ <<\ \textcolor{stringliteral}{"{}):\ "{}}\ <<\ predict;}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ expected\_val\ =\ (x0\ +\ 3.\ *\ x1)\ >\ -\/1\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ assert(predict\ ==\ expected\_val);}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ...passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ \}}
+
+\end{DoxyCode}
+\Hypertarget{adaline__learning_8cpp_a992bdf1fdb0b9d414bcf7981d2d87aa9}\index{adaline\_learning.cpp@{adaline\_learning.cpp}!test3@{test3}}
+\index{test3@{test3}!adaline\_learning.cpp@{adaline\_learning.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{adaline__learning_8cpp_a992bdf1fdb0b9d414bcf7981d2d87aa9} 
+void test3 (\begin{DoxyParamCaption}\item[{double}]{eta}{ = {\ttfamily 0.01}}\end{DoxyParamCaption})}
+
+test function to predict points in a 3D coordinate system lying within the sphere of radius 1 and centre at origin as +1 and others as -\/1. Note that each point is defined by 3 values but we use 6 features. The function will create random sample points for training and test purposes. The sphere centred at origin and radius 1 is defined as\+: $x^2+y^2+z^2=r^2=1$ and if the $r^2<1$, point lies within the sphere else, outside.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em eta} & learning rate (optional, default=0.\+01) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \mbox{\hyperlink{classmachine__learning_1_1adaline}{adaline}}\ ada(6,\ eta);\ \ \textcolor{comment}{//\ 2\ features}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 100;\ \ \textcolor{comment}{//\ number\ of\ sample\ points}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ std::array<std::vector<double>,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}>\ X;}
+\DoxyCodeLine{00319\ \ \ \ \ std::array<int,\ N>\ Y\{\};\ \ \textcolor{comment}{//\ corresponding\ y-\/values}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{comment}{//\ generate\ sample\ points\ in\ the\ interval}}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{comment}{//\ [-\/range2/100\ ,\ (range2-\/1)/100]}}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordtype}{int}\ range\ =\ 200;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sample\ points\ full-\/range}}
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordtype}{int}\ range2\ =\ range\ >>\ 1;\ \ \textcolor{comment}{//\ sample\ points\ half-\/range}}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x0\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x1\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x2\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ X[i]\ =\ std::vector<double>(\{x0,\ x1,\ x2,\ x0\ *\ x0,\ x1\ *\ x1,\ x2\ *\ x2\});}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ Y[i]\ =\ ((x0\ *\ x0)\ +\ (x1\ *\ x1)\ +\ (x2\ *\ x2))\ <=\ 1.f\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/\ Test\ 3\ -\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00334\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Model\ before\ fit:\ "{}}\ <<\ ada\ <<\ std::endl;}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ ada.fit(X,\ Y);}
+\DoxyCodeLine{00337\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Model\ after\ fit:\ "{}}\ <<\ ada\ <<\ std::endl;}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{int}\ N\_test\_cases\ =\ 5;}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ N\_test\_cases;\ i++)\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x0\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x1\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x2\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range)\ -\/\ range2)\ /\ 100.f;}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ predict\ =\ ada.predict(\{x0,\ x1,\ x2,\ x0\ *\ x0,\ x1\ *\ x1,\ x2\ *\ x2\});}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Predict\ for\ x=("{}}\ <<\ x0\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ x1\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ x2}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}):\ "{}}\ <<\ predict;}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ expected\_val\ =\ ((x0\ *\ x0)\ +\ (x1\ *\ x1)\ +\ (x2\ *\ x2))\ <=\ 1.f\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ assert(predict\ ==\ expected\_val);}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ...passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00353\ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \}}
+
+\end{DoxyCode}

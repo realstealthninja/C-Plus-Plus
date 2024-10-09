@@ -1,0 +1,345 @@
+\doxysection{sorting/quick\+\_\+sort.cpp File Reference}
+\hypertarget{quick__sort_8cpp}{}\label{quick__sort_8cpp}\index{sorting/quick\_sort.cpp@{sorting/quick\_sort.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Quicksort}{\texttt{ Quick sort implementation}} in C++  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacequick__sort}{quick\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Quicksort}{\texttt{ Quick sort implementation}} in C++. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{quick__sort_8cpp_a1b2a2cc2d319240f3b65c5b2f479ed82}{sorting\+::quick\+\_\+sort\+::partition}} (std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}arr, const int \&low, const int \&high)
+\begin{DoxyCompactList}\small\item\em Sorts the array taking the last element as pivot. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394}{sorting\+::quick\+\_\+sort\+::quick\+\_\+sort}} (std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}arr, const int \&low, const int \&high)
+\begin{DoxyCompactList}\small\item\em the main function that implements Quick Sort. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{quick__sort_8cpp_a53adad7e4d83e1495df25fe8dbb4cc05}{sorting\+::quick\+\_\+sort\+::quick\+\_\+sort}} (std\+::vector$<$ T $>$ arr, const int \&low, const int \&high)
+\begin{DoxyCompactList}\small\item\em the main function that implements Quick Sort. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b}{sorting\+::quick\+\_\+sort\+::show}} (const std\+::vector$<$ T $>$ \&arr, const int \&size)
+\begin{DoxyCompactList}\small\item\em Utility function to print the array contents. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{quick__sort_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{quick__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Quicksort}{\texttt{ Quick sort implementation}} in C++ 
+
+Quick Sort is a \href{https://en.wikipedia.org/wiki/Category:Divide-and-conquer_algorithms}{\texttt{ divide and conquer algorithm}}. It picks an element as pivot and partition the given array around the picked pivot. There are many different versions of quick\+Sort that pick pivot in different ways. \begin{DoxyVerb} 1. Always pick the first element as pivot
+ 2. Always pick the last element as pivot (implemented below)
+ 3. Pick a random element as pivot
+ 4. Pick median as pivot
+
+ The key process in quickSort is partition(). Target of partition is,
+ given an array and an element x(say) of array as pivot, put x at it's
+ correct position in sorted array and put all smaller elements (samller
+ than x) before x, and put all greater elements (greater than x) after
+ x. All this should be done in linear time
+\end{DoxyVerb}
+
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+
+\href{https://github.com/popoapp}{\texttt{ popoapp}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{quick__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{quick\_sort.cpp@{quick\_sort.cpp}!main@{main}}
+\index{main@{main}!quick\_sort.cpp@{quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{quick__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ 0;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tAvailable\ modes\(\backslash\)t\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00205\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Self-\/tests\ mode\(\backslash\)n2.\ Interactive\ mode"{}};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nChoose\ a\ mode:\ "{}};}
+\DoxyCodeLine{00208\ \ \ \ \ std::cin\ >>\ choice;}
+\DoxyCodeLine{00209\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{while}\ ((choice\ !=\ 1)\ \&\&\ (choice\ !=\ 2))\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ option.\ Choose\ between\ the\ valid\ modes:\ "{}};}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ std::cin\ >>\ choice;}
+\DoxyCodeLine{00214\ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{if}\ (choice\ ==\ 1)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{quick__sort_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00219\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (choice\ ==\ 2)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ 0;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ number\ of\ elements:\ "{}};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ std::cin\ >>\ size;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ std::vector<float>\ arr(size);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ std::cout}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ unsorted\ elements\ (can\ be\ negative/decimal):\ "{}};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ arr[i];}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394}{sorting::quick\_sort::quick\_sort}}(\&arr,\ 0,\ size\ -\/\ 1);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nSorted\ array:\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b}{sorting::quick\_sort::show}}(arr,\ size);}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00238\ \}}
+
+\end{DoxyCode}
+\Hypertarget{quick__sort_8cpp_a1b2a2cc2d319240f3b65c5b2f479ed82}\index{quick\_sort.cpp@{quick\_sort.cpp}!partition@{partition}}
+\index{partition@{partition}!quick\_sort.cpp@{quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily \label{quick__sort_8cpp_a1b2a2cc2d319240f3b65c5b2f479ed82} 
+template$<$typename T $>$ \\
+int sorting\+::quick\+\_\+sort\+::partition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{const int \&}]{low}{, }\item[{const int \&}]{high}{}\end{DoxyParamCaption})}
+
+
+
+Sorts the array taking the last element as pivot. 
+
+This function takes last element as pivot, places the pivot element at its correct position in sorted array, and places all smaller (smaller than pivot) to left of pivot and all greater elements to right of pivot 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & array type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & the array with contents given by the user \\
+\hline
+{\em low} & first point of the array (starting index) \\
+\hline
+{\em high} & last point of the array (ending index) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of the smaller element 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ T\ pivot\ =\ (*arr)[high];\ \ \textcolor{comment}{//\ taking\ the\ last\ element\ as\ pivot}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ (low\ -\/\ 1);\ \ \ \ \ \ \ \textcolor{comment}{//\ Index\ of\ smaller\ element}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ low;\ j\ <\ high;\ j++)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ current\ element\ is\ smaller\ than\ or}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ equal\ to\ pivot}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((*arr)[j]\ <=\ pivot)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ i++;\ \ \textcolor{comment}{//\ increment\ index\ of\ smaller\ element}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap((*arr)[i],\ (*arr)[j]);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ std::swap((*arr)[i\ +\ 1],\ (*arr)[high]);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ (i\ +\ 1);}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394}\index{quick\_sort.cpp@{quick\_sort.cpp}!quick\_sort@{quick\_sort}}
+\index{quick\_sort@{quick\_sort}!quick\_sort.cpp@{quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{quick\_sort()}{quick\_sort()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394} 
+template$<$typename T $>$ \\
+void sorting\+::quick\+\_\+sort\+::quick\+\_\+sort (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{const int \&}]{low}{, }\item[{const int \&}]{high}{}\end{DoxyParamCaption})}
+
+
+
+the main function that implements Quick Sort. 
+
+Void function used in T (array type) function, which then can be used as self-\/tests or other functionalities. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & array type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to be sorted \\
+\hline
+{\em low} & starting index \\
+\hline
+{\em high} & ending index \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ <\ high)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ partition(arr,\ low,\ high);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacequick__sort}{quick\_sort}}(arr,\ low,\ p\ -\/\ 1);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacequick__sort}{quick\_sort}}(arr,\ p\ +\ 1,\ high);}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}
+\Hypertarget{quick__sort_8cpp_a53adad7e4d83e1495df25fe8dbb4cc05}\index{quick\_sort.cpp@{quick\_sort.cpp}!quick\_sort@{quick\_sort}}
+\index{quick\_sort@{quick\_sort}!quick\_sort.cpp@{quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{quick\_sort()}{quick\_sort()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{quick__sort_8cpp_a53adad7e4d83e1495df25fe8dbb4cc05} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ sorting\+::quick\+\_\+sort\+::quick\+\_\+sort (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{arr}{, }\item[{const int \&}]{low}{, }\item[{const int \&}]{high}{}\end{DoxyParamCaption})}
+
+
+
+the main function that implements Quick Sort. 
+
+T (array type) function which calls the void function. Can be used for self-\/tests and other functionalities. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & array type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to be sorted \\
+\hline
+{\em low} & starting index \\
+\hline
+{\em high} & ending index \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ <\ high)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ partition(\&arr,\ low,\ high);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacequick__sort}{quick\_sort}}(\&arr,\ low,\ p\ -\/\ 1);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacequick__sort}{quick\_sort}}(\&arr,\ p\ +\ 1,\ high);}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b}\index{quick\_sort.cpp@{quick\_sort.cpp}!show@{show}}
+\index{show@{show}!quick\_sort.cpp@{quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily \label{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b} 
+template$<$typename T $>$ \\
+void sorting\+::quick\+\_\+sort\+::show (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{arr}{, }\item[{const int \&}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Utility function to print the array contents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & the array to be printed \\
+\hline
+{\em size} & size of the given array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00125\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00126\ \}}
+
+\end{DoxyCode}
+\Hypertarget{quick__sort_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{quick\_sort.cpp@{quick\_sort.cpp}!tests@{tests}}
+\index{tests@{tests}!quick\_sort.cpp@{quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{quick__sort_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ 1st\ test\ (normal\ numbers)}}
+\DoxyCodeLine{00137\ \ \ \ \ std::vector<uint64\_t>\ arr\ =\ \{5,\ 3,\ 8,\ 12,\ 14,\ 16,\ 28,\ 96,\ 2,\ 5977\};}
+\DoxyCodeLine{00138\ \ \ \ \ std::vector<uint64\_t>\ arr\_sorted\ =\ \mbox{\hyperlink{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394}{sorting::quick\_sort::quick\_sort}}(}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ arr,\ 0,\ \textcolor{keywordtype}{int}(std::end(arr)\ -\/\ std::begin(arr))\ -\/\ 1);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ assert(std::is\_sorted(std::begin(arr\_sorted),\ std::end(arr\_sorted)));}
+\DoxyCodeLine{00142\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n1st\ test:\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test\ (normal\ and\ negative\ numbers)}}
+\DoxyCodeLine{00145\ \ \ \ \ std::vector<int64\_t>\ arr2\ =\ \{9,\ \ \ \ 15,\ \ \ 28,\ \ \ 96,\ \ 500,\ -\/4,\ -\/58,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/977,\ -\/238,\ -\/800,\ -\/21,\ -\/53,\ -\/55\};}
+\DoxyCodeLine{00147\ \ \ \ \ std::vector<int64\_t>\ arr\_sorted2\ =\ \mbox{\hyperlink{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394}{sorting::quick\_sort::quick\_sort}}(}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ arr2,\ 0,\ std::end(arr2)\ -\/\ std::begin(arr2));}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ assert(std::is\_sorted(std::begin(arr\_sorted2),\ std::end(arr\_sorted2)));}
+\DoxyCodeLine{00151\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test:\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test\ (decimal\ and\ normal\ numbers)}}
+\DoxyCodeLine{00154\ \ \ \ \ std::vector<double>\ arr3\ =\ \{29,\ \ 36,\ \ \ 1100,\ 0,\ \ \ \ \ \ 77,\ \ \ \ \ 1,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6.7,\ 8.97,\ 1.74,\ 950.10,\ -\/329.65\};}
+\DoxyCodeLine{00156\ \ \ \ \ std::vector<double>\ arr\_sorted3\ =\ \mbox{\hyperlink{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394}{sorting::quick\_sort::quick\_sort}}(}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ arr3,\ 0,\ \textcolor{keywordtype}{int}(std::end(arr3)\ -\/\ std::begin(arr3))\ -\/\ 1);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ assert(std::is\_sorted(std::begin(arr\_sorted3),\ std::end(arr\_sorted3)));}
+\DoxyCodeLine{00160\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test:\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ 4th\ test\ (random\ decimal\ and\ negative\ numbers)}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size\ =\ std::rand()\ \%\ 750\ +\ 100;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ std::vector<float>\ arr4(size);}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ arr4[i]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(std::rand())\ /}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(RAND\_MAX\ /\ 999.99\ -\/\ 0.99)\ -\/}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 250;}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ std::vector<float>\ arr4\_sorted\ =\ \mbox{\hyperlink{quick__sort_8cpp_a5e6213e8008356ac6eda9427f3f4b394}{sorting::quick\_sort::quick\_sort}}(}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ arr4,\ 0,\ \textcolor{keywordtype}{int}(std::end(arr4)\ -\/\ std::begin(arr4))\ -\/\ 1);}
+\DoxyCodeLine{00174\ \ \ \ \ assert(std::is\_sorted(std::begin(arr4\_sorted),\ std::end(arr4\_sorted)));}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4th\ test:\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{//\ Printing\ all\ sorted\ arrays}}
+\DoxyCodeLine{00179\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)tPrinting\ all\ sorted\ arrays:\(\backslash\)t\(\backslash\)n"{}};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ array:\(\backslash\)n"{}};}
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b}{sorting::quick\_sort::show}}(arr\_sorted,\ std::end(arr)\ -\/\ std::begin(arr));}
+\DoxyCodeLine{00183\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00184\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ array:\(\backslash\)n"{}};}
+\DoxyCodeLine{00185\ \ \ \ \ \mbox{\hyperlink{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b}{sorting::quick\_sort::show}}(arr\_sorted2,\ std::end(arr2)\ -\/\ std::begin(arr2));}
+\DoxyCodeLine{00186\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00187\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ array:\(\backslash\)n"{}};}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b}{sorting::quick\_sort::show}}(arr\_sorted3,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}(std::end(arr3)\ -\/\ std::begin(arr3))\ -\/\ 1);}
+\DoxyCodeLine{00190\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00191\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Start:\ 4th\ array:\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{quick__sort_8cpp_aeccefcf6fcca62c54939c5ec9a93109b}{sorting::quick\_sort::show}}(}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ arr4\_sorted,\ \textcolor{keywordtype}{int}(std::end(arr4\_sorted)\ -\/\ std::begin(arr4\_sorted))\ -\/\ 1);}
+\DoxyCodeLine{00194\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnd:\ 4th\ array.\(\backslash\)n"{}};}
+\DoxyCodeLine{00195\ \}}
+
+\end{DoxyCode}

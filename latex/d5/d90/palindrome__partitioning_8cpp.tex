@@ -1,0 +1,166 @@
+\doxysection{dynamic\+\_\+programming/palindrome\+\_\+partitioning.cpp File Reference}
+\hypertarget{palindrome__partitioning_8cpp}{}\label{palindrome__partitioning_8cpp}\index{dynamic\_programming/palindrome\_partitioning.cpp@{dynamic\_programming/palindrome\_partitioning.cpp}}
+
+
+Implements \href{https://leetcode.com/problems/palindrome-partitioning-ii/}{\texttt{ Palindrome Partitioning}} algorithm, giving you the minimum number of partitions you need to make.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacepalindrome__partitioning}{palindrome\+\_\+partitioning}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://leetcode.com/problems/palindrome-partitioning-ii/}{\texttt{ Palindrome Partitioning}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{palindrome__partitioning_8cpp_a52ee22882858d2b1cf04293f02ed839a}{dynamic\+\_\+programming\+::palindrome\+\_\+partitioning\+::pal\+\_\+part}} (const std\+::string \&str)
+\item 
+static void \mbox{\hyperlink{palindrome__partitioning_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test Function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{palindrome__partitioning_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements \href{https://leetcode.com/problems/palindrome-partitioning-ii/}{\texttt{ Palindrome Partitioning}} algorithm, giving you the minimum number of partitions you need to make. 
+
+palindrome partitioning uses dynamic programming and goes to all the possible partitions to find the minimum you are given a string and you need to give minimum number of partitions needed to divide it into a number of palindromes \mbox{[}Palindrome Partitioning\mbox{]} (\href{https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/palindrome-\/partitioning-\/dp-\/17/}}) overall time complexity O(n\texorpdfstring{$^\wedge$}{\string^}2) For example\+: example 1\+:-\/ String \+: "{}nitik"{} Output \+: 2 =\texorpdfstring{$>$}{>} "{}n \texorpdfstring{$\vert$}{|} iti \texorpdfstring{$\vert$}{|} k"{} For example\+: example 2\+:-\/ String \+: "{}ababbbabbababa"{} Output \+: 3 =\texorpdfstring{$>$}{>} "{}aba \texorpdfstring{$\vert$}{|} b \texorpdfstring{$\vert$}{|} bbabb \texorpdfstring{$\vert$}{|} ababa"{} \begin{DoxyAuthor}{Author}
+\mbox{[}Sujay Kaushik\mbox{]} (\href{https://github.com/sujaykaushik008}{\texttt{ https\+://github.\+com/sujaykaushik008}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{palindrome__partitioning_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{palindrome\_partitioning.cpp@{palindrome\_partitioning.cpp}!main@{main}}
+\index{main@{main}!palindrome\_partitioning.cpp@{palindrome\_partitioning.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{palindrome__partitioning_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{palindrome__partitioning_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ test}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}
+\Hypertarget{palindrome__partitioning_8cpp_a52ee22882858d2b1cf04293f02ed839a}\index{palindrome\_partitioning.cpp@{palindrome\_partitioning.cpp}!pal\_part@{pal\_part}}
+\index{pal\_part@{pal\_part}!palindrome\_partitioning.cpp@{palindrome\_partitioning.cpp}}
+\doxysubsubsection{\texorpdfstring{pal\_part()}{pal\_part()}}
+{\footnotesize\ttfamily \label{palindrome__partitioning_8cpp_a52ee22882858d2b1cf04293f02ed839a} 
+int dynamic\+\_\+programming\+::palindrome\+\_\+partitioning\+::pal\+\_\+part (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{}\end{DoxyParamCaption})}
+
+Function implementing palindrome partitioning algorithm using lookup table method. 
+\begin{DoxyParams}{Parameters}
+{\em str} & input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum number of partitions 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ str.size();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ creating\ lookup\ table\ for\ minimum\ number\ of\ cuts}}
+\DoxyCodeLine{00049\ \ \ \ \ std::vector<std::vector<int>\ >\ cuts(n,\ std::vector<int>(n,\ 0));}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ creating\ lookup\ table\ for\ palindrome\ checking}}
+\DoxyCodeLine{00052\ \ \ \ \ std::vector<std::vector<bool>\ >\ is\_palindrome(n,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<bool>(n,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ initialization}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ is\_palindrome[i][i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ cuts[i][i]\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ len\ =\ 2;\ len\ <=\ n;\ len++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ start\_index\ =\ 0;\ start\_index\ <\ n\ -\/\ len\ +\ 1;\ start\_index++)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\_index\ =\ start\_index\ +\ len\ -\/\ 1;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ ==\ 2)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_palindrome[start\_index][end\_index]\ =}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (str[start\_index]\ ==\ str[end\_index]);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_palindrome[start\_index][end\_index]\ =}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (str[start\_index]\ ==\ str[end\_index])\ \&\&}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_palindrome[start\_index\ +\ 1][end\_index\ -\/\ 1];}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_palindrome[start\_index][end\_index])\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuts[start\_index][end\_index]\ =\ 0;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuts[start\_index][end\_index]\ =\ INT\_MAX;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ partition\ =\ start\_index;\ partition\ <=\ end\_index\ -\/\ 1;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ partition++)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuts[start\_index][end\_index]\ =}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::min(cuts[start\_index][end\_index],}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuts[start\_index][partition]\ +}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuts[partition\ +\ 1][end\_index]\ +\ 1);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ cuts[0][n\ -\/\ 1];}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\Hypertarget{palindrome__partitioning_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{palindrome\_partitioning.cpp@{palindrome\_partitioning.cpp}!test@{test}}
+\index{test@{test}!palindrome\_partitioning.cpp@{palindrome\_partitioning.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{palindrome__partitioning_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test Function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ custom\ input\ vector}}
+\DoxyCodeLine{00100\ \ \ \ \ std::vector<std::string>\ custom\_input\{\textcolor{stringliteral}{"{}nitik"{}},\ \textcolor{stringliteral}{"{}ababbbabbababa"{}},\ \textcolor{stringliteral}{"{}abdc"{}}\};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ calculated\ output\ vector\ by\ pal\_part\ Function}}
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<int>\ calculated\_output(3);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ calculated\_output[i]\ =}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{palindrome__partitioning_8cpp_a52ee22882858d2b1cf04293f02ed839a}{dynamic\_programming::palindrome\_partitioning::pal\_part}}(}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ custom\_input[i]);}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ expected\ output\ vector}}
+\DoxyCodeLine{00112\ \ \ \ \ std::vector<int>\ expected\_output\{2,\ 3,\ 3\};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Testing\ implementation\ via\ assert\ function}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ It\ will\ throw\ error\ if\ any\ of\ the\ expected\ test\ fails}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ Else\ it\ will\ give\ nothing}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ assert(expected\_output[i]\ ==\ calculated\_output[i]);}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ passed\ successfully!\(\backslash\)n"{}};}
+\DoxyCodeLine{00122\ \}}
+
+\end{DoxyCode}

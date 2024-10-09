@@ -1,0 +1,148 @@
+\doxysection{hashing/linear\+\_\+probing\+\_\+hash\+\_\+table.cpp File Reference}
+\hypertarget{linear__probing__hash__table_8cpp}{}\label{linear__probing__hash__table_8cpp}\index{hashing/linear\_probing\_hash\_table.cpp@{hashing/linear\_probing\_hash\_table.cpp}}
+
+
+Storage mechanism using \href{https://en.wikipedia.org/wiki/Linear_probing}{\texttt{ linear probing hash}} keys.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlinear__probing_1_1_entry}{linear\+\_\+probing\+::\+Entry}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacelinear__probing}{linear\+\_\+probing}}
+\begin{DoxyCompactList}\small\item\em An implementation of hash table using \href{https://en.wikipedia.org/wiki/Linear_probing}{\texttt{ linear probing}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacelinear__probing_a75d779938df7ebc68581d922b60a2541}{linear\+\_\+probing\+::put\+Prober}} (const \mbox{\hyperlink{structlinear__probing_1_1_entry}{Entry}} \&entry, int key)
+\item 
+bool \mbox{\hyperlink{namespacelinear__probing_a942fc8407b8001890ea26830cdcd9d77}{linear\+\_\+probing\+::searching\+Prober}} (const \mbox{\hyperlink{structlinear__probing_1_1_entry}{Entry}} \&entry, int key)
+\item 
+void \mbox{\hyperlink{namespacelinear__probing_a16d34fd3511626a83ab00665d7bc34d1}{linear\+\_\+probing\+::add}} (int key)
+\item 
+size\+\_\+t \mbox{\hyperlink{namespacelinear__probing_a4bde7a47f98dd1ad24c84038e2608527}{linear\+\_\+probing\+::hash\+Fxn}} (int key)
+\begin{DoxyCompactList}\small\item\em Hash a key. Uses the STL library\textquotesingle{}s {\ttfamily std\+::hash()} function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacelinear__probing_a6322209aaa91b7bbf16f96e1cc52b746}{linear\+\_\+probing\+::linear\+Probe}} (int key, bool searching)
+\item 
+void \mbox{\hyperlink{namespacelinear__probing_ad87b71d810901fab69c4ad9d4d0fa635}{linear\+\_\+probing\+::display}} ()
+\item 
+void \mbox{\hyperlink{namespacelinear__probing_a6a082dc1426a79f866cee6b370df37b0}{linear\+\_\+probing\+::rehash}} ()
+\item 
+void \mbox{\hyperlink{namespacelinear__probing_abcf8d033f8115f39f3c93cfb6cee0b28}{linear\+\_\+probing\+::remove}} (int key)
+\item 
+void \mbox{\hyperlink{namespacelinear__probing_a16680b8a37d442c2f208faa286e33908}{linear\+\_\+probing\+::add\+Info}} (int key)
+\item 
+void \mbox{\hyperlink{namespacelinear__probing_a75854f5aa216e61219154c62167ce8f0}{linear\+\_\+probing\+::removal\+Info}} (int key)
+\item 
+int \mbox{\hyperlink{linear__probing__hash__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacelinear__probing_addfce7597f6a42f796fa597ae40eecc9}\label{namespacelinear__probing_addfce7597f6a42f796fa597ae40eecc9} 
+int {\bfseries linear\+\_\+probing\+::not\+Present}
+\item 
+\Hypertarget{namespacelinear__probing_acb1dc3f09cf07c2633580a1c46c9f0a8}\label{namespacelinear__probing_acb1dc3f09cf07c2633580a1c46c9f0a8} 
+std\+::vector$<$ \mbox{\hyperlink{structlinear__probing_1_1_entry}{Entry}} $>$ {\bfseries linear\+\_\+probing\+::table}
+\item 
+\Hypertarget{namespacelinear__probing_a4fdb68db9f02ae4156e1845563004f8e}\label{namespacelinear__probing_a4fdb68db9f02ae4156e1845563004f8e} 
+int {\bfseries linear\+\_\+probing\+::total\+Size}
+\item 
+\Hypertarget{namespacelinear__probing_a62fbd519adacd4e05706f34a7e551288}\label{namespacelinear__probing_a62fbd519adacd4e05706f34a7e551288} 
+int {\bfseries linear\+\_\+probing\+::tomb} = -\/1
+\item 
+\Hypertarget{namespacelinear__probing_a8e81b17f2f8403c982368da3dac1ae87}\label{namespacelinear__probing_a8e81b17f2f8403c982368da3dac1ae87} 
+int {\bfseries linear\+\_\+probing\+::size}
+\item 
+\Hypertarget{namespacelinear__probing_a5ff22c1a04290e24ef3ba3d6a3a06386}\label{namespacelinear__probing_a5ff22c1a04290e24ef3ba3d6a3a06386} 
+bool {\bfseries linear\+\_\+probing\+::rehashing}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Storage mechanism using \href{https://en.wikipedia.org/wiki/Linear_probing}{\texttt{ linear probing hash}} keys. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/achance6}{\texttt{ achance6}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+The implementation can be optimized by using OOP style. 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linear__probing__hash__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{linear\_probing\_hash\_table.cpp@{linear\_probing\_hash\_table.cpp}!main@{main}}
+\index{main@{main}!linear\_probing\_hash\_table.cpp@{linear\_probing\_hash\_table.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{linear__probing__hash__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function \begin{DoxyReturn}{Returns}
+0 on success 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{int}\ cmd\ =\ 0,\ \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hash}}\ =\ 0,\ key\ =\ 0;}
+\DoxyCodeLine{00226\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ initial\ size\ of\ Hash\ Table.\ =\ "{}};}
+\DoxyCodeLine{00227\ \ \ \ \ std::cin\ >>\ totalSize;}
+\DoxyCodeLine{00228\ \ \ \ \ table\ =\ std::vector<Entry>(totalSize);}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{bool}\ loop\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{while}\ (loop)\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}PLEASE\ CHOOSE\ -\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Add\ key.\ (Numeric\ only)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ Remove\ key."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3.\ Find\ key."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4.\ Generate\ Hash.\ (Numeric\ only)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}5.\ Display\ Hash\ table."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}6.\ Exit."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ std::cin\ >>\ cmd;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (cmd)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ key\ to\ add\ =\ "{}};}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelinear__probing_a16680b8a37d442c2f208faa286e33908}{linear\_probing::addInfo}}(key);}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ key\ to\ remove\ =\ "{}};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelinear__probing_a75854f5aa216e61219154c62167ce8f0}{linear\_probing::removalInfo}}(key);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ key\ to\ search\ =\ "{}};}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlinear__probing_1_1_entry}{Entry}}\ entry\ =\ table[\mbox{\hyperlink{namespacelinear__probing_a6322209aaa91b7bbf16f96e1cc52b746}{linear\_probing::linearProbe}}(key,\ \textcolor{keyword}{true})];}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entry.\mbox{\hyperlink{structlinear__probing_1_1_entry_a4d84e90b73022083761f85f8586c4c2a}{key}}\ ==\ linear\_probing::notPresent)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Key\ not\ present"{}};}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ element\ to\ generate\ hash\ =\ "{}};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hash\ of\ "{}}\ <<\ key}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ is\ =\ "{}}\ <<\ \mbox{\hyperlink{namespacelinear__probing_a4bde7a47f98dd1ad24c84038e2608527}{linear\_probing::hashFxn}}(key);}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelinear__probing_ad87b71d810901fab69c4ad9d4d0fa635}{linear\_probing::display}}();}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ delete[]\ table;}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00277\ \}}
+
+\end{DoxyCode}

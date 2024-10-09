@@ -1,0 +1,100 @@
+\doxysection{graph/depth\+\_\+first\+\_\+search.cpp File Reference}
+\hypertarget{depth__first__search_8cpp}{}\label{depth__first__search_8cpp}\index{graph/depth\_first\_search.cpp@{graph/depth\_first\_search.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Depth-first_search}{\texttt{ Depth First Search Algorithm (Depth First Search)}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacegraph_ad4016cfc80485a43748895a2c26c7d08}{graph\+::add\+Edge}} (std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \texorpdfstring{$\ast$}{*}adj, size\+\_\+t u, size\+\_\+t v)
+\begin{DoxyCompactList}\small\item\em Adds and edge between two vertices of graph say u and v in this case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacegraph_a64c1db5aad7502c6f08e4652f6edd463}{graph\+::explore}} (const std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&adj, size\+\_\+t v, std\+::vector$<$ bool $>$ \texorpdfstring{$\ast$}{*}visited)
+\begin{DoxyCompactList}\small\item\em Explores the given vertex, exploring a vertex means traversing over all the vertices which are connected to the vertex that is currently being explored. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacegraph_ab5428a3519267a28bba4b4310cfbb6ae}{graph\+::depth\+\_\+first\+\_\+search}} (const std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&adj, size\+\_\+t start)
+\begin{DoxyCompactList}\small\item\em initiates depth first search algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{depth__first__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Depth-first_search}{\texttt{ Depth First Search Algorithm (Depth First Search)}} 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/ayaankhan98}{\texttt{ Ayaan Khan}}
+\end{DoxyAuthor}
+Depth First Search also quoted as DFS is a \doxylink{class_graph}{Graph} Traversal Algorithm. Time Complexity O(\texorpdfstring{$\vert$}{|}\+V\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}\+E\texorpdfstring{$\vert$}{|}) where V is number of vertices and E is number of edges in graph.
+
+Application of Depth First Search are
+
+
+\begin{DoxyEnumerate}
+\item Finding connected components
+\item Finding 2-\/(edge or vertex)-\/connected components.
+\item Finding 3-\/(edge or vertex)-\/connected components.
+\item Finding the bridges of a graph.
+\item Generating words in order to plot the limit set of a group.
+\item Finding strongly connected components.
+\end{DoxyEnumerate}
+
+And there are many more...
+
+\doxysubsubsubsubsection*{Working}
+
+
+\begin{DoxyEnumerate}
+\item Mark all vertices as unvisited first
+\item start exploring from some starting vertex.
+
+While exploring vertex we mark the vertex as visited and start exploring the vertices connected to this vertex in recursive way. 
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{depth__first__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{depth\_first\_search.cpp@{depth\_first\_search.cpp}!main@{main}}
+\index{main@{main}!depth\_first\_search.cpp@{depth\_first\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{depth__first__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function creating graph
+
+taking input for edges
+
+running depth first search over graph
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ vertices\ =\ 0,\ edges\ =\ 0;}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ Vertices\ :\ "{}};}
+\DoxyCodeLine{00112\ \ \ \ \ std::cin\ >>\ vertices;}
+\DoxyCodeLine{00113\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ Edges\ :\ "{}};}
+\DoxyCodeLine{00114\ \ \ \ \ std::cin\ >>\ edges;}
+\DoxyCodeLine{00115\ \textcolor{comment}{}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ \ \ ///\ creating\ graph}}
+\DoxyCodeLine{00117\ \textcolor{comment}{}\ \ \ \ std::vector<std::vector<size\_t>>\ adj(vertices,\ std::vector<size\_t>());}
+\DoxyCodeLine{00118\ \textcolor{comment}{}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ ///\ taking\ input\ for\ edges}}
+\DoxyCodeLine{00120\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ vertices\ which\ have\ edges\ between\ them\ :\ "{}}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges-\/-\/)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ u\ =\ 0,\ v\ =\ 0;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::cin\ >>\ u\ >>\ v;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj,\ u,\ v);}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \textcolor{comment}{}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ ///\ running\ depth\ first\ search\ over\ graph}}
+\DoxyCodeLine{00129\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{namespacegraph_ab5428a3519267a28bba4b4310cfbb6ae}{graph::depth\_first\_search}}(adj,\ 2);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}

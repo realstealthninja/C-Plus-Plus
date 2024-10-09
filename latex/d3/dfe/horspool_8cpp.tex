@@ -1,0 +1,190 @@
+\doxysection{strings/horspool.cpp File Reference}
+\hypertarget{horspool_8cpp}{}\label{horspool_8cpp}\index{strings/horspool.cpp@{strings/horspool.cpp}}
+
+
+Horspool\textquotesingle{}s algorithm that finds if a string contains a substring (\href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore\%E2\%80\%93Horspool_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Boyer\%\+E2\%80\%93\+Moore\%\+E2\%80\%93\+Horspool\+\_\+algorithm}})  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestrings}{strings}}
+\begin{DoxyCompactList}\small\item\em String algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacehorspool}{horspool}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore\%E2\%80\%93Horspool_algorithm}{\texttt{ Horspool\textquotesingle{}s}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ char, int $>$ \mbox{\hyperlink{horspool_8cpp_a1a9c3aa55ccc79d0f47d50c580997336}{strings\+::horspool\+::find\+Shift\+Table}} (const std\+::string \&prototype)
+\item 
+bool \mbox{\hyperlink{horspool_8cpp_a9884bca75ce39c116697ea2574adb37d}{strings\+::horspool\+::horspool}} (const std\+::string \&text, const std\+::string \&prototype)
+\item 
+static void \mbox{\hyperlink{horspool_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function with test cases for Horspool\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{horspool_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main Function that calls test function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Horspool\textquotesingle{}s algorithm that finds if a string contains a substring (\href{https://en.wikipedia.org/wiki/Boyer\%E2\%80\%93Moore\%E2\%80\%93Horspool_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Boyer\%\+E2\%80\%93\+Moore\%\+E2\%80\%93\+Horspool\+\_\+algorithm}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/ckontakis}{\texttt{ Harry Kontakis}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{horspool_8cpp_a1a9c3aa55ccc79d0f47d50c580997336}\index{horspool.cpp@{horspool.cpp}!findShiftTable@{findShiftTable}}
+\index{findShiftTable@{findShiftTable}!horspool.cpp@{horspool.cpp}}
+\doxysubsubsection{\texorpdfstring{findShiftTable()}{findShiftTable()}}
+{\footnotesize\ttfamily \label{horspool_8cpp_a1a9c3aa55ccc79d0f47d50c580997336} 
+std\+::unordered\+\_\+map$<$ char, int $>$ strings\+::horspool\+::find\+Shift\+Table (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prototype}{}\end{DoxyParamCaption})}
+
+A function that finds the shift table of the given prototype string that we need in Horpool\textquotesingle{}s algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em prototype} & is the substring that we use to find shift table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shift Table of Horspool\textquotesingle{}s algorithm 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ std::unordered\_map<char,\ int>}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ shiftTable;\ \ \textcolor{comment}{//\ A\ HashMap\ for\ shift\ table\ that\ has\ characters\ for\ keys\ and\ integers\ for\ values}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ prototype.size();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ i++)\ \{\ \ \textcolor{comment}{//\ Checking\ all\ characters\ of\ prototype\ string}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shiftTable.find(prototype[i])\ ==}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ shiftTable.end())\ \{\ \ \textcolor{comment}{//\ If\ character\ does\ not\ exist\ in\ HashMap}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ prototype.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shiftTable.insert(std::make\_pair(}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prototype[i],\ prototype.size()\ -\/\ i\ -\/}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1));\ \ \textcolor{comment}{//\ Insert\ the\ character\ as\ key\ and\ the\ size\ of\ prototype\ string\ -\/\ index\ of\ character\ -\/\ 1\ as\ value}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shiftTable.insert(std::make\_pair(}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prototype[i],}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prototype.size()));\ \ \textcolor{comment}{//\ Insert\ the\ character\ as\ key\ and\ the\ size\ of\ prototype\ string\ as\ value}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ prototype.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shiftTable[prototype[i]]\ =\ prototype.size()\ -\/\ i\ -\/\ 1;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ shiftTable;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{horspool_8cpp_a9884bca75ce39c116697ea2574adb37d}\index{horspool.cpp@{horspool.cpp}!horspool@{horspool}}
+\index{horspool@{horspool}!horspool.cpp@{horspool.cpp}}
+\doxysubsubsection{\texorpdfstring{horspool()}{horspool()}}
+{\footnotesize\ttfamily \label{horspool_8cpp_a9884bca75ce39c116697ea2574adb37d} 
+bool strings\+::horspool\+::horspool (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const std\+::string \&}]{prototype}{}\end{DoxyParamCaption})}
+
+A function that implements Horspool\textquotesingle{}s algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em text} & is the string that we are searching if there is a substring \\
+\hline
+{\em prototype} & is the substring that we are searching in text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if text string contains prototype string 
+
+false if text string does not contain prototype string 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ std::unordered\_map<char,\ int>\ shiftTable\ =\ \mbox{\hyperlink{horspool_8cpp_a1a9c3aa55ccc79d0f47d50c580997336}{findShiftTable}}(}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ prototype);\ \ \textcolor{comment}{//\ Initialise\ shift\ table\ calling\ findShiftTable\ function}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ prototype.size()\ -\/}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ Index\ that\ we\ shift\ in\ text\ to\ find\ the\ substring}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ text.size())\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ i,\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ flag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(prototype.size()\ -\/\ 1);\ z\ >=\ 0\ \&\&\ flag;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ z-\/-\/)\ \{\ \ \textcolor{comment}{//\ Checking\ if\ all\ characters\ of\ substring\ are\ equal\ with\ all\ characters\ of\ string}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (text[j]\ ==\ prototype[z])\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\ =\ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ If\ two\ characters\ are\ not\ equal\ set\ flag\ to\ false\ and\ break\ from\ loop}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ prototype.size())\ \{\ \ \textcolor{comment}{//\ If\ all\ characters\ match\ then\ return\ true}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shiftTable.find(text[i])\ !=\ shiftTable.end())\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ shiftTable[text[i]];\ \ \textcolor{comment}{//\ If\ shift\ table\ contains\ the\ character\ then\ shift\ index\ as\ many\ steps\ as\ value}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ prototype.size();\ \ \textcolor{comment}{//\ If\ character\ does\ not\ exist\ in\ shift\ table\ then\ shift\ index\ as\ many\ steps\ as\ size\ of\ prototype\ string}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{horspool_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{horspool.cpp@{horspool.cpp}!main@{main}}
+\index{main@{main}!horspool.cpp@{horspool.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{horspool_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main Function that calls test function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{horspool_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00122\ \}}
+
+\end{DoxyCode}
+\Hypertarget{horspool_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{horspool.cpp@{horspool.cpp}!test@{test}}
+\index{test@{test}!horspool.cpp@{horspool.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{horspool_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function with test cases for Horspool\textquotesingle{}s algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}Hello\ World"{}},\textcolor{stringliteral}{"{}World"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00102\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}Hello\ World"{}},\textcolor{stringliteral}{"{}\ World"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00103\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}Hello\ World"{}},\textcolor{stringliteral}{"{}ello"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00104\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}Hello\ World"{}},\textcolor{stringliteral}{"{}rld"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00105\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}Hello"{}},\textcolor{stringliteral}{"{}Helo"{}})\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00106\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}c++\_algorithms"{}},\textcolor{stringliteral}{"{}c++\_algorithms"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00107\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}c++\_algorithms"{}},\textcolor{stringliteral}{"{}c++\_"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00108\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}Hello"{}},\textcolor{stringliteral}{"{}Hello\ World"{}})\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00109\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}c++\_algorithms"{}},\textcolor{stringliteral}{"{}"{}})\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00110\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}c++"{}},\textcolor{stringliteral}{"{}c"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00111\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}3458934793"{}},\textcolor{stringliteral}{"{}4793"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00112\ \ \ \ \ assert(strings::horspool::horspool(\textcolor{stringliteral}{"{}3458934793"{}},\textcolor{stringliteral}{"{}123"{}})\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00113\ \}}
+
+\end{DoxyCode}

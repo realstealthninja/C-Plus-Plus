@@ -1,0 +1,228 @@
+\doxysection{math/fibonacci\+\_\+sum.cpp File Reference}
+\hypertarget{fibonacci__sum_8cpp}{}\label{fibonacci__sum_8cpp}\index{math/fibonacci\_sum.cpp@{math/fibonacci\_sum.cpp}}
+
+
+An algorithm to calculate the sum of \href{https://en.wikipedia.org/wiki/Fibonacci_number}{\texttt{ Fibonacci Sequence}}\+:  $\mathrm{F}(n) +
+\mathrm{F}(n+1) + .. + \mathrm{F}(m)$.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacefibonacci__sum}{fibonacci\+\_\+sum}}
+\begin{DoxyCompactList}\small\item\em Functions for the sum of the Fibonacci Sequence\+:  $\mathrm{F}(n) +
+\mathrm{F}(n+1) + .. + \mathrm{F}(m)$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fibonacci__sum_8cpp_a658ced3b6267216e49bb1bd4f9a76a54}\label{fibonacci__sum_8cpp_a658ced3b6267216e49bb1bd4f9a76a54} 
+using {\bfseries math\+::fibonacci\+\_\+sum\+::matrix} = std\+::vector$<$std\+::vector$<$uint64\+\_\+t$>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+math\+::fibonacci\+\_\+sum\+::matrix \mbox{\hyperlink{fibonacci__sum_8cpp_a9c83cca09a3e4ff2a25c816a9303448e}{math\+::fibonacci\+\_\+sum\+::multiply}} (const math\+::fibonacci\+\_\+sum\+::matrix \&T, const math\+::fibonacci\+\_\+sum\+::matrix \&A)
+\item 
+math\+::fibonacci\+\_\+sum\+::matrix \mbox{\hyperlink{fibonacci__sum_8cpp_a7cf5feaf168b88e74544da59ed830311}{math\+::fibonacci\+\_\+sum\+::power}} (math\+::fibonacci\+\_\+sum\+::matrix T, uint64\+\_\+t ex)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{math\+::fibonacci\+\_\+sum\+::result}} (uint64\+\_\+t n)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742}{math\+::fibonacci\+\_\+sum\+::fibo\+Sum}} (uint64\+\_\+t n, uint64\+\_\+t m)
+\item 
+static void \mbox{\hyperlink{fibonacci__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{fibonacci__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An algorithm to calculate the sum of \href{https://en.wikipedia.org/wiki/Fibonacci_number}{\texttt{ Fibonacci Sequence}}\+:  $\mathrm{F}(n) +
+\mathrm{F}(n+1) + .. + \mathrm{F}(m)$. 
+
+An algorithm to calculate the sum of Fibonacci Sequence\+: $\mathrm{F}(n) + \mathrm{F}(n+1) + .. + \mathrm{F}(m)$ where $\mathrm{F}(i)$ denotes the i-\/th Fibonacci Number . Note that F(0) = 0 and F(1) = 1. The value of the sum is calculated using matrix exponentiation. Reference source\+: \href{https://stackoverflow.com/questions/4357223/finding-the-sum-of-fibonacci-numbers}{\texttt{ https\+://stackoverflow.\+com/questions/4357223/finding-\/the-\/sum-\/of-\/fibonacci-\/numbers}} \begin{DoxyAuthor}{Author}
+\href{https://github.com/SarthakSahu1009}{\texttt{ Sarthak Sahu}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742}\index{fibonacci\_sum.cpp@{fibonacci\_sum.cpp}!fiboSum@{fiboSum}}
+\index{fiboSum@{fiboSum}!fibonacci\_sum.cpp@{fibonacci\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{fiboSum()}{fiboSum()}}
+{\footnotesize\ttfamily \label{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742} 
+uint64\+\_\+t math\+::fibonacci\+\_\+sum\+::fibo\+Sum (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{, }\item[{uint64\+\_\+t}]{m}{}\end{DoxyParamCaption})}
+
+Function to compute sum of fibonacci sequence from n to m. 
+\begin{DoxyParams}{Parameters}
+{\em n} & start of sequence \\
+\hline
+{\em m} & end of sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t the sum of sequence 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(m\ +\ 2)\ -\/\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(n\ +\ 1));}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fibonacci\_sum.cpp@{fibonacci\_sum.cpp}!main@{main}}
+\index{main@{main}!fibonacci\_sum.cpp@{fibonacci\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fibonacci__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00139\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__sum_8cpp_a9c83cca09a3e4ff2a25c816a9303448e}\index{fibonacci\_sum.cpp@{fibonacci\_sum.cpp}!multiply@{multiply}}
+\index{multiply@{multiply}!fibonacci\_sum.cpp@{fibonacci\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
+{\footnotesize\ttfamily \label{fibonacci__sum_8cpp_a9c83cca09a3e4ff2a25c816a9303448e} 
+math\+::fibonacci\+\_\+sum\+::matrix math\+::fibonacci\+\_\+sum\+::multiply (\begin{DoxyParamCaption}\item[{const math\+::fibonacci\+\_\+sum\+::matrix \&}]{T}{, }\item[{const math\+::fibonacci\+\_\+sum\+::matrix \&}]{A}{}\end{DoxyParamCaption})}
+
+Function to multiply two matrices 
+\begin{DoxyParams}{Parameters}
+{\em T} & matrix 1 \\
+\hline
+{\em A} & martix 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+resultant matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ math::fibonacci\_sum::matrix\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(2,\ std::vector<uint64\_t>(2,\ 0));}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ multiplying\ matrices}}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[0][0]\ =\ T[0][0]\ *\ A[0][0]\ +\ T[0][1]\ *\ A[1][0];}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[0][1]\ =\ T[0][0]\ *\ A[0][1]\ +\ T[0][1]\ *\ A[1][1];}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[1][0]\ =\ T[1][0]\ *\ A[0][0]\ +\ T[1][1]\ *\ A[1][0];}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[1][1]\ =\ T[1][0]\ *\ A[0][1]\ +\ T[1][1]\ *\ A[1][1];}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__sum_8cpp_a7cf5feaf168b88e74544da59ed830311}\index{fibonacci\_sum.cpp@{fibonacci\_sum.cpp}!power@{power}}
+\index{power@{power}!fibonacci\_sum.cpp@{fibonacci\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily \label{fibonacci__sum_8cpp_a7cf5feaf168b88e74544da59ed830311} 
+math\+::fibonacci\+\_\+sum\+::matrix math\+::fibonacci\+\_\+sum\+::power (\begin{DoxyParamCaption}\item[{math\+::fibonacci\+\_\+sum\+::matrix}]{T}{, }\item[{uint64\+\_\+t}]{ex}{}\end{DoxyParamCaption})}
+
+Function to compute A\texorpdfstring{$^\wedge$}{\string^}n where A is a matrix. 
+\begin{DoxyParams}{Parameters}
+{\em T} & matrix \\
+\hline
+{\em ex} & power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+resultant matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ math::fibonacci\_sum::matrix\ A\{\{1,\ 1\},\ \{1,\ 0\}\};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (ex\ ==\ 0\ ||\ ex\ ==\ 1)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ T;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ T\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}}(T,\ ex\ /\ 2);}
+\DoxyCodeLine{00064\ \ \ \ \ T\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}}(T,\ T);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (ex\ \&\ 1)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ T\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_aa141a7904f0c4668bac112d652a3acf9}{multiply}}(T,\ A);}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ T;}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}\index{fibonacci\_sum.cpp@{fibonacci\_sum.cpp}!result@{result}}
+\index{result@{result}!fibonacci\_sum.cpp@{fibonacci\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily \label{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa} 
+uint64\+\_\+t math\+::fibonacci\+\_\+sum\+::result (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+Function to compute sum of fibonacci sequence from 0 to n. 
+\begin{DoxyParams}{Parameters}
+{\em n} & number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t ans, the sum of sequence 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ math::fibonacci\_sum::matrix\ T\{\{1,\ 1\},\ \{1,\ 0\}\};}
+\DoxyCodeLine{00078\ \ \ \ \ T\ =\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}}(T,\ n);}
+\DoxyCodeLine{00079\ \ \ \ \ uint64\_t\ ans\ =\ T[0][1];}
+\DoxyCodeLine{00080\ \ \ \ \ ans\ =\ (ans\ -\/\ 1);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{fibonacci\_sum.cpp@{fibonacci\_sum.cpp}!test@{test}}
+\index{test@{test}!fibonacci\_sum.cpp@{fibonacci\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{fibonacci__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function for testing fibo\+Sum function. test cases and assert statement. \begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ uint64\_t\ n\ =\ 0,\ m\ =\ 3;}
+\DoxyCodeLine{00103\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\_1}}\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742}{math::fibonacci\_sum::fiboSum}}(n,\ m);}
+\DoxyCodeLine{00104\ \ \ \ \ assert(\mbox{\hyperlink{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\_1}}\ ==\ 4);}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 1!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ n\ =\ 3;}
+\DoxyCodeLine{00108\ \ \ \ \ m\ =\ 5;}
+\DoxyCodeLine{00109\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}{test\_2}}\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742}{math::fibonacci\_sum::fiboSum}}(n,\ m);}
+\DoxyCodeLine{00110\ \ \ \ \ assert(\mbox{\hyperlink{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}{test\_2}}\ ==\ 10);}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 2!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ n\ =\ 5;}
+\DoxyCodeLine{00114\ \ \ \ \ m\ =\ 7;}
+\DoxyCodeLine{00115\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}{test\_3}}\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742}{math::fibonacci\_sum::fiboSum}}(n,\ m);}
+\DoxyCodeLine{00116\ \ \ \ \ assert(\mbox{\hyperlink{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}{test\_3}}\ ==\ 26);}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 3!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ n\ =\ 7;}
+\DoxyCodeLine{00120\ \ \ \ \ m\ =\ 10;}
+\DoxyCodeLine{00121\ \ \ \ \ uint64\_t\ test\_4\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742}{math::fibonacci\_sum::fiboSum}}(n,\ m);}
+\DoxyCodeLine{00122\ \ \ \ \ assert(test\_4\ ==\ 123);}
+\DoxyCodeLine{00123\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 4!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ n\ =\ 9;}
+\DoxyCodeLine{00126\ \ \ \ \ m\ =\ 12;}
+\DoxyCodeLine{00127\ \ \ \ \ uint64\_t\ test\_5\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_a493fbaa7a94e3b7ca573111237bb3742}{math::fibonacci\_sum::fiboSum}}(n,\ m);}
+\DoxyCodeLine{00128\ \ \ \ \ assert(test\_5\ ==\ 322);}
+\DoxyCodeLine{00129\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 5!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00130\ \}}
+
+\end{DoxyCode}

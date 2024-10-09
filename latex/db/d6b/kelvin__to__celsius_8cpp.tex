@@ -1,0 +1,92 @@
+\doxysection{others/kelvin\+\_\+to\+\_\+celsius.cpp File Reference}
+\hypertarget{kelvin__to__celsius_8cpp}{}\label{kelvin__to__celsius_8cpp}\index{others/kelvin\_to\_celsius.cpp@{others/kelvin\_to\_celsius.cpp}}
+
+
+Conversion from \href{https://byjus.com/chemistry/kelvin-to-celsius/}{\texttt{ Kelvin to Celsius}} degrees.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceothers}{others}}
+\begin{DoxyCompactList}\small\item\em for {\ttfamily vector} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others\+::are\+\_\+almost\+\_\+equal}} (double a, double b, double absolute\+\_\+tolerance=0.\+0001)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_compare}{Compare} two floating point numbers with a certain tolerance. This is needed as with some values, the result (e.\+g.\+: -\/196.\+15) might be a bit lower (in this case, -\/196.\+499999...). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others\+::kelvin\+\_\+to\+\_\+celsius}} (double temperature\+\_\+in\+\_\+k)
+\begin{DoxyCompactList}\small\item\em Conversion from Kelvin to Celsius algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{kelvin__to__celsius_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{kelvin__to__celsius_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Conversion from \href{https://byjus.com/chemistry/kelvin-to-celsius/}{\texttt{ Kelvin to Celsius}} degrees. 
+
+The algorithm consists on converting a Kelvin degree value to a Celsius value. The formula to convert a Kelvin to a Celsius value is\+: \[ C = K - 273.15 \] where\+:
+\begin{DoxyItemize}
+\item C is the Celsius temperature
+\item K is the Kelvin temperature
+\end{DoxyItemize}
+
+Check out \href{https://en.wikipedia.org/wiki/Kelvin}{\texttt{ Kelvin}} and \href{https://en.wikipedia.org/wiki/Celsius}{\texttt{ Celsius}} on Wikipedia for more information about their story, how do they work, when and why they should be used, etc.. \begin{DoxyAuthor}{Author}
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{kelvin__to__celsius_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{kelvin\_to\_celsius.cpp@{kelvin\_to\_celsius.cpp}!main@{main}}
+\index{main@{main}!kelvin\_to\_celsius.cpp@{kelvin\_to\_celsius.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{kelvin__to__celsius_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{kelvin__to__celsius_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kelvin__to__celsius_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{kelvin\_to\_celsius.cpp@{kelvin\_to\_celsius.cpp}!tests@{tests}}
+\index{tests@{tests}!kelvin\_to\_celsius.cpp@{kelvin\_to\_celsius.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{kelvin__to__celsius_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ assert(\mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others::are\_almost\_equal}}(\mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others::kelvin\_to\_celsius}}(230),\ -\/43.15));}
+\DoxyCodeLine{00064\ \ \ \ \ assert(\mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others::are\_almost\_equal}}(\mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others::kelvin\_to\_celsius}}(512),\ 238.85));}
+\DoxyCodeLine{00065\ \ \ \ \ assert(\mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others::are\_almost\_equal}}(\mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others::kelvin\_to\_celsius}}(55),\ -\/218.15));}
+\DoxyCodeLine{00066\ \ \ \ \ assert(\mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others::are\_almost\_equal}}(\mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others::kelvin\_to\_celsius}}(77),\ -\/196.15));}
+\DoxyCodeLine{00067\ \ \ \ \ assert(\mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others::are\_almost\_equal}}(\mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others::kelvin\_to\_celsius}}(9.78),\ -\/263.37));}
+\DoxyCodeLine{00068\ \ \ \ \ assert(\mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others::are\_almost\_equal}}(\mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others::kelvin\_to\_celsius}}(15),\ -\/258.15));}
+\DoxyCodeLine{00069\ \ \ \ \ assert(\mbox{\hyperlink{namespaceothers_aa17dc6d061dff34f6b9a610bc5e26703}{others::are\_almost\_equal}}(\mbox{\hyperlink{namespaceothers_a48677fae5d683070432b1a905722d9ec}{others::kelvin\_to\_celsius}}(273.15),\ 0));}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}

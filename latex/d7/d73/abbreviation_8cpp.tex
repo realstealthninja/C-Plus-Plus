@@ -1,0 +1,259 @@
+\doxysection{dynamic\+\_\+programming/abbreviation.cpp File Reference}
+\hypertarget{abbreviation_8cpp}{}\label{abbreviation_8cpp}\index{dynamic\_programming/abbreviation.cpp@{dynamic\_programming/abbreviation.cpp}}
+
+
+Implementation of \href{https://www.hackerrank.com/challenges/abbr/problem}{\texttt{ Abbrievation}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceabbreviation}{abbreviation}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://www.hackerrank.com/challenges/abbr/problem}{\texttt{ Abbreviation}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{abbreviation_8cpp_add60b8858720bf217df22d992d0fefaa}{dynamic\+\_\+programming\+::abbreviation\+::abbreviation\+\_\+recursion}} (std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \texorpdfstring{$\ast$}{*}memo, std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \texorpdfstring{$\ast$}{*}visited, const std\+::string \&str, const std\+::string \&result, uint32\+\_\+t str\+\_\+idx=0, uint32\+\_\+t result\+\_\+idx=0)
+\begin{DoxyCompactList}\small\item\em Recursive Dynamic Programming function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{abbreviation_8cpp_af53b2f647bee9c5b75ef8dd9ef685dc8}{dynamic\+\_\+programming\+::abbreviation\+::abbreviation}} (const std\+::string \&str, const std\+::string \&result)
+\begin{DoxyCompactList}\small\item\em Iterative Dynamic Programming function. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{abbreviation_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self test-\/implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{abbreviation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://www.hackerrank.com/challenges/abbr/problem}{\texttt{ Abbrievation}} 
+
+Given two strings, {\ttfamily a} and {\ttfamily b}, determine if it\textquotesingle{}s possible to make {\ttfamily a} equal to {\ttfamily b} You can perform the following operations on the string {\ttfamily a}\+:
+\begin{DoxyEnumerate}
+\item Capitalize zero or more of {\ttfamily a}\textquotesingle{}s lowercase letters.
+\item Delete all of the remaining lowercase letters in {\ttfamily a}.
+\end{DoxyEnumerate}\hypertarget{abbreviation_8cpp_autotoc_md70}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{abbreviation_8cpp_autotoc_md70}
+The idea is in the problem statement itself\+: iterate through characters of string {\ttfamily a} and {\ttfamily b} (for character indexes {\ttfamily i} and {\ttfamily j} respectively)\+:
+\begin{DoxyEnumerate}
+\item If {\ttfamily a\mbox{[}i\mbox{]}} and {\ttfamily b\mbox{[}j\mbox{]}} are equal, then move to next position
+\item If {\ttfamily a\mbox{[}i\mbox{]}} is lowercase of {\ttfamily b\mbox{[}j\mbox{]}}, then explore two possibilities\+: a. Capitalize {\ttfamily a\mbox{[}i\mbox{]}} or b. Skip {\ttfamily a\mbox{[}i\mbox{]}}
+\item If the {\ttfamily a\mbox{[}i\mbox{]}} is not uppercase, just discard that character, else return {\ttfamily false}
+\end{DoxyEnumerate}
+
+Time Complexity\+: (O(\texorpdfstring{$\vert$}{|}a\texorpdfstring{$\vert$}{|}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\vert$}{|}b\texorpdfstring{$\vert$}{|})) where {\ttfamily \texorpdfstring{$\vert$}{|}a\texorpdfstring{$\vert$}{|}} =\texorpdfstring{$>$}{>} length of string {\ttfamily a} \begin{DoxyAuthor}{Author}
+\href{https://github.com/AshishYUO}{\texttt{ Ashish Daulatabad}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{abbreviation_8cpp_af53b2f647bee9c5b75ef8dd9ef685dc8}\index{abbreviation.cpp@{abbreviation.cpp}!abbreviation@{abbreviation}}
+\index{abbreviation@{abbreviation}!abbreviation.cpp@{abbreviation.cpp}}
+\doxysubsubsection{\texorpdfstring{abbreviation()}{abbreviation()}}
+{\footnotesize\ttfamily \label{abbreviation_8cpp_af53b2f647bee9c5b75ef8dd9ef685dc8} 
+bool dynamic\+\_\+programming\+::abbreviation\+::abbreviation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{, }\item[{const std\+::string \&}]{result}{}\end{DoxyParamCaption})}
+
+
+
+Iterative Dynamic Programming function. 
+
+Returns whether {\ttfamily s} can be converted to {\ttfamily t} with following rules\+: a. Capitalize zero or more of s\textquotesingle{}s lowercase letters from string {\ttfamily s} b. remove all other lowercase letters from string {\ttfamily s} Note\+: The transition states for iterative is similar to recursive as well 
+\begin{DoxyParams}{Parameters}
+{\em str} & given string, which might not be abbreivated \\
+\hline
+{\em result} & resultant abbreivated string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily false} if string {\ttfamily str} cannot be converted to {\ttfamily result} 
+
+{\ttfamily true} if string {\ttfamily str} can be converted to {\ttfamily result} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ std::vector<std::vector<bool>>\ memo(}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ str.size()\ +\ 1,\ std::vector<bool>(\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size()\ +\ 1,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <=\ str.size();\ ++i)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ memo[i][0]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 1;\ i\ <=\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ ++i)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ memo[0][i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 1;\ i\ <=\ str.size();\ ++i)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 1;\ j\ <=\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size();\ ++j)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str[i\ -\/\ 1]\ ==\ result[j\ -\/\ 1])\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memo[i][j]\ =\ memo[i\ -\/\ 1][j\ -\/\ 1];}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (str[i\ -\/\ 1]\ -\/\ 32\ ==\ result[j\ -\/\ 1])\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memo[i][j]\ =\ (memo[i\ -\/\ 1][j\ -\/\ 1]\ ||\ memo[i\ -\/\ 1][j]);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str[i\ -\/\ 1]\ >=\ \textcolor{charliteral}{'A'}\ \&\&\ str[i\ -\/\ 1]\ <=\ \textcolor{charliteral}{'Z'})\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memo[i][j]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memo[i][j]\ =\ memo[i\ -\/\ 1][j];}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{return}\ memo.back().back();}
+\DoxyCodeLine{00144\ \}}
+
+\end{DoxyCode}
+\Hypertarget{abbreviation_8cpp_add60b8858720bf217df22d992d0fefaa}\index{abbreviation.cpp@{abbreviation.cpp}!abbreviation\_recursion@{abbreviation\_recursion}}
+\index{abbreviation\_recursion@{abbreviation\_recursion}!abbreviation.cpp@{abbreviation.cpp}}
+\doxysubsubsection{\texorpdfstring{abbreviation\_recursion()}{abbreviation\_recursion()}}
+{\footnotesize\ttfamily \label{abbreviation_8cpp_add60b8858720bf217df22d992d0fefaa} 
+bool dynamic\+\_\+programming\+::abbreviation\+::abbreviation\+\_\+recursion (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \texorpdfstring{$\ast$}{*}}]{memo}{, }\item[{std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \texorpdfstring{$\ast$}{*}}]{visited}{, }\item[{const std\+::string \&}]{str}{, }\item[{const std\+::string \&}]{result}{, }\item[{uint32\+\_\+t}]{str\+\_\+idx}{ = {\ttfamily 0}, }\item[{uint32\+\_\+t}]{result\+\_\+idx}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Recursive Dynamic Programming function. 
+
+Returns whether {\ttfamily s} can be converted to {\ttfamily t} with following rules\+: a. Capitalize zero or more of a\textquotesingle{}s lowercase letters from string {\ttfamily s} b. remove all other lowercase letters from string {\ttfamily s} 
+\begin{DoxyParams}{Parameters}
+{\em memo} & To store the result \\
+\hline
+{\em visited} & boolean to check if the result is already computed \\
+\hline
+{\em str} & given string, which might not be abbreivated \\
+\hline
+{\em result} & resultant abbreivated string \\
+\hline
+{\em str\+\_\+idx} & index for string {\ttfamily str}, helpful for transitions \\
+\hline
+{\em result\+\_\+idx} & index for string {\ttfamily result}, helpful for transitions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily false} if string {\ttfamily str} cannot be converted to {\ttfamily result} 
+
+{\ttfamily true} if string {\ttfamily str} can be converted to {\ttfamily result} 
+\end{DoxyReturn}
+{\ttfamily (str\mbox{[}i\mbox{]} == result\mbox{[}j\mbox{]})}\+: if str char at position i is equal to {\ttfamily result} char at position j, then s character is a capitalized one, move on to next character {\ttfamily str\mbox{[}i\mbox{]} -\/ 32 == result\mbox{[}j\mbox{]}}\+: if {\ttfamily str\mbox{[}i\mbox{]}} character is lowercase of {\ttfamily result\mbox{[}j\mbox{]}} then explore two possibilites\+:
+\begin{DoxyEnumerate}
+\item convert it to capitalized letter and move both to next pointer {\ttfamily (i + 1, j + 1)}
+\item Discard the character {\ttfamily (str\mbox{[}i\mbox{]})} and move to next char {\ttfamily (i + 1, j)}
+\end{DoxyEnumerate}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ ans\ =\ memo-\/>at(str\_idx).at(result\_idx);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\_idx\ ==\ str.size()\ \&\&\ result\_idx\ ==\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size())\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00065\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (str\_idx\ ==\ str.size()\ \&\&\ result\_idx\ !=\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.size())\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ result\ \`{}t`\ is\ not\ converted,\ return\ false}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!visited-\/>at(str\_idx).at(result\_idx))\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ \`{}(str[i]\ ==\ result[j])`:\ if\ str\ char\ at\ position\ i\ is\ equal\ to}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ \`{}result`\ char\ at\ position\ j,\ then\ s\ character\ is\ a\ capitalized\ one,}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ move\ on\ to\ next\ character\ \`{}str[i]\ -\/\ 32\ ==\ result[j]`:}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ if\ \`{}str[i]`\ character\ is\ lowercase\ of\ \`{}result[j]`\ then\ explore\ two}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ possibilites:}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ 1.\ convert\ it\ to\ capitalized\ letter\ and\ move\ both\ to\ next\ pointer}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ \`{}(i\ +\ 1,\ j\ +\ 1)`}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ 2.\ Discard\ the\ character\ \`{}(str[i])`\ and\ move\ to\ next\ char\ \`{}(i\ +\ 1,}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ j)`}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str[str\_idx]\ ==\ result[result\_idx])\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ \mbox{\hyperlink{abbreviation_8cpp_add60b8858720bf217df22d992d0fefaa}{abbreviation\_recursion}}(memo,\ visited,\ str,\ result,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_idx\ +\ 1,\ result\_idx\ +\ 1);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (str[str\_idx]\ -\/\ 32\ ==\ result[result\_idx])\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ \mbox{\hyperlink{abbreviation_8cpp_add60b8858720bf217df22d992d0fefaa}{abbreviation\_recursion}}(memo,\ visited,\ str,\ result,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_idx\ +\ 1,\ result\_idx\ +\ 1)\ ||}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{abbreviation_8cpp_add60b8858720bf217df22d992d0fefaa}{abbreviation\_recursion}}(memo,\ visited,\ str,\ result,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_idx\ +\ 1,\ result\_idx);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ \`{}str[i]`\ is\ uppercase,\ then\ cannot\ be\ converted,\ return}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}false`}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ \`{}str[i]`\ is\ lowercase,\ only\ option\ is\ to\ discard\ this}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ character}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str[str\_idx]\ >=\ \textcolor{charliteral}{'A'}\ \&\&\ str[str\_idx]\ <=\ \textcolor{charliteral}{'Z'})\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ \mbox{\hyperlink{abbreviation_8cpp_add60b8858720bf217df22d992d0fefaa}{abbreviation\_recursion}}(memo,\ visited,\ str,\ result,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_idx\ +\ 1,\ result\_idx);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ (*memo)[str\_idx][result\_idx]\ =\ ans;}
+\DoxyCodeLine{00102\ \ \ \ \ (*visited)[str\_idx][result\_idx]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ (*memo)[str\_idx][result\_idx];}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}
+\Hypertarget{abbreviation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{abbreviation.cpp@{abbreviation.cpp}!main@{main}}
+\index{main@{main}!abbreviation.cpp@{abbreviation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{abbreviation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{abbreviation_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00194\ \}}
+
+\end{DoxyCode}
+\Hypertarget{abbreviation_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{abbreviation.cpp@{abbreviation.cpp}!test@{test}}
+\index{test@{test}!abbreviation.cpp@{abbreviation.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{abbreviation_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self test-\/implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ std::string\ s\ =\ \textcolor{stringliteral}{"{}daBcd"{}},\ t\ =\ \textcolor{stringliteral}{"{}ABC"{}};}
+\DoxyCodeLine{00154\ \ \ \ \ std::vector<std::vector<bool>>\ memo(s.size()\ +\ 1,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<bool>(t.size()\ +\ 1,\ \textcolor{keyword}{false})),}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ visited(s.size()\ +\ 1,\ std::vector<bool>(t.size()\ +\ 1,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ assert(dynamic\_programming::abbreviation::abbreviation\_recursion(}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&memo,\ \&visited,\ s,\ t)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00160\ \ \ \ \ assert(dynamic\_programming::abbreviation::abbreviation(s,\ t)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00161\ \ \ \ \ s\ =\ \textcolor{stringliteral}{"{}XXVVnDEFYgYeMXzWINQYHAQKKOZEYgSRCzLZAmUYGUGILjMDET"{}};}
+\DoxyCodeLine{00162\ \ \ \ \ t\ =\ \textcolor{stringliteral}{"{}XXVVDEFYYMXWINQYHAQKKOZEYSRCLZAUYGUGILMDETQVWU"{}};}
+\DoxyCodeLine{00163\ \ \ \ \ memo\ =\ std::vector<std::vector<bool>>(}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ s.size()\ +\ 1,\ std::vector<bool>(t.size()\ +\ 1,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ visited\ =\ std::vector<std::vector<bool>>(}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ s.size()\ +\ 1,\ std::vector<bool>(t.size()\ +\ 1,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ assert(dynamic\_programming::abbreviation::abbreviation\_recursion(}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&memo,\ \&visited,\ s,\ t)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00171\ \ \ \ \ assert(dynamic\_programming::abbreviation::abbreviation(s,\ t)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ s\ =\ \textcolor{stringliteral}{"{}DRFNLZZVHLPZWIupjwdmqafmgkg"{}};}
+\DoxyCodeLine{00174\ \ \ \ \ t\ =\ \textcolor{stringliteral}{"{}DRFNLZZVHLPZWI"{}};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ memo\ =\ std::vector<std::vector<bool>>(}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ s.size()\ +\ 1,\ std::vector<bool>(t.size()\ +\ 1,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ visited\ =\ std::vector<std::vector<bool>>(}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ s.size()\ +\ 1,\ std::vector<bool>(t.size()\ +\ 1,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ assert(dynamic\_programming::abbreviation::abbreviation\_recursion(}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&memo,\ \&visited,\ s,\ t)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00184\ \ \ \ \ assert(dynamic\_programming::abbreviation::abbreviation(s,\ t)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}

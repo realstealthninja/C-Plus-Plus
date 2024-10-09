@@ -1,0 +1,122 @@
+\doxysection{math/sum\+\_\+of\+\_\+digits.cpp File Reference}
+\hypertarget{sum__of__digits_8cpp}{}\label{sum__of__digits_8cpp}\index{math/sum\_of\_digits.cpp@{math/sum\_of\_digits.cpp}}
+
+
+A C++ Program to find the Sum of Digits of input integer.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395}{sum\+\_\+of\+\_\+digits}} (int num)
+\item 
+void \mbox{\hyperlink{sum__of__digits_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\item 
+void \mbox{\hyperlink{sum__of__digits_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\item 
+void \mbox{\hyperlink{sum__of__digits_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+int \mbox{\hyperlink{sum__of__digits_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A C++ Program to find the Sum of Digits of input integer. 
+
+Copyright 2020 \begin{DoxyAuthor}{Author}
+iamnambiar 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sum__of__digits_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sum\_of\_digits.cpp@{sum\_of\_digits.cpp}!main@{main}}
+\index{main@{main}!sum\_of\_digits.cpp@{sum\_of\_digits.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sum__of__digits_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main Function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{sum__of__digits_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Success."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395}\index{sum\_of\_digits.cpp@{sum\_of\_digits.cpp}!sum\_of\_digits@{sum\_of\_digits}}
+\index{sum\_of\_digits@{sum\_of\_digits}!sum\_of\_digits.cpp@{sum\_of\_digits.cpp}}
+\doxysubsubsection{\texorpdfstring{sum\_of\_digits()}{sum\_of\_digits()}}
+{\footnotesize\ttfamily \label{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395} 
+int sum\+\_\+of\+\_\+digits (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+Function to find the sum of the digits of an integer. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The integer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sum of the digits of the integer.
+\end{DoxyReturn}
+\textbackslash{}detail First the algorithm check whether the num is negative or positive, if it is negative, then we neglect the negative sign. Next, the algorithm extract the last digit of num by dividing by 10 and extracting the remainder and this is added to the sum. The number is then divided by 10 to remove the last digit. This loop continues until num becomes 0. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ If\ num\ is\ negative\ then\ negative\ sign\ is\ neglected.}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\ <\ 0)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ num\ =\ -\/1\ *\ num;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\ >\ 0)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ =\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ +\ (num\ \%\ 10);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ num\ =\ num\ /\ 10;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}};}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sum__of__digits_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{sum\_of\_digits.cpp@{sum\_of\_digits.cpp}!test@{test}}
+\index{test@{test}!sum\_of\_digits.cpp@{sum\_of\_digits.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{sum__of__digits_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function for testing the \doxylink{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395}{sum\+\_\+of\+\_\+digits()} with all the test cases. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ First\ test.}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{sum__of__digits_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Second\ test.}}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{sum__of__digits_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sum__of__digits_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{sum\_of\_digits.cpp@{sum\_of\_digits.cpp}!test1@{test1}}
+\index{test1@{test1}!sum\_of\_digits.cpp@{sum\_of\_digits.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{sum__of__digits_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function for testing the \doxylink{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395}{sum\+\_\+of\+\_\+digits()} function with a first test case of 119765 and assert statement. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_case\_1\ =\ \mbox{\hyperlink{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395}{sum\_of\_digits}}(119765);}
+\DoxyCodeLine{00042\ \ \ \ \ assert(test\_case\_1\ ==\ 29);}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sum__of__digits_8cpp_a0283886819c7c140a023582b7269e2d0}\index{sum\_of\_digits.cpp@{sum\_of\_digits.cpp}!test2@{test2}}
+\index{test2@{test2}!sum\_of\_digits.cpp@{sum\_of\_digits.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{sum__of__digits_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function for testing the \doxylink{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395}{sum\+\_\+of\+\_\+digits()} function with a second test case of -\/12256 and assert statement. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_case\_2\ =\ \mbox{\hyperlink{sum__of__digits_8cpp_a4619c78b6ad985713024f930f31c4395}{sum\_of\_digits}}(-\/12256);}
+\DoxyCodeLine{00051\ \ \ \ \ assert(test\_case\_2\ ==\ 16);}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}

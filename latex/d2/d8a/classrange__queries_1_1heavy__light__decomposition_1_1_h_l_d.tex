@@ -1,0 +1,373 @@
+\doxysection{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::HLD\texorpdfstring{$<$}{<} X \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{}\label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+
+
+The Heavy-\/\+Light Decomposition class.  
+
+
+Inheritance diagram for range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::HLD\texorpdfstring{$<$}{<} X \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.728395cm]{d2/d8a/classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a6e486767434e44076c1ac374a22da726}{HLD}} (int nodes)
+\begin{DoxyCompactList}\small\item\em Class parameterized constructor. Resizes the and initilizes the data members. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_ae9e979edd69678b85665c01e2ee97828}{init}} ()
+\begin{DoxyCompactList}\small\item\em This function must be called after the tree adjacency list and node values are populated The function initializes the required parametes, and populates the segment tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a9f1cb54ed09fde931bf3220d75ee4c57}{update}} (int \mbox{\hyperlink{structnode}{node}}, X val)
+\begin{DoxyCompactList}\small\item\em This function updates the value at node with val. \end{DoxyCompactList}\item 
+X \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a4dfbf5d9df825eeb63b294c6849bdcab}{query}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em This function returns the sum of node values in the simple path from from node\+\_\+1 to node\+\_\+2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+Tree$<$ X $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a835fb2bbb27307b8cacad9b287968bc1}{Tree}} (int nodes)
+\begin{DoxyCompactList}\small\item\em Class parameterized constructor, resizes the and initializes the data members. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a79ab4601c4a95c0902ac04e779e5f54d}{add\+\_\+edge}} (const int u, const int v)
+\begin{DoxyCompactList}\small\item\em Adds an undirected edge from node u to node v in the tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ab916d554afa8ca5230b4310c2c69fae0}{change\+\_\+root}} (int new\+\_\+root)
+\begin{DoxyCompactList}\small\item\em Set the root for the tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a04cd96efaba147b19d3afc769b90ff70}{set\+\_\+node\+\_\+val}} (const std\+::vector$<$ X $>$ \&node\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Set the values for all the nodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ad22d760a5a33545a70e7ea5e1786c8dc}{init}} ()
+\begin{DoxyCompactList}\small\item\em This function must be called after the tree adjacency list and node values are populated The function initializes the required parameters, and populates the segment tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ac7761255f2ba06b398b9aae5e4dce5f3}{lift}} (int \texorpdfstring{$\ast$}{*}const p, int dist)
+\begin{DoxyCompactList}\small\item\em The function lifts a node, k units up the tree. The lifting is done in place, and the result is stored in the address pointed by p. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a8f7bca1746d40f21ad832fcea59aa6c6}{kth\+\_\+ancestor}} (int p, const int \&dist)
+\begin{DoxyCompactList}\small\item\em The function returns the kth ancestor of a node. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ae2b407e64aaf9878fbee7ee6efe9c7d4}{lca}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em The function returns the least common ancestor of two nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_af64848d6630c39d0f09ce2359cc7c4f8}{dfs\+\_\+hc}} (int u, int p=-\/1)
+\begin{DoxyCompactList}\small\item\em Utility function to assign heavy child to each node (-\/1 for a leaf node) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a2dfbda148aad0bfaba2ebfda9ebc915a}{dfs\+\_\+par}} (int u, int p=-\/1)
+\begin{DoxyCompactList}\small\item\em Utility function to assign highest parent that can be reached though heavy chains. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a0579062b384e54b611b80c6337c7f2c8}{dfs\+\_\+labels}} (int u, int p=-\/1)
+\begin{DoxyCompactList}\small\item\em Utility function to lable the nodes so that heavy chains have a contigous lable. \end{DoxyCompactList}\item 
+X \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a7d5b40c076347a6aabfb37a0590f2f24}{chain\+\_\+query}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Utility function to break down a path query into two chain queries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a722cc7cf2c3e4d15583601a48b09776f}\label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a722cc7cf2c3e4d15583601a48b09776f} 
+int {\bfseries label}
+\begin{DoxyCompactList}\small\item\em utility member to assign labels in \doxylink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a0579062b384e54b611b80c6337c7f2c8}{dfs\+\_\+labels()} \end{DoxyCompactList}\item 
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda}\label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda} 
+std\+::vector$<$ int $>$ {\bfseries h\+\_\+label}
+\begin{DoxyCompactList}\small\item\em stores the label of a node \end{DoxyCompactList}\item 
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}\label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104} 
+std\+::vector$<$ int $>$ {\bfseries h\+\_\+heavychlid}
+\begin{DoxyCompactList}\small\item\em stores the heavy child of a node \end{DoxyCompactList}\item 
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}\label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725} 
+std\+::vector$<$ int $>$ {\bfseries h\+\_\+parent}
+\begin{DoxyCompactList}\small\item\em stores the top of the heavy chain from a node \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename X$>$\newline
+class range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD$<$ X $>$}
+The Heavy-\/\+Light Decomposition class. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em the} & data type of the values stored in the tree nodes \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a6e486767434e44076c1ac374a22da726}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!HLD@{HLD}}
+\index{HLD@{HLD}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{HLD()}{HLD()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a6e486767434e44076c1ac374a22da726} 
+template$<$typename X $>$ \\
+\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\+::\+HLD (\begin{DoxyParamCaption}\item[{int}]{nodes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Class parameterized constructor. Resizes the and initilizes the data members. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & the total number of nodes in the tree \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a835fb2bbb27307b8cacad9b287968bc1}{Tree<X>}}(nodes),\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_afba5c1225ba04c0025c7786c09ff28f1}{SG<X>}}(nodes)\ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{comment}{/*\ Initialization\ and\ resize\ vectors\ */}}
+\DoxyCodeLine{00437\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a722cc7cf2c3e4d15583601a48b09776f}{label}}\ =\ 0;}
+\DoxyCodeLine{00438\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda}{h\_label}}.assign(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ae4630fa70a80a1dc65a875488a67178a}{Tree<X>::t\_nodes}},\ -\/1);}
+\DoxyCodeLine{00439\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}.assign(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ae4630fa70a80a1dc65a875488a67178a}{Tree<X>::t\_nodes}},\ -\/1);}
+\DoxyCodeLine{00440\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}.resize(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ae4630fa70a80a1dc65a875488a67178a}{Tree<X>::t\_nodes}});}
+\DoxyCodeLine{00441\ \ \ \ \ iota(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}.begin(),\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}.end(),\ 0);}
+\DoxyCodeLine{00442\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a7d5b40c076347a6aabfb37a0590f2f24}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!chain\_query@{chain\_query}}
+\index{chain\_query@{chain\_query}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{chain\_query()}{chain\_query()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a7d5b40c076347a6aabfb37a0590f2f24} 
+template$<$typename X $>$ \\
+X \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\+::chain\+\_\+query (\begin{DoxyParamCaption}\item[{int}]{a}{, }\item[{int}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Utility function to break down a path query into two chain queries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & node where the path starts \\
+\hline
+{\em b} & node where the path ends a and b must belong to a single root to leaf chain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of ndoe values in the simple path from a to b 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00410\ \ \ \ \ X\ ret\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_aa7f93971a9f891e0bbb7023081f379d5}{SG<X>::sret\_init}};}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[a]\ <\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[b])\ \{}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ std::swap(a,\ b);}
+\DoxyCodeLine{00413\ \ \ \ \ \}}
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[a]\ >=\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[b])\ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda}{h\_label}}[\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}[a]];}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda}{h\_label}}[a];}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}[a]]\ <\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[b])\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ +=\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[b]\ -\/\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a0efd0b9c564092f443ca97030d866ef1}{Tree<X>::t\_depth}}[\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}[a]];}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ ret\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_a41c733f5f5e262b308f7cb95c88c1e74}{SG<X>::combine}}(ret,\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_a1fda852e6e522707fd97f61cdb0a2591}{SG<X>::query}}(l,\ r));}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ a\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a350157a5fb79f76fceae33fc84171203}{Tree<X>::t\_par}}[\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}[a]][0];}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00425\ \ \ \ \ \}}
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00427\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_af64848d6630c39d0f09ce2359cc7c4f8}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!dfs\_hc@{dfs\_hc}}
+\index{dfs\_hc@{dfs\_hc}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{dfs\_hc()}{dfs\_hc()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_af64848d6630c39d0f09ce2359cc7c4f8} 
+template$<$typename X $>$ \\
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\+::dfs\+\_\+hc (\begin{DoxyParamCaption}\item[{int}]{u}{, }\item[{int}]{p}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Utility function to assign heavy child to each node (-\/1 for a leaf node) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & current dfs node \\
+\hline
+{\em p} & the parent of node u \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{int}\ hc\_size\ =\ -\/1,\ hc\_id\ =\ -\/1;}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&v\ :\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ab1aeaefa1bd97b867c652ba916fbdb43}{Tree<X>::t\_adj}}[u])\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ \string^\ p)\ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_af64848d6630c39d0f09ce2359cc7c4f8}{dfs\_hc}}(v,\ u);}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ada1494fccbc7f1f07b2f9be9f7e07ad5}{Tree<X>::t\_size}}[v]\ >\ hc\_size)\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ hc\_size\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ada1494fccbc7f1f07b2f9be9f7e07ad5}{Tree<X>::t\_size}}[v];}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ hc\_id\ =\ v;}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00360\ \ \ \ \ \}}
+\DoxyCodeLine{00361\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u]\ =\ hc\_id;}
+\DoxyCodeLine{00362\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a0579062b384e54b611b80c6337c7f2c8}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!dfs\_labels@{dfs\_labels}}
+\index{dfs\_labels@{dfs\_labels}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{dfs\_labels()}{dfs\_labels()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a0579062b384e54b611b80c6337c7f2c8} 
+template$<$typename X $>$ \\
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\+::dfs\+\_\+labels (\begin{DoxyParamCaption}\item[{int}]{u}{, }\item[{int}]{p}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Utility function to lable the nodes so that heavy chains have a contigous lable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & current dfs node \\
+\hline
+{\em p} & the parent of node u \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda}{h\_label}}[u]\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a722cc7cf2c3e4d15583601a48b09776f}{label}}++;}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u]\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a0579062b384e54b611b80c6337c7f2c8}{dfs\_labels}}(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u],\ u);}
+\DoxyCodeLine{00394\ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&v\ :\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ab1aeaefa1bd97b867c652ba916fbdb43}{Tree<X>::t\_adj}}[u])\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ \string^\ p\ and\ v\ \string^\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u])\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a0579062b384e54b611b80c6337c7f2c8}{dfs\_labels}}(v,\ u);}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \ \ \ \ \}}
+\DoxyCodeLine{00400\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a2dfbda148aad0bfaba2ebfda9ebc915a}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!dfs\_par@{dfs\_par}}
+\index{dfs\_par@{dfs\_par}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{dfs\_par()}{dfs\_par()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a2dfbda148aad0bfaba2ebfda9ebc915a} 
+template$<$typename X $>$ \\
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\+::dfs\+\_\+par (\begin{DoxyParamCaption}\item[{int}]{u}{, }\item[{int}]{p}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Utility function to assign highest parent that can be reached though heavy chains. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & current dfs node \\
+\hline
+{\em p} & the parent of node u \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u]\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}[\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u]]\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a1b336474d17eff1aa4be73d4068dc725}{h\_parent}}[u];}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a2dfbda148aad0bfaba2ebfda9ebc915a}{dfs\_par}}(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u],\ u);}
+\DoxyCodeLine{00375\ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&v\ :\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ab1aeaefa1bd97b867c652ba916fbdb43}{Tree<X>::t\_adj}}[u])\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ \string^\ p\ and\ v\ \string^\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a84424f180f12b514eaab57a6aa20b104}{h\_heavychlid}}[u])\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a2dfbda148aad0bfaba2ebfda9ebc915a}{dfs\_par}}(v,\ u);}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00380\ \ \ \ \ \}}
+\DoxyCodeLine{00381\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_ae9e979edd69678b85665c01e2ee97828}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!init@{init}}
+\index{init@{init}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_ae9e979edd69678b85665c01e2ee97828} 
+template$<$typename X $>$ \\
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function must be called after the tree adjacency list and node values are populated The function initializes the required parametes, and populates the segment tree. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ad22d760a5a33545a70e7ea5e1786c8dc}{Tree<X>::init}}();}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{comment}{//\ Fill\ the\ heavy\ child,\ greatest\ parent,\ and\ labels}}
+\DoxyCodeLine{00454\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a722cc7cf2c3e4d15583601a48b09776f}{label}}\ =\ 0;}
+\DoxyCodeLine{00455\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_af64848d6630c39d0f09ce2359cc7c4f8}{dfs\_hc}}(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_aa6c37e840355b9fb2105181c578694e8}{Tree<X>::t\_root}});}
+\DoxyCodeLine{00456\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a2dfbda148aad0bfaba2ebfda9ebc915a}{dfs\_par}}(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_aa6c37e840355b9fb2105181c578694e8}{Tree<X>::t\_root}});}
+\DoxyCodeLine{00457\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a0579062b384e54b611b80c6337c7f2c8}{dfs\_labels}}(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_aa6c37e840355b9fb2105181c578694e8}{Tree<X>::t\_root}});}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{comment}{//\ Segment\ Tree\ Initialization}}
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ Tree<X>::t\_nodes;\ i++)\ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_afbf8a9cb9449d5ca844f4e141a801e6a}{SG<X>::s\_tree}}[\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda}{h\_label}}[i]\ +\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ae4630fa70a80a1dc65a875488a67178a}{Tree<X>::t\_nodes}}]\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a135b7952593c9b1aae38fcaf1cc1abf7}{Tree<X>::t\_val}}[i];}
+\DoxyCodeLine{00462\ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ae4630fa70a80a1dc65a875488a67178a}{Tree<X>::t\_nodes}}\ -\/\ 1;\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_afbf8a9cb9449d5ca844f4e141a801e6a}{SG<X>::s\_tree}}[i]\ =}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_a41c733f5f5e262b308f7cb95c88c1e74}{SG<X>::combine}}(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_afbf8a9cb9449d5ca844f4e141a801e6a}{SG<X>::s\_tree}}[i\ <<\ 1],\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_afbf8a9cb9449d5ca844f4e141a801e6a}{SG<X>::s\_tree}}[i\ <<\ 1\ |\ 1]);}
+\DoxyCodeLine{00466\ \ \ \ \ \}}
+\DoxyCodeLine{00467\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a4dfbf5d9df825eeb63b294c6849bdcab}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!query@{query}}
+\index{query@{query}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a4dfbf5d9df825eeb63b294c6849bdcab} 
+template$<$typename X $>$ \\
+X \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\mbox{\hyperlink{structquery}{\+::query}} (\begin{DoxyParamCaption}\item[{int}]{a}{, }\item[{int}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function returns the sum of node values in the simple path from from node\+\_\+1 to node\+\_\+2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the node where the simple path starts \\
+\hline
+{\em b} & the node where the simple path ends (parameters are interchangeable, i.\+e., the function is commutative) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of node values in the simple path from a to b 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keywordtype}{int}\ lc\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_ae2b407e64aaf9878fbee7ee6efe9c7d4}{Tree<X>::lca}}(a,\ b);}
+\DoxyCodeLine{00491\ \ \ \ \ X\ ret\ =\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_aa7f93971a9f891e0bbb7023081f379d5}{SG<X>::sret\_init}};}
+\DoxyCodeLine{00492\ \ \ \ \ assert(lc\ !=\ -\/1);}
+\DoxyCodeLine{00493\ \ \ \ \ ret\ +=\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a7d5b40c076347a6aabfb37a0590f2f24}{chain\_query}}(a,\ lc);}
+\DoxyCodeLine{00494\ \ \ \ \ ret\ +=\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a7d5b40c076347a6aabfb37a0590f2f24}{chain\_query}}(b,\ lc);}
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keywordflow}{return}\ ret\ -\/\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a135b7952593c9b1aae38fcaf1cc1abf7}{Tree<X>::t\_val}}[lc];}
+\DoxyCodeLine{00496\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a9f1cb54ed09fde931bf3220d75ee4c57}\index{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}!update@{update}}
+\index{update@{update}!range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$@{range\_queries::heavy\_light\_decomposition::HLD$<$ X $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_a9f1cb54ed09fde931bf3220d75ee4c57} 
+template$<$typename X $>$ \\
+void \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d}{range\+\_\+queries\+::heavy\+\_\+light\+\_\+decomposition\+::\+HLD}}$<$ X $>$\+::update (\begin{DoxyParamCaption}\item[{int}]{node}{, }\item[{X}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function updates the value at node with val. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node where the update is done \\
+\hline
+{\em val} & the value that is being updated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00476\ \ \ \ \ X\ diff\ =\ val\ -\/\ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a135b7952593c9b1aae38fcaf1cc1abf7}{Tree<X>::t\_val}}[\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}}];}
+\DoxyCodeLine{00477\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_s_g_a3c75bf5770790f8eba8cc92227b5400c}{SG<X>::update}}(\mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d_aa86a91ae0cd7898990a8170a2f2c9cda}{h\_label}}[\mbox{\hyperlink{structnode}{node}}],\ diff);}
+\DoxyCodeLine{00478\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1heavy__light__decomposition_1_1_tree_a135b7952593c9b1aae38fcaf1cc1abf7}{Tree<X>::t\_val}}[\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}}]\ =\ val;}
+\DoxyCodeLine{00479\ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+range\+\_\+queries/\mbox{\hyperlink{heavy__light__decomposition_8cpp}{heavy\+\_\+light\+\_\+decomposition.\+cpp}}\end{DoxyCompactItemize}

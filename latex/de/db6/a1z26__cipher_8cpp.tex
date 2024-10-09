@@ -1,0 +1,277 @@
+\doxysection{ciphers/a1z26\+\_\+cipher.cpp File Reference}
+\hypertarget{a1z26__cipher_8cpp}{}\label{a1z26__cipher_8cpp}\index{ciphers/a1z26\_cipher.cpp@{ciphers/a1z26\_cipher.cpp}}
+
+
+Implementation of the \href{https://www.dcode.fr/letter-number-cipher}{\texttt{ A1\+Z26 cipher}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceciphers}{ciphers}}
+\begin{DoxyCompactList}\small\item\em Algorithms for encryption and decryption. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacea1z26}{a1z26}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://www.dcode.fr/letter-number-cipher}{\texttt{ A1\+Z26}} encryption and decryption implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{a1z26__cipher_8cpp_a77a6b827a0b9c7aca2d705811459d744}{ciphers\+::a1z26\+::encrypt}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em \doxylink{namespacea1z26}{a1z26} encryption implementation \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{a1z26__cipher_8cpp_a0a78954e96c862430904ee3e64623c38}{ciphers\+::a1z26\+::decrypt}} (const std\+::string \&text, bool b\+Return\+Uppercase=false)
+\begin{DoxyCompactList}\small\item\em \doxylink{namespacea1z26}{a1z26} decryption implementation \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{a1z26__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{a1z26__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ uint8\+\_\+t, char $>$ \mbox{\hyperlink{a1z26__cipher_8cpp_a9b0bba130e569910cb077c70eebeb27c}{ciphers\+::a1z26\+::a1z26\+\_\+decrypt\+\_\+map}}
+\item 
+std\+::map$<$ char, uint8\+\_\+t $>$ \mbox{\hyperlink{a1z26__cipher_8cpp_aff1ae9e8aa4eed6b67ee0ff412ddbb67}{ciphers\+::a1z26\+::a1z26\+\_\+encrypt\+\_\+map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://www.dcode.fr/letter-number-cipher}{\texttt{ A1\+Z26 cipher}} 
+
+The A1\+Z26 cipher is a simple substiution cipher where each letter is replaced by the number of the order they\textquotesingle{}re in. For example, A corresponds to 1, B = 2, C = 3, etc.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Focusucof}{\texttt{ Focusucof}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{a1z26__cipher_8cpp_a0a78954e96c862430904ee3e64623c38}\index{a1z26\_cipher.cpp@{a1z26\_cipher.cpp}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!a1z26\_cipher.cpp@{a1z26\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily \label{a1z26__cipher_8cpp_a0a78954e96c862430904ee3e64623c38} 
+std\+::string ciphers\+::a1z26\+::decrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{bool}]{b\+Return\+Uppercase}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+\doxylink{namespacea1z26}{a1z26} decryption implementation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & is the encrypted text input \\
+\hline
+{\em b\+Return\+Uppercase} & is if the decoded string should be in uppercase or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the decrypted string in all uppercase or all lowercase 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ std::string\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ split\ words\ seperated\ by\ spaces\ into\ a\ vector\ array}}
+\DoxyCodeLine{00082\ \ \ \ \ std::vector<std::string>\ word\_array;}
+\DoxyCodeLine{00083\ \ \ \ \ std::stringstream\ sstream(text);}
+\DoxyCodeLine{00084\ \ \ \ \ std::string\ word;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{while}\ (sstream\ >>\ word)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ word\_array.push\_back(word);}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ i\ :\ word\_array)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::replace(i.begin(),\ i.end(),\ \textcolor{charliteral}{'-\/'},\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::vector<std::string>\ text\_array;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ std::stringstream\ ss(i);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::string\ res\_text;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (ss\ >>\ res\_text)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ text\_array.push\_back(res\_text);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ i\ :\ text\_array)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ +=\ a1z26\_decrypt\_map[stoi(i)];}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ +=\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.pop\_back();\ \ \textcolor{comment}{//\ remove\ any\ leading\ whitespace}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{if}\ (bReturnUppercase)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ std::transform(\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.begin(),\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.end(),\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.begin(),\ ::toupper);}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00111\ \}}
+
+\end{DoxyCode}
+\Hypertarget{a1z26__cipher_8cpp_a77a6b827a0b9c7aca2d705811459d744}\index{a1z26\_cipher.cpp@{a1z26\_cipher.cpp}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!a1z26\_cipher.cpp@{a1z26\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily \label{a1z26__cipher_8cpp_a77a6b827a0b9c7aca2d705811459d744} 
+std\+::string ciphers\+::a1z26\+::encrypt (\begin{DoxyParamCaption}\item[{std\+::string}]{text}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{namespacea1z26}{a1z26} encryption implementation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & is the plaintext input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+encoded string with dashes to seperate letters 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ std::string\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00053\ \ \ \ \ std::transform(text.begin(),\ text.end(),\ text.begin(),}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::tolower);\ \ \textcolor{comment}{//\ convert\ string\ to\ lowercase}}
+\DoxyCodeLine{00055\ \ \ \ \ std::replace(text.begin(),\ text.end(),\ \textcolor{charliteral}{':'},\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ letter\ :\ text)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (letter\ !=\ \textcolor{charliteral}{'\ '})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ +=\ std::to\_string(}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a1z26\_encrypt\_map[letter]);\ \ \textcolor{comment}{//\ convert\ int\ to\ string\ and\ append}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ result}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ +=\ \textcolor{stringliteral}{"{}-\/"{}};\ \ \textcolor{comment}{//\ space\ out\ each\ set\ of\ numbers\ with\ spaces}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.pop\_back();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ +=\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.pop\_back();\ \ \textcolor{comment}{//\ remove\ leading\ dash}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{a1z26__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{a1z26\_cipher.cpp@{a1z26\_cipher.cpp}!main@{main}}
+\index{main@{main}!a1z26\_cipher.cpp@{a1z26\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{a1z26__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{a1z26__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00162\ \}}
+
+\end{DoxyCode}
+\Hypertarget{a1z26__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{a1z26\_cipher.cpp@{a1z26\_cipher.cpp}!test@{test}}
+\index{test@{test}!a1z26\_cipher.cpp@{a1z26\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{a1z26__cipher_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00122\ \ \ \ \ std::string\ input\ =\ \textcolor{stringliteral}{"{}Hello\ World"{}};}
+\DoxyCodeLine{00123\ \ \ \ \ std::string\ expected\ =\ \textcolor{stringliteral}{"{}8-\/5-\/12-\/12-\/15\ 23-\/15-\/18-\/12-\/4"{}};}
+\DoxyCodeLine{00124\ \ \ \ \ std::string\ output\ =\ \mbox{\hyperlink{a1z26__cipher_8cpp_a77a6b827a0b9c7aca2d705811459d744}{ciphers::a1z26::encrypt}}(input);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input:\ "{}}\ <<\ input\ <<\ std::endl;}
+\DoxyCodeLine{00127\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected:\ "{}}\ <<\ expected\ <<\ std::endl;}
+\DoxyCodeLine{00128\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ output\ <<\ std::endl;}
+\DoxyCodeLine{00129\ \ \ \ \ assert(output\ ==\ expected);}
+\DoxyCodeLine{00130\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00133\ \ \ \ \ input\ =\ \textcolor{stringliteral}{"{}12-\/15-\/23-\/5-\/18-\/3-\/1-\/19-\/5"{}};}
+\DoxyCodeLine{00134\ \ \ \ \ expected\ =\ \textcolor{stringliteral}{"{}lowercase"{}};}
+\DoxyCodeLine{00135\ \ \ \ \ output\ =\ \mbox{\hyperlink{a1z26__cipher_8cpp_a0a78954e96c862430904ee3e64623c38}{ciphers::a1z26::decrypt}}(input);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input:\ "{}}\ <<\ input\ <<\ std::endl;}
+\DoxyCodeLine{00138\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected:\ "{}}\ <<\ expected\ <<\ std::endl;}
+\DoxyCodeLine{00139\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ output\ <<\ std::endl;}
+\DoxyCodeLine{00140\ \ \ \ \ assert(output\ ==\ expected);}
+\DoxyCodeLine{00141\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00144\ \ \ \ \ input\ =\ \textcolor{stringliteral}{"{}21-\/16-\/16-\/5-\/18-\/3-\/1-\/19-\/5"{}};}
+\DoxyCodeLine{00145\ \ \ \ \ expected\ =\ \textcolor{stringliteral}{"{}UPPERCASE"{}};}
+\DoxyCodeLine{00146\ \ \ \ \ output\ =\ \mbox{\hyperlink{a1z26__cipher_8cpp_a0a78954e96c862430904ee3e64623c38}{ciphers::a1z26::decrypt}}(input,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input:\ "{}}\ <<\ input\ <<\ std::endl;}
+\DoxyCodeLine{00149\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected:\ "{}}\ <<\ expected\ <<\ std::endl;}
+\DoxyCodeLine{00150\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ output\ <<\ std::endl;}
+\DoxyCodeLine{00151\ \ \ \ \ assert(output\ ==\ expected);}
+\DoxyCodeLine{00152\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}};}
+\DoxyCodeLine{00153\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{a1z26__cipher_8cpp_a9b0bba130e569910cb077c70eebeb27c}\index{a1z26\_cipher.cpp@{a1z26\_cipher.cpp}!a1z26\_decrypt\_map@{a1z26\_decrypt\_map}}
+\index{a1z26\_decrypt\_map@{a1z26\_decrypt\_map}!a1z26\_cipher.cpp@{a1z26\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{a1z26\_decrypt\_map}{a1z26\_decrypt\_map}}
+{\footnotesize\ttfamily \label{a1z26__cipher_8cpp_a9b0bba130e569910cb077c70eebeb27c} 
+std\+::map$<$uint8\+\_\+t, char$>$ ciphers\+::a1z26\+::a1z26\+\_\+decrypt\+\_\+map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \{1,\ \textcolor{charliteral}{'a'}\},\ \ \{2,\ \textcolor{charliteral}{'b'}\},\ \ \{3,\ \textcolor{charliteral}{'c'}\},\ \ \{4,\ \textcolor{charliteral}{'d'}\},\ \ \{5,\ \textcolor{charliteral}{'e'}\},\ \ \{6,\ \textcolor{charliteral}{'f'}\},\ \ \{7,\ \textcolor{charliteral}{'g'}\},}
+\DoxyCodeLine{\ \ \ \ \{8,\ \textcolor{charliteral}{'h'}\},\ \ \{9,\ \textcolor{charliteral}{'i'}\},\ \ \{10,\ \textcolor{charliteral}{'j'}\},\ \{11,\ \textcolor{charliteral}{'k'}\},\ \{12,\ \textcolor{charliteral}{'l'}\},\ \{13,\ \textcolor{charliteral}{'m'}\},\ \{14,\ \textcolor{charliteral}{'n'}\},}
+\DoxyCodeLine{\ \ \ \ \{15,\ \textcolor{charliteral}{'o'}\},\ \{16,\ \textcolor{charliteral}{'p'}\},\ \{17,\ \textcolor{charliteral}{'q'}\},\ \{18,\ \textcolor{charliteral}{'r'}\},\ \{19,\ \textcolor{charliteral}{'s'}\},\ \{20,\ \textcolor{charliteral}{'t'}\},\ \{21,\ \textcolor{charliteral}{'u'}\},}
+\DoxyCodeLine{\ \ \ \ \{22,\ \textcolor{charliteral}{'v'}\},\ \{23,\ \textcolor{charliteral}{'w'}\},\ \{24,\ \textcolor{charliteral}{'x'}\},\ \{25,\ \textcolor{charliteral}{'y'}\},\ \{26,\ \textcolor{charliteral}{'z'}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \{1,\ \textcolor{charliteral}{'a'}\},\ \ \{2,\ \textcolor{charliteral}{'b'}\},\ \ \{3,\ \textcolor{charliteral}{'c'}\},\ \ \{4,\ \textcolor{charliteral}{'d'}\},\ \ \{5,\ \textcolor{charliteral}{'e'}\},\ \ \{6,\ \textcolor{charliteral}{'f'}\},\ \ \{7,\ \textcolor{charliteral}{'g'}\},}
+\DoxyCodeLine{00035\ \ \ \ \ \{8,\ \textcolor{charliteral}{'h'}\},\ \ \{9,\ \textcolor{charliteral}{'i'}\},\ \ \{10,\ \textcolor{charliteral}{'j'}\},\ \{11,\ \textcolor{charliteral}{'k'}\},\ \{12,\ \textcolor{charliteral}{'l'}\},\ \{13,\ \textcolor{charliteral}{'m'}\},\ \{14,\ \textcolor{charliteral}{'n'}\},}
+\DoxyCodeLine{00036\ \ \ \ \ \{15,\ \textcolor{charliteral}{'o'}\},\ \{16,\ \textcolor{charliteral}{'p'}\},\ \{17,\ \textcolor{charliteral}{'q'}\},\ \{18,\ \textcolor{charliteral}{'r'}\},\ \{19,\ \textcolor{charliteral}{'s'}\},\ \{20,\ \textcolor{charliteral}{'t'}\},\ \{21,\ \textcolor{charliteral}{'u'}\},}
+\DoxyCodeLine{00037\ \ \ \ \ \{22,\ \textcolor{charliteral}{'v'}\},\ \{23,\ \textcolor{charliteral}{'w'}\},\ \{24,\ \textcolor{charliteral}{'x'}\},\ \{25,\ \textcolor{charliteral}{'y'}\},\ \{26,\ \textcolor{charliteral}{'z'}\},}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}
+\Hypertarget{a1z26__cipher_8cpp_aff1ae9e8aa4eed6b67ee0ff412ddbb67}\index{a1z26\_cipher.cpp@{a1z26\_cipher.cpp}!a1z26\_encrypt\_map@{a1z26\_encrypt\_map}}
+\index{a1z26\_encrypt\_map@{a1z26\_encrypt\_map}!a1z26\_cipher.cpp@{a1z26\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{a1z26\_encrypt\_map}{a1z26\_encrypt\_map}}
+{\footnotesize\ttfamily \label{a1z26__cipher_8cpp_aff1ae9e8aa4eed6b67ee0ff412ddbb67} 
+std\+::map$<$char, uint8\+\_\+t$>$ ciphers\+::a1z26\+::a1z26\+\_\+encrypt\+\_\+map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'a'},\ 1\},\ \ \{\textcolor{charliteral}{'b'},\ 2\},\ \ \{\textcolor{charliteral}{'c'},\ 3\},\ \ \{\textcolor{charliteral}{'d'},\ 4\},\ \ \{\textcolor{charliteral}{'e'},\ 5\},\ \ \{\textcolor{charliteral}{'f'},\ 6\},\ \ \{\textcolor{charliteral}{'g'},\ 7\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'h'},\ 8\},\ \ \{\textcolor{charliteral}{'i'},\ 9\},\ \ \{\textcolor{charliteral}{'j'},\ 10\},\ \{\textcolor{charliteral}{'k'},\ 11\},\ \{\textcolor{charliteral}{'l'},\ 12\},\ \{\textcolor{charliteral}{'m'},\ 13\},\ \{\textcolor{charliteral}{'n'},\ 14\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'o'},\ 15\},\ \{\textcolor{charliteral}{'p'},\ 16\},\ \{\textcolor{charliteral}{'q'},\ 17\},\ \{\textcolor{charliteral}{'r'},\ 18\},\ \{\textcolor{charliteral}{'s'},\ 19\},\ \{\textcolor{charliteral}{'t'},\ 20\},\ \{\textcolor{charliteral}{'u'},\ 21\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{charliteral}{'v'},\ 22\},\ \{\textcolor{charliteral}{'w'},\ 23\},\ \{\textcolor{charliteral}{'x'},\ 24\},\ \{\textcolor{charliteral}{'y'},\ 25\},\ \{\textcolor{charliteral}{'z'},\ 26\}\}}
+
+\end{DoxyCode}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \{\textcolor{charliteral}{'a'},\ 1\},\ \ \{\textcolor{charliteral}{'b'},\ 2\},\ \ \{\textcolor{charliteral}{'c'},\ 3\},\ \ \{\textcolor{charliteral}{'d'},\ 4\},\ \ \{\textcolor{charliteral}{'e'},\ 5\},\ \ \{\textcolor{charliteral}{'f'},\ 6\},\ \ \{\textcolor{charliteral}{'g'},\ 7\},}
+\DoxyCodeLine{00042\ \ \ \ \ \{\textcolor{charliteral}{'h'},\ 8\},\ \ \{\textcolor{charliteral}{'i'},\ 9\},\ \ \{\textcolor{charliteral}{'j'},\ 10\},\ \{\textcolor{charliteral}{'k'},\ 11\},\ \{\textcolor{charliteral}{'l'},\ 12\},\ \{\textcolor{charliteral}{'m'},\ 13\},\ \{\textcolor{charliteral}{'n'},\ 14\},}
+\DoxyCodeLine{00043\ \ \ \ \ \{\textcolor{charliteral}{'o'},\ 15\},\ \{\textcolor{charliteral}{'p'},\ 16\},\ \{\textcolor{charliteral}{'q'},\ 17\},\ \{\textcolor{charliteral}{'r'},\ 18\},\ \{\textcolor{charliteral}{'s'},\ 19\},\ \{\textcolor{charliteral}{'t'},\ 20\},\ \{\textcolor{charliteral}{'u'},\ 21\},}
+\DoxyCodeLine{00044\ \ \ \ \ \{\textcolor{charliteral}{'v'},\ 22\},\ \{\textcolor{charliteral}{'w'},\ 23\},\ \{\textcolor{charliteral}{'x'},\ 24\},\ \{\textcolor{charliteral}{'y'},\ 25\},\ \{\textcolor{charliteral}{'z'},\ 26\}\};}
+
+\end{DoxyCode}

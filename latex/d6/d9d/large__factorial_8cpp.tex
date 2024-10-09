@@ -1,0 +1,166 @@
+\doxysection{math/large\+\_\+factorial.cpp File Reference}
+\hypertarget{large__factorial_8cpp}{}\label{large__factorial_8cpp}\index{math/large\_factorial.cpp@{math/large\_factorial.cpp}}
+
+
+Compute factorial of any arbitratily large number/.  
+
+
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}./large\+\_\+number.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{large__factorial_8cpp_a3f93b60e229b6683e24c4754a7106ee8}{test1}} ()
+\item 
+bool \mbox{\hyperlink{large__factorial_8cpp_a76aae4778fbe89a3d59fd61fbc050cfa}{test2}} ()
+\item 
+int \mbox{\hyperlink{large__factorial_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute factorial of any arbitratily large number/. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\doxylink{factorial_8cpp}{factorial.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{large__factorial_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{large\_factorial.cpp@{large\_factorial.cpp}!main@{main}}
+\index{main@{main}!large\_factorial.cpp@{large\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{large__factorial_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+Main program 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ number,\ i;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ number\ =\ atoi(argv[1]);}
+\DoxyCodeLine{00094\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ value\ of\ n(n\ starts\ from\ 0\ ):\ "{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ std::cin\ >>\ number;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ std::clock\_t\ start\_time\ =\ std::clock();}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 2;\ i\ <=\ number;\ i++)\ \textcolor{comment}{/*\ Multiply\ every\ number\ from\ 2\ thru\ N\ */}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ result\ *=\ i;}
+\DoxyCodeLine{00104\ \ \ \ \ std::clock\_t\ end\_time\ =\ std::clock();}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{double}\ time\_taken\ =}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\_time\ -\/\ start\_time)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::cout\ <<\ number\ <<\ \textcolor{stringliteral}{"{}!\ =\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ <<\ std::endl}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Number\ of\ digits:\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits()\ <<\ std::endl}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}\ <<\ std::scientific\ <<\ time\_taken\ <<\ \textcolor{stringliteral}{"{}\ s"{}}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{large__factorial_8cpp_a3f93b60e229b6683e24c4754a7106ee8}{test1}}();}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{large__factorial_8cpp_a76aae4778fbe89a3d59fd61fbc050cfa}{test2}}();}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.test();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00118\ \}}
+
+\end{DoxyCode}
+\Hypertarget{large__factorial_8cpp_a3f93b60e229b6683e24c4754a7106ee8}\index{large\_factorial.cpp@{large\_factorial.cpp}!test1@{test1}}
+\index{test1@{test1}!large\_factorial.cpp@{large\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{large__factorial_8cpp_a3f93b60e229b6683e24c4754a7106ee8} 
+bool test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test implementation for 10! Result must be 3628800. \begin{DoxyReturn}{Returns}
+True if test pass else False 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/\ Check\ 1\(\backslash\)t"{}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i,\ number\ =\ 10;}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 2;\ i\ <=\ number;\ i++)\ \textcolor{comment}{/*\ Multiply\ every\ number\ from\ 2\ thru\ N\ */}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ result\ *=\ i;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *known\_reslt\ =\ \textcolor{stringliteral}{"{}3628800"{}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{/*\ check\ 1\ */}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(known\_reslt)\ !=\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits())\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Result\ lengths\ dont\ match!\ "{}}\ <<\ strlen(known\_reslt)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ !=\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits()\ <<\ std::endl;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (known\_reslt[i]\ !=\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.digit\_char(i))\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\string^th\ digit\ mismatch!\ "{}}\ <<\ known\_reslt[i]}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ !=\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.digit\_char(i)\ <<\ std::endl;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{large__factorial_8cpp_a76aae4778fbe89a3d59fd61fbc050cfa}\index{large\_factorial.cpp@{large\_factorial.cpp}!test2@{test2}}
+\index{test2@{test2}!large\_factorial.cpp@{large\_factorial.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{large__factorial_8cpp_a76aae4778fbe89a3d59fd61fbc050cfa} 
+bool test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test implementation for 100! The result is the 156 digit number\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9332621544394415268169923885626670049071596826438162146859296389521759}
+\DoxyCodeLine{9993229915608941463976156518286253697920827223758251185210916864000000}
+\DoxyCodeLine{000000000000000000}
+
+\end{DoxyCode}
+ \begin{DoxyReturn}{Returns}
+True if test pass else False 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/\ Check\ 2\(\backslash\)t"{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i,\ number\ =\ 100;}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 2;\ i\ <=\ number;\ i++)\ \textcolor{comment}{/*\ Multiply\ every\ number\ from\ 2\ thru\ N\ */}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ result\ *=\ i;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *known\_reslt\ =}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}9332621544394415268169923885626670049071596826438162146859296389521759"{}}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}9993229915608941463976156518286253697920827223758251185210916864000000"{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}000000000000000000"{}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{/*\ check\ 1\ */}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(known\_reslt)\ !=\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits())\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Result\ lengths\ dont\ match!\ "{}}\ <<\ strlen(known\_reslt)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ !=\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits()\ <<\ std::endl;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (known\_reslt[i]\ !=\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.digit\_char(i))\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\string^th\ digit\ mismatch!\ "{}}\ <<\ known\_reslt[i]}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ !=\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.digit\_char(i)\ <<\ std::endl;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}

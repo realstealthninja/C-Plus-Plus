@@ -1,0 +1,407 @@
+\doxysection{double\+\_\+hashing Namespace Reference}
+\hypertarget{namespacedouble__hashing}{}\label{namespacedouble__hashing}\index{double\_hashing@{double\_hashing}}
+
+
+An implementation of hash table using \href{https://en.wikipedia.org/wiki/Double_hashing}{\texttt{ double hashing}} algorithm.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdouble__hashing_1_1_entry}{Entry}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacedouble__hashing_a92054ec26cd6907c163fb00a596bebdd}\label{namespacedouble__hashing_a92054ec26cd6907c163fb00a596bebdd} 
+using {\bfseries Entry} = struct Entry
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacedouble__hashing_ac2adfce49ac57f6dbd1778d2c1ce0d2b}{put\+Prober}} (const \mbox{\hyperlink{structdouble__hashing_1_1_entry}{Entry}} \&entry, int key)
+\item 
+bool \mbox{\hyperlink{namespacedouble__hashing_a29f543e2626bad58907661e1e45028a6}{searching\+Prober}} (const \mbox{\hyperlink{structdouble__hashing_1_1_entry}{Entry}} \&entry, int key)
+\item 
+void \mbox{\hyperlink{namespacedouble__hashing_a79a9c914a6c68275b3640303d7faad8a}{add}} (int key)
+\item 
+size\+\_\+t \mbox{\hyperlink{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003}{hash\+Fxn}} (int key)
+\begin{DoxyCompactList}\small\item\em Hash a key. Uses the STL library\textquotesingle{}s {\ttfamily std\+::hash()} function. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{namespacedouble__hashing_a33968a1178289ab61445dd4000df7082}{other\+Hash\+Fxn}} (int key)
+\begin{DoxyCompactList}\small\item\em Used for second hash function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacedouble__hashing_a8f8ff4fb018e1bb32d67d8a1885d3200}{double\+Hash}} (int key, bool searching)
+\begin{DoxyCompactList}\small\item\em Performs double hashing to resolve collisions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedouble__hashing_a1e901418c759627557eff359b8db38cd}{display}} ()
+\item 
+void \mbox{\hyperlink{namespacedouble__hashing_af4981819aae8bc7e7beeaef02615e30d}{rehash}} ()
+\item 
+void \mbox{\hyperlink{namespacedouble__hashing_a28083ecac6eb94b643281875c8665931}{remove}} (int key)
+\item 
+void \mbox{\hyperlink{namespacedouble__hashing_a9c652b2e467e5d250dfe3bed83b12560}{add\+Info}} (int key)
+\item 
+void \mbox{\hyperlink{namespacedouble__hashing_a5d06e4598569526294f10104875f6824}{removal\+Info}} (int key)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacedouble__hashing_a77d33a0c49294b9ec22ad86eeff79585}\label{namespacedouble__hashing_a77d33a0c49294b9ec22ad86eeff79585} 
+int {\bfseries not\+Present}
+\item 
+\Hypertarget{namespacedouble__hashing_a0e2ff0f9cfc7b54e60a6561f792d8b26}\label{namespacedouble__hashing_a0e2ff0f9cfc7b54e60a6561f792d8b26} 
+std\+::vector$<$ \mbox{\hyperlink{structdouble__hashing_1_1_entry}{Entry}} $>$ {\bfseries table}
+\item 
+\Hypertarget{namespacedouble__hashing_a60a52265027518b25655d730f960013a}\label{namespacedouble__hashing_a60a52265027518b25655d730f960013a} 
+int {\bfseries total\+Size}
+\item 
+\Hypertarget{namespacedouble__hashing_a4e9a7219d34e781e4e73d74a968b26c1}\label{namespacedouble__hashing_a4e9a7219d34e781e4e73d74a968b26c1} 
+int {\bfseries tomb} = -\/1
+\item 
+\Hypertarget{namespacedouble__hashing_a5f5323b52037218cf5ae888778b7f980}\label{namespacedouble__hashing_a5f5323b52037218cf5ae888778b7f980} 
+int {\bfseries size}
+\item 
+\Hypertarget{namespacedouble__hashing_ae5d042a7f6038a2ec9e5718d0c7fb31f}\label{namespacedouble__hashing_ae5d042a7f6038a2ec9e5718d0c7fb31f} 
+bool {\bfseries rehashing}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of hash table using \href{https://en.wikipedia.org/wiki/Double_hashing}{\texttt{ double hashing}} algorithm. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacedouble__hashing_a79a9c914a6c68275b3640303d7faad8a}\index{double\_hashing@{double\_hashing}!add@{add}}
+\index{add@{add}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a79a9c914a6c68275b3640303d7faad8a} 
+void double\+\_\+hashing\+::add (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+Checks for load factor here 
+\begin{DoxyParams}{Parameters}
+{\em key} & key value to add to the table \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ auto*\ entry\ =\ new\ Entry();}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//\ entry-\/>key\ =\ key;}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{namespacedouble__hashing_a8f8ff4fb018e1bb32d67d8a1885d3200}{doubleHash}}(key,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00189\ \ \ \ \ table[index].key\ =\ key;}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ Load\ factor\ greater\ than\ 0.5\ causes\ resizing}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{if}\ (++size\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(totalSize)\ >=\ 0.5)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedouble__hashing_af4981819aae8bc7e7beeaef02615e30d}{rehash}}();}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a9c652b2e467e5d250dfe3bed83b12560}\index{double\_hashing@{double\_hashing}!addInfo@{addInfo}}
+\index{addInfo@{addInfo}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{addInfo()}{addInfo()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a9c652b2e467e5d250dfe3bed83b12560} 
+void double\+\_\+hashing\+::add\+Info (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+Information about the adding process 
+\begin{DoxyParams}{Parameters}
+{\em key} & key value to add to table \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initial\ table:\ "{}};}
+\DoxyCodeLine{00214\ \ \ \ \ display();}
+\DoxyCodeLine{00215\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00216\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}hash\ of\ "{}}\ <<\ key\ <<\ \textcolor{stringliteral}{"{}\ is\ "{}}\ <<\ \mbox{\hyperlink{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003}{hashFxn}}(key)\ <<\ \textcolor{stringliteral}{"{}\ \%\ "{}}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ totalSize\ <<\ \textcolor{stringliteral}{"{}\ ==\ "{}}\ <<\ \mbox{\hyperlink{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003}{hashFxn}}(key)\ \%\ totalSize;}
+\DoxyCodeLine{00218\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{uint128__t_8hpp_a3ff77262ffd6743df5b808d41382a6f3}{add}}(key);}
+\DoxyCodeLine{00220\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}New\ table:\ "{}};}
+\DoxyCodeLine{00221\ \ \ \ \ display();}
+\DoxyCodeLine{00222\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a1e901418c759627557eff359b8db38cd}\index{double\_hashing@{double\_hashing}!display@{display}}
+\index{display@{display}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a1e901418c759627557eff359b8db38cd} 
+void double\+\_\+hashing\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Displays the table \begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ totalSize;\ i++)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (table[i].key\ ==\ notPresent)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ Empty\ "{}};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (table[i].key\ ==\ tomb)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ Tomb\ "{}};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ table[i].key;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00156\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a8f8ff4fb018e1bb32d67d8a1885d3200}\index{double\_hashing@{double\_hashing}!doubleHash@{doubleHash}}
+\index{doubleHash@{doubleHash}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{doubleHash()}{doubleHash()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a8f8ff4fb018e1bb32d67d8a1885d3200} 
+int double\+\_\+hashing\+::double\+Hash (\begin{DoxyParamCaption}\item[{int}]{key}{, }\item[{bool}]{searching}{}\end{DoxyParamCaption})}
+
+
+
+Performs double hashing to resolve collisions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key value to apply double-\/hash on \\
+\hline
+{\em searching} & {\ttfamily true} to check for conflicts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of key when found 
+
+new hash if no conflicts present 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ hash\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003}{hashFxn}}(key));}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{structdouble__hashing_1_1_entry}{Entry}}\ entry;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(hash\ +\ (i\ *\ \mbox{\hyperlink{namespacedouble__hashing_a33968a1178289ab61445dd4000df7082}{otherHashFxn}}(key)))\ \%\ totalSize;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ entry\ =\ table[index];}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (searching)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entry.\mbox{\hyperlink{structdouble__hashing_1_1_entry_ae114967c89dbba3b754dc4976bba3248}{key}}\ ==\ notPresent)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ notPresent;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (searchingProber(entry,\ key))\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Found\ key!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Found\ tombstone\ or\ equal\ hash,\ checking\ next"{}}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedouble__hashing_ac2adfce49ac57f6dbd1778d2c1ce0d2b}{putProber}}(entry,\ key))\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rehashing)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Spot\ found!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rehashing)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Spot\ taken,\ looking\ at\ next\ (next\ index:"{}}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hash}}\ +\ (i\ *\ \mbox{\hyperlink{namespacedouble__hashing_a33968a1178289ab61445dd4000df7082}{otherHashFxn}}(key)))\ \%}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ totalSize}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ totalSize\ *\ 100)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}DoubleHash\ probe\ failed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ notPresent;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (entry.\mbox{\hyperlink{structdouble__hashing_1_1_entry_ae114967c89dbba3b754dc4976bba3248}{key}}\ !=\ notPresent);}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ notPresent;}
+\DoxyCodeLine{00112\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003}\index{double\_hashing@{double\_hashing}!hashFxn@{hashFxn}}
+\index{hashFxn@{hashFxn}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{hashFxn()}{hashFxn()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003} 
+size\+\_\+t double\+\_\+hashing\+::hash\+Fxn (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Hash a key. Uses the STL library\textquotesingle{}s {\ttfamily std\+::hash()} function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & value to hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hash value of the key 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::hash<int>\ hash;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ hash(key);}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a33968a1178289ab61445dd4000df7082}\index{double\_hashing@{double\_hashing}!otherHashFxn@{otherHashFxn}}
+\index{otherHashFxn@{otherHashFxn}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{otherHashFxn()}{otherHashFxn()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a33968a1178289ab61445dd4000df7082} 
+size\+\_\+t double\+\_\+hashing\+::other\+Hash\+Fxn (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Used for second hash function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key value to hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hash value of the key 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ std::hash<int>\ hash;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ 1\ +\ (7\ -\/\ (hash(key)\ \%\ 7));}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_ac2adfce49ac57f6dbd1778d2c1ce0d2b}\index{double\_hashing@{double\_hashing}!putProber@{putProber}}
+\index{putProber@{putProber}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{putProber()}{putProber()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_ac2adfce49ac57f6dbd1778d2c1ce0d2b} 
+bool double\+\_\+hashing\+::put\+Prober (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdouble__hashing_1_1_entry}{Entry}} \&}]{entry}{, }\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+Finds empty spot in a vector 
+\begin{DoxyParams}{Parameters}
+{\em entry} & vector to search in \\
+\hline
+{\em key} & key to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if key is not present or is a {\ttfamily toumb} 
+
+{\ttfamily false} is already occupied 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (entry.\mbox{\hyperlink{structdouble__hashing_1_1_entry_ae114967c89dbba3b754dc4976bba3248}{key}}\ ==\ notPresent\ ||\ entry.\mbox{\hyperlink{structdouble__hashing_1_1_entry_ae114967c89dbba3b754dc4976bba3248}{key}}\ ==\ tomb)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_af4981819aae8bc7e7beeaef02615e30d}\index{double\_hashing@{double\_hashing}!rehash@{rehash}}
+\index{rehash@{rehash}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{rehash()}{rehash()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_af4981819aae8bc7e7beeaef02615e30d} 
+void double\+\_\+hashing\+::rehash (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Rehashes the table into a bigger table \begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ Necessary\ so\ wall\ of\ add\ info\ isn't\ printed\ all\ at\ once}}
+\DoxyCodeLine{00163\ \ \ \ \ rehashing\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{int}\ oldSize\ =\ totalSize;}
+\DoxyCodeLine{00165\ \ \ \ \ std::vector<Entry>\ oldTable(table);}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\ Really\ this\ should\ use\ the\ next\ prime\ number\ greater\ than\ totalSize\ *\ 2}}
+\DoxyCodeLine{00167\ \ \ \ \ table\ =\ std::vector<Entry>(totalSize\ *\ 2);}
+\DoxyCodeLine{00168\ \ \ \ \ totalSize\ *=\ 2;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ oldSize;\ i++)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (oldTable[i].key\ !=\ -\/1\ \&\&\ oldTable[i].key\ !=\ notPresent)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ size-\/-\/;\ \ \textcolor{comment}{//\ Size\ stays\ the\ same\ (add\ increments\ size)}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{uint128__t_8hpp_a3ff77262ffd6743df5b808d41382a6f3}{add}}(oldTable[i].key);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ delete[]\ oldTable;}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ oldTable.reset();}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ rehashing\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00179\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Table\ was\ rehashed,\ new\ size\ is:\ "{}}\ <<\ totalSize\ <<\ std::endl;}
+\DoxyCodeLine{00180\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a5d06e4598569526294f10104875f6824}\index{double\_hashing@{double\_hashing}!removalInfo@{removalInfo}}
+\index{removalInfo@{removalInfo}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{removalInfo()}{removalInfo()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a5d06e4598569526294f10104875f6824} 
+void double\+\_\+hashing\+::removal\+Info (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+Information about removal process 
+\begin{DoxyParams}{Parameters}
+{\em key} & key value to remove from table \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initial\ table:\ "{}};}
+\DoxyCodeLine{00229\ \ \ \ \ display();}
+\DoxyCodeLine{00230\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00231\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}hash\ of\ "{}}\ <<\ key\ <<\ \textcolor{stringliteral}{"{}\ is\ "{}}\ <<\ \mbox{\hyperlink{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003}{hashFxn}}(key)\ <<\ \textcolor{stringliteral}{"{}\ \%\ "{}}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ totalSize\ <<\ \textcolor{stringliteral}{"{}\ ==\ "{}}\ <<\ \mbox{\hyperlink{namespacedouble__hashing_a0d90726ed1de7b3d2ae261baed048003}{hashFxn}}(key)\ \%\ totalSize;}
+\DoxyCodeLine{00233\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{namespacedouble__hashing_a28083ecac6eb94b643281875c8665931}{remove}}(key);}
+\DoxyCodeLine{00235\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}New\ table:\ "{}};}
+\DoxyCodeLine{00236\ \ \ \ \ display();}
+\DoxyCodeLine{00237\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a28083ecac6eb94b643281875c8665931}\index{double\_hashing@{double\_hashing}!remove@{remove}}
+\index{remove@{remove}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a28083ecac6eb94b643281875c8665931} 
+void double\+\_\+hashing\+::remove (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+Removes key. Leaves tombstone upon removal. 
+\begin{DoxyParams}{Parameters}
+{\em key} & key value to remove \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{namespacedouble__hashing_a8f8ff4fb018e1bb32d67d8a1885d3200}{doubleHash}}(key,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ notPresent)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}key\ not\ found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ table[index].key\ =\ tomb;}
+\DoxyCodeLine{00205\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Removal\ successful,\ leaving\ tombstone"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00206\ \ \ \ \ size-\/-\/;}
+\DoxyCodeLine{00207\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedouble__hashing_a29f543e2626bad58907661e1e45028a6}\index{double\_hashing@{double\_hashing}!searchingProber@{searchingProber}}
+\index{searchingProber@{searchingProber}!double\_hashing@{double\_hashing}}
+\doxysubsubsection{\texorpdfstring{searchingProber()}{searchingProber()}}
+{\footnotesize\ttfamily \label{namespacedouble__hashing_a29f543e2626bad58907661e1e45028a6} 
+bool double\+\_\+hashing\+::searching\+Prober (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdouble__hashing_1_1_entry}{Entry}} \&}]{entry}{, }\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+Looks for a matching key 
+\begin{DoxyParams}{Parameters}
+{\em entry} & vector to search in \\
+\hline
+{\em key} & key value to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if found 
+
+{\ttfamily false} if not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{if}\ (entry.\mbox{\hyperlink{structdouble__hashing_1_1_entry_ae114967c89dbba3b754dc4976bba3248}{key}}\ ==\ key)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}

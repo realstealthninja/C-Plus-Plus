@@ -1,0 +1,154 @@
+\doxysection{search/text\+\_\+search.cpp File Reference}
+\hypertarget{text__search_8cpp}{}\label{text__search_8cpp}\index{search/text\_search.cpp@{search/text\_search.cpp}}
+
+
+Search for words in a long textual paragraph.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}} (std\+::string word)
+\begin{DoxyCompactList}\small\item\em function to convert a C++ string to lower case \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{text__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{text__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Search for words in a long textual paragraph. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}\index{text\_search.cpp@{text\_search.cpp}!lower@{lower}}
+\index{lower@{lower}!text\_search.cpp@{text\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{lower()}{lower()}}
+{\footnotesize\ttfamily \label{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9} 
+std\+::string lower (\begin{DoxyParamCaption}\item[{std\+::string}]{word}{}\end{DoxyParamCaption})}
+
+
+
+function to convert a C++ string to lower case 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & takes an std\+::string as input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ length\ =\ word.length();}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ lc\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length;\ i++)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ lc\ +=\ tolower(word[i]);}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ lc;}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{text__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{text\_search.cpp@{text\_search.cpp}!main@{main}}
+\index{main@{main}!text\_search.cpp@{text\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{text__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{text__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00046\ \ \ \ \ std::string\ paragraph;}
+\DoxyCodeLine{00047\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Please\ enter\ your\ paragraph:\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ std::getline(std::cin,\ paragraph);}
+\DoxyCodeLine{00049\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nHello,\ your\ paragraph\ is:\(\backslash\)n\ "{}}\ <<\ paragraph\ <<\ \textcolor{stringliteral}{"{}!\(\backslash\)n"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nThe\ size\ of\ your\ paragraph\ =\ "{}}\ <<\ paragraph.size()}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ characters.\ \(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (paragraph.empty())\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nThe\ paragraph\ is\ empty"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00055\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ch\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ word;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Please\ enter\ the\ word\ you\ are\ searching\ for:\ "{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ word);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ignore\ case-\/sensitive?\ 1\ =\ Yes,\ 0\ =\ No"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ ch;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ ==\ 1)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ lowerCase\ =\ \mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}}(}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ paragraph);\ \ \textcolor{comment}{//\ convert\ std::string\ paragraph\ to\ lowercase}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ store\ it\ in\ std::string\ lowerCase}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ lowerCaseWord\ =}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}}(word);\ \ \textcolor{comment}{//\ convert\ std::string\ paragraph\ to\ lowercase}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ store\ it\ in\ std::string\ lowerCase}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hello,\ your\ word\ is\ "{}}\ <<\ word\ <<\ \textcolor{stringliteral}{"{}!\(\backslash\)n"{}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lowerCase.find(lowerCaseWord)\ ==\ std::string::npos)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ word\ <<\ \textcolor{stringliteral}{"{}\ does\ not\ exist\ in\ the\ sentence"{}}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ word\ "{}}\ <<\ word}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ is\ now\ found\ at\ location\ "{}}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ lowerCase.find(lowerCaseWord)\ <<\ std::endl}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hello,\ your\ word\ is\ "{}}\ <<\ word\ <<\ \textcolor{stringliteral}{"{}!\(\backslash\)n"{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (paragraph.find(word)\ ==\ std::string::npos)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ word\ <<\ \textcolor{stringliteral}{"{}\ does\ not\ exist\ in\ the\ sentence"{}}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ word\ "{}}\ <<\ word}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ is\ now\ found\ at\ location\ "{}}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ paragraph.find(word)\ <<\ std::endl}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPress\ Ctrl\ +\ C\ to\ exit\ the\ program.\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.get();}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{text__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{text\_search.cpp@{text\_search.cpp}!test@{test}}
+\index{test@{test}!text\_search.cpp@{text\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{text__search_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ assert(\mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}}(\textcolor{stringliteral}{"{}abcd"{}}).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(\textcolor{stringliteral}{"{}abcd"{}})\ ==\ 0);}
+\DoxyCodeLine{00036\ \ \ \ \ assert(\mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}}(\textcolor{stringliteral}{"{}abc"{}}).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(\textcolor{stringliteral}{"{}abcd"{}})\ ==\ -\/1);}
+\DoxyCodeLine{00037\ \ \ \ \ assert(\mbox{\hyperlink{text__search_8cpp_a3f8975d227cd0e58f298b380c5dac0d9}{lower}}(\textcolor{stringliteral}{"{}abcd"{}}).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(\textcolor{stringliteral}{"{}abc"{}})\ ==\ 1);}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}

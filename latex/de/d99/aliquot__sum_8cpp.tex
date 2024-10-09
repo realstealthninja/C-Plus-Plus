@@ -1,0 +1,94 @@
+\doxysection{math/aliquot\+\_\+sum.cpp File Reference}
+\hypertarget{aliquot__sum_8cpp}{}\label{aliquot__sum_8cpp}\index{math/aliquot\_sum.cpp@{math/aliquot\_sum.cpp}}
+
+
+Program to return the \href{https://en.wikipedia.org/wiki/Aliquot_sum}{\texttt{ Aliquot Sum}} of a number.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{namespacemath_ab37f3a7302a84179aae682c79d8390bf}{math\+::aliquot\+\_\+sum}} (const uint64\+\_\+t num)
+\begin{DoxyCompactList}\small\item\em to return the aliquot sum of a number \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{aliquot__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{aliquot__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Program to return the \href{https://en.wikipedia.org/wiki/Aliquot_sum}{\texttt{ Aliquot Sum}} of a number. 
+
+The Aliquot sum $s(n)$ of a non-\/negative integer n is the sum of all proper divisors of n, that is, all the divisors of n, other than itself.
+
+Formula\+:
+
+\[
+     s(n) = \sum_{d|n, d\neq n}d.
+\]
+
+For example; $s(18) = 1 + 2 + 3 + 6 + 9 = 21 $
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/SpiderMath}{\texttt{ Spider\+Math}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{aliquot__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{aliquot\_sum.cpp@{aliquot\_sum.cpp}!main@{main}}
+\index{main@{main}!aliquot\_sum.cpp@{aliquot\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{aliquot__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{aliquot__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ the\ self-\/test\ implementations}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{aliquot__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{aliquot\_sum.cpp@{aliquot\_sum.cpp}!test@{test}}
+\index{test@{test}!aliquot\_sum.cpp@{aliquot\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{aliquot__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Aliquot\ sum\ of\ 10\ is\ 1\ +\ 2\ +\ 5\ =\ 8}}
+\DoxyCodeLine{00058\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_ab37f3a7302a84179aae682c79d8390bf}{math::aliquot\_sum}}(10)\ ==\ 8);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Aliquot\ sum\ of\ 15\ is\ 1\ +\ 3\ +\ 5\ =\ 9}}
+\DoxyCodeLine{00060\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_ab37f3a7302a84179aae682c79d8390bf}{math::aliquot\_sum}}(15)\ ==\ 9);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Aliquot\ sum\ of\ 1\ is\ 0}}
+\DoxyCodeLine{00062\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_ab37f3a7302a84179aae682c79d8390bf}{math::aliquot\_sum}}(1)\ ==\ 0);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Aliquot\ sum\ of\ 97\ is\ 1\ (the\ aliquot\ sum\ of\ a\ prime\ number\ is\ 1)}}
+\DoxyCodeLine{00064\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_ab37f3a7302a84179aae682c79d8390bf}{math::aliquot\_sum}}(97)\ ==\ 1);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ the\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}

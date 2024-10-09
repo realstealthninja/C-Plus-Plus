@@ -1,0 +1,288 @@
+\doxysection{dynamic\+\_\+programming/longest\+\_\+common\+\_\+string.cpp File Reference}
+\hypertarget{longest__common__string_8cpp}{}\label{longest__common__string_8cpp}\index{dynamic\_programming/longest\_common\_string.cpp@{dynamic\_programming/longest\_common\_string.cpp}}
+
+
+contains the definition of the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_test_case}{Test\+Case}}
+\begin{DoxyCompactList}\small\item\em represents single example inputs and expected output of the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length}} (const std\+::string \&string\+\_\+a, const std\+::string \&string\+\_\+b)
+\begin{DoxyCompactList}\small\item\em computes the length of the longest common string created from input strings \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_test_case}{Test\+Case}} $>$ \mbox{\hyperlink{longest__common__string_8cpp_a967854a526bc15403d783a033155fc5c}{get\+\_\+test\+\_\+cases}} ()
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{class_test_cases}{Test\+Cases}} $>$ }\\static void \mbox{\hyperlink{longest__common__string_8cpp_a9b229daad982a186a4d8d90aa8f38561}{test\+\_\+longest\+\_\+common\+\_\+string\+\_\+length}} (const \mbox{\hyperlink{class_test_cases}{Test\+Cases}} \&test\+\_\+cases)
+\begin{DoxyCompactList}\small\item\em checks the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} agains example data \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{class_test_cases}{Test\+Cases}} $>$ }\\static void \mbox{\hyperlink{longest__common__string_8cpp_ad1e613c1b85cc04ed931b6c745fec155}{test\+\_\+longest\+\_\+common\+\_\+string\+\_\+length\+\_\+is\+\_\+symmetric}} (const \mbox{\hyperlink{class_test_cases}{Test\+Cases}} \&test\+\_\+cases)
+\begin{DoxyCompactList}\small\item\em checks if the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} returns the same result when its argument are flipped \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{longest__common__string_8cpp_acb03dbbcee6d607db471021168be8541}{reverse\+\_\+str}} (const std\+::string \&in\+\_\+str)
+\begin{DoxyCompactList}\small\item\em reverses a given string \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{class_test_cases}{Test\+Cases}} $>$ }\\static void \mbox{\hyperlink{longest__common__string_8cpp_a23ab67b0d9600697695fc8679462d8fe}{test\+\_\+longest\+\_\+common\+\_\+string\+\_\+length\+\_\+for\+\_\+reversed\+\_\+inputs}} (const \mbox{\hyperlink{class_test_cases}{Test\+Cases}} \&test\+\_\+cases)
+\begin{DoxyCompactList}\small\item\em checks if the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} returns the same result when its inputs are reversed \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{longest__common__string_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em runs all tests for \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} funcion \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{longest__common__string_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains the definition of the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} 
+
+the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} computes the length of the longest common string which can be created of two input strings by removing characters from them
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/nikhilarora068}{\texttt{ Nikhil Arora}} 
+
+\href{https://github.com/vil02}{\texttt{ Piotr Idzik}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{longest__common__string_8cpp_a967854a526bc15403d783a033155fc5c}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!get\_test\_cases@{get\_test\_cases}}
+\index{get\_test\_cases@{get\_test\_cases}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_test\_cases()}{get\_test\_cases()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_a967854a526bc15403d783a033155fc5c} 
+std\+::vector$<$ \mbox{\hyperlink{struct_test_case}{Test\+Case}} $>$ get\+\_\+test\+\_\+cases (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+example data used in the tests of \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}},\ 0),}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}ab"{}},\ \textcolor{stringliteral}{"{}ab"{}},\ 2),}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}ab"{}},\ \textcolor{stringliteral}{"{}ba"{}},\ 1),}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}xyz"{}},\ 0),}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}abcde"{}},\ \textcolor{stringliteral}{"{}ace"{}},\ 3),}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}BADANA"{}},\ \textcolor{stringliteral}{"{}ANADA"{}},\ 3),}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}BADANA"{}},\ \textcolor{stringliteral}{"{}CANADAS"{}},\ 3),}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}a1a234a5aaaa6"{}},\ \textcolor{stringliteral}{"{}A1AAAA234AAA56AAAAA"{}},\ 6),}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}123x"{}},\ \textcolor{stringliteral}{"{}123"{}},\ 3),}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}12x3x"{}},\ \textcolor{stringliteral}{"{}123"{}},\ 3),}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}1x2x3x"{}},\ \textcolor{stringliteral}{"{}123"{}},\ 3),}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}x1x2x3x"{}},\ \textcolor{stringliteral}{"{}123"{}},\ 3),}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}x12x3x"{}},\ \textcolor{stringliteral}{"{}123"{}},\ 3)\};}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!longest\_common\_string\_length@{longest\_common\_string\_length}}
+\index{longest\_common\_string\_length@{longest\_common\_string\_length}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{longest\_common\_string\_length()}{longest\_common\_string\_length()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5} 
+std\+::size\+\_\+t longest\+\_\+common\+\_\+string\+\_\+length (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{string\+\_\+a}{, }\item[{const std\+::string \&}]{string\+\_\+b}{}\end{DoxyParamCaption})}
+
+
+
+computes the length of the longest common string created from input strings 
+
+for assert for std\+::cout for std\+::string for std\+::move for std\+::vector
+
+has O(str\+\_\+a.\+size()\texorpdfstring{$\ast$}{*}str\+\_\+b.size()) time and memory complexity 
+\begin{DoxyParams}{Parameters}
+{\em string\+\_\+a} & first input string \\
+\hline
+{\em string\+\_\+b} & second input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the length of the longest common string which can be strated from str\+\_\+a and str\+\_\+b 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ size\_a\ =\ string\_a.size();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ size\_b\ =\ string\_b.size();}
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<std::vector<std::size\_t>>\ sub\_sols(}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ size\_a\ +\ 1,\ std::vector<std::size\_t>(size\_b\ +\ 1,\ 0));}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ limit\ =\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(-\/1);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ pos\_a\ =\ size\_a\ -\/\ 1;\ pos\_a\ !=\ limit;\ -\/-\/pos\_a)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ pos\_b\ =\ size\_b\ -\/\ 1;\ pos\_b\ !=\ limit;\ -\/-\/pos\_b)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (string\_a[pos\_a]\ ==\ string\_b[pos\_b])\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\_sols[pos\_a][pos\_b]\ =\ 1\ +\ sub\_sols[pos\_a\ +\ 1][pos\_b\ +\ 1];}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\_sols[pos\_a][pos\_b]\ =\ std::max(sub\_sols[pos\_a\ +\ 1][pos\_b],}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\_sols[pos\_a][pos\_b\ +\ 1]);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ sub\_sols[0][0];}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{longest__common__string_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!main@{main}}
+\index{main@{main}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \mbox{\hyperlink{longest__common__string_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+\Hypertarget{longest__common__string_8cpp_acb03dbbcee6d607db471021168be8541}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!reverse\_str@{reverse\_str}}
+\index{reverse\_str@{reverse\_str}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{reverse\_str()}{reverse\_str()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_acb03dbbcee6d607db471021168be8541} 
+std\+::string reverse\+\_\+str (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{in\+\_\+str}{}\end{DoxyParamCaption})}
+
+
+
+reverses a given string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+str} & input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string in which the characters appear in the reversed order as in in\+\_\+str 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ \{in\_str.rbegin(),\ in\_str.rend()\};}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}
+\Hypertarget{longest__common__string_8cpp_a9b229daad982a186a4d8d90aa8f38561}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!test\_longest\_common\_string\_length@{test\_longest\_common\_string\_length}}
+\index{test\_longest\_common\_string\_length@{test\_longest\_common\_string\_length}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_longest\_common\_string\_length()}{test\_longest\_common\_string\_length()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_a9b229daad982a186a4d8d90aa8f38561} 
+template$<$typename \mbox{\hyperlink{class_test_cases}{Test\+Cases}} $>$ \\
+static void test\+\_\+longest\+\_\+common\+\_\+string\+\_\+length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_test_cases}{Test\+Cases}} \&}]{test\+\_\+cases}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+checks the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} agains example data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em test\+\_\+cases} & list of test cases \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em type} & representing a list of test cases \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ cur\_tc\ :\ test\_cases)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\_common\_string\_length}}(cur\_tc.string\_a,\ cur\_tc.string\_b)\ ==}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_tc.common\_string\_len);}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\Hypertarget{longest__common__string_8cpp_a23ab67b0d9600697695fc8679462d8fe}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!test\_longest\_common\_string\_length\_for\_reversed\_inputs@{test\_longest\_common\_string\_length\_for\_reversed\_inputs}}
+\index{test\_longest\_common\_string\_length\_for\_reversed\_inputs@{test\_longest\_common\_string\_length\_for\_reversed\_inputs}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_longest\_common\_string\_length\_for\_reversed\_inputs()}{test\_longest\_common\_string\_length\_for\_reversed\_inputs()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_a23ab67b0d9600697695fc8679462d8fe} 
+template$<$typename \mbox{\hyperlink{class_test_cases}{Test\+Cases}} $>$ \\
+static void test\+\_\+longest\+\_\+common\+\_\+string\+\_\+length\+\_\+for\+\_\+reversed\+\_\+inputs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_test_cases}{Test\+Cases}} \&}]{test\+\_\+cases}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+checks if the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} returns the same result when its inputs are reversed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em test\+\_\+cases} & list of test cases \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em type} & representing a list of test cases \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ cur\_tc\ :\ test\_cases)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\_common\_string\_length}}(\mbox{\hyperlink{longest__common__string_8cpp_acb03dbbcee6d607db471021168be8541}{reverse\_str}}(cur\_tc.string\_a),}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{longest__common__string_8cpp_acb03dbbcee6d607db471021168be8541}{reverse\_str}}(cur\_tc.string\_b))\ ==}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_tc.common\_string\_len);}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}
+\Hypertarget{longest__common__string_8cpp_ad1e613c1b85cc04ed931b6c745fec155}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!test\_longest\_common\_string\_length\_is\_symmetric@{test\_longest\_common\_string\_length\_is\_symmetric}}
+\index{test\_longest\_common\_string\_length\_is\_symmetric@{test\_longest\_common\_string\_length\_is\_symmetric}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_longest\_common\_string\_length\_is\_symmetric()}{test\_longest\_common\_string\_length\_is\_symmetric()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_ad1e613c1b85cc04ed931b6c745fec155} 
+template$<$typename \mbox{\hyperlink{class_test_cases}{Test\+Cases}} $>$ \\
+static void test\+\_\+longest\+\_\+common\+\_\+string\+\_\+length\+\_\+is\+\_\+symmetric (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_test_cases}{Test\+Cases}} \&}]{test\+\_\+cases}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+checks if the function \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} returns the same result when its argument are flipped 
+
+
+\begin{DoxyParams}{Parameters}
+{\em test\+\_\+cases} & list of test cases \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em type} & representing a list of test cases \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ cur\_tc\ :\ test\_cases)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\_common\_string\_length}}(cur\_tc.string\_b,\ cur\_tc.string\_a)\ ==}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_tc.common\_string\_len);}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \}}
+
+\end{DoxyCode}
+\Hypertarget{longest__common__string_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{longest\_common\_string.cpp@{longest\_common\_string.cpp}!tests@{tests}}
+\index{tests@{tests}!longest\_common\_string.cpp@{longest\_common\_string.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{longest__common__string_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+runs all tests for \doxylink{longest__common__string_8cpp_aa38b6b17bc5d46ed88acdd8414e18fa5}{longest\+\_\+common\+\_\+string\+\_\+length} funcion 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ test\_cases\ =\ \mbox{\hyperlink{longest__common__string_8cpp_a967854a526bc15403d783a033155fc5c}{get\_test\_cases}}();}
+\DoxyCodeLine{00144\ \ \ \ \ assert(test\_cases.size()\ >\ 0);}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{longest__common__string_8cpp_a9b229daad982a186a4d8d90aa8f38561}{test\_longest\_common\_string\_length}}(test\_cases);}
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{longest__common__string_8cpp_ad1e613c1b85cc04ed931b6c745fec155}{test\_longest\_common\_string\_length\_is\_symmetric}}(test\_cases);}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{longest__common__string_8cpp_a23ab67b0d9600697695fc8679462d8fe}{test\_longest\_common\_string\_length\_for\_reversed\_inputs}}(test\_cases);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00150\ \}}
+
+\end{DoxyCode}

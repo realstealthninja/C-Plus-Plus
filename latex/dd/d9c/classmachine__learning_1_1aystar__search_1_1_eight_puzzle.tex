@@ -1,0 +1,533 @@
+\doxysection{machine\+\_\+learning\+::aystar\+\_\+search\+::Eight\+Puzzle\texorpdfstring{$<$}{<} N \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{}\label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+
+
+A class defining \href{https://en.wikipedia.org/wiki/15_puzzle}{\texttt{ Eight\+Puzzle/15-\/\+Puzzle game}}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa5c0486c7f29f323a2aced2ab33af420}{get}} (size\+\_\+t i, size\+\_\+t j) const
+\begin{DoxyCompactList}\small\item\em get the value from i units from right and j units from left side of the board \end{DoxyCompactList}\item 
+std\+::array$<$ std\+::array$<$ uint32\+\_\+t, N $>$, N $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ade14b0e1a88543b91426e2008e4d0f99}{get\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current state of the board. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ae145ac4a0d2ec58945b58fad3c04f00f}{get\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em returns the size of the \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle} (number of row / column) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a3dc09f4742a0e1167ed202f7bf94721b}{Eight\+Puzzle}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ab7fd890a7ccf756e4b3313087b76a8c2}{Eight\+Puzzle}} (const std\+::array$<$ std\+::array$<$ uint32\+\_\+t, N $>$, N $>$ \&init)
+\begin{DoxyCompactList}\small\item\em Parameterized Constructor for \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ad45fde095ac00effe1fe00b1d85ff9c7}{Eight\+Puzzle}} (const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&A)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_af22395b8e9e04222aa93a329523faef9}{Eight\+Puzzle}} (const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&\&A) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a194c2973b51a5467fc17064a4ea4e6f9}\label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a194c2973b51a5467fc17064a4ea4e6f9} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Eight\+Puzzle} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor of \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}} \& \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a467e722dc1fcc82bfb4cef55744e04e2}{operator=}} (const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}} \&A)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}} \& \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a1802cf6197a255055cb734d626abc101}{operator=}} (\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}} \&\&A) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a26a976171392d257ca0f814ed73e0658}{generate\+\_\+possible\+\_\+moves}} ()
+\begin{DoxyCompactList}\small\item\em Find all possible states after processing all possible moves, given the current state of the puzzle. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa17e0227321b109ed91e156ac1332915}{operator==}} (const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&check) const
+\begin{DoxyCompactList}\small\item\em check whether two boards are equal \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a64815f10cf9fb9fdb4cc92731ccf10ba}{operator$<$}} (const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&check) const
+\begin{DoxyCompactList}\small\item\em check whether one board is lexicographically smaller \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_af778034b2942ecac6df1e9ec8b5412ee}{operator$<$=}} (const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&check) const
+\begin{DoxyCompactList}\small\item\em check whether one board is lexicographically smaller or equal \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ uint32\+\_\+t, uint32\+\_\+t $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a94f794bf44f424b1b0ca6ef9f4f6ebd3}{find\+\_\+zero}} ()
+\begin{DoxyCompactList}\small\item\em A helper array to evaluate the next state from current state;. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a48d054230468b79037964f474d842b6e}{in\+\_\+range}} (const uint32\+\_\+t value) const
+\begin{DoxyCompactList}\small\item\em check whether the index value is bounded within the puzzle area \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a35d8f14ca17218f236c09ff9ad864f9c}\label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a35d8f14ca17218f236c09ff9ad864f9c} 
+std\+::array$<$ std\+::array$<$ uint32\+\_\+t, N $>$, N $>$ {\bfseries board}
+\item 
+std\+::vector$<$ std\+::pair$<$ int8\+\_\+t, int8\+\_\+t $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa73857052e69b86347859d9148933f71}{moves}}
+\begin{DoxyCompactList}\small\item\em N x N array to store the current state of the Puzzle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a9517e162e2988f7db052296bd550a742}{operator$<$$<$}} (std\+::ostream \&op, const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&Some\+State)
+\begin{DoxyCompactList}\small\item\em friend operator to display Eight\+Puzzle$<$$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$size\+\_\+t N = 3$>$\newline
+class machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle$<$ N $>$}
+A class defining \href{https://en.wikipedia.org/wiki/15_puzzle}{\texttt{ Eight\+Puzzle/15-\/\+Puzzle game}}. 
+
+A well known 3 x 3 puzzle of the form {\ttfamily  1 2 3 4 5 6 7 8 0 } where {\ttfamily 0} represents an empty space in the puzzle Given any random state, the goal is to achieve the above configuration (or any other configuration if possible) 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & size of the square Puzzle, default is set to 3 (since it is \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}) \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a3dc09f4742a0e1167ed202f7bf94721b}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!EightPuzzle@{EightPuzzle}}
+\index{EightPuzzle@{EightPuzzle}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{EightPuzzle()}{EightPuzzle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a3dc09f4742a0e1167ed202f7bf94721b} 
+template$<$size\+\_\+t N = 3$>$ \\
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::\+Eight\+Puzzle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor for \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++i)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++j)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ board[i][j]\ =\ ((i\ *\ 3\ +\ j\ +\ 1)\ \%\ (\mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ *\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}));}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ab7fd890a7ccf756e4b3313087b76a8c2}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!EightPuzzle@{EightPuzzle}}
+\index{EightPuzzle@{EightPuzzle}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{EightPuzzle()}{EightPuzzle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ab7fd890a7ccf756e4b3313087b76a8c2} 
+template$<$size\+\_\+t N = 3$>$ \\
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::\+Eight\+Puzzle (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ uint32\+\_\+t, N $>$, N $>$ \&}]{init}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Parameterized Constructor for \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init} & a 2-\/dimensional array denoting a puzzle configuration \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ :\ board(init)\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ad45fde095ac00effe1fe00b1d85ff9c7}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!EightPuzzle@{EightPuzzle}}
+\index{EightPuzzle@{EightPuzzle}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{EightPuzzle()}{EightPuzzle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ad45fde095ac00effe1fe00b1d85ff9c7} 
+template$<$size\+\_\+t N = 3$>$ \\
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::\+Eight\+Puzzle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & a reference of an \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ :\ board(A.board)\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_af22395b8e9e04222aa93a329523faef9}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!EightPuzzle@{EightPuzzle}}
+\index{EightPuzzle@{EightPuzzle}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{EightPuzzle()}{EightPuzzle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_af22395b8e9e04222aa93a329523faef9} 
+template$<$size\+\_\+t N = 3$>$ \\
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::\+Eight\+Puzzle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&\&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & a reference of an \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ :\ board(std::move(A.board))\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a94f794bf44f424b1b0ca6ef9f4f6ebd3}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!find\_zero@{find\_zero}}
+\index{find\_zero@{find\_zero}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{find\_zero()}{find\_zero()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a94f794bf44f424b1b0ca6ef9f4f6ebd3} 
+template$<$size\+\_\+t N = 3$>$ \\
+std\+::pair$<$ uint32\+\_\+t, uint32\+\_\+t $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::find\+\_\+zero (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+A helper array to evaluate the next state from current state;. 
+
+Finds an empty space in puzzle (in this case; a zero) \begin{DoxyReturn}{Returns}
+a pair indicating integer distances from top and right respectively, else returns -\/1, -\/1 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++i)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++j)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!board[i][j])\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{i,\ j\};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{-\/1,\ -\/1\};}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a26a976171392d257ca0f814ed73e0658}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!generate\_possible\_moves@{generate\_possible\_moves}}
+\index{generate\_possible\_moves@{generate\_possible\_moves}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{generate\_possible\_moves()}{generate\_possible\_moves()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a26a976171392d257ca0f814ed73e0658} 
+template$<$size\+\_\+t N = 3$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::generate\+\_\+possible\+\_\+moves (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find all possible states after processing all possible moves, given the current state of the puzzle. 
+
+\begin{DoxyReturn}{Returns}
+list of vector containing all possible next moves 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+the implementation is compulsory to create A\texorpdfstring{$\ast$}{*} search 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ zero\_pos\ =\ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a94f794bf44f424b1b0ca6ef9f4f6ebd3}{find\_zero}}();}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vector\ which\ will\ contain\ all\ possible\ state\ from\ current\ state}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ std::vector<EightPuzzle<N>>\ NewStates;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&move\ :\ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa73857052e69b86347859d9148933f71}{moves}})\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a48d054230468b79037964f474d842b6e}{in\_range}}(zero\_pos.first\ +\ move.first)\ \&\&}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a48d054230468b79037964f474d842b6e}{in\_range}}(zero\_pos.second\ +\ move.second))\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ swap\ with\ the\ possible\ moves}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<std::array<uint32\_t,\ N>,\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}>\ new\_config\ =\ board;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(new\_config[zero\_pos.first][zero\_pos.second],}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_config[zero\_pos.first\ +\ move.first]}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [zero\_pos.second\ +\ move.second]);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a3dc09f4742a0e1167ed202f7bf94721b}{EightPuzzle<N>}}\ new\_state(new\_config);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ new\ state\ and\ calculate\ heuristic\ value,\ and\ depth}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NewStates.emplace\_back(new\_state);}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NewStates;}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa5c0486c7f29f323a2aced2ab33af420}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!get@{get}}
+\index{get@{get}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa5c0486c7f29f323a2aced2ab33af420} 
+template$<$size\+\_\+t N = 3$>$ \\
+uint32\+\_\+t \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::get (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{, }\item[{size\+\_\+t}]{j}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the value from i units from right and j units from left side of the board 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & integer denoting ith row \\
+\hline
+{\em j} & integer denoting column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+non-\/negative integer denoting the value at ith row and jth column 
+
+-\/1 if invalid i or j position 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a48d054230468b79037964f474d842b6e}{in\_range}}(i)\ \&\&\ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a48d054230468b79037964f474d842b6e}{in\_range}}(j))\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ board[i][j];}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ae145ac4a0d2ec58945b58fad3c04f00f}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ae145ac4a0d2ec58945b58fad3c04f00f} 
+template$<$size\+\_\+t N = 3$>$ \\
+size\+\_\+t \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::get\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the size of the \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle} (number of row / column) 
+
+\begin{DoxyReturn}{Returns}
+N, the size of the puzzle. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ade14b0e1a88543b91426e2008e4d0f99}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!get\_state@{get\_state}}
+\index{get\_state@{get\_state}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{get\_state()}{get\_state()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_ade14b0e1a88543b91426e2008e4d0f99} 
+template$<$size\+\_\+t N = 3$>$ \\
+std\+::array$<$ std\+::array$<$ uint32\+\_\+t, N $>$, N $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::get\+\_\+state (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the current state of the board. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \{\ \textcolor{keywordflow}{return}\ board;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a48d054230468b79037964f474d842b6e}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!in\_range@{in\_range}}
+\index{in\_range@{in\_range}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{in\_range()}{in\_range()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a48d054230468b79037964f474d842b6e} 
+template$<$size\+\_\+t N = 3$>$ \\
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::in\+\_\+range (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{value}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+check whether the index value is bounded within the puzzle area 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & index for the current board \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if index is within the board, else {\ttfamily false} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{\ \textcolor{keywordflow}{return}\ value\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a64815f10cf9fb9fdb4cc92731ccf10ba}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a64815f10cf9fb9fdb4cc92731ccf10ba} 
+template$<$size\+\_\+t N = 3$>$ \\
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&}]{check}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check whether one board is lexicographically smaller 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this-\/\texorpdfstring{$>$}{>}state is lexicographically smaller than {\ttfamily check.\+state}, else {\ttfamily false} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++i)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++j)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[i][j]\ !=\ check.board[i][j])\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ board[i][j]\ <\ check.board[i][j];}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_af778034b2942ecac6df1e9ec8b5412ee}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_af778034b2942ecac6df1e9ec8b5412ee} 
+template$<$size\+\_\+t N = 3$>$ \\
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&}]{check}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check whether one board is lexicographically smaller or equal 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this-\/\texorpdfstring{$>$}{>}state is lexicographically smaller than {\ttfamily check.\+state} or same, else {\ttfamily false} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++i)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++j)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[i][j]\ !=\ check.board[i][j])\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ board[i][j]\ <\ check.board[i][j];}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a467e722dc1fcc82bfb4cef55744e04e2}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a467e722dc1fcc82bfb4cef55744e04e2} 
+template$<$size\+\_\+t N = 3$>$ \\
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}} \& \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & a reference of an \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ board\ =\ A.board;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a1802cf6197a255055cb734d626abc101}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a1802cf6197a255055cb734d626abc101} 
+template$<$size\+\_\+t N = 3$>$ \\
+\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}} \& \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&\&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & a reference of an \doxylink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ board\ =\ std::move(A.board);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa17e0227321b109ed91e156ac1332915}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa17e0227321b109ed91e156ac1332915} 
+template$<$size\+\_\+t N = 3$>$ \\
+bool \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&}]{check}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check whether two boards are equal 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if check.\+state is equal to {\ttfamily this-\/\texorpdfstring{$>$}{>}state}, else {\ttfamily false} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (check.get\_size()\ !=\ N)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++i)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++j)\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[i][j]\ !=\ check.board[i][j])\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a9517e162e2988f7db052296bd550a742}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_a9517e162e2988f7db052296bd550a742} 
+template$<$size\+\_\+t N = 3$>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{op}{, }\item[{const \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{Eight\+Puzzle}}$<$ N $>$ \&}]{Some\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+friend operator to display Eight\+Puzzle$<$$>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & ostream object \\
+\hline
+{\em Some\+State} & a certain state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ostream operator op 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++i)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ ++j)\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ op\ <<\ SomeState.board[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ op\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ op;}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa73857052e69b86347859d9148933f71}\index{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}!moves@{moves}}
+\index{moves@{moves}!machine\_learning::aystar\_search::EightPuzzle$<$ N $>$@{machine\_learning::aystar\_search::EightPuzzle$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{moves}{moves}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1aystar__search_1_1_eight_puzzle_aa73857052e69b86347859d9148933f71} 
+template$<$size\+\_\+t N = 3$>$ \\
+std\+::vector$<$std\+::pair$<$int8\+\_\+t, int8\+\_\+t$>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1aystar__search_1_1_eight_puzzle}{machine\+\_\+learning\+::aystar\+\_\+search\+::\+Eight\+Puzzle}}$<$ N $>$\+::moves\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0,\ 1\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{1,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0,\ -\/1\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{-\/1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 0\}\}}
+
+\end{DoxyCode}
+
+
+N x N array to store the current state of the Puzzle. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{0,\ 1\},}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \{1,\ 0\},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \{0,\ -\/1\},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{-\/1,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ 0\}\};\ \ \textcolor{comment}{///\ A\ helper\ array\ to\ evaluate\ the\ next\ state\ from\ current\ state;}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+machine\+\_\+learning/a\+\_\+star\+\_\+search.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,53 @@
+\doxysection{data\+\_\+structures\+::Node Struct Reference}
+\hypertarget{structdata__structures_1_1_node}{}\label{structdata__structures_1_1_node}\index{data\_structures::Node@{data\_structures::Node}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structdata__structures_1_1_node_a54a6777e72b639c3ee6446a541db8e78}{Node}} (int \mbox{\hyperlink{structdata__structures_1_1_node_ac75aa86a598357c5c882ec6a1174aa68}{key}}, int level, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structdata__structures_1_1_node_a6b973b0bded99b0c0bd84e887bf8c731}{value}}=nullptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structdata__structures_1_1_node_ac75aa86a598357c5c882ec6a1174aa68}\label{structdata__structures_1_1_node_ac75aa86a598357c5c882ec6a1174aa68} 
+int {\bfseries key}
+\begin{DoxyCompactList}\small\item\em key integer \end{DoxyCompactList}\item 
+\Hypertarget{structdata__structures_1_1_node_a6b973b0bded99b0c0bd84e887bf8c731}\label{structdata__structures_1_1_node_a6b973b0bded99b0c0bd84e887bf8c731} 
+void \texorpdfstring{$\ast$}{*} {\bfseries value}
+\begin{DoxyCompactList}\small\item\em pointer of value \end{DoxyCompactList}\item 
+\Hypertarget{structdata__structures_1_1_node_ac916d833aad2b9c41f01a92db2f8c48e}\label{structdata__structures_1_1_node_ac916d833aad2b9c41f01a92db2f8c48e} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structdata__structures_1_1_node}{Node}} $>$ $>$ {\bfseries forward}
+\begin{DoxyCompactList}\small\item\em nodes of the given one in all levels \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{structdata__structures_1_1_node}{Node} structure \mbox{[}Key\mbox{]}\mbox{[}Node\texorpdfstring{$\ast$}{*}, Node\texorpdfstring{$\ast$}{*}...\mbox{]} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structdata__structures_1_1_node_a54a6777e72b639c3ee6446a541db8e78}\index{data\_structures::Node@{data\_structures::Node}!Node@{Node}}
+\index{Node@{Node}!data\_structures::Node@{data\_structures::Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily \label{structdata__structures_1_1_node_a54a6777e72b639c3ee6446a541db8e78} 
+data\+\_\+structures\+::\+Node\+::\+Node (\begin{DoxyParamCaption}\item[{int}]{key}{, }\item[{int}]{level}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{value}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates node with provided key, level and value 
+\begin{DoxyParams}{Parameters}
+{\em key} & is number that is used for comparision \\
+\hline
+{\em level} & is the maximum level node\textquotesingle{}s going to added \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structdata__structures_1_1_node_ac75aa86a598357c5c882ec6a1174aa68}{key}}(\mbox{\hyperlink{structdata__structures_1_1_node_ac75aa86a598357c5c882ec6a1174aa68}{key}}),\ \mbox{\hyperlink{structdata__structures_1_1_node_a6b973b0bded99b0c0bd84e887bf8c731}{value}}(\mbox{\hyperlink{structdata__structures_1_1_node_a6b973b0bded99b0c0bd84e887bf8c731}{value}})\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialization\ of\ forward\ vector}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (level\ +\ 1);\ i++)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1_node_ac916d833aad2b9c41f01a92db2f8c48e}{forward}}.push\_back(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{skip__list_8cpp}{skip\+\_\+list.\+cpp}}\end{DoxyCompactItemize}

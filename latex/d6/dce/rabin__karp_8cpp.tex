@@ -1,0 +1,60 @@
+\doxysection{strings/rabin\+\_\+karp.cpp File Reference}
+\hypertarget{rabin__karp_8cpp}{}\label{rabin__karp_8cpp}\index{strings/rabin\_karp.cpp@{strings/rabin\_karp.cpp}}
+
+
+The \href{https://en.wikipedia.org/wiki/Rabin\%E2\%80\%93Karp_algorithm}{\texttt{ Rabin-\/\+Karp Algorithm}} for finding a pattern within a piece of text with complexity O(n + m)  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestring__search}{string\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em String search algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{rabin__karp_8cpp_ac4add2a227a10511e0128d63952030e8}\label{rabin__karp_8cpp_ac4add2a227a10511e0128d63952030e8} 
+\#define {\bfseries PRIME}~5
+\begin{DoxyCompactList}\small\item\em Prime modulus for hash functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int64\+\_\+t \mbox{\hyperlink{namespacestring__search_a8fb0bc932ba8b582c9f4c71338d050f8}{string\+\_\+search\+::create\+\_\+hash}} (const std\+::string \&s, int n)
+\item 
+int64\+\_\+t \mbox{\hyperlink{namespacestring__search_aed769d565b705a9b3e0eb1ec74088893}{string\+\_\+search\+::recalculate\+\_\+hash}} (const std\+::string \&s, int old\+\_\+index, int new\+\_\+index, int64\+\_\+t old\+\_\+hash, int pat\+Length)
+\item 
+bool \mbox{\hyperlink{namespacestring__search_aebe07cea289a13142503d98be7df11fd}{string\+\_\+search\+::check\+\_\+if\+\_\+equal}} (const std\+::string \&str1, const std\+::string \&str2, int start1, int end1, int start2, int end2)
+\item 
+int \mbox{\hyperlink{namespacestring__search_a21c673d56cbf67b1d2ee4d869185b7d9}{string\+\_\+search\+::rabin\+\_\+karp}} (const std\+::string \&str, const std\+::string \&pat)
+\item 
+int \mbox{\hyperlink{rabin__karp_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \href{https://en.wikipedia.org/wiki/Rabin\%E2\%80\%93Karp_algorithm}{\texttt{ Rabin-\/\+Karp Algorithm}} for finding a pattern within a piece of text with complexity O(n + m) 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rabin__karp_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\index{rabin\_karp.cpp@{rabin\_karp.cpp}!main@{main}}
+\index{main@{main}!rabin\_karp.cpp@{rabin\_karp.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{rabin__karp_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ assert(rabin\_karp(\textcolor{stringliteral}{"{}helloWorld"{}},\ \textcolor{stringliteral}{"{}world"{}})\ ==\ -\/1);}
+\DoxyCodeLine{00107\ \ \ \ \ assert(rabin\_karp(\textcolor{stringliteral}{"{}helloWorld"{}},\ \textcolor{stringliteral}{"{}World"{}})\ ==\ 5);}
+\DoxyCodeLine{00108\ \ \ \ \ assert(rabin\_karp(\textcolor{stringliteral}{"{}this\_is\_c++"{}},\ \textcolor{stringliteral}{"{}c++"{}})\ ==\ 8);}
+\DoxyCodeLine{00109\ \ \ \ \ assert(rabin\_karp(\textcolor{stringliteral}{"{}happy\_coding"{}},\ \textcolor{stringliteral}{"{}happy"{}})\ ==\ 0);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00111\ \}}
+
+\end{DoxyCode}

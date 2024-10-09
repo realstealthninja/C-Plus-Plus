@@ -1,0 +1,237 @@
+\doxysection{Cycle\+Check Class Reference}
+\hypertarget{class_cycle_check}{}\label{class_cycle_check}\index{CycleCheck@{CycleCheck}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_cycle_check_ad9a270ffba3a68539b92272c702e3474}{is\+Cyclic\+DFS}} (\mbox{\hyperlink{class_graph}{Graph}} const \&graph)
+\item 
+static bool \mbox{\hyperlink{class_cycle_check_a399292a33edf87499daa52b51315aca5}{is\+Cyclic\+BFS}} (\mbox{\hyperlink{class_graph}{Graph}} const \&graph)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries node\+States} \+: uint8\+\_\+t \{ {\bfseries not\+\_\+visited} = 0
+, {\bfseries in\+\_\+stack}
+, {\bfseries visited}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_cycle_check_a2f4485c08b45e7a21a2e86f9c3f01d8b}{is\+Cyclic\+DFSHelper}} (Adj\+List const \&adj\+List, std\+::vector$<$ node\+States $>$ \texorpdfstring{$\ast$}{*}state, unsigned int \mbox{\hyperlink{structnode}{node}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Check if a directed graph has a cycle or not.
+
+This class provides 2 methods to check for cycle in a directed graph\+: is\+Cyclic\+DFS \& is\+Cyclic\+BFS.
+
+
+\begin{DoxyItemize}
+\item is\+Cyclic\+DFS uses DFS traversal method to check for cycle in a graph.
+\item is\+Cyclid\+BFS used BFS traversal method to check for cycle in a graph. 
+\end{DoxyItemize}
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_cycle_check_ae68a1f08ee8c0b6323ab0f281862eadf}\index{CycleCheck@{CycleCheck}!nodeStates@{nodeStates}}
+\index{nodeStates@{nodeStates}!CycleCheck@{CycleCheck}}
+\doxysubsubsection{\texorpdfstring{nodeStates}{nodeStates}}
+{\footnotesize\ttfamily \label{class_cycle_check_ae68a1f08ee8c0b6323ab0f281862eadf} 
+enum Cycle\+Check\+::node\+States \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ :\ uint8\_t\ \{\ not\_visited\ =\ 0,\ in\_stack,\ visited\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cycle_check_a399292a33edf87499daa52b51315aca5}\index{CycleCheck@{CycleCheck}!isCyclicBFS@{isCyclicBFS}}
+\index{isCyclicBFS@{isCyclicBFS}!CycleCheck@{CycleCheck}}
+\doxysubsubsection{\texorpdfstring{isCyclicBFS()}{isCyclicBFS()}}
+{\footnotesize\ttfamily \label{class_cycle_check_a399292a33edf87499daa52b51315aca5} 
+static bool Cycle\+Check\+::is\+Cyclic\+BFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} const \&}]{graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Check if a graph has cycle or not.
+
+This function uses BFS to check if a graph is cyclic or not.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & which needs to be evaluated for the presence of cycle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a cycle is detected, else false. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ graphAjdList\ =\ \mbox{\hyperlink{namespacegraph}{graph}}.getAdjList();}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ vertices\ =\ \mbox{\hyperlink{namespacegraph}{graph}}.getVertices();}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ indegree(vertices,\ 0);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ indegree\ i.e.\ the\ number\ of\ incident\ edges\ to\ the\ node.}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{structlist}{list}}\ :\ graphAjdList)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ children\ =\ \mbox{\hyperlink{structlist}{list}}.second;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ child\ :\ children)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indegree[child]++;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ std::queue<unsigned\ int>\ can\_be\_solved;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structnode}{node}}\ =\ 0;\ \mbox{\hyperlink{structnode}{node}}\ <\ vertices;\ \mbox{\hyperlink{structnode}{node}}++)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ a\ node\ doesn't\ have\ any\ input\ edges,\ then\ that\ node\ will}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ definately\ not\ result\ in\ a\ cycle\ and\ can\ be\ visited\ safely.}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!indegree[\mbox{\hyperlink{structnode}{node}}])\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ can\_be\_solved.emplace(\mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vertices\ that\ need\ to\ be\ traversed.}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ remain\ =\ vertices;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ While\ there\ are\ safe\ nodes\ that\ we\ can\ visit.}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!can\_be\_solved.empty())\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ solved\ =\ can\_be\_solved.front();}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Visit\ the\ node.}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ can\_be\_solved.pop();}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Decrease\ number\ of\ nodes\ that\ need\ to\ be\ traversed.}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ remain-\/-\/;}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Visit\ all\ the\ children\ of\ the\ visited\ node.}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ graphAjdList.find(solved);}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ graphAjdList.end())\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ child\ :\ it-\/>second)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ we\ can\ visited\ the\ node\ safely.}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/-\/indegree[child]\ ==\ 0)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ node\ can\ be\ visited\ safely,\ then\ add\ that\ node\ to}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ visit\ queue.}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ can\_be\_solved.emplace(child);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ there\ are\ still\ nodes\ that\ we\ can't\ visit,\ then\ it\ means\ that}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there\ is\ a\ cycle\ and\ return\ true,\ else\ return\ false.}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(remain\ ==\ 0);}
+\DoxyCodeLine{00298\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_cycle_check_ad9a270ffba3a68539b92272c702e3474}\index{CycleCheck@{CycleCheck}!isCyclicDFS@{isCyclicDFS}}
+\index{isCyclicDFS@{isCyclicDFS}!CycleCheck@{CycleCheck}}
+\doxysubsubsection{\texorpdfstring{isCyclicDFS()}{isCyclicDFS()}}
+{\footnotesize\ttfamily \label{class_cycle_check_ad9a270ffba3a68539b92272c702e3474} 
+static bool Cycle\+Check\+::is\+Cyclic\+DFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} const \&}]{graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Driver function to check if a graph has a cycle.
+
+This function uses DFS to check for cycle in the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & which needs to be evaluated for the presence of cycle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a cycle is detected, else false. 
+\end{DoxyReturn}
+State of the node.
+
+It is a vector of "{}node\+States"{} which represents the state node is in. It can take only 3 values\+: "{}not\+\_\+visited"{}, "{}in\+\_\+stack"{}, and "{}visited"{}.
+
+Initially, all nodes are in "{}not\+\_\+visited"{} state.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ vertices\ =\ \mbox{\hyperlink{namespacegraph}{graph}}.getVertices();}
+\DoxyCodeLine{00214\ \textcolor{comment}{}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**\ State\ of\ the\ node.}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ It\ is\ a\ vector\ of\ "{}nodeStates"{}\ which\ represents\ the\ state\ node\ is\ in.}}
+\DoxyCodeLine{00218\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ It\ can\ take\ only\ 3\ values:\ "{}not\_visited"{},\ "{}in\_stack"{},\ and\ "{}visited"{}.}}
+\DoxyCodeLine{00219\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Initially,\ all\ nodes\ are\ in\ "{}not\_visited"{}\ state.}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ std::vector<nodeStates>\ state(vertices,\ not\_visited);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ visiting\ each\ node.}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structnode}{node}}\ =\ 0;\ \mbox{\hyperlink{structnode}{node}}\ <\ vertices;\ \mbox{\hyperlink{structnode}{node}}++)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ a\ node\ is\ not\ visited,\ only\ then\ check\ for\ presence\ of\ cycle.}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ There\ is\ no\ need\ to\ check\ for\ presence\ of\ cycle\ for\ a\ visited}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ node\ as\ it\ has\ already\ been\ checked\ for\ presence\ of\ cycle.}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state[\mbox{\hyperlink{structnode}{node}}]\ ==\ not\_visited)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ for\ cycle.}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_cycle_check_a2f4485c08b45e7a21a2e86f9c3f01d8b}{isCyclicDFSHelper}}(\mbox{\hyperlink{namespacegraph}{graph}}.getAdjList(),\ \&state,\ \mbox{\hyperlink{structnode}{node}}))\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ All\ nodes\ have\ been\ safely\ traversed,\ that\ means\ there\ is\ no\ cycle\ in}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ graph.\ Return\ false.}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_cycle_check_a2f4485c08b45e7a21a2e86f9c3f01d8b}\index{CycleCheck@{CycleCheck}!isCyclicDFSHelper@{isCyclicDFSHelper}}
+\index{isCyclicDFSHelper@{isCyclicDFSHelper}!CycleCheck@{CycleCheck}}
+\doxysubsubsection{\texorpdfstring{isCyclicDFSHelper()}{isCyclicDFSHelper()}}
+{\footnotesize\ttfamily \label{class_cycle_check_a2f4485c08b45e7a21a2e86f9c3f01d8b} 
+static bool Cycle\+Check\+::is\+Cyclic\+DFSHelper (\begin{DoxyParamCaption}\item[{Adj\+List const \&}]{adj\+List}{, }\item[{std\+::vector$<$ node\+States $>$ \texorpdfstring{$\ast$}{*}}]{state}{, }\item[{unsigned int}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Helper function of "{}is\+Cyclic\+DFS"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj\+List} & is the adjacency list representation of some graph. \\
+\hline
+{\em state} & is the state of the nodes of the graph. \\
+\hline
+{\em node} & is the node being evaluated.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if graph has a cycle, else false. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ node\ "{}in\_stack"{}\ state.}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ (*state)[\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}}]\ =\ in\_stack;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ node\ has\ children,\ then\ recursively\ visit\ all\ children\ of\ the}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ node.}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ it\ =\ adjList.find(\mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ adjList.end())\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ child\ :\ it-\/>second)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ state\ of\ child\ node\ is\ "{}not\_visited"{},\ evaluate\ that\ child}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ presence\ of\ cycle.}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ state\_of\_child\ =\ (*state)[child];}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state\_of\_child\ ==\ not\_visited)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_cycle_check_a2f4485c08b45e7a21a2e86f9c3f01d8b}{isCyclicDFSHelper}}(adjList,\ state,\ child))\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\_of\_child\ ==\ in\_stack)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ child\ node\ was\ "{}in\_stack"{},\ then\ that\ means\ that\ there}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ a\ cycle\ in\ the\ graph.\ Return\ true\ for\ presence\ of\ the}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cycle.}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Current\ node\ has\ been\ evaluated\ for\ the\ presence\ of\ cycle\ and\ had\ no}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cycle.\ Mark\ current\ node\ as\ "{}visited"{}.}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ (*state)[\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}}]\ =\ visited;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Return\ that\ current\ node\ didn't\ result\ in\ any\ cycles.}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/cycle\+\_\+check\+\_\+directed\+\_\+graph.\+cpp\end{DoxyCompactItemize}

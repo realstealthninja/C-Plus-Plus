@@ -1,0 +1,182 @@
+\doxysection{sorting/radix\+\_\+sort2.cpp File Reference}
+\hypertarget{radix__sort2_8cpp}{}\label{radix__sort2_8cpp}\index{sorting/radix\_sort2.cpp@{sorting/radix\_sort2.cpp}}
+
+
+Algorithm of \href{https://en.wikipedia.org/wiki/Radix_sort}{\texttt{ Radix sort}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceradix__sort}{radix\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Radix_sort}{\texttt{ Radix sort}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{radix__sort2_8cpp_a98ead7d43b11505398daf9a894f122f9}{sorting\+::radix\+\_\+sort\+::step\+\_\+ith}} (uint16\+\_\+t cur\+\_\+digit, const std\+::vector$<$ uint64\+\_\+t $>$ \&ar)
+\begin{DoxyCompactList}\small\item\em Function to sort vector according to current digit using stable sorting. \end{DoxyCompactList}\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{radix__sort2_8cpp_ae0cfd94fa3765b53d4ec7893ffaee5f8}{sorting\+::radix\+\_\+sort\+::radix}} (const std\+::vector$<$ uint64\+\_\+t $>$ \&ar)
+\begin{DoxyCompactList}\small\item\em Function to sort vector digit by digit. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{radix__sort2_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the above algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{radix__sort2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithm of \href{https://en.wikipedia.org/wiki/Radix_sort}{\texttt{ Radix sort}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Suyashjaiswal}{\texttt{ Suyash Jaiswal}}
+\end{DoxyAuthor}
+Sort the vector of unsigned integers using radix sort i.\+e. sorting digit by digit using \href{https://en.wikipedia.org/wiki/Counting_sort}{\texttt{ Counting Sort}} as subroutine. Running time of radix sort is O(d\texorpdfstring{$\ast$}{*}(n+b)) where b is the base for representing numbers and d in the max digits in input integers and n is number of unsigned integers. consider example for n = 5, aray elements = 432,234,143,332,123 sorting digit by digit sorting according to 1) 1st digit place =\texorpdfstring{$>$}{>} 432, 332, 143, 123, 234
+
+2) 2nd digit place =\texorpdfstring{$>$}{>} 123, 432, 332, 234, 143
+
+3) 3rd digit place =\texorpdfstring{$>$}{>} 123, 143, 234, 332, 432
+
+using count sort at each step, which is stable. stable =\texorpdfstring{$>$}{>} already sorted according to previous digits. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{radix__sort2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{radix\_sort2.cpp@{radix\_sort2.cpp}!main@{main}}
+\index{main@{main}!radix\_sort2.cpp@{radix\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{radix__sort2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{radix__sort2_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00120\ \}}
+
+\end{DoxyCode}
+\Hypertarget{radix__sort2_8cpp_ae0cfd94fa3765b53d4ec7893ffaee5f8}\index{radix\_sort2.cpp@{radix\_sort2.cpp}!radix@{radix}}
+\index{radix@{radix}!radix\_sort2.cpp@{radix\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{radix()}{radix()}}
+{\footnotesize\ttfamily \label{radix__sort2_8cpp_ae0cfd94fa3765b53d4ec7893ffaee5f8} 
+std\+::vector$<$ uint64\+\_\+t $>$ sorting\+::radix\+\_\+sort\+::radix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint64\+\_\+t $>$ \&}]{ar}{}\end{DoxyParamCaption})}
+
+
+
+Function to sort vector digit by digit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ar} & -\/ vector to be sorted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sorted vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ uint64\_t\ max\_ele\ =}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ *max\_element(ar.begin(),\ ar.end());\ \ \textcolor{comment}{//\ returns\ the\ max\ element.}}
+\DoxyCodeLine{00083\ \ \ \ \ std::vector<uint64\_t>\ temp\ =\ ar;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ max\_ele\ /\ i\ >\ 0;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ i\ *=\ 10)\ \{\ \ \textcolor{comment}{//\ loop\ breaks\ when\ i\ >\ max\_ele\ because\ no\ further\ digits}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ left\ to\ makes\ changes\ in\ aray.}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ temp\ =\ \mbox{\hyperlink{radix__sort2_8cpp_a98ead7d43b11505398daf9a894f122f9}{step\_ith}}(i,\ temp);}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ :\ temp)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00094\ \}}
+
+\end{DoxyCode}
+\Hypertarget{radix__sort2_8cpp_a98ead7d43b11505398daf9a894f122f9}\index{radix\_sort2.cpp@{radix\_sort2.cpp}!step\_ith@{step\_ith}}
+\index{step\_ith@{step\_ith}!radix\_sort2.cpp@{radix\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{step\_ith()}{step\_ith()}}
+{\footnotesize\ttfamily \label{radix__sort2_8cpp_a98ead7d43b11505398daf9a894f122f9} 
+std\+::vector$<$ uint64\+\_\+t $>$ sorting\+::radix\+\_\+sort\+::step\+\_\+ith (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{cur\+\_\+digit}{, }\item[{const std\+::vector$<$ uint64\+\_\+t $>$ \&}]{ar}{}\end{DoxyParamCaption})}
+
+
+
+Function to sort vector according to current digit using stable sorting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cur\+\_\+digit} & -\/ sort according to the cur\+\_\+digit \\
+\hline
+{\em ar} & -\/ vector to be sorted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector sorted till ith digit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ sorting\ according\ to\ current\ digit.}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ ar.size();}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<uint32\_t>\ position(10,\ 0);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ position[(ar[i]\ /\ cur\_digit)\ \%}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10]++;\ \ \textcolor{comment}{//\ counting\ frequency\ of\ 0-\/9\ at\ cur\_digit.}}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ cur\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 10;\ ++i)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ position[i];}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ position[i]\ =\ cur;\ \ \textcolor{comment}{//\ assingning\ starting\ position\ of\ 0-\/9.}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ cur\ +=\ a;}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ std::vector<uint64\_t>\ temp(n);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ temp[position[(ar[i]\ /\ cur\_digit)\ \%\ 10]]\ =}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ ar[i];\ \ \textcolor{comment}{//\ storing\ ar[i]\ in\ ar[i]'s\ cur\_digit\ expected\ position\ of}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ step.}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ position[(ar[i]\ /\ cur\_digit)\ \%}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10]++;\ \ \textcolor{comment}{//\ incrementing\ ar[i]'s\ cur\_digit\ position\ by\ 1,\ as}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ current\ place\ used\ by\ ar[i].}}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{radix__sort2_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{radix\_sort2.cpp@{radix\_sort2.cpp}!tests@{tests}}
+\index{tests@{tests}!radix\_sort2.cpp@{radix\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{radix__sort2_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the above algorithm. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Test 1
+
+Test 2
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ \ \ \ ///\ Test\ 1}}
+\DoxyCodeLine{00104\ \textcolor{comment}{}\ \ \ \ std::vector<uint64\_t>\ ar1\ =\ \{432,\ 234,\ 143,\ 332,\ 123\};}
+\DoxyCodeLine{00105\ \ \ \ \ ar1\ =\ \mbox{\hyperlink{radix__sort2_8cpp_ae0cfd94fa3765b53d4ec7893ffaee5f8}{sorting::radix\_sort::radix}}(ar1);}
+\DoxyCodeLine{00106\ \ \ \ \ assert(std::is\_sorted(ar1.begin(),\ ar1.end()));\textcolor{comment}{}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ \ \ ///\ Test\ 2}}
+\DoxyCodeLine{00108\ \textcolor{comment}{}\ \ \ \ std::vector<uint64\_t>\ ar2\ =\ \{213,\ 3214,\ 123,\ 111,\ 112,\ 142,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 133,\ 132,\ \ 32,\ \ 12,\ \ 113\};}
+\DoxyCodeLine{00110\ \ \ \ \ ar2\ =\ \mbox{\hyperlink{radix__sort2_8cpp_ae0cfd94fa3765b53d4ec7893ffaee5f8}{sorting::radix\_sort::radix}}(ar2);}
+\DoxyCodeLine{00111\ \ \ \ \ assert(std::is\_sorted(ar2.begin(),\ ar2.end()));}
+\DoxyCodeLine{00112\ \}}
+
+\end{DoxyCode}

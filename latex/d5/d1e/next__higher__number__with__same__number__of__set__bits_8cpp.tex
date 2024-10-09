@@ -1,0 +1,94 @@
+\doxysection{bit\+\_\+manipulation/next\+\_\+higher\+\_\+number\+\_\+with\+\_\+same\+\_\+number\+\_\+of\+\_\+set\+\_\+bits.cpp File Reference}
+\hypertarget{next__higher__number__with__same__number__of__set__bits_8cpp}{}\label{next__higher__number__with__same__number__of__set__bits_8cpp}\index{bit\_manipulation/next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp@{bit\_manipulation/next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp}}
+
+
+\mbox{[}Next higher number with same number of set bits\mbox{]} (\href{https://www.geeksforgeeks.org/next-higher-number-with-same-number-of-set-bits/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/next-\/higher-\/number-\/with-\/same-\/number-\/of-\/set-\/bits/}}) implementation  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebit__manipulation}{bit\+\_\+manipulation}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\+\_\+manipulation\+::next\+\_\+higher\+\_\+number}} (uint64\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em The main function implements checking the next number. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{next__higher__number__with__same__number__of__set__bits_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{next__higher__number__with__same__number__of__set__bits_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}Next higher number with same number of set bits\mbox{]} (\href{https://www.geeksforgeeks.org/next-higher-number-with-same-number-of-set-bits/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/next-\/higher-\/number-\/with-\/same-\/number-\/of-\/set-\/bits/}}) implementation 
+
+Given a number x, find next number with same number of 1 bits in it’s binary representation. For example, consider x = 12, whose binary representation is 1100 (excluding leading zeros on 32 bit machine). It contains two logic 1 bits. The next higher number with two logic 1 bits is 17 (100012).
+
+A binary number consists of two digits. They are 0 \& 1. Digit 1 is known as set bit in computer terms. \begin{DoxyAuthor}{Author}
+\href{https://github.com/Kunal766}{\texttt{ Kunal Nayak}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{next__higher__number__with__same__number__of__set__bits_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp@{next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp}!main@{main}}
+\index{main@{main}!next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp@{next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{next__higher__number__with__same__number__of__set__bits_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{next__higher__number__with__same__number__of__set__bits_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+\Hypertarget{next__higher__number__with__same__number__of__set__bits_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp@{next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp}!test@{test}}
+\index{test@{test}!next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp@{next\_higher\_number\_with\_same\_number\_of\_set\_bits.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{next__higher__number__with__same__number__of__set__bits_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ x\ =\ 4\ return\ 8}}
+\DoxyCodeLine{00075\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(4)\ ==\ 8);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ x\ =\ 6\ return\ 9}}
+\DoxyCodeLine{00077\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(6)\ ==\ 9);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ x\ =\ 13\ return\ 14}}
+\DoxyCodeLine{00079\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(13)\ ==\ 14);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ x\ =\ 64\ return\ 128}}
+\DoxyCodeLine{00081\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(64)\ ==\ 128);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ x\ =\ 15\ return\ 23}}
+\DoxyCodeLine{00083\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(15)\ ==\ 23);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ x=\ 32\ return\ 64}}
+\DoxyCodeLine{00085\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(32)\ ==\ 64);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ x\ =\ 97\ return\ 98}}
+\DoxyCodeLine{00087\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(97)\ ==\ 98);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ x\ =\ 1024\ return\ 2048}}
+\DoxyCodeLine{00089\ \ \ \ \ assert(\mbox{\hyperlink{namespacebit__manipulation_a4b76571a2a04fa99c30a96eca9997f0e}{bit\_manipulation::next\_higher\_number}}(1024)\ ==\ 2048);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ test\ cases\ have\ successfully\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}

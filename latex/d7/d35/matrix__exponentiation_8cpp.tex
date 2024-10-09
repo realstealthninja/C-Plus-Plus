@@ -1,0 +1,259 @@
+\doxysection{others/matrix\+\_\+exponentiation.cpp File Reference}
+\hypertarget{matrix__exponentiation_8cpp}{}\label{matrix__exponentiation_8cpp}\index{others/matrix\_exponentiation.cpp@{others/matrix\_exponentiation.cpp}}
+
+
+Matrix Exponentiation.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}}~int64\+\_\+t
+\item 
+\#define \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}}~std\+::endl
+\item 
+\#define \mbox{\hyperlink{matrix__exponentiation_8cpp_a276c5a0e984cf60015b27252fe04fe6b}{pb}}~push\+\_\+back
+\item 
+\Hypertarget{matrix__exponentiation_8cpp_aca7d5718ab8c38506adb3bef2469b319}\label{matrix__exponentiation_8cpp_aca7d5718ab8c38506adb3bef2469b319} 
+\#define {\bfseries MOD}~1000000007
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \mbox{\hyperlink{matrix__exponentiation_8cpp_a357cfbebfdc47a237a2862fe146af252}{multiply}} (const vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \&A, const vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \&B)
+\item 
+vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \mbox{\hyperlink{matrix__exponentiation_8cpp_a702a9fc90e79b05b863cc4efa26ae2ec}{power}} (const vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \&A, \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} p)
+\item 
+\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} \mbox{\hyperlink{matrix__exponentiation_8cpp_ad8389ed58fd0ec66df248014775ad1fa}{ans}} (\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} n)
+\item 
+int \mbox{\hyperlink{matrix__exponentiation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\+\_\+size}}
+\item 
+vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ \mbox{\hyperlink{matrix__exponentiation_8cpp_a35b7c98af53ad2ec18658679ad7d43de}{fib\+\_\+b}}
+\item 
+\Hypertarget{matrix__exponentiation_8cpp_a0cbd1162483ef7eccd5b947b2e01b1ab}\label{matrix__exponentiation_8cpp_a0cbd1162483ef7eccd5b947b2e01b1ab} 
+vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ {\bfseries fib\+\_\+c}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Matrix Exponentiation. 
+
+The problem can be solved with DP but constraints are high. ~\newline
+ $a_i = b_i$ (for $i <= k$) ~\newline
+ $a_i = c_1 a_{i-1} + c_2 a_{i-2} + ... + c_k a_{i-k}$ (for $i > k$) ~\newline
+Taking the example of Fibonacci series, $k=2$ ~\newline
+ $b_1 = 1,\; b_2=1$ ~\newline
+ $c_1 = 1,\; c_2=1$ ~\newline
+ $a = \begin{bmatrix}0& 1& 1& 2& \ldots\end{bmatrix}$ ~\newline
+This way you can find the $10^{18}$ fibonacci numberMOD. I have given a general way to use it. The program takes the input of B and C matrix.
+
+Steps for Matrix Expo
+\begin{DoxyEnumerate}
+\item Create vector F1 \+: which is the copy of B.
+\item Create transpose matrix (Learn more about it on the internet)
+\item Perform $T^{n-1}$ \mbox{[}transpose matrix to the power n-\/1\mbox{]}
+\item Multiply with F to get the last matrix of size (1 $\times$k).
+\end{DoxyEnumerate}
+
+The first element of this matrix is the required result. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!endl@{endl}}
+\index{endl@{endl}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{endl}{endl}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258} 
+\#define endl~std\+::endl}
+
+shorthand definition for {\ttfamily std\+::endl} \Hypertarget{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!ll@{ll}}
+\index{ll@{ll}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{ll}{ll}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba} 
+\#define ll~int64\+\_\+t}
+
+shorthand definition for {\ttfamily int64\+\_\+t} \Hypertarget{matrix__exponentiation_8cpp_a276c5a0e984cf60015b27252fe04fe6b}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!pb@{pb}}
+\index{pb@{pb}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{pb}{pb}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_a276c5a0e984cf60015b27252fe04fe6b} 
+\#define pb~push\+\_\+back}
+
+shorthand definition for {\ttfamily int64\+\_\+t} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{matrix__exponentiation_8cpp_ad8389ed58fd0ec66df248014775ad1fa}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!ans@{ans}}
+\index{ans@{ans}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{ans()}{ans()}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_ad8389ed58fd0ec66df248014775ad1fa} 
+\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} ans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}}}]{n}{}\end{DoxyParamCaption})}
+
+Wrapper for Fibonacci 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & $n^\text{th}$ Fibonacci number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$n^\text{th}$ Fibonacci number 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}})}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a35b7c98af53ad2ec18658679ad7d43de}{fib\_b}}[n\ -\/\ 1];}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ F1}}
+\DoxyCodeLine{00097\ \ \ \ \ vector<ll>\ F1(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ i\ =\ 1;\ i\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ F1[i]\ =\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a35b7c98af53ad2ec18658679ad7d43de}{fib\_b}}[i\ -\/\ 1];}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ Transpose\ matrix}}
+\DoxyCodeLine{00101\ \ \ \ \ vector<vector<ll>>\ T(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1,\ vector<ll>(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1));}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ i\ =\ 1;\ i\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ j\ =\ 1;\ j\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ j++)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}})\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ i\ +\ 1)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T[i][j]\ =\ 1;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T[i][j]\ =\ 0;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ T[i][j]\ =\ fib\_c[\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ -\/\ j];}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ T\string^n-\/1}}
+\DoxyCodeLine{00115\ \ \ \ \ T\ =\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a702a9fc90e79b05b863cc4efa26ae2ec}{power}}(T,\ n\ -\/\ 1);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ T*F1}}
+\DoxyCodeLine{00118\ \ \ \ \ ll\ res\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ i\ =\ 1;\ i\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ res\ =\ (res\ +\ (T[1][i]\ *\ F1[i])\ \%\ MOD)\ \%\ MOD;}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}
+\Hypertarget{matrix__exponentiation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!main@{main}}
+\index{main@{main}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ cin.tie(0);}
+\DoxyCodeLine{00128\ \ \ \ \ cout.tie(0);}
+\DoxyCodeLine{00129\ \ \ \ \ ll\ t;}
+\DoxyCodeLine{00130\ \ \ \ \ cin\ >>\ t;}
+\DoxyCodeLine{00131\ \ \ \ \ ll\ i,\ j,\ x;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{while}\ (t-\/-\/)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ cin\ >>\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ x;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{matrix__exponentiation_8cpp_a35b7c98af53ad2ec18658679ad7d43de}{fib\_b}}.pb(x);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ x;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ fib\_c.pb(x);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ cin\ >>\ x;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ cout\ <<\ ans(x)\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{matrix__exponentiation_8cpp_a35b7c98af53ad2ec18658679ad7d43de}{fib\_b}}.clear();}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ fib\_c.clear();}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00148\ \}}
+
+\end{DoxyCode}
+\Hypertarget{matrix__exponentiation_8cpp_a357cfbebfdc47a237a2862fe146af252}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!multiply@{multiply}}
+\index{multiply@{multiply}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_a357cfbebfdc47a237a2862fe146af252} 
+vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ multiply (\begin{DoxyParamCaption}\item[{const vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \&}]{A}{, }\item[{const vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \&}]{B}{}\end{DoxyParamCaption})}
+
+To multiply 2 matrices 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em A} & matrix 1 of size (m $\times$n) \\
+\hline
+\mbox{\texttt{ in}}  & {\em B} & {\ttfamily matrix} 2 of size (p $\times$q)~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+$p=n$ 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+matrix of dimension (m $\times$q) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ vector<vector<ll>>\ C(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1,\ vector<ll>(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1));}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ i\ =\ 1;\ i\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ j\ =\ 1;\ j\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ j++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ z\ =\ 1;\ z\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ z++)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[i][j]\ =\ (C[i][j]\ +\ (A[i][z]\ *\ B[z][j])\ \%\ MOD)\ \%\ MOD;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ C;}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+\Hypertarget{matrix__exponentiation_8cpp_a702a9fc90e79b05b863cc4efa26ae2ec}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!power@{power}}
+\index{power@{power}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_a702a9fc90e79b05b863cc4efa26ae2ec} 
+vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ power (\begin{DoxyParamCaption}\item[{const vector$<$ vector$<$ \mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} $>$ $>$ \&}]{A}{, }\item[{\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}}}]{p}{}\end{DoxyParamCaption})}
+
+computing integer power of a matrix using recursive multiplication. \begin{DoxyNote}{Note}
+A must be a square matrix for this algorithm. 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em A} & base matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & exponent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matrix of same dimension as A 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ ==\ 1)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ A;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ \%\ 2\ ==\ 1)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a357cfbebfdc47a237a2862fe146af252}{multiply}}(A,\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a702a9fc90e79b05b863cc4efa26ae2ec}{power}}(A,\ p\ -\/\ 1));}
+\DoxyCodeLine{00081\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ vector<vector<ll>>\ X\ =\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a702a9fc90e79b05b863cc4efa26ae2ec}{power}}(A,\ p\ /\ 2);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a357cfbebfdc47a237a2862fe146af252}{multiply}}(X,\ X);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{matrix__exponentiation_8cpp_a35b7c98af53ad2ec18658679ad7d43de}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!fib\_b@{fib\_b}}
+\index{fib\_b@{fib\_b}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{fib\_b}{fib\_b}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_a35b7c98af53ad2ec18658679ad7d43de} 
+vector$<$\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}}$>$ fib\+\_\+b}
+
+global vector variables used in the \doxylink{matrix__exponentiation_8cpp_ad8389ed58fd0ec66df248014775ad1fa}{ans} function. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]@stepfencurryxiao add documetnation \end{DoxyRefDesc}
+\Hypertarget{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}\index{matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}!mat\_size@{mat\_size}}
+\index{mat\_size@{mat\_size}!matrix\_exponentiation.cpp@{matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{mat\_size}{mat\_size}}
+{\footnotesize\ttfamily \label{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54} 
+\mbox{\hyperlink{matrix__exponentiation_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}} mat\+\_\+size}
+
+global variable mat\+\_\+size \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]@stepfencurryxiao add documetnation \end{DoxyRefDesc}

@@ -1,0 +1,151 @@
+\doxysection{ciphers/caesar\+\_\+cipher.cpp File Reference}
+\hypertarget{caesar__cipher_8cpp}{}\label{caesar__cipher_8cpp}\index{ciphers/caesar\_cipher.cpp@{ciphers/caesar\_cipher.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Caesar_cipher}{\texttt{ Caesar cipher}} algorithm.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceciphers}{ciphers}}
+\begin{DoxyCompactList}\small\item\em Algorithms for encryption and decryption. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecaesar}{caesar}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Caesar_cipher}{\texttt{ Caesar cipher}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{caesar__cipher_8cpp_ac3381121289548640b1c27a58a8524c3}{ciphers\+::caesar\+::encrypt}} (const std\+::string \&text, const int \&shift)
+\item 
+std\+::string \mbox{\hyperlink{caesar__cipher_8cpp_a355e69511cd2006b5c4c80ae95b71056}{ciphers\+::caesar\+::decrypt}} (const std\+::string \&text, const int \&shift)
+\item 
+void \mbox{\hyperlink{caesar__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+int \mbox{\hyperlink{caesar__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Caesar_cipher}{\texttt{ Caesar cipher}} algorithm. 
+
+In cryptography, a Caesar cipher, also known as Caesar\textquotesingle{}s cipher, the shift cipher, Caesar\textquotesingle{}s code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.\hypertarget{caesar__cipher_8cpp_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{caesar__cipher_8cpp_autotoc_md1}
+The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A → 0, B → 1, ..., Z → 25. Encryption of a letter x by a shift n can be described mathematically as, \[ E(x) = (x + n)\;\mbox{mod}\; 26\] while decryption can be described as, \[ D(x) = (x - n) \;\mbox{mod}\; 26\]
+
+\begin{DoxyNote}{Note}
+This program implements caesar cipher for only uppercase English alphabet characters (i.\+e. A-\/Z).
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/imdeep2905}{\texttt{ Deep Raval}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{caesar__cipher_8cpp_a355e69511cd2006b5c4c80ae95b71056}\index{caesar\_cipher.cpp@{caesar\_cipher.cpp}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!caesar\_cipher.cpp@{caesar\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily \label{caesar__cipher_8cpp_a355e69511cd2006b5c4c80ae95b71056} 
+std\+::string ciphers\+::caesar\+::decrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const int \&}]{shift}{}\end{DoxyParamCaption})}
+
+Decrypt given text using caesar cipher. 
+\begin{DoxyParams}{Parameters}
+{\em text} & text to be decrypted \\
+\hline
+{\em shift} & number of shifts to be applied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new decrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ decrypted\_text\ =\ \textcolor{stringliteral}{"{}"{}};\ \textcolor{comment}{//\ Empty\ string\ to\ store\ decrypted\ text}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ c\ :\ text)\ \{\ \textcolor{comment}{//\ Going\ through\ each\ character}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ place\_value\ =\ get\_value(c);\ \textcolor{comment}{//\ Getting\ value\ of\ character\ (i.e.\ 0-\/25)}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ place\_value\ =\ (place\_value\ -\/\ shift)\ \%\ 26;\textcolor{comment}{//\ Applying\ decryption\ formula}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(place\_value\ <\ 0)\ \{\ \textcolor{comment}{//\ Handling\ case\ where\ remainder\ is\ negative\ }}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ place\_value\ =\ place\_value\ +\ 26;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ new\_char\ =\ \mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(place\_value);\ \textcolor{comment}{//\ Getting\ original\ character\ from\ decrypted\ value\ (i.e.\ A-\/Z)}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ decrypted\_text\ +=\ new\_char;\ \textcolor{comment}{//\ Appending\ decrypted\ character}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ decrypted\_text;\ \textcolor{comment}{//\ Returning\ decrypted\ text}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{caesar__cipher_8cpp_ac3381121289548640b1c27a58a8524c3}\index{caesar\_cipher.cpp@{caesar\_cipher.cpp}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!caesar\_cipher.cpp@{caesar\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily \label{caesar__cipher_8cpp_ac3381121289548640b1c27a58a8524c3} 
+std\+::string ciphers\+::caesar\+::encrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const int \&}]{shift}{}\end{DoxyParamCaption})}
+
+Encrypt given text using caesar cipher. 
+\begin{DoxyParams}{Parameters}
+{\em text} & text to be encrypted \\
+\hline
+{\em shift} & number of shifts to be applied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new encrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ encrypted\_text\ =\ \textcolor{stringliteral}{"{}"{}};\ \textcolor{comment}{//\ Empty\ string\ to\ store\ encrypted\ text}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ c\ :\ text)\ \{\ \textcolor{comment}{//\ Going\ through\ each\ character}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ place\_value\ =\ get\_value(c);\ \textcolor{comment}{//\ Getting\ value\ of\ character\ (i.e.\ 0-\/25)}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ place\_value\ =\ (place\_value\ +\ shift)\ \%\ 26;\ \textcolor{comment}{//\ Applying\ encryption\ formula}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ new\_char\ =\ \mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(place\_value);\ \textcolor{comment}{//\ Getting\ new\ character\ from\ new\ value\ (i.e.\ A-\/Z)}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encrypted\_text\ +=\ new\_char;\ \textcolor{comment}{//\ Appending\ encrypted\ character}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ encrypted\_text;\ \textcolor{comment}{//\ Returning\ encrypted\ text}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{caesar__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{caesar\_cipher.cpp@{caesar\_cipher.cpp}!main@{main}}
+\index{main@{main}!caesar\_cipher.cpp@{caesar\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{caesar__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Driver Code 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ Testing}}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{caesar__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}
+\Hypertarget{caesar__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{caesar\_cipher.cpp@{caesar\_cipher.cpp}!test@{test}}
+\index{test@{test}!caesar\_cipher.cpp@{caesar\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{caesar__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function to test above algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00102\ \ \ \ \ std::string\ text1\ =\ \textcolor{stringliteral}{"{}ALANTURING"{}};}
+\DoxyCodeLine{00103\ \ \ \ \ std::string\ encrypted1\ =\ \mbox{\hyperlink{caesar__cipher_8cpp_ac3381121289548640b1c27a58a8524c3}{ciphers::caesar::encrypt}}(text1,\ 17);}
+\DoxyCodeLine{00104\ \ \ \ \ std::string\ decrypted1\ =\ \mbox{\hyperlink{caesar__cipher_8cpp_a355e69511cd2006b5c4c80ae95b71056}{ciphers::caesar::decrypt}}(encrypted1,\ 17);}
+\DoxyCodeLine{00105\ \ \ \ \ assert(text1\ ==\ decrypted1);}
+\DoxyCodeLine{00106\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ text\ :\ "{}}\ <<\ text1;}
+\DoxyCodeLine{00107\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Encrypted\ text\ (with\ shift\ =\ 21)\ :\ "{}}\ <<\ encrypted1;}
+\DoxyCodeLine{00108\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Decrypted\ text\ :\ "{}}<<\ decrypted1\ <<\ std::endl;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ Test\ 2}}
+\DoxyCodeLine{00110\ \ \ \ \ std::string\ text2\ =\ \textcolor{stringliteral}{"{}HELLOWORLD"{}};}
+\DoxyCodeLine{00111\ \ \ \ \ std::string\ encrypted2\ =\ \mbox{\hyperlink{caesar__cipher_8cpp_ac3381121289548640b1c27a58a8524c3}{ciphers::caesar::encrypt}}(text2,\ 1729);}
+\DoxyCodeLine{00112\ \ \ \ \ std::string\ decrypted2\ =\ \mbox{\hyperlink{caesar__cipher_8cpp_a355e69511cd2006b5c4c80ae95b71056}{ciphers::caesar::decrypt}}(encrypted2,\ 1729);}
+\DoxyCodeLine{00113\ \ \ \ \ assert(text2\ ==\ decrypted2);}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ text\ :\ "{}}\ <<\ text2;}
+\DoxyCodeLine{00115\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Encrypted\ text\ (with\ shift\ =\ 1729)\ :\ "{}}\ <<\ encrypted2;}
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Decrypted\ text\ :\ "{}}<<\ decrypted2\ <<\ std::endl;}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,151 @@
+\doxysection{data\+\_\+structures\+::Bloom\+Filter\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdata__structures_1_1_bloom_filter}{}\label{classdata__structures_1_1_bloom_filter}\index{data\_structures::BloomFilter$<$ T $>$@{data\_structures::BloomFilter$<$ T $>$}}
+
+
+Bloom filter template class.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a6910d29951b57ab56e7a3db405aa1f1a}{Bloom\+Filter}} (std\+::size\+\_\+t, std\+::initializer\+\_\+list$<$ std\+::function$<$ std\+::size\+\_\+t(T)$>$ $>$)
+\begin{DoxyCompactList}\small\item\em Constructor for Bloom filter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a67bed8ef62fcb1f33b6c72df47dcf840}{add}} (T)
+\begin{DoxyCompactList}\small\item\em Add function for Bloom filter. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a576db259488dbfb67624a9652a5ab08b}{contains}} (T)
+\begin{DoxyCompactList}\small\item\em Check element function for Bloom filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1_bloom_filter_a90268d7901e2c1ab5f8bf8b24a30e119}\label{classdata__structures_1_1_bloom_filter_a90268d7901e2c1ab5f8bf8b24a30e119} 
+\mbox{\hyperlink{classdata__structures_1_1_bitset}{Bitset}} {\bfseries set}
+\begin{DoxyCompactList}\small\item\em inner bitset for elements \end{DoxyCompactList}\item 
+\Hypertarget{classdata__structures_1_1_bloom_filter_a65ca6742d3be88d4aca4f080068a7a80}\label{classdata__structures_1_1_bloom_filter_a65ca6742d3be88d4aca4f080068a7a80} 
+std\+::vector$<$ std\+::function$<$ std\+::size\+\_\+t(T)$>$ $>$ {\bfseries hash\+Funks}
+\begin{DoxyCompactList}\small\item\em hash functions for T type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class data\+\_\+structures\+::\+Bloom\+Filter$<$ T $>$}
+Bloom filter template class. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of elements that we need to filter \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdata__structures_1_1_bloom_filter_a6910d29951b57ab56e7a3db405aa1f1a}\index{data\_structures::BloomFilter$<$ T $>$@{data\_structures::BloomFilter$<$ T $>$}!BloomFilter@{BloomFilter}}
+\index{BloomFilter@{BloomFilter}!data\_structures::BloomFilter$<$ T $>$@{data\_structures::BloomFilter$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{BloomFilter()}{BloomFilter()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bloom_filter_a6910d29951b57ab56e7a3db405aa1f1a} 
+template$<$typename T $>$ \\
+\mbox{\hyperlink{classdata__structures_1_1_bloom_filter}{data\+\_\+structures\+::\+Bloom\+Filter}}$<$ T $>$\+::\+Bloom\+Filter (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{size}{, }\item[{std\+::initializer\+\_\+list$<$ std\+::function$<$ std\+::size\+\_\+t(T)$>$ $>$}]{funks}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for Bloom filter. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of elements that we need to filter \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & initial size of Bloom filter \\
+\hline
+{\em funks} & hash functions for T type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ :\ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a90268d7901e2c1ab5f8bf8b24a30e119}{set}}(size),\ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a65ca6742d3be88d4aca4f080068a7a80}{hashFunks}}(funks)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1_bloom_filter_a67bed8ef62fcb1f33b6c72df47dcf840}\index{data\_structures::BloomFilter$<$ T $>$@{data\_structures::BloomFilter$<$ T $>$}!add@{add}}
+\index{add@{add}!data\_structures::BloomFilter$<$ T $>$@{data\_structures::BloomFilter$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bloom_filter_a67bed8ef62fcb1f33b6c72df47dcf840} 
+template$<$typename T $>$ \\
+void \mbox{\hyperlink{classdata__structures_1_1_bloom_filter}{data\+\_\+structures\+::\+Bloom\+Filter}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Add function for Bloom filter. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of elements that we need to filter \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & element to add to filter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a65ca6742d3be88d4aca4f080068a7a80}{hashFunks}}.size();\ i++)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a90268d7901e2c1ab5f8bf8b24a30e119}{set}}.\mbox{\hyperlink{classdata__structures_1_1_bitset_a17dbe1b1d559302312e8091f82f7499c}{add}}(\mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a65ca6742d3be88d4aca4f080068a7a80}{hashFunks}}[i](x)\ \%\ (\textcolor{keyword}{sizeof}(std::size\_t)\ *\ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a90268d7901e2c1ab5f8bf8b24a30e119}{set}}.\mbox{\hyperlink{classdata__structures_1_1_bitset_a2f1f44d6a12b0de4aaf242872b1c7b54}{size}}()));}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_bloom_filter_a576db259488dbfb67624a9652a5ab08b}\index{data\_structures::BloomFilter$<$ T $>$@{data\_structures::BloomFilter$<$ T $>$}!contains@{contains}}
+\index{contains@{contains}!data\_structures::BloomFilter$<$ T $>$@{data\_structures::BloomFilter$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bloom_filter_a576db259488dbfb67624a9652a5ab08b} 
+template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classdata__structures_1_1_bloom_filter}{data\+\_\+structures\+::\+Bloom\+Filter}}$<$ T $>$\+::contains (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Check element function for Bloom filter. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of elements that we need to filter \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & element to check in filter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the element probably appears in the filter 
+
+false if the element certainly does not appear in the filter 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a65ca6742d3be88d4aca4f080068a7a80}{hashFunks}}.size();\ i++)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a90268d7901e2c1ab5f8bf8b24a30e119}{set}}.\mbox{\hyperlink{classdata__structures_1_1_bitset_a9ef54c7c3f6494b36ead3ae2e5cf43ac}{contains}}(\mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a65ca6742d3be88d4aca4f080068a7a80}{hashFunks}}[i](x)\ \%}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{sizeof}(std::size\_t)\ *\ \mbox{\hyperlink{classdata__structures_1_1_bloom_filter_a90268d7901e2c1ab5f8bf8b24a30e119}{set}}.\mbox{\hyperlink{classdata__structures_1_1_bitset_a2f1f44d6a12b0de4aaf242872b1c7b54}{size}}()))\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00157\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{bloom__filter_8cpp}{bloom\+\_\+filter.\+cpp}}\end{DoxyCompactItemize}

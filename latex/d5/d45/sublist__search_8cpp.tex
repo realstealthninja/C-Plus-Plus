@@ -1,0 +1,319 @@
+\doxysection{search/sublist\+\_\+search.cpp File Reference}
+\hypertarget{sublist__search_8cpp}{}\label{sublist__search_8cpp}\index{search/sublist\_search.cpp@{search/sublist\_search.cpp}}
+
+
+Implementation of the \href{https://www.geeksforgeeks.org/sublist-search-search-a-linked-list-in-another-list}{\texttt{ Sublist Search Algorithm}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{search\+::sublist\+\_\+search\+::\+Node}}
+\begin{DoxyCompactList}\small\item\em A \doxylink{structsearch_1_1sublist__search_1_1_node}{Node} structure representing a single link \doxylink{structsearch_1_1sublist__search_1_1_node}{Node} in a linked list. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_test_cases}{Test\+Cases}}
+\begin{DoxyCompactList}\small\item\em class encapsulating the necessary test cases \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesearch}{search}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacesublist__search}{sublist\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://www.geeksforgeeks.org/sublist-search-search-a-linked-list-in-another-list}{\texttt{ Sublist Search}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sublist__search_8cpp_ad1028bc215281d62e344af99da57fab2}{search\+::sublist\+\_\+search\+::print\+Linked\+List}} (\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}start)
+\begin{DoxyCompactList}\small\item\em A simple function to print the linked list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sublist__search_8cpp_a70ca8d0267008e09cfa50b4e2ddfbe53}{search\+::sublist\+\_\+search\+::make\+Linked\+List}} (const std\+::vector$<$ uint64\+\_\+t $>$ \&\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})
+\begin{DoxyCompactList}\small\item\em Give a vector of data, it adds each element of vector in the linked list and return the address of head pointer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sublist__search_8cpp_aac16d28231a07fadec189f80937ac10d}{search\+::sublist\+\_\+search\+::delete\+List}} (\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}const root)
+\item 
+bool \mbox{\hyperlink{sublist__search_8cpp_a4faee403e2758aaab682ed6622ae218c}{search\+::sublist\+\_\+search\+::sublist\+Search}} (\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}sublist, \mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}main\+List)
+\begin{DoxyCompactList}\small\item\em Main searching function. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{sublist__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sublist__search_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://www.geeksforgeeks.org/sublist-search-search-a-linked-list-in-another-list}{\texttt{ Sublist Search Algorithm}} 
+
+\hypertarget{sublist__search_8cpp_autotoc_md107}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{sublist__search_8cpp_autotoc_md107}
+
+\begin{DoxyItemize}
+\item Sublist search is used to detect a presence of one list in another list.
+\item Suppose we have a single-\/node list (let\textquotesingle{}s say the first list), and we want to ensure that the list is present in another list (let\textquotesingle{}s say the second list), then we can perform the sublist search to find it.
+\item For instance, the first list contains these elements\+: 23 -\/\texorpdfstring{$>$}{>} 30 -\/\texorpdfstring{$>$}{>} 41, and the second list contains these elements\+: 10 -\/\texorpdfstring{$>$}{>} 15 -\/\texorpdfstring{$>$}{>} 23 -\/\texorpdfstring{$>$}{>} 30 -\/\texorpdfstring{$>$}{>} 41 -\/\texorpdfstring{$>$}{>} 49. At a glance, we see that the first list presents in the second list.
+\end{DoxyItemize}\hypertarget{sublist__search_8cpp_autotoc_md108}{}\doxysubsubsubsection{\texorpdfstring{Working}{Working}}\label{sublist__search_8cpp_autotoc_md108}
+
+\begin{DoxyItemize}
+\item The sublist search algorithm works by comparing the first element of the first list with the first element of the second list.
+\item If the two values don\textquotesingle{}t match, it goes to the next element of the second list. It does this until the two values match.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/foo290}{\texttt{ Nitin Sharma}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sublist__search_8cpp_aac16d28231a07fadec189f80937ac10d}\index{sublist\_search.cpp@{sublist\_search.cpp}!deleteList@{deleteList}}
+\index{deleteList@{deleteList}!sublist\_search.cpp@{sublist\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteList()}{deleteList()}}
+{\footnotesize\ttfamily \label{sublist__search_8cpp_aac16d28231a07fadec189f80937ac10d} 
+void search\+::sublist\+\_\+search\+::delete\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}const}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ !=\ NULL)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ deleteList(root-\/>next);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ root;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sublist__search_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{sublist\_search.cpp@{sublist\_search.cpp}!main@{main}}
+\index{main@{main}!sublist\_search.cpp@{sublist\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sublist__search_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Main list in which sublist is to be searched
+
+\texorpdfstring{$<$}{<} Sublist to be searched
+
+\texorpdfstring{$<$}{<} Main list in which sublist is to be searched
+
+\texorpdfstring{$<$}{<} boolean to check if the sublist exists or not
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \mbox{\hyperlink{sublist__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ std::vector<uint64\_t>\ mainlistData\ =\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ 2,\ 5,\ 6,\ 7,\ 8\};\ \ \textcolor{comment}{///<\ Main\ list\ in\ which\ sublist\ is\ to\ be\ searched}}
+\DoxyCodeLine{00364\ \ \ \ \ std::vector<uint64\_t>\ sublistData\ =\ \{6,\ 8\};\ \ \textcolor{comment}{///<\ Sublist\ to\ be\ searched}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{search::sublist\_search::Node}}\ *mainlistLL\ =}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sublist__search_8cpp_a70ca8d0267008e09cfa50b4e2ddfbe53}{search::sublist\_search::makeLinkedList}}(mainlistData);}
+\DoxyCodeLine{00368\ \ \ \ \ \mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{search::sublist\_search::Node}}\ *sublistLL\ =}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sublist__search_8cpp_a70ca8d0267008e09cfa50b4e2ddfbe53}{search::sublist\_search::makeLinkedList}}(}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ sublistData);\ \ \textcolor{comment}{///<\ Main\ list\ in\ which\ sublist\ is\ to\ be}\textcolor{comment}{}}
+\DoxyCodeLine{00371\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ searched}}
+\DoxyCodeLine{00372\ \textcolor{comment}{}}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{word__break_8cpp_a1cc9dd6e6190d10a010fdcdfe7a21a81}{exists}}\ =\ \mbox{\hyperlink{sublist__search_8cpp_a4faee403e2758aaab682ed6622ae218c}{search::sublist\_search::sublistSearch}}(}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ sublistLL,}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ mainlistLL);\ \ \textcolor{comment}{///<\ boolean\ to\ check\ if\ the\ sublist\ exists\ or\ not}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sublist:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00378\ \ \ \ \ \mbox{\hyperlink{sublist__search_8cpp_ad1028bc215281d62e344af99da57fab2}{search::sublist\_search::printLinkedList}}(sublistLL);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Main\ list:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00381\ \ \ \ \ \mbox{\hyperlink{sublist__search_8cpp_ad1028bc215281d62e344af99da57fab2}{search::sublist\_search::printLinkedList}}(mainlistLL);}
+\DoxyCodeLine{00382\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordflow}{if}\ (exists)\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[TRUE]\ -\/\ sublist\ found\ in\ main\ list\(\backslash\)n"{}};}
+\DoxyCodeLine{00386\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[FALSE]\ -\/\ sublist\ NOT\ found\ in\ main\ list\(\backslash\)n"{}};}
+\DoxyCodeLine{00388\ \ \ \ \ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ deleteList(mainlistLL);}
+\DoxyCodeLine{00391\ \ \ \ \ deleteList(sublistLL);}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00393\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sublist__search_8cpp_a70ca8d0267008e09cfa50b4e2ddfbe53}\index{sublist\_search.cpp@{sublist\_search.cpp}!makeLinkedList@{makeLinkedList}}
+\index{makeLinkedList@{makeLinkedList}!sublist\_search.cpp@{sublist\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{makeLinkedList()}{makeLinkedList()}}
+{\footnotesize\ttfamily \label{sublist__search_8cpp_a70ca8d0267008e09cfa50b4e2ddfbe53} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} search\+::sublist\+\_\+search\+::make\+Linked\+List (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint64\+\_\+t $>$ \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Give a vector of data, it adds each element of vector in the linked list and return the address of head pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A vector of "{}int"{} containing the data that is supposed to be stored in nodes of linked list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Node\texorpdfstring{$\ast$}{*} A head pointer to the linked list. 
+\end{DoxyReturn}
+This is used in test cases for rapidly creating linked list with 100+ elements, instead of hard-\/coding 100 elements in test cases.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ ///\ This\ is\ used\ in\ test\ cases\ for\ rapidly\ creating\ linked\ list\ with\ 100+}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ ///\ elements,\ instead\ of\ hard-\/coding\ 100\ elements\ in\ test\ cases.}}
+\DoxyCodeLine{00076\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *head\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *tail\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ :\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{structnode}{node}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>data\ =\ i;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ head\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ tail\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ tail-\/>next\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ tail\ =\ tail-\/>next;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return}\ head;}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sublist__search_8cpp_ad1028bc215281d62e344af99da57fab2}\index{sublist\_search.cpp@{sublist\_search.cpp}!printLinkedList@{printLinkedList}}
+\index{printLinkedList@{printLinkedList}!sublist\_search.cpp@{sublist\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{printLinkedList()}{printLinkedList()}}
+{\footnotesize\ttfamily \label{sublist__search_8cpp_ad1028bc215281d62e344af99da57fab2} 
+void search\+::sublist\+\_\+search\+::print\+Linked\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{start}{}\end{DoxyParamCaption})}
+
+
+
+A simple function to print the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The head of the linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{while}\ (start\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/>"{}}\ <<\ start-\/>data;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ start\ =\ start-\/>next;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sublist__search_8cpp_a4faee403e2758aaab682ed6622ae218c}\index{sublist\_search.cpp@{sublist\_search.cpp}!sublistSearch@{sublistSearch}}
+\index{sublistSearch@{sublistSearch}!sublist\_search.cpp@{sublist\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{sublistSearch()}{sublistSearch()}}
+{\footnotesize\ttfamily \label{sublist__search_8cpp_a4faee403e2758aaab682ed6622ae218c} 
+bool search\+::sublist\+\_\+search\+::sublist\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{sublist}{, }\item[{\mbox{\hyperlink{structsearch_1_1sublist__search_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{main\+List}{}\end{DoxyParamCaption})}
+
+
+
+Main searching function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sublist} & A linked list which is supposed to be searched in main\+List. \\
+\hline
+{\em main\+List} & A linked list in which sublist will be searched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the sublist is found 
+
+false if the sublist is NOT found 
+\end{DoxyReturn}
+Initialize target pointer to the head node of sublist.
+
+Initialize main pointer to the current node of main list.
+
+If the data of target node and main node is equal then move to the next node of both lists.
+
+Is target pointer becomes null that means the target list is been traversed without returning false. Which means the sublist has been found and return ture.
+
+set the target pointer again to stating point of target list.
+
+set the main pointer to the next element of the main list and repeat the algo.
+
+If the main list is exhausted, means sublist does not found, return false
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (sublist\ ==\ \textcolor{keyword}{nullptr}\ ||\ mainList\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \textcolor{comment}{}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ ///\ Initialize\ target\ pointer\ to\ the\ head\ node\ of\ sublist.}}
+\DoxyCodeLine{00120\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *target\_ptr\ =\ sublist;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{while}\ (mainList\ !=\ \textcolor{keyword}{nullptr})\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Initialize\ main\ pointer\ to\ the\ current\ node\ of\ main\ list.}}
+\DoxyCodeLine{00124\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *main\_ptr\ =\ mainList;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (target\_ptr\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (main\_ptr\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (main\_ptr-\/>data\ ==\ target\_ptr-\/>data)\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ If\ the\ data\ of\ target\ node\ and\ main\ node\ is\ equal\ then\ move}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ to\ the\ next\ node\ of\ both\ lists.}}
+\DoxyCodeLine{00133\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ target\_ptr\ =\ target\_ptr-\/>next;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ main\_ptr\ =\ main\_ptr-\/>next;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (target\_ptr\ ==\ \textcolor{keyword}{nullptr})\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ Is\ target\ pointer\ becomes\ null\ that\ means\ the\ target\ list\ is}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ been\ traversed\ without\ returning\ false.\ Which\ means\ the\ sublist}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ has\ been\ found\ and\ return\ ture.}}
+\DoxyCodeLine{00145\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \textcolor{comment}{}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ set\ the\ target\ pointer\ again\ to\ stating\ point\ of\ target\ list.}}
+\DoxyCodeLine{00149\ \textcolor{comment}{}\ \ \ \ \ \ \ \ target\_ptr\ =\ sublist;}
+\DoxyCodeLine{00150\ \textcolor{comment}{}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ set\ the\ main\ pointer\ to\ the\ next\ element\ of\ the\ main\ list\ and\ repeat}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ the\ algo.}}
+\DoxyCodeLine{00153\ \textcolor{comment}{}\ \ \ \ \ \ \ \ mainList\ =\ mainList-\/>next;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \textcolor{comment}{}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ \ \ \ ///\ If\ the\ main\ list\ is\ exhausted,\ means\ sublist\ does\ not\ found,\ return}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ ///\ false}}
+\DoxyCodeLine{00158\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sublist__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{sublist\_search.cpp@{sublist\_search.cpp}!test@{test}}
+\index{test@{test}!sublist\_search.cpp@{sublist\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{sublist__search_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \mbox{\hyperlink{class_test_cases}{TestCases}}\ tc;}
+\DoxyCodeLine{00350\ \ \ \ \ tc.\mbox{\hyperlink{class_test_cases_aeabea90c02f9159e4a784bbf736e1e23}{runTests}}();}
+\DoxyCodeLine{00351\ \}}
+
+\end{DoxyCode}

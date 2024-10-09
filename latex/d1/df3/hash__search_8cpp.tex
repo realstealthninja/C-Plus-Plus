@@ -1,0 +1,239 @@
+\doxysection{search/hash\+\_\+search.cpp File Reference}
+\hypertarget{hash__search_8cpp}{}\label{hash__search_8cpp}\index{search/hash\_search.cpp@{search/hash\_search.cpp}}
+
+
+Hash Search Algorithm -\/ Best Time Complexity Ω(1)  
+
+
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlist}{list}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{hash__search_8cpp_a392fb874e547e582e9c66a08a1f23326}\label{hash__search_8cpp_a392fb874e547e582e9c66a08a1f23326} 
+\#define {\bfseries MAX}~6
+\begin{DoxyCompactList}\small\item\em Determines how much data. \end{DoxyCompactList}\item 
+\Hypertarget{hash__search_8cpp_a77c722016053a1d484aa177ce205b367}\label{hash__search_8cpp_a77c722016053a1d484aa177ce205b367} 
+\#define {\bfseries HASHMAX}~5
+\begin{DoxyCompactList}\small\item\em Determines the length of the hash table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structlist}{list}} \mbox{\hyperlink{hash__search_8cpp_a8ca8dcb494104d273679e219e53d0555}{node}}
+\item 
+\Hypertarget{hash__search_8cpp_ad6fcd983304f85afa199d97a9b0ca9f6}\label{hash__search_8cpp_ad6fcd983304f85afa199d97a9b0ca9f6} 
+typedef struct \mbox{\hyperlink{structlist}{list}} \texorpdfstring{$\ast$}{*} {\bfseries link}
+\begin{DoxyCompactList}\small\item\em pointer to nodes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}} (int key)
+\item 
+void \mbox{\hyperlink{hash__search_8cpp_ad0831425f1389166a9518f422d0c6ec5}{create\+\_\+list}} (int key)
+\item 
+int \mbox{\hyperlink{hash__search_8cpp_a36ea13c16028f18ef2d5ff47f3fda7a2}{hash\+\_\+search}} (int key, int \texorpdfstring{$\ast$}{*}counter)
+\item 
+int \mbox{\hyperlink{hash__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}} \mbox{[}MAX\mbox{]} = \{1, 10, 15, 5, 8, 7\}
+\begin{DoxyCompactList}\small\item\em test data \end{DoxyCompactList}\item 
+\Hypertarget{hash__search_8cpp_af413b1740073db54796642b0ab814d6d}\label{hash__search_8cpp_af413b1740073db54796642b0ab814d6d} 
+\mbox{\hyperlink{structnode}{node}} {\bfseries hashtab} \mbox{[}\mbox{\hyperlink{hash__search_8cpp_a77c722016053a1d484aa177ce205b367}{HASHMAX}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em array of nodes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hash Search Algorithm -\/ Best Time Complexity Ω(1) 
+
+\begin{DoxyCopyright}{Copyright}
+2020 Arctic2333
+\end{DoxyCopyright}
+In this algorithm, we use the method of division and reservation remainder to construct the hash function, and use the method of chain address to solve the conflict, that is, we link a chain list after the data, and store all the records whose keywords are synonyms in the same linear chain list.
+
+\begin{DoxyWarning}{Warning}
+This program is only for educational purposes. It has serious flaws in implementation with regards to memory management resulting in large amounts of memory leaks. 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000012}{Todo}}]fix the program for memory leaks and better structure in C++ and not C fashion \end{DoxyRefDesc}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{hash__search_8cpp_a8ca8dcb494104d273679e219e53d0555}\index{hash\_search.cpp@{hash\_search.cpp}!node@{node}}
+\index{node@{node}!hash\_search.cpp@{hash\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{node}{node}}
+{\footnotesize\ttfamily \label{hash__search_8cpp_a8ca8dcb494104d273679e219e53d0555} 
+typedef struct \mbox{\hyperlink{structlist}{list}} node}
+
+a one-\/way linked list define node as one item list 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hash__search_8cpp_ad0831425f1389166a9518f422d0c6ec5}\index{hash\_search.cpp@{hash\_search.cpp}!create\_list@{create\_list}}
+\index{create\_list@{create\_list}!hash\_search.cpp@{hash\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{create\_list()}{create\_list()}}
+{\footnotesize\ttfamily \label{hash__search_8cpp_ad0831425f1389166a9518f422d0c6ec5} 
+void create\+\_\+list (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+The same after the remainder will be added after the same hash header To avoid conflict, zipper method is used Insert elements into the linked list in the header 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & key to add to list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+dynamic memory allocated to {\ttfamily n} never gets freed. 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000013}{Todo}}]fix memory leak \end{DoxyRefDesc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ Construct\ hash\ table}}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{structlist}{link}}\ p,\ n;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ index;}
+\DoxyCodeLine{00058\ \ \ \ \ n\ =\ (\mbox{\hyperlink{hash__search_8cpp_ad6fcd983304f85afa199d97a9b0ca9f6}{link}})malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structnode}{node}}));}
+\DoxyCodeLine{00059\ \ \ \ \ n-\/>\mbox{\hyperlink{structlist_aaab2e33bc1ca6f44e72239bfb58f100c}{key}}\ =\ key;}
+\DoxyCodeLine{00060\ \ \ \ \ n-\/>\mbox{\hyperlink{structlist_a1900fe79e875e2838625b2eb60837f8f}{next}}\ =\ NULL;}
+\DoxyCodeLine{00061\ \ \ \ \ index\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}(key);}
+\DoxyCodeLine{00062\ \ \ \ \ p\ =\ \mbox{\hyperlink{hash__search_8cpp_af413b1740073db54796642b0ab814d6d}{hashtab}}[index].next;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ !=\ NULL)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ n-\/>\mbox{\hyperlink{structlist_a1900fe79e875e2838625b2eb60837f8f}{next}}\ =\ p;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_af413b1740073db54796642b0ab814d6d}{hashtab}}[index].next\ =\ n;}
+\DoxyCodeLine{00066\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_af413b1740073db54796642b0ab814d6d}{hashtab}}[index].next\ =\ n;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}\index{hash\_search.cpp@{hash\_search.cpp}!h@{h}}
+\index{h@{h}!hash\_search.cpp@{hash\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{h()}{h()}}
+{\footnotesize\ttfamily \label{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001} 
+int h (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+Mode of hash detection \+: Division method 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em key} & to hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hash value for {\ttfamily key} 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2numerical_methods_2rungekutta_8cpp-example}{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/numerical\+\_\+methods/rungekutta.\+cpp}}.\end{Desc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{\ \textcolor{keywordflow}{return}\ key\ \%\ \mbox{\hyperlink{hash__search_8cpp_a77c722016053a1d484aa177ce205b367}{HASHMAX}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hash__search_8cpp_a36ea13c16028f18ef2d5ff47f3fda7a2}\index{hash\_search.cpp@{hash\_search.cpp}!hash\_search@{hash\_search}}
+\index{hash\_search@{hash\_search}!hash\_search.cpp@{hash\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{hash\_search()}{hash\_search()}}
+{\footnotesize\ttfamily \label{hash__search_8cpp_a36ea13c16028f18ef2d5ff47f3fda7a2} 
+int hash\+\_\+search (\begin{DoxyParamCaption}\item[{int}]{key}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{counter}{}\end{DoxyParamCaption})}
+
+Input the key to be searched, and get the hash header position through the H (int key) function, then one-\/dimensional linear search. If found \begin{DoxyReturn}{Returns}
+element depth and number of searches If not found 
+
+-\/1 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ Hash\ lookup\ function}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{structlist}{link}}\ pointer;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ index;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ *counter\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ index\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}(key);}
+\DoxyCodeLine{00082\ \ \ \ \ pointer\ =\ \mbox{\hyperlink{hash__search_8cpp_af413b1740073db54796642b0ab814d6d}{hashtab}}[index].next;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}data["{}}\ <<\ index\ <<\ \textcolor{stringliteral}{"{}]:"{}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{while}\ (pointer\ !=\ NULL)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ counter[0]++;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}data["{}}\ <<\ pointer-\/>\mbox{\hyperlink{structlist_aaab2e33bc1ca6f44e72239bfb58f100c}{key}}\ <<\ \textcolor{stringliteral}{"{}]:"{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pointer-\/>\mbox{\hyperlink{structlist_aaab2e33bc1ca6f44e72239bfb58f100c}{key}}\ ==\ key)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ pointer\ =\ pointer-\/>\mbox{\hyperlink{structlist_a1900fe79e875e2838625b2eb60837f8f}{next}};}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hash__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{hash\_search.cpp@{hash\_search.cpp}!main@{main}}
+\index{main@{main}!hash\_search.cpp@{hash\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{hash__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{structlist}{link}}\ p;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ key,\ index,\ i,\ counter;\ \ \textcolor{comment}{//\ Key\ is\ the\ value\ to\ be\ found}}
+\DoxyCodeLine{00102\ \ \ \ \ index\ =\ 0;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ You\ can\ write\ the\ input\ mode\ here}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{while}\ (index\ <\ \mbox{\hyperlink{hash__search_8cpp_a392fb874e547e582e9c66a08a1f23326}{MAX}})\ \{\ \ \textcolor{comment}{//\ Construct\ hash\ table}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_ad0831425f1389166a9518f422d0c6ec5}{create\_list}}(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[index]);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ index++;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hash__search_8cpp_a77c722016053a1d484aa177ce205b367}{HASHMAX}};\ i++)\ \{\ \ \textcolor{comment}{//\ Output\ hash\ table}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}hashtab\ ["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ p\ =\ \mbox{\hyperlink{hash__search_8cpp_af413b1740073db54796642b0ab814d6d}{hashtab}}[i].next;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (p\ !=\ NULL)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}please\ int\ key:"{}};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>\mbox{\hyperlink{structlist_aaab2e33bc1ca6f44e72239bfb58f100c}{key}}\ >\ 0)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ p-\/>\mbox{\hyperlink{structlist_aaab2e33bc1ca6f44e72239bfb58f100c}{key}}\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ p-\/>\mbox{\hyperlink{structlist_a1900fe79e875e2838625b2eb60837f8f}{next}};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{while}\ (key\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ write\ the\ input\ mode\ here}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ test\ key\ =\ 10}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ key\ =\ 10;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hash__search_8cpp_a36ea13c16028f18ef2d5ff47f3fda7a2}{hash\_search}}(key,\ \&counter))}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}search\ time\ =\ "{}}\ <<\ counter\ <<\ std::endl;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}no\ found!\(\backslash\)n"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ key\ =\ -\/1;\ \ \textcolor{comment}{//\ Exit\ test}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ test\ sample\ is\ returned\ as:}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ data[0]:data[5]:data[15]:data[10]:search\ time\ =\ 3\ The\ search\ is}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ successful.\ There\ are\ 10\ in\ this\ set\ of\ data\ */}}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00139\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}\index{hash\_search.cpp@{hash\_search.cpp}!data@{data}}
+\index{data@{data}!hash\_search.cpp@{hash\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243} 
+int data\mbox{[}MAX\mbox{]} = \{1, 10, 15, 5, 8, 7\}}
+
+
+
+test data 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{1,\ 10,\ 15,\ 5,\ 8,\ 7\};\ \ \textcolor{comment}{//!<\ test\ data}}
+
+\end{DoxyCode}

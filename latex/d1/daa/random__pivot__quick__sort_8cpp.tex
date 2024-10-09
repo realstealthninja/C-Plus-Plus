@@ -1,0 +1,349 @@
+\doxysection{sorting/random\+\_\+pivot\+\_\+quick\+\_\+sort.cpp File Reference}
+\hypertarget{random__pivot__quick__sort_8cpp}{}\label{random__pivot__quick__sort_8cpp}\index{sorting/random\_pivot\_quick\_sort.cpp@{sorting/random\_pivot\_quick\_sort.cpp}}
+
+
+Implementation of the \href{https://www.sanfoundry.com/cpp-program-implement-quick-sort-using-randomisation}{\texttt{ Random Pivot Quick Sort}} algorithm.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_test_cases}{Test\+Cases}}
+\begin{DoxyCompactList}\small\item\em class encapsulating the necessary test cases \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacerandom__pivot__quick__sort}{random\+\_\+pivot\+\_\+quick\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://www.sanfoundry.com/cpp-program-implement-quick-sort-using-randomisation}{\texttt{ Random Pivot Quick Sort}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t T$>$ }\\void \mbox{\hyperlink{random__pivot__quick__sort_8cpp_ac3281dc34a9cfd7beb332419b8a0aa10}{sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::show\+Array}} (std\+::array$<$ int64\+\_\+t, T $>$ arr)
+\begin{DoxyCompactList}\small\item\em Utility function to print the array. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{random__pivot__quick__sort_8cpp_aac5657b4fe2251cd21073f44233f6ea5}{sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::get\+Random\+Index}} (int64\+\_\+t start, int64\+\_\+t end)
+\begin{DoxyCompactList}\small\item\em Takes the start and end indices of an array and returns a random int64\+\_\+teger between the range of those two for selecting pivot element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t size$>$ }\\std\+::tuple$<$ int64\+\_\+t, std\+::array$<$ int64\+\_\+t, size $>$ $>$ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_a3d1c39e1ff42c04fb8ec0c0b9411cd3e}{sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::partition}} (std\+::array$<$ int64\+\_\+t, size $>$ arr, int64\+\_\+t start, int64\+\_\+t end)
+\begin{DoxyCompactList}\small\item\em A partition function which handles the partition logic of quick sort. \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t size$>$ }\\std\+::array$<$ int64\+\_\+t, size $>$ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_a7d2e7465e7b5d54c2de6d5e9db1ea6a5}{sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::quick\+Sort\+RP}} (std\+::array$<$ int64\+\_\+t, size $>$ arr, int64\+\_\+t start, int64\+\_\+t end)
+\begin{DoxyCompactList}\small\item\em Random pivot quick sort function. This function is the starting point of the algorithm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t size$>$ }\\std\+::array$<$ int64\+\_\+t, size $>$ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_a40675d2eb960c71ca31ec475ba90120d}{sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::generate\+Unsorted\+Array}} (int64\+\_\+t from, int64\+\_\+t to)
+\begin{DoxyCompactList}\small\item\em A function utility to generate unsorted array of given size and range. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{random__pivot__quick__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{random__pivot__quick__sort_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://www.sanfoundry.com/cpp-program-implement-quick-sort-using-randomisation}{\texttt{ Random Pivot Quick Sort}} algorithm. 
+
+
+\begin{DoxyItemize}
+\item A random pivot quick sort algorithm is pretty much same as quick sort with a difference of having a logic of selecting next pivot element from the input array.
+\item Where in quick sort is fast, but still can give you the time complexity of O(n\texorpdfstring{$^\wedge$}{\string^}2) in worst case.
+\item To avoid hitting the time complexity of O(n\texorpdfstring{$^\wedge$}{\string^}2), we use the logic of randomize the selection process of pivot element. \begin{DoxyVerb}     ### Logic
+         * The logic is pretty simple, the only change is in the
+\end{DoxyVerb}
+ partitioning algorithm, which is selecting the pivot element.
+\begin{DoxyItemize}
+\item Instead of selecting the last or the first element from array for pivot we use a random index to select pivot element.
+\item This avoids hitting the O(n\texorpdfstring{$^\wedge$}{\string^}2) time complexity in practical use cases. \begin{DoxyVerb}  ### Partition Logic
+      * Partitions are done such as numbers lower than the "pivot"
+\end{DoxyVerb}
+ element is arranged on the left side of the "{}pivot"{}, and number larger than the "{}pivot"{} element are arranged on the right part of the array. \begin{DoxyVerb}  ### Algorithm
+      * Select the pivot element randomly using getRandomIndex() function
+\end{DoxyVerb}
+ from this namespace.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Initialize the p\+Ind (partition index) from the start of the array.
+\begin{DoxyItemize}
+\item Loop through the array from start to less than end. (from start to \texorpdfstring{$<$}{<} end). (Inside the loop) \+:-\/
+\begin{DoxyItemize}
+\item Check if the current element (arr\mbox{[}i\mbox{]}) is less than the pivot element in each iteration.
+\item If current element in the iteration is less than the pivot element, then swap the elements at current index (i) and partition index (p\+Ind) and increment the partition index by one.
+\end{DoxyItemize}
+\item At the end of the loop, swap the pivot element with partition index element.
+\item Return the partition index from the function.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/foo290}{\texttt{ Nitin Sharma}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{random__pivot__quick__sort_8cpp_a40675d2eb960c71ca31ec475ba90120d}\index{random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}!generateUnsortedArray@{generateUnsortedArray}}
+\index{generateUnsortedArray@{generateUnsortedArray}!random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{generateUnsortedArray()}{generateUnsortedArray()}}
+{\footnotesize\ttfamily \label{random__pivot__quick__sort_8cpp_a40675d2eb960c71ca31ec475ba90120d} 
+template$<$size\+\_\+t size$>$ \\
+std\+::array$<$ int64\+\_\+t, size $>$ sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::generate\+Unsorted\+Array (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{from}{, }\item[{int64\+\_\+t}]{to}{}\end{DoxyParamCaption})}
+
+
+
+A function utility to generate unsorted array of given size and range. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em size} & Size of the output array. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Stating of the range. \\
+\hline
+{\em to} & Ending of the range. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::array$<$int64\+\_\+t , size$>$ Unsorted array of specified size. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ srand(time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00162\ \ \ \ \ std::array<int64\_t,\ size>\ unsortedArray\{\};}
+\DoxyCodeLine{00163\ \ \ \ \ assert(from\ <\ to);}
+\DoxyCodeLine{00164\ \ \ \ \ int64\_t\ i\ =\ 0;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ size)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ int64\_t\ randomNum\ =\ from\ +\ rand()\ \%\ (to\ -\/\ from\ +\ 1);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (randomNum)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ unsortedArray[i]\ =\ randomNum;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{return}\ unsortedArray;}
+\DoxyCodeLine{00173\ \}}
+
+\end{DoxyCode}
+\Hypertarget{random__pivot__quick__sort_8cpp_aac5657b4fe2251cd21073f44233f6ea5}\index{random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}!getRandomIndex@{getRandomIndex}}
+\index{getRandomIndex@{getRandomIndex}!random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{getRandomIndex()}{getRandomIndex()}}
+{\footnotesize\ttfamily \label{random__pivot__quick__sort_8cpp_aac5657b4fe2251cd21073f44233f6ea5} 
+int64\+\_\+t sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::get\+Random\+Index (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{start}{, }\item[{int64\+\_\+t}]{end}{}\end{DoxyParamCaption})}
+
+
+
+Takes the start and end indices of an array and returns a random int64\+\_\+teger between the range of those two for selecting pivot element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The starting index. \\
+\hline
+{\em end} & The ending index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int64\+\_\+t A random number between start and end index. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ srand(time(\textcolor{keyword}{nullptr}));\ \ \textcolor{comment}{//\ Initialize\ random\ number\ generator.}}
+\DoxyCodeLine{00090\ \ \ \ \ int64\_t\ randomPivotIndex\ =\ start\ +\ rand()\ \%\ (end\ -\/\ start\ +\ 1);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ randomPivotIndex;}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{random__pivot__quick__sort_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}!main@{main}}
+\index{main@{main}!random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{random__pivot__quick__sort_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ Executes\ various\ test\ cases.}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ inputSize\ =\ 10;}
+\DoxyCodeLine{00327\ \ \ \ \ std::array<int64\_t,\ inputSize>\ unsorted\_array\ =}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ sorting::random\_pivot\_quick\_sort::generateUnsortedArray<inputSize>(}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ 50,\ 1000);}
+\DoxyCodeLine{00330\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Unsorted\ array\ is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00331\ \ \ \ \ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_ac3281dc34a9cfd7beb332419b8a0aa10}{sorting::random\_pivot\_quick\_sort::showArray}}(unsorted\_array);}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ std::array<int64\_t,\ inputSize>\ sorted\_array\ =}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_a7d2e7465e7b5d54c2de6d5e9db1ea6a5}{sorting::random\_pivot\_quick\_sort::quickSortRP}}(}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ unsorted\_array,\ 0,\ unsorted\_array.size()\ -\/\ 1);}
+\DoxyCodeLine{00336\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ array\ is\ :\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00337\ \ \ \ \ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_ac3281dc34a9cfd7beb332419b8a0aa10}{sorting::random\_pivot\_quick\_sort::showArray}}(sorted\_array);}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00339\ \}}
+
+\end{DoxyCode}
+\Hypertarget{random__pivot__quick__sort_8cpp_a3d1c39e1ff42c04fb8ec0c0b9411cd3e}\index{random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}!partition@{partition}}
+\index{partition@{partition}!random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily \label{random__pivot__quick__sort_8cpp_a3d1c39e1ff42c04fb8ec0c0b9411cd3e} 
+template$<$size\+\_\+t size$>$ \\
+std\+::tuple$<$ int64\+\_\+t, std\+::array$<$ int64\+\_\+t, size $>$ $>$ sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::partition (\begin{DoxyParamCaption}\item[{std\+::array$<$ int64\+\_\+t, size $>$}]{arr}{, }\item[{int64\+\_\+t}]{start}{, }\item[{int64\+\_\+t}]{end}{}\end{DoxyParamCaption})}
+
+
+
+A partition function which handles the partition logic of quick sort. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em size} & size of the array to be passed as argument. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The start index of the passed array \\
+\hline
+{\em end} & The ending index of the passed array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::tuple$<$int64\+\_\+t , std\+::array$<$int64\+\_\+t , size$>$$>$ A tuple of pivot index and pivot sorted array. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ int64\_t\ pivot\ =\ arr[end];\ \ \textcolor{comment}{//\ Randomly\ selected\ element\ will\ be\ here\ from}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ caller\ function\ (quickSortRP()).}}
+\DoxyCodeLine{00107\ \ \ \ \ int64\_t\ pInd\ =\ start;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ start;\ i\ <\ end;\ i++)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ <=\ pivot)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[pInd]);\ \ \textcolor{comment}{//\ swapping\ the\ elements\ from\ current}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ to\ pInd.}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ pInd++;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ std::swap(arr[pInd],}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[end]);\ \ \textcolor{comment}{//\ swapping\ the\ pivot\ element\ to\ its\ sorted\ position}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(pInd,\ arr);}
+\DoxyCodeLine{00119\ \}}
+
+\end{DoxyCode}
+\Hypertarget{random__pivot__quick__sort_8cpp_a7d2e7465e7b5d54c2de6d5e9db1ea6a5}\index{random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}!quickSortRP@{quickSortRP}}
+\index{quickSortRP@{quickSortRP}!random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{quickSortRP()}{quickSortRP()}}
+{\footnotesize\ttfamily \label{random__pivot__quick__sort_8cpp_a7d2e7465e7b5d54c2de6d5e9db1ea6a5} 
+template$<$size\+\_\+t size$>$ \\
+std\+::array$<$ int64\+\_\+t, size $>$ sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::quick\+Sort\+RP (\begin{DoxyParamCaption}\item[{std\+::array$<$ int64\+\_\+t, size $>$}]{arr}{, }\item[{int64\+\_\+t}]{start}{, }\item[{int64\+\_\+t}]{end}{}\end{DoxyParamCaption})}
+
+
+
+Random pivot quick sort function. This function is the starting point of the algorithm. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em size} & size of the array to be passed as argument. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The start index of the passed array \\
+\hline
+{\em end} & The ending index of the passed array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::array$<$int64\+\_\+t , size$>$ A fully sorted array in ascending order. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ <\ end)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ int64\_t\ randomIndex\ =\ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_aac5657b4fe2251cd21073f44233f6ea5}{getRandomIndex}}(start,\ end);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ switching\ the\ pivot\ with\ right\ most\ bound.}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ std::swap(arr[end],\ arr[randomIndex]);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ int64\_t\ pivotIndex\ =\ 0;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ getting\ pivot\ index\ and\ pivot\ sorted\ array.}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ std::tie(pivotIndex,\ arr)\ =\ partition(arr,\ start,\ end);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recursively\ calling}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ std::array<int64\_t,\ arr.size()>\ rightSortingLeft\ =}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_a7d2e7465e7b5d54c2de6d5e9db1ea6a5}{quickSortRP}}(arr,\ start,\ pivotIndex\ -\/\ 1);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ std::array<int64\_t,\ arr.size()>\ full\_sorted\ =}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{random__pivot__quick__sort_8cpp_a7d2e7465e7b5d54c2de6d5e9db1ea6a5}{quickSortRP}}(rightSortingLeft,\ pivotIndex\ +\ 1,\ end);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ arr\ =\ full\_sorted;}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{00150\ \}}
+
+\end{DoxyCode}
+\Hypertarget{random__pivot__quick__sort_8cpp_ac3281dc34a9cfd7beb332419b8a0aa10}\index{random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}!showArray@{showArray}}
+\index{showArray@{showArray}!random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{showArray()}{showArray()}}
+{\footnotesize\ttfamily \label{random__pivot__quick__sort_8cpp_ac3281dc34a9cfd7beb332419b8a0aa10} 
+template$<$size\+\_\+t T$>$ \\
+void sorting\+::random\+\_\+pivot\+\_\+quick\+\_\+sort\+::show\+Array (\begin{DoxyParamCaption}\item[{std\+::array$<$ int64\+\_\+t, T $>$}]{arr}{}\end{DoxyParamCaption})}
+
+
+
+Utility function to print the array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & size of the array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array used to print its content \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 0;\ i\ <\ arr.size();\ i++)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{random__pivot__quick__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}!test@{test}}
+\index{test@{test}!random\_pivot\_quick\_sort.cpp@{random\_pivot\_quick\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{random__pivot__quick__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \mbox{\hyperlink{class_test_cases}{TestCases}}\ tc\ =\ \mbox{\hyperlink{class_test_cases}{TestCases}}();}
+\DoxyCodeLine{00314\ \ \ \ \ tc.\mbox{\hyperlink{class_test_cases_aeabea90c02f9159e4a784bbf736e1e23}{runTests}}();}
+\DoxyCodeLine{00315\ \}}
+
+\end{DoxyCode}

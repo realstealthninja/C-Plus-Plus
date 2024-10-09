@@ -1,0 +1,126 @@
+\doxysection{math/number\+\_\+of\+\_\+positive\+\_\+divisors.cpp File Reference}
+\hypertarget{number__of__positive__divisors_8cpp}{}\label{number__of__positive__divisors_8cpp}\index{math/number\_of\_positive\_divisors.cpp@{math/number\_of\_positive\_divisors.cpp}}
+
+
+C++ Program to calculate the number of positive divisors.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}{number\+\_\+of\+\_\+positive\+\_\+divisors}} (int n)
+\item 
+void \mbox{\hyperlink{number__of__positive__divisors_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{number__of__positive__divisors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C++ Program to calculate the number of positive divisors. 
+
+This algorithm uses the prime factorization approach. Any positive integer can be written as a product of its prime factors. ~\newline
+Let $N = p_1^{e_1} \times p_2^{e_2} \times\cdots\times p_k^{e_k}$ where $p_1,\, p_2,\, \dots,\, p_k$ are distinct prime factors of $N$ and $e_1,\, e_2,\, \dots,\, e_k$ are respective positive integer exponents. ~\newline
+Each positive divisor of $N$ is in the form $p_1^{g_1}\times p_2^{g_2}\times\cdots\times p_k^{g_k}$ where $0\le g_i\le e_i$ are integers for all $1\le i\le k$. ~\newline
+Finally, there are $(e_1+1) \times (e_2+1)\times\cdots\times (e_k+1)$ positive divisors of $N$ since we can choose every $g_i$ independently.
+
+Example\+: ~\newline
+ $N = 36 = (3^2 \cdot 2^2)$ ~\newline
+ $\mbox{number_of_positive_divisors}(36) = (2+1) \cdot (2+1) = 9$. ~\newline
+list of positive divisors of 36 = 1, 2, 3, 4, 6, 9, 12, 18, 36.
+
+Similarly, for N = -\/36 the number of positive divisors remain same. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{number__of__positive__divisors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{number\_of\_positive\_divisors.cpp@{number\_of\_positive\_divisors.cpp}!main@{main}}
+\index{main@{main}!number\_of\_positive\_divisors.cpp@{number\_of\_positive\_divisors.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{number__of__positive__divisors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{number__of__positive__divisors_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00084\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ non-\/zero\ numbers\ are\ divisors\ of\ 0\ !"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00087\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Number\ of\ positive\ divisors\ is\ :\ "{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}{number\_of\_positive\_divisors}}(n)\ <<\ std::endl;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}\index{number\_of\_positive\_divisors.cpp@{number\_of\_positive\_divisors.cpp}!number\_of\_positive\_divisors@{number\_of\_positive\_divisors}}
+\index{number\_of\_positive\_divisors@{number\_of\_positive\_divisors}!number\_of\_positive\_divisors.cpp@{number\_of\_positive\_divisors.cpp}}
+\doxysubsubsection{\texorpdfstring{number\_of\_positive\_divisors()}{number\_of\_positive\_divisors()}}
+{\footnotesize\ttfamily \label{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb} 
+int number\+\_\+of\+\_\+positive\+\_\+divisors (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+Function to compute the number of positive divisors. 
+\begin{DoxyParams}{Parameters}
+{\em n} & number to compute divisors for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of positive divisors of n (or 1 if n = 0) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 0)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ n\ =\ -\/n;\ \textcolor{comment}{//\ take\ the\ absolute\ value\ of\ n}}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ number\_of\_divisors\ =\ 1;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ *\ i\ <=\ n;\ i++)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ part\ is\ doing\ the\ prime\ factorization.}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Note\ that\ we\ cannot\ find\ a\ composite\ divisor\ of\ n\ unless\ we\ would}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ already\ previously\ find\ the\ corresponding\ prime\ divisor\ and\ dvided}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ n\ by\ that\ prime.\ Therefore,\ all\ the\ divisors\ found\ here\ will}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ actually\ be\ primes.}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ loop\ terminates\ early\ when\ it\ is\ left\ with\ a\ number\ n\ which}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ does\ not\ have\ a\ divisor\ smaller\ or\ equal\ to\ sqrt(n)\ -\/\ that\ means}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ remaining\ number\ is\ a\ prime\ itself.}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ prime\_exponent\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ \%\ i\ ==\ 0)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Repeatedly\ divide\ n\ by\ the\ prime\ divisor\ n\ to\ compute}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ exponent\ (e\_i\ in\ the\ algorithm\ description).}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ prime\_exponent++;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ n\ /=\ i;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ number\_of\_divisors\ *=\ prime\_exponent\ +\ 1;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >\ 1)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ In\ case\ the\ remaining\ number\ n\ is\ a\ prime\ number\ itself}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (essentially\ p\_k\string^1)\ the\ final\ answer\ is\ also\ multiplied\ by\ (e\_k+1).}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ number\_of\_divisors\ *=\ 2;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ number\_of\_divisors;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{number__of__positive__divisors_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{number\_of\_positive\_divisors.cpp@{number\_of\_positive\_divisors.cpp}!tests@{tests}}
+\index{tests@{tests}!number\_of\_positive\_divisors.cpp@{number\_of\_positive\_divisors.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{number__of__positive__divisors_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test implementations 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ assert(\mbox{\hyperlink{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}{number\_of\_positive\_divisors}}(36)\ ==\ 9);}
+\DoxyCodeLine{00072\ \ \ \ \ assert(\mbox{\hyperlink{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}{number\_of\_positive\_divisors}}(-\/36)\ ==\ 9);}
+\DoxyCodeLine{00073\ \ \ \ \ assert(\mbox{\hyperlink{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}{number\_of\_positive\_divisors}}(1)\ ==\ 1);}
+\DoxyCodeLine{00074\ \ \ \ \ assert(\mbox{\hyperlink{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}{number\_of\_positive\_divisors}}(2011)\ ==\ 2);\ \textcolor{comment}{//\ 2011\ is\ a\ prime}}
+\DoxyCodeLine{00075\ \ \ \ \ assert(\mbox{\hyperlink{number__of__positive__divisors_8cpp_ad89ccced8504b5116046cfa03066ffeb}{number\_of\_positive\_divisors}}(756)\ ==\ 24);\ \textcolor{comment}{//\ 756\ =\ 2\string^2\ *\ 3\string^3\ *\ 7}}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}

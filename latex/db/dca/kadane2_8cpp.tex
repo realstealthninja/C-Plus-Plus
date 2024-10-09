@@ -1,0 +1,109 @@
+\doxysection{dynamic\+\_\+programming/kadane2.cpp File Reference}
+\hypertarget{kadane2_8cpp}{}\label{kadane2_8cpp}\index{dynamic\_programming/kadane2.cpp@{dynamic\_programming/kadane2.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Kadane\%27s_algorithm}{\texttt{ Kadane Algorithm}}  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacekadane}{kadane}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Kadane\%27s_algorithm}{\texttt{ Kadane}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t N$>$ }\\int \mbox{\hyperlink{kadane2_8cpp_af3029007a422a914a85c0b0122f1c7b4}{dynamic\+\_\+programming\+::kadane\+::max\+Sub\+Array}} (const std\+::array$<$ int, N $>$ \&n)
+\begin{DoxyCompactList}\small\item\em max\+Sub\+Array function is used to calculate the maximum sum subarray and returns the value of maximum sum which is stored in the variable max\+\_\+sum \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{kadane2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Kadane\%27s_algorithm}{\texttt{ Kadane Algorithm}} 
+
+Kadane algorithm is used to find the maximum sum subarray in an array and maximum sum subarray problem is the task of finding a contiguous subarray with the largest sum\hypertarget{kadane2_8cpp_autotoc_md72}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{kadane2_8cpp_autotoc_md72}
+The simple idea of the algorithm is to search for all positive contiguous segments of the array and keep track of maximum sum contiguous segment among all positive segments(curr\+\_\+sum is used for this) Each time we get a positive sum we compare it with max\+\_\+sum and update max\+\_\+sum if it is greater than curr\+\_\+sum
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/ayush523}{\texttt{ Ayush Singh}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{kadane2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{kadane2.cpp@{kadane2.cpp}!main@{main}}
+\index{main@{main}!kadane2.cpp@{kadane2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{kadane2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 5;}
+\DoxyCodeLine{00062\ \ \ \ \ std::array<int,\ N>\ n\{\};\ \ \textcolor{comment}{//\ declaring\ array}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ taking\ values\ of\ elements\ from\ user}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n.size();\ i++)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ value\ of\ n["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]"{}}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::cin\ >>\ n[i];}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_sum\ =\ dynamic\_programming::kadane::maxSubArray<N>(}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ n);\ \ \textcolor{comment}{//\ calling\ maxSubArray\ function}}
+\DoxyCodeLine{00071\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Maximum\ subarray\ sum\ is\ "{}}\ <<\ max\_sum;\ \ \textcolor{comment}{//\ Printing\ the\ answer}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kadane2_8cpp_af3029007a422a914a85c0b0122f1c7b4}\index{kadane2.cpp@{kadane2.cpp}!maxSubArray@{maxSubArray}}
+\index{maxSubArray@{maxSubArray}!kadane2.cpp@{kadane2.cpp}}
+\doxysubsubsection{\texorpdfstring{maxSubArray()}{maxSubArray()}}
+{\footnotesize\ttfamily \label{kadane2_8cpp_af3029007a422a914a85c0b0122f1c7b4} 
+template$<$size\+\_\+t N$>$ \\
+int dynamic\+\_\+programming\+::kadane\+::max\+Sub\+Array (\begin{DoxyParamCaption}\item[{const std\+::array$<$ int, N $>$ \&}]{n}{}\end{DoxyParamCaption})}
+
+
+
+max\+Sub\+Array function is used to calculate the maximum sum subarray and returns the value of maximum sum which is stored in the variable max\+\_\+sum 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & number of array size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & array where numbers are saved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of maximum subarray sum 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ curr\_sum\ =}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ 0;\ \ \textcolor{comment}{//\ declaring\ a\ variable\ named\ as\ curr\_sum\ and\ initialized\ it\ to\ 0}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_sum\ =\ INT\_MIN;\ \ \textcolor{comment}{//\ Initialized\ max\_sum\ to\ INT\_MIN}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ :\ n)\ \{\ \ \textcolor{comment}{//\ for\ loop\ to\ iterate\ over\ the\ elements\ of\ the\ array}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ curr\_sum\ +=\ n[i];}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ max\_sum\ =\ std::max(max\_sum,\ curr\_sum);\ \ \textcolor{comment}{//\ getting\ the\ maximum\ value}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ curr\_sum\ =\ std::max(curr\_sum,\ 0);\ \ \textcolor{comment}{//\ updating\ the\ value\ of\ curr\_sum}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ max\_sum;\ \ \textcolor{comment}{//\ returning\ the\ value\ of\ max\_sum}}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}

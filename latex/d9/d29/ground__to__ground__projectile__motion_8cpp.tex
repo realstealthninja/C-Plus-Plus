@@ -1,0 +1,256 @@
+\doxysection{physics/ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion.cpp File Reference}
+\hypertarget{ground__to__ground__projectile__motion_8cpp}{}\label{ground__to__ground__projectile__motion_8cpp}\index{physics/ground\_to\_ground\_projectile\_motion.cpp@{physics/ground\_to\_ground\_projectile\_motion.cpp}}
+
+
+Ground to ground \href{https://en.wikipedia.org/wiki/Projectile_motion}{\texttt{ projectile motion}} equation implementations.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacephysics}{physics}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceground__to__ground__projectile__motion}{ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion}}
+\begin{DoxyCompactList}\small\item\em Functions for the Ground to ground \href{https://en.wikipedia.org/wiki/Projectile_motion}{\texttt{ projectile motion}} equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{ground__to__ground__projectile__motion_8cpp_a525335710b53cb064ca56b936120431e}\label{ground__to__ground__projectile__motion_8cpp_a525335710b53cb064ca56b936120431e} 
+\#define {\bfseries \+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}
+\begin{DoxyCompactList}\small\item\em for assert() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_ab00e9785fb2670f7af99d6f3d636f87c}{physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::degrees\+\_\+to\+\_\+radians}} (double degrees)
+\begin{DoxyCompactList}\small\item\em Convert radians to degrees. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_a563e066975fed1b84750a0a47c3cbb37}{physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::time\+\_\+of\+\_\+flight}} (T initial\+\_\+velocity, T angle, double gravity=9.\+81)
+\begin{DoxyCompactList}\small\item\em Calculate the time of flight. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_a10362eb607d7882bac3a0688504b00ff}{physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::horizontal\+\_\+range}} (T initial\+\_\+velocity, T angle, T time)
+\begin{DoxyCompactList}\small\item\em Calculate the horizontal distance that the projectile travels. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_aa554429def63077ab7a550c0affbfefa}{physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::max\+\_\+height}} (T initial\+\_\+velocity, T angle, double gravity=9.\+81)
+\begin{DoxyCompactList}\small\item\em Calculate the max height of the projectile. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ground to ground \href{https://en.wikipedia.org/wiki/Projectile_motion}{\texttt{ projectile motion}} equation implementations. 
+
+Ground to ground projectile motion is when a projectile\textquotesingle{}s trajectory starts at the ground, reaches the apex, then falls back on the ground.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Focusucof}{\texttt{ Focusucof}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ground__to__ground__projectile__motion_8cpp_ab00e9785fb2670f7af99d6f3d636f87c}\index{ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}!degrees\_to\_radians@{degrees\_to\_radians}}
+\index{degrees\_to\_radians@{degrees\_to\_radians}!ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}}
+\doxysubsubsection{\texorpdfstring{degrees\_to\_radians()}{degrees\_to\_radians()}}
+{\footnotesize\ttfamily \label{ground__to__ground__projectile__motion_8cpp_ab00e9785fb2670f7af99d6f3d636f87c} 
+double physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::degrees\+\_\+to\+\_\+radians (\begin{DoxyParamCaption}\item[{double}]{degrees}{}\end{DoxyParamCaption})}
+
+
+
+Convert radians to degrees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radian} & Angle in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Angle in degrees 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ radians\ =\ degrees\ *\ (M\_PI\ /\ 180);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ radians;}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ground__to__ground__projectile__motion_8cpp_a10362eb607d7882bac3a0688504b00ff}\index{ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}!horizontal\_range@{horizontal\_range}}
+\index{horizontal\_range@{horizontal\_range}!ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}}
+\doxysubsubsection{\texorpdfstring{horizontal\_range()}{horizontal\_range()}}
+{\footnotesize\ttfamily \label{ground__to__ground__projectile__motion_8cpp_a10362eb607d7882bac3a0688504b00ff} 
+template$<$typename T $>$ \\
+T physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::horizontal\+\_\+range (\begin{DoxyParamCaption}\item[{T}]{initial\+\_\+velocity}{, }\item[{T}]{angle}{, }\item[{T}]{time}{}\end{DoxyParamCaption})}
+
+
+
+Calculate the horizontal distance that the projectile travels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+\_\+velocity} & The starting velocity of the projectile \\
+\hline
+{\em time} & The time that the projectile is in the air \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Horizontal distance that the projectile travels 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{double}\ Vix\ =\ initial\_velocity\ *\ (std::cos(\mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_ab00e9785fb2670f7af99d6f3d636f87c}{degrees\_to\_radians}}(angle)));\ \textcolor{comment}{//\ calculate\ x\ component\ of\ the\ initial\ velocity}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ Vix\ *\ time;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ground__to__ground__projectile__motion_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}!main@{main}}
+\index{main@{main}!ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{ground__to__ground__projectile__motion_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ground__to__ground__projectile__motion_8cpp_aa554429def63077ab7a550c0affbfefa}\index{ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}!max\_height@{max\_height}}
+\index{max\_height@{max\_height}!ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}}
+\doxysubsubsection{\texorpdfstring{max\_height()}{max\_height()}}
+{\footnotesize\ttfamily \label{ground__to__ground__projectile__motion_8cpp_aa554429def63077ab7a550c0affbfefa} 
+template$<$typename T $>$ \\
+T physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::max\+\_\+height (\begin{DoxyParamCaption}\item[{T}]{initial\+\_\+velocity}{, }\item[{T}]{angle}{, }\item[{double}]{gravity}{ = {\ttfamily 9.81}}\end{DoxyParamCaption})}
+
+
+
+Calculate the max height of the projectile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+\_\+velocity} & The starting velocity of the projectile \\
+\hline
+{\em angle} & The angle that the projectile is launched at in degrees \\
+\hline
+{\em gravity} & The value used for the gravity constant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The max height that the projectile reaches 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ Viy\ =\ initial\_velocity\ *\ (std::sin(\mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_ab00e9785fb2670f7af99d6f3d636f87c}{degrees\_to\_radians}}(angle)));\ \textcolor{comment}{//\ calculate\ y\ component\ of\ the\ initial\ velocity}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ (std::pow(Viy,\ 2)\ /\ (2.0\ *\ gravity));}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ground__to__ground__projectile__motion_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}!test@{test}}
+\index{test@{test}!ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{ground__to__ground__projectile__motion_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ initial\ input\ variables}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{double}\ initial\_velocity\ =\ 5.0;\ \ \textcolor{comment}{//\ double\ initial\_velocity\ input}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 40.0;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ double\ angle\ input}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ expected\_time\_of\_flight\ =\ 0.655;\ \ \textcolor{comment}{//\ expected\ time\ output}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{double}\ flight\_time\_output\ =}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::round(physics::ground\_to\_ground\_projectile\_motion::time\_of\_flight(initial\_velocity,\ angle)\ *\ 1000.0)\ /}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ 1000.0;\ \ \textcolor{comment}{//\ round\ output\ to\ 3\ decimal\ places}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Projectile\ Flight\ Time\ (double)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Initial\ Velocity:\ "{}}\ <<\ initial\_velocity\ <<\ std::endl;}
+\DoxyCodeLine{00096\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Angle:\ "{}}\ <<\ angle\ <<\ std::endl;}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ expected\_time\_of\_flight\ <<\ std::endl;}
+\DoxyCodeLine{00098\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ flight\_time\_output\ <<\ std::endl;}
+\DoxyCodeLine{00099\ \ \ \ \ assert(flight\_time\_output\ ==\ expected\_time\_of\_flight);}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ expected\_horizontal\_range\ =\ 2.51;\ \textcolor{comment}{//\ expected\ range\ output}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}\ horizontal\_range\_output\ =}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ std::round(physics::ground\_to\_ground\_projectile\_motion::horizontal\_range(initial\_velocity,\ angle,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flight\_time\_output)\ *}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100.0)\ /}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ 100.0;\ \ \textcolor{comment}{//\ round\ output\ to\ 2\ decimal\ places}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Projectile\ Horizontal\ Range\ (double)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Initial\ Velocity:\ "{}}\ <<\ initial\_velocity\ <<\ std::endl;}
+\DoxyCodeLine{00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Angle:\ "{}}\ <<\ angle\ <<\ std::endl;}
+\DoxyCodeLine{00113\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Time\ Of\ Flight:\ "{}}\ <<\ flight\_time\_output\ <<\ std::endl;}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ expected\_horizontal\_range\ <<\ std::endl;}
+\DoxyCodeLine{00115\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ horizontal\_range\_output\ <<\ std::endl;}
+\DoxyCodeLine{00116\ \ \ \ \ assert(horizontal\_range\_output\ ==\ expected\_horizontal\_range);}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{double}\ expected\_max\_height\ =\ 0.526;\ \textcolor{comment}{//\ expected\ height\ output}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{double}\ max\_height\_output\ =}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ std::round(physics::ground\_to\_ground\_projectile\_motion::max\_height(initial\_velocity,\ angle)\ *\ 1000.0)\ /}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ 1000.0;\ \ \textcolor{comment}{//\ round\ output\ to\ 3\ decimal\ places}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Projectile\ Max\ Height\ (double)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00126\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Initial\ Velocity:\ "{}}\ <<\ initial\_velocity\ <<\ std::endl;}
+\DoxyCodeLine{00127\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Angle:\ "{}}\ <<\ angle\ <<\ std::endl;}
+\DoxyCodeLine{00128\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ expected\_max\_height\ <<\ std::endl;}
+\DoxyCodeLine{00129\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ max\_height\_output\ <<\ std::endl;}
+\DoxyCodeLine{00130\ \ \ \ \ assert(max\_height\_output\ ==\ expected\_max\_height);}
+\DoxyCodeLine{00131\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00132\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ground__to__ground__projectile__motion_8cpp_a563e066975fed1b84750a0a47c3cbb37}\index{ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}!time\_of\_flight@{time\_of\_flight}}
+\index{time\_of\_flight@{time\_of\_flight}!ground\_to\_ground\_projectile\_motion.cpp@{ground\_to\_ground\_projectile\_motion.cpp}}
+\doxysubsubsection{\texorpdfstring{time\_of\_flight()}{time\_of\_flight()}}
+{\footnotesize\ttfamily \label{ground__to__ground__projectile__motion_8cpp_a563e066975fed1b84750a0a47c3cbb37} 
+template$<$typename T $>$ \\
+T physics\+::ground\+\_\+to\+\_\+ground\+\_\+projectile\+\_\+motion\+::time\+\_\+of\+\_\+flight (\begin{DoxyParamCaption}\item[{T}]{initial\+\_\+velocity}{, }\item[{T}]{angle}{, }\item[{double}]{gravity}{ = {\ttfamily 9.81}}\end{DoxyParamCaption})}
+
+
+
+Calculate the time of flight. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+\_\+velocity} & The starting velocity of the projectile \\
+\hline
+{\em angle} & The angle that the projectile is launched at in degrees \\
+\hline
+{\em gravity} & The value used for the gravity constant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The time that the projectile is in the air for 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{double}\ Viy\ =\ initial\_velocity\ *\ (std::sin(\mbox{\hyperlink{ground__to__ground__projectile__motion_8cpp_ab00e9785fb2670f7af99d6f3d636f87c}{degrees\_to\_radians}}(angle)));\ \textcolor{comment}{//\ calculate\ y\ component\ of\ the\ initial\ velocity}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ 2.0\ *\ Viy\ /\ gravity;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}

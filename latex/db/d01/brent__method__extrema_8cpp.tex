@@ -1,0 +1,316 @@
+\doxysection{numerical\+\_\+methods/brent\+\_\+method\+\_\+extrema.cpp File Reference}
+\hypertarget{brent__method__extrema_8cpp}{}\label{brent__method__extrema_8cpp}\index{numerical\_methods/brent\_method\_extrema.cpp@{numerical\_methods/brent\_method\_extrema.cpp}}
+
+
+Find real extrema of a univariate real function in a given interval using \href{https://en.wikipedia.org/wiki/Brent\%27s_method}{\texttt{ Brent\textquotesingle{}s method}}.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{brent__method__extrema_8cpp_a525335710b53cb064ca56b936120431e}\label{brent__method__extrema_8cpp_a525335710b53cb064ca56b936120431e} 
+\#define {\bfseries \+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}
+\begin{DoxyCompactList}\small\item\em required for MS Visual C++ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}}
+\begin{DoxyCompactList}\small\item\em system accuracy limit \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{brent__method__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\+\_\+minima}} (const std\+::function$<$ double(double)$>$ \&f, double lim\+\_\+a, double lim\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Get the real root of a function in the given interval. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{brent__method__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\begin{DoxyCompactList}\small\item\em Test function to find root for the function $f(x)= (x-2)^2$ in the interval $[1,5]$ ~\newline
+ Expected result = 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{brent__method__extrema_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\begin{DoxyCompactList}\small\item\em Test function to find root for the function $f(x)= x^{\frac{1}{x}}$ in the interval $[-2,10]$ ~\newline
+ Expected result\+: $e\approx 2.71828182845904509$. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{brent__method__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}} ()
+\begin{DoxyCompactList}\small\item\em Test function to find {\itshape maxima} for the function $f(x)= \cos x$ in the interval $[0,12]$ ~\newline
+ Expected result\+: $\pi\approx 3.14159265358979312$. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{brent__method__extrema_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Find real extrema of a univariate real function in a given interval using \href{https://en.wikipedia.org/wiki/Brent\%27s_method}{\texttt{ Brent\textquotesingle{}s method}}. 
+
+Refer the algorithm discoverer\textquotesingle{}s publication \href{https://maths-people.anu.edu.au/~brent/pd/rpb011i.pdf}{\texttt{ online}} and also associated book\+: \begin{quote}
+R. P. Brent, Algorithms for Minimization without Derivatives, Prentice-\/\+Hall, Englewood Cliffs, New Jersey, 1973 \end{quote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{golden__search__extrema_8cpp}{golden\+\_\+search\+\_\+extrema.\+cpp}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}\index{brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}!EPSILON@{EPSILON}}
+\index{EPSILON@{EPSILON}!brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{EPSILON}{EPSILON}}
+{\footnotesize\ttfamily \label{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70} 
+\#define EPSILON}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ std::sqrt(\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::numeric\_limits<double>::epsilon())}
+
+\end{DoxyCode}
+
+
+system accuracy limit 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ EPSILON\ \(\backslash\)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ std::sqrt(\ \ \(\backslash\)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::numeric\_limits<double>::epsilon())\ \ }\textcolor{comment}{///<\ system\ accuracy\ limit}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{brent__method__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}\index{brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}!get\_minima@{get\_minima}}
+\index{get\_minima@{get\_minima}!brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_minima()}{get\_minima()}}
+{\footnotesize\ttfamily \label{brent__method__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b} 
+double get\+\_\+minima (\begin{DoxyParamCaption}\item[{const std\+::function$<$ double(double)$>$ \&}]{f}{, }\item[{double}]{lim\+\_\+a}{, }\item[{double}]{lim\+\_\+b}{}\end{DoxyParamCaption})}
+
+
+
+Get the real root of a function in the given interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & function to get root for \\
+\hline
+{\em lim\+\_\+a} & lower limit of search window \\
+\hline
+{\em lim\+\_\+b} & upper limit of search window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+root found in the interval 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ uint32\_t\ iters\ =\ 0;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (lim\_a\ >\ lim\_b)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::swap(lim\_a,\ lim\_b);}
+\DoxyCodeLine{00041\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (std::abs(lim\_a\ -\/\ lim\_b)\ <=\ \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Search\ range\ must\ be\ greater\ than\ "{}}\ <<\ \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lim\_a;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ golden\ ratio\ value}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ M\_GOLDEN\_RATIO\ =\ (3.f\ -\/\ std::sqrt(5.f))\ /\ 2.f;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{double}\ v\ =\ lim\_a\ +\ M\_GOLDEN\_RATIO\ *\ (lim\_b\ -\/\ lim\_a);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{double}\ u,\ w\ =\ v,\ x\ =\ v;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ fu,\ fv\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}}(v);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{double}\ fw\ =\ fv,\ fx\ =\ fv;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{double}\ mid\_point\ =\ (lim\_a\ +\ lim\_b)\ /\ 2.f;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ 0,\ q\ =\ 0,\ r\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ d,\ e\ =\ 0;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,\ tolerance2;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ mid\_point\ =\ (lim\_a\ +\ lim\_b)\ /\ 2.f;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ tolerance\ =\ \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}}\ *\ std::abs(x);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ tolerance2\ =\ 2\ *\ tolerance;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(e)\ >\ tolerance2)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fit\ parabola}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ (x\ -\/\ w)\ *\ (fx\ -\/\ fv);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ (x\ -\/\ v)\ *\ (fx\ -\/\ fw);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ (x\ -\/\ v)\ *\ q\ -\/\ (x\ -\/\ w)\ *\ r;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ 2.f\ *\ (q\ -\/\ r);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (q\ >\ 0)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ -\/p;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ -\/q;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ e;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ d;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(p)\ <\ std::abs(0.5\ *\ q\ *\ r)\ \&\&\ p\ <\ q\ *\ (lim\_b\ -\/\ x))\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ parabolic\ interpolation\ step}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ p\ /\ q;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ x\ +\ d;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ -\/\ lim\_a\ <\ tolerance2\ ||\ lim\_b\ -\/\ u\ <\ tolerance2)}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ x\ <\ mid\_point\ ?\ tolerance\ :\ -\/tolerance;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ golden\ section\ interpolation\ step}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ (x\ <\ mid\_point\ ?\ lim\_b\ :\ lim\_a)\ -\/\ x;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ M\_GOLDEN\_RATIO\ *\ e;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ evaluate\ not\ too\ close\ to\ x}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(d)\ >=\ tolerance)}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ d;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (d\ >\ 0)}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ tolerance;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ -\/tolerance;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ u\ +=\ x;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ fu\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a4251b4df4748a0b9c43a48f61bdd2397}{f}}(u);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ variables}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fu\ <=\ fx)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ <\ x)}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lim\_b\ =\ x;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lim\_a\ =\ x;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ w;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ fv\ =\ fw;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ w\ =\ x;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ fw\ =\ fx;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ u;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ fx\ =\ fu;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ <\ x)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lim\_a\ =\ u;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lim\_b\ =\ u;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fu\ <=\ fw\ ||\ x\ ==\ w)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ w;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fv\ =\ fw;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ w\ =\ u;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fw\ =\ fu;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (fu\ <=\ fv\ ||\ v\ ==\ x\ ||\ v\ ==\ w)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ u;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fv\ =\ fu;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ iters++;}
+\DoxyCodeLine{00130\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (std::abs(x\ -\/\ mid\_point)\ >\ (tolerance\ -\/\ (lim\_b\ -\/\ lim\_a)\ /\ 2.f));}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ (iters:\ "{}}\ <<\ iters\ <<\ \textcolor{stringliteral}{"{})\ "{}};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00135\ \}}
+
+\end{DoxyCode}
+\Hypertarget{brent__method__extrema_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}!main@{main}}
+\index{main@{main}!brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{brent__method__extrema_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ std::cout.precision(18);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Computations\ performed\ with\ machine\ epsilon:\ "{}}\ <<\ \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{brent__method__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{brent__method__extrema_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();}
+\DoxyCodeLine{00212\ \ \ \ \ \mbox{\hyperlink{brent__method__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}}();}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00215\ \}}
+
+\end{DoxyCode}
+\Hypertarget{brent__method__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}!test1@{test1}}
+\index{test1@{test1}!brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{brent__method__extrema_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to find root for the function $f(x)= (x-2)^2$ in the interval $[1,5]$ ~\newline
+ Expected result = 2. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ define\ the\ function\ to\ minimize\ as\ a\ lambda\ function}}
+\DoxyCodeLine{00145\ \ \ \ \ std::function<double(\textcolor{keywordtype}{double})>\ f1\ =\ [](\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ -\/\ 2)\ *\ (x\ -\/\ 2);}
+\DoxyCodeLine{00147\ \ \ \ \ \};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1....\ "{}};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{double}\ minima\ =\ \mbox{\hyperlink{brent__method__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\_minima}}(f1,\ -\/1,\ 5);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ std::cout\ <<\ minima\ <<\ \textcolor{stringliteral}{"{}..."{}};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ assert(std::abs(minima\ -\/\ 2)\ <\ \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}});}
+\DoxyCodeLine{00156\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00157\ \}}
+
+\end{DoxyCode}
+\Hypertarget{brent__method__extrema_8cpp_a0283886819c7c140a023582b7269e2d0}\index{brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}!test2@{test2}}
+\index{test2@{test2}!brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{brent__method__extrema_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to find root for the function $f(x)= x^{\frac{1}{x}}$ in the interval $[-2,10]$ ~\newline
+ Expected result\+: $e\approx 2.71828182845904509$. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\ define\ the\ function\ to\ maximize\ as\ a\ lambda\ function}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ since\ we\ are\ maximixing,\ we\ negated\ the\ function\ return\ value}}
+\DoxyCodeLine{00168\ \ \ \ \ std::function<double(\textcolor{keywordtype}{double})>\ func\ =\ [](\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/std::pow(x,\ 1.f\ /\ x);}
+\DoxyCodeLine{00170\ \ \ \ \ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2....\ "{}};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{double}\ minima\ =\ \mbox{\hyperlink{brent__method__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\_minima}}(func,\ -\/2,\ 5);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ std::cout\ <<\ minima\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ M\_E\ <<\ \textcolor{stringliteral}{"{})..."{}};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ assert(std::abs(minima\ -\/\ M\_E)\ <\ \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}});}
+\DoxyCodeLine{00179\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00180\ \}}
+
+\end{DoxyCode}
+\Hypertarget{brent__method__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e}\index{brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}!test3@{test3}}
+\index{test3@{test3}!brent\_method\_extrema.cpp@{brent\_method\_extrema.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{brent__method__extrema_8cpp_a6d0455dd5c30adda100e95f0423c786e} 
+void test3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to find {\itshape maxima} for the function $f(x)= \cos x$ in the interval $[0,12]$ ~\newline
+ Expected result\+: $\pi\approx 3.14159265358979312$. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{comment}{//\ define\ the\ function\ to\ maximize\ as\ a\ lambda\ function}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ since\ we\ are\ maximixing,\ we\ negated\ the\ function\ return\ value}}
+\DoxyCodeLine{00191\ \ \ \ \ std::function<double(\textcolor{keywordtype}{double})>\ func\ =\ [](\textcolor{keywordtype}{double}\ x)\ \{\ \textcolor{keywordflow}{return}\ std::cos(x);\ \};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3....\ "{}};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{double}\ minima\ =\ \mbox{\hyperlink{brent__method__extrema_8cpp_a1aa76a6d5fd4d333f9072beff1dc486b}{get\_minima}}(func,\ -\/4,\ 12);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ std::cout\ <<\ minima\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ M\_PI\ <<\ \textcolor{stringliteral}{"{})..."{}};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ assert(std::abs(minima\ -\/\ M\_PI)\ <\ \mbox{\hyperlink{brent__method__extrema_8cpp_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}});}
+\DoxyCodeLine{00200\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00201\ \}}
+
+\end{DoxyCode}

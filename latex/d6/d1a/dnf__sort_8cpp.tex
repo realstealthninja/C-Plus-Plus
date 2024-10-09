@@ -1,0 +1,164 @@
+\doxysection{sorting/dnf\+\_\+sort.cpp File Reference}
+\hypertarget{dnf__sort_8cpp}{}\label{dnf__sort_8cpp}\index{sorting/dnf\_sort.cpp@{sorting/dnf\_sort.cpp}}
+
+
+Implementation of the \href{https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/}{\texttt{ DNF sort}} implementation.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacednf__sort}{dnf\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Dutch_national_flag_problem}{\texttt{ DNF sort}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{dnf__sort_8cpp_a621767fe711db64fe57a2ac4987b11f0}{sorting\+::dnf\+\_\+sort\+::dnf\+Sort}} (const std\+::vector$<$ T $>$ \&in\+\_\+arr)
+\begin{DoxyCompactList}\small\item\em The main function implements DNF sort. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{dnf__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dnf__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/}{\texttt{ DNF sort}} implementation. 
+
+C++ program to sort an array with 0, 1 and 2 in a single pass(\+DNF sort). Since one traversal of the array is there hence it works in O(n) time complexity. \begin{DoxyAuthor}{Author}
+\href{https://github.com/heysujal}{\texttt{ Sujal Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{dnf__sort_8cpp_a621767fe711db64fe57a2ac4987b11f0}\index{dnf\_sort.cpp@{dnf\_sort.cpp}!dnfSort@{dnfSort}}
+\index{dnfSort@{dnfSort}!dnf\_sort.cpp@{dnf\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{dnfSort()}{dnfSort()}}
+{\footnotesize\ttfamily \label{dnf__sort_8cpp_a621767fe711db64fe57a2ac4987b11f0} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ sorting\+::dnf\+\_\+sort\+::dnf\+Sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{in\+\_\+arr}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements DNF sort. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & array to be sorted, \\
+\hline
+{\em arr\+\_\+size} & size of array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<T>\ arr(in\_arr);}
+\DoxyCodeLine{00040\ \ \ \ \ uint64\_t\ lo\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ uint64\_t\ hi\ =\ arr.size()\ -\/\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ uint64\_t\ mid\ =\ 0;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Iterate\ till\ all\ the\ elements}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ are\ sorted}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{while}\ (mid\ <=\ hi)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (arr[mid])\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ element\ is\ 0}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(arr[lo++],\ arr[mid++]);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ element\ is\ 1\ .}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mid++;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ element\ is\ 2}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(arr[mid],\ arr[hi-\/-\/]);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{dnf__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{dnf\_sort.cpp@{dnf\_sort.cpp}!main@{main}}
+\index{main@{main}!dnf\_sort.cpp@{dnf\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{dnf__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{dnf__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ test}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00111\ \}}
+
+\end{DoxyCode}
+\Hypertarget{dnf__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{dnf\_sort.cpp@{dnf\_sort.cpp}!test@{test}}
+\index{test@{test}!dnf\_sort.cpp@{dnf\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{dnf__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ [1,\ 0,\ 2,\ 1]\ return\ [0,\ 1,\ 1,\ 2]}}
+\DoxyCodeLine{00076\ \ \ \ \ std::vector<uint64\_t>\ array1\ =\ \{0,\ 1,\ 1,\ 2\};}
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...\ "{}};}
+\DoxyCodeLine{00078\ \ \ \ \ std::vector<uint64\_t>\ arr1\ =\ \mbox{\hyperlink{dnf__sort_8cpp_a621767fe711db64fe57a2ac4987b11f0}{sorting::dnf\_sort::dnfSort}}(array1);}
+\DoxyCodeLine{00079\ \ \ \ \ assert(std::is\_sorted(std::begin(arr1),\ std::end(arr1)));}
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ [1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 2,\ 1]\ return\ [0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 2]}}
+\DoxyCodeLine{00083\ \ \ \ \ std::vector<uint64\_t>\ array2\ =\ \{1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 2,\ 1\};}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...\ "{}};}
+\DoxyCodeLine{00085\ \ \ \ \ std::vector<uint64\_t>\ arr2\ =\ \mbox{\hyperlink{dnf__sort_8cpp_a621767fe711db64fe57a2ac4987b11f0}{sorting::dnf\_sort::dnfSort}}(array2);}
+\DoxyCodeLine{00086\ \ \ \ \ assert(std::is\_sorted(std::begin(arr2),\ std::end(arr2)));}
+\DoxyCodeLine{00087\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ [1,\ 1,\ 0,\ 0,\ 1,\ 2,\ 2,\ 0,\ 2,\ 1]\ return\ [0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 2,\ 2,\ 2]}}
+\DoxyCodeLine{00090\ \ \ \ \ std::vector<uint64\_t>\ array3\ =\ \{1,\ 1,\ 0,\ 0,\ 1,\ 2,\ 2,\ 0,\ 2,\ 1\};}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...\ "{}};}
+\DoxyCodeLine{00092\ \ \ \ \ std::vector<uint64\_t>\ arr3\ =\ \mbox{\hyperlink{dnf__sort_8cpp_a621767fe711db64fe57a2ac4987b11f0}{sorting::dnf\_sort::dnfSort}}(array3);}
+\DoxyCodeLine{00093\ \ \ \ \ assert(std::is\_sorted(std::begin(arr3),\ std::end(arr3)));}
+\DoxyCodeLine{00094\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ 4th\ test}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ [2,\ 2,\ 2,\ 0,\ 0,\ 1,\ 1]\ return\ [0,\ 0,\ 1,\ 1,\ 2,\ 2,\ 2]}}
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<uint64\_t>\ array4\ =\ \{2,\ 2,\ 2,\ 0,\ 0,\ 1,\ 1\};}
+\DoxyCodeLine{00098\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 4...\ "{}};}
+\DoxyCodeLine{00099\ \ \ \ \ std::vector<uint64\_t>\ arr4\ =\ \mbox{\hyperlink{dnf__sort_8cpp_a621767fe711db64fe57a2ac4987b11f0}{sorting::dnf\_sort::dnfSort}}(array4);}
+\DoxyCodeLine{00100\ \ \ \ \ assert(std::is\_sorted(std::begin(arr4),\ std::end(arr4)));}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,136 @@
+\doxysection{bit\+\_\+manipulation/find\+\_\+non\+\_\+repeating\+\_\+number.cpp File Reference}
+\hypertarget{find__non__repeating__number_8cpp}{}\label{find__non__repeating__number_8cpp}\index{bit\_manipulation/find\_non\_repeating\_number.cpp@{bit\_manipulation/find\_non\_repeating\_number.cpp}}
+
+
+Implementation to find the non repeating integer in an array of repeating integers. \href{https://leetcode.com/problems/single-number/}{\texttt{ Single Number}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebit__manipulation}{bit\+\_\+manipulation}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacefind__non__repeating__integer}{find\+\_\+non\+\_\+repeating\+\_\+integer}}
+\begin{DoxyCompactList}\small\item\em Functions to find the non repeating integer in an array of repeating integers. \href{https://leetcode.com/problems/single-number/}{\texttt{ Single Number}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int64\+\_\+t \mbox{\hyperlink{find__non__repeating__number_8cpp_ac5ca4c0be0967b4dd572507f50451ae3}{bit\+\_\+manipulation\+::find\+\_\+non\+\_\+repeating\+\_\+integer\+::find\+\_\+non\+\_\+repeating\+\_\+integer}} (const std\+::vector$<$ int $>$ \&nums)
+\begin{DoxyCompactList}\small\item\em The main function implements find single number. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{find__non__repeating__number_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{find__non__repeating__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation to find the non repeating integer in an array of repeating integers. \href{https://leetcode.com/problems/single-number/}{\texttt{ Single Number}} 
+
+Given an array of integers in which all of the numbers occur exactly twice except one integer which occurs only once. Find the non-\/repeating integer.
+
+Worst Case Time Complexity\+: O(n) Space complexity\+: O(1)
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/literalEval}{\texttt{ Ravidev Pandey}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{find__non__repeating__number_8cpp_ac5ca4c0be0967b4dd572507f50451ae3}\index{find\_non\_repeating\_number.cpp@{find\_non\_repeating\_number.cpp}!find\_non\_repeating\_integer@{find\_non\_repeating\_integer}}
+\index{find\_non\_repeating\_integer@{find\_non\_repeating\_integer}!find\_non\_repeating\_number.cpp@{find\_non\_repeating\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_non\_repeating\_integer()}{find\_non\_repeating\_integer()}}
+{\footnotesize\ttfamily \label{find__non__repeating__number_8cpp_ac5ca4c0be0967b4dd572507f50451ae3} 
+int64\+\_\+t bit\+\_\+manipulation\+::find\+\_\+non\+\_\+repeating\+\_\+integer\+::find\+\_\+non\+\_\+repeating\+\_\+integer (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{nums}{}\end{DoxyParamCaption})}
+
+
+
+The main function implements find single number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nums} & vector of integers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the integer that occurs only once 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ The\ idea\ is\ based\ on\ the\ property\ of\ XOR.}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ We\ know\ that\ 'a'\ XOR\ 'a'\ is\ '0'\ and\ '0'\ XOR\ 'b'}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ is\ b.}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Using\ this,\ if\ we\ XOR\ all\ the\ elements\ of\ the\ array,}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ the\ repeating\ elements\ will\ give\ '0'\ and\ this\ '0'}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ with\ the\ single\ number\ will\ give\ the\ number\ itself.}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \_xor\ =\ 0;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ num:\ nums)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \_xor\ \string^=\ num;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ \_xor;}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+\Hypertarget{find__non__repeating__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{find\_non\_repeating\_number.cpp@{find\_non\_repeating\_number.cpp}!main@{main}}
+\index{main@{main}!find\_non\_repeating\_number.cpp@{find\_non\_repeating\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{find__non__repeating__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{find__non__repeating__number_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{find__non__repeating__number_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{find\_non\_repeating\_number.cpp@{find\_non\_repeating\_number.cpp}!test@{test}}
+\index{test@{test}!find\_non\_repeating\_number.cpp@{find\_non\_repeating\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{find__non__repeating__number_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ n\ =\ 10,2\ return\ 14}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<int>\ nums\_one\{1,\ 1,\ 2,\ 2,\ 4,\ 5,\ 5\};}
+\DoxyCodeLine{00066\ \ \ \ \ std::vector<int>\ nums\_two\{203,\ 3434,\ 4545,\ 3434,\ 4545\};}
+\DoxyCodeLine{00067\ \ \ \ \ std::vector<int>\ nums\_three\{90,\ 1,\ 3,\ 90,\ 3\};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ assert(bit\_manipulation::find\_non\_repeating\_integer::}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacefind__non__repeating__integer}{find\_non\_repeating\_integer}}(nums\_one)\ ==}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ 4);\ \ \textcolor{comment}{//\ 4\ is\ non\ repeating}}
+\DoxyCodeLine{00072\ \ \ \ \ assert(bit\_manipulation::find\_non\_repeating\_integer::}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacefind__non__repeating__integer}{find\_non\_repeating\_integer}}(nums\_two)\ ==}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ 203);\ \ \textcolor{comment}{//\ 203\ is\ non\ repeating}}
+\DoxyCodeLine{00075\ \ \ \ \ assert(bit\_manipulation::find\_non\_repeating\_integer::}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacefind__non__repeating__integer}{find\_non\_repeating\_integer}}(nums\_three)\ ==}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ 1\ is\ non\ repeating}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ test\ cases\ successfully\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,171 @@
+\doxysection{dynamic\+\_\+programming/cut\+\_\+rod.cpp File Reference}
+\hypertarget{cut__rod_8cpp}{}\label{cut__rod_8cpp}\index{dynamic\_programming/cut\_rod.cpp@{dynamic\_programming/cut\_rod.cpp}}
+
+
+Implementation of cutting a rod problem.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecut__rod}{cut\+\_\+rod}}
+\begin{DoxyCompactList}\small\item\em Implementation of cutting a rod problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t T$>$ }\\int \mbox{\hyperlink{cut__rod_8cpp_a1cc523a30c18c63eac58220c3c494cfa}{dynamic\+\_\+programming\+::cut\+\_\+rod\+::max\+Profit\+By\+Cutting\+Rod}} (const std\+::array$<$ int, T $>$ \&price, const uint64\+\_\+t \&n)
+\begin{DoxyCompactList}\small\item\em Cuts the rod in different pieces and stores the maximum profit for each piece of the rod. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{cut__rod_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test above algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cut__rod_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of cutting a rod problem. 
+
+Given a rod of length n inches and an array of prices that contains prices of all pieces of size\texorpdfstring{$<$}{<}=n. Determine the maximum profit obtainable by cutting up the rod and selling the pieces.\hypertarget{cut__rod_8cpp_autotoc_md71}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{cut__rod_8cpp_autotoc_md71}
+The idea is to break the given rod into every smaller piece as possible and then check profit for each piece, by calculating maximum profit for smaller pieces we will build the solution for larger pieces in bottom-\/up manner.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Anmol3299}{\texttt{ Anmol}} 
+
+\href{https://github.com/Pardeep009}{\texttt{ Pardeep}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{cut__rod_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{cut\_rod.cpp@{cut\_rod.cpp}!main@{main}}
+\index{main@{main}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{cut__rod_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ Testing}}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{cut__rod_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{cut__rod_8cpp_a1cc523a30c18c63eac58220c3c494cfa}\index{cut\_rod.cpp@{cut\_rod.cpp}!maxProfitByCuttingRod@{maxProfitByCuttingRod}}
+\index{maxProfitByCuttingRod@{maxProfitByCuttingRod}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{maxProfitByCuttingRod()}{maxProfitByCuttingRod()}}
+{\footnotesize\ttfamily \label{cut__rod_8cpp_a1cc523a30c18c63eac58220c3c494cfa} 
+template$<$size\+\_\+t T$>$ \\
+int dynamic\+\_\+programming\+::cut\+\_\+rod\+::max\+Profit\+By\+Cutting\+Rod (\begin{DoxyParamCaption}\item[{const std\+::array$<$ int, T $>$ \&}]{price}{, }\item[{const uint64\+\_\+t \&}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Cuts the rod in different pieces and stores the maximum profit for each piece of the rod. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & size of the price array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & size of the rod in inches \\
+\hline
+{\em price} & an array of prices that contains prices of all pieces of size\texorpdfstring{$<$}{<}=n \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum profit obtainable for
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & inch rod. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ *profit\ =}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[n\ +\ 1];\ \ \textcolor{comment}{//\ profit[i]\ will\ hold\ maximum\ profit\ for\ i\ inch\ rod}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ profit[0]\ =\ 0;\ \ \textcolor{comment}{//\ if\ length\ of\ rod\ is\ zero,\ then\ no\ profit}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ outer\ loop\ will\ select\ size\ of\ rod,\ starting\ from\ 1\ inch\ to\ n\ inch\ rod.}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ inner\ loop\ will\ evaluate\ the\ maximum\ profit\ we\ can\ get\ for\ i\ inch\ rod\ by}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ making\ every\ possible\ cut\ on\ it\ and\ will\ store\ it\ in\ profit[i].}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <=\ n;\ i++)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ q\ =\ INT\_MIN;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 1;\ j\ <=\ i;\ j++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ q\ =\ std::max(q,\ price[j\ -\/\ 1]\ +\ profit[i\ -\/\ j]);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ profit[i]\ =\ q;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ ans\ =\ profit[n];}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{delete}[]\ profit;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;\ \ \textcolor{comment}{//\ returning\ maximum\ profit}}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{cut__rod_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{cut\_rod.cpp@{cut\_rod.cpp}!test@{test}}
+\index{test@{test}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{cut__rod_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test above algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ n1\ =\ 8;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ size\ of\ rod}}
+\DoxyCodeLine{00074\ \ \ \ \ std::array<int32\_t,\ n1>\ price1\ =\ \{1,2,4,6,8,45,21,9\};\ \ \textcolor{comment}{//\ price\ array}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ max\_profit1\ =}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cut__rod_8cpp_a1cc523a30c18c63eac58220c3c494cfa}{dynamic\_programming::cut\_rod::maxProfitByCuttingRod}}(price1,\ n1);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ expected\_max\_profit1\ =\ 47;}
+\DoxyCodeLine{00078\ \ \ \ \ assert(max\_profit1\ ==\ expected\_max\_profit1);}
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Maximum\ profit\ with\ "{}}\ <<\ n1\ <<\ \textcolor{stringliteral}{"{}\ inch\ road\ is\ "{}}\ <<\ max\_profit1}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Test\ 2}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ n2\ =\ 30;\ \ \textcolor{comment}{//\ size\ of\ rod}}
+\DoxyCodeLine{00084\ \ \ \ \ std::array<int32\_t,\ n2>\ price2\ =\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ 1,\ \ 5,\ \ 8,\ \ 9,\ \ 10,\ 17,\ 17,\ 20,\ 24,\ 30,\ \ \textcolor{comment}{//\ price\ array}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ 31,\ 32,\ 33,\ 34,\ 35,\ 36,\ 37,\ 38,\ 39,\ 40,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ 41,\ 42,\ 43,\ 44,\ 45,\ 46,\ 47,\ 48,\ 49,\ 50\};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ max\_profit2=}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cut__rod_8cpp_a1cc523a30c18c63eac58220c3c494cfa}{dynamic\_programming::cut\_rod::maxProfitByCuttingRod}}(price2,\ n2);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ expected\_max\_profit2\ =\ 90;}
+\DoxyCodeLine{00092\ \ \ \ \ assert(max\_profit2\ ==\ expected\_max\_profit2);}
+\DoxyCodeLine{00093\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Maximum\ profit\ with\ "{}}\ <<\ n2\ <<\ \textcolor{stringliteral}{"{}\ inch\ road\ is\ "{}}\ <<\ max\_profit2}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \textcolor{comment}{//\ Test\ 3}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ n3\ =\ 5;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ size\ of\ rod}}
+\DoxyCodeLine{00097\ \ \ \ \ std::array<int32\_t,\ n3>\ price3\ =\ \{2,9,17,23,45\};\ \ \textcolor{comment}{//\ price\ array}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ max\_profit3\ =}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cut__rod_8cpp_a1cc523a30c18c63eac58220c3c494cfa}{dynamic\_programming::cut\_rod::maxProfitByCuttingRod}}(price3,\ n3);}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ expected\_max\_profit3\ =\ 45;}
+\DoxyCodeLine{00101\ \ \ \ \ assert(max\_profit3\ ==\ expected\_max\_profit3);}
+\DoxyCodeLine{00102\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Maximum\ profit\ with\ "{}}\ <<\ n3\ <<\ \textcolor{stringliteral}{"{}\ inch\ road\ is\ "{}}\ <<\ max\_profit3}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}

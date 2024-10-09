@@ -1,0 +1,200 @@
+\doxysection{data\+\_\+structures/linkedlist\+\_\+implentation\+\_\+usingarray.cpp File Reference}
+\hypertarget{linkedlist__implentation__usingarray_8cpp}{}\label{linkedlist__implentation__usingarray_8cpp}\index{data\_structures/linkedlist\_implentation\_usingarray.cpp@{data\_structures/linkedlist\_implentation\_usingarray.cpp}}
+
+
+Linked list implementation using Arrays.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{struct_node}{Node$<$ Value\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_ac2fa82ac5ae366cc3aca53a40bb7cd70}{initialise\+\_\+list}} ()
+\item 
+int \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_a73e11e0871f56342a30da93b6c93e8be}{getnode}} ()
+\item 
+void \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_a08ba214242a900e7251cec556b592f02}{free\+Node}} (int node\+To\+Be\+Deleted)
+\item 
+void \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_afcb07da7984e20b3207934696791f5df}{insert\+At\+The\+Beginning}} (int \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})
+\item 
+void \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_a92e0c1bb3b270143881e36b5fea8a60d}{insert\+At\+The\+End}} (int \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})
+\item 
+void \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{display}} ()
+\item 
+int \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}\label{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c} 
+\mbox{\hyperlink{struct_node}{Node}} {\bfseries Avail\+Array} \mbox{[}100\mbox{]}
+\begin{DoxyCompactList}\small\item\em array that will act as nodes of a linked list. \end{DoxyCompactList}\item 
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_a20358970b1abaf992eb85e071e454653}\label{linkedlist__implentation__usingarray_8cpp_a20358970b1abaf992eb85e071e454653} 
+int {\bfseries head} = -\/1
+\item 
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_ab84c7d9bed2aa1ade1fd61fbf5c2e07e}\label{linkedlist__implentation__usingarray_8cpp_ab84c7d9bed2aa1ade1fd61fbf5c2e07e} 
+int {\bfseries avail} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Linked list implementation using Arrays. 
+
+The difference between the pointer implementation of linked list and array implementation of linked list\+:
+\begin{DoxyEnumerate}
+\item The NULL is represented by -\/1;
+\item Limited size. (in the following case it is 100 nodes at max). But we can reuse the nodes that are to be deleted by again linking it bacj to the list. 
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}\index{linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}!display@{display}}
+\index{display@{display}!linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{linkedlist__implentation__usingarray_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269} 
+void display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ head;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[temp].data\ <<\ \textcolor{stringliteral}{"{}-\/>"{}};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ temp\ =\ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[temp].next;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/1"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_a08ba214242a900e7251cec556b592f02}\index{linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}!freeNode@{freeNode}}
+\index{freeNode@{freeNode}!linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}}
+\doxysubsubsection{\texorpdfstring{freeNode()}{freeNode()}}
+{\footnotesize\ttfamily \label{linkedlist__implentation__usingarray_8cpp_a08ba214242a900e7251cec556b592f02} 
+void free\+Node (\begin{DoxyParamCaption}\item[{int}]{node\+To\+Be\+Deleted}{}\end{DoxyParamCaption})}
+
+This function when called will delete the node with the index presented as an argument, and will put back that node into the array. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[nodeToBeDeleted].next\ =\ avail;}
+\DoxyCodeLine{00044\ \ \ \ \ avail\ =\ nodeToBeDeleted;}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_a73e11e0871f56342a30da93b6c93e8be}\index{linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}!getnode@{getnode}}
+\index{getnode@{getnode}!linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}}
+\doxysubsubsection{\texorpdfstring{getnode()}{getnode()}}
+{\footnotesize\ttfamily \label{linkedlist__implentation__usingarray_8cpp_a73e11e0871f56342a30da93b6c93e8be} 
+int getnode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+This will return the index of the first free node present in the avail list 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ NodeIndexToBeReturned\ =\ avail;}
+\DoxyCodeLine{00034\ \ \ \ \ avail\ =\ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[avail].next;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ NodeIndexToBeReturned;}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_ac2fa82ac5ae366cc3aca53a40bb7cd70}\index{linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}!initialise\_list@{initialise\_list}}
+\index{initialise\_list@{initialise\_list}!linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}}
+\doxysubsubsection{\texorpdfstring{initialise\_list()}{initialise\_list()}}
+{\footnotesize\ttfamily \label{linkedlist__implentation__usingarray_8cpp_ac2fa82ac5ae366cc3aca53a40bb7cd70} 
+void initialise\+\_\+list (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ 98;\ i++)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[i].next\ =\ i\ +\ 1;}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[99].next\ =\ -\/1;\ \ \textcolor{comment}{//\ indicating\ the\ end\ of\ the\ linked\ list.}}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_afcb07da7984e20b3207934696791f5df}\index{linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}!insertAtTheBeginning@{insertAtTheBeginning}}
+\index{insertAtTheBeginning@{insertAtTheBeginning}!linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}}
+\doxysubsubsection{\texorpdfstring{insertAtTheBeginning()}{insertAtTheBeginning()}}
+{\footnotesize\ttfamily \label{linkedlist__implentation__usingarray_8cpp_afcb07da7984e20b3207934696791f5df} 
+void insert\+At\+The\+Beginning (\begin{DoxyParamCaption}\item[{int}]{data}{}\end{DoxyParamCaption})}
+
+The function will insert the given data into the front of the linked list. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ newNode\ =\ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_a73e11e0871f56342a30da93b6c93e8be}{getnode}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[newNode].data\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[newNode].next\ =\ head;}
+\DoxyCodeLine{00054\ \ \ \ \ head\ =\ newNode;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_a92e0c1bb3b270143881e36b5fea8a60d}\index{linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}!insertAtTheEnd@{insertAtTheEnd}}
+\index{insertAtTheEnd@{insertAtTheEnd}!linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}}
+\doxysubsubsection{\texorpdfstring{insertAtTheEnd()}{insertAtTheEnd()}}
+{\footnotesize\ttfamily \label{linkedlist__implentation__usingarray_8cpp_a92e0c1bb3b270143881e36b5fea8a60d} 
+void insert\+At\+The\+End (\begin{DoxyParamCaption}\item[{int}]{data}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ newNode\ =\ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_a73e11e0871f56342a30da93b6c93e8be}{getnode}}();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ head;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[temp].next\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ temp\ =\ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[temp].next;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ temp\ is\ now\ pointing\ to\ the\ end\ node.}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[newNode].data\ =\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[newNode].next\ =\ -\/1;}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_aed19b403f559fc5d5a4bce724f9e263c}{AvailArray}}[temp].next\ =\ newNode;}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{linkedlist__implentation__usingarray_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}!main@{main}}
+\index{main@{main}!linkedlist\_implentation\_usingarray.cpp@{linkedlist\_implentation\_usingarray.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{linkedlist__implentation__usingarray_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ initialise\_list();}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y,\ z;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{for}\ (;;)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Insert\ At\ The\ Beginning"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ Insert\ At\ The\ End"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3.\ Display"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4.Exit"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Your\ choice"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::cin\ >>\ z;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (z)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ you\ want\ to\ enter"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ x;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlist__implentation__usingarray_8cpp_afcb07da7984e20b3207934696791f5df}{insertAtTheBeginning}}(x);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ you\ want\ to\ enter"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ y;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ insertAtTheEnd(y);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}The\ linked\ list\ contains\ the\ following\ element\ in\ order"{}}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ display();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ entered\ choice\ is\ not\ correct"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}

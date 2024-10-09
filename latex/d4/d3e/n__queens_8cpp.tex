@@ -1,0 +1,197 @@
+\doxysection{backtracking/n\+\_\+queens.cpp File Reference}
+\hypertarget{n__queens_8cpp}{}\label{n__queens_8cpp}\index{backtracking/n\_queens.cpp@{backtracking/n\_queens.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Eight_queens_puzzle}{\texttt{ Eight Queens}} puzzle  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacen__queens}{n\+\_\+queens}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Eight_queens_puzzle}{\texttt{ Eight Queens}} puzzle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t n$>$ }\\void \mbox{\hyperlink{n__queens_8cpp_a40ae0c7fd04eb20e7f3bff13fc6a5808}{backtracking\+::n\+\_\+queens\+::print\+Solution}} (const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&board)
+\item 
+{\footnotesize template$<$size\+\_\+t n$>$ }\\bool \mbox{\hyperlink{n__queens_8cpp_a5730b6683f6adcf5c5ef75cf53dc7160}{backtracking\+::n\+\_\+queens\+::is\+Safe}} (const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&board, const int \&row, const int \&col)
+\item 
+{\footnotesize template$<$size\+\_\+t n$>$ }\\void \mbox{\hyperlink{n__queens_8cpp_a0dbd7af47d87f0b956609fe9e3288ecb}{backtracking\+::n\+\_\+queens\+::solve\+NQ}} (std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ board, const int \&col)
+\item 
+int \mbox{\hyperlink{n__queens_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Eight_queens_puzzle}{\texttt{ Eight Queens}} puzzle 
+
+The {\bfseries{eight queens puzzle}} is the problem of placing eight chess queens on an 8×8 chessboard so that no two queens threaten each other; thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general {\bfseries{n queens problem}} of placing n non-\/attacking queens on an n×n chessboard, for which solutions exist for all natural numbers n with the exception of n = 2 and n = 3.
+
+\begin{DoxyAuthor}{Author}
+Unknown author 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{n__queens_8cpp_a5730b6683f6adcf5c5ef75cf53dc7160}\index{n\_queens.cpp@{n\_queens.cpp}!isSafe@{isSafe}}
+\index{isSafe@{isSafe}!n\_queens.cpp@{n\_queens.cpp}}
+\doxysubsubsection{\texorpdfstring{isSafe()}{isSafe()}}
+{\footnotesize\ttfamily \label{n__queens_8cpp_a5730b6683f6adcf5c5ef75cf53dc7160} 
+template$<$size\+\_\+t n$>$ \\
+bool backtracking\+::n\+\_\+queens\+::is\+Safe (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&}]{board}{, }\item[{const int \&}]{row}{, }\item[{const int \&}]{col}{}\end{DoxyParamCaption})}
+
+Check if a queen can be placed on matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & number of matrix size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & matrix where numbers are saved \\
+\hline
+{\em row} & current index in rows \\
+\hline
+{\em col} & current index in columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if queen can be placed on matrix 
+
+{\ttfamily false} if queen can\textquotesingle{}t be placed on matrix 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0,\ j\ =\ 0;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Check\ this\ row\ on\ left\ side}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ col;\ i++)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[row][i])\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Check\ upper\ diagonal\ on\ left\ side}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ row,\ j\ =\ col;\ i\ >=\ 0\ \&\&\ j\ >=\ 0;\ i-\/-\/,\ j-\/-\/)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[i][j])\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Check\ lower\ diagonal\ on\ left\ side}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ row,\ j\ =\ col;\ j\ >=\ 0\ \&\&\ i\ <\ n;\ i++,\ j-\/-\/)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[i][j])\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__queens_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{n\_queens.cpp@{n\_queens.cpp}!main@{main}}
+\index{main@{main}!n\_queens.cpp@{n\_queens.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{n__queens_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ 4;}
+\DoxyCodeLine{00122\ \ \ \ \ std::array<std::array<int,\ n>,\ n>\ board\ =\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ std::array<int,\ n>(\{0,\ 0,\ 0,\ 0\}),\ std::array<int,\ n>(\{0,\ 0,\ 0,\ 0\}),}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::array<int,\ n>(\{0,\ 0,\ 0,\ 0\}),\ std::array<int,\ n>(\{0,\ 0,\ 0,\ 0\})\};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ backtracking::n\_queens::solveNQ<n>(board,\ 0);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00128\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__queens_8cpp_a40ae0c7fd04eb20e7f3bff13fc6a5808}\index{n\_queens.cpp@{n\_queens.cpp}!printSolution@{printSolution}}
+\index{printSolution@{printSolution}!n\_queens.cpp@{n\_queens.cpp}}
+\doxysubsubsection{\texorpdfstring{printSolution()}{printSolution()}}
+{\footnotesize\ttfamily \label{n__queens_8cpp_a40ae0c7fd04eb20e7f3bff13fc6a5808} 
+template$<$size\+\_\+t n$>$ \\
+void backtracking\+::n\+\_\+queens\+::print\+Solution (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&}]{board}{}\end{DoxyParamCaption})}
+
+Utility function to print matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & number of matrix size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & matrix where numbers are saved \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}"{}}\ <<\ board[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__queens_8cpp_a0dbd7af47d87f0b956609fe9e3288ecb}\index{n\_queens.cpp@{n\_queens.cpp}!solveNQ@{solveNQ}}
+\index{solveNQ@{solveNQ}!n\_queens.cpp@{n\_queens.cpp}}
+\doxysubsubsection{\texorpdfstring{solveNQ()}{solveNQ()}}
+{\footnotesize\ttfamily \label{n__queens_8cpp_a0dbd7af47d87f0b956609fe9e3288ecb} 
+template$<$size\+\_\+t n$>$ \\
+void backtracking\+::n\+\_\+queens\+::solve\+NQ (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::array$<$ int, n $>$, n $>$}]{board}{, }\item[{const int \&}]{col}{}\end{DoxyParamCaption})}
+
+Solve n queens problem 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & number of matrix size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & matrix where numbers are saved \\
+\hline
+{\em col} & current index in columns \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (col\ >=\ n)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ printSolution<n>(board);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Consider\ this\ column\ and\ try\ placing}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ this\ queen\ in\ all\ rows\ one\ by\ one}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ queen\ can\ be\ placed}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ on\ board[i][col]}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isSafe<n>(board,\ i,\ col))\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Place\ this\ queen\ in\ matrix}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ board[i][col]\ =\ 1;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recursive\ to\ place\ rest\ of\ the\ queens}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ solveNQ<n>(board,\ col\ +\ 1);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ board[i][col]\ =\ 0;\ \ \textcolor{comment}{//\ backtrack}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \}}
+
+\end{DoxyCode}

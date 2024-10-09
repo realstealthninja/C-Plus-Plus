@@ -1,0 +1,215 @@
+\doxysection{graham\+\_\+scan\+\_\+functions.\+hpp}
+\hypertarget{graham__scan__functions_8hpp_source}{}\label{graham__scan__functions_8hpp_source}\index{geometry/graham\_scan\_functions.hpp@{geometry/graham\_scan\_functions.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ Implementation\ of\ the\ [Convex}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Hull](https://en.wikipedia.org/wiki/Convex\_hull)\ implementation\ using\ [Graham}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Scan](https://en.wikipedia.org/wiki/Graham\_scan)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ In\ geometry,\ the\ convex\ hull\ or\ convex\ envelope\ or\ convex\ closure\ of\ a\ shape}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ is\ the\ smallest\ convex\ set\ that\ contains\ it.\ The\ convex\ hull\ may\ be\ defined}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ either\ as\ the\ intersection\ of\ all\ convex\ sets\ containing\ a\ given\ subset\ of\ a}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Euclidean\ space,\ or\ equivalently\ as\ the\ set\ of\ all\ convex\ combinations\ of}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ points\ in\ the\ subset.\ For\ a\ bounded\ subset\ of\ the\ plane,\ the\ convex\ hull\ may}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ be\ visualized\ as\ the\ shape\ enclosed\ by\ a\ rubber\ band\ stretched\ around\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ subset.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ The\ worst\ case\ time\ complexity\ of\ Jarvis’s\ Algorithm\ is\ O(n\string^2).\ Using}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ Graham’s\ scan\ algorithm,\ we\ can\ find\ Convex\ Hull\ in\ O(nLogn)\ time.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \#\#\#\ Implementation}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Sort\ points}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ We\ first\ find\ the\ bottom-\/most\ point.\ The\ idea\ is\ to\ pre-\/process}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ points\ be\ sorting\ them\ with\ respect\ to\ the\ bottom-\/most\ point.\ Once\ the\ points}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ are\ sorted,\ they\ form\ a\ simple\ closed\ path.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ The\ sorting\ criteria\ is\ to\ use\ the\ orientation\ to\ compare\ angles\ without}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ actually\ computing\ them\ (See\ the\ compare()\ function\ below)\ because}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ computation\ of\ actual\ angles\ would\ be\ inefficient\ since\ trigonometric}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ functions\ are\ not\ simple\ to\ evaluate.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ Accept\ or\ Reject\ Points}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Once\ we\ have\ the\ closed\ path,\ the\ next\ step\ is\ to\ traverse\ the\ path\ and}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ remove\ concave\ points\ on\ this\ path\ using\ orientation.\ The\ first\ two\ points\ in}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ sorted\ array\ are\ always\ part\ of\ Convex\ Hull.\ For\ remaining\ points,\ we\ keep}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ track\ of\ recent\ three\ points,\ and\ find\ the\ angle\ formed\ by\ them.\ Let\ the}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ three\ points\ be\ prev(p),\ curr(c)\ and\ next(n).\ If\ orientation\ of\ these\ points}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ (considering\ them\ in\ same\ order)\ is\ not\ counterclockwise,\ we\ discard\ c,}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ otherwise\ we\ keep\ it.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ @author\ [Lajat\ Manekar](https://github.com/Lazeeez)}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \ \textcolor{comment}{///\ for\ std::swap}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ \ \ \ \textcolor{comment}{///\ for\ mathematics\ and\ datatype\ conversion}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <iostream>}\ \ \ \textcolor{comment}{///\ for\ IO\ operations}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <stack>}\ \ \ \ \ \ \textcolor{comment}{///\ for\ std::stack}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \textcolor{comment}{///\ for\ std::vector}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ @namespace\ geometry}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ @brief\ geometric\ algorithms}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegeometry}{geometry}}\ \{}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ @namespace\ graham\ scan}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ @brief\ convex\ hull\ algorithm}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{namespace\ }grahamscan\ \{}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ @struct\ Point}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ @brief\ for\ X\ and\ Y\ co-\/ordinates\ of\ the\ co-\/ordinate.}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgeometry_1_1grahamscan_1_1_point}{Point}}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ A\ global\ point\ needed\ for\ sorting\ points\ with\ reference}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ to\ \ the\ first\ point\ Used\ in\ compare\ function\ of\ qsort()}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \mbox{\hyperlink{structgeometry_1_1grahamscan_1_1_point}{Point}}\ p0;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ @brief\ A\ utility\ function\ to\ find\ next\ to\ top\ in\ a\ stack.}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *\ @param\ S\ Stack\ to\ be\ used\ for\ the\ process.}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *\ @returns\ @param\ Point\ Co-\/ordinates\ of\ the\ Point\ <int,\ int>}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00077\ \mbox{\hyperlink{structgeometry_1_1grahamscan_1_1_point}{Point}}\ nextToTop(std::stack<Point>\ *S)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{structgeometry_1_1grahamscan_1_1_point}{Point}}\ p\ =\ S-\/>top();}
+\DoxyCodeLine{00079\ \ \ \ \ S-\/>pop();}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{structgeometry_1_1grahamscan_1_1_point}{Point}}\ res\ =\ S-\/>top();}
+\DoxyCodeLine{00081\ \ \ \ \ S-\/>push(p);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ *\ @brief\ A\ utility\ function\ to\ return\ square\ of\ distance\ between\ p1\ and\ p2.}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ @param\ p1\ Co-\/ordinates\ of\ Point\ 1\ <int,\ int>.}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ @param\ p2\ Co-\/ordinates\ of\ Point\ 2\ <int,\ int>.}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *\ @returns\ @param\ int\ distance\ between\ p1\ and\ p2.}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{int}\ distSq(\mbox{\hyperlink{struct_point}{Point}}\ p1,\ \mbox{\hyperlink{struct_point}{Point}}\ p2)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ (p1.x\ -\/\ p2.x)\ *\ (p1.x\ -\/\ p2.x)\ +\ (p1.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ -\/\ p2.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}})\ *\ (p1.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ -\/\ p2.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}});}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ @brief\ To\ find\ orientation\ of\ ordered\ triplet\ (p,\ q,\ r).}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ *\ @param\ p\ Co-\/ordinates\ of\ Point\ p\ <int,\ int>.}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ *\ @param\ q\ Co-\/ordinates\ of\ Point\ q\ <int,\ int>.}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *\ @param\ r\ Co-\/ordinates\ of\ Point\ r\ <int,\ int>.}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *\ @returns\ @param\ int\ 0\ -\/-\/>\ p,\ q\ and\ r\ are\ collinear,\ 1\ -\/-\/>\ Clockwise,}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *\ 2\ -\/-\/>\ Counterclockwise}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{int}\ orientation(\mbox{\hyperlink{struct_point}{Point}}\ p,\ \mbox{\hyperlink{struct_point}{Point}}\ q,\ \mbox{\hyperlink{struct_point}{Point}}\ r)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ val\ =\ (q.y\ -\/\ p.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}})\ *\ (r.x\ -\/\ q.x)\ -\/\ (q.x\ -\/\ p.x)\ *\ (r.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ -\/\ q.y);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (val\ ==\ 0)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \ \textcolor{comment}{//\ collinear}}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ (val\ >\ 0)\ ?\ 1\ :\ 2;\ \ \textcolor{comment}{//\ clock\ or\ counter-\/clock\ wise}}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ *\ @brief\ A\ function\ used\ by\ library\ function\ qsort()\ to\ sort\ an\ array\ of}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ *\ points\ with\ respect\ to\ the\ first\ point}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ *\ @param\ vp1\ Co-\/ordinates\ of\ Point\ 1\ <int,\ int>.}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ *\ @param\ vp2\ Co-\/ordinates\ of\ Point\ 2\ <int,\ int>.}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ *\ @returns\ @param\ int\ distance\ between\ p1\ and\ p2.}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structcompare}{compare}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *vp1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *vp2)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{auto}\ *p1\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{struct_point}{Point}}\ *\textcolor{keyword}{>}(vp1);}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{auto}\ *p2\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{struct_point}{Point}}\ *\textcolor{keyword}{>}(vp2);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Find\ orientation}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{int}\ o\ =\ orientation(p0,\ *p1,\ *p2);}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (o\ ==\ 0)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (distSq(p0,\ *p2)\ >=\ distSq(p0,\ *p1))\ ?\ -\/1\ :\ 1;}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ (o\ ==\ 2)\ ?\ -\/1\ :\ 1;}
+\DoxyCodeLine{00130\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ @brief\ Prints\ convex\ hull\ of\ a\ set\ of\ n\ points.}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ @param\ points\ vector\ of\ Point<int,\ int>\ with\ co-\/ordinates.}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ @param\ size\ Size\ of\ the\ vector.}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ *\ @returns\ @param\ vector\ vector\ of\ Conver\ Hull.}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00138\ std::vector<Point>\ convexHull(std::vector<Point>\ points,\ uint64\_t\ size)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ Find\ the\ bottom-\/most\ point}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{int}\ ymin\ =\ points[0].y,\ min\ =\ 0;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ points[i].y;}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pick\ the\ bottom-\/most\ or\ chose\ the\ left-\/most\ point\ in\ case\ of\ tie}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((y\ <\ ymin)\ ||\ (ymin\ ==\ y\ \&\&\ points[i].x\ <\ points[min].x))\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ ymin\ =\ points[i].y,\ min\ =\ i;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ Place\ the\ bottom-\/most\ point\ at\ first\ position}}
+\DoxyCodeLine{00151\ \ \ \ \ std::swap(points[0],\ points[min]);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ Sort\ n-\/1\ points\ with\ respect\ to\ the\ first\ point.\ A\ point\ p1\ comes}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ before\ p2\ in\ sorted\ output\ if\ p2\ has\ larger\ polar\ angle}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ (in\ counterclockwise\ direction)\ than\ p1.}}
+\DoxyCodeLine{00156\ \ \ \ \ p0\ =\ points[0];}
+\DoxyCodeLine{00157\ \ \ \ \ qsort(\&points[1],\ size\ -\/\ 1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_point}{Point}}),\ \mbox{\hyperlink{structcompare}{compare}});}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ If\ two\ or\ more\ points\ make\ same\ angle\ with\ p0,\ Remove\ all\ but\ the\ one}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\ that\ is\ farthest\ from\ p0\ Remember\ that,\ in\ above\ sorting,\ our\ criteria}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ was\ to\ keep\ the\ farthest\ point\ at\ the\ end\ when\ more\ than\ one\ points\ have}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ same\ angle.}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ 1;\ \ \textcolor{comment}{//\ Initialize\ size\ of\ modified\ array}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Keep\ removing\ i\ while\ angle\ of\ i\ and\ i+1\ is\ same\ with\ respect\ to\ p0}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ size\ -\/\ 1\ \&\&\ orientation(p0,\ points[i],\ points[i\ +\ 1])\ ==\ 0)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ points[m]\ =\ points[i];}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ m++;\ \ \textcolor{comment}{//\ Update\ size\ of\ modified\ array}}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ If\ modified\ array\ of\ points\ has\ less\ than\ 3\ points,\ convex\ hull\ is\ not}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ possible}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\ <\ 3)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00178\ \ \ \ \ \};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ Create\ an\ empty\ stack\ and\ push\ first\ three\ points\ to\ it.}}
+\DoxyCodeLine{00181\ \ \ \ \ std::stack<Point>\ St;}
+\DoxyCodeLine{00182\ \ \ \ \ St.push(points[0]);}
+\DoxyCodeLine{00183\ \ \ \ \ St.push(points[1]);}
+\DoxyCodeLine{00184\ \ \ \ \ St.push(points[2]);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ Process\ remaining\ n-\/3\ points}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 3;\ i\ <\ m;\ i++)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Keep\ removing\ top\ while\ the\ angle\ formed\ by}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ points\ next-\/to-\/top,\ top,\ and\ points[i]\ makes}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ non-\/left\ turn}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (St.size()\ >\ 1\ \&\&}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ orientation(nextToTop(\&St),\ St.top(),\ points[i])\ !=\ 2)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ St.pop();}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ St.push(points[i]);}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ std::vector<Point>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{comment}{//\ Now\ stack\ has\ the\ output\ points,\ push\ them\ into\ the\ resultant\ vector}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{while}\ (!St.empty())\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ p\ =\ St.top();}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(p);}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ St.pop();}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};\ \ \textcolor{comment}{//\ return\ resultant\ vector\ with\ Convex\ Hull\ co-\/ordinates.}}
+\DoxyCodeLine{00207\ \}}
+\DoxyCodeLine{00208\ \}\ \ \textcolor{comment}{//\ namespace\ grahamscan}}
+\DoxyCodeLine{00209\ \}\ \ \textcolor{comment}{//\ namespace\ geometry}}
+
+\end{DoxyCode}

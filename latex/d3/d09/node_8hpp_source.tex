@@ -1,0 +1,52 @@
+\doxysection{node.\+hpp}
+\hypertarget{node_8hpp_source}{}\label{node_8hpp_source}\index{data\_structures/node.hpp@{data\_structures/node.hpp}}
+\mbox{\hyperlink{node_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ \ Provides\ Node\ class\ and\ related\ utilities}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ **/}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ DATA\_STRUCTURES\_NODE\_HPP\_}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DATA\_STRUCTURES\_NODE\_HPP\_}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}\ \ \textcolor{comment}{///\ for\ std::cout}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}\ \ \ \ \textcolor{comment}{///\ for\ std::shared\_ptr}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \textcolor{comment}{///\ for\ std::vector}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{/**\ Definition\ of\ the\ node\ as\ a\ linked-\/list}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \(\backslash\)tparam\ ValueType\ type\ of\ data\ nodes\ of\ the\ linked\ list\ should\ contain}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{using\ }value\_type\ =\ ValueType;}
+\DoxyCodeLine{00018\ \ \ \ \ ValueType\ data\ =\ \{\};}
+\DoxyCodeLine{00019\ \ \ \ \ std::shared\_ptr<Node<ValueType>>\ next\ =\ \{\};}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Node,\ \textcolor{keyword}{typename}\ Action>}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ traverse(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ \textcolor{keyword}{const}\ inNode,\ \textcolor{keyword}{const}\ Action\&\ action)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (inNode)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ action(*inNode);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ traverse(inNode-\/>next.get(),\ action);}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Node>}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ display\_all(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ \textcolor{keyword}{const}\ inNode)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ traverse(inNode,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\&\ curNode)\ \{\ std::cout\ <<\ curNode.data\ <<\ \textcolor{stringliteral}{"{}\ "{}};\ \});}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Node>}
+\DoxyCodeLine{00037\ std::vector<typename\ Node::value\_type>\ push\_all\_to\_vector(}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ \textcolor{keyword}{const}\ inNode,\ \textcolor{keyword}{const}\ std::size\_t\ expected\_size\ =\ 0)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<typename\ Node::value\_type>\ res;}
+\DoxyCodeLine{00040\ \ \ \ \ res.reserve(expected\_size);}
+\DoxyCodeLine{00041\ \ \ \ \ traverse(inNode,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ [\&res](\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\&\ curNode)\ \{\ res.push\_back(curNode.data);\ \});}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DATA\_STRUCTURES\_NODE\_HPP\_}}
+
+\end{DoxyCode}

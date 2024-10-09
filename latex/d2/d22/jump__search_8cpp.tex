@@ -1,0 +1,87 @@
+\doxysection{search/jump\+\_\+search.cpp File Reference}
+\hypertarget{jump__search_8cpp}{}\label{jump__search_8cpp}\index{search/jump\_search.cpp@{search/jump\_search.cpp}}
+
+
+C++ program to implement \href{https://en.wikipedia.org/wiki/Jump_search}{\texttt{ Jump Search}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{jump__search_8cpp_ab49fd8f401bfc71f63b74711390cccf0}{jump\+Search}} (int arr\mbox{[}$\,$\mbox{]}, int x, int n)
+\item 
+int \mbox{\hyperlink{jump__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C++ program to implement \href{https://en.wikipedia.org/wiki/Jump_search}{\texttt{ Jump Search}} 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{jump__search_8cpp_ab49fd8f401bfc71f63b74711390cccf0}\index{jump\_search.cpp@{jump\_search.cpp}!jumpSearch@{jumpSearch}}
+\index{jumpSearch@{jumpSearch}!jump\_search.cpp@{jump\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{jumpSearch()}{jumpSearch()}}
+{\footnotesize\ttfamily \label{jump__search_8cpp_ab49fd8f401bfc71f63b74711390cccf0} 
+int jump\+Search (\begin{DoxyParamCaption}\item[{int}]{arr}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{x}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+jump search implementation 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Finding\ block\ size\ to\ be\ jumped}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ step\ =\ std::sqrt(n);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Finding\ the\ block\ where\ element\ is}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ present\ (if\ it\ is\ present)}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ prev\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{while}\ (arr[std::min(step,\ n)\ -\/\ 1]\ <\ x)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ prev\ =\ step;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ step\ +=\ std::sqrt(n);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev\ >=\ n)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Doing\ a\ linear\ search\ for\ x\ in\ block}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ beginning\ with\ prev.}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{while}\ (arr[prev]\ <\ x)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ prev++;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we\ reached\ next\ block\ or\ end\ of}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ array,\ element\ is\ not\ present.}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev\ ==\ std::min(step,\ n))}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ If\ element\ is\ found}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[prev]\ ==\ x)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ prev;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{jump__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{jump\_search.cpp@{jump\_search.cpp}!main@{main}}
+\index{main@{main}!jump\_search.cpp@{jump\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{jump__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ arr[]\ =\ \{0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21,\ 34,\ 55,\ 89,\ 144,\ 233,\ 377,\ 610\};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 55;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \textcolor{keyword}{sizeof}(arr)\ /\ \textcolor{keyword}{sizeof}(arr[0]);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ Find\ the\ index\ of\ 'x'\ using\ Jump\ Search}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{jump__search_8cpp_ab49fd8f401bfc71f63b74711390cccf0}{jumpSearch}}(arr,\ x,\ n);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Print\ the\ index\ where\ 'x'\ is\ located}}
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNumber\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\ is\ at\ index\ "{}}\ <<\ index;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}

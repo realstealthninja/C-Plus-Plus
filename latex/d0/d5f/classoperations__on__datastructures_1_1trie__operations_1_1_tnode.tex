@@ -1,0 +1,573 @@
+\doxysection{operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::Tnode Class Reference}
+\hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+
+
+Class defining the structure of trie node and containing the methods to perform operations on them.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a6f73ac06a639956cdef90f8c8dbe9187}{Tnode}} (const \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \&\mbox{\hyperlink{structnode}{node}})
+\item 
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a1e710662a70560d2f1cf24e5df78ba1e}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a1e710662a70560d2f1cf24e5df78ba1e} 
+\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \&\mbox{\hyperlink{structnode}{node}})=default
+\item 
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_abc70a8b526aff96d49daa987f00ff252}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_abc70a8b526aff96d49daa987f00ff252} 
+{\bfseries Tnode} (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \&\&)=default
+\item 
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a72c3d60c8afaf31a9b490030fa9cffb4}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a72c3d60c8afaf31a9b490030fa9cffb4} 
+\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \& {\bfseries operator=} (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \&\&)=default
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_afca808362c13273ca8c8ae7d58e8eee0}{number\+Of\+Children}} (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em Function to count the number of children a node in the trie has. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7ecb75b985b1ffc575a880274f855b1c}{Insert}} (const std\+::string \&entry)
+\begin{DoxyCompactList}\small\item\em Function to insert a word in the trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aefd24626ac47277431c9b8604e064340}{Delete}} (std\+::string entry)
+\begin{DoxyCompactList}\small\item\em Function to verify presence and hence delete an entry from the trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_adef6940391f981ab86767775176b7169}{Delete\+From}} (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}delete\+\_\+from, std\+::string delete\+\_\+string, int remove\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Function recursively deletes the substring character by character iterating through the string to be deleted. It traverses till the end of word in a recursive fashion, from there it deletes characters one by one till it reaches back to the initial call. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a4a624fcdf3c3beb2025d69f2cfda8023}{Search\+Presence}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Function to check a word\textquotesingle{}s presence in the trie (Basic) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a097913c4badec2b60d50a171ecc299fe}{Suggest\+Autocomplete}} (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}new\+\_\+root, const std\+::string \&prefix)
+\begin{DoxyCompactList}\small\item\em Recursive function to suggest all the entries of trie which have a given common prefix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a18b70172ca4fb2811dbfb9a86e48b34c}{Search\+Suggestions}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Lists out all the words in trie with the longest prefix of the search key that is present in the trie. For example -\/ if trie contains "{}abc"{}, "{}abcde"{}, "{}abcdefg"{}, "{}abcddef"{} and if the search key is "{}abcdezz"{}, then the longest common prefix is "{}abcde"{} and hence search results will be "{}abcde"{}, "{}abcdefg"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a9e556f52c837190ecf4265b1f05cfe9c}{Suggest\+Freq\+Autocomplete}} (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}new\+\_\+root, const std\+::string \&prefix, std\+::priority\+\_\+queue$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \texorpdfstring{$\ast$}{*}suggestions)
+\begin{DoxyCompactList}\small\item\em Recursive function to suggest most frequently searched entries of trie which have a given common prefix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7c5ab271d8042540f64ef16d259d1503}{Search\+Freq\+Suggestions}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Lists out the most frequent words in trie with the longest prefix of the search key that is present in the trie. For example -\/ if trie contains "{}abc"{}, "{}abcde"{}, "{}abcdefg"{}, "{}abcddef"{} and they have been previously searched for 3, 1, 2, 4 times respectively, if the search key is "{}ab"{}, then the longest common prefix is "{}ab"{} and only the top 3 frequencies among the matches would be displayed viz. "{}abcddef"{}, "{}abc"{}, "{}abcdefg"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aacafb8c9f3ebac7ac6c01d9645bb67b6}{Selection\+Top\+\_\+3}} (std\+::priority\+\_\+queue$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \texorpdfstring{$\ast$}{*}suggestions)
+\begin{DoxyCompactList}\small\item\em Function to display the 3 suggestions with highest frequency of search hits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aa4aac1c6bed58a84472906b63f20da83}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aa4aac1c6bed58a84472906b63f20da83} 
+std\+::vector$<$ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries english}
+\item 
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_afa9dab736046a4140e94bb9104074cd6}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_afa9dab736046a4140e94bb9104074cd6} 
+bool {\bfseries end\+Of\+Word}
+\item 
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7bab9bb47215cd674471c94b0b448014}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7bab9bb47215cd674471c94b0b448014} 
+uint32\+\_\+t {\bfseries frequency}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a0f310c3d4d7b82e5ee1036771cade702}\label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a0f310c3d4d7b82e5ee1036771cade702} 
+static constexpr uint8\+\_\+t {\bfseries ENGLISH\+\_\+\+ALPHABET\+\_\+\+SIZE} = 26
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class defining the structure of trie node and containing the methods to perform operations on them. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aef1ef6608e5876312d9ae7f36f469ba7}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!Tnode@{Tnode}}
+\index{Tnode@{Tnode}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{Tnode()}{Tnode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aef1ef6608e5876312d9ae7f36f469ba7} 
+operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Tnode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ english.resize(ENGLISH\_ALPHABET\_SIZE,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ endOfWord\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ frequency\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a6f73ac06a639956cdef90f8c8dbe9187}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!Tnode@{Tnode}}
+\index{Tnode@{Tnode}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{Tnode()}{Tnode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a6f73ac06a639956cdef90f8c8dbe9187} 
+operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Tnode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \&}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ english\ =\ \mbox{\hyperlink{structnode}{node}}.english;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ endOfWord\ =\ \mbox{\hyperlink{structnode}{node}}.endOfWord;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ frequency\ =\ \mbox{\hyperlink{structnode}{node}}.frequency;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a5f02156cd1a2a1ba48fb6ba2283afbf1}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!````~Tnode@{\texorpdfstring{$\sim$}{\string~}Tnode}}
+\index{````~Tnode@{\texorpdfstring{$\sim$}{\string~}Tnode}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Tnode()}{\string~Tnode()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a5f02156cd1a2a1ba48fb6ba2283afbf1} 
+operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\texorpdfstring{$\sim$}{\string~}\+Tnode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ENGLISH\_ALPHABET\_SIZE;\ i++)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (english[i])\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ english[i];}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aefd24626ac47277431c9b8604e064340}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!Delete@{Delete}}
+\index{Delete@{Delete}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aefd24626ac47277431c9b8604e064340} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Delete (\begin{DoxyParamCaption}\item[{std\+::string}]{entry}{}\end{DoxyParamCaption})}
+
+
+
+Function to verify presence and hence delete an entry from the trie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & string entry to be deleted from the trie \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ Tnode\ *cur\_pos\ =\ \textcolor{keyword}{this},}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ *delete\_from\ =\ \textcolor{keyword}{this};\ \ \textcolor{comment}{//\ Current\ pointer\ pointing\ to\ root}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ letter\_index\ =\ 0,\ delete\_from\_index\ =\ 0,\ i\ =\ 0,\ n\ =\ entry.size();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ ignore\ case}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ letter\_index\ =\ tolower(entry[i])\ -\/\ 97;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Display\ error\ message\ when\ given\ entry\ is\ not\ present\ in\ the\ tree}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>english[letter\_index]\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Entry\ not\ Found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ current\ node\ is\ end\ of\ word\ for\ the\ current\ prefix\ or\ if\ it}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ has\ 2\ or\ more\ branches\ It\ cannot\ be\ deleted\ while\ deleting\ the}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ required\ entry.}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_afca808362c13273ca8c8ae7d58e8eee0}{numberOfChildren}}(cur\_pos)\ >\ 1\ ||\ cur\_pos-\/>endOfWord)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ delete\_from\ =\ cur\_pos;\ \ \ \ \ \ \textcolor{comment}{//\ denotes\ the\ beginning\ of\ the\ shortest}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ suffix\ that\ is\ allowed\ to\ be\ deleted}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ delete\_from\_index\ =\ i\ -\/\ 1;\ \ \textcolor{comment}{//\ Beginning\ index\ of\ the\ suffix}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ corresponding\ to\ the\ 'entry'}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Traversing\ through\ the\ entry}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ cur\_pos\ =\ cur\_pos-\/>english[letter\_index];}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{//\ cur\_pos\ now\ points\ to\ the\ last\ char\ of\ entry.\ Display\ message\ if\ that}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ entry\ does\ not\ exist}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{if}\ (!cur\_pos-\/>endOfWord)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Entry\ not\ Found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//\ If\ cur\_pos\ is\ not\ a\ leaf\ node,\ unmark\ end\ of\ word\ and\ assign\ 0\ to\ it's}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ frequency\ for\ deletion}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_afca808362c13273ca8c8ae7d58e8eee0}{numberOfChildren}}(cur\_pos))\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ cur\_pos-\/>endOfWord\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ cur\_pos-\/>frequency\ =\ 0;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ The\ first\ character\ of\ the\ suffix\ to\ be\ deleted}}
+\DoxyCodeLine{00194\ \ \ \ \ letter\_index\ =\ tolower(entry[delete\_from\_index\ +\ 1])\ -\/\ 97;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ Point\ cur\_pos\ to\ the\ next\ node}}
+\DoxyCodeLine{00196\ \ \ \ \ cur\_pos\ =\ delete\_from-\/>english[letter\_index];}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ Sever\ the\ connection\ from\ the\ main\ trie}}
+\DoxyCodeLine{00198\ \ \ \ \ delete\_from-\/>english[letter\_index]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{comment}{//\ If\ number\ of\ characters\ in\ the\ suffix\ are\ more\ than\ 1,\ recursively\ delete}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{//\ each\ character\ starting\ from\ cur\_pos\ using\ the\ helper\ function}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >\ delete\_from\_index\ +\ 2)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_adef6940391f981ab86767775176b7169}{DeleteFrom}}(cur\_pos,\ entry,\ delete\_from\_index\ +\ 2);}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{//\ If\ the\ suffix\ is\ only\ 1\ char\ in\ length}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ cur\_pos;}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_adef6940391f981ab86767775176b7169}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!DeleteFrom@{DeleteFrom}}
+\index{DeleteFrom@{DeleteFrom}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{DeleteFrom()}{DeleteFrom()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_adef6940391f981ab86767775176b7169} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Delete\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}}]{delete\+\_\+from}{, }\item[{std\+::string}]{delete\+\_\+string}{, }\item[{int}]{remove\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Function recursively deletes the substring character by character iterating through the string to be deleted. It traverses till the end of word in a recursive fashion, from there it deletes characters one by one till it reaches back to the initial call. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delete\+\_\+from} & the acting root to the required suffix to be deleted \\
+\hline
+{\em delete\+\_\+string} & the string to be deleted from the trie \\
+\hline
+{\em remove\+\_\+index} & index denoting the beginning of the substring to be deleted \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (delete\_string.size()\ ==\ remove\_index)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ letter\_index\ =\ tolower(delete\_string[remove\_index])\ -\/\ 97;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_adef6940391f981ab86767775176b7169}{DeleteFrom}}(delete\_from-\/>english[letter\_index],\ delete\_string,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remove\_index\ +\ 1);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ delete\_from;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7ecb75b985b1ffc575a880274f855b1c}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!Insert@{Insert}}
+\index{Insert@{Insert}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7ecb75b985b1ffc575a880274f855b1c} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Insert (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{entry}{}\end{DoxyParamCaption})}
+
+
+
+Function to insert a word in the trie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & string entry to be inserted in the trie \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ Tnode\ *cur\_pos\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ letter\_index\ =\ 0;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ entry)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ ignore\ case}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ letter\_index\ =\ tolower(i)\ -\/\ 97;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Allocate\ a\ node\ for\ each\ character\ of\ entry\ if\ not\ present\ in\ the}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ trie}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>english[letter\_index]\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ cur\_pos-\/>english[letter\_index]\ =\ \textcolor{keyword}{new}\ Tnode();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ cur\_pos\ =\ cur\_pos-\/>english[letter\_index];}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ cur\_pos\ points\ to\ the\ last\ char,\ mark\ it\ as\ end\ of\ word}}
+\DoxyCodeLine{00121\ \ \ \ \ cur\_pos-\/>endOfWord\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00122\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_afca808362c13273ca8c8ae7d58e8eee0}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!numberOfChildren@{numberOfChildren}}
+\index{numberOfChildren@{numberOfChildren}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{numberOfChildren()}{numberOfChildren()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_afca808362c13273ca8c8ae7d58e8eee0} 
+uint8\+\_\+t operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::number\+Of\+Children (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to count the number of children a node in the trie has. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & a trie node whose children need to be counted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count of the number of children of the given node (max 26) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ENGLISH\_ALPHABET\_SIZE\ -\/}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::count(\mbox{\hyperlink{structnode}{node}}-\/>english.begin(),\ \mbox{\hyperlink{structnode}{node}}-\/>english.end(),\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7c5ab271d8042540f64ef16d259d1503}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!SearchFreqSuggestions@{SearchFreqSuggestions}}
+\index{SearchFreqSuggestions@{SearchFreqSuggestions}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{SearchFreqSuggestions()}{SearchFreqSuggestions()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a7c5ab271d8042540f64ef16d259d1503} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Search\+Freq\+Suggestions (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Lists out the most frequent words in trie with the longest prefix of the search key that is present in the trie. For example -\/ if trie contains "{}abc"{}, "{}abcde"{}, "{}abcdefg"{}, "{}abcddef"{} and they have been previously searched for 3, 1, 2, 4 times respectively, if the search key is "{}ab"{}, then the longest common prefix is "{}ab"{} and only the top 3 frequencies among the matches would be displayed viz. "{}abcddef"{}, "{}abc"{}, "{}abcdefg"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the string key to be searched for suggestions \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00366\ \ \ \ \ Tnode\ *cur\_pos\ =\ \textcolor{keyword}{nullptr},\ *prev\_pos\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00367\ \ \ \ \ cur\_pos\ =\ prev\_pos\ =\ \textcolor{keyword}{this};\ \ \textcolor{comment}{//\ maintaining\ 2\ pointers,\ initialized\ to\ root}}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordtype}{int}\ letter\_index\ =\ 0;}
+\DoxyCodeLine{00369\ \ \ \ \ std::string\ prefix\ =}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ variable\ storing\ the\ updated\ value\ of\ longest\ common\ prefix}}
+\DoxyCodeLine{00371\ \ \ \ \ std::priority\_queue<std::pair<int,\ std::string>\ >}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ suggestions;\ \ \textcolor{comment}{//\ max\ heap\ to\ store\ (frequency,\ word)\ in\ descending\ order}}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ of\ freq}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ std::priority\_queue<std::pair<int,\ std::string>\ >\ *Suggestions\ =}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \&suggestions;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ key)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ letter\_index\ =\ tolower(i)\ -\/\ 97;}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ prev\_pos\ =\ cur\_pos;\ \ \textcolor{comment}{//\ Previous\ pointer\ updated\ to\ point\ to\ the\ last}}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ char\ of\ the\ longest\ common\ prefix}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ When\ the\ node\ for\ the\ character\ does\ not\ exist,\ longest\ prefix\ has}}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ been\ determined\ and\ SuggestFreqAutocomplete\ is\ called}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>english[letter\_index]\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a9e556f52c837190ecf4265b1f05cfe9c}{SuggestFreqAutocomplete}}(prev\_pos,\ prefix,\ Suggestions);}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ display\ the\ top\ 3\ results}}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aacafb8c9f3ebac7ac6c01d9645bb67b6}{SelectionTop\_3}}(Suggestions);}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ "{}}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Updating\ the\ longest\ common\ prefix}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ prefix\ +=\ char(tolower(i));}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ cur\_pos\ =\ cur\_pos-\/>english[letter\_index];}
+\DoxyCodeLine{00396\ \ \ \ \ \}}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{comment}{//\ If\ the\ key\ is\ a\ valid\ entry\ of\ trie,\ display\ it\ @\ top\ of\ the\ suggestions}}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>endOfWord)\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ (cur\_pos-\/>frequency)++;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ std::cout\ <<\ key\ <<\ std::endl;}
+\DoxyCodeLine{00401\ \ \ \ \ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ (void)prev\_pos;\ \ \textcolor{comment}{//\ Idiom\ to\ ignore\ previous\ pointer}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{comment}{//\ Call\ for\ Suggestions\ when\ the\ search\ key\ is\ present\ as\ an\ entry/a\ prefix}}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{comment}{//\ in\ the\ trie}}
+\DoxyCodeLine{00407\ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a9e556f52c837190ecf4265b1f05cfe9c}{SuggestFreqAutocomplete}}(cur\_pos,\ prefix,\ Suggestions);}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{comment}{//\ Display\ the\ top\ 3\ results}}
+\DoxyCodeLine{00409\ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aacafb8c9f3ebac7ac6c01d9645bb67b6}{SelectionTop\_3}}(Suggestions);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ "{}}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00414\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a4a624fcdf3c3beb2025d69f2cfda8023}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!SearchPresence@{SearchPresence}}
+\index{SearchPresence@{SearchPresence}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{SearchPresence()}{SearchPresence()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a4a624fcdf3c3beb2025d69f2cfda8023} 
+bool operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Search\+Presence (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Function to check a word\textquotesingle{}s presence in the trie (Basic) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the string key to be searched in the trie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the key is found 
+
+false if the key is not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ Tnode\ *cur\_pos\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{int}\ letter\_index\ =\ 0;}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ key)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ letter\_index\ =\ tolower(i)\ -\/\ 97;}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ any\ character\ in\ the\ order\ of\ the\ key\ is\ absent,\ word\ not\ found!}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>english[letter\_index]\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ cur\_pos\ =\ cur\_pos-\/>english[letter\_index];}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ Word\ is\ only\ present\ in\ the\ trie\ if\ the\ key\ is\ a\ valid\ complete\ entry\ and}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ not\ just\ a\ prefix.}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>endOfWord)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ (cur\_pos-\/>frequency)++;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00234\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a18b70172ca4fb2811dbfb9a86e48b34c}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!SearchSuggestions@{SearchSuggestions}}
+\index{SearchSuggestions@{SearchSuggestions}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{SearchSuggestions()}{SearchSuggestions()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a18b70172ca4fb2811dbfb9a86e48b34c} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Search\+Suggestions (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Lists out all the words in trie with the longest prefix of the search key that is present in the trie. For example -\/ if trie contains "{}abc"{}, "{}abcde"{}, "{}abcdefg"{}, "{}abcddef"{} and if the search key is "{}abcdezz"{}, then the longest common prefix is "{}abcde"{} and hence search results will be "{}abcde"{}, "{}abcdefg"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the string key to be searched for suggestions \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00272\ \ \ \ \ Tnode\ *cur\_pos\ =\ \textcolor{keyword}{nullptr},\ *prev\_pos\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00273\ \ \ \ \ cur\_pos\ =\ prev\_pos\ =\ \textcolor{keyword}{this};\ \ \textcolor{comment}{//\ maintaining\ 2\ pointers,\ initialized\ to\ root}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{int}\ letter\_index\ =\ 0;}
+\DoxyCodeLine{00275\ \ \ \ \ std::string\ prefix\ =}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ variable\ storing\ the\ updated\ value\ of\ longest\ common\ prefix}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ key)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ letter\_index\ =\ tolower(i)\ -\/\ 97;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ prev\_pos\ =\ cur\_pos;\ \ \textcolor{comment}{//\ Previous\ pointer\ updated\ to\ point\ to\ the\ last}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ char\ of\ the\ longest\ common\ prefix}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ When\ the\ node\ for\ the\ character\ does\ not\ exist,\ longest\ prefix\ has}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ been\ determined\ and\ SuggestAutocomplete\ is\ called}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>english[letter\_index]\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a097913c4badec2b60d50a171ecc299fe}{SuggestAutocomplete}}(prev\_pos,\ prefix);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ "{}}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Updating\ the\ longest\ common\ prefix}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ prefix\ +=\ char(tolower(i));}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ cur\_pos\ =\ cur\_pos-\/>english[letter\_index];}
+\DoxyCodeLine{00294\ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{comment}{//\ If\ the\ key\ is\ a\ valid\ entry\ of\ trie,\ display\ it\ @\ top\ of\ the\ suggestions}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_pos-\/>endOfWord)\ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ std::cout\ <<\ key\ <<\ std::endl;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ (cur\_pos-\/>frequency)++;}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ (void)prev\_pos;\ \ \textcolor{comment}{//\ Idiom\ to\ ignore\ previous\ pointer}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{//\ Call\ for\ suggestions\ when\ the\ search\ key\ is\ present\ as\ an\ entry/a\ prefix}}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{comment}{//\ in\ the\ trie}}
+\DoxyCodeLine{00305\ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a097913c4badec2b60d50a171ecc299fe}{SuggestAutocomplete}}(cur\_pos,\ prefix);}
+\DoxyCodeLine{00306\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ -\/\ "{}}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00309\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aacafb8c9f3ebac7ac6c01d9645bb67b6}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!SelectionTop\_3@{SelectionTop\_3}}
+\index{SelectionTop\_3@{SelectionTop\_3}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{SelectionTop\_3()}{SelectionTop\_3()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_aacafb8c9f3ebac7ac6c01d9645bb67b6} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Selection\+Top\+\_\+3 (\begin{DoxyParamCaption}\item[{std\+::priority\+\_\+queue$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \texorpdfstring{$\ast$}{*}}]{suggestions}{}\end{DoxyParamCaption})}
+
+
+
+Function to display the 3 suggestions with highest frequency of search hits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em suggestions} & a max heap that contains pairs of (frequency, word) heapified based on frequency \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{comment}{//\ Display\ Either\ top\ 3\ or\ total\ number\ of\ suggestions,\ whichever\ is\ smaller}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ suggestions-\/>size(),\ Top\ =\ 0;}
+\DoxyCodeLine{00321\ \ \ \ \ Top\ =\ n\ <\ 3\ ?\ n\ :\ 3;}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{while}\ (Top-\/-\/)\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ std::cout\ <<\ suggestions-\/>top().second\ <<\ std::endl;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ suggestions-\/>pop();}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a097913c4badec2b60d50a171ecc299fe}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!SuggestAutocomplete@{SuggestAutocomplete}}
+\index{SuggestAutocomplete@{SuggestAutocomplete}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{SuggestAutocomplete()}{SuggestAutocomplete()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a097913c4badec2b60d50a171ecc299fe} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Suggest\+Autocomplete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+root}{, }\item[{const std\+::string \&}]{prefix}{}\end{DoxyParamCaption})}
+
+
+
+Recursive function to suggest all the entries of trie which have a given common prefix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+root} & pointer pointing to the node corresponding to the last char of prefix \\
+\hline
+{\em prefix} & the common prefix that all the suggestions must have \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ 26\ nodes\ as\ we\ have\ to\ print\ all\ strings\ with\ the}}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{//\ given\ prefix}}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ENGLISH\_ALPHABET\_SIZE;\ i++)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_root-\/>english[i]\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Print\ the\ sugestion\ only\ if\ it's\ a\ valid\ complete\ entry\ and\ not}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ a\ prefix}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_root-\/>english[i]-\/>endOfWord)\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ prefix\ +\ char(i\ +\ 97)\ <<\ std::endl;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a097913c4badec2b60d50a171ecc299fe}{SuggestAutocomplete}}(new\_root-\/>english[i],\ prefix\ +\ \textcolor{keywordtype}{char}(i\ +\ 97));}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a9e556f52c837190ecf4265b1f05cfe9c}\index{operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}!SuggestFreqAutocomplete@{SuggestFreqAutocomplete}}
+\index{SuggestFreqAutocomplete@{SuggestFreqAutocomplete}!operations\_on\_datastructures::trie\_operations::Tnode@{operations\_on\_datastructures::trie\_operations::Tnode}}
+\doxysubsubsection{\texorpdfstring{SuggestFreqAutocomplete()}{SuggestFreqAutocomplete()}}
+{\footnotesize\ttfamily \label{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a9e556f52c837190ecf4265b1f05cfe9c} 
+void operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode\+::\+Suggest\+Freq\+Autocomplete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{Tnode}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+root}{, }\item[{const std\+::string \&}]{prefix}{, }\item[{std\+::priority\+\_\+queue$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \texorpdfstring{$\ast$}{*}}]{suggestions}{}\end{DoxyParamCaption})}
+
+
+
+Recursive function to suggest most frequently searched entries of trie which have a given common prefix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+root} & pointer pointing to the node corresponding to the last char of prefix \\
+\hline
+{\em prefix} & the common prefix that all the suggestions must have \\
+\hline
+{\em suggestions} & a max heap that contains pairs of (frequency, word) heapified based on frequency \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ENGLISH\_ALPHABET\_SIZE;\ i++)\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_root-\/>english[i]\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ to\ sugestions\ only\ if\ it's\ a\ valid\ complete\ entry\ and\ not}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ a\ prefix}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_root-\/>english[i]-\/>endOfWord)\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ suggestions-\/>push(std::make\_pair(}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_root-\/>english[i]-\/>frequency,\ prefix\ +\ \textcolor{keywordtype}{char}(i\ +\ 97)));}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode_a9e556f52c837190ecf4265b1f05cfe9c}{SuggestFreqAutocomplete}}(new\_root-\/>english[i],\ prefix\ +\ \textcolor{keywordtype}{char}(i\ +\ 97),}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ suggestions);}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00353\ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+operations\+\_\+on\+\_\+datastructures/\mbox{\hyperlink{trie__multiple__search_8cpp}{trie\+\_\+multiple\+\_\+search.\+cpp}}\end{DoxyCompactItemize}

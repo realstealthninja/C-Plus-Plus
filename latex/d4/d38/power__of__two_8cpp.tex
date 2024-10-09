@@ -1,0 +1,138 @@
+\doxysection{math/power\+\_\+of\+\_\+two.cpp File Reference}
+\hypertarget{power__of__two_8cpp}{}\label{power__of__two_8cpp}\index{math/power\_of\_two.cpp@{math/power\_of\_two.cpp}}
+
+
+Implementation to check whether a number is a power of 2 or not.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacemath_a8a48be4d7f14e34c5c92925bc1cbf3bb}{math\+::power\+\_\+of\+\_\+two}} (int n)
+\begin{DoxyCompactList}\small\item\em This function finds whether a number is power of 2 or not. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{power__of__two_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{power__of__two_8cpp_adfd6be45be425ae28c62ce3bfb4b40dc}{user\+\_\+input\+\_\+test}} ()
+\begin{DoxyCompactList}\small\item\em Take user input in the test cases (optional; currently commented) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{power__of__two_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation to check whether a number is a power of 2 or not. 
+
+This algorithm uses bit manipulation to check if a number is a power of 2 or not.\hypertarget{power__of__two_8cpp_autotoc_md85}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{power__of__two_8cpp_autotoc_md85}
+Let the input number be n, then the bitwise and between n and n-\/1 will let us know whether the number is power of 2 or not
+
+For Example, If N= 32 then N-\/1 is 31, if we perform bitwise and of these two numbers then the result will be zero, which indicates that it is the power of 2 If N=23 then N-\/1 is 22, if we perform bitwise and of these two numbers then the result will not be zero , which indicates that it is not the power of 2 \begin{DoxyNote}{Note}
+This implementation is better than naive recursive or iterative approach.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/neha-hasija17}{\texttt{ Neha Hasija}} 
+
+\href{https://github.com/Rijul24}{\texttt{ Rijul.\+S}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{power__of__two_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{power\_of\_two.cpp@{power\_of\_two.cpp}!main@{main}}
+\index{main@{main}!power\_of\_two.cpp@{power\_of\_two.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{power__of__two_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{power__of__two_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ uncomment\ the\ line\ below\ to\ take\ user\ inputs}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//user\_input\_test();}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{power__of__two_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{power\_of\_two.cpp@{power\_of\_two.cpp}!test@{test}}
+\index{test@{test}!power\_of\_two.cpp@{power\_of\_two.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{power__of__two_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First\ case\ testing...\ \(\backslash\)n"{}};\ \textcolor{comment}{//\ for\ n\ =\ 32\ return\ 1}}
+\DoxyCodeLine{00061\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8a48be4d7f14e34c5c92925bc1cbf3bb}{math::power\_of\_two}}(32)\ ==\ 1);}
+\DoxyCodeLine{00062\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Second\ case\ testing...\ \(\backslash\)n"{}};\ \textcolor{comment}{//\ for\ n\ =\ 5\ return\ 0}}
+\DoxyCodeLine{00065\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8a48be4d7f14e34c5c92925bc1cbf3bb}{math::power\_of\_two}}(5)\ ==\ 0);}
+\DoxyCodeLine{00066\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Third\ case\ testing...\ \(\backslash\)n"{}};\ \textcolor{comment}{//\ for\ n\ =\ 232\ return\ 0}}
+\DoxyCodeLine{00069\ \ \ \ \ assert(\mbox{\hyperlink{namespacemath_a8a48be4d7f14e34c5c92925bc1cbf3bb}{math::power\_of\_two}}(232)\ ==\ 0);}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nAll\ test\ cases\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{power__of__two_8cpp_adfd6be45be425ae28c62ce3bfb4b40dc}\index{power\_of\_two.cpp@{power\_of\_two.cpp}!user\_input\_test@{user\_input\_test}}
+\index{user\_input\_test@{user\_input\_test}!power\_of\_two.cpp@{power\_of\_two.cpp}}
+\doxysubsubsection{\texorpdfstring{user\_input\_test()}{user\_input\_test()}}
+{\footnotesize\ttfamily \label{power__of__two_8cpp_adfd6be45be425ae28c62ce3bfb4b40dc} 
+void user\+\_\+input\+\_\+test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Take user input in the test cases (optional; currently commented) 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+function call with
+\begin{DoxyParams}{Parameters}
+{\em n} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 0;\ \textcolor{comment}{//\ input\ from\ user}}
+\DoxyCodeLine{00081\ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ number\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00083\ \ \ \ \ std::cin\ >>\ n;\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ ///\ function\ call\ with\ @param\ n}}
+\DoxyCodeLine{00086\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{namespacemath_a8a48be4d7f14e34c5c92925bc1cbf3bb}{math::power\_of\_two}}(n);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ 1)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Yes,\ the\ number\ "{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ is\ a\ power\ of\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No,\ the\ number\ "{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ is\ not\ a\ power\ of\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}

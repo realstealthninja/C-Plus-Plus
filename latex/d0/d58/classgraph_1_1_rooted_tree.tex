@@ -1,0 +1,123 @@
+\doxysection{graph\+::Rooted\+Tree Class Reference}
+\hypertarget{classgraph_1_1_rooted_tree}{}\label{classgraph_1_1_rooted_tree}\index{graph::RootedTree@{graph::RootedTree}}
+Inheritance diagram for graph\+::Rooted\+Tree\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/d58/classgraph_1_1_rooted_tree}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgraph_1_1_rooted_tree_aacdeecac857623e9fbfe92590f3c504d}{Rooted\+Tree}} (const std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&undirected\+\_\+edges, int root\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructs the tree by calculating parent for every vertex. Assumes a valid description of a tree is provided. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\+\_\+edge}} (T u, T v, bool bidir=true)
+\item 
+std\+::map$<$ T, bool $>$ \mbox{\hyperlink{classgraph_1_1_graph_a3755ec9e6a842238c7f4aac10b661981}{breadth\+\_\+first\+\_\+search}} (T src)
+\item 
+\mbox{\hyperlink{classgraph_1_1_graph_a8839fa14bff19d2deab4a618447c13e5}{Graph}} (size\+\_\+t N, const std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&undirected\+\_\+edges)
+\begin{DoxyCompactList}\small\item\em Populate the adjacency list for each vertex in the graph. Assumes that evey edge is a pair of valid vertex indices. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\+\_\+of\+\_\+vertices}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgraph_1_1_rooted_tree_a3831583a91914988897a4cc8748fda43}\label{classgraph_1_1_rooted_tree_a3831583a91914988897a4cc8748fda43} 
+std\+::vector$<$ int $>$ {\bfseries parent}
+\begin{DoxyCompactList}\small\item\em Stores parent of every vertex and for root its own index. The root is technically not its own parent, but it\textquotesingle{}s very practical for the lowest common ancestor algorithm. \end{DoxyCompactList}\item 
+\Hypertarget{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}\label{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3} 
+std\+::vector$<$ int $>$ {\bfseries level}
+\begin{DoxyCompactList}\small\item\em Stores the distance from the root. \end{DoxyCompactList}\item 
+\Hypertarget{classgraph_1_1_rooted_tree_ab22a97bf6209a085fc2d788c3c0dacbe}\label{classgraph_1_1_rooted_tree_ab22a97bf6209a085fc2d788c3c0dacbe} 
+int {\bfseries root}
+\begin{DoxyCompactList}\small\item\em Index of the root vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries neighbors}
+\begin{DoxyCompactList}\small\item\em for each vertex it stores a list indicies of its neighbors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgraph_1_1_rooted_tree_ae6928f3ebd491541e9570e746b877c1e}{populate\+\_\+parents}} ()
+\begin{DoxyCompactList}\small\item\em Calculate the parents for all the vertices in the tree. Implements the breadth first search algorithm starting from the root vertex searching the entire tree and labeling parents for all vertices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representation of a rooted tree. For every vertex its parent is precalculated. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgraph_1_1_rooted_tree_aacdeecac857623e9fbfe92590f3c504d}\index{graph::RootedTree@{graph::RootedTree}!RootedTree@{RootedTree}}
+\index{RootedTree@{RootedTree}!graph::RootedTree@{graph::RootedTree}}
+\doxysubsubsection{\texorpdfstring{RootedTree()}{RootedTree()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_rooted_tree_aacdeecac857623e9fbfe92590f3c504d} 
+graph\+::\+Rooted\+Tree\+::\+Rooted\+Tree (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&}]{undirected\+\_\+edges}{, }\item[{int}]{root\+\_\+}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs the tree by calculating parent for every vertex. Assumes a valid description of a tree is provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em undirected\+\_\+edges} & list of graph\textquotesingle{}s undirected edges \\
+\hline
+{\em root\+\_\+} & index of the root vertex \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_graph}{Graph}}(undirected\_edges.size()\ +\ 1,\ undirected\_edges),\ \mbox{\hyperlink{classgraph_1_1_rooted_tree_ab22a97bf6209a085fc2d788c3c0dacbe}{root}}(root\_)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_rooted_tree_ae6928f3ebd491541e9570e746b877c1e}{populate\_parents}}();}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgraph_1_1_rooted_tree_ae6928f3ebd491541e9570e746b877c1e}\index{graph::RootedTree@{graph::RootedTree}!populate\_parents@{populate\_parents}}
+\index{populate\_parents@{populate\_parents}!graph::RootedTree@{graph::RootedTree}}
+\doxysubsubsection{\texorpdfstring{populate\_parents()}{populate\_parents()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_rooted_tree_ae6928f3ebd491541e9570e746b877c1e} 
+void graph\+::\+Rooted\+Tree\+::populate\+\_\+parents (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Calculate the parents for all the vertices in the tree. Implements the breadth first search algorithm starting from the root vertex searching the entire tree and labeling parents for all vertices. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ vector\ with\ -\/1\ which\ indicates\ the\ vertex}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ wasn't\ yet\ visited.}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_rooted_tree_a3831583a91914988897a4cc8748fda43}{parent}}\ =\ std::vector<int>(\mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\_of\_vertices}}(),\ -\/1);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}\ =\ std::vector<int>(\mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\_of\_vertices}}());}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_rooted_tree_a3831583a91914988897a4cc8748fda43}{parent}}[\mbox{\hyperlink{classgraph_1_1_rooted_tree_ab22a97bf6209a085fc2d788c3c0dacbe}{root}}]\ =\ \mbox{\hyperlink{classgraph_1_1_rooted_tree_ab22a97bf6209a085fc2d788c3c0dacbe}{root}};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[\mbox{\hyperlink{classgraph_1_1_rooted_tree_ab22a97bf6209a085fc2d788c3c0dacbe}{root}}]\ =\ 0;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::queue<int>\ queue\_of\_vertices;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ queue\_of\_vertices.push(\mbox{\hyperlink{classgraph_1_1_rooted_tree_ab22a97bf6209a085fc2d788c3c0dacbe}{root}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!queue\_of\_vertices.empty())\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vertex\ =\ queue\_of\_vertices.front();}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ queue\_of\_vertices.pop();}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ neighbor\ :\ \mbox{\hyperlink{classgraph_1_1_graph_a59940c462861f2fcf4951d1b6c084e6a}{neighbors}}[vertex])\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ As\ long\ as\ the\ vertex\ was\ not\ yet\ visited.}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_rooted_tree_a3831583a91914988897a4cc8748fda43}{parent}}[neighbor]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_rooted_tree_a3831583a91914988897a4cc8748fda43}{parent}}[neighbor]\ =\ vertex;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[neighbor]\ =\ \mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[vertex]\ +\ 1;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ queue\_of\_vertices.push(neighbor);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/\mbox{\hyperlink{lowest__common__ancestor_8cpp}{lowest\+\_\+common\+\_\+ancestor.\+cpp}}\end{DoxyCompactItemize}

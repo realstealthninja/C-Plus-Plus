@@ -1,0 +1,416 @@
+\doxysection{graph/bidirectional\+\_\+dijkstra.cpp File Reference}
+\hypertarget{bidirectional__dijkstra_8cpp}{}\label{bidirectional__dijkstra_8cpp}\index{graph/bidirectional\_dijkstra.cpp@{graph/bidirectional\_dijkstra.cpp}}
+
+
+\mbox{[}Bidirectional Dijkstra Shortest Path Algorithm\mbox{]} (\href{https://www.coursera.org/learn/algorithms-on-graphs/lecture/7ml18/bidirectional-dijkstra}{\texttt{ https\+://www.\+coursera.\+org/learn/algorithms-\/on-\/graphs/lecture/7ml18/bidirectional-\/dijkstra}})  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacebidirectional__dijkstra}{bidirectional\+\_\+dijkstra}}
+\begin{DoxyCompactList}\small\item\em Functions for \mbox{[}Bidirectional Dijkstra Shortest Path\mbox{]} (\href{https://www.coursera.org/learn/algorithms-on-graphs/lecture/7ml18/bidirectional-dijkstra}{\texttt{ https\+://www.\+coursera.\+org/learn/algorithms-\/on-\/graphs/lecture/7ml18/bidirectional-\/dijkstra}}) algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph\+::bidirectional\+\_\+dijkstra\+::add\+Edge}} (std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}adj1, std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}adj2, uint64\+\_\+t u, uint64\+\_\+t v, uint64\+\_\+t w)
+\begin{DoxyCompactList}\small\item\em Function that add edge between two nodes or vertices of graph. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a22f1b7277e1dd4190f25014b48487ce6}{graph\+::bidirectional\+\_\+dijkstra\+::\+Shortest\+\_\+\+Path\+\_\+\+Distance}} (const std\+::vector$<$ uint64\+\_\+t $>$ \&workset\+\_\+, const std\+::vector$<$ std\+::vector$<$ uint64\+\_\+t $>$ $>$ \&distance\+\_\+)
+\begin{DoxyCompactList}\small\item\em This function returns the shortest distance from the source to the target if there is path between vertices \textquotesingle{}s\textquotesingle{} and \textquotesingle{}t\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a1b2df3d52a403ad46523ab90d3a723c1}{graph\+::bidirectional\+\_\+dijkstra\+::\+Bidijkstra}} (std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}adj1, std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}adj2, uint64\+\_\+t s, uint64\+\_\+t t)
+\begin{DoxyCompactList}\small\item\em Function runs the dijkstra algorithm for some source vertex and target vertex in the graph and returns the shortest distance of target from the source. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the provided algorithm above. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{bidirectional__dijkstra_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int64\+\_\+t \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a330a2b0a904f01802ada1f8f3b28e76c}{INF}} = std\+::numeric\+\_\+limits$<$int64\+\_\+t$>$\+::max()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}Bidirectional Dijkstra Shortest Path Algorithm\mbox{]} (\href{https://www.coursera.org/learn/algorithms-on-graphs/lecture/7ml18/bidirectional-dijkstra}{\texttt{ https\+://www.\+coursera.\+org/learn/algorithms-\/on-\/graphs/lecture/7ml18/bidirectional-\/dijkstra}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/Marinovsky}{\texttt{ Marinovksy}}
+\end{DoxyAuthor}
+This is basically the same Dijkstra Algorithm but faster because it goes from the source to the target and from target to the source and stops when finding a vertex visited already by the direct search or the reverse one. Here some simulations of it\+: \href{https://www.youtube.com/watch?v=DINCL5cd_w0&t=24s}{\texttt{ https\+://www.\+youtube.\+com/watch?v=\+DINCL5cd\+\_\+w0\&t=24s}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}\index{bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \label{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf} 
+void graph\+::bidirectional\+\_\+dijkstra\+::add\+Edge (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}}]{adj1}{, }\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}}]{adj2}{, }\item[{uint64\+\_\+t}]{u}{, }\item[{uint64\+\_\+t}]{v}{, }\item[{uint64\+\_\+t}]{w}{}\end{DoxyParamCaption})}
+
+
+
+Function that add edge between two nodes or vertices of graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj1} & adjacency list for the direct search \\
+\hline
+{\em adj2} & adjacency list for the reverse search \\
+\hline
+{\em u} & any node or vertex of graph \\
+\hline
+{\em v} & any node or vertex of graph \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ (*adj1)[u\ -\/\ 1].push\_back(std::make\_pair(v\ -\/\ 1,\ w));}
+\DoxyCodeLine{00049\ \ \ \ \ (*adj2)[v\ -\/\ 1].push\_back(std::make\_pair(u\ -\/\ 1,\ w));}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ (*adj)[v\ -\/\ 1].push\_back(std::make\_pair(u\ -\/\ 1,\ w));}}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bidirectional__dijkstra_8cpp_a1b2df3d52a403ad46523ab90d3a723c1}\index{bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}!Bidijkstra@{Bidijkstra}}
+\index{Bidijkstra@{Bidijkstra}!bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{Bidijkstra()}{Bidijkstra()}}
+{\footnotesize\ttfamily \label{bidirectional__dijkstra_8cpp_a1b2df3d52a403ad46523ab90d3a723c1} 
+int graph\+::bidirectional\+\_\+dijkstra\+::\+Bidijkstra (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}}]{adj1}{, }\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}}]{adj2}{, }\item[{uint64\+\_\+t}]{s}{, }\item[{uint64\+\_\+t}]{t}{}\end{DoxyParamCaption})}
+
+
+
+Function runs the dijkstra algorithm for some source vertex and target vertex in the graph and returns the shortest distance of target from the source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj1} & input graph \\
+\hline
+{\em adj2} & input graph reversed \\
+\hline
+{\em s} & source vertex \\
+\hline
+{\em t} & target vertex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shortest distance if target is reachable from source else -\/1 in case if target is not reachable from source. 
+\end{DoxyReturn}
+n denotes the number of vertices in graph
+
+setting all the distances initially to INF
+
+creating a a vector of min heap using priority queue pq\mbox{[}0\mbox{]} contains the min heap for the direct search pq\mbox{[}1\mbox{]} contains the min heap for the reverse search
+
+first element of pair contains the distance second element of pair contains the vertex
+
+vector for store the nodes or vertices in the shortest path
+
+vector for store the nodes or vertices visited
+
+pushing the source vertex \textquotesingle{}s\textquotesingle{} with 0 distance in pq\mbox{[}0\mbox{]} min heap
+
+marking the distance of source as 0
+
+pushing the target vertex \textquotesingle{}t\textquotesingle{} with 0 distance in pq\mbox{[}1\mbox{]} min heap
+
+marking the distance of target as 0
+
+direct search
+
+second element of pair denotes the node / vertex
+
+first element of pair denotes the distance
+
+for all the reachable vertex from the currently exploring vertex we will try to minimize the distance
+
+minimizing distances
+
+check if current\+Node has already been visited
+
+reversed search
+
+second element of pair denotes the node / vertex
+
+first element of pair denotes the distance
+
+for all the reachable vertex from the currently exploring vertex we will try to minimize the distance
+
+minimizing distances
+
+check if current\+Node has already been visited
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ ///\ n\ denotes\ the\ number\ of\ vertices\ in\ graph}}
+\DoxyCodeLine{00090\ \textcolor{comment}{}\ \ \ \ uint64\_t\ n\ =\ adj1-\/>size();}
+\DoxyCodeLine{00091\ \textcolor{comment}{}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ ///\ setting\ all\ the\ distances\ initially\ to\ INF}}
+\DoxyCodeLine{00093\ \textcolor{comment}{}\ \ \ \ std::vector<std::vector<uint64\_t>>\ dist(2,\ std::vector<uint64\_t>(n,\ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a330a2b0a904f01802ada1f8f3b28e76c}{INF}}));}
+\DoxyCodeLine{00094\ \textcolor{comment}{}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ ///\ creating\ a\ a\ vector\ of\ min\ heap\ using\ priority\ queue}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ ///\ pq[0]\ contains\ the\ min\ heap\ for\ the\ direct\ search}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ ///\ pq[1]\ contains\ the\ min\ heap\ for\ the\ reverse\ search}}
+\DoxyCodeLine{00098\ \textcolor{comment}{}\textcolor{comment}{}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ ///\ first\ element\ of\ pair\ contains\ the\ distance}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ \ \ ///\ second\ element\ of\ pair\ contains\ the\ vertex}}
+\DoxyCodeLine{00101\ \textcolor{comment}{}\ \ \ \ std::vector<}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ std::priority\_queue<std::pair<uint64\_t,\ uint64\_t>,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::pair<uint64\_t,\ uint64\_t>>,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::greater<std::pair<uint64\_t,\ uint64\_t>>>>}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ pq(2);\textcolor{comment}{}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ \ \ \ ///\ vector\ for\ store\ the\ nodes\ or\ vertices\ in\ the\ shortest\ path}}
+\DoxyCodeLine{00107\ \textcolor{comment}{}\ \ \ \ std::vector<uint64\_t>\ workset(n);\textcolor{comment}{}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ \ ///\ vector\ for\ store\ the\ nodes\ or\ vertices\ visited}}
+\DoxyCodeLine{00109\ \textcolor{comment}{}\ \ \ \ std::vector<bool>\ visited(n);}
+\DoxyCodeLine{00110\ \textcolor{comment}{}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ ///\ pushing\ the\ source\ vertex\ 's'\ with\ 0\ distance\ in\ pq[0]\ min\ heap}}
+\DoxyCodeLine{00112\ \textcolor{comment}{}\ \ \ \ pq[0].push(std::make\_pair(0,\ s));}
+\DoxyCodeLine{00113\ \textcolor{comment}{}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ \ \ ///\ marking\ the\ distance\ of\ source\ as\ 0}}
+\DoxyCodeLine{00115\ \textcolor{comment}{}\ \ \ \ dist[0][s]\ =\ 0;}
+\DoxyCodeLine{00116\ \textcolor{comment}{}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ ///\ pushing\ the\ target\ vertex\ 't'\ with\ 0\ distance\ in\ pq[1]\ min\ heap}}
+\DoxyCodeLine{00118\ \textcolor{comment}{}\ \ \ \ pq[1].push(std::make\_pair(0,\ t));}
+\DoxyCodeLine{00119\ \textcolor{comment}{}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ ///\ marking\ the\ distance\ of\ target\ as\ 0}}
+\DoxyCodeLine{00121\ \textcolor{comment}{}\ \ \ \ dist[1][t]\ =\ 0;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ direct\ search}}
+\DoxyCodeLine{00125\ \textcolor{comment}{}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ pq[0].size()\ is\ equal\ to\ zero\ then\ the\ node/\ vertex\ is\ not}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reachable\ from\ s}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pq[0].size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ second\ element\ of\ pair\ denotes\ the\ node\ /\ vertex}}
+\DoxyCodeLine{00132\ \textcolor{comment}{}\ \ \ \ \ \ \ \ uint64\_t\ currentNode\ =\ pq[0].top().second;}
+\DoxyCodeLine{00133\ \textcolor{comment}{}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ first\ element\ of\ pair\ denotes\ the\ distance}}
+\DoxyCodeLine{00135\ \textcolor{comment}{}\ \ \ \ \ \ \ \ uint64\_t\ currentDist\ =\ pq[0].top().first;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ pq[0].pop();}
+\DoxyCodeLine{00138\ \textcolor{comment}{}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ for\ all\ the\ reachable\ vertex\ from\ the\ currently\ exploring\ vertex}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ we\ will\ try\ to\ minimize\ the\ distance}}
+\DoxyCodeLine{00141\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::pair<int,\ int>\ edge\ :\ (*adj1)[currentNode])\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ minimizing\ distances}}
+\DoxyCodeLine{00143\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentDist\ +\ edge.second\ <\ dist[0][edge.first])\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist[0][edge.first]\ =\ currentDist\ +\ edge.second;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pq[0].push(std::make\_pair(dist[0][edge.first],\ edge.first));}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ store\ the\ processed\ node/\ vertex}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ workset.push\_back(currentNode);}
+\DoxyCodeLine{00150\ \textcolor{comment}{}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ check\ if\ currentNode\ has\ already\ been\ visited}}
+\DoxyCodeLine{00152\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (visited[currentNode]\ ==\ 1)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a22f1b7277e1dd4190f25014b48487ce6}{Shortest\_Path\_Distance}}(workset,\ dist);}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ visited[currentNode]\ =\ \textcolor{keyword}{true};\textcolor{comment}{}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ reversed\ search}}
+\DoxyCodeLine{00157\ \textcolor{comment}{}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ pq[1].size()\ is\ equal\ to\ zero\ then\ the\ node/\ vertex\ is\ not}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reachable\ from\ t}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pq[1].size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ second\ element\ of\ pair\ denotes\ the\ node\ /\ vertex}}
+\DoxyCodeLine{00164\ \textcolor{comment}{}\ \ \ \ \ \ \ \ currentNode\ =\ pq[1].top().second;}
+\DoxyCodeLine{00165\ \textcolor{comment}{}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ first\ element\ of\ pair\ denotes\ the\ distance}}
+\DoxyCodeLine{00167\ \textcolor{comment}{}\ \ \ \ \ \ \ \ currentDist\ =\ pq[1].top().first;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ pq[1].pop();}
+\DoxyCodeLine{00170\ \textcolor{comment}{}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ for\ all\ the\ reachable\ vertex\ from\ the\ currently\ exploring\ vertex}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ we\ will\ try\ to\ minimize\ the\ distance}}
+\DoxyCodeLine{00173\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::pair<int,\ int>\ edge\ :\ (*adj2)[currentNode])\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ minimizing\ distances}}
+\DoxyCodeLine{00175\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentDist\ +\ edge.second\ <\ dist[1][edge.first])\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist[1][edge.first]\ =\ currentDist\ +\ edge.second;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pq[1].push(std::make\_pair(dist[1][edge.first],\ edge.first));}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ store\ the\ processed\ node/\ vertex}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ workset.push\_back(currentNode);}
+\DoxyCodeLine{00182\ \textcolor{comment}{}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ check\ if\ currentNode\ has\ already\ been\ visited}}
+\DoxyCodeLine{00184\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (visited[currentNode]\ ==\ 1)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a22f1b7277e1dd4190f25014b48487ce6}{Shortest\_Path\_Distance}}(workset,\ dist);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ visited[currentNode]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00190\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bidirectional__dijkstra_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}!main@{main}}
+\index{main@{main}!bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{bidirectional__dijkstra_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ running\ predefined\ tests}}
+\DoxyCodeLine{00250\ \ \ \ \ uint64\_t\ vertices\ =\ uint64\_t();}
+\DoxyCodeLine{00251\ \ \ \ \ uint64\_t\ edges\ =\ uint64\_t();}
+\DoxyCodeLine{00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ vertices\ :\ "{}};}
+\DoxyCodeLine{00253\ \ \ \ \ std::cin\ >>\ vertices;}
+\DoxyCodeLine{00254\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ edges\ :\ "{}};}
+\DoxyCodeLine{00255\ \ \ \ \ std::cin\ >>\ edges;}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ std::vector<std::vector<std::pair<uint64\_t,\ uint64\_t>>>\ adj1(}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ vertices,\ std::vector<std::pair<uint64\_t,\ uint64\_t>>());}
+\DoxyCodeLine{00259\ \ \ \ \ std::vector<std::vector<std::pair<uint64\_t,\ uint64\_t>>>\ adj2(}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ vertices,\ std::vector<std::pair<uint64\_t,\ uint64\_t>>());}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ uint64\_t\ u\ =\ uint64\_t(),\ v\ =\ uint64\_t(),\ w\ =\ uint64\_t();}
+\DoxyCodeLine{00263\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ edges\ by\ three\ integers\ in\ this\ form:\ u\ v\ w\ "{}}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00265\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Example:\ if\ there\ is\ and\ edge\ between\ node\ 1\ and\ node\ 4\ with\ "{}}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}weight\ 7\ enter:\ 1\ 4\ 7,\ and\ then\ press\ enter"{}}}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges-\/-\/)\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ std::cin\ >>\ u\ >>\ v\ >>\ w;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj1,\ \&adj2,\ u,\ v,\ w);}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edges\ !=\ 0)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ next\ edge"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ uint64\_t\ s\ =\ uint64\_t(),\ t\ =\ uint64\_t();}
+\DoxyCodeLine{00277\ \ \ \ \ std::cout}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Enter\ the\ source\ node\ and\ the\ target\ node\ separated\ by\ a\ space"{}}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00280\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Example:\ If\ the\ source\ node\ is\ 5\ and\ the\ target\ node\ is\ 6\ "{}}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}enter:\ 5\ 6\ and\ press\ enter"{}}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00283\ \ \ \ \ std::cin\ >>\ s\ >>\ t;}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{int}\ dist\ =}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a1b2df3d52a403ad46523ab90d3a723c1}{graph::bidirectional\_dijkstra::Bidijkstra}}(\&adj1,\ \&adj2,\ s\ -\/\ 1,\ t\ -\/\ 1);}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{if}\ (dist\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Target\ not\ reachable\ from\ source"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00288\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Shortest\ Path\ Distance\ :\ "{}}\ <<\ dist\ <<\ std::endl;}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00293\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bidirectional__dijkstra_8cpp_a22f1b7277e1dd4190f25014b48487ce6}\index{bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}!Shortest\_Path\_Distance@{Shortest\_Path\_Distance}}
+\index{Shortest\_Path\_Distance@{Shortest\_Path\_Distance}!bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{Shortest\_Path\_Distance()}{Shortest\_Path\_Distance()}}
+{\footnotesize\ttfamily \label{bidirectional__dijkstra_8cpp_a22f1b7277e1dd4190f25014b48487ce6} 
+uint64\+\_\+t graph\+::bidirectional\+\_\+dijkstra\+::\+Shortest\+\_\+\+Path\+\_\+\+Distance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint64\+\_\+t $>$ \&}]{workset\+\_\+}{, }\item[{const std\+::vector$<$ std\+::vector$<$ uint64\+\_\+t $>$ $>$ \&}]{distance\+\_\+}{}\end{DoxyParamCaption})}
+
+
+
+This function returns the shortest distance from the source to the target if there is path between vertices \textquotesingle{}s\textquotesingle{} and \textquotesingle{}t\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em workset\+\_\+} & vertices visited in the search \\
+\hline
+{\em distance\+\_\+} & vector of distances from the source to the target and from the target to the source \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ int64\_t\ distance\ =\ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a330a2b0a904f01802ada1f8f3b28e76c}{INF}};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ :\ workset\_)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance\_[0][i]\ +\ distance\_[1][i]\ <\ distance)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ distance\ =\ distance\_[0][i]\ +\ distance\_[1][i];}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ distance;}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bidirectional__dijkstra_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}!tests@{tests}}
+\index{tests@{tests}!bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{bidirectional__dijkstra_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the provided algorithm above. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiatinig\ Predefined\ Tests..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00201\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 1..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00202\ \ \ \ \ std::vector<std::vector<std::pair<uint64\_t,\ uint64\_t>>>\ adj1\_1(}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ 4,\ std::vector<std::pair<uint64\_t,\ uint64\_t>>());}
+\DoxyCodeLine{00204\ \ \ \ \ std::vector<std::vector<std::pair<uint64\_t,\ uint64\_t>>>\ adj1\_2(}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ 4,\ std::vector<std::pair<uint64\_t,\ uint64\_t>>());}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj1\_1,\ \&adj1\_2,\ 1,\ 2,\ 1);}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj1\_1,\ \&adj1\_2,\ 4,\ 1,\ 2);}
+\DoxyCodeLine{00208\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj1\_1,\ \&adj1\_2,\ 2,\ 3,\ 2);}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj1\_1,\ \&adj1\_2,\ 1,\ 3,\ 5);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ uint64\_t\ s\ =\ 1,\ t\ =\ 3;}
+\DoxyCodeLine{00212\ \ \ \ \ assert(graph::bidirectional\_dijkstra::Bidijkstra(\&adj1\_1,\ \&adj1\_2,\ s\ -\/\ 1,}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ -\/\ 1)\ ==\ 3);}
+\DoxyCodeLine{00214\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ s\ =\ 4,\ t\ =\ 3;}
+\DoxyCodeLine{00217\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 2..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00218\ \ \ \ \ assert(graph::bidirectional\_dijkstra::Bidijkstra(\&adj1\_1,\ \&adj1\_2,\ s\ -\/\ 1,}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ -\/\ 1)\ ==\ 5);}
+\DoxyCodeLine{00220\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ std::vector<std::vector<std::pair<uint64\_t,\ uint64\_t>>>\ adj2\_1(}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ 5,\ std::vector<std::pair<uint64\_t,\ uint64\_t>>());}
+\DoxyCodeLine{00224\ \ \ \ \ std::vector<std::vector<std::pair<uint64\_t,\ uint64\_t>>>\ adj2\_2(}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ 5,\ std::vector<std::pair<uint64\_t,\ uint64\_t>>());}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 1,\ 2,\ 4);}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 1,\ 3,\ 2);}
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 2,\ 3,\ 2);}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 3,\ 2,\ 1);}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 2,\ 4,\ 2);}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 3,\ 5,\ 4);}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 5,\ 4,\ 1);}
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 2,\ 5,\ 3);}
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{bidirectional__dijkstra_8cpp_a69172365aebde9be1997157f6f80e0cf}{graph::bidirectional\_dijkstra::addEdge}}(\&adj2\_1,\ \&adj2\_2,\ 3,\ 4,\ 4);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ s\ =\ 1,\ t\ =\ 5;}
+\DoxyCodeLine{00237\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 3..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00238\ \ \ \ \ assert(graph::bidirectional\_dijkstra::Bidijkstra(\&adj2\_1,\ \&adj2\_2,\ s\ -\/\ 1,}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ -\/\ 1)\ ==\ 6);}
+\DoxyCodeLine{00240\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00241\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ Test\ Passed..."{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00242\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{bidirectional__dijkstra_8cpp_a330a2b0a904f01802ada1f8f3b28e76c}\index{bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}!INF@{INF}}
+\index{INF@{INF}!bidirectional\_dijkstra.cpp@{bidirectional\_dijkstra.cpp}}
+\doxysubsubsection{\texorpdfstring{INF}{INF}}
+{\footnotesize\ttfamily \label{bidirectional__dijkstra_8cpp_a330a2b0a904f01802ada1f8f3b28e76c} 
+int64\+\_\+t INF = std\+::numeric\+\_\+limits$<$int64\+\_\+t$>$\+::max()\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+for assert for io operations for variable INF for the priority\+\_\+queue of distances for make\+\_\+pair function for store the graph, the distances, and the path 

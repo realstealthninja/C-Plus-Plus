@@ -1,0 +1,314 @@
+\doxysection{others/postfix\+\_\+evaluation.cpp File Reference}
+\hypertarget{postfix__evaluation_8cpp}{}\label{postfix__evaluation_8cpp}\index{others/postfix\_evaluation.cpp@{others/postfix\_evaluation.cpp}}
+
+
+Evaluation of \href{https://en.wikipedia.org/wiki/Reverse_Polish_notation}{\texttt{ Postfix Expression}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classothers_1_1postfix__expression_1_1_stack}{others\+::postfix\+\_\+expression\+::\+Stack}}
+\begin{DoxyCompactList}\small\item\em Creates an array to be used as stack for storing values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceothers}{others}}
+\begin{DoxyCompactList}\small\item\em for {\ttfamily vector} \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacepostfix__expression}{postfix\+\_\+expression}}
+\begin{DoxyCompactList}\small\item\em Functions for Postfix Expression algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{postfix__evaluation_8cpp_ad77f8c9cc594975756838d498c237cea}{others\+::postfix\+\_\+expression\+::push}} (float operand, \mbox{\hyperlink{classothers_1_1postfix__expression_1_1_stack}{Stack}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classstack}{stack}})
+\begin{DoxyCompactList}\small\item\em Pushing operand, also called the number in the array to the stack. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{postfix__evaluation_8cpp_a421baa2002a64bc0bfc3e1b64800d734}{others\+::postfix\+\_\+expression\+::pop}} (\mbox{\hyperlink{classothers_1_1postfix__expression_1_1_stack}{Stack}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classstack}{stack}})
+\begin{DoxyCompactList}\small\item\em Popping operand, also called the number from the stack. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{postfix__evaluation_8cpp_a4c27f949c9d6659be9f5bd2ccbe1360a}{others\+::postfix\+\_\+expression\+::is\+\_\+number}} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Checks if scanned string is a number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{postfix__evaluation_8cpp_a59fd597e0ea394abe027ced4d2ea3338}{others\+::postfix\+\_\+expression\+::evaluate}} (float a, float b, const std\+::string \&operation, \mbox{\hyperlink{classothers_1_1postfix__expression_1_1_stack}{Stack}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classstack}{stack}})
+\begin{DoxyCompactList}\small\item\em Evaluate answer using given last two operands from and operation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\float \mbox{\hyperlink{postfix__evaluation_8cpp_ae38bd3a177a6d61da3859a281233bbe1}{others\+::postfix\+\_\+expression\+::postfix\+\_\+evaluation}} (std\+::array$<$ std\+::string, N $>$ input)
+\begin{DoxyCompactList}\small\item\em Postfix Evaluation algorithm to compute the value from given input array. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{postfix__evaluation_8cpp_a6a8eeb7d346d5cd6335d9780fb7c0f15}{test\+\_\+function\+\_\+1}} ()
+\begin{DoxyCompactList}\small\item\em Test function 1 with input array \{\textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}, \textquotesingle{}1\textquotesingle{}, \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}, \textquotesingle{}+\textquotesingle{}, \textquotesingle{}9\textquotesingle{}, \textquotesingle{}-\/\textquotesingle{}\}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{postfix__evaluation_8cpp_a5b97d12e8b61484f756a8721992bfae1}{test\+\_\+function\+\_\+2}} ()
+\begin{DoxyCompactList}\small\item\em Test function 2 with input array \{\textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}+\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}/\textquotesingle{}, \textquotesingle{}5\textquotesingle{}, \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}, \textquotesingle{}7\textquotesingle{}, \textquotesingle{}+\textquotesingle{}\}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{postfix__evaluation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Evaluation of \href{https://en.wikipedia.org/wiki/Reverse_Polish_notation}{\texttt{ Postfix Expression}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Darshana-Sarma}{\texttt{ Darshana Sarma}}
+\end{DoxyAuthor}
+Create a stack to store operands (or values). Scan the given expression and do following for every scanned element. If the element is a number, push it into the stack If the element is a operator, pop operands for the operator from stack. Evaluate the operator and push the result back to the stack When the expression is ended, the number in the stack is the final answer 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{postfix__evaluation_8cpp_a59fd597e0ea394abe027ced4d2ea3338}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_a59fd597e0ea394abe027ced4d2ea3338} 
+void others\+::postfix\+\_\+expression\+::evaluate (\begin{DoxyParamCaption}\item[{float}]{a}{, }\item[{float}]{b}{, }\item[{const std\+::string \&}]{operation}{, }\item[{\mbox{\hyperlink{classothers_1_1postfix__expression_1_1_stack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stack}{}\end{DoxyParamCaption})}
+
+
+
+Evaluate answer using given last two operands from and operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & second last added operand which will be used for evaluation \\
+\hline
+{\em b} & last added operand which will be used for evaluation \\
+\hline
+{\em operation} & to be performed with respective floats \\
+\hline
+{\em stack} & containing numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{float}\ c\ =\ 0;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *op\ =\ operation.c\_str();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{switch}\ (*op)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ a\ +\ b;\ \textcolor{comment}{//\ Addition\ of\ numbers}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{postfix__evaluation_8cpp_ad77f8c9cc594975756838d498c237cea}{others::postfix\_expression::push}}(c,\ \mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'-\/'}:}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ a\ -\/\ b;\ \textcolor{comment}{//\ Subtraction\ of\ numbers}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{postfix__evaluation_8cpp_ad77f8c9cc594975756838d498c237cea}{others::postfix\_expression::push}}(c,\ \mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ a\ *\ b;\ \textcolor{comment}{//\ Multiplication\ of\ numbers}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{postfix__evaluation_8cpp_ad77f8c9cc594975756838d498c237cea}{others::postfix\_expression::push}}(c,\ \mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'/'}:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ a\ /\ b;\ \textcolor{comment}{//\ Division\ of\ numbers}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{postfix__evaluation_8cpp_ad77f8c9cc594975756838d498c237cea}{others::postfix\_expression::push}}(c,\ \mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Operator\ not\ defined\(\backslash\)n"{}};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \}}
+
+\end{DoxyCode}
+\Hypertarget{postfix__evaluation_8cpp_a4c27f949c9d6659be9f5bd2ccbe1360a}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!is\_number@{is\_number}}
+\index{is\_number@{is\_number}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_number()}{is\_number()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_a4c27f949c9d6659be9f5bd2ccbe1360a} 
+bool others\+::postfix\+\_\+expression\+::is\+\_\+number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Checks if scanned string is a number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & scanned string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool boolean value if string is number 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ !s.empty()\ \&\&\ std::all\_of(s.begin(),\ s.end(),\ ::isdigit);}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{postfix__evaluation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!main@{main}}
+\index{main@{main}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{postfix__evaluation_8cpp_a6a8eeb7d346d5cd6335d9780fb7c0f15}{test\_function\_1}}();}
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{postfix__evaluation_8cpp_a5b97d12e8b61484f756a8721992bfae1}{test\_function\_2}}();}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ implementations\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00178\ \}}
+
+\end{DoxyCode}
+\Hypertarget{postfix__evaluation_8cpp_a421baa2002a64bc0bfc3e1b64800d734}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!pop@{pop}}
+\index{pop@{pop}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_a421baa2002a64bc0bfc3e1b64800d734} 
+float others\+::postfix\+\_\+expression\+::pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classothers_1_1postfix__expression_1_1_stack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stack}{}\end{DoxyParamCaption})}
+
+
+
+Popping operand, also called the number from the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & stack containing numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+operand float on top of stack 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ operand\ =\ \mbox{\hyperlink{classstack}{stack}}-\/>stack[\mbox{\hyperlink{classstack}{stack}}-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}];}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}-\/-\/;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ operand;}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+\Hypertarget{postfix__evaluation_8cpp_ae38bd3a177a6d61da3859a281233bbe1}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!postfix\_evaluation@{postfix\_evaluation}}
+\index{postfix\_evaluation@{postfix\_evaluation}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{postfix\_evaluation()}{postfix\_evaluation()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_ae38bd3a177a6d61da3859a281233bbe1} 
+template$<$std\+::size\+\_\+t N$>$ \\
+float others\+::postfix\+\_\+expression\+::postfix\+\_\+evaluation (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::string, N $>$}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Postfix Evaluation algorithm to compute the value from given input array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & number of array size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Array of characters consisting of numbers and operations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+stack\mbox{[}stack\+Top\mbox{]} returns the top value from the stack 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ Stack\ \mbox{\hyperlink{paranthesis__matching_8cpp_aa37d24a036d239b3b528f13b9de880c7}{stack}};}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{while}\ (j\ <\ N)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ std::string\ scan\ =\ input[j];}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacegames_1_1memory__game_a33167bb9cce6d527b478b4f6ae8c3f59}{is\_number}}(scan))\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ push(std::stof(scan),\ \&\mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ op2\ =\ pop(\&\mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ op1\ =\ pop(\&\mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{postfix__evaluation_8cpp_a59fd597e0ea394abe027ced4d2ea3338}{evaluate}}(op1,\ op2,\ scan,\ \&\mbox{\hyperlink{classstack}{stack}});}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{classstack}{stack}}.stack[\mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classstack}{stack}}.stack[\mbox{\hyperlink{classstack}{stack}}.\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}];}
+\DoxyCodeLine{00136\ \}}
+
+\end{DoxyCode}
+\Hypertarget{postfix__evaluation_8cpp_ad77f8c9cc594975756838d498c237cea}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!push@{push}}
+\index{push@{push}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_ad77f8c9cc594975756838d498c237cea} 
+void others\+::postfix\+\_\+expression\+::push (\begin{DoxyParamCaption}\item[{float}]{operand}{, }\item[{\mbox{\hyperlink{classothers_1_1postfix__expression_1_1_stack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stack}{}\end{DoxyParamCaption})}
+
+
+
+Pushing operand, also called the number in the array to the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em operand} & float value from the input array or evaluation \\
+\hline
+{\em stack} & stack containing numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}++;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classstack}{stack}}-\/>stack[\mbox{\hyperlink{classstack}{stack}}-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}]\ =\ operand;}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+\Hypertarget{postfix__evaluation_8cpp_a6a8eeb7d346d5cd6335d9780fb7c0f15}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!test\_function\_1@{test\_function\_1}}
+\index{test\_function\_1@{test\_function\_1}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_function\_1()}{test\_function\_1()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_a6a8eeb7d346d5cd6335d9780fb7c0f15} 
+static void test\+\_\+function\+\_\+1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test function 1 with input array \{\textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}, \textquotesingle{}1\textquotesingle{}, \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}, \textquotesingle{}+\textquotesingle{}, \textquotesingle{}9\textquotesingle{}, \textquotesingle{}-\/\textquotesingle{}\}. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ std::array<std::string,\ 7>\ input\ =\ \{\textcolor{stringliteral}{"{}2"{}},\ \textcolor{stringliteral}{"{}3"{}},\ \textcolor{stringliteral}{"{}1"{}},\ \textcolor{stringliteral}{"{}*"{}},\ \textcolor{stringliteral}{"{}+"{}},\ \textcolor{stringliteral}{"{}9"{}},\ \textcolor{stringliteral}{"{}-\/"{}}\};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{float}\ answer\ =\ \mbox{\hyperlink{postfix__evaluation_8cpp_ae38bd3a177a6d61da3859a281233bbe1}{others::postfix\_expression::postfix\_evaluation}}(input);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ assert(answer\ ==\ -\/4);}
+\DoxyCodeLine{00152\ \}}
+
+\end{DoxyCode}
+\Hypertarget{postfix__evaluation_8cpp_a5b97d12e8b61484f756a8721992bfae1}\index{postfix\_evaluation.cpp@{postfix\_evaluation.cpp}!test\_function\_2@{test\_function\_2}}
+\index{test\_function\_2@{test\_function\_2}!postfix\_evaluation.cpp@{postfix\_evaluation.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_function\_2()}{test\_function\_2()}}
+{\footnotesize\ttfamily \label{postfix__evaluation_8cpp_a5b97d12e8b61484f756a8721992bfae1} 
+static void test\+\_\+function\+\_\+2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test function 2 with input array \{\textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}+\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}/\textquotesingle{}, \textquotesingle{}5\textquotesingle{}, \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}, \textquotesingle{}7\textquotesingle{}, \textquotesingle{}+\textquotesingle{}\}. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ std::array<std::string,\ 9>\ input\ =\ \{\textcolor{stringliteral}{"{}100"{}},\ \textcolor{stringliteral}{"{}200"{}},\ \textcolor{stringliteral}{"{}+"{}},\ \textcolor{stringliteral}{"{}2"{}},\ \textcolor{stringliteral}{"{}/"{}},}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}5"{}},\ \ \ \textcolor{stringliteral}{"{}*"{}},\ \ \ \textcolor{stringliteral}{"{}7"{}},\ \textcolor{stringliteral}{"{}+"{}}\};}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{float}\ answer\ =\ \mbox{\hyperlink{postfix__evaluation_8cpp_ae38bd3a177a6d61da3859a281233bbe1}{others::postfix\_expression::postfix\_evaluation}}(input);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ assert(answer\ ==\ 757);}
+\DoxyCodeLine{00165\ \}}
+
+\end{DoxyCode}

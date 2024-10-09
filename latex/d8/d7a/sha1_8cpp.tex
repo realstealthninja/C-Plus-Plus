@@ -1,0 +1,411 @@
+\doxysection{hashing/sha1.cpp File Reference}
+\hypertarget{sha1_8cpp}{}\label{sha1_8cpp}\index{hashing/sha1.cpp@{hashing/sha1.cpp}}
+
+
+Simple C++ implementation of the \href{https://en.wikipedia.org/wiki/SHA-1}{\texttt{ SHA-\/1 Hashing Algorithm}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacehashing}{hashing}}
+\begin{DoxyCompactList}\small\item\em Hashing algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_s_h_a}{SHA}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/SHA-1}{\texttt{ SHA-\/1}} algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{sha1_8cpp_acf6bd970f29a68702bdbdfe8338e45e0}{hashing\+::sha1\+::left\+Rotate32bits}} (uint32\+\_\+t n, std\+::size\+\_\+t rotate)
+\begin{DoxyCompactList}\small\item\em Rotates the bits of a 32-\/bit unsigned integer. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{sha1_8cpp_aada0803ef851d831b7a290a924e3c228}{hashing\+::sha1\+::sig2hex}} (void \texorpdfstring{$\ast$}{*}sig)
+\begin{DoxyCompactList}\small\item\em Transforms the 160-\/bit SHA-\/1 signature into a 40 char hex string. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sha1_8cpp_a7be3471f7e489d7d0df42b97a48bf141}{hashing\+::sha1\+::hash\+\_\+bs}} (const void \texorpdfstring{$\ast$}{*}input\+\_\+bs, uint64\+\_\+t input\+\_\+size)
+\begin{DoxyCompactList}\small\item\em The SHA-\/1 algorithm itself, taking in a bytestring. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c}{hashing\+::sha1\+::hash}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Converts the string to bytestring and calls the main algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{sha1_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations of well-\/known SHA-\/1 hashes. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{sha1_8cpp_ac9e1a11f44135b890dd10a00e73b5661}{interactive}} ()
+\begin{DoxyCompactList}\small\item\em Puts user in a loop where inputs can be given and SHA-\/1 hash will be computed and printed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sha1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple C++ implementation of the \href{https://en.wikipedia.org/wiki/SHA-1}{\texttt{ SHA-\/1 Hashing Algorithm}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/tGautot}{\texttt{ t\+Gautot}} 
+\end{DoxyAuthor}
+\href{https://en.wikipedia.org/wiki/SHA-1}{\texttt{ SHA-\/1}} is a cryptographic hash function that was developped by the \href{https://en.wikipedia.org/wiki/National_Security_Agency}{\texttt{ NSA}} 1995. SHA-\/1 is not considered secure since around 2010.\hypertarget{sha1_8cpp_autotoc_md83}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{sha1_8cpp_autotoc_md83}
+The first step of the algorithm is to pad the message for its length to be a multiple of 64 (bytes). This is done by first adding 0x80 (10000000) and then only zeroes until the last 8 bytes must be filled, where then the 64 bit size of the input will be added
+
+Once this is done, the algo breaks down this padded message into 64 bytes chunks. Each chunk is used for one {\itshape round}, a round breaks the chunk into 16 blocks of 4 bytes. These 16 blocks are then extended to 80 blocks using \doxylink{namespace_x_o_r}{XOR} operations on existing blocks (see code for more details). The algorithm will then update its 160-\/bit state (here represented used 5 32-\/bits integer) using partial hashes computed using special functions on the blocks previously built. Please take a look at the \href{https://en.wikipedia.org/wiki/SHA-1\#SHA-1_pseudocode}{\texttt{ wikipedia article}} for more precision on these operations \begin{DoxyNote}{Note}
+This is a simple implementation for a byte string but some implmenetations can work on bytestream, messages of unknown length. 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c}\index{sha1.cpp@{sha1.cpp}!hash@{hash}}
+\index{hash@{hash}!sha1.cpp@{sha1.cpp}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily \label{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c} 
+void \texorpdfstring{$\ast$}{*} hashing\+::sha1\+::hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Converts the string to bytestring and calls the main algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Plain character message to hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} Pointer to the SHA-\/1 signature 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{md5_8cpp_a5341431cef7fcfc33794326e1deb2425}{hash\_bs}}(\&message[0],\ message.size());}
+\DoxyCodeLine{00212\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha1_8cpp_a7be3471f7e489d7d0df42b97a48bf141}\index{sha1.cpp@{sha1.cpp}!hash\_bs@{hash\_bs}}
+\index{hash\_bs@{hash\_bs}!sha1.cpp@{sha1.cpp}}
+\doxysubsubsection{\texorpdfstring{hash\_bs()}{hash\_bs()}}
+{\footnotesize\ttfamily \label{sha1_8cpp_a7be3471f7e489d7d0df42b97a48bf141} 
+void \texorpdfstring{$\ast$}{*} hashing\+::sha1\+::hash\+\_\+bs (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{input\+\_\+bs}{, }\item[{uint64\+\_\+t}]{input\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+The SHA-\/1 algorithm itself, taking in a bytestring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+bs} & The bytestring to hash \\
+\hline
+{\em input\+\_\+size} & The size (in BYTES) of the input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} Pointer to the 160-\/bit signature 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{auto}*\ input\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }uint8\_t*\textcolor{keyword}{>}(input\_bs);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Step\ 0:\ The\ initial\ 160-\/bit\ state}}
+\DoxyCodeLine{00087\ \ \ \ \ uint32\_t\ h0\ =\ 0x67452301,\ a\ =\ 0;}
+\DoxyCodeLine{00088\ \ \ \ \ uint32\_t\ h1\ =\ 0xEFCDAB89,\ b\ =\ 0;}
+\DoxyCodeLine{00089\ \ \ \ \ uint32\_t\ h2\ =\ 0x98BADCFE,\ c\ =\ 0;}
+\DoxyCodeLine{00090\ \ \ \ \ uint32\_t\ h3\ =\ 0x10325476,\ d\ =\ 0;}
+\DoxyCodeLine{00091\ \ \ \ \ uint32\_t\ h4\ =\ 0xC3D2E1F0,\ e\ =\ 0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ Step\ 1:\ Processing\ the\ bytestring}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ First\ compute\ the\ size\ the\ padded\ message\ will\ have}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ so\ it\ is\ possible\ to\ allocate\ the\ right\ amount\ of\ memory}}
+\DoxyCodeLine{00096\ \ \ \ \ uint64\_t\ padded\_message\_size\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\_size\ \%\ 64\ <\ 56)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ padded\_message\_size\ =\ input\_size\ +\ 64\ -\/\ (input\_size\ \%\ 64);}
+\DoxyCodeLine{00099\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ padded\_message\_size\ =\ input\_size\ +\ 128\ -\/\ (input\_size\ \%\ 64);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ Allocate\ the\ memory\ for\ the\ padded\ message}}
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<uint8\_t>\ padded\_message(padded\_message\_size);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Beginning\ of\ the\ padded\ message\ is\ the\ original\ message}}
+\DoxyCodeLine{00107\ \ \ \ \ std::copy(input,\ input\ +\ input\_size,\ padded\_message.begin());}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ Afterwards\ comes\ a\ single\ 1\ bit\ and\ then\ only\ zeroes}}
+\DoxyCodeLine{00110\ \ \ \ \ padded\_message[input\_size]\ =\ 1\ <<\ 7;\ \ \textcolor{comment}{//\ 10000000}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ input\_size;\ i\ \%\ 64\ !=\ 56;\ i++)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ input\_size)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ pass\ first\ iteration}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ padded\_message[i]\ =\ 0;}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ We\ then\ have\ to\ add\ the\ 64-\/bit\ size\ of\ the\ message\ in\ bits\ (hence\ the}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ times\ 8)\ in\ the\ last\ 8\ bytes}}
+\DoxyCodeLine{00120\ \ \ \ \ uint64\_t\ input\_bitsize\ =\ input\_size\ *\ 8;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 8;\ i++)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ padded\_message[padded\_message\_size\ -\/\ 8\ +\ i]\ =}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ (input\_bitsize\ >>\ (56\ -\/\ 8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ Already\ allocate\ memory\ for\ blocks}}
+\DoxyCodeLine{00127\ \ \ \ \ std::array<uint32\_t,\ 80>\ blocks\{\};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Rounds}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ chunk\ =\ 0;\ chunk\ *\ 64\ <\ padded\_message\_size;\ chunk++)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First,\ build\ 16\ 32-\/bits\ blocks\ from\ the\ chunk}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ bid\ =\ 0;\ bid\ <\ 16;\ bid++)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ blocks[bid]\ =\ 0;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Having\ to\ build\ a\ 32-\/bit\ word\ from\ 4-\/bit\ words}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ each\ and\ shift\ them\ to\ the\ left}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ cid\ =\ 0;\ cid\ <\ 4;\ cid++)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blocks[bid]\ =\ (blocks[bid]\ <<\ 8)\ +}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padded\_message[chunk\ *\ 64\ +\ bid\ *\ 4\ +\ cid];}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extend\ the\ 16\ 32-\/bit\ words\ into\ 80\ 32-\/bit\ words}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 16;\ i\ <\ 80;\ i++)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blocks[i]\ =}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{md5_8cpp_add2bf982d5dd64a45d13cba52c2b371d}{leftRotate32bits}}(blocks[i\ -\/\ 3]\ \string^\ blocks[i\ -\/\ 8]\ \string^}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blocks[i\ -\/\ 14]\ \string^\ blocks[i\ -\/\ 16],}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ a\ =\ h0;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ b\ =\ h1;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ c\ =\ h2;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ d\ =\ h3;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ e\ =\ h4;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ "{}hashing"{}\ loop}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 80;\ i++)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ F\ =\ 0,\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ 0;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 20)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ (b\ \&\ c)\ |\ ((\string~b)\ \&\ d);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ 0x5A827999;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ <\ 40)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ b\ \string^\ c\ \string^\ d;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ 0x6ED9EBA1;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ <\ 60)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ (b\ \&\ c)\ |\ (b\ \&\ d)\ |\ (c\ \&\ d);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ 0x8F1BBCDC;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F\ =\ b\ \string^\ c\ \string^\ d;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ =\ 0xCA62C1D6;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ accumulators}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ temp\ =\ \mbox{\hyperlink{md5_8cpp_add2bf982d5dd64a45d13cba52c2b371d}{leftRotate32bits}}(a,\ 5)\ +\ F\ +\ e\ +\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}\ +\ blocks[i];}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ d;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ c;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ \mbox{\hyperlink{md5_8cpp_add2bf982d5dd64a45d13cba52c2b371d}{leftRotate32bits}}(b,\ 30);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ a;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ temp;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ state\ with\ this\ chunk's\ hash}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ h0\ +=\ a;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ h1\ +=\ b;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ h2\ +=\ c;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ h3\ +=\ d;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ h4\ +=\ e;}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ Build\ signature\ from\ state}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ Note,\ any\ type\ could\ be\ used\ for\ the\ signature}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//\ uint8\_t\ was\ used\ to\ make\ the\ 20\ bytes\ obvious}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{auto}*\ sig\ =\ \textcolor{keyword}{new}\ uint8\_t[20];}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 4;\ i++)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ sig[i]\ =\ (h0\ >>\ (24\ -\/\ 8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ sig[i\ +\ 4]\ =\ (h1\ >>\ (24\ -\/\ 8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ sig[i\ +\ 8]\ =\ (h2\ >>\ (24\ -\/\ 8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ sig[i\ +\ 12]\ =\ (h3\ >>\ (24\ -\/\ 8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ sig[i\ +\ 16]\ =\ (h4\ >>\ (24\ -\/\ 8\ *\ i))\ \&\ 0xFF;}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{return}\ sig;}
+\DoxyCodeLine{00203\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha1_8cpp_ac9e1a11f44135b890dd10a00e73b5661}\index{sha1.cpp@{sha1.cpp}!interactive@{interactive}}
+\index{interactive@{interactive}!sha1.cpp@{sha1.cpp}}
+\doxysubsubsection{\texorpdfstring{interactive()}{interactive()}}
+{\footnotesize\ttfamily \label{sha1_8cpp_ac9e1a11f44135b890dd10a00e73b5661} 
+static void interactive (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Puts user in a loop where inputs can be given and SHA-\/1 hash will be computed and printed. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ std::string\ input;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ message\ to\ be\ hashed\ (Ctrl-\/C\ to\ exit):\ "{}}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ std::getline(std::cin,\ input);}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ sig\ =\ \mbox{\hyperlink{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c}{hashing::sha1::hash}}(input);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hash\ is:\ "{}}\ <<\ \mbox{\hyperlink{sha1_8cpp_aada0803ef851d831b7a290a924e3c228}{hashing::sha1::sig2hex}}(sig)\ <<\ std::endl;}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Want\ to\ enter\ another\ message?\ (y/n)\ "{}};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ input);}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.compare(\textcolor{stringliteral}{"{}y"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input.compare(\textcolor{stringliteral}{"{}n"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha1_8cpp_acf6bd970f29a68702bdbdfe8338e45e0}\index{sha1.cpp@{sha1.cpp}!leftRotate32bits@{leftRotate32bits}}
+\index{leftRotate32bits@{leftRotate32bits}!sha1.cpp@{sha1.cpp}}
+\doxysubsubsection{\texorpdfstring{leftRotate32bits()}{leftRotate32bits()}}
+{\footnotesize\ttfamily \label{sha1_8cpp_acf6bd970f29a68702bdbdfe8338e45e0} 
+uint32\+\_\+t hashing\+::sha1\+::left\+Rotate32bits (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n}{, }\item[{std\+::size\+\_\+t}]{rotate}{}\end{DoxyParamCaption})}
+
+
+
+Rotates the bits of a 32-\/bit unsigned integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer to rotate \\
+\hline
+{\em rotate} & How many bits for the rotation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t The rotated integer 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ (n\ <<\ rotate)\ |\ (n\ >>\ (32\ -\/\ rotate));}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sha1.cpp@{sha1.cpp}!main@{main}}
+\index{main@{main}!sha1.cpp@{sha1.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sha1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \mbox{\hyperlink{sha1_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{comment}{//\ Launch\ interactive\ mode\ where\ user\ can\ input\ messages\ and\ see}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{//\ their\ hash}}
+\DoxyCodeLine{00304\ \ \ \ \ \mbox{\hyperlink{sha1_8cpp_ac9e1a11f44135b890dd10a00e73b5661}{interactive}}();}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00306\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha1_8cpp_aada0803ef851d831b7a290a924e3c228}\index{sha1.cpp@{sha1.cpp}!sig2hex@{sig2hex}}
+\index{sig2hex@{sig2hex}!sha1.cpp@{sha1.cpp}}
+\doxysubsubsection{\texorpdfstring{sig2hex()}{sig2hex()}}
+{\footnotesize\ttfamily \label{sha1_8cpp_aada0803ef851d831b7a290a924e3c228} 
+std\+::string hashing\+::sha1\+::sig2hex (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{sig}{}\end{DoxyParamCaption})}
+
+
+
+Transforms the 160-\/bit SHA-\/1 signature into a 40 char hex string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sig} & The SHA-\/1 signature (Expected 20 bytes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string The hex signature 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ hexChars\ =\ \textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{auto}*\ intsig\ =\ \textcolor{keyword}{static\_cast<}uint8\_t*\textcolor{keyword}{>}(sig);}
+\DoxyCodeLine{00069\ \ \ \ \ std::string\ hex\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ 20;\ i++)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ hex.push\_back(hexChars[(intsig[i]\ >>\ 4)\ \&\ 0xF]);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ hex.push\_back(hexChars[(intsig[i])\ \&\ 0xF]);}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ hex;}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha1_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{sha1.cpp@{sha1.cpp}!test@{test}}
+\index{test@{test}!sha1.cpp@{sha1.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{sha1_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations of well-\/known SHA-\/1 hashes. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ Hashes\ empty\ string\ and\ stores\ signature}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig\ =\ \mbox{\hyperlink{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c}{hashing::sha1::hash}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00223\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hashing\ empty\ string"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00225\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{sha1_8cpp_aada0803ef851d831b7a290a924e3c228}{hashing::sha1::sig2hex}}(sig)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ wether\ sig\ is\ correct\ from\ expected\ value}}
+\DoxyCodeLine{00227\ \ \ \ \ assert(hashing::sha1::sig2hex(sig).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}da39a3ee5e6b4b0d3255bfef95601890afd80709"{}})\ ==\ 0);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ Hashes\ "{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog"{}\ and\ stores\ signature}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig2\ =}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c}{hashing::sha1::hash}}(\textcolor{stringliteral}{"{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog"{}});}
+\DoxyCodeLine{00233\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hashing\ The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog"{}}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00236\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{sha1_8cpp_aada0803ef851d831b7a290a924e3c228}{hashing::sha1::sig2hex}}(sig2)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ wether\ sig\ is\ correct\ from\ expected\ value}}
+\DoxyCodeLine{00238\ \ \ \ \ assert(hashing::sha1::sig2hex(sig2).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2fd4e1c67a2d28fced849ee1bb76e7391b93eb12"{}})\ ==\ 0);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{comment}{//\ Hashes\ "{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."{}\ (notice\ the}}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{comment}{//\ additional\ period)\ and\ stores\ signature}}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig3\ =}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c}{hashing::sha1::hash}}(\textcolor{stringliteral}{"{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."{}});}
+\DoxyCodeLine{00245\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hashing\ "{}}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."{}}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00249\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{sha1_8cpp_aada0803ef851d831b7a290a924e3c228}{hashing::sha1::sig2hex}}(sig3)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ wether\ sig\ is\ correct\ from\ expected\ value}}
+\DoxyCodeLine{00251\ \ \ \ \ assert(hashing::sha1::sig2hex(sig3).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}408d94384216f890ff7a0c3528e8bed1e0b01621"{}})\ ==\ 0);}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{//\ Hashes\ "{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"{}}}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{//\ and\ stores\ signature}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{void}*\ sig4\ =\ \mbox{\hyperlink{sha1_8cpp_a2397f2444a05e4d1487c67e215410d3c}{hashing::sha1::hash}}(}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"{}});}
+\DoxyCodeLine{00258\ \ \ \ \ std::cout}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Hashing\ "{}}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"{}}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{comment}{//\ Prints\ signature\ hex\ representation}}
+\DoxyCodeLine{00263\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{sha1_8cpp_aada0803ef851d831b7a290a924e3c228}{hashing::sha1::sig2hex}}(sig4)\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{//\ Test\ with\ cassert\ wether\ sig\ is\ correct\ from\ expected\ value}}
+\DoxyCodeLine{00265\ \ \ \ \ assert(hashing::sha1::sig2hex(sig4).\mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}}(}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}761c457bf73b14d27e9e9265c46f4b4dda11f940"{}})\ ==\ 0);}
+\DoxyCodeLine{00267\ \}}
+
+\end{DoxyCode}

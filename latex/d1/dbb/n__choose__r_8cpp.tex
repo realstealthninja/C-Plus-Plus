@@ -1,0 +1,102 @@
+\doxysection{math/n\+\_\+choose\+\_\+r.cpp File Reference}
+\hypertarget{n__choose__r_8cpp}{}\label{n__choose__r_8cpp}\index{math/n\_choose\_r.cpp@{math/n\_choose\_r.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Combination}{\texttt{ Combinations}} n choose r function implementation  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\T \mbox{\hyperlink{namespacemath_a6e2dff75c5de70455b90c799d6ad6967}{math\+::n\+\_\+choose\+\_\+r}} (T n, T r)
+\begin{DoxyCompactList}\small\item\em This is the function implementation of $ \binom{n}{r} $. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{n__choose__r_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{n__choose__r_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Combination}{\texttt{ Combinations}} n choose r function implementation 
+
+A very basic and efficient method of calculating choosing r from n different choices. $ \binom{n}{r} = \frac{n!}{r! (n-r)!} $
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/tjgurwara99}{\texttt{ Tajmeet Singh}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{n__choose__r_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{n\_choose\_r.cpp@{n\_choose\_r.cpp}!main@{main}}
+\index{main@{main}!n\_choose\_r.cpp@{n\_choose\_r.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{n__choose__r_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{n__choose__r_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ executing\ tests}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__choose__r_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{n\_choose\_r.cpp@{n\_choose\_r.cpp}!test@{test}}
+\index{test@{test}!n\_choose\_r.cpp@{n\_choose\_r.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{n__choose__r_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ First\ test\ on\ 5\ choose\ 2}}
+\DoxyCodeLine{00054\ \ \ \ \ uint8\_t\ t\ =\ \mbox{\hyperlink{namespacemath_a6e2dff75c5de70455b90c799d6ad6967}{math::n\_choose\_r}}(5,\ 2);}
+\DoxyCodeLine{00055\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}10\ is\ the\ answer\ but\ function\ says\ otherwise.\(\backslash\)n"{}},\ t\ ==\ 10));}
+\DoxyCodeLine{00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Second\ test\ on\ 5\ choose\ 3}}
+\DoxyCodeLine{00058\ \ \ \ \ t\ =\ \mbox{\hyperlink{namespacemath_a6e2dff75c5de70455b90c799d6ad6967}{math::n\_choose\_r}}(5,\ 3);}
+\DoxyCodeLine{00059\ \ \ \ \ assert(}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ ((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}10\ is\ the\ answer\ but\ the\ function\ says\ otherwise.\(\backslash\)n"{}},\ t\ ==\ 10));}
+\DoxyCodeLine{00061\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Second\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Third\ test\ on\ 3\ choose\ 2}}
+\DoxyCodeLine{00063\ \ \ \ \ t\ =\ \mbox{\hyperlink{namespacemath_a6e2dff75c5de70455b90c799d6ad6967}{math::n\_choose\_r}}(3,\ 2);}
+\DoxyCodeLine{00064\ \ \ \ \ assert(}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}3\ is\ the\ answer\ but\ the\ function\ says\ otherwise.\(\backslash\)n"{}},\ t\ ==\ 3));}
+\DoxyCodeLine{00066\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Third\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Fourth\ test\ on\ 10\ choose\ 4}}
+\DoxyCodeLine{00068\ \ \ \ \ t\ =\ \mbox{\hyperlink{namespacemath_a6e2dff75c5de70455b90c799d6ad6967}{math::n\_choose\_r}}(10,\ 4);}
+\DoxyCodeLine{00069\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}210\ is\ the\ answer\ but\ the\ function\ says\ otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ t\ ==\ 210));}
+\DoxyCodeLine{00071\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fourth\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}

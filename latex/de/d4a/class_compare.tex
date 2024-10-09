@@ -1,0 +1,74 @@
+\doxysection{Compare\texorpdfstring{$<$}{<} S, T, E \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_compare}{}\label{class_compare}\index{Compare$<$ S, T, E $>$@{Compare$<$ S, T, E $>$}}
+
+
+Comparator class for priority queue.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_compare_afbdf9a44adb49728dc704155d7d1570c}{operator()}} (tuple$<$ S, T, E, double, double, double $>$ \&t1, tuple$<$ S, T, E, double, double, double $>$ \&t2)
+\begin{DoxyCompactList}\small\item\em A comparator function that checks whether to swap the two tuples or not. \doxylink{}{to \href{https://www.geeksforgeeks.org/comparator-class-in-c-with-examples/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/comparator-\/class-\/in-\/c-\/with-\/examples/}} for detailed description of comparator. }\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename S, typename T, typename E$>$\newline
+class Compare$<$ S, T, E $>$}
+Comparator class for priority queue. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & Data type of Process ID \\
+\hline
+{\em T} & Data type of Arrival time \\
+\hline
+{\em E} & Data type of Burst time \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_compare_afbdf9a44adb49728dc704155d7d1570c}\index{Compare$<$ S, T, E $>$@{Compare$<$ S, T, E $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Compare$<$ S, T, E $>$@{Compare$<$ S, T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{class_compare_afbdf9a44adb49728dc704155d7d1570c} 
+template$<$typename S , typename T , typename E $>$ \\
+bool \mbox{\hyperlink{class_compare}{Compare}}$<$ S, T, E $>$\+::operator() (\begin{DoxyParamCaption}\item[{tuple$<$ S, T, E, double, double, double $>$ \&}]{t1}{, }\item[{tuple$<$ S, T, E, double, double, double $>$ \&}]{t2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A comparator function that checks whether to swap the two tuples or not. \doxylink{}{to \href{https://www.geeksforgeeks.org/comparator-class-in-c-with-examples/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/comparator-\/class-\/in-\/c-\/with-\/examples/}} for detailed description of comparator. }
+
+
+\begin{DoxyParams}{Parameters}
+{\em t1} & First tuple \\
+\hline
+{\em t2} & Second tuple \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the tuples SHOULD be swapped 
+
+false if the tuples SHOULDN\textquotesingle{}T be swapped 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compare\ arrival\ times}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (get<1>(t2)\ <\ get<1>(t1))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ arrival\ times\ are\ same,\ then\ compare\ Process\ IDs}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (get<1>(t2)\ ==\ get<1>(t1))\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ get<0>(t2)\ <\ get<0>(t1);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cpu\+\_\+scheduling\+\_\+algorithms/\mbox{\hyperlink{fcfs__scheduling_8cpp}{fcfs\+\_\+scheduling.\+cpp}}\end{DoxyCompactItemize}

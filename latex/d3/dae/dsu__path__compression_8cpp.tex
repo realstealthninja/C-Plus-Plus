@@ -1,0 +1,131 @@
+\doxysection{data\+\_\+structures/dsu\+\_\+path\+\_\+compression.cpp File Reference}
+\hypertarget{dsu__path__compression_8cpp}{}\label{dsu__path__compression_8cpp}\index{data\_structures/dsu\_path\_compression.cpp@{data\_structures/dsu\_path\_compression.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Disjoint-set-data_structure}{\texttt{ DSU (Disjoint sets)}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdsu}{dsu}}
+\begin{DoxyCompactList}\small\item\em Disjoint sets union data structure, class based representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{dsu__path__compression_8cpp_ae7880ce913f3058a35ff106d5be9e243}{test1}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations, 1st test. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{dsu__path__compression_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}{test2}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/implementations, 2nd test. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dsu__path__compression_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Disjoint-set-data_structure}{\texttt{ DSU (Disjoint sets)}} 
+
+It is a very powerful data structure that keeps track of different clusters(sets) of elements, these sets are disjoint(doesnot have a common element). Disjoint sets uses cases \+: for finding connected components in a graph, used in Kruskal\textquotesingle{}s algorithm for finding \doxylink{namespace_minimum}{Minimum} Spanning tree. Operations that can be performed\+: 1) Union\+Set(i,j)\+: add(element i and j to the set) 2) find\+Set(i)\+: returns the representative of the set to which i belogngs to. 3) get\+\_\+max(i),get\+\_\+min(i) \+: returns the maximum and minimum Below is the class-\/based approach which uses the heuristic of path compression. Using path compression in find\+Set(i),we are able to get to the representative of i in O(1) time. \begin{DoxyAuthor}{Author}
+\href{https://github.com/AayushVyasKIIT}{\texttt{ Aayush\+Vyas\+KIIT}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\doxylink{dsu__union__rank_8cpp}{dsu\+\_\+union\+\_\+rank.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{dsu__path__compression_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{dsu\_path\_compression.cpp@{dsu\_path\_compression.cpp}!main@{main}}
+\index{main@{main}!dsu\_path\_compression.cpp@{dsu\_path\_compression.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{dsu__path__compression_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} number of items
+
+\texorpdfstring{$<$}{<} object of class disjoint sets
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ uint64\_t\ n\ =\ 10;\ \ \textcolor{comment}{///<\ number\ of\ items}}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{classdsu}{dsu}}\ d(n\ +\ 1);\ \ \ \ \ \textcolor{comment}{///<\ object\ of\ class\ disjoint\ sets}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_ae7880ce913f3058a35ff106d5be9e243}{test1}}();\ \ \textcolor{comment}{//\ run\ 1st\ test\ case}}
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{dsu__path__compression_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}{test2}}();\ \ \textcolor{comment}{//\ run\ 2nd\ test\ case}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00213\ \}}
+
+\end{DoxyCode}
+\Hypertarget{dsu__path__compression_8cpp_ae7880ce913f3058a35ff106d5be9e243}\index{dsu\_path\_compression.cpp@{dsu\_path\_compression.cpp}!test1@{test1}}
+\index{test1@{test1}!dsu\_path\_compression.cpp@{dsu\_path\_compression.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{dsu__path__compression_8cpp_ae7880ce913f3058a35ff106d5be9e243} 
+static void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations, 1st test. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} number of items
+
+\texorpdfstring{$<$}{<} object of class disjoint sets
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{//\ the\ minimum,\ maximum,\ and\ size\ of\ the\ set}}
+\DoxyCodeLine{00171\ \ \ \ \ uint64\_t\ n\ =\ 10;\ \ \textcolor{comment}{///<\ number\ of\ items}}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{classdsu}{dsu}}\ d(n\ +\ 1);\ \ \ \ \ \textcolor{comment}{///<\ object\ of\ class\ disjoint\ sets}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ set\ 1}}
+\DoxyCodeLine{00174\ \ \ \ \ d.UnionSet(1,\ 2);\ \ \textcolor{comment}{//\ performs\ union\ operation\ on\ 1\ and\ 2}}
+\DoxyCodeLine{00175\ \ \ \ \ d.UnionSet(1,\ 4);\ \ \textcolor{comment}{//\ performs\ union\ operation\ on\ 1\ and\ 4}}
+\DoxyCodeLine{00176\ \ \ \ \ vector<uint64\_t>\ ans\ =\ \{1,\ 4,\ 3\};}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ ans.size();\ i++)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ assert(d.get(4).at(i)\ ==\ ans[i]);\ \ \textcolor{comment}{//\ makes\ sure\ algorithm\ works\ fine}}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}1st\ test\ passed!"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00181\ \}}
+
+\end{DoxyCode}
+\Hypertarget{dsu__path__compression_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae}\index{dsu\_path\_compression.cpp@{dsu\_path\_compression.cpp}!test2@{test2}}
+\index{test2@{test2}!dsu\_path\_compression.cpp@{dsu\_path\_compression.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{dsu__path__compression_8cpp_a45d94ead4cf4e1ff9f87c38bc99f59ae} 
+static void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/implementations, 2nd test. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} number of items
+
+\texorpdfstring{$<$}{<} object of class disjoint sets
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//\ the\ minimum,\ maximum,\ and\ size\ of\ the\ set}}
+\DoxyCodeLine{00188\ \ \ \ \ uint64\_t\ n\ =\ 10;\ \ \textcolor{comment}{///<\ number\ of\ items}}
+\DoxyCodeLine{00189\ \ \ \ \ \mbox{\hyperlink{classdsu}{dsu}}\ d(n\ +\ 1);\ \ \ \ \ \textcolor{comment}{///<\ object\ of\ class\ disjoint\ sets}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ set\ 1}}
+\DoxyCodeLine{00191\ \ \ \ \ d.UnionSet(3,\ 5);}
+\DoxyCodeLine{00192\ \ \ \ \ d.UnionSet(5,\ 6);}
+\DoxyCodeLine{00193\ \ \ \ \ d.UnionSet(5,\ 7);}
+\DoxyCodeLine{00194\ \ \ \ \ vector<uint64\_t>\ ans\ =\ \{3,\ 7,\ 4\};}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ ans.size();\ i++)\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ assert(d.get(3).at(i)\ ==\ ans[i]);\ \ \textcolor{comment}{//\ makes\ sure\ algorithm\ works\ fine}}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test\ passed!"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00199\ \}}
+
+\end{DoxyCode}

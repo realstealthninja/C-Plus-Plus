@@ -1,0 +1,170 @@
+\doxysection{strings/z\+\_\+function.cpp File Reference}
+\hypertarget{z__function_8cpp}{}\label{z__function_8cpp}\index{strings/z\_function.cpp@{strings/z\_function.cpp}}
+
+
+The \href{https://cp-algorithms.com/string/z-function.html}{\texttt{ Z function}} for finding occurences of a pattern within a piece of text with time and space complexity O(n + m)  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{z__function_8cpp_ac044c4794349a8cff6256b99950d5773}{Z\+\_\+function}} (const std\+::string \&pattern)
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{z__function_8cpp_ac186ca3ac3a69b5e52543bb13fe46db8}{find\+\_\+pat\+\_\+in\+\_\+text}} (const std\+::string \&pattern, const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Using Z\+\_\+function to find a pattern in a text. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{z__function_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{z__function_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \href{https://cp-algorithms.com/string/z-function.html}{\texttt{ Z function}} for finding occurences of a pattern within a piece of text with time and space complexity O(n + m) 
+
+
+\begin{DoxyEnumerate}
+\item The Z-\/function for a string is an array of length n where the i-\/th element is equal to the greatest number of characters starting from the position i that coincide with the first characters of s.
+\item E.\+g.\+: string\+: ababb then z\mbox{[}2\mbox{]}=2 as s\mbox{[}2\mbox{]}=s\mbox{[}0\mbox{]} and s\mbox{[}3\mbox{]}=s\mbox{[}1\mbox{]} and s\mbox{[}4\mbox{]}!=s\mbox{[}2\mbox{]} \begin{DoxyAuthor}{Author}
+\href{https://github.com/RitikaGupta8734}{\texttt{ Ritika Gupta}} 
+\end{DoxyAuthor}
+
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{z__function_8cpp_ac186ca3ac3a69b5e52543bb13fe46db8}\index{z\_function.cpp@{z\_function.cpp}!find\_pat\_in\_text@{find\_pat\_in\_text}}
+\index{find\_pat\_in\_text@{find\_pat\_in\_text}!z\_function.cpp@{z\_function.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_pat\_in\_text()}{find\_pat\_in\_text()}}
+{\footnotesize\ttfamily \label{z__function_8cpp_ac186ca3ac3a69b5e52543bb13fe46db8} 
+std\+::vector$<$ uint64\+\_\+t $>$ find\+\_\+pat\+\_\+in\+\_\+text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{pattern}{, }\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+
+
+Using Z\+\_\+function to find a pattern in a text. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pattern} & string pattern to search \\
+\hline
+\mbox{\texttt{ in}}  & {\em text} & text in which to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector of starting indexes where pattern is found in the text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ uint64\_t\ text\_length\ =\ text.size(),\ pattern\_length\ =\ pattern.size();}
+\DoxyCodeLine{00056\ \ \ \ \ std::vector<uint64\_t>\ z\ =\ \mbox{\hyperlink{z__function_8cpp_ac044c4794349a8cff6256b99950d5773}{Z\_function}}(pattern\ +\ \textcolor{charliteral}{'\#'}\ +\ text);}
+\DoxyCodeLine{00057\ \ \ \ \ std::vector<uint64\_t>\ matching\_indexes;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ text\_length;\ i++)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (z[i\ +\ pattern\_length\ +\ 1]\ ==\ pattern\_length)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ matching\_indexes.push\_back(i);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ matching\_indexes;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{z__function_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{z\_function.cpp@{z\_function.cpp}!main@{main}}
+\index{main@{main}!z\_function.cpp@{z\_function.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{z__function_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{z__function_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\Hypertarget{z__function_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{z\_function.cpp@{z\_function.cpp}!test@{test}}
+\index{test@{test}!z\_function.cpp@{z\_function.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{z__function_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ usual\ case}}
+\DoxyCodeLine{00073\ \ \ \ \ std::string\ text1\ =\ \textcolor{stringliteral}{"{}alskfjaldsabc1abc1abcbksbcdnsdabcabc"{}};}
+\DoxyCodeLine{00074\ \ \ \ \ std::string\ pattern1\ =\ \textcolor{stringliteral}{"{}abc"{}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ matching\_indexes1\ gets\ the\ indexes\ where\ pattern1\ exists\ in\ text1}}
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<uint64\_t>\ matching\_indexes1\ =\ \mbox{\hyperlink{z__function_8cpp_ac186ca3ac3a69b5e52543bb13fe46db8}{find\_pat\_in\_text}}(pattern1,\ text1);}
+\DoxyCodeLine{00078\ \ \ \ \ assert((matching\_indexes1\ ==\ std::vector<uint64\_t>\{10,\ 14,\ 18,\ 30,\ 33\}));}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ corner\ case}}
+\DoxyCodeLine{00081\ \ \ \ \ std::string\ text2\ =\ \textcolor{stringliteral}{"{}greengrass"{}};}
+\DoxyCodeLine{00082\ \ \ \ \ std::string\ pattern2\ =\ \textcolor{stringliteral}{"{}abc"{}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ matching\_indexes2\ gets\ the\ indexes\ where\ pattern2\ exists\ in\ text2}}
+\DoxyCodeLine{00085\ \ \ \ \ std::vector<uint64\_t>\ matching\_indexes2\ =\ \mbox{\hyperlink{z__function_8cpp_ac186ca3ac3a69b5e52543bb13fe46db8}{find\_pat\_in\_text}}(pattern2,\ text2);}
+\DoxyCodeLine{00086\ \ \ \ \ assert((matching\_indexes2\ ==\ std::vector<uint64\_t>\{\}));}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+\Hypertarget{z__function_8cpp_ac044c4794349a8cff6256b99950d5773}\index{z\_function.cpp@{z\_function.cpp}!Z\_function@{Z\_function}}
+\index{Z\_function@{Z\_function}!z\_function.cpp@{z\_function.cpp}}
+\doxysubsubsection{\texorpdfstring{Z\_function()}{Z\_function()}}
+{\footnotesize\ttfamily \label{z__function_8cpp_ac044c4794349a8cff6256b99950d5773} 
+std\+::vector$<$ uint64\+\_\+t $>$ Z\+\_\+function (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{pattern}{}\end{DoxyParamCaption})}
+
+
+
+for IO operations 
+
+for string for assert for std\+::vector
+
+Generate the Z-\/function for the inputted string. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pattern} & text on which to apply the Z-\/function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Z-\/function output as a vector array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ uint64\_t\ pattern\_length\ =\ pattern.size();}
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<uint64\_t>\ z(pattern\_length,\ 0);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 1,\ l\ =\ 0,\ r\ =\ 0;\ i\ <\ pattern\_length;\ i++)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <=\ r)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ z[i]\ =\ std::min(r\ -\/\ i\ +\ 1,\ z[i\ -\/\ l]);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ +\ z[i]\ <\ pattern\_length\ \&\&}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pattern[z[i]]\ ==\ pattern[i\ +\ z[i]])\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ z[i]++;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ +\ z[i]\ -\/\ 1\ >\ r)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ i\ +\ z[i]\ -\/\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ z;}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,139 @@
+\doxysection{numerical\+\_\+methods/lu\+\_\+decompose.cpp File Reference}
+\hypertarget{lu__decompose_8cpp}{}\label{lu__decompose_8cpp}\index{numerical\_methods/lu\_decompose.cpp@{numerical\_methods/lu\_decompose.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/LU_decompositon}{\texttt{ LU decomposition}} of a square matrix  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}./lu\+\_\+decomposition.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{lu__decompose_8cpp_a575c989afcc78e875031cd4273e62a3e}{operator$<$$<$}} (std\+::ostream \&out, \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ const \&v)
+\item 
+void \mbox{\hyperlink{lu__decompose_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\item 
+void \mbox{\hyperlink{lu__decompose_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\item 
+int \mbox{\hyperlink{lu__decompose_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/LU_decompositon}{\texttt{ LU decomposition}} of a square matrix 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lu__decompose_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{lu\_decompose.cpp@{lu\_decompose.cpp}!main@{main}}
+\index{main@{main}!lu\_decompose.cpp@{lu\_decompose.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{lu__decompose_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ std::srand(std::time(NULL));\ \ \textcolor{comment}{//\ random\ number\ initializer}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{lu__decompose_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{lu__decompose_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lu__decompose_8cpp_a575c989afcc78e875031cd4273e62a3e}\index{lu\_decompose.cpp@{lu\_decompose.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!lu\_decompose.cpp@{lu\_decompose.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{lu__decompose_8cpp_a575c989afcc78e875031cd4273e62a3e} 
+template$<$typename T $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ const \&}]{v}{}\end{DoxyParamCaption})}
+
+operator to print a matrix 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 10;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ separator\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ v.size();\ row++)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ v[row].size();\ col++)}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::left\ <<\ std::setw(width)\ <<\ std::setfill(separator)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ v[row][col];}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ out\ <<\ std::endl;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00030\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lu__decompose_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{lu\_decompose.cpp@{lu\_decompose.cpp}!test1@{test1}}
+\index{test1@{test1}!lu\_decompose.cpp@{lu\_decompose.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{lu__decompose_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test LU decomposition \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]better ways to self-\/check a matrix output? \end{DoxyRefDesc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ =\ 3;\ \ \textcolor{comment}{//\ default\ matrix\ size}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ range\ =\ 50;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ range2\ =\ range\ >>\ 1;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{/*\ Create\ a\ square\ matrix\ with\ random\ values\ */}}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ A(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}},\ std::valarray<double>(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}));}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ L(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}},\ std::valarray<double>(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}));\ \ \textcolor{comment}{//\ output}}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ U(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}},\ std::valarray<double>(\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}));\ \ \textcolor{comment}{//\ output}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ calloc\ so\ that\ all\ valeus\ are\ '0'\ by\ default}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ j++)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ create\ random\ values\ in\ the\ limits\ [-\/range2,\ range-\/1]\ */}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ A[i][j]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::rand()\ \%\ range\ -\/\ range2);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ std::clock\_t\ start\_t\ =\ std::clock();}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_a75b8a228c6419ecda6077255d6d60509}{lu\_decomposition}}(A,\ \&L,\ \&U);}
+\DoxyCodeLine{00054\ \ \ \ \ std::clock\_t\ end\_t\ =\ std::clock();}
+\DoxyCodeLine{00055\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\_t\ -\/\ start\_t)\ /\ CLOCKS\_PER\_SEC\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}A\ =\ \(\backslash\)n"{}}\ <<\ A\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00059\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}L\ =\ \(\backslash\)n"{}}\ <<\ L\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}U\ =\ \(\backslash\)n"{}}\ <<\ U\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lu__decompose_8cpp_a0283886819c7c140a023582b7269e2d0}\index{lu\_decompose.cpp@{lu\_decompose.cpp}!test2@{test2}}
+\index{test2@{test2}!lu\_decompose.cpp@{lu\_decompose.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{lu__decompose_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test determinant computation using LU decomposition 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Determinant\ test\ 1..."{}};}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ A1(\{\{1,\ 2,\ 3\},\ \{4,\ 9,\ 6\},\ \{7,\ 8,\ 9\}\});}
+\DoxyCodeLine{00069\ \ \ \ \ assert(\mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(A1)\ ==\ -\/48);}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Determinant\ test\ 2..."{}};}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<int>}}\ A2(\{\{1,\ 2,\ 3\},\ \{4,\ 5,\ 6\},\ \{7,\ 8,\ 9\}\});}
+\DoxyCodeLine{00074\ \ \ \ \ assert(\mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(A2)\ ==\ 0);}
+\DoxyCodeLine{00075\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Determinant\ test\ 3..."{}};}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<float>}}\ A3(\{\{1.2,\ 2.3,\ 3.4\},\ \{4.5,\ 5.6,\ 6.7\},\ \{7.8,\ 8.9,\ 9.0\}\});}
+\DoxyCodeLine{00079\ \ \ \ \ assert(\mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\_lu}}(A3)\ ==\ 3.63);}
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}

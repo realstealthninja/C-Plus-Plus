@@ -1,0 +1,157 @@
+\doxysection{games/memory\+\_\+game.cpp File Reference}
+\hypertarget{memory__game_8cpp}{}\label{memory__game_8cpp}\index{games/memory\_game.cpp@{games/memory\_game.cpp}}
+
+
+A simple \href{https://en.wikipedia.org/wiki/Matching_game}{\texttt{ Memory Game}} with {\bfseries{3 different sizes}} and multiple letters.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegames}{games}}
+\begin{DoxyCompactList}\small\item\em (Mini)game implementations. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacegames_1_1memory__game}{games\+::memory\+\_\+game}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Matching_game}{\texttt{ Memory Game}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr T \mbox{\hyperlink{memory__game_8cpp_a5bdc30951221eae9c33413ff9eb574f6}{SLEEP}} (T seconds)
+\begin{DoxyCompactList}\small\item\em for sleep() \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespacegames_1_1memory__game_a33167bb9cce6d527b478b4f6ae8c3f59}{games\+::memory\+\_\+game\+::is\+\_\+number}} (const T \&input)
+\begin{DoxyCompactList}\small\item\em Utility function to verify if the given input is a number or not. This is very useful to prevent the program being stuck in a loop. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacegames_1_1memory__game_ad573c8ae66ab66156d03e5e81bbba214}{games\+::memory\+\_\+game\+::init}} (std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}table)
+\begin{DoxyCompactList}\small\item\em Initializes the table with the letters. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacegames_1_1memory__game_ac589ef65abb0a6b9a7116ee0f9fd5280}{games\+::memory\+\_\+game\+::print\+\_\+table}} (const std\+::vector$<$ T $>$ \&table)
+\begin{DoxyCompactList}\small\item\em Utility function to print the table. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacegames_1_1memory__game_adc62ebb75853446656e24932bdc6dd6b}{games\+::memory\+\_\+game\+::reset\+\_\+data}} (const std\+::vector$<$ T $>$ \&table, int \texorpdfstring{$\ast$}{*}answer, int \texorpdfstring{$\ast$}{*}old\+\_\+answer, int \texorpdfstring{$\ast$}{*}memory\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Utility function that resets the data if the user enters an invalid value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacegames_1_1memory__game_a5714d97649c0edd57b4fb449799676a3}{games\+::memory\+\_\+game\+::ask\+\_\+data}} (const std\+::vector$<$ T $>$ \&table, int \texorpdfstring{$\ast$}{*}answer, int \texorpdfstring{$\ast$}{*}old\+\_\+answer, int \texorpdfstring{$\ast$}{*}memory\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Function that asks the user for their input in the table they previously chose. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespacegames_1_1memory__game_a370760f2b328ad341bcb77d82fa17b01}{games\+::memory\+\_\+game\+::match}} (const std\+::vector$<$ T $>$ \&table, std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}table\+\_\+empty, const int \&answer, bool \texorpdfstring{$\ast$}{*}first\+\_\+time, int \texorpdfstring{$\ast$}{*}old\+\_\+answer, int \texorpdfstring{$\ast$}{*}memory\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Checks if the two values given by the user match. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacegames_1_1memory__game_a3ceeea62d8fa6c563e2c66359fd73413}{games\+::memory\+\_\+game\+::assign\+\_\+results}} (std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}table\+\_\+empty, std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}table, int \texorpdfstring{$\ast$}{*}answer, bool \texorpdfstring{$\ast$}{*}first\+\_\+time, int \texorpdfstring{$\ast$}{*}old\+\_\+answer, int \texorpdfstring{$\ast$}{*}memory\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Function to assign the results to the table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{memory__game_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple \href{https://en.wikipedia.org/wiki/Matching_game}{\texttt{ Memory Game}} with {\bfseries{3 different sizes}} and multiple letters. 
+
+The game consists on finding {\bfseries{the pair}} of all the given letters depending on the table size. Once all of the instances are all found, the game will end and will ask you if you\textquotesingle{}d like to play again or not.
+
+It provides {\bfseries{3 different sizes}} available that the user can choose (4x2, 5x2, 7x2). 7x2 being the biggest table size and hardest mode. The bigger the size, {\bfseries{the more letters are available}}.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{memory__game_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{memory\_game.cpp@{memory\_game.cpp}!main@{main}}
+\index{main@{main}!memory\_game.cpp@{memory\_game.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{memory__game_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Size of the table.
+
+\texorpdfstring{$<$}{<} Selection of the size (4x2, 5x2, 7x2).
+
+\texorpdfstring{$<$}{<} The answer (number index) that the user chose.
+
+\texorpdfstring{$<$}{<} Previous answer (number index).
+
+\texorpdfstring{$<$}{<} Counter to check if the user has already answered two values.
+
+\texorpdfstring{$<$}{<} Whether the user has answered 1 value or not (previous answered values do not count).
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{comment}{//\ Start\ randomizer.\ This\ changes\ the\ values\ every\ time.}}
+\DoxyCodeLine{00362\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ 0;\ \ \ \ \ \ \ \textcolor{comment}{///<\ Size\ of\ the\ table.}}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordtype}{int}\ selection\ =\ 0;\ \ \textcolor{comment}{///<\ Selection\ of\ the\ size\ (4x2,\ 5x2,\ 7x2).}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordtype}{int}\ response\ =\ 0;\ \ \ \ \textcolor{comment}{///<\ The\ answer\ (number\ index)\ that\ the\ user\ chose.}}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordtype}{int}\ old\_answer\ =\ 0;\ \ \textcolor{comment}{///<\ Previous\ answer\ (number\ index).}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{int}\ memory\_count\ =}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ 0;\ \ \textcolor{comment}{///<\ Counter\ to\ check\ if\ the\ user\ has\ already\ answered\ two\ values.}}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordtype}{bool}\ first\_time\ =\ \textcolor{keyword}{true};\ \ \textcolor{comment}{///<\ Whether\ the\ user\ has\ answered\ 1\ value\ or\ not}\textcolor{comment}{}}
+\DoxyCodeLine{00373\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ (previous\ answered\ values\ do\ not\ count).}}
+\DoxyCodeLine{00374\ \textcolor{comment}{}}
+\DoxyCodeLine{00375\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tMEMORY\ GAME\(\backslash\)n"{}};}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n1.\ 4x2\ (1)"{}};}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n2.\ 5x2\ (2)"{}};}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n3.\ 7x2\ (3)\(\backslash\)n"{}};}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nChoose\ table\ size:\ "{}};}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ std::cin\ >>\ selection;}
+\DoxyCodeLine{00384\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((selection\ <\ 1\ ||\ selection\ >\ 3)\ \&\&}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ (!\mbox{\hyperlink{namespacegames_1_1memory__game_a33167bb9cce6d527b478b4f6ae8c3f59}{games::memory\_game::is\_number}}(selection)));}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordflow}{switch}\ (selection)\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ 8;}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ 10;}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ 14;}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ 10;}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00400\ \ \ \ \ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ std::vector<char>\ table(size);}
+\DoxyCodeLine{00403\ \ \ \ \ std::vector<char>\ table\_empty(size);}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ \mbox{\hyperlink{namespacegames_1_1memory__game_ad573c8ae66ab66156d03e5e81bbba214}{games::memory\_game::init}}(\&table);}
+\DoxyCodeLine{00408\ \ \ \ \ \mbox{\hyperlink{namespacegames_1_1memory__game_a5714d97649c0edd57b4fb449799676a3}{games::memory\_game::ask\_data}}(table\_empty,\ \&response,\ \&old\_answer,}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&memory\_count);}
+\DoxyCodeLine{00410\ \ \ \ \ \mbox{\hyperlink{namespacegames_1_1memory__game_a3ceeea62d8fa6c563e2c66359fd73413}{games::memory\_game::assign\_results}}(\&table\_empty,\ \&table,\ \&response,}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&first\_time,\ \&old\_answer,\ \&memory\_count);}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00414\ \}}
+
+\end{DoxyCode}
+\Hypertarget{memory__game_8cpp_a5bdc30951221eae9c33413ff9eb574f6}\index{memory\_game.cpp@{memory\_game.cpp}!SLEEP@{SLEEP}}
+\index{SLEEP@{SLEEP}!memory\_game.cpp@{memory\_game.cpp}}
+\doxysubsubsection{\texorpdfstring{SLEEP()}{SLEEP()}}
+{\footnotesize\ttfamily \label{memory__game_8cpp_a5bdc30951221eae9c33413ff9eb574f6} 
+template$<$typename T $>$ \\
+T SLEEP (\begin{DoxyParamCaption}\item[{T}]{seconds}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+for sleep() 
+
+for std\+::shuffle() for std\+::srand() for std\+::time() for IO operations for std\+::mt19937 for std\+::vector 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ sleep(seconds);}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}

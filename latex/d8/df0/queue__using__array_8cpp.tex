@@ -1,0 +1,113 @@
+\doxysection{data\+\_\+structures/queue\+\_\+using\+\_\+array.cpp File Reference}
+\hypertarget{queue__using__array_8cpp}{}\label{queue__using__array_8cpp}\index{data\_structures/queue\_using\_array.cpp@{data\_structures/queue\_using\_array.cpp}}
+
+
+Implementation of Linear \mbox{[}\doxylink{struct_queue}{Queue} using array\mbox{]} (\href{https://www.geeksforgeeks.org/array-implementation-of-queue-simple/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/array-\/implementation-\/of-\/queue-\/simple/}}).  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array}{data\+\_\+structures\+::queue\+\_\+using\+\_\+array\+::\+Queue\+\_\+\+Array}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classdata__structures_1_1queue__using__array_1_1_queue___array}{Queue\+\_\+\+Array} class containing the main data and also index of head and tail of the array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacequeue__using__array}{queue\+\_\+using\+\_\+array}}
+\begin{DoxyCompactList}\small\item\em Functions for \mbox{[}\doxylink{struct_queue}{Queue} using Array\mbox{]} (\href{https://www.geeksforgeeks.org/array-implementation-of-queue-simple/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/array-\/implementation-\/of-\/queue-\/simple/}}) implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{queue__using__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint16\+\_\+t \mbox{\hyperlink{queue__using__array_8cpp_a2d49e79bd164c298912db252970520d8}{max\+\_\+size}} \{10\}
+\begin{DoxyCompactList}\small\item\em for io operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of Linear \mbox{[}\doxylink{struct_queue}{Queue} using array\mbox{]} (\href{https://www.geeksforgeeks.org/array-implementation-of-queue-simple/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/array-\/implementation-\/of-\/queue-\/simple/}}). 
+
+The Linear \doxylink{struct_queue}{Queue} is a data structure used for holding a sequence of values, which can be added to the end line (enqueue), removed from head of line (dequeue) and displayed. \hypertarget{queue__using__array_8cpp_autotoc_md43}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{queue__using__array_8cpp_autotoc_md43}
+Values can be added by increasing the {\ttfamily rear} variable by 1 (which points to the end of the array), then assigning new value to {\ttfamily rear}\textquotesingle{}s element of the array.
+
+Values can be removed by increasing the {\ttfamily front} variable by 1 (which points to the first of the array), so it cannot reached any more.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/pooja-git11}{\texttt{ Pooja}} 
+
+\href{https://github.com/farbodahm}{\texttt{ Farbod Ahmadian}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{queue__using__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{queue\_using\_array.cpp@{queue\_using\_array.cpp}!main@{main}}
+\index{main@{main}!queue\_using\_array.cpp@{queue\_using\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{queue__using__array_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+Allows the user to add and delete values from the queue. Also allows user to display values in the queue. \begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ op\{0\},\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\{0\};}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array}{data\_structures::queue\_using\_array::Queue\_Array}}\ ob;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n1.\ enqueue(Insertion)\ "{}};}
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n2.\ dequeue(Deletion)"{}};}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n3.\ Display"{}};}
+\DoxyCodeLine{00118\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n4.\ Exit"{}};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ your\ choice\ "{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ std::cin\ >>\ op;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (op\ ==\ 1)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ data\ \ "{}};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ ob.\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a4dc64488c36f84d927365fa8d1933663}{enqueue}}(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (op\ ==\ 2)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\ =\ ob.\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a2aaf88c9954ef3ab686f8e4bfbd87622}{dequeue}}();}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)ndequeue\ element\ is:\(\backslash\)t"{}}\ <<\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (op\ ==\ 3)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ ob.\mbox{\hyperlink{classdata__structures_1_1queue__using__array_1_1_queue___array_a688b7ea064739ea9fa66bf64bf4ae631}{display}}();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (op\ ==\ 4)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ exit(0);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nWrong\ choice\ "{}};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00139\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{queue__using__array_8cpp_a2d49e79bd164c298912db252970520d8}\index{queue\_using\_array.cpp@{queue\_using\_array.cpp}!max\_size@{max\_size}}
+\index{max\_size@{max\_size}!queue\_using\_array.cpp@{queue\_using\_array.cpp}}
+\doxysubsubsection{\texorpdfstring{max\_size}{max\_size}}
+{\footnotesize\ttfamily \label{queue__using__array_8cpp_a2d49e79bd164c298912db252970520d8} 
+uint16\+\_\+t max\+\_\+size \{10\}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+for io operations 
+
+for std\+::array Maximum size of the queue 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \{10\};\ \ \textcolor{comment}{///<\ Maximum\ size\ of\ the\ queue}}
+
+\end{DoxyCode}

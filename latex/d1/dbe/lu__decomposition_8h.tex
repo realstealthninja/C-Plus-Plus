@@ -1,0 +1,157 @@
+\doxysection{numerical\+\_\+methods/lu\+\_\+decomposition.h File Reference}
+\hypertarget{lu__decomposition_8h}{}\label{lu__decomposition_8h}\index{numerical\_methods/lu\_decomposition.h@{numerical\_methods/lu\_decomposition.h}}
+
+
+Functions associated with \href{https://en.wikipedia.org/wiki/LU_decomposition}{\texttt{ LU Decomposition}} of a square matrix.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}} = std\+::vector$<$std\+::valarray$<$T$>$$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{lu__decomposition_8h_a75b8a228c6419ecda6077255d6d60509}{lu\+\_\+decomposition}} (const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ \&A, \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ double $>$ \texorpdfstring{$\ast$}{*}L, \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ double $>$ \texorpdfstring{$\ast$}{*}U)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}{determinant\+\_\+lu}} (const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ \&A)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions associated with \href{https://en.wikipedia.org/wiki/LU_decomposition}{\texttt{ LU Decomposition}} of a square matrix. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}\index{lu\_decomposition.h@{lu\_decomposition.h}!matrix@{matrix}}
+\index{matrix@{matrix}!lu\_decomposition.h@{lu\_decomposition.h}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily \label{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4} 
+template$<$typename T $>$ \\
+using \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}} = std\+::vector$<$std\+::valarray$<$T$>$$>$}
+
+Define matrix type as a {\ttfamily std\+::vector} of {\ttfamily std\+::valarray} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f}\index{lu\_decomposition.h@{lu\_decomposition.h}!determinant\_lu@{determinant\_lu}}
+\index{determinant\_lu@{determinant\_lu}!lu\_decomposition.h@{lu\_decomposition.h}}
+\doxysubsubsection{\texorpdfstring{determinant\_lu()}{determinant\_lu()}}
+{\footnotesize\ttfamily \label{lu__decomposition_8h_a3108d43bd32c6fb3b3c158476c51ba7f} 
+template$<$typename T $>$ \\
+double determinant\+\_\+lu (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})}
+
+Compute determinant of an NxN square matrix using LU decomposition. Using LU decomposition, the determinant is given by the product of diagonal elements of matrices L and U.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & datatype of input matrix -\/ int, unsigned int, double, etc \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & input square matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+determinant of matrix A 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ L(A.size(),\ std::valarray<double>(A.size()));}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix<double>}}\ U(A.size(),\ std::valarray<double>(A.size()));}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{lu__decomposition_8h_a75b8a228c6419ecda6077255d6d60509}{lu\_decomposition}}(A,\ \&L,\ \&U)\ <\ 0)}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ 1.f;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ A.size();\ i++)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ *=\ L[i][i]\ *\ U[i][i];}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lu__decomposition_8h_a75b8a228c6419ecda6077255d6d60509}\index{lu\_decomposition.h@{lu\_decomposition.h}!lu\_decomposition@{lu\_decomposition}}
+\index{lu\_decomposition@{lu\_decomposition}!lu\_decomposition.h@{lu\_decomposition.h}}
+\doxysubsubsection{\texorpdfstring{lu\_decomposition()}{lu\_decomposition()}}
+{\footnotesize\ttfamily \label{lu__decomposition_8h_a75b8a228c6419ecda6077255d6d60509} 
+template$<$typename T $>$ \\
+int lu\+\_\+decomposition (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ T $>$ \&}]{A}{, }\item[{\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{L}{, }\item[{\mbox{\hyperlink{lu__decomposition_8h_ac029b636b353cefbb18b2fcc71e427e4}{matrix}}$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{U}{}\end{DoxyParamCaption})}
+
+Perform LU decomposition on matrix 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em A} & matrix to decompose \\
+\hline
+\mbox{\texttt{ out}}  & {\em L} & output L matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em U} & output U matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if no errors 
+
+negative if error occurred 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ col,\ j;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ =\ A.size();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ !=\ A[0].size())\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ matrix\ is\ a\ square\ matrix}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Not\ a\ square\ matrix!\(\backslash\)n"{}};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ regularize\ each\ row}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (row\ =\ 0;\ row\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ row++)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upper\ triangular\ matrix}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (col\ =\ row;\ col\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ col++)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Summation\ of\ L[i,j]\ *\ U[j,k]}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lu\_sum\ =\ 0.;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ row;\ j++)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lu\_sum\ +=\ L[0][row][j]\ *\ U[0][j][col];}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluate\ U[i,k]}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ U[0][row][col]\ =\ A[row][col]\ -\/\ lu\_sum;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lower\ triangular\ matrix}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (col\ =\ row;\ col\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ col++)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ ==\ col)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L[0][row][col]\ =\ 1.;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Summation\ of\ L[i,j]\ *\ U[j,k]}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lu\_sum\ =\ 0.;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ row;\ j++)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lu\_sum\ +=\ L[0][col][j]\ *\ U[0][j][row];}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluate\ U[i,k]}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ L[0][col][row]\ =\ (A[col][row]\ -\/\ lu\_sum)\ /\ U[0][row][row];}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}

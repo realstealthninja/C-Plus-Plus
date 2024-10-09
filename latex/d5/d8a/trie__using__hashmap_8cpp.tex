@@ -1,0 +1,202 @@
+\doxysection{data\+\_\+structures/trie\+\_\+using\+\_\+hashmap.cpp File Reference}
+\hypertarget{trie__using__hashmap_8cpp}{}\label{trie__using__hashmap_8cpp}\index{data\_structures/trie\_using\_hashmap.cpp@{data\_structures/trie\_using\_hashmap.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} data structure using Hash\+Map for different characters and method for predicting words based on prefix.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie}{data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classdata__structures_1_1trie__using__hashmap_1_1_trie}{Trie} class, implementation of trie using hashmap in each trie node for all the characters of char16\+\_\+t(UTF-\/16)type with methods to insert, delete, search, start with and to recommend words based on a given prefix. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node}{data\+\_\+structures\+::trie\+\_\+using\+\_\+hashmap\+::\+Trie\+::\+Node}}
+\begin{DoxyCompactList}\small\item\em struct representing a trie node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetrie__using__hashmap}{trie\+\_\+using\+\_\+hashmap}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} data structure using hashmap implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{trie__using__hashmap_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{trie__using__hashmap_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} data structure using Hash\+Map for different characters and method for predicting words based on prefix. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/bharath000}{\texttt{ Venkata Bharath}}
+\end{DoxyAuthor}
+The \doxylink{class_trie}{Trie} data structure is implemented using unordered map to use memory optimally, predict\+\_\+words method is developed to recommend words based on a given prefix along with other methods insert, delete, search, startwith in trie. \begin{DoxySeeAlso}{See also}
+\doxylink{trie__modern_8cpp}{trie\+\_\+modern.\+cpp} for difference 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{trie__using__hashmap_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{trie\_using\_hashmap.cpp@{trie\_using\_hashmap.cpp}!main@{main}}
+\index{main@{main}!trie\_using\_hashmap.cpp@{trie\_using\_hashmap.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{trie__using__hashmap_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{trie__using__hashmap_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementaions}}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00345\ \}}
+
+\end{DoxyCode}
+\Hypertarget{trie__using__hashmap_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{trie\_using\_hashmap.cpp@{trie\_using\_hashmap.cpp}!test@{test}}
+\index{test@{test}!trie\_using\_hashmap.cpp@{trie\_using\_hashmap.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{trie__using__hashmap_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie}{data\_structures::trie\_using\_hashmap::Trie}}\ obj;}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ Inserting\ data\ into\ trie\ using\ the\ insert}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ method\ and\ testing\ it\ with\ search\ method}}
+\DoxyCodeLine{00225\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}app"{}});}
+\DoxyCodeLine{00226\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}abscond"{}});}
+\DoxyCodeLine{00227\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}about"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}apps"{}});}
+\DoxyCodeLine{00229\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}apen"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}apples"{}});}
+\DoxyCodeLine{00231\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}apple"{}});}
+\DoxyCodeLine{00232\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}approach"{}});}
+\DoxyCodeLine{00233\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}bus"{}});}
+\DoxyCodeLine{00234\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}buses"{}});}
+\DoxyCodeLine{00235\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}Apple"{}});}
+\DoxyCodeLine{00236\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}Bounce"{}});}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ assert(!obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}appy"{}}));}
+\DoxyCodeLine{00239\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}appy\ is\ not\ a\ word\ in\ trie"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ assert(!obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}car"{}}));}
+\DoxyCodeLine{00242\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}car\ is\ not\ a\ word\ in\ trie"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00243\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}app"{}}));}
+\DoxyCodeLine{00244\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}apple"{}}));}
+\DoxyCodeLine{00245\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}apples"{}}));}
+\DoxyCodeLine{00246\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}apps"{}}));}
+\DoxyCodeLine{00247\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}apen"{}}));}
+\DoxyCodeLine{00248\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}approach"{}}));}
+\DoxyCodeLine{00249\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}about"{}}));}
+\DoxyCodeLine{00250\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}abscond"{}}));}
+\DoxyCodeLine{00251\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}bus"{}}));}
+\DoxyCodeLine{00252\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}buses"{}}));}
+\DoxyCodeLine{00253\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}Bounce"{}}));}
+\DoxyCodeLine{00254\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}Apple"{}}));}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ the\ Inserted\ words\ are\ present\ in\ the\ trie"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{comment}{//\ test\ for\ startwith\ prefix\ method}}
+\DoxyCodeLine{00259\ \ \ \ \ assert(!obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}approachs"{}}));}
+\DoxyCodeLine{00260\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}approach"{}}));}
+\DoxyCodeLine{00261\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}about"{}}));}
+\DoxyCodeLine{00262\ \ \ \ \ assert(!obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}appy"{}}));}
+\DoxyCodeLine{00263\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}abscond"{}}));}
+\DoxyCodeLine{00264\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}bus"{}}));}
+\DoxyCodeLine{00265\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}buses"{}}));}
+\DoxyCodeLine{00266\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}Bounce"{}}));}
+\DoxyCodeLine{00267\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}Apple"{}}));}
+\DoxyCodeLine{00268\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}abs"{}}));}
+\DoxyCodeLine{00269\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}b"{}}));}
+\DoxyCodeLine{00270\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}bus"{}}));}
+\DoxyCodeLine{00271\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}Bo"{}}));}
+\DoxyCodeLine{00272\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}A"{}}));}
+\DoxyCodeLine{00273\ \ \ \ \ assert(!obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}Ca"{}}));}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ assert(!obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}C"{}}));}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ the\ tests\ passed\ for\ startwith\ method"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{comment}{//\ test\ for\ predict\_words/recommendation\ of\ words\ based\ on\ a\ given\ prefix}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ std::vector<std::string>\ pred\_words\ =\ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\_words}}(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ str\ :\ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\_words}}(\textcolor{stringliteral}{"{}a"{}}))\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ std::cout\ <<\ str\ <<\ std::endl;}
+\DoxyCodeLine{00285\ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ assert(pred\_words.size()\ ==\ 8);}
+\DoxyCodeLine{00287\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Returned\ all\ words\ that\ start\ with\ prefix\ a\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00288\ \ \ \ \ pred\_words\ =\ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\_words}}(\textcolor{stringliteral}{"{}app"{}});}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ str\ :\ pred\_words)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ std::cout\ <<\ str\ <<\ std::endl;}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ assert(pred\_words.size()\ ==\ 5);}
+\DoxyCodeLine{00295\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Returned\ all\ words\ that\ start\ with\ prefix\ app\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00296\ \ \ \ \ pred\_words\ =\ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\_words}}(\textcolor{stringliteral}{"{}A"{}});}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ str\ :\ pred\_words)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ std::cout\ <<\ str\ <<\ std::endl;}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ assert(pred\_words.size()\ ==\ 1);}
+\DoxyCodeLine{00303\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Returned\ all\ words\ that\ start\ with\ prefix\ A\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00304\ \ \ \ \ pred\_words\ =\ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\_words}}(\textcolor{stringliteral}{"{}bu"{}});}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ str\ :\ pred\_words)\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ std::cout\ <<\ str\ <<\ std::endl;}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ assert(pred\_words.size()\ ==\ 2);}
+\DoxyCodeLine{00311\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Returned\ all\ words\ that\ start\ with\ prefix\ bu\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{comment}{//\ tests\ for\ delete\ method}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ac0bf3d6791cba144b3f539835d835e75}{delete\_word}}(\textcolor{stringliteral}{"{}app"{}});}
+\DoxyCodeLine{00316\ \ \ \ \ assert(!obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ad71eb24207c28b546631802dba97310f}{search}}(\textcolor{stringliteral}{"{}app"{}}));}
+\DoxyCodeLine{00317\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}word\ app\ is\ deleted\ sucessful"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ pred\_words\ =\ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\_words}}(\textcolor{stringliteral}{"{}app"{}});}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ str\ :\ pred\_words)\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ std::cout\ <<\ str\ <<\ std::endl;}
+\DoxyCodeLine{00322\ \ \ \ \ \}}
+\DoxyCodeLine{00323\ \ \ \ \ assert(pred\_words.size()\ ==\ 4);}
+\DoxyCodeLine{00324\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}app\ is\ deleted\ sucessful"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{comment}{//\ test\ case\ for\ Chinese\ language}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_abcae0a4456e7f583ce716e3ef466dfd2}{insert}}(\textcolor{stringliteral}{"{}苹果"{}});}
+\DoxyCodeLine{00329\ \ \ \ \ assert(obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_af3aee573fbabd2c1510c0f74f842dd17}{startwith}}(\textcolor{stringliteral}{"{}苹"{}}));}
+\DoxyCodeLine{00330\ \ \ \ \ pred\_words\ =\ obj.\mbox{\hyperlink{classdata__structures_1_1trie__using__hashmap_1_1_trie_ae15fdc7f2b5023992d87a711d78566c4}{predict\_words}}(\textcolor{stringliteral}{"{}h"{}});}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ assert(pred\_words.size()\ ==\ 0);}
+\DoxyCodeLine{00333\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ word\ starts\ with\ prefix\ h\ in\ trie"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00336\ \}}
+
+\end{DoxyCode}

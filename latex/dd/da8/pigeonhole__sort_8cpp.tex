@@ -1,0 +1,141 @@
+\doxysection{sorting/pigeonhole\+\_\+sort.cpp File Reference}
+\hypertarget{pigeonhole__sort_8cpp}{}\label{pigeonhole__sort_8cpp}\index{sorting/pigeonhole\_sort.cpp@{sorting/pigeonhole\_sort.cpp}}
+
+
+Implementation of \mbox{[}Pigeonhole Sort algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/Pigeonhole_sort}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Pigeonhole\+\_\+sort}})  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\std\+::array$<$ int, N $>$ \mbox{\hyperlink{namespacesorting_a0e9e1b21a1684585e9e50f9afe4d53a3}{sorting\+::pigeon\+Sort}} (std\+::array$<$ int, N $>$ arr)
+\item 
+static void \mbox{\hyperlink{pigeonhole__sort_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\+\_\+1}} ()
+\item 
+static void \mbox{\hyperlink{pigeonhole__sort_8cpp_a458410412185a5f09199deaff7157a8d}{test\+\_\+2}} ()
+\item 
+static void \mbox{\hyperlink{pigeonhole__sort_8cpp_af31ec5409537703d9c8a47350386b32a}{test\+\_\+3}} ()
+\item 
+int \mbox{\hyperlink{pigeonhole__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \mbox{[}Pigeonhole Sort algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/Pigeonhole_sort}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Pigeonhole\+\_\+sort}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Lownish}{\texttt{ Lownish}}
+\end{DoxyAuthor}
+Pigeonhole sorting is a sorting algorithm that is suitable for sorting lists of elements where the number of elements and the number of possible key values are approximately the same. It requires O(n + Range) time where n is number of elements in input array and ‘\+Range’ is number of possible values in array.
+
+The time Complexity of the algorithm is $O(n+N)$. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{pigeonhole__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}!main@{main}}
+\index{main@{main}!pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{pigeonhole__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{pigeonhole__sort_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\_1}}();}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{pigeonhole__sort_8cpp_a458410412185a5f09199deaff7157a8d}{test\_2}}();}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{pigeonhole__sort_8cpp_af31ec5409537703d9c8a47350386b32a}{test\_3}}();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pigeonhole__sort_8cpp_a34b8683a2b429de5cce57e6d733ec817}\index{pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}!test\_1@{test\_1}}
+\index{test\_1@{test\_1}!pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_1()}{test\_1()}}
+{\footnotesize\ttfamily \label{pigeonhole__sort_8cpp_a34b8683a2b429de5cce57e6d733ec817} 
+static void test\+\_\+1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test function 1 with unsorted array \{8, 3, 2, 7, 4, 6, 8\} \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ 7;}
+\DoxyCodeLine{00070\ \ \ \ \ std::array<int,\ n>\ test\_array\ =\ \{8,\ 3,\ 2,\ 7,\ 4,\ 6,\ 8\};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ test\_array\ =\ \mbox{\hyperlink{namespacesorting_a0e9e1b21a1684585e9e50f9afe4d53a3}{sorting::pigeonSort<n>}}(test\_array);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ assert(std::is\_sorted(std::begin(test\_array),\ std::end(test\_array)));}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Printing\ sorted\ array}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::cout\ <<\ test\_array.at(i)\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed\(\backslash\)n"{}};}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pigeonhole__sort_8cpp_a458410412185a5f09199deaff7157a8d}\index{pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}!test\_2@{test\_2}}
+\index{test\_2@{test\_2}!pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_2()}{test\_2()}}
+{\footnotesize\ttfamily \label{pigeonhole__sort_8cpp_a458410412185a5f09199deaff7157a8d} 
+static void test\+\_\+2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test function 2 with unsorted array \{802, 630, 20, 745, 52, 300, 612, 932, 78, 187\} \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ 10;}
+\DoxyCodeLine{00090\ \ \ \ \ std::array<int,\ n>\ test\_array\ =\ \{802,\ 630,\ 20,\ \ 745,\ 52,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 300,\ 612,\ 932,\ 78,\ \ 187\};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ test\_array\ =\ \mbox{\hyperlink{namespacesorting_a0e9e1b21a1684585e9e50f9afe4d53a3}{sorting::pigeonSort<n>}}(test\_array);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ assert(std::is\_sorted(std::begin(test\_array),\ std::end(test\_array)));}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Printing\ sorted\ array}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ std::cout\ <<\ test\_array.at(i)\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed\(\backslash\)n"{}};}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pigeonhole__sort_8cpp_af31ec5409537703d9c8a47350386b32a}\index{pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}!test\_3@{test\_3}}
+\index{test\_3@{test\_3}!pigeonhole\_sort.cpp@{pigeonhole\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_3()}{test\_3()}}
+{\footnotesize\ttfamily \label{pigeonhole__sort_8cpp_af31ec5409537703d9c8a47350386b32a} 
+static void test\+\_\+3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test function 1 with unsorted array \{11,13,12,14\} \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ 4;}
+\DoxyCodeLine{00111\ \ \ \ \ std::array<int,\ n>\ test\_array\ =\ \{11,\ 13,\ 12,\ 14\};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ test\_array\ =\ \mbox{\hyperlink{namespacesorting_a0e9e1b21a1684585e9e50f9afe4d53a3}{sorting::pigeonSort<n>}}(test\_array);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ assert(std::is\_sorted(std::begin(test\_array),\ std::end(test\_array)));}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ Printing\ sorted\ array}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ std::cout\ <<\ test\_array.at(i)\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPassed\(\backslash\)n"{}};}
+\DoxyCodeLine{00122\ \}}
+
+\end{DoxyCode}

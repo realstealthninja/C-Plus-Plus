@@ -1,0 +1,196 @@
+\doxysection{math/vector\+\_\+cross\+\_\+product.cpp File Reference}
+\hypertarget{vector__cross__product_8cpp}{}\label{vector__cross__product_8cpp}\index{math/vector\_cross\_product.cpp@{math/vector\_cross\_product.cpp}}
+
+
+Calculates the \href{https://en.wikipedia.org/wiki/Cross_product}{\texttt{ Cross Product}} and the magnitude of two mathematical 3D vectors.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevector__cross}{vector\+\_\+cross}}
+\begin{DoxyCompactList}\small\item\em Functions for Vector Cross Product algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ double, 3 $>$ \mbox{\hyperlink{vector__cross__product_8cpp_a225732399c5c076976eae5b180a9f8c9}{math\+::vector\+\_\+cross\+::cross}} (const std\+::array$<$ double, 3 $>$ \&A, const std\+::array$<$ double, 3 $>$ \&B)
+\begin{DoxyCompactList}\small\item\em Function to calculate the cross product of the passed arrays containing the direction ratios of the two mathematical vectors. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{vector__cross__product_8cpp_a4b2a9757a87c18e1642d72410ecfaba8}{math\+::vector\+\_\+cross\+::mag}} (const std\+::array$<$ double, 3 $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude of the mathematical vector from it\textquotesingle{}s direction ratios. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{vector__cross__product_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em namespace math \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{vector__cross__product_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calculates the \href{https://en.wikipedia.org/wiki/Cross_product}{\texttt{ Cross Product}} and the magnitude of two mathematical 3D vectors. 
+
+Cross Product of two vectors gives a vector. Direction Ratios of a vector are the numeric parts of the given vector. They are the tree parts of the vector which determine the magnitude (value) of the vector. The method of finding a cross product is the same as finding the determinant of an order 3 matrix consisting of the first row with unit vectors of magnitude 1, the second row with the direction ratios of the first vector and the third row with the direction ratios of the second vector. The magnitude of a vector is it\textquotesingle{}s value expressed as a number. Let the direction ratios of the first vector, P be\+: a, b, c Let the direction ratios of the second vector, Q be\+: x, y, z Therefore the calculation for the cross product can be arranged as\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{P\ x\ Q:}
+\DoxyCodeLine{\ \ \ \ \ 1\ \ \ 1\ \ \ 1}
+\DoxyCodeLine{\ \ \ \ \ a\ \ \ b\ \ \ c}
+\DoxyCodeLine{\ \ \ \ \ x\ \ \ y\ \ \ z}
+
+\end{DoxyCode}
+
+
+The direction ratios (DR) are calculated as follows\+: 1st DR, J\+: (b \texorpdfstring{$\ast$}{*} z) -\/ (c \texorpdfstring{$\ast$}{*} y) 2nd DR, A\+: -\/((a \texorpdfstring{$\ast$}{*} z) -\/ (c \texorpdfstring{$\ast$}{*} x)) 3rd DR, N\+: (a \texorpdfstring{$\ast$}{*} y) -\/ (b \texorpdfstring{$\ast$}{*} x)
+
+Therefore, the direction ratios of the cross product are\+: J, A, N The following C++ Program calculates the direction ratios of the cross products of two vector. The program uses a function, cross() for doing so. The direction ratios for the first and the second vector has to be passed one by one seperated by a space character.
+
+Magnitude of a vector is the square root of the sum of the squares of the direction ratios.\hypertarget{vector__cross__product_8cpp_autotoc_md86}{}\doxysubsubsubsection{\texorpdfstring{Example\+:}{Example\+:}}\label{vector__cross__product_8cpp_autotoc_md86}
+An example of a running instance of the executable program\+:
+
+Pass the first Vector\+: 1 2 3 Pass the second Vector\+: 4 5 6 The cross product is\+: -\/3 6 -\/3 Magnitude\+: 7.\+34847
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Shreyas-OwO}{\texttt{ Shreyas Sable}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{vector__cross__product_8cpp_a225732399c5c076976eae5b180a9f8c9}\index{vector\_cross\_product.cpp@{vector\_cross\_product.cpp}!cross@{cross}}
+\index{cross@{cross}!vector\_cross\_product.cpp@{vector\_cross\_product.cpp}}
+\doxysubsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily \label{vector__cross__product_8cpp_a225732399c5c076976eae5b180a9f8c9} 
+std\+::array$<$ double, 3 $>$ math\+::vector\+\_\+cross\+::cross (\begin{DoxyParamCaption}\item[{const std\+::array$<$ double, 3 $>$ \&}]{A}{, }\item[{const std\+::array$<$ double, 3 $>$ \&}]{B}{}\end{DoxyParamCaption})}
+
+
+
+Function to calculate the cross product of the passed arrays containing the direction ratios of the two mathematical vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & contains the direction ratios of the first mathematical vector. \\
+\hline
+{\em B} & contains the direction ration of the second mathematical vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the direction ratios of the cross product. 
+\end{DoxyReturn}
+Performs the cross product as shown in @algorithm.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ std::array<double,\ 3>\ product;\textcolor{comment}{}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ Performs\ the\ cross\ product\ as\ shown\ in\ @algorithm.}}
+\DoxyCodeLine{00072\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ product[0]\ =\ (A[1]\ *\ B[2])\ -\/\ (A[2]\ *\ B[1]);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ product[1]\ =\ -\/((A[0]\ *\ B[2])\ -\/\ (A[2]\ *\ B[0]));}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ product[2]\ =\ (A[0]\ *\ B[1])\ -\/\ (A[1]\ *\ B[0]);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ product;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{vector__cross__product_8cpp_a4b2a9757a87c18e1642d72410ecfaba8}\index{vector\_cross\_product.cpp@{vector\_cross\_product.cpp}!mag@{mag}}
+\index{mag@{mag}!vector\_cross\_product.cpp@{vector\_cross\_product.cpp}}
+\doxysubsubsection{\texorpdfstring{mag()}{mag()}}
+{\footnotesize\ttfamily \label{vector__cross__product_8cpp_a4b2a9757a87c18e1642d72410ecfaba8} 
+double math\+::vector\+\_\+cross\+::mag (\begin{DoxyParamCaption}\item[{const std\+::array$<$ double, 3 $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the magnitude of the mathematical vector from it\textquotesingle{}s direction ratios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & an array containing the direction ratios of a mathematical vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+type\+: double description\+: the magnitude of the mathematical vector from the given direction ratios. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ magnitude\ =\ sqrt((vec[0]\ *\ vec[0])\ +\ (vec[1]\ *\ vec[1])\ +\ (vec[2]\ *\ vec[2]));}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ magnitude;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{vector__cross__product_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{vector\_cross\_product.cpp@{vector\_cross\_product.cpp}!main@{main}}
+\index{main@{main}!vector\_cross\_product.cpp@{vector\_cross\_product.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{vector__cross__product_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main Function. 
+
+Asks the user to enter the direction ratios for each of the two mathematical vectors using std\+::cin \begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+Tests the functions with sample input before asking for user input.
+
+Gets the values for the first vector.
+
+Gets the values for the second vector.
+
+Displays the output out.
+
+Displays the magnitude of the cross product.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \textcolor{comment}{}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ ///\ Tests\ the\ functions\ with\ sample\ input\ before\ asking\ for\ user\ input.}}
+\DoxyCodeLine{00112\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{vector__cross__product_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ std::array<double,\ 3>\ vec1;}
+\DoxyCodeLine{00115\ \ \ \ \ std::array<double,\ 3>\ vec2;}
+\DoxyCodeLine{00116\ \textcolor{comment}{}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ ///\ Gets\ the\ values\ for\ the\ first\ vector.}}
+\DoxyCodeLine{00118\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPass\ the\ first\ Vector:\ "{}};}
+\DoxyCodeLine{00119\ \ \ \ \ std::cin\ >>\ vec1[0]\ >>\ vec1[1]\ >>\ vec1[2];}
+\DoxyCodeLine{00120\ \textcolor{comment}{}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ \ \ \ ///\ Gets\ the\ values\ for\ the\ second\ vector.}}
+\DoxyCodeLine{00122\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPass\ the\ second\ Vector:\ "{}};}
+\DoxyCodeLine{00123\ \ \ \ \ std::cin\ >>\ vec2[0]\ >>\ vec2[1]\ >>\ vec2[2];}
+\DoxyCodeLine{00124\ \textcolor{comment}{}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ ///\ Displays\ the\ output\ out.}}
+\DoxyCodeLine{00126\ \textcolor{comment}{}\ \ \ \ std::array<double,\ 3>\ product\ =\ \mbox{\hyperlink{vector__cross__product_8cpp_a225732399c5c076976eae5b180a9f8c9}{math::vector\_cross::cross}}(vec1,\ vec2);}
+\DoxyCodeLine{00127\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nThe\ cross\ product\ is:\ "{}}\ <<\ product[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ product[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ product[2]\ <<\ std::endl;}
+\DoxyCodeLine{00128\ \textcolor{comment}{}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ ///\ Displays\ the\ magnitude\ of\ the\ cross\ product.}}
+\DoxyCodeLine{00130\ \textcolor{comment}{}\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Magnitude:\ "{}}\ <<\ \mbox{\hyperlink{vector__cross__product_8cpp_a4b2a9757a87c18e1642d72410ecfaba8}{math::vector\_cross::mag}}(product)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{vector__cross__product_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{vector\_cross\_product.cpp@{vector\_cross\_product.cpp}!test@{test}}
+\index{test@{test}!vector\_cross\_product.cpp@{vector\_cross\_product.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{vector__cross__product_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+namespace math 
+
+test function.
+
+test the cross() and the mag() functions. Tests the cross() function.
+
+Tests the mag() function.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ ///\ Tests\ the\ cross()\ function.}}
+\DoxyCodeLine{00096\ \textcolor{comment}{}\ \ \ \ std::array<double,\ 3>\ t\_vec\ =\ \mbox{\hyperlink{vector__cross__product_8cpp_a225732399c5c076976eae5b180a9f8c9}{math::vector\_cross::cross}}(\{1,\ 2,\ 3\},\ \{4,\ 5,\ 6\});}
+\DoxyCodeLine{00097\ \ \ \ \ assert(t\_vec[0]\ ==\ -\/3\ \&\&\ t\_vec[1]\ ==\ 6\ \&\&\ t\_vec[2]\ ==\ -\/3);}
+\DoxyCodeLine{00098\ \textcolor{comment}{}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ ///\ Tests\ the\ mag()\ function.}}
+\DoxyCodeLine{00100\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{double}\ t\_mag\ =\ \mbox{\hyperlink{vector__cross__product_8cpp_a4b2a9757a87c18e1642d72410ecfaba8}{math::vector\_cross::mag}}(\{6,\ 8,\ 0\});}
+\DoxyCodeLine{00101\ \ \ \ \ assert(t\_mag\ ==\ 10);}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}

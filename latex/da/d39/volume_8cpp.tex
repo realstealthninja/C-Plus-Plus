@@ -1,0 +1,206 @@
+\doxysection{math/volume.cpp File Reference}
+\hypertarget{volume_8cpp}{}\label{volume_8cpp}\index{math/volume.cpp@{math/volume.cpp}}
+
+
+Implmentations for the \href{https://en.wikipedia.org/wiki/Volume}{\texttt{ volume}} of various 3D shapes.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_ae413098478fa38acaac887b7654f0725}{math\+::cube\+\_\+volume}} (T length)
+\begin{DoxyCompactList}\small\item\em The volume of a \href{https://en.wikipedia.org/wiki/Cube}{\texttt{ cube}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a3fdc74c24697ec5bb5c3698c96117c12}{math\+::rect\+\_\+prism\+\_\+volume}} (T length, T width, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em The volume of a \href{https://en.wikipedia.org/wiki/Cuboid}{\texttt{ rectangular}} prism. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a3fe35440c27758ecc2287e08217d63a7}{math\+::cone\+\_\+volume}} (T radius, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}, double PI=3.\+14)
+\begin{DoxyCompactList}\small\item\em The volume of a \href{https://en.wikipedia.org/wiki/Cone}{\texttt{ cone}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a2d704a7b72a6b2db8b76c8581b577b2c}{math\+::triangle\+\_\+prism\+\_\+volume}} (T base, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}, T depth)
+\begin{DoxyCompactList}\small\item\em The volume of a \href{https://en.wikipedia.org/wiki/Triangular_prism}{\texttt{ triangular}} prism. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a94db02b3c9e55a69ac1696f30e2f761c}{math\+::pyramid\+\_\+volume}} (T length, T width, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em The volume of a \href{https://en.wikipedia.org/wiki/Pyramid_(geometry)}{\texttt{ pyramid}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a34d66a77c19ce9b8b3a3d14352b34551}{math\+::sphere\+\_\+volume}} (T radius, double PI=3.\+14)
+\begin{DoxyCompactList}\small\item\em The volume of a \href{https://en.wikipedia.org/wiki/Sphere}{\texttt{ sphere}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_abde24398be43538c62e4a496968e60ca}{math\+::cylinder\+\_\+volume}} (T radius, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}}, double PI=3.\+14)
+\begin{DoxyCompactList}\small\item\em The volume of a \href{https://en.wikipedia.org/wiki/Cylinder}{\texttt{ cylinder}} \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{volume_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{volume_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implmentations for the \href{https://en.wikipedia.org/wiki/Volume}{\texttt{ volume}} of various 3D shapes. 
+
+The volume of a 3D shape is the amount of 3D space that the shape takes up. All shapes have a formula to get the volume of any given shape. These implementations support multiple return types.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Focusucof}{\texttt{ Focusucof}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{volume_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{volume.cpp@{volume.cpp}!main@{main}}
+\index{main@{main}!volume.cpp@{volume.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{volume_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \mbox{\hyperlink{volume_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00238\ \}}
+
+\end{DoxyCode}
+\Hypertarget{volume_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{volume.cpp@{volume.cpp}!test@{test}}
+\index{test@{test}!volume.cpp@{volume.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{volume_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ Input\ variables}}
+\DoxyCodeLine{00114\ \ \ \ \ uint32\_t\ int\_length\ =\ 0;\ \textcolor{comment}{//\ 32\ bit\ integer\ length\ input}}
+\DoxyCodeLine{00115\ \ \ \ \ uint32\_t\ int\_width\ =\ 0;\ \ \textcolor{comment}{//\ 32\ bit\ integer\ width\ input}}
+\DoxyCodeLine{00116\ \ \ \ \ uint32\_t\ int\_base\ =\ 0;\ \ \ \textcolor{comment}{//\ 32\ bit\ integer\ base\ input}}
+\DoxyCodeLine{00117\ \ \ \ \ uint32\_t\ int\_height\ =\ 0;\ \textcolor{comment}{//\ 32\ bit\ integer\ height\ input}}
+\DoxyCodeLine{00118\ \ \ \ \ uint32\_t\ int\_depth\ =\ 0;\ \ \textcolor{comment}{//\ 32\ bit\ integer\ depth\ input}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_radius\ =\ NAN;\ \textcolor{comment}{//\ double\ radius\ input}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_height\ =\ NAN;\ \textcolor{comment}{//\ double\ height\ input}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Output\ variables}}
+\DoxyCodeLine{00124\ \ \ \ \ uint32\_t\ int\_expected\ =\ 0;\ \textcolor{comment}{//\ 32\ bit\ integer\ expected\ output}}
+\DoxyCodeLine{00125\ \ \ \ \ uint32\_t\ int\_volume\ =\ 0;\ \ \ \textcolor{comment}{//\ 32\ bit\ integer\ output}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_expected\ =\ NAN;\ \textcolor{comment}{//\ double\ expected\ output}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_volume\ =\ NAN;\ \ \ \textcolor{comment}{//\ double\ output}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00131\ \ \ \ \ int\_length\ =\ 5;}
+\DoxyCodeLine{00132\ \ \ \ \ int\_expected\ =\ 125;}
+\DoxyCodeLine{00133\ \ \ \ \ int\_volume\ =\ \mbox{\hyperlink{namespacemath_ae413098478fa38acaac887b7654f0725}{math::cube\_volume}}(int\_length);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}VOLUME\ OF\ A\ CUBE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00136\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00137\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00138\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_volume\ <<\ std::endl;}
+\DoxyCodeLine{00139\ \ \ \ \ assert(int\_volume\ ==\ int\_expected);}
+\DoxyCodeLine{00140\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00143\ \ \ \ \ int\_length\ =\ 4;}
+\DoxyCodeLine{00144\ \ \ \ \ int\_width\ =\ 3;}
+\DoxyCodeLine{00145\ \ \ \ \ int\_height\ =\ 5;}
+\DoxyCodeLine{00146\ \ \ \ \ int\_expected\ =\ 60;}
+\DoxyCodeLine{00147\ \ \ \ \ int\_volume\ =\ \mbox{\hyperlink{namespacemath_a3fdc74c24697ec5bb5c3698c96117c12}{math::rect\_prism\_volume}}(int\_length,\ int\_width,\ int\_height);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}VOLUME\ OF\ A\ RECTANGULAR\ PRISM"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00150\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00151\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Width:\ "{}}\ <<\ int\_width\ <<\ std::endl;}
+\DoxyCodeLine{00152\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ int\_height\ <<\ std::endl;}
+\DoxyCodeLine{00153\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00154\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_volume\ <<\ std::endl;}
+\DoxyCodeLine{00155\ \ \ \ \ assert(int\_volume\ ==\ int\_expected);}
+\DoxyCodeLine{00156\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00159\ \ \ \ \ double\_radius\ =\ 5;}
+\DoxyCodeLine{00160\ \ \ \ \ double\_height\ =\ 7;}
+\DoxyCodeLine{00161\ \ \ \ \ double\_expected\ =\ 183.16666666666666;\ \ \textcolor{comment}{//\ truncated\ to\ 14\ decimal\ places}}
+\DoxyCodeLine{00162\ \ \ \ \ double\_volume\ =\ \mbox{\hyperlink{namespacemath_a3fe35440c27758ecc2287e08217d63a7}{math::cone\_volume}}(double\_radius,\ double\_height);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}VOLUME\ OF\ A\ CONE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00165\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00166\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ double\_height\ <<\ std::endl;}
+\DoxyCodeLine{00167\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00168\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_volume\ <<\ std::endl;}
+\DoxyCodeLine{00169\ \ \ \ \ assert(double\_volume\ ==\ double\_expected);}
+\DoxyCodeLine{00170\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ 4th\ test}}
+\DoxyCodeLine{00173\ \ \ \ \ int\_base\ =\ 3;}
+\DoxyCodeLine{00174\ \ \ \ \ int\_height\ =\ 4;}
+\DoxyCodeLine{00175\ \ \ \ \ int\_depth\ =\ 5;}
+\DoxyCodeLine{00176\ \ \ \ \ int\_expected\ =\ 30;}
+\DoxyCodeLine{00177\ \ \ \ \ int\_volume\ =\ \mbox{\hyperlink{namespacemath_a2d704a7b72a6b2db8b76c8581b577b2c}{math::triangle\_prism\_volume}}(int\_base,\ int\_height,\ int\_depth);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}VOLUME\ OF\ A\ TRIANGULAR\ PRISM"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00180\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Base:\ "{}}\ <<\ int\_base\ <<\ std::endl;}
+\DoxyCodeLine{00181\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ int\_height\ <<\ std::endl;}
+\DoxyCodeLine{00182\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Depth:\ "{}}\ <<\ int\_depth\ <<\ std::endl;}
+\DoxyCodeLine{00183\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00184\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_volume\ <<\ std::endl;}
+\DoxyCodeLine{00185\ \ \ \ \ assert(int\_volume\ ==\ int\_expected);}
+\DoxyCodeLine{00186\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{//\ 5th\ test}}
+\DoxyCodeLine{00189\ \ \ \ \ int\_length\ =\ 10;}
+\DoxyCodeLine{00190\ \ \ \ \ int\_width\ =\ 3;}
+\DoxyCodeLine{00191\ \ \ \ \ int\_height\ =\ 5;}
+\DoxyCodeLine{00192\ \ \ \ \ int\_expected\ =\ 50;}
+\DoxyCodeLine{00193\ \ \ \ \ int\_volume\ =\ \mbox{\hyperlink{namespacemath_a94db02b3c9e55a69ac1696f30e2f761c}{math::pyramid\_volume}}(int\_length,\ int\_width,\ int\_height);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}VOLUME\ OF\ A\ PYRAMID"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00196\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00197\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Width:\ "{}}\ <<\ int\_width\ <<\ std::endl;}
+\DoxyCodeLine{00198\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ int\_height\ <<\ std::endl;}
+\DoxyCodeLine{00199\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00200\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_volume\ <<\ std::endl;}
+\DoxyCodeLine{00201\ \ \ \ \ assert(int\_volume\ ==\ int\_expected);}
+\DoxyCodeLine{00202\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{comment}{//\ 6th\ test}}
+\DoxyCodeLine{00205\ \ \ \ \ double\_radius\ =\ 3;}
+\DoxyCodeLine{00206\ \ \ \ \ double\_expected\ =\ 113.04;}
+\DoxyCodeLine{00207\ \ \ \ \ double\_volume\ =\ \mbox{\hyperlink{namespacemath_a34d66a77c19ce9b8b3a3d14352b34551}{math::sphere\_volume}}(double\_radius);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}VOLUME\ OF\ A\ SPHERE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00210\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00211\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00212\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_volume\ <<\ std::endl;}
+\DoxyCodeLine{00213\ \ \ \ \ assert(double\_volume\ ==\ double\_expected);}
+\DoxyCodeLine{00214\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{//\ 7th\ test}}
+\DoxyCodeLine{00217\ \ \ \ \ double\_radius\ =\ 5;}
+\DoxyCodeLine{00218\ \ \ \ \ double\_height\ =\ 2;}
+\DoxyCodeLine{00219\ \ \ \ \ double\_expected\ =\ 157;}
+\DoxyCodeLine{00220\ \ \ \ \ double\_volume\ =\ \mbox{\hyperlink{namespacemath_abde24398be43538c62e4a496968e60ca}{math::cylinder\_volume}}(double\_radius,\ double\_height);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}VOLUME\ OF\ A\ CYLINDER"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00223\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00224\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ double\_height\ <<\ std::endl;}
+\DoxyCodeLine{00225\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00226\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_volume\ <<\ std::endl;}
+\DoxyCodeLine{00227\ \ \ \ \ assert(double\_volume\ ==\ double\_expected);}
+\DoxyCodeLine{00228\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00229\ \}}
+
+\end{DoxyCode}

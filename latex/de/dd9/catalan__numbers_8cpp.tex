@@ -1,0 +1,98 @@
+\doxysection{dynamic\+\_\+programming/catalan\+\_\+numbers.cpp File Reference}
+\hypertarget{catalan__numbers_8cpp}{}\label{catalan__numbers_8cpp}\index{dynamic\_programming/catalan\_numbers.cpp@{dynamic\_programming/catalan\_numbers.cpp}}
+
+
+Provides utilities to compute Catalan numbers using dynamic programming. A Catalan numbers satisfy these recurrence relations\+: C(0) = C(1) = 1; C(n) = sum(C(i).C(n-\/i-\/1)), for i = 0 to n-\/1 Read more about Catalan numbers here\+: \href{https://en.wikipedia.org/wiki/Catalan_number}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Catalan\+\_\+number}} \href{https://oeis.org/A000108/}{\texttt{ https\+://oeis.\+org/\+A000108/}}.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcatalan__numbers}{catalan\+\_\+numbers}}
+\begin{DoxyCompactList}\small\item\em computes and caches Catalan numbers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{catalan__numbers_8cpp_af232ca32e11f2fad3fbcd016582736f6}{test\+\_\+catalan\+\_\+numbers\+\_\+up\+\_\+to\+\_\+20}} ()
+\item 
+void \mbox{\hyperlink{catalan__numbers_8cpp_a5aba76282165e591c9872df9fe3ce173}{test\+\_\+catalan\+\_\+numbers\+\_\+25}} ()
+\item 
+int \mbox{\hyperlink{catalan__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides utilities to compute Catalan numbers using dynamic programming. A Catalan numbers satisfy these recurrence relations\+: C(0) = C(1) = 1; C(n) = sum(C(i).C(n-\/i-\/1)), for i = 0 to n-\/1 Read more about Catalan numbers here\+: \href{https://en.wikipedia.org/wiki/Catalan_number}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Catalan\+\_\+number}} \href{https://oeis.org/A000108/}{\texttt{ https\+://oeis.\+org/\+A000108/}}. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{catalan__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{catalan\_numbers.cpp@{catalan\_numbers.cpp}!main@{main}}
+\index{main@{main}!catalan\_numbers.cpp@{catalan\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{catalan__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ test\_catalan\_numbers\_up\_to\_20();}
+\DoxyCodeLine{00080\ \ \ \ \ test\_catalan\_numbers\_25();}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{catalan__numbers_8cpp_a5aba76282165e591c9872df9fe3ce173}\index{catalan\_numbers.cpp@{catalan\_numbers.cpp}!test\_catalan\_numbers\_25@{test\_catalan\_numbers\_25}}
+\index{test\_catalan\_numbers\_25@{test\_catalan\_numbers\_25}!catalan\_numbers.cpp@{catalan\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_catalan\_numbers\_25()}{test\_catalan\_numbers\_25()}}
+{\footnotesize\ttfamily \label{catalan__numbers_8cpp_a5aba76282165e591c9872df9fe3ce173} 
+void test\+\_\+catalan\+\_\+numbers\+\_\+25 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ data\ verified\ with\ https://oeis.org/A000108/}}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classcatalan__numbers}{catalan\_numbers}}\ cn;}
+\DoxyCodeLine{00075\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(25)\ ==\ 4861946401452ULL);}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{catalan__numbers_8cpp_af232ca32e11f2fad3fbcd016582736f6}\index{catalan\_numbers.cpp@{catalan\_numbers.cpp}!test\_catalan\_numbers\_up\_to\_20@{test\_catalan\_numbers\_up\_to\_20}}
+\index{test\_catalan\_numbers\_up\_to\_20@{test\_catalan\_numbers\_up\_to\_20}!catalan\_numbers.cpp@{catalan\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_catalan\_numbers\_up\_to\_20()}{test\_catalan\_numbers\_up\_to\_20()}}
+{\footnotesize\ttfamily \label{catalan__numbers_8cpp_af232ca32e11f2fad3fbcd016582736f6} 
+void test\+\_\+catalan\+\_\+numbers\+\_\+up\+\_\+to\+\_\+20 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ data\ verified\ with\ https://oeis.org/A000108/}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classcatalan__numbers}{catalan\_numbers}}\ cn;}
+\DoxyCodeLine{00049\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(0)\ ==\ 1ULL);}
+\DoxyCodeLine{00050\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(1)\ ==\ 1ULL);}
+\DoxyCodeLine{00051\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(2)\ ==\ 2ULL);}
+\DoxyCodeLine{00052\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(3)\ ==\ 5ULL);}
+\DoxyCodeLine{00053\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(4)\ ==\ 14ULL);}
+\DoxyCodeLine{00054\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(5)\ ==\ 42ULL);}
+\DoxyCodeLine{00055\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(6)\ ==\ 132ULL);}
+\DoxyCodeLine{00056\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(7)\ ==\ 429ULL);}
+\DoxyCodeLine{00057\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(8)\ ==\ 1430ULL);}
+\DoxyCodeLine{00058\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(9)\ ==\ 4862ULL);}
+\DoxyCodeLine{00059\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(10)\ ==\ 16796ULL);}
+\DoxyCodeLine{00060\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(11)\ ==\ 58786ULL);}
+\DoxyCodeLine{00061\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(12)\ ==\ 208012ULL);}
+\DoxyCodeLine{00062\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(13)\ ==\ 742900ULL);}
+\DoxyCodeLine{00063\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(14)\ ==\ 2674440ULL);}
+\DoxyCodeLine{00064\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(15)\ ==\ 9694845ULL);}
+\DoxyCodeLine{00065\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(16)\ ==\ 35357670ULL);}
+\DoxyCodeLine{00066\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(17)\ ==\ 129644790ULL);}
+\DoxyCodeLine{00067\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(18)\ ==\ 477638700ULL);}
+\DoxyCodeLine{00068\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(19)\ ==\ 1767263190ULL);}
+\DoxyCodeLine{00069\ \ \ \ \ assert(cn.\mbox{\hyperlink{classcatalan__numbers_a54655c66cf89186d3d1fa90829b28ab8}{get}}(20)\ ==\ 6564120420ULL);}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}

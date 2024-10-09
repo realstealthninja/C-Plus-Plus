@@ -1,0 +1,225 @@
+\doxysection{search/ternary\+\_\+search.cpp File Reference}
+\hypertarget{ternary__search_8cpp}{}\label{ternary__search_8cpp}\index{search/ternary\_search.cpp@{search/ternary\_search.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Ternary_search}{\texttt{ Ternary search}} algorithm  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ternary__search_8cpp_ae01eda5098801bb6b5b778828fb4fddc}{absolute\+Precision}}~10
+\item 
+\#define \mbox{\hyperlink{ternary__search_8cpp_a23ad617bfce1e7cf4591059c85c1a027}{\+\_\+target}}~10
+\item 
+\Hypertarget{ternary__search_8cpp_a392fb874e547e582e9c66a08a1f23326}\label{ternary__search_8cpp_a392fb874e547e582e9c66a08a1f23326} 
+\#define {\bfseries MAX}~10000000
+\begin{DoxyCompactList}\small\item\em Maximum length of array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ternary__search_8cpp_a7f7d866eccdabe51bb16818a792618b1}{get\+\_\+input}} ()
+\item 
+int \mbox{\hyperlink{ternary__search_8cpp_ae30dfe2894191bfeffe5b3b1854b95b0}{it\+\_\+ternary\+\_\+search}} (int left, int right, int A\mbox{[}$\,$\mbox{]}, int target)
+\item 
+int \mbox{\hyperlink{ternary__search_8cpp_a93d0099db95022f1eb90ddfd68f73ead}{rec\+\_\+ternary\+\_\+search}} (int left, int right, int A\mbox{[}$\,$\mbox{]}, int target)
+\item 
+void \mbox{\hyperlink{ternary__search_8cpp_aef655a27eb82efa299bf9d0becf6e9c8}{ternary\+\_\+search}} (int N, int A\mbox{[}$\,$\mbox{]}, int target)
+\item 
+int \mbox{\hyperlink{ternary__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Ternary_search}{\texttt{ Ternary search}} algorithm 
+
+This is a divide and conquer algorithm. It does this by dividing the search space by 3 parts and using its property (usually monotonic property) to find the desired index.
+
+
+\begin{DoxyItemize}
+\item Time Complexity \+: O(log3 n)
+\item Space Complexity \+: O(1) (without the array) 
+\end{DoxyItemize}
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ternary__search_8cpp_a23ad617bfce1e7cf4591059c85c1a027}\index{ternary\_search.cpp@{ternary\_search.cpp}!\_target@{\_target}}
+\index{\_target@{\_target}!ternary\_search.cpp@{ternary\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{\_target}{\_target}}
+{\footnotesize\ttfamily \label{ternary__search_8cpp_a23ad617bfce1e7cf4591059c85c1a027} 
+\#define \+\_\+target~10}
+
+The value of \+\_\+target should be decided or can be decided later by using the variable of the function. \Hypertarget{ternary__search_8cpp_ae01eda5098801bb6b5b778828fb4fddc}\index{ternary\_search.cpp@{ternary\_search.cpp}!absolutePrecision@{absolutePrecision}}
+\index{absolutePrecision@{absolutePrecision}!ternary\_search.cpp@{ternary\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{absolutePrecision}{absolutePrecision}}
+{\footnotesize\ttfamily \label{ternary__search_8cpp_ae01eda5098801bb6b5b778828fb4fddc} 
+\#define absolute\+Precision~10}
+
+The absolute\+Precision can be modified to fit preference but it is recommended to not go lower than 10 due to errors that may occur. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ternary__search_8cpp_a7f7d866eccdabe51bb16818a792618b1}\index{ternary\_search.cpp@{ternary\_search.cpp}!get\_input@{get\_input}}
+\index{get\_input@{get\_input}!ternary\_search.cpp@{ternary\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_input()}{get\_input()}}
+{\footnotesize\ttfamily \label{ternary__search_8cpp_a7f7d866eccdabe51bb16818a792618b1} 
+void get\+\_\+input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+get\+\_\+input function is to receive input from standard IO \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000014}{Todo}}]@christianbender Get input from STDIO or write input to memory as done above. \end{DoxyRefDesc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{ternary__search_8cpp_ae30dfe2894191bfeffe5b3b1854b95b0}\index{ternary\_search.cpp@{ternary\_search.cpp}!it\_ternary\_search@{it\_ternary\_search}}
+\index{it\_ternary\_search@{it\_ternary\_search}!ternary\_search.cpp@{ternary\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{it\_ternary\_search()}{it\_ternary\_search()}}
+{\footnotesize\ttfamily \label{ternary__search_8cpp_ae30dfe2894191bfeffe5b3b1854b95b0} 
+int it\+\_\+ternary\+\_\+search (\begin{DoxyParamCaption}\item[{int}]{left}{, }\item[{int}]{right}{, }\item[{int}]{A}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{target}{}\end{DoxyParamCaption})}
+
+This is the iterative method of the ternary search which returns the index of the element. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em left} & lower interval limit \\
+\hline
+\mbox{\texttt{ in}}  & {\em right} & upper interval limit \\
+\hline
+\mbox{\texttt{ in}}  & {\em A} & array to search in \\
+\hline
+\mbox{\texttt{ in}}  & {\em target} & value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index where the target value was found 
+
+-\/1 if target value not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (left\ <\ right)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (right\ -\/\ left\ <\ \mbox{\hyperlink{ternary__search_8cpp_ae01eda5098801bb6b5b778828fb4fddc}{absolutePrecision}})\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ left;\ i\ <=\ right;\ i++)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A[i]\ ==\ target)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ oneThird\ =\ (left\ +\ right)\ /\ 3\ +\ 1;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ twoThird\ =\ (left\ +\ right)\ *\ 2\ /\ 3\ +\ 1;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A[oneThird]\ ==\ target)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ oneThird;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (A[twoThird]\ ==\ target)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ twoThird;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (target\ >\ A[twoThird])}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ left\ =\ twoThird\ +\ 1;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (target\ <\ A[oneThird])}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ right\ =\ oneThird\ -\/\ 1;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ left\ =\ oneThird\ +\ 1,\ right\ =\ twoThird\ -\/\ 1;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ternary__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{ternary\_search.cpp@{ternary\_search.cpp}!main@{main}}
+\index{main@{main}!ternary\_search.cpp@{ternary\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{ternary__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 21;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{int}\ A[]\ =\ \{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 2,\ 3,\ 4,\ 10\};}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{ternary__search_8cpp_a7f7d866eccdabe51bb16818a792618b1}{get\_input}}();}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{ternary__search_8cpp_aef655a27eb82efa299bf9d0becf6e9c8}{ternary\_search}}(N,\ A,\ \mbox{\hyperlink{ternary__search_8cpp_a23ad617bfce1e7cf4591059c85c1a027}{\_target}});}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00140\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ternary__search_8cpp_a93d0099db95022f1eb90ddfd68f73ead}\index{ternary\_search.cpp@{ternary\_search.cpp}!rec\_ternary\_search@{rec\_ternary\_search}}
+\index{rec\_ternary\_search@{rec\_ternary\_search}!ternary\_search.cpp@{ternary\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{rec\_ternary\_search()}{rec\_ternary\_search()}}
+{\footnotesize\ttfamily \label{ternary__search_8cpp_a93d0099db95022f1eb90ddfd68f73ead} 
+int rec\+\_\+ternary\+\_\+search (\begin{DoxyParamCaption}\item[{int}]{left}{, }\item[{int}]{right}{, }\item[{int}]{A}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{target}{}\end{DoxyParamCaption})}
+
+This is the recursive method of the ternary search which returns the index of the element. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em left} & lower interval limit \\
+\hline
+\mbox{\texttt{ in}}  & {\em right} & upper interval limit \\
+\hline
+\mbox{\texttt{ in}}  & {\em A} & array to search in \\
+\hline
+\mbox{\texttt{ in}}  & {\em target} & value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index where the target value was found 
+
+-\/1 if target value not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (left\ <\ right)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (right\ -\/\ left\ <\ \mbox{\hyperlink{ternary__search_8cpp_ae01eda5098801bb6b5b778828fb4fddc}{absolutePrecision}})\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ left;\ i\ <=\ right;\ i++)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A[i]\ ==\ target)}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ oneThird\ =\ (left\ +\ right)\ /\ 3\ +\ 1;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ twoThird\ =\ (left\ +\ right)\ *\ 2\ /\ 3\ +\ 1;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A[oneThird]\ ==\ target)}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ oneThird;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A[twoThird]\ ==\ target)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ twoThird;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (target\ <\ A[oneThird])}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{ternary__search_8cpp_a93d0099db95022f1eb90ddfd68f73ead}{rec\_ternary\_search}}(left,\ oneThird\ -\/\ 1,\ A,\ target);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (target\ >\ A[twoThird])}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{ternary__search_8cpp_a93d0099db95022f1eb90ddfd68f73ead}{rec\_ternary\_search}}(twoThird\ +\ 1,\ right,\ A,\ target);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{ternary__search_8cpp_a93d0099db95022f1eb90ddfd68f73ead}{rec\_ternary\_search}}(oneThird\ +\ 1,\ twoThird\ -\/\ 1,\ A,\ target);}
+\DoxyCodeLine{00114\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ternary__search_8cpp_aef655a27eb82efa299bf9d0becf6e9c8}\index{ternary\_search.cpp@{ternary\_search.cpp}!ternary\_search@{ternary\_search}}
+\index{ternary\_search@{ternary\_search}!ternary\_search.cpp@{ternary\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{ternary\_search()}{ternary\_search()}}
+{\footnotesize\ttfamily \label{ternary__search_8cpp_aef655a27eb82efa299bf9d0becf6e9c8} 
+void ternary\+\_\+search (\begin{DoxyParamCaption}\item[{int}]{N}{, }\item[{int}]{A}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{target}{}\end{DoxyParamCaption})}
+
+ternary\+\_\+search is a template function You could either use it\+\_\+ternary\+\_\+search or rec\+\_\+ternary\+\_\+search according to preference. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em N} & length of array \\
+\hline
+\mbox{\texttt{ in}}  & {\em A} & array to search in \\
+\hline
+\mbox{\texttt{ in}}  & {\em target} & value to search for \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{ternary__search_8cpp_ae30dfe2894191bfeffe5b3b1854b95b0}{it\_ternary\_search}}(0,\ N\ -\/\ 1,\ A,\ target)\ <<\ \textcolor{charliteral}{'\(\backslash\)t'};}
+\DoxyCodeLine{00129\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{ternary__search_8cpp_a93d0099db95022f1eb90ddfd68f73ead}{rec\_ternary\_search}}(0,\ N\ -\/\ 1,\ A,\ target)\ <<\ \textcolor{charliteral}{'\(\backslash\)t'};}
+\DoxyCodeLine{00130\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}

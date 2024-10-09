@@ -1,0 +1,294 @@
+\doxysection{large\+\_\+number.\+h}
+\hypertarget{large__number_8h_source}{}\label{large__number_8h_source}\index{math/large\_number.h@{math/large\_number.h}}
+\mbox{\hyperlink{large__number_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ Library\ to\ perform\ arithmatic\ operations\ on\ arbitrarily\ large}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ numbers.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \(\backslash\)author\ [Krishna\ Vedala](https://github.com/kvedala)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MATH\_LARGE\_NUMBER\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MATH\_LARGE\_NUMBER\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cinttypes>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ \textcolor{comment}{}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Store\ large\ unsigned\ numbers\ as\ a\ C++\ vector}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ The\ class\ provides\ convenience\ functions\ to\ add\ a}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ digit\ to\ the\ number,\ perform\ multiplication\ of}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ large\ number\ with\ long\ unsigned\ integers.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ **/}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlarge__number}{large\_number}}\ \{}
+\DoxyCodeLine{00025\ \ \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ /**<\ initializer\ with\ value\ =\ 1\ */}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}()\ \{\ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}.push\_back(1);\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ /**<\ initializer\ from\ an\ integer\ */}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ explicit\ large\_number(uint64\_t\ n)\ \{}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ uint64\_t\ carry\ =\ n;}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ do\ \{}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ add\_digit(carry\ \%\ 10);}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ carry\ /=\ 10;}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}\ while\ (carry\ !=\ 0);}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00037\ \textcolor{comment}{}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ /**<\ initializer\ from\ an\ integer\ */}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlarge__number_af4598f1f2794b5e17e10c25e0501e41a}{large\_number}}(\textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ carry\ =\ n;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number_a60c436d1a1c5e3795d6177d3815ad615}{add\_digit}}(carry\ \%\ 10);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ carry\ /=\ 10;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (carry\ !=\ 0);}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \textcolor{comment}{}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ /**<\ initializer\ from\ another\ large\_number\ */}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classlarge__number_a0b1efd203274e38a67b78937dfb9b872}{large\_number}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&a)\ :\ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}(a.\mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}})\ \{\}}
+\DoxyCodeLine{00049\ \textcolor{comment}{}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ /**<\ initializer\ from\ a\ vector\ */}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlarge__number_a76ddf1ed1b00fb8c107ea56f7f91e42f}{large\_number}}(std::vector<unsigned\ char>\ \&vec)\ :\ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}(vec)\ \{\}}
+\DoxyCodeLine{00052\ \textcolor{comment}{}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ /**<\ initializer\ from\ a\ string\ */}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *number\_str)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ strlen(number\_str);\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ a\ =\ number\_str[i\ -\/\ 1]\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ >=\ 0\ \&\&\ a\ <=\ 9)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}.push\_back(a);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \textcolor{comment}{}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ \ \ \ \ *\ Function\ to\ check\ implementation}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlarge__number_a959c5c1a982949bbf98e1ea0f9afe6a9}{test}}()\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/\ Checking\ \`{}large\_number`\ class\ implementations\(\backslash\)t"{}}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ a(40);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ test\ multiplication}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ a\ *=\ 10;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ !=\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(400))\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tFailed\ 1/6\ ("{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}!=400)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPassed\ 1/6..."{}};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ test\ compound\ addition\ with\ integer}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ a\ +=\ 120;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ !=\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(520))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tFailed\ 2/6\ ("{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}!=520)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPassed\ 2/6..."{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3.\ test\ compound\ multiplication\ again}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ a\ *=\ 10;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ !=\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(5200))\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tFailed\ 3/6\ ("{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}!=5200)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPassed\ 3/6..."{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4.\ test\ increment\ (prefix)}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ ++a;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ !=\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(5201))\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tFailed\ 4/6\ ("{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}!=5201)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPassed\ 4/6..."{}};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 5.\ test\ increment\ (postfix)}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ a++;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ !=\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(5202))\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tFailed\ 5/6\ ("{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}!=5202)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPassed\ 5/6..."{}};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 6.\ test\ addition\ with\ another\ large\ number}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ a\ =\ a\ +\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(\textcolor{stringliteral}{"{}7000000000000000000000000000000"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ !=\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(\textcolor{stringliteral}{"{}7000000000000000000000000005202"{}}))\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tFailed\ 6/6\ ("{}}\ <<\ a}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}!=7000000000000000000000000005202)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tPassed\ 6/6..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \textcolor{comment}{}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ \ \ \ *\ add\ a\ digit\ at\ MSB\ to\ the\ large\ number}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlarge__number_a60c436d1a1c5e3795d6177d3815ad615}{add\_digit}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ value)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >\ 9)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}digit\ >\ 9!!\(\backslash\)n"{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}.push\_back(value);}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \textcolor{comment}{}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ \ *\ Get\ number\ of\ digits\ in\ the\ number}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}.size();\ \}}
+\DoxyCodeLine{00131\ \textcolor{comment}{}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ \ *\ operator\ over\ load\ to\ access\ the}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ \ *\ i\string^th\ digit\ conveniently\ and\ also}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ \ \ *\ assign\ value\ to\ it}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \&\mbox{\hyperlink{classlarge__number_a8c381aa1ecc960cefd82ec72f59e0e08}{operator[]}}(\textcolor{keywordtype}{size\_t}\ n)\ \{\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}[n];\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \&\mbox{\hyperlink{classlarge__number_a8c381aa1ecc960cefd82ec72f59e0e08}{operator[]}}(\textcolor{keywordtype}{size\_t}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}[n];}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \textcolor{comment}{}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ compare\ two\ numbers}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&\mbox{\hyperlink{classlarge__number_a13282908dfc4888392ed3d1fc6aae492}{operator<<}}(std::ostream\ \&out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&a)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ a.num\_digits();\ i\ >\ 0;\ i-\/-\/)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ static\_cast<int>(a[i\ -\/\ 1]);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \textcolor{comment}{}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ compare\ two\ numbers}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlarge__number_a7ba872b9a3ce1f3da6c06c5409663cca}{operator==}}(\mbox{\hyperlink{classlarge__number}{large\_number}}\ \textcolor{keyword}{const}\ \&a,\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \textcolor{keyword}{const}\ \&b)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ N\ =\ a.num\_digits();}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ !=\ b.\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}())}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ i++)}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a[i]\ !=\ b[i])}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00163\ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \textcolor{comment}{}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ compare\ two\ numbers}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlarge__number_a72ae1ef050c4c28c50952ecab22d4b94}{operator!=}}(\mbox{\hyperlink{classlarge__number}{large\_number}}\ \textcolor{keyword}{const}\ \&a,\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \textcolor{keyword}{const}\ \&b)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(a\ ==\ b);}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \textcolor{comment}{}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00173\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ increment\ (prefix)}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&\mbox{\hyperlink{classlarge__number_a4757697b1f7584b69e779a72abc4ae2a}{operator++}}()\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ (*this)\ +=\ 1;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \textcolor{comment}{}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ increment\ (postfix)}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&\mbox{\hyperlink{classlarge__number_a8d4364ee5a62964451d8cfee82649687}{operator++}}(\textcolor{keywordtype}{int})\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ tmp(\mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}});}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ ++(*this);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \textcolor{comment}{}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ add}}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&\mbox{\hyperlink{classlarge__number_aab5644405094740e34983cedfecb36cf}{operator+=}}(\mbox{\hyperlink{classlarge__number}{large\_number}}\ n)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ adding\ with\ another\ large\_number}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ *b\ =\ \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlarge__number}{large\_number}}\ *\textcolor{keyword}{>}(\&n);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ max\_L\ =\ std::max(this-\/>\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}(),\ b-\/>\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}());}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ carry\ =\ 0;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ i;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ max\_L\ ||\ carry\ !=\ 0;\ i++)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ b-\/>\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}())}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ carry\ +=\ (*b)[i];}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ this-\/>\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}())}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ carry\ +=\ (*this)[i];}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ this-\/>\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}())}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*this)[i]\ =\ carry\ \%\ 10;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classlarge__number_a60c436d1a1c5e3795d6177d3815ad615}{add\_digit}}(carry\ \%\ 10);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ carry\ /=\ 10;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&\mbox{\hyperlink{classlarge__number_aab5644405094740e34983cedfecb36cf}{operator+=}}(\textcolor{keywordtype}{int}\ n)\ \{\ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this})\ +=\ \mbox{\hyperlink{classlarge__number_a10119a83839e65962621b73df46a5337}{large\_number}}(n);\ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ large\_number\ \&operator+=(uint64\_t\ n)\ \{\ return\ (*this)\ +=\ large\_number(n);}}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00215\ \textcolor{comment}{}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ perform\ addition}}
+\DoxyCodeLine{00218\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&\mbox{\hyperlink{classlarge__number_abbd52948bee1b16543f1dae19aa9dd46}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&a,\ \textcolor{keyword}{const}\ T\ \&b)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ c\ =\ a;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ c\ +=\ b;}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \textcolor{comment}{}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ \ \ \ \ *\ assignment\ operator}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&\mbox{\hyperlink{classlarge__number_ab84f29685709cbb3b6fd29b7b4a7bc7b}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&b)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}\ =\ b.\mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \textcolor{comment}{}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ \ \ \ \ *\ operator\ overload\ to\ increment}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \&\mbox{\hyperlink{classlarge__number_a771e9b28cfddf1ad94668566e396e350}{operator*=}}(\textcolor{keyword}{const}\ T\ n)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_integral<T>::value,}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Must\ be\ integer\ addition\ unsigned\ integer\ types."{}});}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classlarge__number_a2f5571e66305cf68bb8283e4aeda58bc}{multiply}}(n);}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \textcolor{comment}{}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00246\ \textcolor{comment}{\ \ \ \ \ *\ returns\ i\string^th\ digit\ as\ an\ ASCII\ character}}
+\DoxyCodeLine{00247\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classlarge__number_ae35a55607cf52c0b0d485f2129bd39ac}{digit\_char}}(\textcolor{keywordtype}{size\_t}\ i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}}[\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}()\ -\/\ i\ -\/\ 1]\ +\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \textcolor{keyword}{private}:\textcolor{comment}{}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ \ \ \ \ *\ multiply\ large\ number\ with\ another\ integer\ and}}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ \ \ \ \ *\ store\ the\ result\ in\ the\ same\ large\ number}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ \ \ \ \ **/}}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlarge__number_a2f5571e66305cf68bb8283e4aeda58bc}{multiply}}(\textcolor{keyword}{const}\ T\ n)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_integral<T>::value,}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Can\ only\ have\ integer\ types."{}});}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assert(!(std::is\_signed<T>::value));\ //,\ "{}Implemented\ only\ for}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ unsigned\ integer\ types."{});}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ i;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ uint64\_t\ carry\ =\ 0,\ temp;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ this-\/>\mbox{\hyperlink{classlarge__number_ac09a05ec4aafb4d9e0b4440d6f0e2a93}{num\_digits}}();\ i++)\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}((*this)[i])\ *\ n;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ +=\ carry;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ <\ 10)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ carry\ =\ 0;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ carry\ =\ temp\ /\ 10;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ temp\ \%\ 10;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ (*this)[i]\ =\ temp;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (carry\ !=\ 0)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classlarge__number_a60c436d1a1c5e3795d6177d3815ad615}{add\_digit}}(carry\ \%\ 10);}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ carry\ /=\ 10;}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ std::vector<unsigned\ char>}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number_af2b3ec9c35842d3a46ac7326f268af57}{\_digits}};\ \textcolor{comment}{/**<\ where\ individual\ digits\ are\ stored\ */}}
+\DoxyCodeLine{00286\ \};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MATH\_LARGE\_NUMBER\_H\_}}
+
+\end{DoxyCode}

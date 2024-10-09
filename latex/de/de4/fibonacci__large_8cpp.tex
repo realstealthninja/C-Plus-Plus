@@ -1,0 +1,115 @@
+\doxysection{math/fibonacci\+\_\+large.cpp File Reference}
+\hypertarget{fibonacci__large_8cpp}{}\label{fibonacci__large_8cpp}\index{math/fibonacci\_large.cpp@{math/fibonacci\_large.cpp}}
+
+
+Computes N\texorpdfstring{$^\wedge$}{\string^}th Fibonacci number given as input argument. Uses custom build arbitrary integers library to perform additions and other operations.  
+
+
+{\ttfamily \#include $<$cinttypes$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}./large\+\_\+number.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlarge__number}{large\+\_\+number}} \mbox{\hyperlink{fibonacci__large_8cpp_adf3e906875ab257f7fab3bc1370aa2db}{fib}} (uint64\+\_\+t n)
+\item 
+int \mbox{\hyperlink{fibonacci__large_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes N\texorpdfstring{$^\wedge$}{\string^}th Fibonacci number given as input argument. Uses custom build arbitrary integers library to perform additions and other operations. 
+
+Took 0.\+608246 seconds to compute 50,000\texorpdfstring{$^\wedge$}{\string^}th Fibonacci number that contains 10450 digits!
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\doxylink{fibonacci_8cpp}{fibonacci.\+cpp}, \doxylink{fibonacci__fast_8cpp}{fibonacci\+\_\+fast.\+cpp}, \doxylink{string__fibonacci_8cpp}{string\+\_\+fibonacci.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fibonacci__large_8cpp_adf3e906875ab257f7fab3bc1370aa2db}\index{fibonacci\_large.cpp@{fibonacci\_large.cpp}!fib@{fib}}
+\index{fib@{fib}!fibonacci\_large.cpp@{fibonacci\_large.cpp}}
+\doxysubsubsection{\texorpdfstring{fib()}{fib()}}
+{\footnotesize\ttfamily \label{fibonacci__large_8cpp_adf3e906875ab257f7fab3bc1370aa2db} 
+\mbox{\hyperlink{classlarge__number}{large\+\_\+number}} fib (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+Compute fibonacci numbers using the relation \[f(n)=f(n-1)+f(n-2)\] and returns the result as a \doxylink{classlarge__number}{large\+\_\+number} type. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ f0(1);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ f1(1);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ f2\ =\ f1;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ f1\ +=\ f0;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ f0\ =\ f2;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ n-\/-\/;}
+\DoxyCodeLine{00033\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (n\ >\ 2);\ \ \textcolor{comment}{//\ since\ we\ start\ from\ 2}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ f1;}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__large_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{fibonacci\_large.cpp@{fibonacci\_large.cpp}!main@{main}}
+\index{main@{main}!fibonacci\_large.cpp@{fibonacci\_large.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fibonacci__large_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ strtoull(argv[1],\ NULL,\ 10);}
+\DoxyCodeLine{00042\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ N:\ "{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::cin\ >>\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ clock\_t\ start\_time\ =\ std::clock();}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \mbox{\hyperlink{fibonacci__large_8cpp_adf3e906875ab257f7fab3bc1370aa2db}{fib}}(N);}
+\DoxyCodeLine{00049\ \ \ \ \ clock\_t\ end\_time\ =\ std::clock();}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{double}\ time\_taken\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\_time\ -\/\ start\_time)\ /}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(CLOCKS\_PER\_SEC);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ std::endl}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ <<\ \textcolor{stringliteral}{"{}\string^th\ Fibonacci\ number:\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ <<\ std::endl}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Number\ of\ digits:\ "{}}\ <<\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.num\_digits()\ <<\ std::endl}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}\ <<\ std::scientific\ <<\ time\_taken\ <<\ \textcolor{stringliteral}{"{}\ s"{}}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 5000;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{fibonacci__large_8cpp_adf3e906875ab257f7fab3bc1370aa2db}{fib}}(N)\ ==}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlarge__number}{large\_number}}(}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}387896845438832563370191630832590531208212771464624510616059721489"{}}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}555013904403709701082291646221066947929345285888297381348310200895"{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}498294036143015691147893836421656394410691021450563413370655865623"{}}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}825465670071252592990385493381392883637834751890876297071203333705"{}}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}292310769300851809384980180384781399674888176555465378829164426891"{}}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}298038461377896902150229308247566634622492307188332480328037503913"{}}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}035290330450584270114763524227021093463769910400671417488329842289"{}}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}149127310405432875329804427367682297724498774987455569190770388063"{}}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}704683279481135897373999311010621930814901857081539785437919530561"{}}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}751076105307568878376603366735544525884488624161921055345749367589"{}}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}784902798823435102359984466393485325641195222185956306047536464547"{}}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}076033090242080638258492915645287629157575914234380914230291749108"{}}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}898415520985443248659407979357131684169286803954530954538869811466"{}}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}508206686289742063932343848846524098874239587380197699382031717420"{}}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}893226546887936400263079778005875912967138963421425257911687275560"{}}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}0360311370547754724604639987588046985178408674382863125"{}}))}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ for\ "{}}\ <<\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ <<\ \textcolor{stringliteral}{"{}\string^th\ Fibonacci\ number\ passed!"{}}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Test\ for\ "{}}\ <<\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ <<\ \textcolor{stringliteral}{"{}\string^th\ Fibonacci\ number\ failed!"{}}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}

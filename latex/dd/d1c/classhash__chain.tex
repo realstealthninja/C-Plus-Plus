@@ -1,0 +1,245 @@
+\doxysection{hash\+\_\+chain Class Reference}
+\hypertarget{classhash__chain}{}\label{classhash__chain}\index{hash\_chain@{hash\_chain}}
+
+
+Chain class with a given modulus.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classhash__chain_a80c8b902a15b4fd062ed727ecf8f3595}{hash\+\_\+chain}} (int mod)
+\begin{DoxyCompactList}\small\item\em Construct a new chain object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhash__chain_a6b4b4de1a8c96f98a63a77f650a9dcff}{add}} (int x, int \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}})
+\begin{DoxyCompactList}\small\item\em create and add a new node with a give value and at a given height \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhash__chain_a706964ad13587fc9a8b3fe8381d410ed}{display}} ()
+\begin{DoxyCompactList}\small\item\em Display the chain. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classhash__chain_a846a2f921f8fb7ea572e03901b671d64}{hash}} (int x) const
+\begin{DoxyCompactList}\small\item\em Compute the hash of a value for current chain. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classhash__chain_a55aa5c6753cb8853152d469c375d946a}{find}} (int x, int \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}) const
+\begin{DoxyCompactList}\small\item\em Find if a value and corresponding hash exist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classhash__chain_a8b204861e9470377c956d3b5cd313036}{Node}}
+\begin{DoxyCompactList}\small\item\em Define a linked node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhash__chain_ae8457d13620497fa2046ac566252c4b0}\label{classhash__chain_ae8457d13620497fa2046ac566252c4b0} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classhash__chain_a8b204861e9470377c956d3b5cd313036}{Node}} $>$ $>$ {\bfseries head}
+\begin{DoxyCompactList}\small\item\em array of nodes \end{DoxyCompactList}\item 
+\Hypertarget{classhash__chain_ae9ddce410015ed8dda6380130d82d6c2}\label{classhash__chain_ae9ddce410015ed8dda6380130d82d6c2} 
+int {\bfseries \+\_\+mod}
+\begin{DoxyCompactList}\small\item\em modulus of the class \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Chain class with a given modulus. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classhash__chain_a8b204861e9470377c956d3b5cd313036}\index{hash\_chain@{hash\_chain}!Node@{Node}}
+\index{Node@{Node}!hash\_chain@{hash\_chain}}
+\doxysubsubsection{\texorpdfstring{Node}{Node}}
+{\footnotesize\ttfamily \label{classhash__chain_a8b204861e9470377c956d3b5cd313036} 
+using \mbox{\hyperlink{classhash__chain_a8b204861e9470377c956d3b5cd313036}{hash\+\_\+chain\+::\+Node}}\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::shared\_ptr<struct\ Node>\ next;\ \ }
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Define a linked node. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///<\ data\ stored\ in\ the\ node}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::shared\_ptr<struct\ Node>\ next;\ \ \textcolor{comment}{///<\ pointer\ to\ the\ next\ node}}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classhash__chain_a80c8b902a15b4fd062ed727ecf8f3595}\index{hash\_chain@{hash\_chain}!hash\_chain@{hash\_chain}}
+\index{hash\_chain@{hash\_chain}!hash\_chain@{hash\_chain}}
+\doxysubsubsection{\texorpdfstring{hash\_chain()}{hash\_chain()}}
+{\footnotesize\ttfamily \label{classhash__chain_a80c8b902a15b4fd062ed727ecf8f3595} 
+hash\+\_\+chain\+::hash\+\_\+chain (\begin{DoxyParamCaption}\item[{int}]{mod}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new chain object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mod} & modulus of the chain \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classhash__chain_ae9ddce410015ed8dda6380130d82d6c2}{\_mod}}(mod)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (mod-\/-\/)\ \mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}.push\_back(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classhash__chain_a6b4b4de1a8c96f98a63a77f650a9dcff}\index{hash\_chain@{hash\_chain}!add@{add}}
+\index{add@{add}!hash\_chain@{hash\_chain}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{classhash__chain_a6b4b4de1a8c96f98a63a77f650a9dcff} 
+void hash\+\_\+chain\+::add (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{h}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+create and add a new node with a give value and at a given height 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & value at the new node \\
+\hline
+{\em h} & height of the node \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ curr;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ temp(\textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ temp-\/>data\ =\ x;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ temp-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}])\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}]\ =\ temp;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ \mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}];}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ \mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}];}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (curr-\/>next)\ curr\ =\ curr-\/>next;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>next\ =\ temp;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classhash__chain_a706964ad13587fc9a8b3fe8381d410ed}\index{hash\_chain@{hash\_chain}!display@{display}}
+\index{display@{display}!hash\_chain@{hash\_chain}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classhash__chain_a706964ad13587fc9a8b3fe8381d410ed} 
+void hash\+\_\+chain\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Display the chain. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ temp\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classhash__chain_ae9ddce410015ed8dda6380130d82d6c2}{\_mod}};\ i++)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[i])\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Key\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ is\ empty"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Key\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ has\ values\ =\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ \mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[i];}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (temp-\/>next)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ temp-\/>data\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>next;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ temp-\/>data;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classhash__chain_a55aa5c6753cb8853152d469c375d946a}\index{hash\_chain@{hash\_chain}!find@{find}}
+\index{find@{find}!hash\_chain@{hash\_chain}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily \label{classhash__chain_a55aa5c6753cb8853152d469c375d946a} 
+bool hash\+\_\+chain\+::find (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{h}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find if a value and corresponding hash exist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & value to search for \\
+\hline
+{\em h} & corresponding hash key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if element found 
+
+{\ttfamily false} if element not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ temp\ =\ \mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}];}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classhash__chain_ae8457d13620497fa2046ac566252c4b0}{head}}[\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}])\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ does\ not\ exist!}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Element\ not\ found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ scan\ for\ data\ value}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (temp-\/>data\ !=\ x\ \&\&\ temp-\/>next)\ temp\ =\ temp-\/>next;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp-\/>next)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Element\ found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ implicit\ else\ condition}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ i.e.,\ temp-\/>next\ ==\ nullptr}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp-\/>data\ ==\ x)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Element\ found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ further\ implicit\ else\ condition}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Element\ not\ found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classhash__chain_a846a2f921f8fb7ea572e03901b671d64}\index{hash\_chain@{hash\_chain}!hash@{hash}}
+\index{hash@{hash}!hash\_chain@{hash\_chain}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily \label{classhash__chain_a846a2f921f8fb7ea572e03901b671d64} 
+virtual int hash\+\_\+chain\+::hash (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Compute the hash of a value for current chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & value to compute modulus of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+modulus of {\ttfamily x} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+declared as a \href{https://en.cppreference.com/w/cpp/language/virtual}{\texttt{ {\ttfamily virtual}}} so that custom implementations of the class can modify the hash function. 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \{\ \textcolor{keywordflow}{return}\ x\ \%\ \mbox{\hyperlink{classhash__chain_ae9ddce410015ed8dda6380130d82d6c2}{\_mod}};\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hashing/\mbox{\hyperlink{chaining_8cpp}{chaining.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,250 @@
+\doxysection{math/miller\+\_\+rabin.cpp File Reference}
+\hypertarget{miller__rabin_8cpp}{}\label{miller__rabin_8cpp}\index{math/miller\_rabin.cpp@{math/miller\_rabin.cpp}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{miller__rabin_8cpp_a091662a787d5ad4866713021f580fddb}{reverse\+\_\+binary}} (T num)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{miller__rabin_8cpp_ad6c2c67ea416d0e80003a88623f98b29}{modular\+\_\+exponentiation}} (T base, const std\+::vector$<$ T $>$ \&rev\+\_\+binary\+\_\+exponent, T mod)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{miller__rabin_8cpp_a6f9c31c1047aa3191676d64571d4c506}{miller\+\_\+test}} (T d, T num)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}{miller\+\_\+rabin\+\_\+primality\+\_\+test}} (T num, T repeats)
+\item 
+void \mbox{\hyperlink{miller__rabin_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{miller__rabin_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Copyright 2020 \begin{DoxyAuthor}{Author}
+tjgurwara99
+\end{DoxyAuthor}
+A basic implementation of Miller-\/\+Rabin primality test. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{miller__rabin_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{miller\_rabin.cpp@{miller\_rabin.cpp}!main@{main}}
+\index{main@{main}!miller\_rabin.cpp@{miller\_rabin.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{miller__rabin_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{miller__rabin_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00186\ \}}
+
+\end{DoxyCode}
+\Hypertarget{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}\index{miller\_rabin.cpp@{miller\_rabin.cpp}!miller\_rabin\_primality\_test@{miller\_rabin\_primality\_test}}
+\index{miller\_rabin\_primality\_test@{miller\_rabin\_primality\_test}!miller\_rabin.cpp@{miller\_rabin.cpp}}
+\doxysubsubsection{\texorpdfstring{miller\_rabin\_primality\_test()}{miller\_rabin\_primality\_test()}}
+{\footnotesize\ttfamily \label{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce} 
+template$<$typename T $>$ \\
+bool miller\+\_\+rabin\+\_\+primality\+\_\+test (\begin{DoxyParamCaption}\item[{T}]{num}{, }\item[{T}]{repeats}{}\end{DoxyParamCaption})}
+
+Function that test (probabilistically) whether a given number is a prime based on the Miller-\/\+Rabin Primality Test. 
+\begin{DoxyParams}{Parameters}
+{\em num} & number to be tested for primality. \\
+\hline
+{\em repeats} & number of repetitions for the test to increase probability of correct result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}false\textquotesingle{} if num is composite 
+
+\textquotesingle{}true\textquotesingle{} if num is (probably) prime
+\end{DoxyReturn}
+\textbackslash{}detail First we check whether the num input is less than 4, if so we can determine whether this is a prime or composite by checking for 2 and 3. Next we check whether this num is odd (as all primes greater than 2 are odd). Next we write our num in the following format $num = 2^r \cdot d + 1$. After finding r and d for our input num, we use for loop repeat number of times inside which we check the miller conditions using the function miller\+\_\+test. If miller\+\_\+test returns false then the number is composite After the loop finishes completely without issuing a false return call, we can conclude that this number is probably prime. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\ <=\ 4)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ num\ ==\ 2\ or\ num\ ==\ 3\ then\ prime}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (num\ ==\ 2\ ||\ num\ ==\ 3)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ If\ num\ is\ even\ then\ not\ prime}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\ \%\ 2\ ==\ 0)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ Finding\ d\ and\ r\ in\ num\ =\ 2\string^r\ *\ d\ +\ 1}}
+\DoxyCodeLine{00139\ \ \ \ \ T\ d\ =\ num\ -\/\ 1,\ r\ =\ 0;}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{while}\ (d\ \%\ 2\ ==\ 0)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ d\ =\ d\ /\ 2;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ r++;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{for}\ (T\ i\ =\ 0;\ i\ <\ repeats;\ ++i)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{miller__rabin_8cpp_a6f9c31c1047aa3191676d64571d4c506}{miller\_test}}(d,\ num))\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00151\ \}}
+
+\end{DoxyCode}
+\Hypertarget{miller__rabin_8cpp_a6f9c31c1047aa3191676d64571d4c506}\index{miller\_rabin.cpp@{miller\_rabin.cpp}!miller\_test@{miller\_test}}
+\index{miller\_test@{miller\_test}!miller\_rabin.cpp@{miller\_rabin.cpp}}
+\doxysubsubsection{\texorpdfstring{miller\_test()}{miller\_test()}}
+{\footnotesize\ttfamily \label{miller__rabin_8cpp_a6f9c31c1047aa3191676d64571d4c506} 
+template$<$typename T $>$ \\
+bool miller\+\_\+test (\begin{DoxyParamCaption}\item[{T}]{d}{, }\item[{T}]{num}{}\end{DoxyParamCaption})}
+
+Function for testing the conditions that are satisfied when a number is prime. 
+\begin{DoxyParams}{Parameters}
+{\em d} & number such that $d \cdot 2^r = n - 1$ where $n = num$ parameter and $r \geq 1$ \\
+\hline
+{\em num} & number being tested for primality. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}false\textquotesingle{} if n is composite 
+
+\textquotesingle{}true\textquotesingle{} if n is (probably) prime. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ random\ number\ seed}}
+\DoxyCodeLine{00075\ \ \ \ \ std::random\_device\ rd\_seed;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ random\ number\ generator}}
+\DoxyCodeLine{00077\ \ \ \ \ std::mt19937\ gen(rd\_seed());}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ Uniformly\ distributed\ range\ [2,\ num\ -\/\ 2]\ for\ random\ numbers}}
+\DoxyCodeLine{00079\ \ \ \ \ std::uniform\_int\_distribution<>\ distribution(2,\ num\ -\/\ 2);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ Random\ number\ generated\ in\ the\ range\ [2,\ num\ -\/2].}}
+\DoxyCodeLine{00081\ \ \ \ \ T\ random\ =\ distribution(gen);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ vector\ for\ reverse\ binary\ of\ the\ power}}
+\DoxyCodeLine{00083\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}}\ =\ \mbox{\hyperlink{miller__rabin_8cpp_a091662a787d5ad4866713021f580fddb}{reverse\_binary}}(d);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ x\ =\ random\ \string^\ d\ \%\ num}}
+\DoxyCodeLine{00085\ \ \ \ \ T\ x\ =\ \mbox{\hyperlink{miller__rabin_8cpp_ad6c2c67ea416d0e80003a88623f98b29}{modular\_exponentiation}}(random,\ \mbox{\hyperlink{power__for__huge__numbers_8cpp_ae249a2af508aa94266023ce8aa81426f}{power}},\ num);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ miller\ conditions}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ 1\ ||\ x\ ==\ num\ -\/\ 1)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{while}\ (d\ !=\ num\ -\/\ 1)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ x\ =\ (x\ *\ x)\ \%\ num;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ d\ *=\ 2;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ 1)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ num\ -\/\ 1)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+\Hypertarget{miller__rabin_8cpp_ad6c2c67ea416d0e80003a88623f98b29}\index{miller\_rabin.cpp@{miller\_rabin.cpp}!modular\_exponentiation@{modular\_exponentiation}}
+\index{modular\_exponentiation@{modular\_exponentiation}!miller\_rabin.cpp@{miller\_rabin.cpp}}
+\doxysubsubsection{\texorpdfstring{modular\_exponentiation()}{modular\_exponentiation()}}
+{\footnotesize\ttfamily \label{miller__rabin_8cpp_ad6c2c67ea416d0e80003a88623f98b29} 
+template$<$typename T $>$ \\
+T modular\+\_\+exponentiation (\begin{DoxyParamCaption}\item[{T}]{base}{, }\item[{const std\+::vector$<$ T $>$ \&}]{rev\+\_\+binary\+\_\+exponent}{, }\item[{T}]{mod}{}\end{DoxyParamCaption})}
+
+Function for modular exponentiation. This function is an efficient modular exponentiation function. It can be used with any big integer library such as Boost multiprecision to give result any modular exponentiation problem relatively quickly. 
+\begin{DoxyParams}{Parameters}
+{\em base} & number being raised to a power as integer \\
+\hline
+{\em rev\+\_\+binary\+\_\+exponent} & reverse binary of the power the base is being raised to \\
+\hline
+{\em mod} & modulo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+r the modular exponentiation of $a^{n} \equiv r \mod{m}$ where $n$ is the base 10 representation of rev\+\_\+binary\+\_\+exponent and  $m = mod
+$ parameter. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (mod\ ==\ 1)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00047\ \ \ \ \ T\ b\ =\ 1;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (rev\_binary\_exponent.size()\ ==\ 0)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b;}
+\DoxyCodeLine{00050\ \ \ \ \ T\ A\ =\ base;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (rev\_binary\_exponent[0]\ ==\ 1)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ b\ =\ base;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ it\ =}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ rev\_binary\_exponent.cbegin()\ +\ 1;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ it\ !=\ rev\_binary\_exponent.cend();\ ++it)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ A\ =\ A\ *\ A\ \%\ mod;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ ==\ 1)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ A\ *\ b\ \%\ mod;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ b;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{miller__rabin_8cpp_a091662a787d5ad4866713021f580fddb}\index{miller\_rabin.cpp@{miller\_rabin.cpp}!reverse\_binary@{reverse\_binary}}
+\index{reverse\_binary@{reverse\_binary}!miller\_rabin.cpp@{miller\_rabin.cpp}}
+\doxysubsubsection{\texorpdfstring{reverse\_binary()}{reverse\_binary()}}
+{\footnotesize\ttfamily \label{miller__rabin_8cpp_a091662a787d5ad4866713021f580fddb} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ reverse\+\_\+binary (\begin{DoxyParamCaption}\item[{T}]{num}{}\end{DoxyParamCaption})}
+
+Function to give a binary representation of a number in reverse order 
+\begin{DoxyParams}{Parameters}
+{\em num} & integer number that we want to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result vector of the number input in reverse binary 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00021\ \ \ \ \ T\ temp\ =\ num;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ >\ 0)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.push\_back(temp\ \%\ 2);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ temp\ =\ temp\ /\ 2;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{miller__rabin_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{miller\_rabin.cpp@{miller\_rabin.cpp}!tests@{tests}}
+\index{tests@{tests}!miller\_rabin.cpp@{miller\_rabin.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{miller__rabin_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Functions for testing the \doxylink{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}{miller\+\_\+rabin\+\_\+primality\+\_\+test()} function with some assert statements. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ First\ test\ on\ 2}}
+\DoxyCodeLine{00159\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}2\ is\ prime\ but\ function\ says\ otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}{miller\_rabin\_primality\_test}}(2,\ 1)\ ==\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00161\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ Second\ test\ on\ 5}}
+\DoxyCodeLine{00163\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}5\ should\ be\ prime\ but\ the\ function\ says\ otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}{miller\_rabin\_primality\_test}}(5,\ 3)\ ==\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00165\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Second\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\ Third\ test\ on\ 23}}
+\DoxyCodeLine{00167\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}23\ should\ be\ prime\ but\ the\ function\ says\ otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}{miller\_rabin\_primality\_test}}(23,\ 3)\ ==\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00169\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Third\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{//\ Fourth\ test\ on\ 16}}
+\DoxyCodeLine{00171\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}16\ is\ not\ a\ prime\ but\ the\ function\ says\ otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}{miller\_rabin\_primality\_test}}(16,\ 3)\ ==\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00173\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fourth\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ Fifth\ test\ on\ 27}}
+\DoxyCodeLine{00175\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}27\ is\ not\ a\ prime\ but\ the\ function\ says\ otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce}{miller\_rabin\_primality\_test}}(27,\ 3)\ ==\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00177\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fifth\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00178\ \}}
+
+\end{DoxyCode}

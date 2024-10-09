@@ -1,0 +1,180 @@
+\doxysection{math/finding\+\_\+number\+\_\+of\+\_\+digits\+\_\+in\+\_\+a\+\_\+number.cpp File Reference}
+\hypertarget{finding__number__of__digits__in__a__number_8cpp}{}\label{finding__number__of__digits__in__a__number_8cpp}\index{math/finding\_number\_of\_digits\_in\_a\_number.cpp@{math/finding\_number\_of\_digits\_in\_a\_number.cpp}}
+
+
+\mbox{[}Program to count digits in an integer\mbox{]}(\href{https://www.geeksforgeeks.org/program-count-digits-integer-3-different-methods}{\texttt{ https\+://www.\+geeksforgeeks.\+org/program-\/count-\/digits-\/integer-\/3-\/different-\/methods}})  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\+\_\+number\+\_\+of\+\_\+digits\+\_\+in\+\_\+a\+\_\+number}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\+\_\+number\+\_\+of\+\_\+digits\+\_\+in\+\_\+a\+\_\+number\+\_\+using\+\_\+log}} (double n)
+\begin{DoxyCompactList}\small\item\em This function finds the number of digits in constant time using logarithmic function TC\+: O(1) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ab4c15b7f1aedd4419a65cd49562cc300}{first\+\_\+test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8b222ea7f3e6e3128e67d546b654d3a9}{second\+\_\+test}} ()
+\item 
+int \mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}Program to count digits in an integer\mbox{]}(\href{https://www.geeksforgeeks.org/program-count-digits-integer-3-different-methods}{\texttt{ https\+://www.\+geeksforgeeks.\+org/program-\/count-\/digits-\/integer-\/3-\/different-\/methods}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/amino19}{\texttt{ aminos 🇮🇳}}
+\end{DoxyAuthor}
+It is a very basic math of finding number of digits in a given number i.\+e, we can use it by inputting values whether it can be a positive/negative value, let\textquotesingle{}s say\+: an integer. There is also a second method\+: by using "{}\+K = floor(log10(\+N) + 1)"{}, but it\textquotesingle{}s only applicable for numbers (not integers). The code for that is also included (finding\+\_\+number\+\_\+of\+\_\+digits\+\_\+in\+\_\+a\+\_\+number\+\_\+using\+\_\+log). For more details, refer to the \href{https://github.com/TheAlgorithms/Algorithms-Explanation/blob/master/en/Basic\%20Math/Finding
+the number of digits in a number.md}{\texttt{ Algorithms-\/\+Explanation}} repository. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}\index{finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}!finding\_number\_of\_digits\_in\_a\_number@{finding\_number\_of\_digits\_in\_a\_number}}
+\index{finding\_number\_of\_digits\_in\_a\_number@{finding\_number\_of\_digits\_in\_a\_number}!finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{finding\_number\_of\_digits\_in\_a\_number()}{finding\_number\_of\_digits\_in\_a\_number()}}
+{\footnotesize\ttfamily \label{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1} 
+uint64\+\_\+t finding\+\_\+number\+\_\+of\+\_\+digits\+\_\+in\+\_\+a\+\_\+number (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+for IO operations 
+
+for assert for log calculation
+
+The main function that checks the number of digits in a number. TC \+: O(number of digits) 
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to check its digits \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the digits count 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} the variable used for the digits count
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ uint64\_t\ count\ =\ 0;\ \ \textcolor{comment}{///<\ the\ variable\ used\ for\ the\ digits\ count}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ iterate\ until\ \`{}n`\ becomes\ 0}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ remove\ last\ digit\ from\ \`{}n`\ in\ each\ iteration}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ increase\ \`{}count`\ by\ 1\ in\ each\ iteration}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ !=\ 0)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ can\ also\ use\ \`{}n\ =\ n\ /\ 10`}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ n\ /=\ 10;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ each\ time\ the\ loop\ is\ running,\ \`{}count`\ will\ be\ incremented\ by\ 1.}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ ++count;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}\index{finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}!finding\_number\_of\_digits\_in\_a\_number\_using\_log@{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}
+\index{finding\_number\_of\_digits\_in\_a\_number\_using\_log@{finding\_number\_of\_digits\_in\_a\_number\_using\_log}!finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{finding\_number\_of\_digits\_in\_a\_number\_using\_log()}{finding\_number\_of\_digits\_in\_a\_number\_using\_log()}}
+{\footnotesize\ttfamily \label{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49} 
+double finding\+\_\+number\+\_\+of\+\_\+digits\+\_\+in\+\_\+a\+\_\+number\+\_\+using\+\_\+log (\begin{DoxyParamCaption}\item[{double}]{n}{}\end{DoxyParamCaption})}
+
+
+
+This function finds the number of digits in constant time using logarithmic function TC\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to check its digits \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the digits count 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ log(0)\ is\ undefined}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ to\ handle\ the\ negative\ numbers}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 0)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ n\ =\ -\/n;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{double}\ count\ =\ floor(log10(n)\ +\ 1);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{finding__number__of__digits__in__a__number_8cpp_ab4c15b7f1aedd4419a65cd49562cc300}\index{finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}!first\_test@{first\_test}}
+\index{first\_test@{first\_test}!finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{first\_test()}{first\_test()}}
+{\footnotesize\ttfamily \label{finding__number__of__digits__in__a__number_8cpp_ab4c15b7f1aedd4419a65cd49562cc300} 
+static void first\+\_\+test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\_number\_of\_digits\_in\_a\_number}}(5492)\ ==\ 4);}
+\DoxyCodeLine{00075\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\_number\_of\_digits\_in\_a\_number}}(-\/0)\ ==\ 0);}
+\DoxyCodeLine{00076\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\_number\_of\_digits\_in\_a\_number}}(10000)\ ==\ 5);}
+\DoxyCodeLine{00077\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\_number\_of\_digits\_in\_a\_number}}(9)\ ==\ 1);}
+\DoxyCodeLine{00078\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\_number\_of\_digits\_in\_a\_number}}(100000)\ ==\ 6);}
+\DoxyCodeLine{00079\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\_number\_of\_digits\_in\_a\_number}}(13)\ ==\ 2);}
+\DoxyCodeLine{00080\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_a8a3b522a675ab4cdec2d275f6f7798a1}{finding\_number\_of\_digits\_in\_a\_number}}(564)\ ==\ 3);}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{finding__number__of__digits__in__a__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}!main@{main}}
+\index{main@{main}!finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{finding__number__of__digits__in__a__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ab4c15b7f1aedd4419a65cd49562cc300}{first\_test}}();}
+\DoxyCodeLine{00099\ \ \ \ \ second\_test();}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+\Hypertarget{finding__number__of__digits__in__a__number_8cpp_a8b222ea7f3e6e3128e67d546b654d3a9}\index{finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}!second\_test@{second\_test}}
+\index{second\_test@{second\_test}!finding\_number\_of\_digits\_in\_a\_number.cpp@{finding\_number\_of\_digits\_in\_a\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{second\_test()}{second\_test()}}
+{\footnotesize\ttfamily \label{finding__number__of__digits__in__a__number_8cpp_a8b222ea7f3e6e3128e67d546b654d3a9} 
+static void second\+\_\+test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}(5492)\ ==\ 4);}
+\DoxyCodeLine{00085\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}(-\/0)\ ==\ 0);}
+\DoxyCodeLine{00086\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}(10000)\ ==\ 5);}
+\DoxyCodeLine{00087\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}(9)\ ==\ 1);}
+\DoxyCodeLine{00088\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}(100000)\ ==\ 6);}
+\DoxyCodeLine{00089\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}(13)\ ==\ 2);}
+\DoxyCodeLine{00090\ \ \ \ \ assert(\mbox{\hyperlink{finding__number__of__digits__in__a__number_8cpp_ac0862b67cf73651707ece04673e1ae49}{finding\_number\_of\_digits\_in\_a\_number\_using\_log}}(564)\ ==\ 3);}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}

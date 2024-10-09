@@ -1,0 +1,208 @@
+\doxysection{backtracking/graph\+\_\+coloring.cpp File Reference}
+\hypertarget{graph__coloring_8cpp}{}\label{graph__coloring_8cpp}\index{backtracking/graph\_coloring.cpp@{backtracking/graph\_coloring.cpp}}
+
+
+prints the assigned colors using \href{https://en.wikipedia.org/wiki/Graph_coloring}{\texttt{ Graph Coloring}} algorithm  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacegraph__coloring}{graph\+\_\+coloring}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Graph_coloring}{\texttt{ Graph Coloring}} algorithm,. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\void \mbox{\hyperlink{graph__coloring_8cpp_a8c47fa37fb6eeeb781b2ec1b05af6b07}{backtracking\+::graph\+\_\+coloring\+::print\+Solution}} (const std\+::array$<$ int, V $>$ \&color)
+\begin{DoxyCompactList}\small\item\em A utility function to print the solution. \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\bool \mbox{\hyperlink{graph__coloring_8cpp_a976efe049deb042bf1f02612e181ab1d}{backtracking\+::graph\+\_\+coloring\+::is\+Safe}} (int v, const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&graph, const std\+::array$<$ int, V $>$ \&color, int c)
+\begin{DoxyCompactList}\small\item\em Utility function to check if the current color assignment is safe for vertex v. \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t V$>$ }\\void \mbox{\hyperlink{graph__coloring_8cpp_a40337efc5dad761096489bf2c5b1c80c}{backtracking\+::graph\+\_\+coloring\+::graph\+Coloring}} (const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&graph, int m, std\+::array$<$ int, V $>$ color, int v)
+\begin{DoxyCompactList}\small\item\em Recursive utility function to solve m coloring problem. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph__coloring_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+prints the assigned colors using \href{https://en.wikipedia.org/wiki/Graph_coloring}{\texttt{ Graph Coloring}} algorithm 
+
+In graph theory, graph coloring is a special case of graph labeling; it is an assignment of labels traditionally called "{}colors"{} to elements of a graph subject to certain constraints. In its simplest form, it is a way of coloring the vertices of a graph such that no two adjacent vertices are of the same color; this is called a vertex coloring. Similarly, an edge coloring assigns a color to each edge so that no two adjacent edges are of the same color, and a face coloring of a planar graph assigns a color to each face or region so that no two faces that share a boundary have the same color.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/AnupKumarPanwar}{\texttt{ Anup Kumar Panwar}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graph__coloring_8cpp_a40337efc5dad761096489bf2c5b1c80c}\index{graph\_coloring.cpp@{graph\_coloring.cpp}!graphColoring@{graphColoring}}
+\index{graphColoring@{graphColoring}!graph\_coloring.cpp@{graph\_coloring.cpp}}
+\doxysubsubsection{\texorpdfstring{graphColoring()}{graphColoring()}}
+{\footnotesize\ttfamily \label{graph__coloring_8cpp_a40337efc5dad761096489bf2c5b1c80c} 
+template$<$size\+\_\+t V$>$ \\
+void backtracking\+::graph\+\_\+coloring\+::graph\+Coloring (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{graph}{, }\item[{int}]{m}{, }\item[{std\+::array$<$ int, V $>$}]{color}{, }\item[{int}]{v}{}\end{DoxyParamCaption})}
+
+
+
+Recursive utility function to solve m coloring problem. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in the graph \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em graph} & matrix of graph nonnectivity \\
+\hline
+ & {\em m} & number of colors \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em color} & description // used in,out to notify in documentation that this parameter gets modified by the function \\
+\hline
+ & {\em v} & index of graph vertex to check \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ base\ case:}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ If\ all\ vertices\ are\ assigned\ a\ color\ then\ return\ true}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ ==\ V)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ printSolution<V>(color);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ Consider\ this\ vertex\ v\ and\ try\ different\ colors}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 1;\ c\ <=\ m;\ c++)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ assignment\ of\ color\ c\ to\ v\ is\ fine}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isSafe<V>(v,\ \mbox{\hyperlink{namespacegraph}{graph}},\ color,\ c))\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ color[v]\ =\ c;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recur\ to\ assign\ colors\ to\ rest\ of\ the\ vertices}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ graphColoring<V>(\mbox{\hyperlink{namespacegraph}{graph}},\ m,\ color,\ v\ +\ 1);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ assigning\ color\ c\ doesn't\ lead\ to\ a\ solution\ then\ remove\ it}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ color[v]\ =\ 0;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}
+\Hypertarget{graph__coloring_8cpp_a976efe049deb042bf1f02612e181ab1d}\index{graph\_coloring.cpp@{graph\_coloring.cpp}!isSafe@{isSafe}}
+\index{isSafe@{isSafe}!graph\_coloring.cpp@{graph\_coloring.cpp}}
+\doxysubsubsection{\texorpdfstring{isSafe()}{isSafe()}}
+{\footnotesize\ttfamily \label{graph__coloring_8cpp_a976efe049deb042bf1f02612e181ab1d} 
+template$<$size\+\_\+t V$>$ \\
+bool backtracking\+::graph\+\_\+coloring\+::is\+Safe (\begin{DoxyParamCaption}\item[{int}]{v}{, }\item[{const std\+::array$<$ std\+::array$<$ int, V $>$, V $>$ \&}]{graph}{, }\item[{const std\+::array$<$ int, V $>$ \&}]{color}{, }\item[{int}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Utility function to check if the current color assignment is safe for vertex v. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in the graph \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & index of graph vertex to check \\
+\hline
+{\em graph} & matrix of graph nonnectivity \\
+\hline
+{\em color} & vector of colors assigned to the graph nodes/vertices \\
+\hline
+{\em c} & color value to check for the node {\ttfamily v} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the color is safe to be assigned to the node 
+
+{\ttfamily false} if the color is not safe to be assigned to the node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ V;\ i++)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacegraph}{graph}}[v][i]\ \&\&\ c\ ==\ color[i])\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+\Hypertarget{graph__coloring_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{graph\_coloring.cpp@{graph\_coloring.cpp}!main@{main}}
+\index{main@{main}!graph\_coloring.cpp@{graph\_coloring.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{graph__coloring_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ Create\ following\ graph\ and\ test\ whether\ it\ is\ 3\ colorable}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ (3)-\/-\/-\/(2)}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ |\ \ \ /\ |}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ |\ \ /\ \ |}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ |\ /\ \ \ |}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ (0)-\/-\/-\/(1)}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ V\ =\ 4;\ \ \textcolor{comment}{//\ number\ of\ vertices\ in\ the\ graph}}
+\DoxyCodeLine{00121\ \ \ \ \ std::array<std::array<int,\ V>,\ V>\ \mbox{\hyperlink{namespacegraph}{graph}}\ =\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ std::array<int,\ V>(\{0,\ 1,\ 1,\ 1\}),\ std::array<int,\ V>(\{1,\ 0,\ 1,\ 0\}),}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ std::array<int,\ V>(\{1,\ 1,\ 0,\ 1\}),\ std::array<int,\ V>(\{1,\ 0,\ 1,\ 0\})\};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ 3;\ \ \textcolor{comment}{//\ Number\ of\ colors}}
+\DoxyCodeLine{00126\ \ \ \ \ std::array<int,\ V>\ color\{\};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ backtracking::graph\_coloring::graphColoring<V>(\mbox{\hyperlink{namespacegraph}{graph}},\ m,\ color,\ 0);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00130\ \}}
+
+\end{DoxyCode}
+\Hypertarget{graph__coloring_8cpp_a8c47fa37fb6eeeb781b2ec1b05af6b07}\index{graph\_coloring.cpp@{graph\_coloring.cpp}!printSolution@{printSolution}}
+\index{printSolution@{printSolution}!graph\_coloring.cpp@{graph\_coloring.cpp}}
+\doxysubsubsection{\texorpdfstring{printSolution()}{printSolution()}}
+{\footnotesize\ttfamily \label{graph__coloring_8cpp_a8c47fa37fb6eeeb781b2ec1b05af6b07} 
+template$<$size\+\_\+t V$>$ \\
+void backtracking\+::graph\+\_\+coloring\+::print\+Solution (\begin{DoxyParamCaption}\item[{const std\+::array$<$ int, V $>$ \&}]{color}{}\end{DoxyParamCaption})}
+
+
+
+A utility function to print the solution. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & number of vertices in the graph \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em color} & array of colors assigned to the nodes \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Following\ are\ the\ assigned\ colors\(\backslash\)n"{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ col\ :\ color)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::cout\ <<\ col;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,101 @@
+\doxysection{graph/travelling\+\_\+salesman\+\_\+problem.cpp File Reference}
+\hypertarget{travelling__salesman__problem_8cpp}{}\label{travelling__salesman__problem_8cpp}\index{graph/travelling\_salesman\_problem.cpp@{graph/travelling\_salesman\_problem.cpp}}
+
+
+\mbox{[}Travelling Salesman Problem\mbox{]} (\href{https://en.wikipedia.org/wiki/Travelling_salesman_problem}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Travelling\+\_\+salesman\+\_\+problem}}) implementation  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacegraph_ab7706341d006e20d1ae58274187a3346}{graph\+::\+Travelling\+Salesman\+Problem}} (std\+::vector$<$ std\+::vector$<$ uint32\+\_\+t $>$ $>$ \texorpdfstring{$\ast$}{*}cities, int32\+\_\+t src, uint32\+\_\+t V)
+\begin{DoxyCompactList}\small\item\em Function calculates the minimum path distance that will cover all the cities starting from the source. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{travelling__salesman__problem_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{travelling__salesman__problem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}Travelling Salesman Problem\mbox{]} (\href{https://en.wikipedia.org/wiki/Travelling_salesman_problem}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Travelling\+\_\+salesman\+\_\+problem}}) implementation 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/Mayank17M}{\texttt{ Mayank Mamgain}}
+\end{DoxyAuthor}
+Travelling salesman problem asks\+: Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city? TSP can be modeled as an undirected weighted graph, such that cities are the graph\textquotesingle{}s vertices, paths are the graph\textquotesingle{}s edges, and a path\textquotesingle{}s distance is the edge\textquotesingle{}s weight. It is a minimization problem starting and finishing at a specified vertex after having visited each other vertex exactly once. This is the naive implementation of the problem. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{travelling__salesman__problem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{travelling\_salesman\_problem.cpp@{travelling\_salesman\_problem.cpp}!main@{main}}
+\index{main@{main}!travelling\_salesman\_problem.cpp@{travelling\_salesman\_problem.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{travelling__salesman__problem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{travelling__salesman__problem_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00106\ \ \ \ \ std::vector<std::vector<uint32\_t>>\ cities\ =\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \{0,\ 5,\ 10,\ 15\},\ \{5,\ 0,\ 20,\ 30\},\ \{10,\ 20,\ 0,\ 35\},\ \{15,\ 30,\ 35,\ 0\}\};}
+\DoxyCodeLine{00108\ \ \ \ \ uint32\_t\ V\ =\ cities.size();}
+\DoxyCodeLine{00109\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespacegraph_ab7706341d006e20d1ae58274187a3346}{graph::TravellingSalesmanProblem}}(\&cities,\ 0,\ V)\ <<\ std::endl;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00111\ \}}
+
+\end{DoxyCode}
+\Hypertarget{travelling__salesman__problem_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{travelling\_salesman\_problem.cpp@{travelling\_salesman\_problem.cpp}!tests@{tests}}
+\index{tests@{tests}!travelling\_salesman\_problem.cpp@{travelling\_salesman\_problem.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{travelling__salesman__problem_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiatinig\ Predefined\ Tests..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 1..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00080\ \ \ \ \ std::vector<std::vector<uint32\_t>>\ cities\ =\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{0,\ 20,\ 42,\ 35\},\ \{20,\ 0,\ 30,\ 34\},\ \{42,\ 30,\ 0,\ 12\},\ \{35,\ 34,\ 12,\ 0\}\};}
+\DoxyCodeLine{00082\ \ \ \ \ uint32\_t\ V\ =\ cities.size();}
+\DoxyCodeLine{00083\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_ab7706341d006e20d1ae58274187a3346}{graph::TravellingSalesmanProblem}}(\&cities,\ 0,\ V)\ ==\ 97);}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test\ passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 2..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00087\ \ \ \ \ cities\ =\ \{\{0,\ 5,\ 10,\ 15\},\ \{5,\ 0,\ 20,\ 30\},\ \{10,\ 20,\ 0,\ 35\},\ \{15,\ 30,\ 35,\ 0\}\};}
+\DoxyCodeLine{00088\ \ \ \ \ V\ =\ cities.size();}
+\DoxyCodeLine{00089\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_ab7706341d006e20d1ae58274187a3346}{graph::TravellingSalesmanProblem}}(\&cities,\ 0,\ V)\ ==\ 75);}
+\DoxyCodeLine{00090\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test\ passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 3..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00093\ \ \ \ \ cities\ =\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{0,\ 10,\ 15,\ 20\},\ \{10,\ 0,\ 35,\ 25\},\ \{15,\ 35,\ 0,\ 30\},\ \{20,\ 25,\ 30,\ 0\}\};}
+\DoxyCodeLine{00095\ \ \ \ \ V\ =\ cities.size();}
+\DoxyCodeLine{00096\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_ab7706341d006e20d1ae58274187a3346}{graph::TravellingSalesmanProblem}}(\&cities,\ 0,\ V)\ ==\ 80);}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test\ passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}

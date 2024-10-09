@@ -1,0 +1,331 @@
+\doxysection{dynamic\+\_\+programming Namespace Reference}
+\hypertarget{namespacedynamic__programming}{}\label{namespacedynamic__programming}\index{dynamic\_programming@{dynamic\_programming}}
+
+
+Dynamic Programming algorithms.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespacedynamic__programming_af046365a8d77a1267acc082f86135a26}{is\+\_\+armstrong}} (const T \&number)
+\begin{DoxyCompactList}\small\item\em Checks if the given number is armstrong or not. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{namespacedynamic__programming_a0a2215194e58786c34db1ccaf8031079}{LIS}} (const std\+::vector$<$ uint64\+\_\+t $>$ \&a, const uint32\+\_\+t \&n)
+\begin{DoxyCompactList}\small\item\em Calculate the longest increasing subsequence for the specified numbers. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacedynamic__programming_afe9f45b6e30ee187509da2d1d0093412}{lps}} (const std\+::string \&a)
+\begin{DoxyCompactList}\small\item\em Function that returns the longest palindromic subsequence of a string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacedynamic__programming_a5239174fa0d987f2c67edc1f2af82beb}{max\+Circular\+Sum}} (std\+::vector$<$ int $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em returns the maximum contiguous circular sum of an array \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{namespacedynamic__programming_a066e0e739e7c276eee6e61d5b4d37ce8}{trapped\+Rainwater}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&heights)
+\begin{DoxyCompactList}\small\item\em Function to calculate the trapped rainwater. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Dynamic Programming algorithms. 
+
+Dynamic programming algorithms.
+
+for std\+::vector
+
+Dynamic Programming algorithm.
+
+for IO operations
+
+Dynamic Programming Algorithms.
+
+for {\ttfamily assert} for IO operations for {\ttfamily std\+::string} library for {\ttfamily std\+::vector} STL library
+
+for assert for std\+::pow
+
+Dynamic Programming algorithms
+
+for assert for std\+::max for io operations
+
+Dynamic Programming algorithms
+
+for assert for std\+::max for IO operations
+
+Dynamic Programming algorithms
+
+for assert for std\+::string for std\+::vector
+
+for assert for IO operations
+
+Dynamic Programming algorithms
+
+for assert for IO operations for std\+::vector
+
+for std\+::assert for IO operations for unordered map
+
+Dynamic Programming algorithms
+
+For std\+::min and std\+::max For assert For std\+::size\+\_\+t For integral typedefs For std\+::vector 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacedynamic__programming_af046365a8d77a1267acc082f86135a26}\index{dynamic\_programming@{dynamic\_programming}!is\_armstrong@{is\_armstrong}}
+\index{is\_armstrong@{is\_armstrong}!dynamic\_programming@{dynamic\_programming}}
+\doxysubsubsection{\texorpdfstring{is\_armstrong()}{is\_armstrong()}}
+{\footnotesize\ttfamily \label{namespacedynamic__programming_af046365a8d77a1267acc082f86135a26} 
+template$<$typename T $>$ \\
+bool dynamic\+\_\+programming\+::is\+\_\+armstrong (\begin{DoxyParamCaption}\item[{const T \&}]{number}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the given number is armstrong or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & the number to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if the given number is NOT armstrong 
+
+true if the given number IS armstrong 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0,\ temp\ =\ number,\ result\ =\ 0,\ rem\ =\ 0;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Count\ the\ number\ of\ digits\ of\ the\ given\ number.}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ For\ example:\ 153\ would\ be\ 3\ digits.}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ 0)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ temp\ /=\ 10;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ Calculation\ for\ checking\ of\ armstrongs\ number\ i.e.}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ in\ an\ n-\/digit\ number\ sum\ of\ the\ digits\ is\ raised\ to\ a\ power\ of\ \`{}n`\ is}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ equal\ to\ the\ original\ number.}}
+\DoxyCodeLine{00052\ \ \ \ \ temp\ =\ number;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ 0)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ rem\ =\ temp\ \%\ 10;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ result\ +=\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(std::pow(rem,\ count));}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ temp\ /=\ 10;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ number)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00061\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedynamic__programming_a0a2215194e58786c34db1ccaf8031079}\index{dynamic\_programming@{dynamic\_programming}!LIS@{LIS}}
+\index{LIS@{LIS}!dynamic\_programming@{dynamic\_programming}}
+\doxysubsubsection{\texorpdfstring{LIS()}{LIS()}}
+{\footnotesize\ttfamily \label{namespacedynamic__programming_a0a2215194e58786c34db1ccaf8031079} 
+uint64\+\_\+t dynamic\+\_\+programming\+::\+LIS (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint64\+\_\+t $>$ \&}]{a}{, }\item[{const uint32\+\_\+t \&}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Calculate the longest increasing subsequence for the specified numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the array used to calculate the longest increasing subsequence \\
+\hline
+{\em n} & the size used for the arrays \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the length of the longest increasing subsequence in the {\ttfamily a} array of size {\ttfamily n} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<int>\ lis(n);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ lis[i]\ =\ 1;}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ i;\ ++j)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a[i]\ >\ a[j]\ \&\&\ lis[i]\ <\ lis[j]\ +\ 1)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lis[i]\ =\ lis[j]\ +\ 1;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ res\ =\ std::max(res,\ lis[i]);}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedynamic__programming_afe9f45b6e30ee187509da2d1d0093412}\index{dynamic\_programming@{dynamic\_programming}!lps@{lps}}
+\index{lps@{lps}!dynamic\_programming@{dynamic\_programming}}
+\doxysubsubsection{\texorpdfstring{lps()}{lps()}}
+{\footnotesize\ttfamily \label{namespacedynamic__programming_afe9f45b6e30ee187509da2d1d0093412} 
+std\+::string dynamic\+\_\+programming\+::lps (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Function that returns the longest palindromic subsequence of a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & string whose longest palindromic subsequence is to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+longest palindromic subsequence of the string 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ b\ =\ std::string(a.rbegin(),\ a.rend());}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ m\ =\ a.length();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{using\ }ind\_type\ =\ std::string::size\_type;}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<std::vector<ind\_type>\ >\ res(m\ +\ 1,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ind\_type>(m\ +\ 1));}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Finding\ the\ length\ of\ the\ longest}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ palindromic\ subsequence\ and\ storing}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ in\ a\ 2D\ array\ in\ bottoms-\/up\ manner}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (ind\_type\ i\ =\ 0;\ i\ <=\ m;\ i++)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ind\_type\ j\ =\ 0;\ j\ <=\ m;\ j++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0\ ||\ j\ ==\ 0)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i][j]\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (a[i\ -\/\ 1]\ ==\ b[j\ -\/\ 1])\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i][j]\ =\ res[i\ -\/\ 1][j\ -\/\ 1]\ +\ 1;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i][j]\ =\ std::max(res[i\ -\/\ 1][j],\ res[i][j\ -\/\ 1]);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Length\ of\ longest\ palindromic\ subsequence}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ res[m][m];}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Creating\ string\ of\ index+1\ length}}
+\DoxyCodeLine{00055\ \ \ \ \ std::string\ ans(idx,\ \textcolor{charliteral}{'\(\backslash\)0'});}
+\DoxyCodeLine{00056\ \ \ \ \ ind\_type\ i\ =\ m,\ j\ =\ m;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ starting\ from\ right-\/most\ bottom-\/most\ corner}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ them\ one\ by\ one\ in\ ans}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ >\ 0\ \&\&\ j\ >\ 0)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ current\ characters\ in\ a\ and\ b\ are\ same}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ then\ it\ is\ a\ part\ of\ the\ ans}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a[i\ -\/\ 1]\ ==\ b[j\ -\/\ 1])\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ ans[idx\ -\/\ 1]\ =\ a[i\ -\/\ 1];}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ idx-\/-\/;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ they\ are\ not\ same,\ find\ the\ larger\ of\ the}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ two\ and\ move\ in\ that\ direction}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (res[i\ -\/\ 1][j]\ >\ res[i][j\ -\/\ 1])\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedynamic__programming_a5239174fa0d987f2c67edc1f2af82beb}\index{dynamic\_programming@{dynamic\_programming}!maxCircularSum@{maxCircularSum}}
+\index{maxCircularSum@{maxCircularSum}!dynamic\_programming@{dynamic\_programming}}
+\doxysubsubsection{\texorpdfstring{maxCircularSum()}{maxCircularSum()}}
+{\footnotesize\ttfamily \label{namespacedynamic__programming_a5239174fa0d987f2c67edc1f2af82beb} 
+int dynamic\+\_\+programming\+::max\+Circular\+Sum (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{arr}{}\end{DoxyParamCaption})}
+
+
+
+returns the maximum contiguous circular sum of an array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & is the array/vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int which is the maximum sum 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Edge\ Case}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (arr.size()\ ==\ 1)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ arr[0];}
+\DoxyCodeLine{00031\ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Sum\ variable\ which\ stores\ total\ sum\ of\ the\ array.}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ sum\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ arr.size();\ i++)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ sum\ +=\ arr[i];}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Every\ variable\ stores\ first\ value\ of\ the\ array.}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_max\ =\ arr[0],\ max\_so\_far\ =\ arr[0],\ current\_min\ =\ arr[0],\ min\_so\_far\ =\ arr[0];}
+\DoxyCodeLine{00040\ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Concept\ of\ Kadane's\ Algorithm}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ arr.size();\ i++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Kadane's\ Algorithm\ to\ find\ Maximum\ subarray\ sum.}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ current\_max\ =\ std::max(current\_max\ +\ arr[i],\ arr[i]);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ max\_so\_far\ =\ std::max(max\_so\_far,\ current\_max);}
+\DoxyCodeLine{00046\ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Kadane's\ Algorithm\ to\ find\ Minimum\ subarray\ sum.}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ current\_min\ =\ std::min(current\_min\ +\ arr[i],\ arr[i]);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ min\_so\_far\ =\ std::min(min\_so\_far,\ current\_min);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (min\_so\_far\ ==\ sum)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_so\_far;}
+\DoxyCodeLine{00054\ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Return\ the\ maximum\ value}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ std::max(max\_so\_far,\ sum\ -\/\ min\_so\_far);}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacedynamic__programming_a066e0e739e7c276eee6e61d5b4d37ce8}\index{dynamic\_programming@{dynamic\_programming}!trappedRainwater@{trappedRainwater}}
+\index{trappedRainwater@{trappedRainwater}!dynamic\_programming@{dynamic\_programming}}
+\doxysubsubsection{\texorpdfstring{trappedRainwater()}{trappedRainwater()}}
+{\footnotesize\ttfamily \label{namespacedynamic__programming_a066e0e739e7c276eee6e61d5b4d37ce8} 
+uint32\+\_\+t dynamic\+\_\+programming\+::trapped\+Rainwater (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{heights}{}\end{DoxyParamCaption})}
+
+
+
+Function to calculate the trapped rainwater. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heights} & Array representing the heights of walls \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of trapped rainwater 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ std::size\_t\ n\ =\ heights.size();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <=\ 2)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \ \textcolor{comment}{//\ No\ water\ can\ be\ trapped\ with\ less\ than\ 3\ walls}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<uint32\_t>\ leftMax(n),\ rightMax(n);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ maximum\ height\ of\ wall\ to\ the\ left\ of\ each\ wall}}
+\DoxyCodeLine{00035\ \ \ \ \ leftMax[0]\ =\ heights[0];}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ leftMax[i]\ =\ std::max(leftMax[i\ -\/\ 1],\ heights[i]);}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ maximum\ height\ of\ wall\ to\ the\ right\ of\ each\ wall}}
+\DoxyCodeLine{00041\ \ \ \ \ rightMax[n\ -\/\ 1]\ =\ heights[n\ -\/\ 1];}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ n\ -\/\ 2;\ i\ <\ n;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ rightMax[i]\ =\ std::max(rightMax[i\ +\ 1],\ heights[i]);}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ trapped\ rainwater\ between\ walls}}
+\DoxyCodeLine{00047\ \ \ \ \ uint32\_t\ trappedWater\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ trappedWater\ +=}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ std::max(0u,\ std::min(leftMax[i],\ rightMax[i])\ -\/\ heights[i]);}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ trappedWater;}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,287 @@
+\doxysection{string\+\_\+search Namespace Reference}
+\hypertarget{namespacestring__search}{}\label{namespacestring__search}\index{string\_search@{string\_search}}
+
+
+String search algorithms.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacestring__search_aeb2cd81064717aedd62bfb096b1a73d8}{brute\+\_\+force}} (const std\+::string \&text, const std\+::string \&pattern)
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{namespacestring__search_a83c72ff237cdf623e42d4295e0029bf9}{get\+Failure\+Array}} (const std\+::string \&pattern)
+\begin{DoxyCompactList}\small\item\em Generate the partial match table aka failure function for a pattern to search. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{namespacestring__search_a1e37af2f023495129cb57338c801209e}{kmp}} (const std\+::string \&pattern, const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em KMP algorithm to find a pattern in a text. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{namespacestring__search_a8fb0bc932ba8b582c9f4c71338d050f8}{create\+\_\+hash}} (const std\+::string \&s, int n)
+\item 
+int64\+\_\+t \mbox{\hyperlink{namespacestring__search_aed769d565b705a9b3e0eb1ec74088893}{recalculate\+\_\+hash}} (const std\+::string \&s, int old\+\_\+index, int new\+\_\+index, int64\+\_\+t old\+\_\+hash, int pat\+Length)
+\item 
+bool \mbox{\hyperlink{namespacestring__search_aebe07cea289a13142503d98be7df11fd}{check\+\_\+if\+\_\+equal}} (const std\+::string \&str1, const std\+::string \&str2, int start1, int end1, int start2, int end2)
+\item 
+int \mbox{\hyperlink{namespacestring__search_a21c673d56cbf67b1d2ee4d869185b7d9}{rabin\+\_\+karp}} (const std\+::string \&str, const std\+::string \&pat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+String search algorithms. 
+
+for assert for IO operations for std\+::string for std\+::vector 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacestring__search_aeb2cd81064717aedd62bfb096b1a73d8}\index{string\_search@{string\_search}!brute\_force@{brute\_force}}
+\index{brute\_force@{brute\_force}!string\_search@{string\_search}}
+\doxysubsubsection{\texorpdfstring{brute\_force()}{brute\_force()}}
+{\footnotesize\ttfamily \label{namespacestring__search_aeb2cd81064717aedd62bfb096b1a73d8} 
+int string\+\_\+search\+::brute\+\_\+force (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const std\+::string \&}]{pattern}{}\end{DoxyParamCaption})}
+
+Find a pattern in a string by comparing the pattern to every substring. 
+\begin{DoxyParams}{Parameters}
+{\em text} & Any string that might contain the pattern. \\
+\hline
+{\em pattern} & String that we are searching for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index where the pattern starts in the text 
+
+-\/1 if the pattern was not found. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pat\_l\ =\ pattern.length();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ txt\_l\ =\ text.length();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ -\/1;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (pat\_l\ <=\ txt\_l)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ txt\_l\ -\/\ pat\_l\ +\ 1;\ i++)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ s\ =\ text.substr(i,\ pat\_l);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s\ ==\ pattern)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacestring__search_aebe07cea289a13142503d98be7df11fd}\index{string\_search@{string\_search}!check\_if\_equal@{check\_if\_equal}}
+\index{check\_if\_equal@{check\_if\_equal}!string\_search@{string\_search}}
+\doxysubsubsection{\texorpdfstring{check\_if\_equal()}{check\_if\_equal()}}
+{\footnotesize\ttfamily \label{namespacestring__search_aebe07cea289a13142503d98be7df11fd} 
+bool string\+\_\+search\+::check\+\_\+if\+\_\+equal (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str1}{, }\item[{const std\+::string \&}]{str2}{, }\item[{int}]{start1}{, }\item[{int}]{end1}{, }\item[{int}]{start2}{, }\item[{int}]{end2}{}\end{DoxyParamCaption})}
+
+compare if two sub-\/strings are equal 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em str1} & string pattern to search \\
+\hline
+\mbox{\texttt{ in}}  & {\em str2} & text in which to search \\
+\hline
+\mbox{\texttt{ in}}  & {\em start1,end1} & start and end indices for substring in str1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em start2,end2} & start and end indices for substring in str2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if pattern was found 
+
+{\ttfamily false} if pattern was not found 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+can this be replaced by std\+::string\+::compare? 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (end1\ -\/\ start1\ !=\ end2\ -\/\ start2)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{while}\ (start1\ <=\ end1\ \&\&\ start2\ <=\ end2)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str1[start1]\ !=\ str2[start2])\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ start1++;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ start2++;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacestring__search_a8fb0bc932ba8b582c9f4c71338d050f8}\index{string\_search@{string\_search}!create\_hash@{create\_hash}}
+\index{create\_hash@{create\_hash}!string\_search@{string\_search}}
+\doxysubsubsection{\texorpdfstring{create\_hash()}{create\_hash()}}
+{\footnotesize\ttfamily \label{namespacestring__search_a8fb0bc932ba8b582c9f4c71338d050f8} 
+int64\+\_\+t string\+\_\+search\+::create\+\_\+hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+convert a string to an intger -\/ called as hashing function 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & source of string to hash \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & length of substring to hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hash integer 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ int64\_t\ result\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ result\ +=\ (int64\_t)(s[i]\ *\ (int64\_t)pow(\mbox{\hyperlink{rabin__karp_8cpp_ac4add2a227a10511e0128d63952030e8}{PRIME}},\ i));}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacestring__search_a83c72ff237cdf623e42d4295e0029bf9}\index{string\_search@{string\_search}!getFailureArray@{getFailureArray}}
+\index{getFailureArray@{getFailureArray}!string\_search@{string\_search}}
+\doxysubsubsection{\texorpdfstring{getFailureArray()}{getFailureArray()}}
+{\footnotesize\ttfamily \label{namespacestring__search_a83c72ff237cdf623e42d4295e0029bf9} 
+std\+::vector$<$ size\+\_\+t $>$ string\+\_\+search\+::get\+Failure\+Array (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{pattern}{}\end{DoxyParamCaption})}
+
+
+
+Generate the partial match table aka failure function for a pattern to search. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & text for which to create the partial match table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the partial match table as a vector array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pattern\_length\ =\ pattern.size();}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<size\_t>\ failure(pattern\_length\ +\ 1);}
+\DoxyCodeLine{00035\ \ \ \ \ failure[0]\ =\ std::string::npos;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ j\ =\ std::string::npos;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ pattern\_length;\ i++)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (j\ !=\ std::string::npos\ \&\&\ pattern[j]\ !=\ pattern[i])\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ j\ =\ failure[j];}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ failure[i\ +\ 1]\ =\ ++j;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ failure;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacestring__search_a1e37af2f023495129cb57338c801209e}\index{string\_search@{string\_search}!kmp@{kmp}}
+\index{kmp@{kmp}!string\_search@{string\_search}}
+\doxysubsubsection{\texorpdfstring{kmp()}{kmp()}}
+{\footnotesize\ttfamily \label{namespacestring__search_a1e37af2f023495129cb57338c801209e} 
+size\+\_\+t string\+\_\+search\+::kmp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{pattern}{, }\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+
+
+KMP algorithm to find a pattern in a text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & string pattern to search \\
+\hline
+{\em text} & text in which to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the starting index of the pattern if found 
+
+{\ttfamily std\+::string\+::npos} if not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (pattern.empty())\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ std::vector<size\_t>\ failure\ =\ getFailureArray(pattern);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ text\_length\ =\ text.size();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pattern\_length\ =\ pattern.size();}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ k\ =\ 0;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ text\_length;\ j++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (k\ !=\ std::string::npos\ \&\&\ pattern[k]\ !=\ text[j])\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ k\ =\ failure[k];}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (++k\ ==\ pattern\_length)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ j\ -\/\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ +\ 1;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string::npos;}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacestring__search_a21c673d56cbf67b1d2ee4d869185b7d9}\index{string\_search@{string\_search}!rabin\_karp@{rabin\_karp}}
+\index{rabin\_karp@{rabin\_karp}!string\_search@{string\_search}}
+\doxysubsubsection{\texorpdfstring{rabin\_karp()}{rabin\_karp()}}
+{\footnotesize\ttfamily \label{namespacestring__search_a21c673d56cbf67b1d2ee4d869185b7d9} 
+int string\+\_\+search\+::rabin\+\_\+karp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{, }\item[{const std\+::string \&}]{pat}{}\end{DoxyParamCaption})}
+
+Perform string pattern search using Rabin-\/\+Karp algorithm 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em str} & string to search in \\
+\hline
+\mbox{\texttt{ in}}  & {\em pat} & pattern to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of first occurrence of pattern 
+
+-\/1 if pattern not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ int64\_t\ pat\_hash\ =\ \mbox{\hyperlink{namespacestring__search_a8fb0bc932ba8b582c9f4c71338d050f8}{create\_hash}}(pat,\ pat.size());}
+\DoxyCodeLine{00085\ \ \ \ \ int64\_t\ str\_hash\ =\ \mbox{\hyperlink{namespacestring__search_a8fb0bc932ba8b582c9f4c71338d050f8}{create\_hash}}(str,\ pat.size());}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ str.size()\ -\/\ pat.size();\ ++i)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pat\_hash\ ==\ str\_hash\ \&\&}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestring__search_aebe07cea289a13142503d98be7df11fd}{check\_if\_equal}}(str,\ pat,\ i,\ i\ +\ pat.size()\ -\/\ 1,\ 0,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pat.size()\ -\/\ 1))\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ str.size()\ -\/\ pat.size())\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ str\_hash\ =}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ recalculate\_hash(str,\ i,\ i\ +\ pat.size(),\ str\_hash,\ pat.size());}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ \ \textcolor{comment}{//\ return\ -\/1\ if\ given\ pattern\ not\ found}}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacestring__search_aed769d565b705a9b3e0eb1ec74088893}\index{string\_search@{string\_search}!recalculate\_hash@{recalculate\_hash}}
+\index{recalculate\_hash@{recalculate\_hash}!string\_search@{string\_search}}
+\doxysubsubsection{\texorpdfstring{recalculate\_hash()}{recalculate\_hash()}}
+{\footnotesize\ttfamily \label{namespacestring__search_aed769d565b705a9b3e0eb1ec74088893} 
+int64\+\_\+t string\+\_\+search\+::recalculate\+\_\+hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{, }\item[{int}]{old\+\_\+index}{, }\item[{int}]{new\+\_\+index}{, }\item[{int64\+\_\+t}]{old\+\_\+hash}{, }\item[{int}]{pat\+Length}{}\end{DoxyParamCaption})}
+
+re-\/hash a string using known existing hash 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & source of string to hash \\
+\hline
+\mbox{\texttt{ in}}  & {\em old\+\_\+index} & previous index of string \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+\_\+index} & new index of string \\
+\hline
+\mbox{\texttt{ in}}  & {\em old\+\_\+hash} & previous hash of substring \\
+\hline
+\mbox{\texttt{ in}}  & {\em pat\+Length} & length of substring to hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new hash integer 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ int64\_t\ new\_hash\ =\ old\_hash\ -\/\ s[old\_index];}
+\DoxyCodeLine{00045\ \ \ \ \ new\_hash\ /=\ \mbox{\hyperlink{rabin__karp_8cpp_ac4add2a227a10511e0128d63952030e8}{PRIME}};}
+\DoxyCodeLine{00046\ \ \ \ \ new\_hash\ +=\ (int64\_t)(s[new\_index]\ *\ (int64\_t)pow(\mbox{\hyperlink{rabin__karp_8cpp_ac4add2a227a10511e0128d63952030e8}{PRIME}},\ patLength\ -\/\ 1));}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ new\_hash;}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

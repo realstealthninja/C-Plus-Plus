@@ -1,0 +1,172 @@
+\doxysection{probability/windowed\+\_\+median.cpp File Reference}
+\hypertarget{windowed__median_8cpp}{}\label{windowed__median_8cpp}\index{probability/windowed\_median.cpp@{probability/windowed\_median.cpp}}
+
+
+An implementation of a median calculation of a sliding window along a data stream.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median}{probability\+::windowed\+\_\+median\+::\+Windowed\+Median}}
+\begin{DoxyCompactList}\small\item\em A class to calculate the median of a leading sliding window at the back of a stream of integer values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceprobability}{probability}}
+\begin{DoxyCompactList}\small\item\em Probability algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacewindowed__median}{windowed\+\_\+median}}
+\begin{DoxyCompactList}\small\item\em Functions for the Windowed Median algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{windowed__median_8cpp_af02e266543ae8ddb86a5af00ee2d817e}\label{windowed__median_8cpp_af02e266543ae8ddb86a5af00ee2d817e} 
+using {\bfseries probability\+::windowed\+\_\+median\+::\+Window} = std\+::list$<$int$>$
+\item 
+\Hypertarget{windowed__median_8cpp_a3ab815f521baa673516c6ae077868d76}\label{windowed__median_8cpp_a3ab815f521baa673516c6ae077868d76} 
+using {\bfseries probability\+::windowed\+\_\+median\+::size\+\_\+type} = Window\+::size\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{windowed__median_8cpp_a6dc652a36ea42ba262c4e4236e3e6601}{test}} (const std\+::vector$<$ int $>$ \&vals, int window\+Size)
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{windowed__median_8cpp_ac0f2228420376f4db7e1274f2b41667c}{main}} (int argc, const char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of a median calculation of a sliding window along a data stream. 
+
+Given a stream of integers, the algorithm calculates the median of a fixed size window at the back of the stream. The leading time complexity of this algorithm is O(log(\+N), and it is inspired by the known algorithm to \mbox{[}find median from (infinite) data stream\mbox{]}(\href{https://www.tutorialcup.com/interview/algorithm/find-median-from-data-stream.htm}{\texttt{ https\+://www.\+tutorialcup.\+com/interview/algorithm/find-\/median-\/from-\/data-\/stream.\+htm}}), with the proper modifications to account for the finite window size for which the median is requested\hypertarget{windowed__median_8cpp_autotoc_md101}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{windowed__median_8cpp_autotoc_md101}
+The sliding window is managed by a list, which guarantees O(1) for both pushing and popping. Each new value is pushed to the window back, while a value from the front of the window is popped. In addition, the algorithm manages a multi-\/value binary search tree (BST), implemented by std\+::multiset. For each new value that is inserted into the window, it is also inserted to the BST. When a value is popped from the window, it is also erased from the BST. Both insertion and erasion to/from the BST are O(log\+N) in time, with N the size of the window. Finally, the algorithm keeps a pointer to the root of the BST, and updates its position whenever values are inserted or erased to/from BST. The root of the tree is the median! Hence, median retrieval is always O(1)
+
+Time complexity\+: O(log\+N). Space complexity\+: O(\+N). N -\/ size of window \begin{DoxyAuthor}{Author}
+\href{https://github.com/YanivHollander}{\texttt{ Yaniv Hollander}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{windowed__median_8cpp_ac0f2228420376f4db7e1274f2b41667c}\index{windowed\_median.cpp@{windowed\_median.cpp}!main@{main}}
+\index{main@{main}!windowed\_median.cpp@{windowed\_median.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{windowed__median_8cpp_ac0f2228420376f4db7e1274f2b41667c} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & command line argument count (ignored) \\
+\hline
+{\em argv} & command line array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+A few fixed test cases
+
+Array of sorted values; odd window size
+
+Array of sorted values -\/ decreasing; odd window size
+
+Even window size
+
+Array with repeating values
+
+Array with same values except one
+
+Array that includes repeating values including negatives
+
+Array with large values -\/ sum of few pairs exceeds MAX\+\_\+\+INT. Window size is even -\/ testing calculation of average median between two middle values
+
+Random test cases
+
+Array size in the range \mbox{[}5, 20\mbox{]}
+
+Window size in the range \mbox{[}3, 10\mbox{]}
+
+Random array values (positive/negative)
+
+Testing randomized test
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ \ \ \ ///\ A\ few\ fixed\ test\ cases}}
+\DoxyCodeLine{00200\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(\{1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\},}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ 3);\ \ \textcolor{comment}{///\ Array\ of\ sorted\ values;\ odd\ window\ size}}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(\{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1\},}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ 3);\ \ \textcolor{comment}{///\ Array\ of\ sorted\ values\ -\/\ decreasing;\ odd\ window\ size}}
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(\{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 5,\ 6\},\ 4);\ \ \ \ \ \textcolor{comment}{///\ Even\ window\ size}}
+\DoxyCodeLine{00205\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(\{3,\ 3,\ 3,\ 3,\ 3,\ 3,\ 3,\ 3,\ 3\},\ 3);\ \ \textcolor{comment}{///\ Array\ with\ repeating\ values}}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(\{3,\ 3,\ 3,\ 3,\ 7,\ 3,\ 3,\ 3,\ 3\},\ 3);\ \ \textcolor{comment}{///\ Array\ with\ same\ values\ except\ one}}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(\{4,\ 3,\ 3,\ -\/5,\ -\/5,\ 1,\ 3,\ 4,\ 5\},}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ 5);\ \ \textcolor{comment}{///\ Array\ that\ includes\ repeating\ values\ including\ negatives}}
+\DoxyCodeLine{00209\ \textcolor{comment}{}}
+\DoxyCodeLine{00210\ \textcolor{comment}{\ \ \ \ ///\ Array\ with\ large\ values\ -\/\ sum\ of\ few\ pairs\ exceeds\ MAX\_INT.\ Window\ size}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ \ \ \ ///\ is\ even\ -\/\ testing\ calculation\ of\ average\ median\ between\ two\ middle}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ \ \ \ ///\ values}}
+\DoxyCodeLine{00213\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(\{470211272,\ 101027544,\ 1457850878,\ 1458777923,\ 2007237709,\ 823564440,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ 1115438165,\ 1784484492,\ 74243042,\ 114807987\},}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ 6);}
+\DoxyCodeLine{00216\ \textcolor{comment}{}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ \ \ \ ///\ Random\ test\ cases}}
+\DoxyCodeLine{00218\ \textcolor{comment}{}\ \ \ \ std::srand(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::time(\textcolor{keyword}{nullptr})));}
+\DoxyCodeLine{00219\ \ \ \ \ std::vector<int>\ vals;}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 8;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ n\ =}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ 1\ +\ std::rand()\ /}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((RAND\_MAX\ +\ 5u)\ /\ 20);\ \ \textcolor{comment}{///\ Array\ size\ in\ the\ range\ [5,\ 20]}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ windowSize\ =}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ 1\ +\ std::rand()\ /\ ((RAND\_MAX\ +\ 3u)\ /}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10);\ \ \textcolor{comment}{///\ Window\ size\ in\ the\ range\ [3,\ 10]}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ vals.clear();}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ vals.reserve(n);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ vals.push\_back(}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rand()\ -\/\ RAND\_MAX);\ \ \textcolor{comment}{///\ Random\ array\ values\ (positive/negative)}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}(vals,\ windowSize);\ \ \textcolor{comment}{///\ Testing\ randomized\ test}}
+\DoxyCodeLine{00234\ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00236\ \}}
+
+\end{DoxyCode}
+\Hypertarget{windowed__median_8cpp_a6dc652a36ea42ba262c4e4236e3e6601}\index{windowed\_median.cpp@{windowed\_median.cpp}!test@{test}}
+\index{test@{test}!windowed\_median.cpp@{windowed\_median.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{windowed__median_8cpp_a6dc652a36ea42ba262c4e4236e3e6601} 
+static void test (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{vals}{, }\item[{int}]{window\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vals} & Stream of values \\
+\hline
+{\em window\+Size} & Size of sliding window \\
+\hline
+\end{DoxyParams}
+Comparing medians\+: efficient function vs. Naive one
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median}{probability::windowed\_median::WindowedMedian}}\ windowedMedian(windowSize);}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ val\ :\ vals)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ windowedMedian.insert(val);}
+\DoxyCodeLine{00186\ \textcolor{comment}{}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Comparing\ medians:\ efficient\ function\ vs.\ Naive\ one}}
+\DoxyCodeLine{00188\ \textcolor{comment}{}\ \ \ \ \ \ \ \ assert(windowedMedian.getMedian()\ ==\ windowedMedian.getMedianNaive());}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \}}
+
+\end{DoxyCode}

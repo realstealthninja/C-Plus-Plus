@@ -1,0 +1,178 @@
+\doxysection{sorting/insertion\+\_\+sort.cpp File Reference}
+\hypertarget{insertion__sort_8cpp}{}\label{insertion__sort_8cpp}\index{sorting/insertion\_sort.cpp@{sorting/insertion\_sort.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Insertion_sort}{\texttt{ Insertion Sort Algorithm (Insertion Sort)}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting\+::insertion\+Sort}} (T \texorpdfstring{$\ast$}{*}arr, int n)
+\begin{DoxyCompactList}\small\item\em Insertion Sort Function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacesorting_a8fe6bac9e03f58abcc2ce26ef3de1b5f}{sorting\+::insertion\+Sort}} (std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}arr)
+\begin{DoxyCompactList}\small\item\em Insertion Sort for a vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\static void \mbox{\hyperlink{insertion__sort_8cpp_a59914553f24088342c139645a02a8a49}{create\+\_\+random\+\_\+array}} (T \texorpdfstring{$\ast$}{*}arr, int N)
+\begin{DoxyCompactList}\small\item\em Create a random array objecthelper function to create a random array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{insertion__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Insertion_sort}{\texttt{ Insertion Sort Algorithm (Insertion Sort)}} 
+
+Insertion sort is a simple sorting algorithm that builds the final sorted array one at a time. It is much less efficient compared to other sorting algorithms like heap sort, merge sort or quick sort. However it has several advantages such as
+\begin{DoxyEnumerate}
+\item Easy to implement
+\item For small set of data it is quite efficient
+\item More efficient that other Quadratic complexity algorithms like Selection sort or bubble sort.
+\item It\textquotesingle{}s stable that is it does not change the relative order of elements with equal keys
+\item Works on hand means it can sort the array or list as it receives.
+\end{DoxyEnumerate}
+
+It is based on the same idea that people use to sort the playing cards in their hands. the algorithms goes in the manner that we start iterating over the array of elements as soon as we find a unsorted element that is a misplaced element we place it at a sorted position.
+
+Example execution steps\+:
+\begin{DoxyEnumerate}
+\item Suppose initially we have \begin{bmatrix}4 &3 &2 &5 &1\end{bmatrix}
+\item We start traversing from 4 till we reach 1 when we reach at 3 we find that it is misplaced so we take 3 and place it at a correct position thus the array will become \begin{bmatrix}3 &4 &2 &5 &1\end{bmatrix}
+\item In the next iteration we are at 2 we find that this is also misplaced so we place it at the correct sorted position thus the array in this iteration becomes \begin{bmatrix}2 &3 &4 &5 &1\end{bmatrix}
+\item We do not do anything with 5 and move on to the next iteration and select 1 which is misplaced and place it at correct position. Thus, we have \begin{bmatrix}1 &2 &3 &4 &5\end{bmatrix} 
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{insertion__sort_8cpp_a59914553f24088342c139645a02a8a49}\index{insertion\_sort.cpp@{insertion\_sort.cpp}!create\_random\_array@{create\_random\_array}}
+\index{create\_random\_array@{create\_random\_array}!insertion\_sort.cpp@{insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{create\_random\_array()}{create\_random\_array()}}
+{\footnotesize\ttfamily \label{insertion__sort_8cpp_a59914553f24088342c139645a02a8a49} 
+template$<$typename T $>$ \\
+static void create\+\_\+random\+\_\+array (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{N}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a random array objecthelper function to create a random array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to fill (must be pre-\/allocated) \\
+\hline
+{\em N} & number of array elements \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{while}\ (N-\/-\/)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r\ =\ (std::rand()\ \%\ 10000\ -\/\ 5000)\ /\ 100.f;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ arr[\mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}]\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(r);}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{insertion\_sort.cpp@{insertion\_sort.cpp}!main@{main}}
+\index{main@{main}!insertion\_sort.cpp@{insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main Function Running predefined tests to test algorithm
+
+For user insteraction
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ ///\ Running\ predefined\ tests\ to\ test\ algorithm}}
+\DoxyCodeLine{00152\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{insertion__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00153\ \textcolor{comment}{}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ \ \ \ ///\ For\ user\ insteraction}}
+\DoxyCodeLine{00155\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{size\_t}\ n;}
+\DoxyCodeLine{00156\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ length\ of\ your\ array\ (0\ to\ exit):\ "{}};}
+\DoxyCodeLine{00157\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{int}\ *arr\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[n];}
+\DoxyCodeLine{00163\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ any\ "{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ Numbers\ for\ Unsorted\ Array\ :\ "{}};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ std::cin\ >>\ arr[i];}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting::insertionSort}}(arr,\ n);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nSorted\ Array\ :\ "{}};}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{delete}[]\ arr;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00179\ \}}
+
+\end{DoxyCode}
+\Hypertarget{insertion__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{insertion\_sort.cpp@{insertion\_sort.cpp}!tests@{tests}}
+\index{tests@{tests}!insertion\_sort.cpp@{insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{insertion__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test Cases to test algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ arr1[10]\ =\ \{78,\ 34,\ 35,\ 6,\ 34,\ 56,\ 3,\ 56,\ 2,\ 4\};}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...\ "{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting::insertionSort}}(arr1,\ 10);}
+\DoxyCodeLine{00113\ \ \ \ \ assert(std::is\_sorted(arr1,\ arr1\ +\ 10));}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ arr2[5]\ =\ \{5,\ -\/3,\ 7,\ -\/2,\ 1\};}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...\ "{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting::insertionSort}}(arr2,\ 5);}
+\DoxyCodeLine{00119\ \ \ \ \ assert(std::is\_sorted(arr2,\ arr2\ +\ 5));}
+\DoxyCodeLine{00120\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{float}\ arr3[5]\ =\ \{5.6,\ -\/3.1,\ -\/3.0,\ -\/2.1,\ 1.8\};}
+\DoxyCodeLine{00123\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...\ "{}};}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting::insertionSort}}(arr3,\ 5);}
+\DoxyCodeLine{00125\ \ \ \ \ assert(std::is\_sorted(arr3,\ arr3\ +\ 5));}
+\DoxyCodeLine{00126\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ std::vector<float>\ arr4(\{5.6,\ -\/3.1,\ -\/3.0,\ -\/2.1,\ 1.8\});}
+\DoxyCodeLine{00129\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 4...\ "{}};}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting::insertionSort}}(\&arr4);}
+\DoxyCodeLine{00131\ \ \ \ \ assert(std::is\_sorted(std::begin(arr4),\ std::end(arr4)));}
+\DoxyCodeLine{00132\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{int}\ arr5[50];}
+\DoxyCodeLine{00135\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 5...\ "{}};}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{insertion__sort_8cpp_a59914553f24088342c139645a02a8a49}{create\_random\_array}}(arr5,\ 50);}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting::insertionSort}}(arr5,\ 50);}
+\DoxyCodeLine{00138\ \ \ \ \ assert(std::is\_sorted(arr5,\ arr5\ +\ 50));}
+\DoxyCodeLine{00139\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{float}\ arr6[50];}
+\DoxyCodeLine{00142\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 6...\ "{}};}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{insertion__sort_8cpp_a59914553f24088342c139645a02a8a49}{create\_random\_array}}(arr6,\ 50);}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a78cb2f3b97b6db2c062b2a1df05c9ea9}{sorting::insertionSort}}(arr6,\ 50);}
+\DoxyCodeLine{00145\ \ \ \ \ assert(std::is\_sorted(arr6,\ arr6\ +\ 50));}
+\DoxyCodeLine{00146\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00147\ \}}
+
+\end{DoxyCode}

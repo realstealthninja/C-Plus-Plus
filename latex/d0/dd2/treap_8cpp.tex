@@ -1,0 +1,112 @@
+\doxysection{data\+\_\+structures/treap.cpp File Reference}
+\hypertarget{treap_8cpp}{}\label{treap_8cpp}\index{data\_structures/treap.cpp@{data\_structures/treap.cpp}}
+
+
+A balanced binary search tree (BST) on the basis of binary search tree and heap\+: the \href{https://en.wikipedia.org/wiki/Treap}{\texttt{ Treap}} algorithm implementation.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap}{data\+\_\+structures\+::treap\+::\+Treap}}
+\begin{DoxyCompactList}\small\item\em Struct representation of the treap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacedata__structures_1_1treap}{data\+\_\+structures\+::treap}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Treap}{\texttt{ Treap}} algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{treap_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{treap_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099}\label{namespacedata__structures_1_1treap_ad939ec178d0069aeea14b7d6d7d12099} 
+const int {\bfseries data\+\_\+structures\+::treap\+::max\+Node} = 1e5 + 5
+\begin{DoxyCompactList}\small\item\em maximum number of nodes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A balanced binary search tree (BST) on the basis of binary search tree and heap\+: the \href{https://en.wikipedia.org/wiki/Treap}{\texttt{ Treap}} algorithm implementation. 
+
+Implementation of the treap data structre
+
+Support operations including insert, erase, and query (the rank of specified element or the element ranked x) as the same as BST
+
+But these operations take O(log N) time, since treap keeps property of heap using rotate operation, and the desired depth of the tree is O(log N). There\textquotesingle{}s very little chance that it will degenerate into a chain like BST
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/fgmn}{\texttt{ Kairao ZHENG}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{treap_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{treap.cpp@{treap.cpp}!main@{main}}
+\index{main@{main}!treap.cpp@{treap.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{treap_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{treap_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00259\ \}}
+
+\end{DoxyCode}
+\Hypertarget{treap_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{treap.cpp@{treap.cpp}!test@{test}}
+\index{test@{test}!treap.cpp@{treap.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{treap_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Treap object instance
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap}{data\_structures::treap::Treap}}\ mTreap;\ \ \textcolor{comment}{///<\ Treap\ object\ instance}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(1);}
+\DoxyCodeLine{00234\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(2);}
+\DoxyCodeLine{00235\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(3);}
+\DoxyCodeLine{00236\ \ \ \ \ assert(mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab2db3ad3aecc240011e0c8b8604d2c69}{get\_k\_th}}(2)\ ==\ 2);}
+\DoxyCodeLine{00237\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(4);}
+\DoxyCodeLine{00238\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(5);}
+\DoxyCodeLine{00239\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(6);}
+\DoxyCodeLine{00240\ \ \ \ \ assert(mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a767b28f9911fc32b8462862be058a4a4}{get\_next}}(4)\ ==\ 5);}
+\DoxyCodeLine{00241\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(7);}
+\DoxyCodeLine{00242\ \ \ \ \ assert(mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab8b9899f22070cfa01db5bf874296126}{get\_predecessor}}(7)\ ==\ 6);}
+\DoxyCodeLine{00243\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a9ea2becd904e2e7d22f23a001b444469}{erase}}(4);}
+\DoxyCodeLine{00244\ \ \ \ \ assert(mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab2db3ad3aecc240011e0c8b8604d2c69}{get\_k\_th}}(4)\ ==\ 5);}
+\DoxyCodeLine{00245\ \ \ \ \ assert(mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ac94e9d69305940f6d8804031455af039}{get\_rank}}(5)\ ==\ 4);}
+\DoxyCodeLine{00246\ \ \ \ \ mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_a5e884d2686aff501ef589b0d1185492f}{insert}}(10);}
+\DoxyCodeLine{00247\ \ \ \ \ assert(mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ac94e9d69305940f6d8804031455af039}{get\_rank}}(10)\ ==\ 7);}
+\DoxyCodeLine{00248\ \ \ \ \ assert(mTreap.\mbox{\hyperlink{structdata__structures_1_1treap_1_1_treap_ab8b9899f22070cfa01db5bf874296126}{get\_predecessor}}(10)\ ==\ 7);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00251\ \}}
+
+\end{DoxyCode}

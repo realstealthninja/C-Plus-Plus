@@ -1,0 +1,199 @@
+\doxysection{math/complex\+\_\+numbers.cpp File Reference}
+\hypertarget{complex__numbers_8cpp}{}\label{complex__numbers_8cpp}\index{math/complex\_numbers.cpp@{math/complex\_numbers.cpp}}
+
+
+An implementation of \doxylink{class_complex}{Complex} Number as Objects.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_complex}{Complex}}
+\begin{DoxyCompactList}\small\item\em Class \doxylink{class_complex}{Complex} to represent complex numbers as a field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{complex__numbers_8cpp_a5a73e9d4e68af8cedb95bd0864054b89}{operator==}} (const \mbox{\hyperlink{class_complex}{Complex}} \&a, const \mbox{\hyperlink{class_complex}{Complex}} \&b)
+\begin{DoxyCompactList}\small\item\em Operator overload of \textquotesingle{}==\textquotesingle{} on \doxylink{class_complex}{Complex} class. Logical Equal overload for our \doxylink{class_complex}{Complex} class. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{complex__numbers_8cpp_a44d5f25b573e870accdf26fd32b8484d}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_complex}{Complex}} \&num)
+\begin{DoxyCompactList}\small\item\em Operator overload of \textquotesingle{}\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}\textquotesingle{} of ostream for \doxylink{class_complex}{Complex} class. Overloaded insersion operator to accommodate the printing of our complex number in their standard form. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{complex__numbers_8cpp_a5d4d5b8250b50703de888514c8e7a7a0}{get\+\_\+rand}} ()
+\begin{DoxyCompactList}\small\item\em Function to get random numbers to generate our complex numbers for test. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{complex__numbers_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{complex__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of \doxylink{class_complex}{Complex} Number as Objects. 
+
+\begin{DoxyAuthor}{Author}
+tjgurwara99
+\end{DoxyAuthor}
+A basic implementation of \doxylink{class_complex}{Complex} Number field as a class with operators overloaded to accommodate (mathematical) field operations. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{complex__numbers_8cpp_a5d4d5b8250b50703de888514c8e7a7a0}\index{complex\_numbers.cpp@{complex\_numbers.cpp}!get\_rand@{get\_rand}}
+\index{get\_rand@{get\_rand}!complex\_numbers.cpp@{complex\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_rand()}{get\_rand()}}
+{\footnotesize\ttfamily \label{complex__numbers_8cpp_a5d4d5b8250b50703de888514c8e7a7a0} 
+double get\+\_\+rand (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function to get random numbers to generate our complex numbers for test. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201\ \{\ \textcolor{keywordflow}{return}\ (std::rand()\ \%\ 100\ -\/\ 50)\ /\ 100.f;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{complex__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{complex\_numbers.cpp@{complex\_numbers.cpp}!main@{main}}
+\index{main@{main}!complex\_numbers.cpp@{complex\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{complex__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \mbox{\hyperlink{complex__numbers_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00271\ \}}
+
+\end{DoxyCode}
+\Hypertarget{complex__numbers_8cpp_a44d5f25b573e870accdf26fd32b8484d}\index{complex\_numbers.cpp@{complex\_numbers.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!complex\_numbers.cpp@{complex\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{complex__numbers_8cpp_a44d5f25b573e870accdf26fd32b8484d} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{const \mbox{\hyperlink{class_complex}{Complex}} \&}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Operator overload of \textquotesingle{}\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}\textquotesingle{} of ostream for \doxylink{class_complex}{Complex} class. Overloaded insersion operator to accommodate the printing of our complex number in their standard form. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The console stream \\
+\hline
+{\em num} & The complex number. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ num.\mbox{\hyperlink{class_complex_a312e4b19146128408fb06e0150b0faf6}{real}}();}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{if}\ (num.\mbox{\hyperlink{class_complex_af8aacf982e2e6c142921bc850f6dc974}{imag}}()\ <\ 0)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ -\/num.\mbox{\hyperlink{class_complex_af8aacf982e2e6c142921bc850f6dc974}{imag}}();}
+\DoxyCodeLine{00190\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}}\ <<\ num.\mbox{\hyperlink{class_complex_af8aacf982e2e6c142921bc850f6dc974}{imag}}();}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}i)"{}};}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00195\ \}}
+
+\end{DoxyCode}
+\Hypertarget{complex__numbers_8cpp_a5a73e9d4e68af8cedb95bd0864054b89}\index{complex\_numbers.cpp@{complex\_numbers.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!complex\_numbers.cpp@{complex\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{complex__numbers_8cpp_a5a73e9d4e68af8cedb95bd0864054b89} 
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_complex}{Complex}} \&}]{a}{, }\item[{const \mbox{\hyperlink{class_complex}{Complex}} \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Operator overload of \textquotesingle{}==\textquotesingle{} on \doxylink{class_complex}{Complex} class. Logical Equal overload for our \doxylink{class_complex}{Complex} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Left hand side of our expression \\
+\hline
+{\em b} & Right hand side of our expression \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}True\textquotesingle{} If real and imaginary parts of a and b are same 
+
+\textquotesingle{}False\textquotesingle{} Otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{return}\ a.real()\ ==\ b.\mbox{\hyperlink{class_complex_a312e4b19146128408fb06e0150b0faf6}{real}}()\ \&\&\ a.imag()\ ==\ b.\mbox{\hyperlink{class_complex_af8aacf982e2e6c142921bc850f6dc974}{imag}}();}
+\DoxyCodeLine{00177\ \}}
+
+\end{DoxyCode}
+\Hypertarget{complex__numbers_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{complex\_numbers.cpp@{complex\_numbers.cpp}!tests@{tests}}
+\index{tests@{tests}!complex\_numbers.cpp@{complex\_numbers.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{complex__numbers_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Tests Function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00207\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{double}\ x1\ =\ \mbox{\hyperlink{complex__numbers_8cpp_a5d4d5b8250b50703de888514c8e7a7a0}{get\_rand}}(),\ y1\ =\ \mbox{\hyperlink{complex__numbers_8cpp_a5d4d5b8250b50703de888514c8e7a7a0}{get\_rand}}(),\ x2\ =\ \mbox{\hyperlink{complex__numbers_8cpp_a5d4d5b8250b50703de888514c8e7a7a0}{get\_rand}}(),\ y2\ =\ \mbox{\hyperlink{complex__numbers_8cpp_a5d4d5b8250b50703de888514c8e7a7a0}{get\_rand}}();}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{class_complex}{Complex}}\ num1(x1,\ y1),\ num2(x2,\ y2);}
+\DoxyCodeLine{00210\ \ \ \ \ std::complex<double>\ cnum1(x1,\ y1),\ cnum2(x2,\ y2);}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{class_complex}{Complex}}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00212\ \ \ \ \ std::complex<double>\ expected;}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ Test\ for\ addition}}
+\DoxyCodeLine{00214\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ num1\ +\ num2;}
+\DoxyCodeLine{00215\ \ \ \ \ expected\ =\ cnum1\ +\ cnum2;}
+\DoxyCodeLine{00216\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}1\ +\ 1i\ +\ 1\ +\ 1i\ is\ equal\ to\ 2\ +\ 2i\ but\ the\ addition\ doesn't\ "{}}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}add\ up\ \(\backslash\)n"{}},}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.real()\ ==\ expected.real()\ \&\&}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.imag()\ ==\ expected.imag())));}
+\DoxyCodeLine{00220\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ Test\ for\ subtraction}}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ num1\ -\/\ num2;}
+\DoxyCodeLine{00223\ \ \ \ \ expected\ =\ cnum1\ -\/\ cnum2;}
+\DoxyCodeLine{00224\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}1\ +\ 1i\ -\/\ 1\ -\/\ 1i\ is\ equal\ to\ 0\ but\ the\ program\ says\ "{}}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}otherwise.\ \(\backslash\)n"{}},}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.real()\ ==\ expected.real()\ \&\&}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.imag()\ ==\ expected.imag())));}
+\DoxyCodeLine{00228\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Second\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ Test\ for\ multiplication}}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ num1\ *\ num2;}
+\DoxyCodeLine{00231\ \ \ \ \ expected\ =\ cnum1\ *\ cnum2;}
+\DoxyCodeLine{00232\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}(1\ +\ 1i)\ *\ (1\ +\ 1i)\ is\ equal\ to\ 2i\ but\ the\ program\ says\ "{}}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}otherwise.\ \(\backslash\)n"{}},}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.real()\ ==\ expected.real()\ \&\&}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.imag()\ ==\ expected.imag())));}
+\DoxyCodeLine{00236\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Third\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ Test\ for\ division}}
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ num1\ /\ num2;}
+\DoxyCodeLine{00239\ \ \ \ \ expected\ =\ cnum1\ /\ cnum2;}
+\DoxyCodeLine{00240\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}(1\ +\ 1i)\ /\ (1\ +\ 1i)\ is\ equal\ to\ 1\ but\ the\ program\ says\ "{}}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.real()\ ==\ expected.real()\ \&\&}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.imag()\ ==\ expected.imag())));}
+\DoxyCodeLine{00244\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fourth\ test\ passes."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{comment}{//\ Test\ for\ conjugates}}
+\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ \string~num1;}
+\DoxyCodeLine{00247\ \ \ \ \ expected\ =\ std::conj(cnum1);}
+\DoxyCodeLine{00248\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}(1\ +\ 1i)\ has\ a\ conjugate\ which\ is\ equal\ to\ (1\ -\/\ 1i)\ but\ the\ "{}}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}program\ says\ otherwise.\(\backslash\)n"{}},}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.real()\ ==\ expected.real()\ \&\&}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}.imag()\ ==\ expected.imag())));}
+\DoxyCodeLine{00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fifth\ test\ passes.\(\backslash\)n"{}};}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//\ Test\ for\ Argument\ of\ our\ complex\ number}}
+\DoxyCodeLine{00254\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}(1\ +\ 1i)\ has\ argument\ PI\ /\ 4\ but\ the\ program\ differs\ from\ "{}}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}the\ std::complex\ result.\(\backslash\)n"{}},}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ (num1.arg()\ ==\ std::arg(cnum1))));}
+\DoxyCodeLine{00257\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sixth\ test\ passes.\(\backslash\)n"{}};}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{comment}{//\ Test\ for\ absolute\ value\ of\ our\ complex\ number}}
+\DoxyCodeLine{00259\ \ \ \ \ assert(((\textcolor{keywordtype}{void})\textcolor{stringliteral}{"{}(1\ +\ 1i)\ has\ absolute\ value\ sqrt(2)\ but\ the\ program\ differs\ "{}}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}from\ the\ std::complex\ result.\ \(\backslash\)n"{}},}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ (num1.abs()\ ==\ std::abs(cnum1))));}
+\DoxyCodeLine{00262\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Seventh\ test\ passes.\(\backslash\)n"{}};}
+\DoxyCodeLine{00263\ \}}
+
+\end{DoxyCode}

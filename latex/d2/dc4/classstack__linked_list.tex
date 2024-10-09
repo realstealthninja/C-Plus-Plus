@@ -1,0 +1,112 @@
+\doxysection{stack\+\_\+linked\+List Class Reference}
+\hypertarget{classstack__linked_list}{}\label{classstack__linked_list}\index{stack\_linkedList@{stack\_linkedList}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstack__linked_list_a1d32f339f2b90dea16f89282db7074e5}{enqueue}} (int)
+\item 
+int \mbox{\hyperlink{classstack__linked_list_af12688f7e4d74a978c93d5b26199a208}{dequeue}} ()
+\item 
+void \mbox{\hyperlink{classstack__linked_list_a565e79ec7a9d949664277afda874cf7c}{display}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classstack__linked_list_a445c8ffd4a85bf74a5d5f7b7e716f06d}\label{classstack__linked_list_a445c8ffd4a85bf74a5d5f7b7e716f06d} 
+\mbox{\hyperlink{structlinkedlist}{linkedlist}} \texorpdfstring{$\ast$}{*} {\bfseries front}
+\item 
+\Hypertarget{classstack__linked_list_aa34ec2024dcfe130e6458149093772b3}\label{classstack__linked_list_aa34ec2024dcfe130e6458149093772b3} 
+\mbox{\hyperlink{structlinkedlist}{linkedlist}} \texorpdfstring{$\ast$}{*} {\bfseries rear}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classstack__linked_list_a44c1c5a34c5fb553025a33abe4f2e819}\index{stack\_linkedList@{stack\_linkedList}!stack\_linkedList@{stack\_linkedList}}
+\index{stack\_linkedList@{stack\_linkedList}!stack\_linkedList@{stack\_linkedList}}
+\doxysubsubsection{\texorpdfstring{stack\_linkedList()}{stack\_linkedList()}}
+{\footnotesize\ttfamily \label{classstack__linked_list_a44c1c5a34c5fb553025a33abe4f2e819} 
+stack\+\_\+linked\+List\+::stack\+\_\+linked\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{\ front\ =\ rear\ =\ NULL;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classstack__linked_list_af12688f7e4d74a978c93d5b26199a208}\index{stack\_linkedList@{stack\_linkedList}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!stack\_linkedList@{stack\_linkedList}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily \label{classstack__linked_list_af12688f7e4d74a978c93d5b26199a208} 
+int stack\+\_\+linked\+List\+::dequeue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structlinkedlist}{linkedlist}}\ *temp;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ ele;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ NULL)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nStack\ is\ empty"{}};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ temp\ =\ front;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ ele\ =\ temp-\/>data;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ rear)\ \ \textcolor{comment}{//\ if\ length\ of\ queue\ is\ 1;}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ rear\ =\ rear-\/>next;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ front\ =\ front-\/>next;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ (temp);}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ ele;}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack__linked_list_a565e79ec7a9d949664277afda874cf7c}\index{stack\_linkedList@{stack\_linkedList}!display@{display}}
+\index{display@{display}!stack\_linkedList@{stack\_linkedList}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classstack__linked_list_a565e79ec7a9d949664277afda874cf7c} 
+void stack\+\_\+linked\+List\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ NULL)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nStack\ is\ empty"{}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlinkedlist}{linkedlist}}\ *temp;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ temp\ =\ front;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ NULL)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ temp-\/>data\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>next;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstack__linked_list_a1d32f339f2b90dea16f89282db7074e5}\index{stack\_linkedList@{stack\_linkedList}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!stack\_linkedList@{stack\_linkedList}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily \label{classstack__linked_list_a1d32f339f2b90dea16f89282db7074e5} 
+void stack\+\_\+linked\+List\+::enqueue (\begin{DoxyParamCaption}\item[{int}]{ele}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{structlinkedlist}{linkedlist}}\ *temp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlinkedlist}{linkedlist}}();}
+\DoxyCodeLine{00022\ \ \ \ \ temp-\/>data\ =\ ele;}
+\DoxyCodeLine{00023\ \ \ \ \ temp-\/>next\ =\ NULL;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ NULL)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ front\ =\ rear\ =\ temp;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ rear-\/>next\ =\ temp;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ rear\ =\ temp;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/queue\+\_\+using\+\_\+linkedlist.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,125 @@
+\doxysection{math/sieve\+\_\+of\+\_\+eratosthenes.cpp File Reference}
+\hypertarget{sieve__of__eratosthenes_8cpp}{}\label{sieve__of__eratosthenes_8cpp}\index{math/sieve\_of\_eratosthenes.cpp@{math/sieve\_of\_eratosthenes.cpp}}
+
+
+Get list of prime numbers using Sieve of Eratosthenes.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{sieve__of__eratosthenes_8cpp_a7eebd5e7686a8db363f937b2f30d3818}{sieve}} (uint32\+\_\+t N)
+\item 
+void \mbox{\hyperlink{sieve__of__eratosthenes_8cpp_a235843bdf82d2a6cc8596ae8fd3b8df9}{print}} (uint32\+\_\+t N, const std\+::vector$<$ bool $>$ \&is\+\_\+prime)
+\item 
+void \mbox{\hyperlink{sieve__of__eratosthenes_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{sieve__of__eratosthenes_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Get list of prime numbers using Sieve of Eratosthenes. 
+
+Sieve of Eratosthenes is an algorithm that finds all the primes between 2 and N.
+
+Time Complexity \+: $O(N \cdot\log \log N)$ ~\newline
+Space Complexity \+: $O(N)$
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{primes__up__to__billion_8cpp}{primes\+\_\+up\+\_\+to\+\_\+billion.\+cpp} \doxylink{prime__numbers_8cpp}{prime\+\_\+numbers.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sieve__of__eratosthenes_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}!main@{main}}
+\index{main@{main}!sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sieve__of__eratosthenes_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{sieve__of__eratosthenes_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}}\ =\ 100;}
+\DoxyCodeLine{00069\ \ \ \ \ std::vector<bool>\ \mbox{\hyperlink{namespacemath_abd8f794b2229b42876169ff841b6e444}{is\_prime}}\ =\ \mbox{\hyperlink{sieve__of__eratosthenes_8cpp_a7eebd5e7686a8db363f937b2f30d3818}{sieve}}(N);}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{sieve__of__eratosthenes_8cpp_a235843bdf82d2a6cc8596ae8fd3b8df9}{print}}(N,\ is\_prime);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sieve__of__eratosthenes_8cpp_a235843bdf82d2a6cc8596ae8fd3b8df9}\index{sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}!print@{print}}
+\index{print@{print}!sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{sieve__of__eratosthenes_8cpp_a235843bdf82d2a6cc8596ae8fd3b8df9} 
+void print (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{N}{, }\item[{const std\+::vector$<$ bool $>$ \&}]{is\+\_\+prime}{}\end{DoxyParamCaption})}
+
+This function prints out the primes to STDOUT 
+\begin{DoxyParams}{Parameters}
+{\em N} & number of primes to check \\
+\hline
+{\em is\+\_\+prime} & a vector of {\ttfamily N + 1} booleans identifying if {\ttfamily i}\texorpdfstring{$^\wedge$}{\string^}th number is a prime or not \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 2;\ i\ <=\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_prime[i])\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sieve__of__eratosthenes_8cpp_a7eebd5e7686a8db363f937b2f30d3818}\index{sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}!sieve@{sieve}}
+\index{sieve@{sieve}!sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}}
+\doxysubsubsection{\texorpdfstring{sieve()}{sieve()}}
+{\footnotesize\ttfamily \label{sieve__of__eratosthenes_8cpp_a7eebd5e7686a8db363f937b2f30d3818} 
+std\+::vector$<$ bool $>$ sieve (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{N}{}\end{DoxyParamCaption})}
+
+This is the function that finds the primes and eliminates the multiples. Contains a common optimization to start eliminating multiples of a prime p starting from p \texorpdfstring{$\ast$}{*} p since all of the lower multiples have been already eliminated. 
+\begin{DoxyParams}{Parameters}
+{\em N} & number of primes to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is\+\_\+prime a vector of {\ttfamily N + 1} booleans identifying if {\ttfamily i}\texorpdfstring{$^\wedge$}{\string^}th number is a prime or not 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ std::vector<bool>\ \mbox{\hyperlink{namespacemath_abd8f794b2229b42876169ff841b6e444}{is\_prime}}(N\ +\ 1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{namespacemath_abd8f794b2229b42876169ff841b6e444}{is\_prime}}[0]\ =\ \mbox{\hyperlink{namespacemath_abd8f794b2229b42876169ff841b6e444}{is\_prime}}[1]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 2;\ i\ *\ i\ <=\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ i++)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_prime[i])\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ i\ *\ i;\ j\ <=\ \mbox{\hyperlink{data__structures_2sparse__table_8cpp_a10f3ffb3f6f7e1b83d556b9c8de89a5d}{N}};\ j\ +=\ i)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_abd8f794b2229b42876169ff841b6e444}{is\_prime}}[j]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacemath_abd8f794b2229b42876169ff841b6e444}{is\_prime}};}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sieve__of__eratosthenes_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}!tests@{tests}}
+\index{tests@{tests}!sieve\_of\_eratosthenes.cpp@{sieve\_of\_eratosthenes.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{sieve__of__eratosthenes_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test implementations 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ 1\ \ \ \ \ \ 2\ \ \ \ \ 3\ \ \ \ \ 4\ \ \ \ \ \ 5\ \ \ \ \ 6\ \ \ \ \ \ 7\ \ \ \ \ 8\ \ \ \ \ \ 9\ \ \ \ \ \ 10}}
+\DoxyCodeLine{00058\ \ \ std::vector<bool>\ ans\{\textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{false}\};}
+\DoxyCodeLine{00059\ \ \ assert(\mbox{\hyperlink{sieve__of__eratosthenes_8cpp_a7eebd5e7686a8db363f937b2f30d3818}{sieve}}(10)\ ==\ ans);}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}

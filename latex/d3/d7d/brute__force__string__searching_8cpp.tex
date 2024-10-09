@@ -1,0 +1,82 @@
+\doxysection{strings/brute\+\_\+force\+\_\+string\+\_\+searching.cpp File Reference}
+\hypertarget{brute__force__string__searching_8cpp}{}\label{brute__force__string__searching_8cpp}\index{strings/brute\_force\_string\_searching.cpp@{strings/brute\_force\_string\_searching.cpp}}
+
+
+String pattern search -\/ brute force.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestring__search}{string\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em String search algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacestring__search_aeb2cd81064717aedd62bfb096b1a73d8}{string\+\_\+search\+::brute\+\_\+force}} (const std\+::string \&text, const std\+::string \&pattern)
+\item 
+int \mbox{\hyperlink{brute__force__string__searching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{brute__force__string__searching_8cpp_ae2abaa9caa13fff35e45edca00bee123}{test\+\_\+set}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+String pattern search -\/ brute force. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{brute__force__string__searching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{brute\_force\_string\_searching.cpp@{brute\_force\_string\_searching.cpp}!main@{main}}
+\index{main@{main}!brute\_force\_string\_searching.cpp@{brute\_force\_string\_searching.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{brute__force__string__searching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&i\ :\ \mbox{\hyperlink{brute__force__string__searching_8cpp_ae2abaa9caa13fff35e45edca00bee123}{test\_set}})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ output\ =\ brute\_force(i[0],\ i[1]);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::to\_string(output)\ ==\ i[2])\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}success\(\backslash\)n"{}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}failure\(\backslash\)n"{}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{brute__force__string__searching_8cpp_ae2abaa9caa13fff35e45edca00bee123}\index{brute\_force\_string\_searching.cpp@{brute\_force\_string\_searching.cpp}!test\_set@{test\_set}}
+\index{test\_set@{test\_set}!brute\_force\_string\_searching.cpp@{brute\_force\_string\_searching.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_set}{test\_set}}
+{\footnotesize\ttfamily \label{brute__force__string__searching_8cpp_ae2abaa9caa13fff35e45edca00bee123} 
+const std\+::vector$<$std\+::vector$<$std\+::string$>$ $>$ test\+\_\+set}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}aa"{}},\ \textcolor{stringliteral}{"{}-\/1"{}}\},\ \ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}0"{}}\},\ \ \ \ \{\textcolor{stringliteral}{"{}ba"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}0"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}bba"{}},\ \textcolor{stringliteral}{"{}bb"{}},\ \textcolor{stringliteral}{"{}0"{}}\},\ \{\textcolor{stringliteral}{"{}bbca"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}2"{}}\},\ \{\textcolor{stringliteral}{"{}ab"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}1"{}}\}\}}
+
+\end{DoxyCode}
+set of test cases 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ \{text,\ pattern,\ expected\ output\}}}
+\DoxyCodeLine{00043\ \ \ \ \ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}aa"{}},\ \textcolor{stringliteral}{"{}-\/1"{}}\},\ \ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}0"{}}\},\ \ \ \ \{\textcolor{stringliteral}{"{}ba"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}0"{}}\},}
+\DoxyCodeLine{00044\ \ \ \ \ \{\textcolor{stringliteral}{"{}bba"{}},\ \textcolor{stringliteral}{"{}bb"{}},\ \textcolor{stringliteral}{"{}0"{}}\},\ \{\textcolor{stringliteral}{"{}bbca"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}2"{}}\},\ \{\textcolor{stringliteral}{"{}ab"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}1"{}}\}\};}
+
+\end{DoxyCode}

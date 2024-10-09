@@ -1,0 +1,119 @@
+\doxysection{operations\+\_\+on\+\_\+datastructures/trie\+\_\+multiple\+\_\+search.cpp File Reference}
+\hypertarget{trie__multiple__search_8cpp}{}\label{trie__multiple__search_8cpp}\index{operations\_on\_datastructures/trie\_multiple\_search.cpp@{operations\_on\_datastructures/trie\_multiple\_search.cpp}}
+
+
+\href{https://iq.opengenus.org/autocomplete-using-trie-data-structure/}{\texttt{ Trie datastructure}} with search variants  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{operations\+\_\+on\+\_\+datastructures\+::trie\+\_\+operations\+::\+Tnode}}
+\begin{DoxyCompactList}\small\item\em Class defining the structure of trie node and containing the methods to perform operations on them. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceoperations__on__datastructures}{operations\+\_\+on\+\_\+datastructures}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetrie__operations}{trie\+\_\+operations}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://iq.opengenus.org/autocomplete-using-trie-data-structure/}{\texttt{ Trie datastructure}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{trie__multiple__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test a simple search before and after deleting an entry. And to test out the multiple variants of search. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{trie__multiple__search_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://iq.opengenus.org/autocomplete-using-trie-data-structure/}{\texttt{ Trie datastructure}} with search variants 
+
+This provides multiple variants of search functions on a trie structure utilizing STL. The trie is valid for only English alphabets. \begin{DoxyAuthor}{Author}
+\href{https://github.com/g-s-k-zoro}{\texttt{ Ghanashyam}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{trie__multiple__search_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\index{trie\_multiple\_search.cpp@{trie\_multiple\_search.cpp}!main@{main}}
+\index{main@{main}!trie\_multiple\_search.cpp@{trie\_multiple\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{trie__multiple__search_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char const \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & commandline argument count (ignored) \\
+\hline
+{\em argv} & commandline array of arguments (ignored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00464\ \ \ \ \ \mbox{\hyperlink{trie__multiple__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00466\ \}}
+
+\end{DoxyCode}
+\Hypertarget{trie__multiple__search_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{trie\_multiple\_search.cpp@{trie\_multiple\_search.cpp}!test@{test}}
+\index{test@{test}!trie\_multiple\_search.cpp@{trie\_multiple\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{trie__multiple__search_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test a simple search before and after deleting an entry. And to test out the multiple variants of search. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keyword}{auto}\ root\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoperations__on__datastructures_1_1trie__operations_1_1_tnode}{operations\_on\_datastructures::trie\_operations::Tnode}}();}
+\DoxyCodeLine{00424\ \ \ \ \ std::vector<std::string>\ inputs\ =\ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}abcde"{}},\ \textcolor{stringliteral}{"{}sss"{}},\ \ \ \ \textcolor{stringliteral}{"{}ssss"{}},\ \ \textcolor{stringliteral}{"{}ssst"{}},\ \textcolor{stringliteral}{"{}sssu"{}},\ \textcolor{stringliteral}{"{}sssv"{}},}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sst"{}},\ \ \ \textcolor{stringliteral}{"{}ssts"{}},\ \ \ \textcolor{stringliteral}{"{}sstt"{}},\ \ \textcolor{stringliteral}{"{}sstu"{}},\ \textcolor{stringliteral}{"{}tutu"{}},\ \textcolor{stringliteral}{"{}tutuv"{}},}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tutuu"{}},\ \textcolor{stringliteral}{"{}tutuvs"{}},\ \textcolor{stringliteral}{"{}tutus"{}},\ \textcolor{stringliteral}{"{}tvst"{}},\ \textcolor{stringliteral}{"{}tvsu"{}},\ \textcolor{stringliteral}{"{}vvvv"{}}\};}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ inputs)\ \{}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ root-\/>Insert(i);}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{comment}{//\ Search\ an\ existing\ entry}}
+\DoxyCodeLine{00433\ \ \ \ \ assert(root-\/>SearchPresence(\textcolor{stringliteral}{"{}vvvv"{}}));}
+\DoxyCodeLine{00434\ \ \ \ \ std::cout\ <<\ root-\/>SearchPresence(\textcolor{stringliteral}{"{}vvvv"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{comment}{//\ Delete\ it}}
+\DoxyCodeLine{00436\ \ \ \ \ root-\/>Delete(\textcolor{stringliteral}{"{}vvvv"{}});}
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{comment}{//\ Search\ for\ the\ entry\ again}}
+\DoxyCodeLine{00438\ \ \ \ \ assert(!root-\/>SearchPresence(\textcolor{stringliteral}{"{}vvvv"{}}));}
+\DoxyCodeLine{00439\ \ \ \ \ std::cout\ <<\ root-\/>SearchPresence(\textcolor{stringliteral}{"{}vvvv"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ std::cout\ <<\ root-\/>SearchPresence(\textcolor{stringliteral}{"{}tutu"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00442\ \ \ \ \ root-\/>SearchSuggestions(\textcolor{stringliteral}{"{}tutu"{}});}
+\DoxyCodeLine{00443\ \ \ \ \ std::cout\ <<\ root-\/>SearchPresence(\textcolor{stringliteral}{"{}tutu"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ root-\/>SearchSuggestions(\textcolor{stringliteral}{"{}tutuv"{}});}
+\DoxyCodeLine{00446\ \ \ \ \ std::cout\ <<\ root-\/>SearchPresence(\textcolor{stringliteral}{"{}tutuv"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ root-\/>SearchSuggestions(\textcolor{stringliteral}{"{}tutuvs"{}});}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ root-\/>SearchFreqSuggestions(}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tu"{}});\ \ \textcolor{comment}{//\ The\ top\ 3\ frequent\ entries\ with\ prefix\ tu\ are\ tutu,\ tutuv\ \&}}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tutuvs\ respectively}}
+\DoxyCodeLine{00453\ \ \ \ \ root-\/>SearchSuggestions(}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}});\ \ \textcolor{comment}{//\ Empty\ search\ to\ list\ all\ the\ entries\ in\ the\ trie}}
+\DoxyCodeLine{00455\ \}}
+
+\end{DoxyCode}

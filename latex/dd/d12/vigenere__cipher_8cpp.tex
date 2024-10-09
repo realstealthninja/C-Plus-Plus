@@ -1,0 +1,166 @@
+\doxysection{ciphers/vigenere\+\_\+cipher.cpp File Reference}
+\hypertarget{vigenere__cipher_8cpp}{}\label{vigenere__cipher_8cpp}\index{ciphers/vigenere\_cipher.cpp@{ciphers/vigenere\_cipher.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Vigen\%C3\%A8re_cipher}{\texttt{ Vigenère cipher}} algorithm.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceciphers}{ciphers}}
+\begin{DoxyCompactList}\small\item\em Algorithms for encryption and decryption. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevigenere}{vigenere}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Vigen\%C3\%A8re_cipher}{\texttt{ vigenère cipher}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{vigenere__cipher_8cpp_a6bd3880ea6820c232c1eddf47553c257}{ciphers\+::vigenere\+::encrypt}} (const std\+::string \&text, const std\+::string \&key)
+\item 
+std\+::string \mbox{\hyperlink{vigenere__cipher_8cpp_a3cfc3f9b20a0f230a2fcefd31dc6848e}{ciphers\+::vigenere\+::decrypt}} (const std\+::string \&text, const std\+::string \&key)
+\item 
+void \mbox{\hyperlink{vigenere__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+int \mbox{\hyperlink{vigenere__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Vigen\%C3\%A8re_cipher}{\texttt{ Vigenère cipher}} algorithm. 
+
+The Vigenère cipher is a method of encrypting alphabetic text by using a series of interwoven vigenere ciphers, based on the letters of a keyword. It employs a form of polyalphabetic substitution.\hypertarget{vigenere__cipher_8cpp_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{vigenere__cipher_8cpp_autotoc_md2}
+The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A → 0, B → 1, ..., Z → 25. Encryption of $i^{th}$ character in Message M by key K can be described mathematically as,
+
+\[ E_{K}(M_{i}) = (M_{i} + K_{i})\;\mbox{mod}\; 26\]
+
+while decryption of $i^{th}$ character in Cipher C by key K can be described mathematically as,
+
+\[ D_{k}(C_{i}) = (C_{i} - K_{i} + 26)\;\mbox{mod}\; 26\]
+
+Where $K_{i}$ denotes corresponding character in key. If $|key| < |text|$ than same key is repeated untill their lengths are equal.
+
+For Example, If M = "{}\+ATTACKATDAWN"{} and K = "{}\+LEMON"{} than K becomes "{}\+LEMONLEMONLE"{}.
+
+\begin{DoxyNote}{Note}
+Rather than creating new key of equal length this program does this by using modular index for key (i.\+e. $(j + 1) \;\mbox{mod}\; |\mbox{key}|$)
+
+This program implements Vigenère cipher for only uppercase English alphabet characters (i.\+e. A-\/Z).
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/imdeep2905}{\texttt{ Deep Raval}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{vigenere__cipher_8cpp_a3cfc3f9b20a0f230a2fcefd31dc6848e}\index{vigenere\_cipher.cpp@{vigenere\_cipher.cpp}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!vigenere\_cipher.cpp@{vigenere\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily \label{vigenere__cipher_8cpp_a3cfc3f9b20a0f230a2fcefd31dc6848e} 
+std\+::string ciphers\+::vigenere\+::decrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+Decrypt given text using vigenere cipher. 
+\begin{DoxyParams}{Parameters}
+{\em text} & text to be decrypted \\
+\hline
+{\em key} & key to be used for decryption \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new decrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Going\ through\ each\ character\ of\ text\ and\ key}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Note\ that\ key\ is\ visited\ in\ circular\ way\ hence\ \ j\ =\ (j\ +\ 1)\ \%\ |key|}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ decrypted\_text\ =\ \textcolor{stringliteral}{"{}"{}};\ \textcolor{comment}{//\ Empty\ string\ to\ store\ decrypted\ text}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0,\ j\ =\ 0;\ i\ <\ text.length();\ i++,\ j\ =\ (j\ +\ 1)\ \%\ key.length())\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ place\_value\_text\ =\ get\_value(text[i]);\ \textcolor{comment}{//\ Getting\ value\ of\ character\ in\ text}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ place\_value\_key\ =\ get\_value(key[j]);\ \textcolor{comment}{//\ Getting\ value\ of\ character\ in\ key}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ place\_value\_text\ =\ (place\_value\_text\ -\/\ place\_value\_key\ +\ 26)\ \%\ 26;\ \textcolor{comment}{//\ Applying\ decryption}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ decrypted\_char\ =\ \mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(place\_value\_text);\ \textcolor{comment}{//\ Getting\ new\ character\ from\ decrypted\ value}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ decrypted\_text\ +=\ decrypted\_char;\ \textcolor{comment}{//\ Appending\ decrypted\ character}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ decrypted\_text;\ \textcolor{comment}{//\ Returning\ decrypted\ text}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{vigenere__cipher_8cpp_a6bd3880ea6820c232c1eddf47553c257}\index{vigenere\_cipher.cpp@{vigenere\_cipher.cpp}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!vigenere\_cipher.cpp@{vigenere\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily \label{vigenere__cipher_8cpp_a6bd3880ea6820c232c1eddf47553c257} 
+std\+::string ciphers\+::vigenere\+::encrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+Encrypt given text using vigenere cipher. 
+\begin{DoxyParams}{Parameters}
+{\em text} & text to be encrypted \\
+\hline
+{\em key} & to be used for encryption \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new encrypted text 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ encrypted\_text\ =\ \textcolor{stringliteral}{"{}"{}};\ \textcolor{comment}{//\ Empty\ string\ to\ store\ encrypted\ text}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Going\ through\ each\ character\ of\ text\ and\ key}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Note\ that\ key\ is\ visited\ in\ circular\ way\ hence\ \ j\ =\ (j\ +\ 1)\ \%\ |key|}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0,\ j\ =\ 0;\ i\ <\ text.length();\ i++,\ j\ =\ (j\ +\ 1)\ \%\ key.length())\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ place\_value\_text\ =\ get\_value(text[i]);\ \textcolor{comment}{//\ Getting\ value\ of\ character\ in\ text}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ place\_value\_key\ =\ get\_value(key[j]);\ \textcolor{comment}{//\ Getting\ value\ of\ character\ in\ key}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ place\_value\_text\ =\ (place\_value\_text\ +\ place\_value\_key)\ \%\ 26;\ \textcolor{comment}{//\ Applying\ encryption}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ encrypted\_char\ =\ \mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(place\_value\_text);\ \textcolor{comment}{//\ Getting\ new\ character\ from\ encrypted\ value}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encrypted\_text\ +=\ encrypted\_char;\ \textcolor{comment}{//\ Appending\ encrypted\ character}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ encrypted\_text;\ \textcolor{comment}{//\ Returning\ encrypted\ text}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{vigenere__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{vigenere\_cipher.cpp@{vigenere\_cipher.cpp}!main@{main}}
+\index{main@{main}!vigenere\_cipher.cpp@{vigenere\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{vigenere__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Driver Code 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ Testing}}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{vigenere__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00135\ \}}
+
+\end{DoxyCode}
+\Hypertarget{vigenere__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{vigenere\_cipher.cpp@{vigenere\_cipher.cpp}!test@{test}}
+\index{test@{test}!vigenere\_cipher.cpp@{vigenere\_cipher.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{vigenere__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function to test above algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00113\ \ \ \ \ std::string\ text1\ =\ \textcolor{stringliteral}{"{}NIKOLATESLA"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ std::string\ encrypted1\ =\ \mbox{\hyperlink{vigenere__cipher_8cpp_a6bd3880ea6820c232c1eddf47553c257}{ciphers::vigenere::encrypt}}(text1,\ \textcolor{stringliteral}{"{}TESLA"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ std::string\ decrypted1\ =\ \mbox{\hyperlink{vigenere__cipher_8cpp_a3cfc3f9b20a0f230a2fcefd31dc6848e}{ciphers::vigenere::decrypt}}(encrypted1,\ \textcolor{stringliteral}{"{}TESLA"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ assert(text1\ ==\ decrypted1);}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ text\ :\ "{}}\ <<\ text1;}
+\DoxyCodeLine{00118\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Encrypted\ text\ (with\ key\ =\ TESLA)\ :\ "{}}\ <<\ encrypted1;}
+\DoxyCodeLine{00119\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Decrypted\ text\ :\ "{}}<<\ decrypted1\ <<\ std::endl;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ Test\ 2}}
+\DoxyCodeLine{00121\ \ \ \ \ std::string\ text2\ =\ \textcolor{stringliteral}{"{}GOOGLEIT"{}};}
+\DoxyCodeLine{00122\ \ \ \ \ std::string\ encrypted2\ =\ \mbox{\hyperlink{vigenere__cipher_8cpp_a6bd3880ea6820c232c1eddf47553c257}{ciphers::vigenere::encrypt}}(text2,\ \textcolor{stringliteral}{"{}REALLY"{}});}
+\DoxyCodeLine{00123\ \ \ \ \ std::string\ decrypted2\ =\ \mbox{\hyperlink{vigenere__cipher_8cpp_a3cfc3f9b20a0f230a2fcefd31dc6848e}{ciphers::vigenere::decrypt}}(encrypted2,\ \textcolor{stringliteral}{"{}REALLY"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ assert(text2\ ==\ decrypted2);}
+\DoxyCodeLine{00125\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ text\ :\ "{}}\ <<\ text2;}
+\DoxyCodeLine{00126\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Encrypted\ text\ (with\ key\ =\ REALLY)\ :\ "{}}\ <<\ encrypted2;}
+\DoxyCodeLine{00127\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ ,\ Decrypted\ text\ :\ "{}}<<\ decrypted2\ <<\ std::endl;}
+\DoxyCodeLine{00128\ \}}
+
+\end{DoxyCode}

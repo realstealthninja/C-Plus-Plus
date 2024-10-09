@@ -1,0 +1,137 @@
+\doxysection{graph\+::is\+\_\+graph\+\_\+bipartite\+::Graph Class Reference}
+\hypertarget{classgraph_1_1is__graph__bipartite_1_1_graph}{}\label{classgraph_1_1is__graph__bipartite_1_1_graph}\index{graph::is\_graph\_bipartite::Graph@{graph::is\_graph\_bipartite::Graph}}
+
+
+Class for representing graph as an adjacency list.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a6aef65b40347c4606662cad4dd2e14d3}{Graph}} (int size)
+\begin{DoxyCompactList}\small\item\em Constructor that initializes the graph on creation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a816cda7e563198f778fd32e03992763b}{add\+Edge}} (int u, int v)
+\begin{DoxyCompactList}\small\item\em Function that add an edge between two nodes or vertices of graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_ad475f8b838693812f7569a490729f373}{is\+\_\+bipartite}} ()
+\begin{DoxyCompactList}\small\item\em function to add edges to our graph \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgraph_1_1is__graph__bipartite_1_1_graph_aefea7ee87a708298c486d5a38ac628ef}\label{classgraph_1_1is__graph__bipartite_1_1_graph_aefea7ee87a708298c486d5a38ac628ef} 
+int {\bfseries n}
+\begin{DoxyCompactList}\small\item\em size of the graph \end{DoxyCompactList}\item 
+\Hypertarget{classgraph_1_1is__graph__bipartite_1_1_graph_ab0efcfa04fff8616aff0062522d1483f}\label{classgraph_1_1is__graph__bipartite_1_1_graph_ab0efcfa04fff8616aff0062522d1483f} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries adj}
+\begin{DoxyCompactList}\small\item\em adj stores the graph as an adjacency list \end{DoxyCompactList}\item 
+\Hypertarget{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}\label{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6} 
+std\+::vector$<$ int $>$ {\bfseries side}
+\begin{DoxyCompactList}\small\item\em stores the side of the vertex \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for representing graph as an adjacency list. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgraph_1_1is__graph__bipartite_1_1_graph_a6aef65b40347c4606662cad4dd2e14d3}\index{graph::is\_graph\_bipartite::Graph@{graph::is\_graph\_bipartite::Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!graph::is\_graph\_bipartite::Graph@{graph::is\_graph\_bipartite::Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily \label{classgraph_1_1is__graph__bipartite_1_1_graph_a6aef65b40347c4606662cad4dd2e14d3} 
+graph\+::is\+\_\+graph\+\_\+bipartite\+::\+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor that initializes the graph on creation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & number of vertices of the graph \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_aefea7ee87a708298c486d5a38ac628ef}{n}}\ =\ size;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_ab0efcfa04fff8616aff0062522d1483f}{adj}}.resize(\mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_aefea7ee87a708298c486d5a38ac628ef}{n}});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}.resize(\mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_aefea7ee87a708298c486d5a38ac628ef}{n}},\ -\/1);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgraph_1_1is__graph__bipartite_1_1_graph_a816cda7e563198f778fd32e03992763b}\index{graph::is\_graph\_bipartite::Graph@{graph::is\_graph\_bipartite::Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!graph::is\_graph\_bipartite::Graph@{graph::is\_graph\_bipartite::Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \label{classgraph_1_1is__graph__bipartite_1_1_graph_a816cda7e563198f778fd32e03992763b} 
+void graph\+::is\+\_\+graph\+\_\+bipartite\+::\+Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{u}{, }\item[{int}]{v}{}\end{DoxyParamCaption})}
+
+
+
+Function that add an edge between two nodes or vertices of graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & is a node or vertex of graph \\
+\hline
+{\em v} & is a node or vertex of graph \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_ab0efcfa04fff8616aff0062522d1483f}{adj}}[u\ -\/\ 1].push\_back(v\ -\/\ 1);}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_ab0efcfa04fff8616aff0062522d1483f}{adj}}[v\ -\/\ 1].push\_back(u\ -\/\ 1);}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1is__graph__bipartite_1_1_graph_ad475f8b838693812f7569a490729f373}\index{graph::is\_graph\_bipartite::Graph@{graph::is\_graph\_bipartite::Graph}!is\_bipartite@{is\_bipartite}}
+\index{is\_bipartite@{is\_bipartite}!graph::is\_graph\_bipartite::Graph@{graph::is\_graph\_bipartite::Graph}}
+\doxysubsubsection{\texorpdfstring{is\_bipartite()}{is\_bipartite()}}
+{\footnotesize\ttfamily \label{classgraph_1_1is__graph__bipartite_1_1_graph_ad475f8b838693812f7569a490729f373} 
+bool graph\+::is\+\_\+graph\+\_\+bipartite\+::\+Graph\+::is\+\_\+bipartite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+function to add edges to our graph 
+
+function that checks whether the graph is bipartite or not the function returns true if the graph is a bipartite graph the function returns false if the graph is not a bipartite graph
+
+Here, side refers to the two disjoint subsets of the bipartite graph. Initially, the values of side are set to -\/1 which is an unassigned state. A for loop is run for every vertex of the graph. If the current edge has no side assigned to it, then a Breadth First Search operation is performed. If two neighbours have the same side then the graph will not be bipartite and the value of check becomes false. If and only if each pair of neighbours have different sides, the value of check will be true and hence the graph bipartite.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if th graph is bipartite 
+
+{\ttfamily false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ check\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00108\ \ \ \ \ std::queue<int>\ q;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ current\_edge\ =\ 0;\ current\_edge\ <\ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_aefea7ee87a708298c486d5a38ac628ef}{n}};\ ++current\_edge)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}[current\_edge]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ q.push(current\_edge);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}[current\_edge]\ =\ 0;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (q.size())\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ current\ =\ q.front();}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ neighbour\ :\ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_ab0efcfa04fff8616aff0062522d1483f}{adj}}[current])\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}[neighbour]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}[neighbour]\ =\ (1\ \string^\ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}[current]);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(neighbour);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check\ \&=\ (\mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}[neighbour]\ !=\ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph_a9d10768f927baa8a4d4a5ffce295b6b6}{side}}[current]);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{return}\ check;}
+\DoxyCodeLine{00128\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/\mbox{\hyperlink{is__graph__bipartite_8cpp}{is\+\_\+graph\+\_\+bipartite.\+cpp}}\end{DoxyCompactItemize}

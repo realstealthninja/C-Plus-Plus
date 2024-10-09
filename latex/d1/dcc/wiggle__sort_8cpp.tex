@@ -1,0 +1,85 @@
+\doxysection{sorting/wiggle\+\_\+sort.cpp File Reference}
+\hypertarget{wiggle__sort_8cpp}{}\label{wiggle__sort_8cpp}\index{sorting/wiggle\_sort.cpp@{sorting/wiggle\_sort.cpp}}
+
+
+\mbox{[}Wiggle Sort Algorithm\mbox{]} (\href{https://leetcode.com/problems/wiggle-sort-ii/}{\texttt{ https\+://leetcode.\+com/problems/wiggle-\/sort-\/ii/}}) Implementation  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacewiggle__sort}{wiggle\+\_\+sort}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://leetcode.com/problems/wiggle-sort-ii/}{\texttt{ Wiggle Sort}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{wiggle__sort_8cpp_a99eeded693ac073717282fae365957a1}{sorting\+::wiggle\+\_\+sort\+::wiggle\+Sort}} (const std\+::vector$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Function used for sorting the elements in wave form. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\static void \mbox{\hyperlink{group__sorting_ga135e4c638e3bcf548bd122b5f49a3e72}{display\+Elements}} (const std\+::vector$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Utility function used for printing the elements. Prints elements of the array after they\textquotesingle{}re sorted using wiggle sort algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{group__sorting_gaa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{group__sorting_gae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}Wiggle Sort Algorithm\mbox{]} (\href{https://leetcode.com/problems/wiggle-sort-ii/}{\texttt{ https\+://leetcode.\+com/problems/wiggle-\/sort-\/ii/}}) Implementation 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/roshan0708}{\texttt{ Roshan Kanwar}}
+\end{DoxyAuthor}
+Wiggle Sort sorts the array into a wave like array. An array ‘arr\mbox{[}0..n-\/1\mbox{]}’ is sorted in wave form, if arr\mbox{[}0\mbox{]} \texorpdfstring{$>$}{>}= arr\mbox{[}1\mbox{]} \texorpdfstring{$<$}{<}= arr\mbox{[}2\mbox{]} \texorpdfstring{$>$}{>}= arr\mbox{[}3\mbox{]} \texorpdfstring{$<$}{<}= arr\mbox{[}4\mbox{]} \texorpdfstring{$>$}{>}= ….. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{wiggle__sort_8cpp_a99eeded693ac073717282fae365957a1}\index{wiggle\_sort.cpp@{wiggle\_sort.cpp}!wiggleSort@{wiggleSort}}
+\index{wiggleSort@{wiggleSort}!wiggle\_sort.cpp@{wiggle\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{wiggleSort()}{wiggleSort()}}
+{\footnotesize\ttfamily \label{wiggle__sort_8cpp_a99eeded693ac073717282fae365957a1} 
+template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ sorting\+::wiggle\+\_\+sort\+::wiggle\+Sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{arr}{}\end{DoxyParamCaption})}
+
+
+
+Function used for sorting the elements in wave form. 
+
+Checking whether the even indexed elements are greater than their adjacent odd elements. Traversing all even indexed elements of the input arr. If current element is smaller than the previous odd element, swap them. If current element is smaller than the next odd element, swap them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & input array (unsorted elements) \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2sorting_2wiggle_sort_8cpp-example}{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/sorting/wiggle\+\_\+sort.\+cpp}}.\end{Desc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ uint32\_t\ size\ =\ arr.size();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ std::vector<T>\ out(}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ arr);\ \ \textcolor{comment}{//\ create\ a\ copy\ of\ input\ vector.\ this\ way,\ the\ original\ input}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vector\ does\ not\ get\ modified.\ a\ sorted\ array\ is\ is\ returned.}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i\ +=\ 2)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0\ \&\&\ out[i\ -\/\ 1]\ >\ out[i])\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(out[i],\ out[i\ -\/\ 1]);\ \ \textcolor{comment}{//\ swapping\ the\ two\ values}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ size\ -\/\ 1\ \&\&\ out[i]\ <\ out[i\ +\ 1])\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(out[i],\ out[i\ +\ 1]);\ \ \textcolor{comment}{//\ swapping\ the\ two\ values}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ out;\ \ \textcolor{comment}{//\ returns\ the\ sorted\ vector}}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}

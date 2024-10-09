@@ -1,0 +1,84 @@
+\doxysection{strings/knuth\+\_\+morris\+\_\+pratt.cpp File Reference}
+\hypertarget{knuth__morris__pratt_8cpp}{}\label{knuth__morris__pratt_8cpp}\index{strings/knuth\_morris\_pratt.cpp@{strings/knuth\_morris\_pratt.cpp}}
+
+
+The \href{https://en.wikipedia.org/wiki/Knuth\%E2\%80\%93Morris\%E2\%80\%93Pratt_algorithm}{\texttt{ Knuth-\/\+Morris-\/\+Pratt Algorithm}} for finding a pattern within a piece of text with complexity O(n + m)  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestring__search}{string\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em String search algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{namespacestring__search_a83c72ff237cdf623e42d4295e0029bf9}{string\+\_\+search\+::get\+Failure\+Array}} (const std\+::string \&pattern)
+\begin{DoxyCompactList}\small\item\em Generate the partial match table aka failure function for a pattern to search. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{namespacestring__search_a1e37af2f023495129cb57338c801209e}{string\+\_\+search\+::kmp}} (const std\+::string \&pattern, const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em KMP algorithm to find a pattern in a text. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{knuth__morris__pratt_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em self-\/test implementations \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{knuth__morris__pratt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \href{https://en.wikipedia.org/wiki/Knuth\%E2\%80\%93Morris\%E2\%80\%93Pratt_algorithm}{\texttt{ Knuth-\/\+Morris-\/\+Pratt Algorithm}} for finding a pattern within a piece of text with complexity O(n + m) 
+
+
+\begin{DoxyEnumerate}
+\item Preprocess pattern to identify any suffixes that are identical to prefixes. This tells us where to continue from if we get a mismatch between a character in our pattern and the text.
+\item Step through the text one character at a time and compare it to a character in the pattern updating our location within the pattern if necessary \begin{DoxyAuthor}{Author}
+\href{https://github.com/Yancey2023}{\texttt{ Yancey}} 
+\end{DoxyAuthor}
+
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{knuth__morris__pratt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{knuth\_morris\_pratt.cpp@{knuth\_morris\_pratt.cpp}!main@{main}}
+\index{main@{main}!knuth\_morris\_pratt.cpp@{knuth\_morris\_pratt.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{knuth__morris__pratt_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{knuth__morris__pratt_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{knuth__morris__pratt_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{knuth\_morris\_pratt.cpp@{knuth\_morris\_pratt.cpp}!tests@{tests}}
+\index{tests@{tests}!knuth\_morris\_pratt.cpp@{knuth\_morris\_pratt.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{knuth__morris__pratt_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+self-\/test implementations 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ assert(kmp(\textcolor{stringliteral}{"{}abc1abc12l"{}},\ \textcolor{stringliteral}{"{}alskfjaldsabc1abc1abc12k2"{}})\ ==\ std::string::npos);}
+\DoxyCodeLine{00081\ \ \ \ \ assert(kmp(\textcolor{stringliteral}{"{}bca"{}},\ \textcolor{stringliteral}{"{}abcabc"{}})\ ==\ 1);}
+\DoxyCodeLine{00082\ \ \ \ \ assert(kmp(\textcolor{stringliteral}{"{}World"{}},\ \textcolor{stringliteral}{"{}helloWorld"{}})\ ==\ 5);}
+\DoxyCodeLine{00083\ \ \ \ \ assert(kmp(\textcolor{stringliteral}{"{}c++"{}},\ \textcolor{stringliteral}{"{}his\_is\_c++"{}})\ ==\ 7);}
+\DoxyCodeLine{00084\ \ \ \ \ assert(kmp(\textcolor{stringliteral}{"{}happy"{}},\ \textcolor{stringliteral}{"{}happy\_coding"{}})\ ==\ 0);}
+\DoxyCodeLine{00085\ \ \ \ \ assert(kmp(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}pattern\ is\ empty"{}})\ ==\ 0);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ this\ lets\ the\ user\ know\ that\ the\ tests\ have\ passed}}
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ KMP\ algorithm\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}

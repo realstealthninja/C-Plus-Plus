@@ -1,0 +1,257 @@
+\doxysection{data\+\_\+structures\+::trie Class Reference}
+\hypertarget{classdata__structures_1_1trie}{}\label{classdata__structures_1_1trie}\index{data\_structures::trie@{data\_structures::trie}}
+
+
+\href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} implementation for small-\/case English alphabets {\ttfamily a-\/z}  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1trie_a87d8bf99aea936f9381141753f1e90a8}\label{classdata__structures_1_1trie_a87d8bf99aea936f9381141753f1e90a8} 
+{\bfseries trie} ()=default
+\begin{DoxyCompactList}\small\item\em Class default constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1trie_a0ab94bc6417e3f59fab33cea5b64d546}{insert}} (const std\+::string \&str)
+\item 
+bool \mbox{\hyperlink{classdata__structures_1_1trie_a499f87fd833203ef9492b4870aa6d42d}{search}} (const std\+::string \&str, int index)
+\item 
+bool \mbox{\hyperlink{classdata__structures_1_1trie_aeac27cfd397d2dd3f2f519efffafeeab}{delete\+String}} (const std\+::string \&str, int index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classdata__structures_1_1trie_aab373beb3f618b90922528c68797d988}{char\+\_\+to\+\_\+int}} (const char \&ch) const
+\begin{DoxyCompactList}\small\item\em Convert a character to integer for indexing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1trie_a961eb5d576d2420f2036009154397c63}{search}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdata__structures_1_1trie}{trie}} $>$ \&root, const std\+::string \&str, int index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}\label{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b} 
+std\+::array$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdata__structures_1_1trie}{trie}} $>$, \mbox{\hyperlink{classdata__structures_1_1trie_a4bfac4be6ed1a34c7159eddb42469191}{NUM\+\_\+\+CHARS}}$<$$<$ 1 $>$ {\bfseries arr}
+\begin{DoxyCompactList}\small\item\em Recursive tree nodes as an array of shared-\/pointers. \end{DoxyCompactList}\item 
+\Hypertarget{classdata__structures_1_1trie_a4cb0f775b5a4bc14a6d39b5c93883eb6}\label{classdata__structures_1_1trie_a4cb0f775b5a4bc14a6d39b5c93883eb6} 
+bool {\bfseries is\+Endof\+Word} = false
+\begin{DoxyCompactList}\small\item\em identifier if a node is terminal node \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1trie_a4bfac4be6ed1a34c7159eddb42469191}\label{classdata__structures_1_1trie_a4bfac4be6ed1a34c7159eddb42469191} 
+static constexpr uint8\+\_\+t {\bfseries NUM\+\_\+\+CHARS} = 26
+\begin{DoxyCompactList}\small\item\em Number of alphabets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Trie}{\texttt{ Trie}} implementation for small-\/case English alphabets {\ttfamily a-\/z} 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1trie_aab373beb3f618b90922528c68797d988}\index{data\_structures::trie@{data\_structures::trie}!char\_to\_int@{char\_to\_int}}
+\index{char\_to\_int@{char\_to\_int}!data\_structures::trie@{data\_structures::trie}}
+\doxysubsubsection{\texorpdfstring{char\_to\_int()}{char\_to\_int()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie_aab373beb3f618b90922528c68797d988} 
+uint8\+\_\+t data\+\_\+structures\+::trie\+::char\+\_\+to\+\_\+int (\begin{DoxyParamCaption}\item[{const char \&}]{ch}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Convert a character to integer for indexing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & character to index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned integer index 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ >=\ \textcolor{charliteral}{'A'}\ \&\&\ ch\ <=\ \textcolor{charliteral}{'Z'})\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ch\ -\/\ \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ch\ >=\ \textcolor{charliteral}{'a'}\ \&\&\ ch\ <=\ \textcolor{charliteral}{'z'})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ch\ -\/\ \textcolor{charliteral}{'a'}\ +\ \mbox{\hyperlink{classdata__structures_1_1trie_a4bfac4be6ed1a34c7159eddb42469191}{NUM\_CHARS}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Invalid\ character\ present.\ Exiting..."{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie_aeac27cfd397d2dd3f2f519efffafeeab}\index{data\_structures::trie@{data\_structures::trie}!deleteString@{deleteString}}
+\index{deleteString@{deleteString}!data\_structures::trie@{data\_structures::trie}}
+\doxysubsubsection{\texorpdfstring{deleteString()}{deleteString()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie_aeac27cfd397d2dd3f2f519efffafeeab} 
+bool data\+\_\+structures\+::trie\+::delete\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{, }\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+removes the string if it is not a prefix of any other string, if it is then just sets the \+::data\+\_\+structure\+::trie\+::is\+Endof\+Word to false, else removes the given string \begin{DoxyNote}{Note}
+the function \+::data\+\_\+structure\+::trie\+::delete\+String might be erroneous 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]review the function \+::data\+\_\+structure\+::trie\+::delete\+String and the commented lines \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & string to remove \\
+\hline
+{\em index} & index to remove from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if successful 
+
+{\ttfamily false} if unsuccessful 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ str.length())\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classdata__structures_1_1trie_a4cb0f775b5a4bc14a6d39b5c93883eb6}{isEndofWord}})\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1trie_a4cb0f775b5a4bc14a6d39b5c93883eb6}{isEndofWord}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ following\ lines\ -\/\ possible\ source\ of\ error?}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ (int\ i\ =\ 0;\ i\ <\ NUM\_CHARS;\ i++)}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (!arr[i])}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ return\ false;}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ \mbox{\hyperlink{classdata__structures_1_1trie_aab373beb3f618b90922528c68797d988}{char\_to\_int}}(str[index]);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[j])\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ var\ =\ \mbox{\hyperlink{classdata__structures_1_1trie_aeac27cfd397d2dd3f2f519efffafeeab}{deleteString}}(str,\ index\ +\ 1);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (var)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[j].reset();}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1trie_a4cb0f775b5a4bc14a6d39b5c93883eb6}{isEndofWord}})\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classdata__structures_1_1trie_a4bfac4be6ed1a34c7159eddb42469191}{NUM\_CHARS}};\ i++)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[i])\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ should\ not\ return\ here\ */}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ std::cout\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ \_\_LINE\_\_}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Should\ not\ reach\ this\ line\(\backslash\)n"{}};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie_a0ab94bc6417e3f59fab33cea5b64d546}\index{data\_structures::trie@{data\_structures::trie}!insert@{insert}}
+\index{insert@{insert}!data\_structures::trie@{data\_structures::trie}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie_a0ab94bc6417e3f59fab33cea5b64d546} 
+void data\+\_\+structures\+::trie\+::insert (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+insert string into the trie 
+\begin{DoxyParams}{Parameters}
+{\em str} & String to insert in the tree \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::shared\_ptr<trie>\ root(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ ch\ :\ str)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ \mbox{\hyperlink{classdata__structures_1_1trie_aab373beb3f618b90922528c68797d988}{char\_to\_int}}(ch);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (root)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (root-\/>arr[j])\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ root\ =\ root-\/>arr[j];}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<trie>\ temp(\textcolor{keyword}{new}\ \mbox{\hyperlink{classdata__structures_1_1trie_a87d8bf99aea936f9381141753f1e90a8}{trie}}());}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ root-\/>arr[j]\ =\ temp;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ root\ =\ temp;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[j])\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ root\ =\ \mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[j];}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<trie>\ temp(\textcolor{keyword}{new}\ \mbox{\hyperlink{classdata__structures_1_1trie_a87d8bf99aea936f9381141753f1e90a8}{trie}}());}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[j]\ =\ temp;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ root\ =\ temp;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ root-\/>isEndofWord\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie_a961eb5d576d2420f2036009154397c63}\index{data\_structures::trie@{data\_structures::trie}!search@{search}}
+\index{search@{search}!data\_structures::trie@{data\_structures::trie}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie_a961eb5d576d2420f2036009154397c63} 
+bool data\+\_\+structures\+::trie\+::search (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdata__structures_1_1trie}{trie}} $>$ \&}]{root}{, }\item[{const std\+::string \&}]{str}{, }\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+search a string exists inside a given root trie 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to search for \\
+\hline
+{\em index} & start index to search from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if found 
+
+{\ttfamily false} if not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ str.length())\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!root-\/>isEndofWord)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ \mbox{\hyperlink{classdata__structures_1_1trie_aab373beb3f618b90922528c68797d988}{char\_to\_int}}(str[index]);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!root-\/>arr[j])\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesearch}{search}}(root-\/>arr[j],\ str,\ index\ +\ 1);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1trie_a499f87fd833203ef9492b4870aa6d42d}\index{data\_structures::trie@{data\_structures::trie}!search@{search}}
+\index{search@{search}!data\_structures::trie@{data\_structures::trie}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1trie_a499f87fd833203ef9492b4870aa6d42d} 
+bool data\+\_\+structures\+::trie\+::search (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{, }\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+search a string exists inside the trie 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to search for \\
+\hline
+{\em index} & start index to search from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if found 
+
+{\ttfamily false} if not found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ str.length())\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classdata__structures_1_1trie_a4cb0f775b5a4bc14a6d39b5c93883eb6}{isEndofWord}})\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ \mbox{\hyperlink{classdata__structures_1_1trie_aab373beb3f618b90922528c68797d988}{char\_to\_int}}(str[index]);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[j])\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesearch}{search}}(\mbox{\hyperlink{classdata__structures_1_1trie_a362dd78748a1f01ab019e55fd6098a8b}{arr}}[j],\ str,\ index\ +\ 1);}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{trie__tree_8cpp}{trie\+\_\+tree.\+cpp}}\end{DoxyCompactItemize}

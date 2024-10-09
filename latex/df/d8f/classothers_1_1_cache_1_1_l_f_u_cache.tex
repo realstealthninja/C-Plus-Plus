@@ -1,0 +1,381 @@
+\doxysection{others\+::Cache\+::LFUCache\texorpdfstring{$<$}{<} K, V \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classothers_1_1_cache_1_1_l_f_u_cache}{}\label{classothers_1_1_cache_1_1_l_f_u_cache}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+
+
+\doxylink{classothers_1_1_cache_1_1_l_f_u_cache}{LFUCache}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_affd7776c246caa2d0f92fd8616f6e5dc}{LFUCache}} (int \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a3acc10e6bb67d9d9c4187f625723e6c5}{\+\_\+capacity}})
+\begin{DoxyCompactList}\small\item\em Constructor, Initialize with min\+Freq and \+\_\+capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_af6f8e5a66a45436b490dfe015ff8866e}{put}} (K key, V value)
+\begin{DoxyCompactList}\small\item\em upsert a key-\/value pair \end{DoxyCompactList}\item 
+V \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a58e37d3713f28d36abbb8cdf6c432781}{get}} (K key)
+\begin{DoxyCompactList}\small\item\em get the value of the key-\/value pair if exists \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_adbfb2ef7358423fdf1f49d410f55f195}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of items present in the cache. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac27c9076377cbed2a2acc45a189fed2c}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Returns the total capacity of the cache. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a68e1be0a3e0a6478aa35f04000e0e9b0}{empty}} () const
+\begin{DoxyCompactList}\small\item\em returns true if the cache is empty, false otherwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a8857531ecc8ed2e36868e267148eff36}{\texorpdfstring{$\sim$}{\string~}\+LFUCache}} ()
+\begin{DoxyCompactList}\small\item\em destructs the cache, iterates on the map and deletes every node present in the cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_adad4ab43141fb8ba43facd3a71e07047}{push}} (int freq, \mbox{\hyperlink{classothers_1_1_cache_1_1_d___node}{Cache\+Node}}$<$ K, V $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em push the node at first position in the linked list of given frequency \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a16a25c102554c5653721a5112ef676c9}{increase\+\_\+frequency}} (std\+::pair$<$ \mbox{\hyperlink{classothers_1_1_cache_1_1_d___node}{Cache\+Node}}$<$ K, V $>$ \texorpdfstring{$\ast$}{*}, int $>$ \&p\+\_\+node)
+\begin{DoxyCompactList}\small\item\em increase the frequency of node and push it in the respective list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ab3561ab204754295199f9566924f7e69}{pop}} ()
+\begin{DoxyCompactList}\small\item\em pop the last node in the least frequently used linked list \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}\label{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35} 
+std\+::unordered\+\_\+map$<$ K, std\+::pair$<$ \mbox{\hyperlink{classothers_1_1_cache_1_1_d___node}{Cache\+Node}}$<$ K, V $>$ \texorpdfstring{$\ast$}{*}, int $>$ $>$ {\bfseries node\+\_\+map}
+\begin{DoxyCompactList}\small\item\em maps the key to the node address and frequency \end{DoxyCompactList}\item 
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}\label{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2} 
+std\+::unordered\+\_\+map$<$ int, std\+::pair$<$ \mbox{\hyperlink{classothers_1_1_cache_1_1_d___node}{Cache\+Node}}$<$ K, V $>$ \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classothers_1_1_cache_1_1_d___node}{Cache\+Node}}$<$ K, V $>$ \texorpdfstring{$\ast$}{*} $>$ $>$ {\bfseries freq\+\_\+map}
+\begin{DoxyCompactList}\small\item\em maps the frequency to doubly linked list \end{DoxyCompactList}\item 
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}\label{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285} 
+int {\bfseries min\+Freq}
+\begin{DoxyCompactList}\small\item\em minimum frequency in the cache \end{DoxyCompactList}\item 
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_a3acc10e6bb67d9d9c4187f625723e6c5}\label{classothers_1_1_cache_1_1_l_f_u_cache_a3acc10e6bb67d9d9c4187f625723e6c5} 
+int {\bfseries \+\_\+capacity}
+\begin{DoxyCompactList}\small\item\em maximum capacity of the cache \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename K, typename V$>$\newline
+class others\+::\+Cache\+::\+LFUCache$<$ K, V $>$}
+\doxylink{classothers_1_1_cache_1_1_l_f_u_cache}{LFUCache}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em K} & type of key in the LFU \\
+\hline
+{\em V} & type of value in the LFU \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_affd7776c246caa2d0f92fd8616f6e5dc}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!LFUCache@{LFUCache}}
+\index{LFUCache@{LFUCache}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{LFUCache()}{LFUCache()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_affd7776c246caa2d0f92fd8616f6e5dc} 
+template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::\+LFUCache (\begin{DoxyParamCaption}\item[{int}]{\+\_\+capacity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor, Initialize with min\+Freq and \+\_\+capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+capacity} & Total capacity of the cache. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ :\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}{minFreq}}(0),\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a3acc10e6bb67d9d9c4187f625723e6c5}{\_capacity}}(\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a3acc10e6bb67d9d9c4187f625723e6c5}{\_capacity}})\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_a8857531ecc8ed2e36868e267148eff36}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!````~LFUCache@{\texorpdfstring{$\sim$}{\string~}LFUCache}}
+\index{````~LFUCache@{\texorpdfstring{$\sim$}{\string~}LFUCache}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LFUCache()}{\string~LFUCache()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_a8857531ecc8ed2e36868e267148eff36} 
+template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{LFUCache}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+destructs the cache, iterates on the map and deletes every node present in the cache. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.begin();}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (it\ !=\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.end())\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ it-\/>second.first;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_ac27c9076377cbed2a2acc45a189fed2c}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_ac27c9076377cbed2a2acc45a189fed2c} 
+template$<$typename K , typename V $>$ \\
+int \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the total capacity of the cache. 
+
+\begin{DoxyReturn}{Returns}
+Total capacity of the cache 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00223\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a3acc10e6bb67d9d9c4187f625723e6c5}{\_capacity}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_a68e1be0a3e0a6478aa35f04000e0e9b0}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!empty@{empty}}
+\index{empty@{empty}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_a68e1be0a3e0a6478aa35f04000e0e9b0} 
+template$<$typename K , typename V $>$ \\
+bool \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns true if the cache is empty, false otherwise. 
+
+\begin{DoxyReturn}{Returns}
+true if the cache is empty, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00229\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.empty();\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_a58e37d3713f28d36abbb8cdf6c432781}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!get@{get}}
+\index{get@{get}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_a58e37d3713f28d36abbb8cdf6c432781} 
+template$<$typename K , typename V $>$ \\
+V \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::get (\begin{DoxyParamCaption}\item[{K}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the value of the key-\/value pair if exists 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key of the key-\/value pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value mapped to the given key 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em exception} & is thrown if the key is not present in the cache \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.count(key))\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}key\ is\ not\ present\ in\ the\ cache"{}});}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ increase\ the\ frequency\ and\ return\ the\ value}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ V\ value\ =\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}[key].first-\/>data.second;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a16a25c102554c5653721a5112ef676c9}{increase\_frequency}}(\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}[key]);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00211\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_a16a25c102554c5653721a5112ef676c9}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!increase\_frequency@{increase\_frequency}}
+\index{increase\_frequency@{increase\_frequency}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{increase\_frequency()}{increase\_frequency()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_a16a25c102554c5653721a5112ef676c9} 
+template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::increase\+\_\+frequency (\begin{DoxyParamCaption}\item[{std\+::pair$<$ \mbox{\hyperlink{classothers_1_1_cache_1_1_d___node}{Cache\+Node}}$<$ K, V $>$ \texorpdfstring{$\ast$}{*}, int $>$ \&}]{p\+\_\+node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+increase the frequency of node and push it in the respective list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+node} & the node to be updated \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ CacheNode<K,\ V>\ *\mbox{\hyperlink{structnode}{node}}\ =\ p\_node.first;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ freq\ =\ p\_node.second;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ std::pair<CacheNode<K,\ V>\ *,\ CacheNode<K,\ V>\ *>\ \&p\ =\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}[freq];}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ the\ given\ node\ is\ the\ only\ node\ in\ the\ list,}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ then\ erase\ the\ frequency\ from\ map}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ increase\ minFreq\ by\ 1.}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.first\ ==\ \mbox{\hyperlink{structnode}{node}}\ \&\&\ p.second\ ==\ \mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}.erase(freq);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}{minFreq}}\ ==\ freq)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}{minFreq}}\ =\ freq\ +\ 1;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ the\ given\ node\ from\ current\ freq\ linked\ list}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ CacheNode<K,\ V>\ *prev\ =\ \mbox{\hyperlink{structnode}{node}}-\/>prev;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ CacheNode<K,\ V>\ *next\ =\ \mbox{\hyperlink{structnode}{node}}-\/>next;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>prev\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prev-\/>next\ =\ next;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p.first\ =\ next;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (next)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ next-\/>prev\ =\ prev;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p.second\ =\ prev;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_adad4ab43141fb8ba43facd3a71e07047}{push}}(freq\ +\ 1,\ \mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ ++p\_node.second;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_ab3561ab204754295199f9566924f7e69}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!pop@{pop}}
+\index{pop@{pop}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_ab3561ab204754295199f9566924f7e69} 
+template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+pop the last node in the least frequently used linked list 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ std::pair<CacheNode<K,\ V>\ *,\ CacheNode<K,\ V>\ *>\ \&p\ =\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}[\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}{minFreq}}];}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ there\ is\ only\ one\ node}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ the\ node\ and\ erase}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ frequency\ from\ freq\_map}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.first\ ==\ p.second)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ p.first;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}.erase(\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}{minFreq}});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ the\ last\ node\ in\ the\ linked\ list}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ CacheNode<K,\ V>\ *temp\ =\ p.second;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ p.second\ =\ temp-\/>prev;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ p.second-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ temp;}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_adad4ab43141fb8ba43facd3a71e07047}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!push@{push}}
+\index{push@{push}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_adad4ab43141fb8ba43facd3a71e07047} 
+template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::push (\begin{DoxyParamCaption}\item[{int}]{freq}{, }\item[{\mbox{\hyperlink{classothers_1_1_cache_1_1_d___node}{Cache\+Node}}$<$ K, V $>$ \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+push the node at first position in the linked list of given frequency 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & the frequency mapping to the linked list where node should be pushed. \\
+\hline
+{\em node} & node to be pushed to the linked list. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ freq\ is\ not\ present,\ then\ make\ a\ new\ list\ with\ node\ as\ the\ head\ as}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ well\ as\ tail.}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}.count(freq))\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}[freq]\ =\ \{\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}},\ \mbox{\hyperlink{structnode}{node}}\};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ std::pair<CacheNode<K,\ V>\ *,\ CacheNode<K,\ V>\ *>\ \&p\ =\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}[freq];}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ insert\ the\ node\ at\ the\ beginning\ of\ the\ linked\ list\ and\ update\ the}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ head.}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ p.first-\/>prev\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>next\ =\ p.first;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ p.first\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_af6f8e5a66a45436b490dfe015ff8866e}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!put@{put}}
+\index{put@{put}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_af6f8e5a66a45436b490dfe015ff8866e} 
+template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::put (\begin{DoxyParamCaption}\item[{K}]{key}{, }\item[{V}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+upsert a key-\/value pair 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key of the key-\/value pair \\
+\hline
+{\em value} & value of the key-\/value pair \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ the\ value\ if\ key\ already\ exists}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.count(key))\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}[key].first-\/>data.second\ =\ value;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a16a25c102554c5653721a5112ef676c9}{increase\_frequency}}(\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}[key]);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ the\ cache\ is\ full}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ the\ least\ frequently\ used\ item}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.size()\ ==\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a3acc10e6bb67d9d9c4187f625723e6c5}{\_capacity}})\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.erase(\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_aba5d59d0f6ab0c0d30a92551ca5a05f2}{freq\_map}}[\mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}{minFreq}}].second-\/>data.first);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ab3561ab204754295199f9566924f7e69}{pop}}();}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ insert\ the\ new\ node\ and\ set\ minFreq\ to\ 1}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ CacheNode<K,\ V>\ *\mbox{\hyperlink{structnode}{node}}\ =\ \textcolor{keyword}{new}\ CacheNode<K,\ V>(\{key,\ value\});}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}[key]\ =\ \{\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}},\ 1\};}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_a6de844d1589a809239cc07752f311285}{minFreq}}\ =\ 1;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_adad4ab43141fb8ba43facd3a71e07047}{push}}(1,\ \mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1_cache_1_1_l_f_u_cache_adbfb2ef7358423fdf1f49d410f55f195}\index{others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}!size@{size}}
+\index{size@{size}!others::Cache::LFUCache$<$ K, V $>$@{others::Cache::LFUCache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classothers_1_1_cache_1_1_l_f_u_cache_adbfb2ef7358423fdf1f49d410f55f195} 
+template$<$typename K , typename V $>$ \\
+int \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache}{others\+::\+Cache\+::\+LFUCache}}$<$ K, V $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the number of items present in the cache. 
+
+\begin{DoxyReturn}{Returns}
+number of items in the cache 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00217\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classothers_1_1_cache_1_1_l_f_u_cache_ac7684879e2e5da3d8bc5b1699ee42d35}{node\_map}}.size();\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+others/\mbox{\hyperlink{lfu__cache_8cpp}{lfu\+\_\+cache.\+cpp}}\end{DoxyCompactItemize}

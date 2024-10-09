@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['saddleback_0',['saddleback',['../d0/dda/namespacesaddleback.html',1,'']]],
+  ['search_1',['search',['../d9/dca/namespacesearch.html',1,'']]],
+  ['selection_5fsort_5frecursive_2',['selection_sort_recursive',['../df/d4a/namespaceselection__sort__recursive.html',1,'']]],
+  ['setkthbit_3',['setKthBit',['../d8/d88/namespaceset_kth_bit.html',1,'']]],
+  ['sha_4',['SHA',['../de/dd3/namespace_s_h_a.html',1,'']]],
+  ['shortest_5fcommon_5fsupersequence_5',['shortest_common_supersequence',['../d3/deb/namespaceshortest__common__supersequence.html',1,'']]],
+  ['simpson_5fmethod_6',['simpson_method',['../d3/d6d/namespacesimpson__method.html',1,'']]],
+  ['sorting_7',['sorting',['../d5/d91/namespacesorting.html',1,'']]],
+  ['sparse_5ftable_8',['sparse_table',['../d9/d55/namespacesparse__table.html',1,'']]],
+  ['spirograph_9',['spirograph',['../da/dd3/namespacespirograph.html',1,'']]],
+  ['stack_5fusing_5fqueue_10',['stack_using_queue',['../df/d1c/namespacestack__using__queue.html',1,'']]],
+  ['statistics_11',['statistics',['../d2/dcf/namespacestatistics.html',1,'']]],
+  ['strand_12',['strand',['../d8/d1d/namespacestrand.html',1,'']]],
+  ['strassens_5fmultiplication_13',['strassens_multiplication',['../d3/d91/namespacestrassens__multiplication.html',1,'']]],
+  ['string_14',['string',['../d6/dd6/namespacestring.html',1,'']]],
+  ['string_5fsearch_15',['string_search',['../d9/d03/namespacestring__search.html',1,'']]],
+  ['strings_16',['strings',['../df/dcb/namespacestrings.html',1,'']]],
+  ['strings_3a_3aboyer_5fmoore_17',['boyer_moore',['../d0/dbc/namespacestrings_1_1boyer__moore.html',1,'strings']]],
+  ['subarray_5fsum_18',['subarray_sum',['../df/d74/namespacesubarray__sum.html',1,'']]],
+  ['sublist_5fsearch_19',['sublist_search',['../d9/def/namespacesublist__search.html',1,'']]],
+  ['subset_5fsum_20',['subset_sum',['../dc/d3a/namespacesubset__sum.html',1,'']]],
+  ['subsets_21',['Subsets',['../de/d95/namespace_subsets.html',1,'']]],
+  ['sudoku_5fsolver_22',['sudoku_solver',['../d8/d9f/namespacesudoku__solver.html',1,'']]]
+];

@@ -1,0 +1,16 @@
+\doxysection{ST}
+\hypertarget{_s_t-example}{}\label{_s_t-example}Builds the sparse table for computing min/max/gcd/lcm/...etc for any contiguous sub-\/segment of the array.\+This is an example of computing the index of the minimum value.
+
+Builds the sparse table for computing min/max/gcd/lcm/...etc for any contiguous sub-\/segment of the array.\+This is an example of computing the index of the minimum value. \begin{DoxyReturn}{Returns}
+void @complexity\+: O(n.\+log(n))\texorpdfstring{$<$}{<} precomputing {\ttfamily log2(i+1)}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+notice how we deal with the range of length {\ttfamily pow(2,i)}, and we can reuse the computation that we did for the range of length {\ttfamily pow(2,i-\/1)}.
+\end{DoxyNote}
+So, ST\mbox{[}j\mbox{]}\mbox{[}i\mbox{]} = min( ST\mbox{[}j-\/1\mbox{]}\mbox{[}i\mbox{]}, ST\mbox{[}j-\/1\mbox{]}\mbox{[}i + pow(2,j-\/1)\mbox{]}). \mbox{[}2\mbox{]}\mbox{[}3\mbox{]} = min(\+ST\mbox{[}1\mbox{]}\mbox{[}3\mbox{]}, ST\mbox{[}1\mbox{]}\mbox{[}5\mbox{]})
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

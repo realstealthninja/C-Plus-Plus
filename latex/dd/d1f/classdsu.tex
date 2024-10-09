@@ -1,0 +1,521 @@
+\doxysection{dsu Class Reference}
+\hypertarget{classdsu}{}\label{classdsu}\index{dsu@{dsu}}
+
+
+Disjoint sets union data structure, class based representation.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdsu_a126e3002a464e53cd54b07ba56482a72}{dsu}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em contructor for initialising all data members. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{find\+Set}} (uint64\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Method to find the representative of the set to which i belongs to, T(n) = O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdsu_a6ac30c07abca2aaa3b291504c25c3559}{Union\+Set}} (uint64\+\_\+t i, uint64\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em Method that combines two disjoint sets to which i and j belongs to and make a single set having a common representative. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdsu_a64d25c5986742f7c234ed449b2ff7303}{is\+Same}} (uint64\+\_\+t i, uint64\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em A utility function which check whether i and j belongs to same set or not. \end{DoxyCompactList}\item 
+vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{classdsu_a0ce2672c570f4235eafddb0c9a58115a}{get}} (uint64\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em prints the minimum, maximum and size of the set to which i belongs to \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classdsu_a1c24228b0f2f49220133fb8c3566a55c}{size}} (uint64\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em A utility function that returns the size of the set to which i belongs to. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classdsu_a696141b8b092466767f4bfe1c5e46cde}{get\+\_\+max}} (uint64\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em A utility function that returns the max element of the set to which i belongs to. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classdsu_ac713a5b496d0405c82e2808a85e58415}{get\+\_\+min}} (uint64\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em A utility function that returns the min element of the set to which i belongs to. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdsu_a126e3002a464e53cd54b07ba56482a72}{dsu}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em constructor for initialising all data members \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{find\+Set}} (uint64\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Method to find the representative of the set to which i belongs to, T(n) = O(log\+N) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdsu_a81897528bdb53fd5e796d75d7dbc430f}{union\+Set}} (uint64\+\_\+t i, uint64\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em Method that combines two disjoint sets to which i and j belongs to and make a single set having a common representative. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdsu_a64d25c5986742f7c234ed449b2ff7303}{is\+Same}} (uint64\+\_\+t i, uint64\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em A utility function which check whether i and j belongs to same set or not. \end{DoxyCompactList}\item 
+vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{classdsu_ab8ee27083a3c2e2df80755165a2ec280}{get\+Parents}} (uint64\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Method to print all the parents of i, or the path from i to representative. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}\label{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb} 
+vector$<$ uint64\+\_\+t $>$ {\bfseries p}
+\begin{DoxyCompactList}\small\item\em keeps track of the parent of ith element \end{DoxyCompactList}\item 
+\Hypertarget{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}\label{classdsu_a4bf54d33fba178998dbbe4c57f2e9429} 
+vector$<$ uint64\+\_\+t $>$ {\bfseries depth}
+\begin{DoxyCompactList}\small\item\em tracks the \doxylink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth(rank)} of i in the tree \end{DoxyCompactList}\item 
+\Hypertarget{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}\label{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55} 
+vector$<$ uint64\+\_\+t $>$ {\bfseries set\+Size}
+\begin{DoxyCompactList}\small\item\em size of each chunk(set) \end{DoxyCompactList}\item 
+\Hypertarget{classdsu_a4ade6f16c418fc98b54452f7b0252a53}\label{classdsu_a4ade6f16c418fc98b54452f7b0252a53} 
+vector$<$ uint64\+\_\+t $>$ {\bfseries max\+Element}
+\begin{DoxyCompactList}\small\item\em maximum of each set to which i belongs to \end{DoxyCompactList}\item 
+\Hypertarget{classdsu_a1d77aad7fc39fe7140d834cd347e5c63}\label{classdsu_a1d77aad7fc39fe7140d834cd347e5c63} 
+vector$<$ uint64\+\_\+t $>$ {\bfseries min\+Element}
+\begin{DoxyCompactList}\small\item\em minimum of each set to which i belongs to \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Disjoint sets union data structure, class based representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of elements \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdsu_a126e3002a464e53cd54b07ba56482a72}\index{dsu@{dsu}!dsu@{dsu}}
+\index{dsu@{dsu}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{dsu()}{dsu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdsu_a126e3002a464e53cd54b07ba56482a72} 
+dsu\+::dsu (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+contructor for initialising all data members. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of elements \\
+\hline
+\end{DoxyParams}
+initially, all of them are their own parents
+
+initially all have depth are equals to zero
+
+initially set size will be equals to one
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}.assign(n,\ 0);\textcolor{comment}{}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ initially,\ all\ of\ them\ are\ their\ own\ parents}}
+\DoxyCodeLine{00048\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i]\ =\ i;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ initially\ all\ have\ depth\ are\ equals\ to\ zero}}
+\DoxyCodeLine{00052\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}.assign(n,\ 0);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4ade6f16c418fc98b54452f7b0252a53}{maxElement}}.assign(n,\ 0);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1d77aad7fc39fe7140d834cd347e5c63}{minElement}}.assign(n,\ 0);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[i]\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4ade6f16c418fc98b54452f7b0252a53}{maxElement}}[i]\ =\ i;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1d77aad7fc39fe7140d834cd347e5c63}{minElement}}[i]\ =\ i;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}.assign(n,\ 0);\textcolor{comment}{}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ initially\ set\ size\ will\ be\ equals\ to\ one}}
+\DoxyCodeLine{00062\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}[i]\ =\ 1;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a126e3002a464e53cd54b07ba56482a72}\index{dsu@{dsu}!dsu@{dsu}}
+\index{dsu@{dsu}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{dsu()}{dsu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdsu_a126e3002a464e53cd54b07ba56482a72} 
+dsu\+::dsu (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+constructor for initialising all data members 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of elements \\
+\hline
+\end{DoxyParams}
+initially all of them are their own parents
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}.assign(n,\ 0);\textcolor{comment}{}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ initially\ all\ of\ them\ are\ their\ own\ parents}}
+\DoxyCodeLine{00047\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}.assign(n,\ 0);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}.assign(n,\ 0);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i]\ =\ i;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[i]\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}[i]\ =\ 1;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdsu_a16851f78fe390fc1430905c83d6a2f1c}\index{dsu@{dsu}!findSet@{findSet}}
+\index{findSet@{findSet}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{findSet()}{findSet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdsu_a16851f78fe390fc1430905c83d6a2f1c} 
+uint64\+\_\+t dsu\+::find\+Set (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to find the representative of the set to which i belongs to, T(n) = O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+representative of the set to which i belongs to. 
+\end{DoxyReturn}
+using path compression
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ using\ path\ compression}}
+\DoxyCodeLine{00075\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i]\ ==\ i)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i]\ =\ \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(\mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i]));}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a16851f78fe390fc1430905c83d6a2f1c}\index{dsu@{dsu}!findSet@{findSet}}
+\index{findSet@{findSet}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{findSet()}{findSet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdsu_a16851f78fe390fc1430905c83d6a2f1c} 
+uint64\+\_\+t dsu\+::find\+Set (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to find the representative of the set to which i belongs to, T(n) = O(log\+N) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+representative of the set to which i belongs to 
+\end{DoxyReturn}
+using union-\/rank
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ using\ union-\/rank}}
+\DoxyCodeLine{00063\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ !=\ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i])\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i];}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a0ce2672c570f4235eafddb0c9a58115a}\index{dsu@{dsu}!get@{get}}
+\index{get@{get}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classdsu_a0ce2672c570f4235eafddb0c9a58115a} 
+vector$<$ uint64\+\_\+t $>$ dsu\+::get (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+prints the minimum, maximum and size of the set to which i belongs to 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ vector<uint64\_t>\ ans;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ ans.push\_back(\mbox{\hyperlink{classdsu_ac713a5b496d0405c82e2808a85e58415}{get\_min}}(i));}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ ans.push\_back(\mbox{\hyperlink{classdsu_a696141b8b092466767f4bfe1c5e46cde}{get\_max}}(i));}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ ans.push\_back(\mbox{\hyperlink{classdsu_a1c24228b0f2f49220133fb8c3566a55c}{size}}(i));}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a696141b8b092466767f4bfe1c5e46cde}\index{dsu@{dsu}!get\_max@{get\_max}}
+\index{get\_max@{get\_max}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{get\_max()}{get\_max()}}
+{\footnotesize\ttfamily \label{classdsu_a696141b8b092466767f4bfe1c5e46cde} 
+uint64\+\_\+t dsu\+::get\+\_\+max (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A utility function that returns the max element of the set to which i belongs to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum of the set to which i belongs to 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsu_a4ade6f16c418fc98b54452f7b0252a53}{maxElement}}[\mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(i)];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_ac713a5b496d0405c82e2808a85e58415}\index{dsu@{dsu}!get\_min@{get\_min}}
+\index{get\_min@{get\_min}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{get\_min()}{get\_min()}}
+{\footnotesize\ttfamily \label{classdsu_ac713a5b496d0405c82e2808a85e58415} 
+uint64\+\_\+t dsu\+::get\+\_\+min (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A utility function that returns the min element of the set to which i belongs to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum of the set to which i belongs to 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsu_a1d77aad7fc39fe7140d834cd347e5c63}{minElement}}[\mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(i)];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_ab8ee27083a3c2e2df80755165a2ec280}\index{dsu@{dsu}!getParents@{getParents}}
+\index{getParents@{getParents}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{getParents()}{getParents()}}
+{\footnotesize\ttfamily \label{classdsu_ab8ee27083a3c2e2df80755165a2ec280} 
+vector$<$ uint64\+\_\+t $>$ dsu\+::get\+Parents (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to print all the parents of i, or the path from i to representative. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ vector<uint64\_t>\ ans;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i]\ !=\ i)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ ans.push\_back(i);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[i];}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ ans.push\_back(i);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a64d25c5986742f7c234ed449b2ff7303}\index{dsu@{dsu}!isSame@{isSame}}
+\index{isSame@{isSame}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{isSame()}{isSame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdsu_a64d25c5986742f7c234ed449b2ff7303} 
+bool dsu\+::is\+Same (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{, }\item[{uint64\+\_\+t}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A utility function which check whether i and j belongs to same set or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+{\em j} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if element {\ttfamily i} and {\ttfamily j} ARE in the same set 
+
+{\ttfamily false} if element {\ttfamily i} and {\ttfamily j} are NOT in same set 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(i)\ ==\ \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(j))\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a64d25c5986742f7c234ed449b2ff7303}\index{dsu@{dsu}!isSame@{isSame}}
+\index{isSame@{isSame}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{isSame()}{isSame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdsu_a64d25c5986742f7c234ed449b2ff7303} 
+bool dsu\+::is\+Same (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{, }\item[{uint64\+\_\+t}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A utility function which check whether i and j belongs to same set or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+{\em j} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if element i and j are in same set 
+
+{\ttfamily false} if element i and j are not in same set 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(i)\ ==\ \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(j))\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a1c24228b0f2f49220133fb8c3566a55c}\index{dsu@{dsu}!size@{size}}
+\index{size@{size}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classdsu_a1c24228b0f2f49220133fb8c3566a55c} 
+uint64\+\_\+t dsu\+::size (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A utility function that returns the size of the set to which i belongs to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size of the set to which i belongs to 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}[\mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(i)];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a6ac30c07abca2aaa3b291504c25c3559}\index{dsu@{dsu}!UnionSet@{UnionSet}}
+\index{UnionSet@{UnionSet}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{UnionSet()}{UnionSet()}}
+{\footnotesize\ttfamily \label{classdsu_a6ac30c07abca2aaa3b291504c25c3559} 
+void dsu\+::\+Union\+Set (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{, }\item[{uint64\+\_\+t}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method that combines two disjoint sets to which i and j belongs to and make a single set having a common representative. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+{\em j} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+check if both belongs to the same set or not
+
+always keeping the min as x shallow tree
+
+making the shallower root\textquotesingle{}s parent the deeper root
+
+if same depth, then increase one\textquotesingle{}s depth
+
+total size of the resultant set
+
+changing the maximum elements
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ check\ if\ both\ belongs\ to\ the\ same\ set\ or\ not}}
+\DoxyCodeLine{00089\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a64d25c5986742f7c234ed449b2ff7303}{isSame}}(i,\ j))\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ find\ the\ representative\ of\ the\ i\ and\ j}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ uint64\_t\ x\ =\ \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(i);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ uint64\_t\ y\ =\ \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(j);}
+\DoxyCodeLine{00096\ \textcolor{comment}{}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ always\ keeping\ the\ min\ as\ x}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ shallow\ tree}}
+\DoxyCodeLine{00099\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[x]\ >\ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[y])\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(x,\ y);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ making\ the\ shallower\ root's\ parent\ the\ deeper\ root}}
+\DoxyCodeLine{00103\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[x]\ =\ y;}
+\DoxyCodeLine{00104\ \textcolor{comment}{}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ if\ same\ depth,\ then\ increase\ one's\ depth}}
+\DoxyCodeLine{00106\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[x]\ ==\ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[y])\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[y]++;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ total\ size\ of\ the\ resultant\ set}}
+\DoxyCodeLine{00110\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}[y]\ +=\ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}[x];\textcolor{comment}{}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ changing\ the\ maximum\ elements}}
+\DoxyCodeLine{00112\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4ade6f16c418fc98b54452f7b0252a53}{maxElement}}[y]\ =\ std::max(\mbox{\hyperlink{classdsu_a4ade6f16c418fc98b54452f7b0252a53}{maxElement}}[x],\ \mbox{\hyperlink{classdsu_a4ade6f16c418fc98b54452f7b0252a53}{maxElement}}[y]);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1d77aad7fc39fe7140d834cd347e5c63}{minElement}}[y]\ =\ std::min(\mbox{\hyperlink{classdsu_a1d77aad7fc39fe7140d834cd347e5c63}{minElement}}[x],\ \mbox{\hyperlink{classdsu_a1d77aad7fc39fe7140d834cd347e5c63}{minElement}}[y]);}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsu_a81897528bdb53fd5e796d75d7dbc430f}\index{dsu@{dsu}!unionSet@{unionSet}}
+\index{unionSet@{unionSet}!dsu@{dsu}}
+\doxysubsubsection{\texorpdfstring{unionSet()}{unionSet()}}
+{\footnotesize\ttfamily \label{classdsu_a81897528bdb53fd5e796d75d7dbc430f} 
+void dsu\+::union\+Set (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i}{, }\item[{uint64\+\_\+t}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method that combines two disjoint sets to which i and j belongs to and make a single set having a common representative. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & element of some set \\
+\hline
+{\em j} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+checks if both belongs to same set or not
+
+we find representative of the i and j
+
+always keeping the min as x in order to create a shallow tree
+
+making the shallower tree, root parent of the deeper root
+
+if same depth, then increase one\textquotesingle{}s depth
+
+total size of the resultant set
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ checks\ if\ both\ belongs\ to\ same\ set\ or\ not}}
+\DoxyCodeLine{00077\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a64d25c5986742f7c234ed449b2ff7303}{isSame}}(i,\ j))\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ we\ find\ representative\ of\ the\ i\ and\ j}}
+\DoxyCodeLine{00081\ \textcolor{comment}{}\ \ \ \ \ \ \ \ uint64\_t\ x\ =\ \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(i);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ uint64\_t\ y\ =\ \mbox{\hyperlink{classdsu_a16851f78fe390fc1430905c83d6a2f1c}{findSet}}(j);}
+\DoxyCodeLine{00083\ \textcolor{comment}{}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ always\ keeping\ the\ min\ as\ x}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ in\ order\ to\ create\ a\ shallow\ tree}}
+\DoxyCodeLine{00086\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[x]\ >\ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[y])\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(x,\ y);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ making\ the\ shallower\ tree,\ root\ parent\ of\ the\ deeper\ root}}
+\DoxyCodeLine{00090\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a1ef0b0462a0dda63514f641cbb7dd8cb}{p}}[x]\ =\ y;}
+\DoxyCodeLine{00091\ \textcolor{comment}{}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ if\ same\ depth,\ then\ increase\ one's\ depth}}
+\DoxyCodeLine{00093\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[x]\ ==\ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[y])\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_a4bf54d33fba178998dbbe4c57f2e9429}{depth}}[y]++;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ total\ size\ of\ the\ resultant\ set}}
+\DoxyCodeLine{00097\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}[y]\ +=\ \mbox{\hyperlink{classdsu_ac0dc3e17e49fe19b159b4ea4096d7b55}{setSize}}[x];}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{dsu__path__compression_8cpp}{dsu\+\_\+path\+\_\+compression.\+cpp}}\item 
+data\+\_\+structures/\mbox{\hyperlink{dsu__union__rank_8cpp}{dsu\+\_\+union\+\_\+rank.\+cpp}}\end{DoxyCompactItemize}

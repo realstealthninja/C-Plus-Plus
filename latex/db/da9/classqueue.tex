@@ -1,0 +1,285 @@
+\doxysection{queue\texorpdfstring{$<$}{<} Value\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classqueue}{}\label{classqueue}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+
+
+{\ttfamily \#include $<$queue.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classqueue_ab0c58f54d07d7070c48cc2f9fd26aa90}\label{classqueue_ab0c58f54d07d7070c48cc2f9fd26aa90} 
+using {\bfseries value\+\_\+type} = Value\+Type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classqueue_a353e4dd5772575905c78b0b30856e368}{display}} () const
+\begin{DoxyCompactList}\small\item\em prints the queue into the std\+::cout \end{DoxyCompactList}\item 
+std\+::vector$<$ value\+\_\+type $>$ \mbox{\hyperlink{classqueue_a386fc1df8610948d3117b12f24655c7d}{to\+Vector}} () const
+\begin{DoxyCompactList}\small\item\em converts the queue into the std\+::vector \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec}{is\+Empty\+Queue}} () const
+\begin{DoxyCompactList}\small\item\em checks if the queue has no elements \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqueue_ada88d0c1f34946d66386b7a11bee4e4d}{en\+Queue}} (const value\+\_\+type \&item)
+\begin{DoxyCompactList}\small\item\em inserts a new item into the queue \end{DoxyCompactList}\item 
+value\+\_\+type \mbox{\hyperlink{classqueue_a75e231798bc706b8b0773a07f78713e7}{front}} () const
+\item 
+void \mbox{\hyperlink{classqueue_af27dbb72fb63f58f817a88550d7faa85}{de\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em removes the first element from the queue \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqueue_a6ed7f8dfefe8687841f36f2223069375}{clear}} ()
+\begin{DoxyCompactList}\small\item\em removes all elements from the queue \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classqueue_a509d8e7c43f334eb0e582690305a6519}\label{classqueue_a509d8e7c43f334eb0e582690305a6519} 
+using {\bfseries node\+\_\+type} = \mbox{\hyperlink{struct_node}{Node}}$<$Value\+Type$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604}{ensure\+Not\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em throws an exception if queue is empty \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_node}{node\+\_\+type}} $>$ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queue\+Front}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_node}{node\+\_\+type}} $>$ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queue\+Rear}}
+\item 
+\Hypertarget{classqueue_ad30c1f3cc9c107dcc10fc06c8580354e}\label{classqueue_ad30c1f3cc9c107dcc10fc06c8580354e} 
+std\+::size\+\_\+t {\bfseries size} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Value\+Type$>$\newline
+class queue$<$ Value\+Type $>$}
+Definition of the queue class 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classqueue_a6ed7f8dfefe8687841f36f2223069375}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!clear@{clear}}
+\index{clear@{clear}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classqueue_a6ed7f8dfefe8687841f36f2223069375} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+removes all elements from the queue 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ size\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_af27dbb72fb63f58f817a88550d7faa85}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!deQueue@{deQueue}}
+\index{deQueue@{deQueue}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{deQueue()}{deQueue()}}
+{\footnotesize\ttfamily \label{classqueue_af27dbb72fb63f58f817a88550d7faa85} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::de\+Queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+removes the first element from the queue 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if queue is empty \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604}{ensureNotEmpty}}();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ =\ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}-\/>next;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ -\/-\/size;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_a353e4dd5772575905c78b0b30856e368}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!display@{display}}
+\index{display@{display}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classqueue_a353e4dd5772575905c78b0b30856e368} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+prints the queue into the std\+::cout 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Front\ -\/-\/>\ "{}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ display\_all(this-\/>\mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}.get());}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Size\ of\ queue:\ "{}}\ <<\ size\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_ada88d0c1f34946d66386b7a11bee4e4d}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!enQueue@{enQueue}}
+\index{enQueue@{enQueue}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{enQueue()}{enQueue()}}
+{\footnotesize\ttfamily \label{classqueue_ada88d0c1f34946d66386b7a11bee4e4d} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::en\+Queue (\begin{DoxyParamCaption}\item[{const value\+\_\+type \&}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+inserts a new item into the queue 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newNode\ =\ std::make\_shared<node\_type>();}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ newNode-\/>data\ =\ item;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ newNode-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec}{isEmptyQueue}}())\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ =\ newNode;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}\ =\ newNode;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}-\/>next\ =\ newNode;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}\ =\ \mbox{\hyperlink{classqueue_a7611df63ebefae613d311039d7305143}{queueRear}}-\/>next;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ++size;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!ensureNotEmpty@{ensureNotEmpty}}
+\index{ensureNotEmpty@{ensureNotEmpty}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{ensureNotEmpty()}{ensureNotEmpty()}}
+{\footnotesize\ttfamily \label{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604} 
+template$<$class Value\+Type $>$ \\
+void \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::ensure\+Not\+Empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+throws an exception if queue is empty 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if queue is empty \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec}{isEmptyQueue}}())\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Queue\ is\ empty."{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_a75e231798bc706b8b0773a07f78713e7}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!front@{front}}
+\index{front@{front}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily \label{classqueue_a75e231798bc706b8b0773a07f78713e7} 
+template$<$class Value\+Type $>$ \\
+value\+\_\+type \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the first element of the queue 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if queue is empty \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classqueue_ac08ebdd38cb4ad74fc0a3f51888da604}{ensureNotEmpty}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}-\/>data;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!isEmptyQueue@{isEmptyQueue}}
+\index{isEmptyQueue@{isEmptyQueue}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{isEmptyQueue()}{isEmptyQueue()}}
+{\footnotesize\ttfamily \label{classqueue_a4bc52ad6ed6b0cc33ad05f87f05f8bec} 
+template$<$class Value\+Type $>$ \\
+bool \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::is\+Empty\+Queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+checks if the queue has no elements 
+
+\begin{DoxyReturn}{Returns}
+true if the queue is empty, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}\ ==\ \textcolor{keyword}{nullptr});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_a386fc1df8610948d3117b12f24655c7d}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!toVector@{toVector}}
+\index{toVector@{toVector}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{toVector()}{toVector()}}
+{\footnotesize\ttfamily \label{classqueue_a386fc1df8610948d3117b12f24655c7d} 
+template$<$class Value\+Type $>$ \\
+std\+::vector$<$ value\+\_\+type $>$ \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::to\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+converts the queue into the std\+::vector 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector containning all of the elements of the queue in the same order 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ push\_all\_to\_vector(this-\/>\mbox{\hyperlink{classqueue_af6780e9b43326f557da405b65f7ad094}{queueFront}}.get(),\ this-\/>size);}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classqueue_af6780e9b43326f557da405b65f7ad094}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!queueFront@{queueFront}}
+\index{queueFront@{queueFront}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{queueFront}{queueFront}}
+{\footnotesize\ttfamily \label{classqueue_af6780e9b43326f557da405b65f7ad094} 
+template$<$class Value\+Type $>$ \\
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{struct_node}{node\+\_\+type}}$>$ \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::queue\+Front\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\}}
+
+\end{DoxyCode}
+Pointer to the front of the queue 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{\};\ \textcolor{comment}{/**<\ Pointer\ to\ the\ front\ of\ the\ queue\ */}}
+
+\end{DoxyCode}
+\Hypertarget{classqueue_a7611df63ebefae613d311039d7305143}\index{queue$<$ ValueType $>$@{queue$<$ ValueType $>$}!queueRear@{queueRear}}
+\index{queueRear@{queueRear}!queue$<$ ValueType $>$@{queue$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{queueRear}{queueRear}}
+{\footnotesize\ttfamily \label{classqueue_a7611df63ebefae613d311039d7305143} 
+template$<$class Value\+Type $>$ \\
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{struct_node}{node\+\_\+type}}$>$ \mbox{\hyperlink{classqueue}{queue}}$<$ Value\+Type $>$\+::queue\+Rear\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\}}
+
+\end{DoxyCode}
+Pointer to the rear of the queue ~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \{\};\ \textcolor{comment}{/**<\ Pointer\ to\ the\ rear\ of\ the\ queue\ \ */}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/queue.\+hpp\end{DoxyCompactItemize}

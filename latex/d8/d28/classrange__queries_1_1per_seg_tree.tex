@@ -1,0 +1,397 @@
+\doxysection{range\+\_\+queries\+::per\+Seg\+Tree Class Reference}
+\hypertarget{classrange__queries_1_1per_seg_tree}{}\label{classrange__queries_1_1per_seg_tree}\index{range\_queries::perSegTree@{range\_queries::perSegTree}}
+
+
+Range query here is range sum, but the code can be modified to make different queries like range max or min.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ac83bcabf5a8db8b0d8d156a4c1bcd4c3}{construct}} (const std\+::vector$<$ int64\+\_\+t $>$ \&\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3}{vec}})
+\begin{DoxyCompactList}\small\item\em Constructing the segment tree with the values in the passed vector. Returned root pointer is pushed in the pointers vector to have access to the original version if the segment tree is updated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_af87494e6cf012d28c4f5b9d1c15f9c5d}{update}} (const uint32\+\_\+t \&l, const uint32\+\_\+t \&r, const int64\+\_\+t \&value)
+\begin{DoxyCompactList}\small\item\em Doing range update by passing the left and right indexes of the range as well as the value to be added. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ad484002bcb701820d55f32ea5d525571}{query}} (const uint32\+\_\+t \&l, const uint32\+\_\+t \&r, const uint32\+\_\+t \&version)
+\begin{DoxyCompactList}\small\item\em Querying the range from index l to index r, getting the sum of the elements whose index x satisfies l\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=r. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a0fe4e431f3e09c274ecd7d2d58dcb865}{size}} ()
+\begin{DoxyCompactList}\small\item\em Getting the number of versions after updates so far which is equal to the size of the pointers vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a0cec4b77d264521717cf9b0482c45817}{new\+Kid}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&curr)
+\begin{DoxyCompactList}\small\item\em Creating a new node with the same values of curr node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ace7f57935b3bb9446f11c239fd89ae79}{lazy}} (const uint32\+\_\+t \&i, const uint32\+\_\+t \&j, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&curr)
+\begin{DoxyCompactList}\small\item\em If there is some value to be propagated to the passed node, value is added to the node and the children of the node, if exist, are copied and the propagated value is also added to them. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a6d3f2465a7c5803a1ff16c5378bcc5e4}{construct}} (const uint32\+\_\+t \&i, const uint32\+\_\+t \&j)
+\begin{DoxyCompactList}\small\item\em Constructing the segment tree with the early passed vector. Every call creates a node to hold the sum of the given range, set its pointers to the children, and set its value to the sum of the children\textquotesingle{}s values. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6}{update}} (const uint32\+\_\+t \&i, const uint32\+\_\+t \&j, const uint32\+\_\+t \&l, const uint32\+\_\+t \&r, const int64\+\_\+t \&value, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&curr)
+\begin{DoxyCompactList}\small\item\em Doing range update, checking at every node if it has some value to be propagated. All nodes affected by the update are copied and propagation value is added to the leaf of them. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}} (const uint32\+\_\+t \&i, const uint32\+\_\+t \&j, const uint32\+\_\+t \&l, const uint32\+\_\+t \&r, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&curr)
+\begin{DoxyCompactList}\small\item\em Querying the range from index l to index r, checking at every node if it has some value to be propagated. Current node\textquotesingle{}s value is returned if its range is completely inside the wanted range, else 0 is returned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrange__queries_1_1per_seg_tree_a6f5b36111f90807a9fdf6bbca04f535e}\label{classrange__queries_1_1per_seg_tree_a6f5b36111f90807a9fdf6bbca04f535e} 
+uint32\+\_\+t {\bfseries n} = 0
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ $>$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}{ptrs}} \{\}
+\begin{DoxyCompactList}\small\item\em number of elements/leaf nodes in the segment tree \end{DoxyCompactList}\item 
+std\+::vector$<$ int64\+\_\+t $>$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3}{vec}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Range query here is range sum, but the code can be modified to make different queries like range max or min. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrange__queries_1_1per_seg_tree_ac83bcabf5a8db8b0d8d156a4c1bcd4c3}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!construct@{construct}}
+\index{construct@{construct}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_ac83bcabf5a8db8b0d8d156a4c1bcd4c3} 
+void range\+\_\+queries\+::per\+Seg\+Tree\+::construct (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int64\+\_\+t $>$ \&}]{vec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructing the segment tree with the values in the passed vector. Returned root pointer is pushed in the pointers vector to have access to the original version if the segment tree is updated. 
+
+public methods that can be used directly from outside the class. They call the private functions that do all the work 
+\begin{DoxyParams}{Parameters}
+{\em vec} & vector whose values will be used to build the segment tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00200\ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3}{vec}}.empty())\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ n\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3}{vec}}.size();}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ this-\/>vec\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3}{vec}};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ root\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a6d3f2465a7c5803a1ff16c5378bcc5e4}{construct}}(0,\ n\ -\/\ 1);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}{ptrs}}.push\_back(root);}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_a6d3f2465a7c5803a1ff16c5378bcc5e4}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!construct@{construct}}
+\index{construct@{construct}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_a6d3f2465a7c5803a1ff16c5378bcc5e4} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ range\+\_\+queries\+::per\+Seg\+Tree\+::construct (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{i}{, }\item[{const uint32\+\_\+t \&}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Constructing the segment tree with the early passed vector. Every call creates a node to hold the sum of the given range, set its pointers to the children, and set its value to the sum of the children\textquotesingle{}s values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the left index of the range that the created node holds its sum \\
+\hline
+{\em j} & the right index of the range that the created node holds its sum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the newly created node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newNode\ =\ std::make\_shared<Node>(\mbox{\hyperlink{struct_node}{Node}}());}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ j)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ newNode-\/>val\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3}{vec}}[i];}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ mid\ =\ i\ +\ (j\ -\/\ i)\ /\ 2;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ leftt\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a6d3f2465a7c5803a1ff16c5378bcc5e4}{construct}}(i,\ mid);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ right\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a6d3f2465a7c5803a1ff16c5378bcc5e4}{construct}}(mid\ +\ 1,\ j);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ newNode-\/>val\ =\ leftt-\/>val\ +\ right-\/>val;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ newNode-\/>left\ =\ leftt;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ newNode-\/>right\ =\ right;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ newNode;}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_ace7f57935b3bb9446f11c239fd89ae79}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!lazy@{lazy}}
+\index{lazy@{lazy}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{lazy()}{lazy()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_ace7f57935b3bb9446f11c239fd89ae79} 
+void range\+\_\+queries\+::per\+Seg\+Tree\+::lazy (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{i}{, }\item[{const uint32\+\_\+t \&}]{j}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&}]{curr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+If there is some value to be propagated to the passed node, value is added to the node and the children of the node, if exist, are copied and the propagated value is also added to them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the left index of the range that the passed node holds its sum \\
+\hline
+{\em j} & the right index of the range that the passed node holds its sum \\
+\hline
+{\em curr} & pointer to the node to be propagated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!curr-\/>prop)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ curr-\/>val\ +=\ (j\ -\/\ i\ +\ 1)\ *\ curr-\/>prop;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ j)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>left\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a0cec4b77d264521717cf9b0482c45817}{newKid}}(curr-\/>left);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>right\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a0cec4b77d264521717cf9b0482c45817}{newKid}}(curr-\/>right);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>left-\/>prop\ +=\ curr-\/>prop;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>right-\/>prop\ +=\ curr-\/>prop;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ curr-\/>prop\ =\ 0;}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_a0cec4b77d264521717cf9b0482c45817}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!newKid@{newKid}}
+\index{newKid@{newKid}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{newKid()}{newKid()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_a0cec4b77d264521717cf9b0482c45817} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ range\+\_\+queries\+::per\+Seg\+Tree\+::new\+Kid (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&}]{curr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Creating a new node with the same values of curr node. 
+
+values of the leaf nodes that the segment tree will be constructed with 
+\begin{DoxyParams}{Parameters}
+{\em curr} & node that would be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newNode\ =\ std::make\_shared<Node>(\mbox{\hyperlink{struct_node}{Node}}());}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ newNode-\/>left\ =\ curr-\/>left;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ newNode-\/>right\ =\ curr-\/>right;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ newNode-\/>prop\ =\ curr-\/>prop;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ newNode-\/>val\ =\ curr-\/>val;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ newNode;}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!query@{query}}
+\index{query@{query}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4} 
+int64\+\_\+t range\+\_\+queries\+::per\+Seg\+Tree\+::query (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{i}{, }\item[{const uint32\+\_\+t \&}]{j}{, }\item[{const uint32\+\_\+t \&}]{l}{, }\item[{const uint32\+\_\+t \&}]{r}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&}]{curr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Querying the range from index l to index r, checking at every node if it has some value to be propagated. Current node\textquotesingle{}s value is returned if its range is completely inside the wanted range, else 0 is returned. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the left index of the range that the passed node holds its sum \\
+\hline
+{\em j} & the right index of the range that the passed node holds its sum \\
+\hline
+{\em l} & the left index of the range whose sum should be returned as a result \\
+\hline
+{\em r} & the right index of the range whose sum should be returned as a result \\
+\hline
+{\em curr} & pointer to the current node, which has value = the sum of elements whose index x satisfies i\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=j \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sum of elements whose index x satisfies l\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=r 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ace7f57935b3bb9446f11c239fd89ae79}{lazy}}(i,\ j,\ curr);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ l\ ||\ r\ <\ i)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ l\ \&\&\ j\ <=\ r)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curr-\/>val;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ uint32\_t\ mid\ =\ i\ +\ (j\ -\/\ i)\ /\ 2;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(i,\ mid,\ l,\ r,\ curr-\/>left)\ +}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(mid\ +\ 1,\ j,\ l,\ r,\ curr-\/>right);}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_ad484002bcb701820d55f32ea5d525571}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!query@{query}}
+\index{query@{query}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_ad484002bcb701820d55f32ea5d525571} 
+int64\+\_\+t range\+\_\+queries\+::per\+Seg\+Tree\+::query (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{l}{, }\item[{const uint32\+\_\+t \&}]{r}{, }\item[{const uint32\+\_\+t \&}]{version}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Querying the range from index l to index r, getting the sum of the elements whose index x satisfies l\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=r. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & the left index of the range whose sum should be returned as a result \\
+\hline
+{\em r} & the right index of the range whose sum should be returned as a result \\
+\hline
+{\em version} & the version to query on. If equals to 0, the original segment tree will be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sum of elements whose index x satisfies l\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=r 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00246\ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ae8ae4b1835e5e8aec32f68c5059ed4d4}{query}}(0,\ n\ -\/\ 1,\ l,\ r,\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}{ptrs}}[version]);}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_a0fe4e431f3e09c274ecd7d2d58dcb865}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!size@{size}}
+\index{size@{size}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_a0fe4e431f3e09c274ecd7d2d58dcb865} 
+uint32\+\_\+t range\+\_\+queries\+::per\+Seg\+Tree\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getting the number of versions after updates so far which is equal to the size of the pointers vector. 
+
+\begin{DoxyReturn}{Returns}
+the number of versions 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00258\ \ \ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}{ptrs}}.size();}
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!update@{update}}
+\index{update@{update}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ range\+\_\+queries\+::per\+Seg\+Tree\+::update (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{i}{, }\item[{const uint32\+\_\+t \&}]{j}{, }\item[{const uint32\+\_\+t \&}]{l}{, }\item[{const uint32\+\_\+t \&}]{r}{, }\item[{const int64\+\_\+t \&}]{value}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}} $>$ const \&}]{curr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Doing range update, checking at every node if it has some value to be propagated. All nodes affected by the update are copied and propagation value is added to the leaf of them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the left index of the range that the passed node holds its sum \\
+\hline
+{\em j} & the right index of the range that the passed node holds its sum \\
+\hline
+{\em l} & the left index of the range to be updated \\
+\hline
+{\em r} & the right index of the range to be updated \\
+\hline
+{\em value} & the value to be added to every element whose index x satisfies l\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=r \\
+\hline
+{\em curr} & pointer to the current node, which has value = the sum of elements whose index x satisfies i\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=j \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the current newly created node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ace7f57935b3bb9446f11c239fd89ae79}{lazy}}(i,\ j,\ curr);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ l\ \&\&\ j\ <=\ r)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ newNode\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a0cec4b77d264521717cf9b0482c45817}{newKid}}(curr);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ newNode-\/>prop\ +=\ value;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_ace7f57935b3bb9446f11c239fd89ae79}{lazy}}(i,\ j,\ newNode);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ newNode;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ r\ ||\ j\ <\ l)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curr;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newNode\ =\ std::make\_shared<Node>(\mbox{\hyperlink{struct_node}{Node}}());}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ uint32\_t\ mid\ =\ i\ +\ (j\ -\/\ i)\ /\ 2;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ newNode-\/>left\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6}{update}}(i,\ mid,\ l,\ r,\ value,\ curr-\/>left);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ newNode-\/>right\ =\ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6}{update}}(mid\ +\ 1,\ j,\ l,\ r,\ value,\ curr-\/>right);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ newNode-\/>val\ =\ newNode-\/>left-\/>val\ +\ newNode-\/>right-\/>val;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ newNode;}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_af87494e6cf012d28c4f5b9d1c15f9c5d}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!update@{update}}
+\index{update@{update}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_af87494e6cf012d28c4f5b9d1c15f9c5d} 
+void range\+\_\+queries\+::per\+Seg\+Tree\+::update (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{l}{, }\item[{const uint32\+\_\+t \&}]{r}{, }\item[{const int64\+\_\+t \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Doing range update by passing the left and right indexes of the range as well as the value to be added. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & the left index of the range to be updated \\
+\hline
+{\em r} & the right index of the range to be updated \\
+\hline
+{\em value} & the value to be added to every element whose index x satisfies l\texorpdfstring{$<$}{<}=x\texorpdfstring{$<$}{<}=r \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00223\ \ \ \ \ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}{ptrs}}.push\_back(\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a24487eda25123bc4d112e8430821a6c6}{update}}(}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ n\ -\/\ 1,\ l,\ r,\ value,}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}{ptrs}}[\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}{ptrs}}.size()\ -\/}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1]));\ \ \textcolor{comment}{//\ saving\ the\ root\ pointer\ to\ the\ new\ segment\ tree}}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!ptrs@{ptrs}}
+\index{ptrs@{ptrs}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{ptrs}{ptrs}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_a1eac9cf0613dfc8e2b0195009dd5c9d5} 
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classrange__queries_1_1per_seg_tree_1_1_node}{Node}}$>$ $>$ range\+\_\+queries\+::per\+Seg\+Tree\+::ptrs \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+number of elements/leaf nodes in the segment tree 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{\};\ \ \textcolor{comment}{///\ ptrs[i]\ holds\ a\ root\ pointer\ to\ the\ segment\ tree\ after\ the}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3}\index{range\_queries::perSegTree@{range\_queries::perSegTree}!vec@{vec}}
+\index{vec@{vec}!range\_queries::perSegTree@{range\_queries::perSegTree}}
+\doxysubsubsection{\texorpdfstring{vec}{vec}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1per_seg_tree_a8ff495d2f389b4aaa54449c26c6078f3} 
+std\+::vector$<$int64\+\_\+t$>$ range\+\_\+queries\+::per\+Seg\+Tree\+::vec \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+ptrs\mbox{[}i\mbox{]} holds a root pointer to the segment tree after the ith update. ptrs\mbox{[}0\mbox{]} holds a root pointer to the segment tree before any updates 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{\};\ \ \textcolor{comment}{///\ values\ of\ the\ leaf\ nodes\ that\ the\ segment}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+range\+\_\+queries/\mbox{\hyperlink{persistent__seg__tree__lazy__prop_8cpp}{persistent\+\_\+seg\+\_\+tree\+\_\+lazy\+\_\+prop.\+cpp}}\end{DoxyCompactItemize}

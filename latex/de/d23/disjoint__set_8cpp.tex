@@ -1,0 +1,168 @@
+\doxysection{data\+\_\+structures/disjoint\+\_\+set.cpp File Reference}
+\hypertarget{disjoint__set_8cpp}{}\label{disjoint__set_8cpp}\index{data\_structures/disjoint\_set.cpp@{data\_structures/disjoint\_set.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Disjoint-set_data_structure}{\texttt{ Disjoint Sets Data Structure (Disjoint Sets)}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{disjoint__set_8cpp_a010965fc5f16cca5a62506afab24e4ec}{Create\+Set}} (int n)
+\item 
+int \mbox{\hyperlink{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8}{Find}} (int x)
+\item 
+bool \mbox{\hyperlink{disjoint__set_8cpp_a2fb0a7cd26a477e2d48ba7e0118bc985}{In\+Same\+Union}} (int x, int y)
+\item 
+void \mbox{\hyperlink{disjoint__set_8cpp_a44481bb75386fbb0f958a388d4b9f757}{Union}} (int x, int y)
+\item 
+int \mbox{\hyperlink{disjoint__set_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{disjoint__set_8cpp_a31ade23371565792a3434bc6f2e3bdef}\label{disjoint__set_8cpp_a31ade23371565792a3434bc6f2e3bdef} 
+vector$<$ int $>$ {\bfseries root}
+\item 
+\Hypertarget{disjoint__set_8cpp_a9bbf7f3dcc785986a407cfb70f54e303}\label{disjoint__set_8cpp_a9bbf7f3dcc785986a407cfb70f54e303} 
+vector$<$ int $>$ {\bfseries rank}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Disjoint-set_data_structure}{\texttt{ Disjoint Sets Data Structure (Disjoint Sets)}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/leoyang429}{\texttt{ leoyang429}}
+\end{DoxyAuthor}
+A disjoint set data structure (also called union find or merge find set) is a data structure that tracks a set of elements partitioned into a number of disjoint (non-\/overlapping) subsets. Some situations where disjoint sets can be used are-\/ to find connected components of a graph, kruskal\textquotesingle{}s algorithm for finding \doxylink{namespace_minimum}{Minimum} Spanning Tree etc. There are two operation which we perform on disjoint sets -\/ 1) Union 2) Find 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{disjoint__set_8cpp_a010965fc5f16cca5a62506afab24e4ec}\index{disjoint\_set.cpp@{disjoint\_set.cpp}!CreateSet@{CreateSet}}
+\index{CreateSet@{CreateSet}!disjoint\_set.cpp@{disjoint\_set.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateSet()}{CreateSet()}}
+{\footnotesize\ttfamily \label{disjoint__set_8cpp_a010965fc5f16cca5a62506afab24e4ec} 
+void Create\+Set (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+Function to create a set 
+\begin{DoxyParams}{Parameters}
+{\em n} & number of element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ root\ =\ vector<int>(n\ +\ 1);}
+\DoxyCodeLine{00039\ \ \ \ \ rank\ =\ vector<int>(n\ +\ 1,\ 1);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n;\ ++i)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ root[i]\ =\ i;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8}\index{disjoint\_set.cpp@{disjoint\_set.cpp}!Find@{Find}}
+\index{Find@{Find}!disjoint\_set.cpp@{disjoint\_set.cpp}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily \label{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8} 
+int Find (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+Find operation takes a number x and returns the set to which this number belongs to. 
+\begin{DoxyParams}{Parameters}
+{\em x} & element of some set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+set to which x belongs to 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (root[x]\ ==\ x)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ root[x]\ =\ \mbox{\hyperlink{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8}{Find}}(root[x]);}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+\Hypertarget{disjoint__set_8cpp_a2fb0a7cd26a477e2d48ba7e0118bc985}\index{disjoint\_set.cpp@{disjoint\_set.cpp}!InSameUnion@{InSameUnion}}
+\index{InSameUnion@{InSameUnion}!disjoint\_set.cpp@{disjoint\_set.cpp}}
+\doxysubsubsection{\texorpdfstring{InSameUnion()}{InSameUnion()}}
+{\footnotesize\ttfamily \label{disjoint__set_8cpp_a2fb0a7cd26a477e2d48ba7e0118bc985} 
+bool In\+Same\+Union (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+A utility function to check if x and y are from same set or not 
+\begin{DoxyParams}{Parameters}
+{\em x} & element of some set \\
+\hline
+{\em y} & element of some set \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8}{Find}}(x)\ ==\ \mbox{\hyperlink{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8}{Find}}(y);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{disjoint__set_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{disjoint\_set.cpp@{disjoint\_set.cpp}!main@{main}}
+\index{main@{main}!disjoint\_set.cpp@{disjoint\_set.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{disjoint__set_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ tests\ CreateSet\ \&\ Find}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 100;}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{disjoint__set_8cpp_a010965fc5f16cca5a62506afab24e4ec}{CreateSet}}(n);}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ 100;\ ++i)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (root[i]\ !=\ i)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ tests\ InSameUnion\ \&\ Union}}
+\DoxyCodeLine{00104\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}1\ and\ 2\ are\ initially\ not\ in\ the\ same\ subset"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{disjoint__set_8cpp_a2fb0a7cd26a477e2d48ba7e0118bc985}{InSameUnion}}(1,\ 2))\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{disjoint__set_8cpp_a44481bb75386fbb0f958a388d4b9f757}{Union}}(1,\ 2);}
+\DoxyCodeLine{00109\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}1\ and\ 2\ are\ now\ in\ the\ same\ subset"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{disjoint__set_8cpp_a2fb0a7cd26a477e2d48ba7e0118bc985}{InSameUnion}}(1,\ 2))\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail"{}}\ <<\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a600eaf353befc174637855795f12d258}{endl}};}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{disjoint__set_8cpp_a44481bb75386fbb0f958a388d4b9f757}\index{disjoint\_set.cpp@{disjoint\_set.cpp}!Union@{Union}}
+\index{Union@{Union}!disjoint\_set.cpp@{disjoint\_set.cpp}}
+\doxysubsubsection{\texorpdfstring{Union()}{Union()}}
+{\footnotesize\ttfamily \label{disjoint__set_8cpp_a44481bb75386fbb0f958a388d4b9f757} 
+void Union (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+Union operation combines two disjoint sets to make a single set in this union function we pass two elements and check if they are from different sets then combine those sets 
+\begin{DoxyParams}{Parameters}
+{\em x} & element of some set \\
+\hline
+{\em y} & element of some set \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ a\ =\ \mbox{\hyperlink{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8}{Find}}(x),\ b\ =\ \mbox{\hyperlink{disjoint__set_8cpp_a34b9ead0608e676d9ae5188672427cc8}{Find}}(y);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ !=\ b)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rank[a]\ <\ rank[b])\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ root[a]\ =\ b;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rank[a]\ >\ rank[b])\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ root[b]\ =\ a;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ root[a]\ =\ b;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ ++rank[b];}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,200 @@
+\doxysection{others\+::lru\+\_\+cache\+::LRUCache Class Reference}
+\hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache}{}\label{classothers_1_1lru__cache_1_1_l_r_u_cache}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+
+
+LRU cache class.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a41c9b6f1693b8a316cc4a2d8c9149ba4}{LRUCache}} (uint64\+\_\+t pf)
+\begin{DoxyCompactList}\small\item\em Constructor, Initialize thee LRU class with page frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a7dbf04bf7e1472c48639694f0b110602}{refer}} (uint64\+\_\+t page)
+\begin{DoxyCompactList}\small\item\em Refer to a page, or request a page from memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_aad506b1c1a3cd5b93cc7e497626bfb53}{display}} ()
+\begin{DoxyCompactList}\small\item\em A function to display the current cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_aa24a141455b9fbcbec22392c28d04933}{get\+Hits}} () const
+\begin{DoxyCompactList}\small\item\em A function to get page hits. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a78be932dac71c90f485a67d4fda877e2}{get\+Page\+Fault}} () const
+\begin{DoxyCompactList}\small\item\em A function to get page fault. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_a1aafd0444b410e0fcb66287e9954c893}\label{classothers_1_1lru__cache_1_1_l_r_u_cache_a1aafd0444b410e0fcb66287e9954c893} 
+uint64\+\_\+t {\bfseries page\+Frame}
+\begin{DoxyCompactList}\small\item\em Page frame, or total size of the cache. \end{DoxyCompactList}\item 
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}\label{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8} 
+std\+::list$<$ uint64\+\_\+t $>$ {\bfseries cache}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespaceothers_1_1_cache}{Cache} linked list (using the STL) \end{DoxyCompactList}\item 
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_aa4d6db56109af196ffc7e5f72bc9907c}\label{classothers_1_1lru__cache_1_1_l_r_u_cache_aa4d6db56109af196ffc7e5f72bc9907c} 
+std\+::unordered\+\_\+map$<$ uint64\+\_\+t, std\+::list$<$ uint64\+\_\+t $>$\+::iterator $>$ {\bfseries page\+Map}
+\begin{DoxyCompactList}\small\item\em Hash map containing pages and their addresses. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a5f33913e7ddfbb38062362e7bd859154}{hits}}
+\begin{DoxyCompactList}\small\item\em was found in cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a09cbe562b0c396329607f5d388d57c9c}{page\+Fault}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+LRU cache class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_a41c9b6f1693b8a316cc4a2d8c9149ba4}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}!LRUCache@{LRUCache}}
+\index{LRUCache@{LRUCache}!others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+\doxysubsubsection{\texorpdfstring{LRUCache()}{LRUCache()}}
+{\footnotesize\ttfamily \label{classothers_1_1lru__cache_1_1_l_r_u_cache_a41c9b6f1693b8a316cc4a2d8c9149ba4} 
+others\+::lru\+\_\+cache\+::\+LRUCache\+::\+LRUCache (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{pf}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor, Initialize thee LRU class with page frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pf} & Page frame or total size of cache. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \{\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a1aafd0444b410e0fcb66287e9954c893}{pageFrame}}\ =\ pf;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_aad506b1c1a3cd5b93cc7e497626bfb53}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}!display@{display}}
+\index{display@{display}!others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classothers_1_1lru__cache_1_1_l_r_u_cache_aad506b1c1a3cd5b93cc7e497626bfb53} 
+void others\+::lru\+\_\+cache\+::\+LRUCache\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A function to display the current cache. 
+
+\begin{DoxyReturn}{Returns}
+Void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ \&it\ :\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}{cache}})\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ it\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_aa24a141455b9fbcbec22392c28d04933}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}!getHits@{getHits}}
+\index{getHits@{getHits}!others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+\doxysubsubsection{\texorpdfstring{getHits()}{getHits()}}
+{\footnotesize\ttfamily \label{classothers_1_1lru__cache_1_1_l_r_u_cache_aa24a141455b9fbcbec22392c28d04933} 
+uint64\+\_\+t others\+::lru\+\_\+cache\+::\+LRUCache\+::get\+Hits (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A function to get page hits. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a5f33913e7ddfbb38062362e7bd859154}{hits}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_a78be932dac71c90f485a67d4fda877e2}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}!getPageFault@{getPageFault}}
+\index{getPageFault@{getPageFault}!others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+\doxysubsubsection{\texorpdfstring{getPageFault()}{getPageFault()}}
+{\footnotesize\ttfamily \label{classothers_1_1lru__cache_1_1_l_r_u_cache_a78be932dac71c90f485a67d4fda877e2} 
+uint64\+\_\+t others\+::lru\+\_\+cache\+::\+LRUCache\+::get\+Page\+Fault (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A function to get page fault. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a09cbe562b0c396329607f5d388d57c9c}{pageFault}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_a7dbf04bf7e1472c48639694f0b110602}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}!refer@{refer}}
+\index{refer@{refer}!others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+\doxysubsubsection{\texorpdfstring{refer()}{refer()}}
+{\footnotesize\ttfamily \label{classothers_1_1lru__cache_1_1_l_r_u_cache_a7dbf04bf7e1472c48639694f0b110602} 
+void others\+::lru\+\_\+cache\+::\+LRUCache\+::refer (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{page}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Refer to a page, or request a page from memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page} & The page that you are referring to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Increase the page fault by one.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ page\ requested\ not\ in\ cache.}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_aa4d6db56109af196ffc7e5f72bc9907c}{pageMap}}.find(page)\ ==\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_aa4d6db56109af196ffc7e5f72bc9907c}{pageMap}}.end())\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a09cbe562b0c396329607f5d388d57c9c}{pageFault}}++;\ \ \textcolor{comment}{///<\ Increase\ the\ page\ fault\ by\ one.}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ cache\ is\ full}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}{cache}}.size()\ ==\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a1aafd0444b410e0fcb66287e9954c893}{pageFrame}})\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ delete\ the\ last\ page\ from\ cache}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ lastPage\ =\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}{cache}}.back();}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}{cache}}.pop\_back();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_aa4d6db56109af196ffc7e5f72bc9907c}{pageMap}}.erase(lastPage);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ requested\ page\ is\ in\ the\ cache}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a5f33913e7ddfbb38062362e7bd859154}{hits}}++;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ present\ in\ cache,\ erase\ from\ current\ position\ to\ bring\ in\ front}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}{cache}}.erase(\mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_aa4d6db56109af196ffc7e5f72bc9907c}{pageMap}}[page]);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Push\ it\ in\ the\ front\ of\ the\ cache\ and\ update\ the\ page\ reference\ in}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ page\ map.}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}{cache}}.push\_front(page);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_aa4d6db56109af196ffc7e5f72bc9907c}{pageMap}}[page]\ =\ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache_a3ee3560a6b90e6f50f6e063d690ba8e8}{cache}}.begin();}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_a5f33913e7ddfbb38062362e7bd859154}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}!hits@{hits}}
+\index{hits@{hits}!others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+\doxysubsubsection{\texorpdfstring{hits}{hits}}
+{\footnotesize\ttfamily \label{classothers_1_1lru__cache_1_1_l_r_u_cache_a5f33913e7ddfbb38062362e7bd859154} 
+uint64\+\_\+t others\+::lru\+\_\+cache\+::\+LRUCache\+::hits\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0}
+
+\end{DoxyCode}
+
+
+was found in cache. 
+
+Total number of hits, or total number of times a page \Hypertarget{classothers_1_1lru__cache_1_1_l_r_u_cache_a09cbe562b0c396329607f5d388d57c9c}\index{others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}!pageFault@{pageFault}}
+\index{pageFault@{pageFault}!others::lru\_cache::LRUCache@{others::lru\_cache::LRUCache}}
+\doxysubsubsection{\texorpdfstring{pageFault}{pageFault}}
+{\footnotesize\ttfamily \label{classothers_1_1lru__cache_1_1_l_r_u_cache_a09cbe562b0c396329607f5d388d57c9c} 
+uint64\+\_\+t others\+::lru\+\_\+cache\+::\+LRUCache\+::page\+Fault = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+Total number of miss/page fault, or total number of times a page was not found in cache 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+others/\mbox{\hyperlink{lru__cache_8cpp}{lru\+\_\+cache.\+cpp}}\end{DoxyCompactItemize}

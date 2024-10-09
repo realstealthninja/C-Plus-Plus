@@ -1,0 +1,95 @@
+\doxysection{range\+\_\+queries/fenwick\+\_\+tree.cpp File Reference}
+\hypertarget{fenwick__tree_8cpp}{}\label{fenwick__tree_8cpp}\index{range\_queries/fenwick\_tree.cpp@{range\_queries/fenwick\_tree.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Fenwick_tree}{\texttt{ Fenwick Tree}} algorithm implementation  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrange__queries_1_1fenwick__tree}{range\+\_\+queries\+::fenwick\+\_\+tree}}
+\begin{DoxyCompactList}\small\item\em The class that initializes the Fenwick Tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerange__queries}{range\+\_\+queries}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{fenwick__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fenwick__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Fenwick_tree}{\texttt{ Fenwick Tree}} algorithm implementation 
+
+{\itshape From Wikipedia, the free encyclopedia.}
+
+A Fenwick tree or binary indexed tree (BIT) is a clever implementation of a datastructure called bionomal tree. It can update values and solve range queries with operations that is; commulative, associative and has an inverse for this type of element. It can also solve immutable range queries (min/max), when operations only are associative over this type of element. Some of these restrictions can be removed, by storing redunant information; like in max/min range queries.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/mateusz-grzegorzek}{\texttt{ Mateusz Grzegorzek}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fenwick__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fenwick\_tree.cpp@{fenwick\_tree.cpp}!main@{main}}
+\index{main@{main}!fenwick\_tree.cpp@{fenwick\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fenwick__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{fenwick__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00135\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fenwick__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{fenwick\_tree.cpp@{fenwick\_tree.cpp}!tests@{tests}}
+\index{tests@{tests}!fenwick\_tree.cpp@{fenwick\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{fenwick__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ std::vector<int>\ arr\ =\ \{1,\ 2,\ 3,\ 4,\ 5\};}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree}{range\_queries::fenwick\_tree}}\ fenwick\_tree(arr);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ assert(fenwick\_tree.sum\_range(0,\ 0)\ ==\ 1);}
+\DoxyCodeLine{00119\ \ \ \ \ assert(fenwick\_tree.sum\_range(0,\ 1)\ ==\ 3);}
+\DoxyCodeLine{00120\ \ \ \ \ assert(fenwick\_tree.sum\_range(0,\ 2)\ ==\ 6);}
+\DoxyCodeLine{00121\ \ \ \ \ assert(fenwick\_tree.sum\_range(0,\ 3)\ ==\ 10);}
+\DoxyCodeLine{00122\ \ \ \ \ assert(fenwick\_tree.sum\_range(0,\ 4)\ ==\ 15);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ fenwick\_tree.update(0,\ 6);}
+\DoxyCodeLine{00125\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00126\ \}}
+
+\end{DoxyCode}

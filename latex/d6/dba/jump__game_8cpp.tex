@@ -1,0 +1,86 @@
+\doxysection{greedy\+\_\+algorithms/jump\+\_\+game.cpp File Reference}
+\hypertarget{jump__game_8cpp}{}\label{jump__game_8cpp}\index{greedy\_algorithms/jump\_game.cpp@{greedy\_algorithms/jump\_game.cpp}}
+
+
+\href{https://leetcode.com/problems/jump-game/}{\texttt{ Jumping Game}} algorithm implementation  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms}{greedy\+\_\+algorithms}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}{greedy\+\_\+algorithms\+::can\+\_\+jump}} (const std\+::vector$<$ int $>$ \&nums)
+\begin{DoxyCompactList}\small\item\em Checks whether the given element (default is {\ttfamily 1}) can jump to the last index. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{jump__game_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the above algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jump__game_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://leetcode.com/problems/jump-game/}{\texttt{ Jumping Game}} algorithm implementation 
+
+Given an array of non-\/negative integers, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Determine if you are able to reach the last index. This solution takes in input as a vector and output as a boolean to check if you can reach the last position. We name the indices good and bad based on whether we can reach the destination if we start at that position. We initialize the last index as last\+Pos. Here, we start from the end of the array and check if we can ever reach the first index. We check if the sum of the index and the maximum jump count given is greater than or equal to the last\+Pos. If yes, then that is the last position you can reach starting from the back. After the end of the loop, if we reach the last\+Pos as 0, then the destination can be reached from the start position.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/rakshaa2000}{\texttt{ Rakshaa Viswanathan}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{jump__game_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{jump\_game.cpp@{jump\_game.cpp}!main@{main}}
+\index{main@{main}!jump\_game.cpp@{jump\_game.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{jump__game_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{jump__game_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{jump__game_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{jump\_game.cpp@{jump\_game.cpp}!test@{test}}
+\index{test@{test}!jump\_game.cpp@{jump\_game.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{jump__game_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the above algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ assert(\mbox{\hyperlink{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}{greedy\_algorithms::can\_jump}}(std::vector<int>(\{4,\ 3,\ 1,\ 0,\ 5\})));}
+\DoxyCodeLine{00059\ \ \ \ \ assert(!\mbox{\hyperlink{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}{greedy\_algorithms::can\_jump}}(std::vector<int>(\{3,\ 2,\ 1,\ 0,\ 4\})));}
+\DoxyCodeLine{00060\ \ \ \ \ assert(\mbox{\hyperlink{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}{greedy\_algorithms::can\_jump}}(std::vector<int>(\{5,\ 9,\ 4,\ 7,\ 15,\ 3\})));}
+\DoxyCodeLine{00061\ \ \ \ \ assert(!\mbox{\hyperlink{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}{greedy\_algorithms::can\_jump}}(std::vector<int>(\{1,\ 0,\ 5,\ 8,\ 12\})));}
+\DoxyCodeLine{00062\ \ \ \ \ assert(\mbox{\hyperlink{namespacegreedy__algorithms_a33e3819aa9ffec0e380383c52603b502}{greedy\_algorithms::can\_jump}}(std::vector<int>(\{2,\ 1,\ 4,\ 7\})));}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}

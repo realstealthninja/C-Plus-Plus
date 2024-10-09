@@ -1,0 +1,323 @@
+\doxysection{range\+\_\+queries/segtree.cpp File Reference}
+\hypertarget{segtree_8cpp}{}\label{segtree_8cpp}\index{range\_queries/segtree.cpp@{range\_queries/segtree.cpp}}
+
+
+Implementation of \mbox{[}Segment Tree\mbox{]} (\href{https://en.wikipedia.org/wiki/Segment_tree}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Segment\+\_\+tree}}) data structure.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{segtree_8cpp_ae752659b7c1719d68fdb2ca538a93696}{Cons\+Tree}} (const std\+::vector$<$ int64\+\_\+t $>$ \&arr, std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}segtree, uint64\+\_\+t low, uint64\+\_\+t high, uint64\+\_\+t pos)
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}{query}} (std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}segtree, std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}lazy, uint64\+\_\+t qlow, uint64\+\_\+t qhigh, uint64\+\_\+t low, uint64\+\_\+t high, uint64\+\_\+t pos)
+\begin{DoxyCompactList}\small\item\em Returns the sum of all elements in a range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}} (std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}segtree, std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}lazy, int64\+\_\+t start, int64\+\_\+t end, int64\+\_\+t delta, uint64\+\_\+t low, uint64\+\_\+t high, uint64\+\_\+t pos)
+\begin{DoxyCompactList}\small\item\em Updates a range of the segment tree. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{segtree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{segtree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \mbox{[}Segment Tree\mbox{]} (\href{https://en.wikipedia.org/wiki/Segment_tree}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Segment\+\_\+tree}}) data structure. 
+
+A segment tree, also known as a statistic tree, is a tree data structure used for storing information about intervals, or segments. Its classical version allows querying which of the stored segments contain a given point, but our modification allows us to perform (query) any binary operation on any range in the array in O(log\+N) time. Here, we have used addition (+). For range updates, we have used lazy propagation.
+
+
+\begin{DoxyItemize}
+\item Space Complexity \+: O(\+Nlog\+N) ~\newline
+
+\item Build Time Complexity \+: O(\+Nlog\+N) ~\newline
+
+\item Query Time Complexity \+: O(log\+N) ~\newline
+ \begin{DoxyAuthor}{Author}
+\href{https://github.com/madhavgaba}{\texttt{ Madhav Gaba}} 
+
+\href{https://github.com/sohamroy19}{\texttt{ Soham Roy}} 
+\end{DoxyAuthor}
+
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{segtree_8cpp_ae752659b7c1719d68fdb2ca538a93696}\index{segtree.cpp@{segtree.cpp}!ConsTree@{ConsTree}}
+\index{ConsTree@{ConsTree}!segtree.cpp@{segtree.cpp}}
+\doxysubsubsection{\texorpdfstring{ConsTree()}{ConsTree()}}
+{\footnotesize\ttfamily \label{segtree_8cpp_ae752659b7c1719d68fdb2ca538a93696} 
+void Cons\+Tree (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int64\+\_\+t $>$ \&}]{arr}{, }\item[{std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{segtree}{, }\item[{uint64\+\_\+t}]{low}{, }\item[{uint64\+\_\+t}]{high}{, }\item[{uint64\+\_\+t}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+for std\+::vector 
+
+for assert for log2 for IO operations
+
+Constructs the initial segment tree
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & input to construct the tree out of \\
+\hline
+{\em segtree} & the segment tree \\
+\hline
+{\em low} & inclusive lowest index of arr to begin at \\
+\hline
+{\em high} & inclusive highest index of arr to end at \\
+\hline
+{\em pos} & index of segtree to fill (eg. root node) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ ==\ high)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ (*segtree)[pos]\ =\ arr[low];}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ uint64\_t\ mid\ =\ (low\ +\ high)\ /\ 2;}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_ae752659b7c1719d68fdb2ca538a93696}{ConsTree}}(arr,\ segtree,\ low,\ mid,\ 2\ *\ pos\ +\ 1);}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_ae752659b7c1719d68fdb2ca538a93696}{ConsTree}}(arr,\ segtree,\ mid\ +\ 1,\ high,\ 2\ *\ pos\ +\ 2);}
+\DoxyCodeLine{00047\ \ \ \ \ (*segtree)[pos]\ =\ (*segtree)[2\ *\ pos\ +\ 1]\ +\ (*segtree)[2\ *\ pos\ +\ 2];}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{segtree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{segtree.cpp@{segtree.cpp}!main@{main}}
+\index{main@{main}!segtree.cpp@{segtree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{segtree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ number\ of\ elements:\ "{}};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ uint64\_t\ n\ =\ 0;}
+\DoxyCodeLine{00173\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{auto}\ max\ =\ \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}(2\ *\ pow(2,\ ceil(log2(n)))\ -\/\ 1);}
+\DoxyCodeLine{00176\ \ \ \ \ std::vector<int64\_t>\ arr(n),\ lazy(max),\ segtree(max);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ 0;}
+\DoxyCodeLine{00179\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nDo\ you\ wish\ to\ enter\ each\ number?:\(\backslash\)n"{}}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ Yes\(\backslash\)n"{}}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}0:\ No\ (default\ initialize\ them\ to\ 0)\(\backslash\)n"{}};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ std::cin\ >>\ choice;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{if}\ (choice\ ==\ 1)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ "{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ numbers:\(\backslash\)n"{}};}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n;\ i++)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ arr[i];}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_ae752659b7c1719d68fdb2ca538a93696}{ConsTree}}(arr,\ \&segtree,\ 0,\ n\ -\/\ 1,\ 0);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nMake\ your\ choice:\(\backslash\)n"{}}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ Range\ update\ (input)\(\backslash\)n"{}}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ Range\ query\ (output)\(\backslash\)n"{}}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}0:\ Exit\(\backslash\)n"{}};}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ std::cin\ >>\ choice;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (choice\ ==\ 1)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 1-\/indexed\ lower\ bound,\ upper\ bound\ \&\ value:\(\backslash\)n"{}};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ p\ =\ 1,\ q\ =\ 1,\ v\ =\ 0;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ p\ >>\ q\ >>\ v;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}(\&segtree,\ \&lazy,\ p\ -\/\ 1,\ q\ -\/\ 1,\ v,\ 0,\ n\ -\/\ 1,\ 0);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (choice\ ==\ 2)\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 1-\/indexed\ lower\ bound\ \&\ upper\ bound:\(\backslash\)n"{}};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ p\ =\ 1,\ q\ =\ 1;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ p\ >>\ q;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}{query}}(\&segtree,\ \&lazy,\ p\ -\/\ 1,\ q\ -\/\ 1,\ 0,\ n\ -\/\ 1,\ 0);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ >\ 0);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00218\ \}}
+
+\end{DoxyCode}
+\Hypertarget{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}\index{segtree.cpp@{segtree.cpp}!query@{query}}
+\index{query@{query}!segtree.cpp@{segtree.cpp}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily \label{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d} 
+int64\+\_\+t query (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{segtree}{, }\item[{std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{lazy}{, }\item[{uint64\+\_\+t}]{qlow}{, }\item[{uint64\+\_\+t}]{qhigh}{, }\item[{uint64\+\_\+t}]{low}{, }\item[{uint64\+\_\+t}]{high}{, }\item[{uint64\+\_\+t}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+Returns the sum of all elements in a range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em segtree} & the segment tree \\
+\hline
+{\em lazy} & for lazy propagation \\
+\hline
+{\em qlow} & lower index of the required query \\
+\hline
+{\em qhigh} & higher index of the required query \\
+\hline
+{\em low} & lower index of query for this function call \\
+\hline
+{\em high} & higher index of query for this function call \\
+\hline
+{\em pos} & index of segtree to consider (eg. root node) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result of the range query for this function call 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ >\ high\ ||\ qlow\ >\ high\ ||\ low\ >\ qhigh)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*lazy)[pos]\ !=\ 0)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ (*segtree)[pos]\ +=\ (*lazy)[pos]\ *\ (high\ -\/\ low\ +\ 1);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ !=\ high)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ (*lazy)[2\ *\ pos\ +\ 1]\ +=\ (*lazy)[pos];}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ (*lazy)[2\ *\ pos\ +\ 2]\ +=\ (*lazy)[pos];}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ (*lazy)[pos]\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (qlow\ <=\ low\ \&\&\ qhigh\ >=\ high)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*segtree)[pos];}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ uint64\_t\ mid\ =\ (low\ +\ high)\ /\ 2;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}{query}}(segtree,\ lazy,\ qlow,\ qhigh,\ low,\ mid,\ 2\ *\ pos\ +\ 1)\ +}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}{query}}(segtree,\ lazy,\ qlow,\ qhigh,\ mid\ +\ 1,\ high,\ 2\ *\ pos\ +\ 2);}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+\Hypertarget{segtree_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{segtree.cpp@{segtree.cpp}!test@{test}}
+\index{test@{test}!segtree.cpp@{segtree.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{segtree_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementation. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{auto}\ max\ =\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(2\ *\ pow(2,\ ceil(log2(7)))\ -\/\ 1);}
+\DoxyCodeLine{00148\ \ \ \ \ assert(max\ ==\ 15);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ std::vector<int64\_t>\ arr\{1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7\},\ lazy(max),\ segtree(max);}
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_ae752659b7c1719d68fdb2ca538a93696}{ConsTree}}(arr,\ \&segtree,\ 0,\ 7\ -\/\ 1,\ 0);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ assert(\mbox{\hyperlink{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}{query}}(\&segtree,\ \&lazy,\ 1,\ 5,\ 0,\ 7\ -\/\ 1,\ 0)\ ==\ 2\ +\ 3\ +\ 4\ +\ 5\ +\ 6);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}(\&segtree,\ \&lazy,\ 2,\ 4,\ 1,\ 0,\ 7\ -\/\ 1,\ 0);}
+\DoxyCodeLine{00156\ \ \ \ \ assert(\mbox{\hyperlink{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}{query}}(\&segtree,\ \&lazy,\ 1,\ 5,\ 0,\ 7\ -\/\ 1,\ 0)\ ==\ 2\ +\ 4\ +\ 5\ +\ 6\ +\ 6);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}(\&segtree,\ \&lazy,\ 0,\ 6,\ -\/2,\ 0,\ 7\ -\/\ 1,\ 0);}
+\DoxyCodeLine{00159\ \ \ \ \ assert(\mbox{\hyperlink{segtree_8cpp_a423a97ea0c7ea6e33b5844a6858d902d}{query}}(\&segtree,\ \&lazy,\ 0,\ 4,\ 0,\ 7\ -\/\ 1,\ 0)\ ==\ -\/1\ +\ 0\ +\ 2\ +\ 3\ +\ 4);}
+\DoxyCodeLine{00160\ \}}
+
+\end{DoxyCode}
+\Hypertarget{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}\index{segtree.cpp@{segtree.cpp}!update@{update}}
+\index{update@{update}!segtree.cpp@{segtree.cpp}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0} 
+void update (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{segtree}{, }\item[{std\+::vector$<$ int64\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{lazy}{, }\item[{int64\+\_\+t}]{start}{, }\item[{int64\+\_\+t}]{end}{, }\item[{int64\+\_\+t}]{delta}{, }\item[{uint64\+\_\+t}]{low}{, }\item[{uint64\+\_\+t}]{high}{, }\item[{uint64\+\_\+t}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+Updates a range of the segment tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em segtree} & the segment tree \\
+\hline
+{\em lazy} & for lazy propagation \\
+\hline
+{\em start} & lower index of the required query \\
+\hline
+{\em end} & higher index of the required query \\
+\hline
+{\em delta} & integer to add to each element of the range \\
+\hline
+{\em low} & lower index of query for this function call \\
+\hline
+{\em high} & higher index of query for this function call \\
+\hline
+{\em pos} & index of segtree to consider (eg. root node) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ >\ high)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*lazy)[pos]\ !=\ 0)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ (*segtree)[pos]\ +=\ (*lazy)[pos]\ *\ (high\ -\/\ low\ +\ 1);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ !=\ high)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ (*lazy)[2\ *\ pos\ +\ 1]\ +=\ (*lazy)[pos];}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ (*lazy)[2\ *\ pos\ +\ 2]\ +=\ (*lazy)[pos];}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ (*lazy)[pos]\ =\ 0;}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ >\ high\ ||\ end\ <\ low)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ <=\ low\ \&\&\ end\ >=\ high)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ (*segtree)[pos]\ +=\ delta\ *\ (high\ -\/\ low\ +\ 1);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ !=\ high)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ (*lazy)[2\ *\ pos\ +\ 1]\ +=\ delta;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ (*lazy)[2\ *\ pos\ +\ 2]\ +=\ delta;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ uint64\_t\ mid\ =\ (low\ +\ high)\ /\ 2;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}(segtree,\ lazy,\ start,\ end,\ delta,\ low,\ mid,\ 2\ *\ pos\ +\ 1);}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}(segtree,\ lazy,\ start,\ end,\ delta,\ mid\ +\ 1,\ high,\ 2\ *\ pos\ +\ 2);}
+\DoxyCodeLine{00138\ \ \ \ \ (*segtree)[pos]\ =\ (*segtree)[2\ *\ pos\ +\ 1]\ +\ (*segtree)[2\ *\ pos\ +\ 2];}
+\DoxyCodeLine{00139\ \}}
+
+\end{DoxyCode}

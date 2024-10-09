@@ -1,0 +1,141 @@
+\doxysection{dynamic\+\_\+programming/coin\+\_\+change\+\_\+topdown.cpp File Reference}
+\hypertarget{coin__change__topdown_8cpp}{}\label{coin__change__topdown_8cpp}\index{dynamic\_programming/coin\_change\_topdown.cpp@{dynamic\_programming/coin\_change\_topdown.cpp}}
+
+
+\href{https://leetcode.com/problems/coin-change/}{\texttt{ Minimum coins}} change problem is a problem used to find the minimum number of coins required to completely reach a target amount.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemincoins__topdown}{mincoins\+\_\+topdown}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://leetcode.com/problems/coin-change/}{\texttt{ minimum coin exchange}} problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\int64\+\_\+t \mbox{\hyperlink{coin__change__topdown_8cpp_ac816a4ae8a29c156b90377041000929a}{dynamic\+\_\+programming\+::mincoins\+\_\+topdown\+::mincoins}} (const T \&n, const std\+::vector$<$ T $>$ \&coins, const int16\+\_\+t \&t, std\+::vector$<$ T $>$ dp)
+\begin{DoxyCompactList}\small\item\em This implementation is for finding minimum number of coins . \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{coin__change__topdown_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{coin__change__topdown_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://leetcode.com/problems/coin-change/}{\texttt{ Minimum coins}} change problem is a problem used to find the minimum number of coins required to completely reach a target amount. 
+
+This problem can be solved using 2 methods\+:
+\begin{DoxyEnumerate}
+\item Top down approach
+\item Bottom up appraoch Top down approach involves a vector with all elements initialised to 0. It is based on optimal substructure and overlapping subproblems. Overall time complexity of coin change problem is O(n\texorpdfstring{$\ast$}{*}t) For example\+: example 1\+:-\/ Coins\+: \{1,7,10\} Target\+:15 Therfore minimum number of coins required = 3 of denomination 1,7 and 7. \begin{DoxyAuthor}{Author}
+\href{https://github.com/webdesignbydivyansh}{\texttt{ Divyansh Kushwaha}} 
+\end{DoxyAuthor}
+
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{coin__change__topdown_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{coin\_change\_topdown.cpp@{coin\_change\_topdown.cpp}!main@{main}}
+\index{main@{main}!coin\_change\_topdown.cpp@{coin\_change\_topdown.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{coin__change__topdown_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{coin__change__topdown_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ test}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00094\ \}}
+
+\end{DoxyCode}
+\Hypertarget{coin__change__topdown_8cpp_ac816a4ae8a29c156b90377041000929a}\index{coin\_change\_topdown.cpp@{coin\_change\_topdown.cpp}!mincoins@{mincoins}}
+\index{mincoins@{mincoins}!coin\_change\_topdown.cpp@{coin\_change\_topdown.cpp}}
+\doxysubsubsection{\texorpdfstring{mincoins()}{mincoins()}}
+{\footnotesize\ttfamily \label{coin__change__topdown_8cpp_ac816a4ae8a29c156b90377041000929a} 
+template$<$typename T $>$ \\
+int64\+\_\+t dynamic\+\_\+programming\+::mincoins\+\_\+topdown\+::mincoins (\begin{DoxyParamCaption}\item[{const T \&}]{n}{, }\item[{const std\+::vector$<$ T $>$ \&}]{coins}{, }\item[{const int16\+\_\+t \&}]{t}{, }\item[{std\+::vector$<$ T $>$}]{dp}{}\end{DoxyParamCaption})}
+
+
+
+This implementation is for finding minimum number of coins . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & template-\/type to use any kind of value \\
+\hline
+{\em n} & amount to be reached \\
+\hline
+{\em coins} & vector of coins \\
+\hline
+{\em t} & deontes the number of coins \\
+\hline
+{\em dp} & initilised to 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum number of coins 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedp}{dp}}[n]\ !=\ 0)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedp}{dp}}[n];}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ ans\ =\ INT\_MAX;\ \ \textcolor{comment}{//\ variable\ to\ store\ min\ coins}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ t;\ i++)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ -\/\ coins[i]\ >=\ 0)\ \{\ \ \textcolor{comment}{//\ if\ after\ subtracting\ the\ current}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ denomination\ is\ it\ greater\ than\ 0\ or\ not}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sub\ =\ \mbox{\hyperlink{coin__change__topdown_8cpp_ac816a4ae8a29c156b90377041000929a}{mincoins}}(n\ -\/\ coins[i],\ coins,\ t,\ \mbox{\hyperlink{namespacedp}{dp}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ std::min(ans,\ sub\ +\ 1);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[n]\ =\ ans;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedp}{dp}}[n];\ \ \textcolor{comment}{//\ returns\ minimum\ number\ of\ coins}}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{coin__change__topdown_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{coin\_change\_topdown.cpp@{coin\_change\_topdown.cpp}!test@{test}}
+\index{test@{test}!coin\_change\_topdown.cpp@{coin\_change\_topdown.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{coin__change__topdown_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ example\ 1:\ number\ of\ coins=3\ and\ minimum\ coins\ required=3(7,7,1)}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ n1\ =\ 15;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ t1\ =\ 3,\ a1\ =\ 0;}
+\DoxyCodeLine{00078\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 1..."{}};}
+\DoxyCodeLine{00079\ \ \ \ \ std::vector<int64\_t>\ arr1\{1,\ 7,\ 10\};}
+\DoxyCodeLine{00080\ \ \ \ \ std::vector<int64\_t>\ dp1(n1\ +\ 1);}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{decimal__to__roman__numeral_8cpp_a88203bd297e8405160c132faa1187780}{fill}}(dp1.begin(),\ dp1.end(),\ a1);}
+\DoxyCodeLine{00082\ \ \ \ \ assert(dynamic\_programming::mincoins\_topdown::mincoins(n1,\ arr1,\ t1,\ dp1)\ ==}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ 3);}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}

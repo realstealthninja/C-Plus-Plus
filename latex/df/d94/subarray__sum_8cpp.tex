@@ -1,0 +1,166 @@
+\doxysection{backtracking/subarray\+\_\+sum.cpp File Reference}
+\hypertarget{subarray__sum_8cpp}{}\label{subarray__sum_8cpp}\index{backtracking/subarray\_sum.cpp@{backtracking/subarray\_sum.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ Subset-\/sum}} (only continuous subsets) problem  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacesubarray__sum}{subarray\+\_\+sum}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ Subset sum}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{subarray__sum_8cpp_af5687bbd9faf927fbd363c71e0baba5e}{backtracking\+::subarray\+\_\+sum\+::subarray\+\_\+sum}} (int64\+\_\+t sum, const std\+::vector$<$ int64\+\_\+t $>$ \&in\+\_\+arr)
+\begin{DoxyCompactList}\small\item\em The main function that implements the count of the subarrays. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{subarray__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{subarray__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ Subset-\/sum}} (only continuous subsets) problem 
+
+We are given an array and a sum value. The algorithms find all the subarrays of that array with sum equal to the given sum and return such subarrays count. This approach will have $O(n)$ time complexity and $O(n)$ space complexity. NOTE\+: In this problem, we are only referring to the continuous subsets as subarrays everywhere. Subarrays can be created using deletion operation at the end of the front of an array only. The parent array is also counted in subarrays having 0 number of deletion operations.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Swastyy}{\texttt{ Swastika Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{subarray__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{subarray\_sum.cpp@{subarray\_sum.cpp}!main@{main}}
+\index{main@{main}!subarray\_sum.cpp@{subarray\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{subarray__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{subarray__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}
+\Hypertarget{subarray__sum_8cpp_af5687bbd9faf927fbd363c71e0baba5e}\index{subarray\_sum.cpp@{subarray\_sum.cpp}!subarray\_sum@{subarray\_sum}}
+\index{subarray\_sum@{subarray\_sum}!subarray\_sum.cpp@{subarray\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{subarray\_sum()}{subarray\_sum()}}
+{\footnotesize\ttfamily \label{subarray__sum_8cpp_af5687bbd9faf927fbd363c71e0baba5e} 
+uint64\+\_\+t backtracking\+::subarray\+\_\+sum\+::subarray\+\_\+sum (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{sum}{, }\item[{const std\+::vector$<$ int64\+\_\+t $>$ \&}]{in\+\_\+arr}{}\end{DoxyParamCaption})}
+
+
+
+The main function that implements the count of the subarrays. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sum} & is the required sum of any subarrays \\
+\hline
+{\em in\+\_\+arr} & is the input array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count of the number of subsets with required sum 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ int64\_t\ nelement\ =\ in\_arr.size();}
+\DoxyCodeLine{00040\ \ \ \ \ int64\_t\ count\_of\_subset\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ int64\_t\ current\_sum\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ std::unordered\_map<int64\_t,\ int64\_t>}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ sumarray;\ \ \textcolor{comment}{//\ to\ store\ the\ subarrays\ count}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ frequency\ having\ some\ sum\ value}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 0;\ i\ <\ nelement;\ i++)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ current\_sum\ +=\ in\_arr[i];}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_sum\ ==\ sum)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ count\_of\_subset++;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ in\ case\ current\_sum\ is\ greater\ than\ the\ required\ sum}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sumarray.find(current\_sum\ -\/\ sum)\ !=\ sumarray.end())\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ count\_of\_subset\ +=\ (sumarray[current\_sum\ -\/\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}]);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ sumarray[current\_sum]++;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ count\_of\_subset;}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{subarray__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{subarray\_sum.cpp@{subarray\_sum.cpp}!test@{test}}
+\index{test@{test}!subarray\_sum.cpp@{subarray\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{subarray__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00069\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test\ "{}};}
+\DoxyCodeLine{00070\ \ \ \ \ std::vector<int64\_t>\ array1\ =\ \{-\/7,\ -\/3,\ -\/2,\ 5,\ 8\};\ \ \textcolor{comment}{//\ input\ array}}
+\DoxyCodeLine{00071\ \ \ \ \ assert(}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ backtracking::subarray\_sum::subarray\_sum(0,\ array1)\ ==}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ first\ argument\ in\ subarray\_sum\ function\ is\ the\ required\ sum\ and}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ second\ is\ the\ input\ array,\ answer\ is\ the\ subarray\ \{(-\/3,-\/2,5)\}}}
+\DoxyCodeLine{00075\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00078\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test\ "{}};}
+\DoxyCodeLine{00079\ \ \ \ \ std::vector<int64\_t>\ array2\ =\ \{1,\ 2,\ 3,\ 3\};}
+\DoxyCodeLine{00080\ \ \ \ \ assert(backtracking::subarray\_sum::subarray\_sum(6,\ array2)\ ==}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ 2);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 2\ subsets\ which\ sum\ up\ to\ 6\ i.e.}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{(1,2,3),(3,3)\}}}
+\DoxyCodeLine{00083\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00086\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test\ "{}};}
+\DoxyCodeLine{00087\ \ \ \ \ std::vector<int64\_t>\ array3\ =\ \{1,\ 1,\ 1,\ 1\};}
+\DoxyCodeLine{00088\ \ \ \ \ assert(backtracking::subarray\_sum::subarray\_sum(1,\ array3)\ ==}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ 4);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 4\ subsets\ which\ sum\ up\ to\ 1\ i.e.}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{(1),(1),(1),(1)\}}}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ 4rd\ test}}
+\DoxyCodeLine{00094\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4th\ test\ "{}};}
+\DoxyCodeLine{00095\ \ \ \ \ std::vector<int64\_t>\ array4\ =\ \{3,\ 3,\ 3,\ 3\};}
+\DoxyCodeLine{00096\ \ \ \ \ assert(backtracking::subarray\_sum::subarray\_sum(6,\ array4)\ ==}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ 3);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 3\ subsets\ which\ sum\ up\ to\ 6\ i.e.}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{(3,3),(3,3),(3,3)\}}}
+\DoxyCodeLine{00099\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ 5th\ test}}
+\DoxyCodeLine{00102\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}5th\ test\ "{}};}
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<int64\_t>\ array5\ =\ \{\};}
+\DoxyCodeLine{00104\ \ \ \ \ assert(backtracking::subarray\_sum::subarray\_sum(6,\ array5)\ ==}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ 0);\ \ \textcolor{comment}{//\ here\ we\ are\ expecting\ 0\ subsets\ which\ sum\ up\ to\ 6\ i.e.\ we}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cannot\ select\ anything\ from\ an\ empty\ array}}
+\DoxyCodeLine{00107\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00108\ \}}
+
+\end{DoxyCode}

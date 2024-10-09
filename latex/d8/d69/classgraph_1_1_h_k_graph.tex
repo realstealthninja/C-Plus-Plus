@@ -1,0 +1,333 @@
+\doxysection{graph\+::HKGraph Class Reference}
+\hypertarget{classgraph_1_1_h_k_graph}{}\label{classgraph_1_1_h_k_graph}\index{graph::HKGraph@{graph::HKGraph}}
+
+
+Represents Bipartite graph for Hopcroft Karp implementation.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgraph_1_1_h_k_graph_af02b0c83911070ac6d95fc9905e58aa9}\label{classgraph_1_1_h_k_graph_af02b0c83911070ac6d95fc9905e58aa9} 
+{\bfseries HKGraph} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor for initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgraph_1_1_h_k_graph_a0da5aa674d3b3e54a38251ee60d7cd64}{HKGraph}} (int \mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}}, int \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6f5a9fdbb83ef731d739ba6707e21c3c}{n}})
+\begin{DoxyCompactList}\small\item\em Constructor for initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgraph_1_1_h_k_graph_a3b49011c09cf90a116ab53bef61cd95a}{add\+Edge}} (int u, int v)
+\begin{DoxyCompactList}\small\item\em function to add edge from u to v \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgraph_1_1_h_k_graph_a7491add14d9fc04f679114ca6d6f0f93}{bfs}} ()
+\begin{DoxyCompactList}\small\item\em This function checks for the possibility of augmented path availability. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgraph_1_1_h_k_graph_ae794950cb3407b6b47d3dc986cf714c0}{dfs}} (int u)
+\begin{DoxyCompactList}\small\item\em This functions checks whether an augmenting path is available exists beginning with free vertex u. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgraph_1_1_h_k_graph_a9dbda80d02bdc26c3e8ff7330c9be75d}{hopcroft\+Karp\+Algorithm}} ()
+\begin{DoxyCompactList}\small\item\em This function counts the number of augmenting paths between left and right sides of the Bipartite graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}} \{\}
+\begin{DoxyCompactList}\small\item\em m is the number of vertices on left side of Bipartite \doxylink{classgraph_1_1_graph}{Graph} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6f5a9fdbb83ef731d739ba6707e21c3c}{n}} \{\}
+\begin{DoxyCompactList}\small\item\em n is the number of vertices on right side of Bipartite \doxylink{classgraph_1_1_graph}{Graph} \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classgraph_1_1_h_k_graph_ae6d069bd16d6eafa6e08c7e5f735eda6}{NIL}} \{0\}
+\item 
+const int \mbox{\hyperlink{classgraph_1_1_h_k_graph_a44742cb9cfecd1a4493970af9b8bbb15}{INF}} \{INT\+\_\+\+MAX\}
+\item 
+\Hypertarget{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f}\label{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f} 
+std\+::vector$<$ std\+::list$<$ int $>$ $>$ {\bfseries adj}
+\begin{DoxyCompactList}\small\item\em adj\mbox{[}u\mbox{]} stores adjacents of left side and 0 is used for dummy vertex \end{DoxyCompactList}\item 
+\Hypertarget{classgraph_1_1_h_k_graph_a86ebff8a70cbfedd05281993d5d1987b}\label{classgraph_1_1_h_k_graph_a86ebff8a70cbfedd05281993d5d1987b} 
+std\+::vector$<$ int $>$ {\bfseries pair\+\_\+u}
+\begin{DoxyCompactList}\small\item\em value of vertex \textquotesingle{}u\textquotesingle{} ranges from 1 to m \end{DoxyCompactList}\item 
+\Hypertarget{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}\label{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77} 
+std\+::vector$<$ int $>$ {\bfseries pair\+\_\+v}
+\begin{DoxyCompactList}\small\item\em value of vertex \textquotesingle{}v\textquotesingle{} ranges from 1 to n \end{DoxyCompactList}\item 
+\Hypertarget{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}\label{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a} 
+std\+::vector$<$ int $>$ {\bfseries dist}
+\begin{DoxyCompactList}\small\item\em dist represents the distance between vertex \textquotesingle{}u\textquotesingle{} and vertex \textquotesingle{}v\textquotesingle{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents Bipartite graph for Hopcroft Karp implementation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgraph_1_1_h_k_graph_a0da5aa674d3b3e54a38251ee60d7cd64}\index{graph::HKGraph@{graph::HKGraph}!HKGraph@{HKGraph}}
+\index{HKGraph@{HKGraph}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{HKGraph()}{HKGraph()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_a0da5aa674d3b3e54a38251ee60d7cd64} 
+graph\+::\+HKGraph\+::\+HKGraph (\begin{DoxyParamCaption}\item[{int}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & is the number of vertices on left side of Bipartite \doxylink{classgraph_1_1_graph}{Graph} \\
+\hline
+{\em n} & is the number of vertices on right side of Bipartite \doxylink{classgraph_1_1_graph}{Graph} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00232\ \ \ \ \ this-\/>\mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}}\ =\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}};}
+\DoxyCodeLine{00233\ \ \ \ \ this-\/>\mbox{\hyperlink{classgraph_1_1_h_k_graph_a6f5a9fdbb83ef731d739ba6707e21c3c}{n}}\ =\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6f5a9fdbb83ef731d739ba6707e21c3c}{n}};}
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f}{adj}}\ =\ std::vector<std::list<int>\ >(\mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}}\ +\ 1);}
+\DoxyCodeLine{00235\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgraph_1_1_h_k_graph_a3b49011c09cf90a116ab53bef61cd95a}\index{graph::HKGraph@{graph::HKGraph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_a3b49011c09cf90a116ab53bef61cd95a} 
+void graph\+::\+HKGraph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{u}{, }\item[{int}]{v}{}\end{DoxyParamCaption})}
+
+
+
+function to add edge from u to v 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & is the position of first vertex \\
+\hline
+{\em v} & is the position of second vertex \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00243\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f}{adj}}[u].push\_back(v);\ \textcolor{comment}{//\ Add\ v\ to\ u’s\ list.}}
+\DoxyCodeLine{00245\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_h_k_graph_a7491add14d9fc04f679114ca6d6f0f93}\index{graph::HKGraph@{graph::HKGraph}!bfs@{bfs}}
+\index{bfs@{bfs}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_a7491add14d9fc04f679114ca6d6f0f93} 
+bool graph\+::\+HKGraph\+::bfs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This function checks for the possibility of augmented path availability. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if there is an augmenting path available 
+
+{\ttfamily false} if there is no augmenting path available 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ std::queue<int>\ q;\ \textcolor{comment}{//\ an\ integer\ queue\ for\ bfs}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ First\ layer\ of\ vertices\ (set\ distance\ as\ 0)}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ u\ =\ 1;\ u\ <=\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}};\ u++)}
+\DoxyCodeLine{00139\ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ this\ is\ a\ free\ vertex,\ add\ it\ to\ queue}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_a86ebff8a70cbfedd05281993d5d1987b}{pair\_u}}[u]\ ==\ NIL)\{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[u]\ =\ 0;\ \textcolor{comment}{//\ u\ is\ not\ matched\ so\ distance\ is\ 0}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ q.push(u);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[u]\ =\ INF;\ \textcolor{comment}{//\ set\ distance\ as\ infinite\ so\ that\ this\ vertex\ is\ considered\ next\ time\ for\ availibility}}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ }
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[NIL]\ =\ INF;\ \textcolor{comment}{//\ Initialize\ distance\ to\ NIL\ as\ infinite}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ q\ is\ going\ to\ contain\ vertices\ of\ left\ side\ only.}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{while}\ (!q.empty())}
+\DoxyCodeLine{00157\ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ q.front();\ \ \textcolor{comment}{//\ dequeue\ a\ vertex}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ this\ node\ is\ not\ NIL\ and\ can\ provide\ a\ shorter\ path\ to\ NIL\ then}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[u]\ <\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[NIL])}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ all\ the\ adjacent\ vertices\ of\ the\ dequeued\ vertex\ u}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ std::list<int>::iterator\ it;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (it\ =\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f}{adj}}[u].begin();\ it\ !=\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f}{adj}}[u].end();\ ++it)}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ v\ =\ *it;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ pair\ of\ v\ is\ not\ considered\ so\ far\ i.e.\ (v,\ pair\_v[v])\ is\ not\ yet\ explored\ edge.}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[\mbox{\hyperlink{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}{pair\_v}}[v]]\ ==\ INF)}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[\mbox{\hyperlink{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}{pair\_v}}[v]]\ =\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[u]\ +\ 1;\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(\mbox{\hyperlink{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}{pair\_v}}[v]);\ \ \ \ \textcolor{comment}{//\ Consider\ the\ pair\ and\ push\ it\ to\ queue}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[NIL]\ !=\ INF);\ \ \ \textcolor{comment}{//\ If\ we\ could\ come\ back\ to\ NIL\ using\ alternating\ path\ of\ distinct\ vertices\ then\ there\ is\ an\ augmenting\ path\ available}}
+\DoxyCodeLine{00183\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_h_k_graph_ae794950cb3407b6b47d3dc986cf714c0}\index{graph::HKGraph@{graph::HKGraph}!dfs@{dfs}}
+\index{dfs@{dfs}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_ae794950cb3407b6b47d3dc986cf714c0} 
+bool graph\+::\+HKGraph\+::dfs (\begin{DoxyParamCaption}\item[{int}]{u}{}\end{DoxyParamCaption})}
+
+
+
+This functions checks whether an augmenting path is available exists beginning with free vertex u. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & represents position of vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if there is an augmenting path beginning with free vertex u 
+
+{\ttfamily false} if there is no augmenting path beginning with free vertex u 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00192\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ !=\ NIL)}
+\DoxyCodeLine{00194\ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ std::list<int>::iterator\ it;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (it\ =\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f}{adj}}[u].begin();\ it\ !=\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a35893def7a1c5cd60907b4893117796f}{adj}}[u].end();\ ++it)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ v\ =\ *it;\ \textcolor{comment}{//\ Adjacent\ vertex\ of\ u}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Follow\ the\ distances\ set\ by\ BFS\ search}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[\mbox{\hyperlink{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}{pair\_v}}[v]]\ ==\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[u]\ +\ 1)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ dfs\ for\ pair\ of\ v\ also\ return\ true\ then\ new\ matching\ possible,\ store\ the\ matching}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_ae794950cb3407b6b47d3dc986cf714c0}{dfs}}(\mbox{\hyperlink{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}{pair\_v}}[v])\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}{pair\_v}}[v]\ =\ u;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a86ebff8a70cbfedd05281993d5d1987b}{pair\_u}}[u]\ =\ v;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}[u]\ =\ INF;\ \textcolor{comment}{//\ If\ there\ is\ no\ augmenting\ path\ beginning\ with\ u\ then\ set\ distance\ to\ infinite.}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00219\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_h_k_graph_a9dbda80d02bdc26c3e8ff7330c9be75d}\index{graph::HKGraph@{graph::HKGraph}!hopcroftKarpAlgorithm@{hopcroftKarpAlgorithm}}
+\index{hopcroftKarpAlgorithm@{hopcroftKarpAlgorithm}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{hopcroftKarpAlgorithm()}{hopcroftKarpAlgorithm()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_a9dbda80d02bdc26c3e8ff7330c9be75d} 
+int graph\+::\+HKGraph\+::hopcroft\+Karp\+Algorithm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This function counts the number of augmenting paths between left and right sides of the Bipartite graph. 
+
+\begin{DoxyReturn}{Returns}
+size of maximum matching 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ pair\_u[u]\ stores\ pair\ of\ u\ in\ matching\ on\ left\ side\ of\ Bipartite\ Graph.}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ If\ u\ doesn't\ have\ any\ pair,\ then\ pair\_u[u]\ is\ NIL}}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a86ebff8a70cbfedd05281993d5d1987b}{pair\_u}}\ =\ std::vector<int>(\mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}}\ +\ 1,NIL);\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ pair\_v[v]\ stores\ pair\ of\ v\ in\ matching\ on\ right\ side\ of\ Biparite\ Graph.}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ If\ v\ doesn't\ have\ any\ pair,\ then\ pair\_u[v]\ is\ NIL}}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a976ee239402cc2726a280e781c706d77}{pair\_v}}\ =\ std::vector<int>(\mbox{\hyperlink{classgraph_1_1_h_k_graph_a6f5a9fdbb83ef731d739ba6707e21c3c}{n}}\ +\ 1,NIL);\ }
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a6a0228bbba3818447fcf6b56128b552a}{dist}}\ =\ std::vector<int>(\mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}}\ +\ 1);\ \ \textcolor{comment}{//\ dist[u]\ stores\ distance\ of\ left\ side\ vertices}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}\ =\ 0;\ \ \textcolor{comment}{//\ Initialize\ result}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Keep\ updating\ the\ result\ while\ there\ is\ an\ augmenting\ path\ possible.}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_a7491add14d9fc04f679114ca6d6f0f93}{bfs}}())}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ a\ free\ vertex\ to\ check\ for\ a\ matching}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ u\ =\ 1;\ u\ <=\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}{m}};\ u++)\{}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ current\ vertex\ is\ free\ and\ there\ is}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ an\ augmenting\ path\ from\ current\ vertex}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ then\ increment\ the\ result}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_h_k_graph_a86ebff8a70cbfedd05281993d5d1987b}{pair\_u}}[u]\ ==\ NIL\ \&\&\ \mbox{\hyperlink{classgraph_1_1_h_k_graph_ae794950cb3407b6b47d3dc986cf714c0}{dfs}}(u))\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}++;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}};}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgraph_1_1_h_k_graph_a44742cb9cfecd1a4493970af9b8bbb15}\index{graph::HKGraph@{graph::HKGraph}!INF@{INF}}
+\index{INF@{INF}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{INF}{INF}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_a44742cb9cfecd1a4493970af9b8bbb15} 
+const int graph\+::\+HKGraph\+::\+INF \{INT\+\_\+\+MAX\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \{INT\_MAX\};}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74}\index{graph::HKGraph@{graph::HKGraph}!m@{m}}
+\index{m@{m}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_a3d9101e3b4598159005fd028b9b0ff74} 
+int graph\+::\+HKGraph\+::m \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+m is the number of vertices on left side of Bipartite \doxylink{classgraph_1_1_graph}{Graph} 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \{\};\ \ \textcolor{comment}{///<\ m\ is\ the\ number\ of\ vertices\ on\ left\ side\ of\ Bipartite\ Graph}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_h_k_graph_a6f5a9fdbb83ef731d739ba6707e21c3c}\index{graph::HKGraph@{graph::HKGraph}!n@{n}}
+\index{n@{n}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_a6f5a9fdbb83ef731d739ba6707e21c3c} 
+int graph\+::\+HKGraph\+::n \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+n is the number of vertices on right side of Bipartite \doxylink{classgraph_1_1_graph}{Graph} 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \{\};\ \ \textcolor{comment}{///<\ n\ is\ the\ number\ of\ vertices\ on\ right\ side\ of\ Bipartite\ Graph}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_h_k_graph_ae6d069bd16d6eafa6e08c7e5f735eda6}\index{graph::HKGraph@{graph::HKGraph}!NIL@{NIL}}
+\index{NIL@{NIL}!graph::HKGraph@{graph::HKGraph}}
+\doxysubsubsection{\texorpdfstring{NIL}{NIL}}
+{\footnotesize\ttfamily \label{classgraph_1_1_h_k_graph_ae6d069bd16d6eafa6e08c7e5f735eda6} 
+const int graph\+::\+HKGraph\+::\+NIL \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \{0\};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/\mbox{\hyperlink{hopcroft__karp_8cpp}{hopcroft\+\_\+karp.\+cpp}}\end{DoxyCompactItemize}

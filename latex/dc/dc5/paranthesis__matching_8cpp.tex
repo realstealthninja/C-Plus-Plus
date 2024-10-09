@@ -1,0 +1,160 @@
+\doxysection{others/paranthesis\+\_\+matching.cpp File Reference}
+\hypertarget{paranthesis__matching_8cpp}{}\label{paranthesis__matching_8cpp}\index{others/paranthesis\_matching.cpp@{others/paranthesis\_matching.cpp}}
+
+
+Perform paranthesis matching.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{paranthesis__matching_8cpp_a392fb874e547e582e9c66a08a1f23326}{MAX}}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{paranthesis__matching_8cpp_ade525d33459755a32ba21e1b6910ff21}{opening}} (char ch)
+\item 
+int \mbox{\hyperlink{paranthesis__matching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{paranthesis__matching_8cpp_aa37d24a036d239b3b528f13b9de880c7}{stack}} \mbox{[}MAX\mbox{]}
+\item 
+\Hypertarget{paranthesis__matching_8cpp_af4c937d823c412d99fbe60c99dbf0a4f}\label{paranthesis__matching_8cpp_af4c937d823c412d99fbe60c99dbf0a4f} 
+int {\bfseries stack\+\_\+idx} = -\/1
+\begin{DoxyCompactList}\small\item\em pointer to track stack index \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{paranthesis__matching_8cpp_aae41c72130114bf31204cde6873b6095}{push}} (char ch)
+\begin{DoxyCompactList}\small\item\em push byte to stack variable \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{paranthesis__matching_8cpp_a6d25c7dfbfeb52c3cb9d1b56ab49b664}{pop}} ()
+\begin{DoxyCompactList}\small\item\em pop a byte out of stack variable \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Perform paranthesis matching. 
+
+\begin{DoxyNote}{Note}
+Do not know the application of this, however. 
+
+Implementation is C-\/type and does not utilize the C++ constructs 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]implement as a C++ class \end{DoxyRefDesc}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{paranthesis__matching_8cpp_a392fb874e547e582e9c66a08a1f23326}\index{paranthesis\_matching.cpp@{paranthesis\_matching.cpp}!MAX@{MAX}}
+\index{MAX@{MAX}!paranthesis\_matching.cpp@{paranthesis\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX}{MAX}}
+{\footnotesize\ttfamily \label{paranthesis__matching_8cpp_a392fb874e547e582e9c66a08a1f23326} 
+\#define MAX~100}
+
+check number 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{paranthesis__matching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{paranthesis\_matching.cpp@{paranthesis\_matching.cpp}!main@{main}}
+\index{main@{main}!paranthesis\_matching.cpp@{paranthesis\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{paranthesis__matching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ std::string\ \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange_ac00616a4e40d3cd5cfb4da87d9ff9af0}{exp}};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ valid\ =\ 1,\ i\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ The\ Expression\ :\ "{}};}
+\DoxyCodeLine{00054\ \ \ \ \ std::cin\ >>\ \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange_ac00616a4e40d3cd5cfb4da87d9ff9af0}{exp}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{while}\ (valid\ ==\ 1\ \&\&\ i\ <\ \mbox{\hyperlink{namespaceciphers_1_1elliptic__curve__key__exchange_ac00616a4e40d3cd5cfb4da87d9ff9af0}{exp}}.length())\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (exp[i]\ ==\ \textcolor{charliteral}{'('}\ ||\ exp[i]\ ==\ \textcolor{charliteral}{'\{'}\ ||\ exp[i]\ ==\ \textcolor{charliteral}{'['}\ ||\ exp[i]\ ==\ \textcolor{charliteral}{'<'})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{paranthesis__matching_8cpp_aae41c72130114bf31204cde6873b6095}{push}}(exp[i]);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{paranthesis__matching_8cpp_af4c937d823c412d99fbe60c99dbf0a4f}{stack\_idx}}\ >=\ 0\ \&\&\ \mbox{\hyperlink{classstack}{stack}}[\mbox{\hyperlink{paranthesis__matching_8cpp_af4c937d823c412d99fbe60c99dbf0a4f}{stack\_idx}}]\ ==\ \mbox{\hyperlink{paranthesis__matching_8cpp_ade525d33459755a32ba21e1b6910ff21}{opening}}(exp[i]))\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{paranthesis__matching_8cpp_a6d25c7dfbfeb52c3cb9d1b56ab49b664}{pop}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ valid\ =\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ makes\ sure\ the\ stack\ is\ empty\ after\ processsing\ (above)}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (valid\ ==\ 1\ \&\&\ \mbox{\hyperlink{paranthesis__matching_8cpp_af4c937d823c412d99fbe60c99dbf0a4f}{stack\_idx}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nCorrect\ Expression"{}};}
+\DoxyCodeLine{00070\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nWrong\ Expression"{}};}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{paranthesis__matching_8cpp_ade525d33459755a32ba21e1b6910ff21}\index{paranthesis\_matching.cpp@{paranthesis\_matching.cpp}!opening@{opening}}
+\index{opening@{opening}!paranthesis\_matching.cpp@{paranthesis\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{opening()}{opening()}}
+{\footnotesize\ttfamily \label{paranthesis__matching_8cpp_ade525d33459755a32ba21e1b6910ff21} 
+char opening (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption})}
+
+return opening paranthesis corresponding to the close paranthesis 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ch} & closed paranthesis character \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{switch}\ (ch)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\}'}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'\{'};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{']'}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'['};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{')'}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'('};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'>'}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'<'};}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{paranthesis__matching_8cpp_a6d25c7dfbfeb52c3cb9d1b56ab49b664}\index{paranthesis\_matching.cpp@{paranthesis\_matching.cpp}!pop@{pop}}
+\index{pop@{pop}!paranthesis\_matching.cpp@{paranthesis\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{paranthesis__matching_8cpp_a6d25c7dfbfeb52c3cb9d1b56ab49b664} 
+char pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+pop a byte out of stack variable 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classstack}{stack}}[\mbox{\hyperlink{paranthesis__matching_8cpp_af4c937d823c412d99fbe60c99dbf0a4f}{stack\_idx}}-\/-\/];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{paranthesis__matching_8cpp_aae41c72130114bf31204cde6873b6095}\index{paranthesis\_matching.cpp@{paranthesis\_matching.cpp}!push@{push}}
+\index{push@{push}!paranthesis\_matching.cpp@{paranthesis\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{paranthesis__matching_8cpp_aae41c72130114bf31204cde6873b6095} 
+void push (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption})}
+
+
+
+push byte to stack variable 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \{\ \mbox{\hyperlink{classstack}{stack}}[++\mbox{\hyperlink{paranthesis__matching_8cpp_af4c937d823c412d99fbe60c99dbf0a4f}{stack\_idx}}]\ =\ ch;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{paranthesis__matching_8cpp_aa37d24a036d239b3b528f13b9de880c7}\index{paranthesis\_matching.cpp@{paranthesis\_matching.cpp}!stack@{stack}}
+\index{stack@{stack}!paranthesis\_matching.cpp@{paranthesis\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{stack}{stack}}
+{\footnotesize\ttfamily \label{paranthesis__matching_8cpp_aa37d24a036d239b3b528f13b9de880c7} 
+char stack\mbox{[}MAX\mbox{]}}
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- stack -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- global stack 

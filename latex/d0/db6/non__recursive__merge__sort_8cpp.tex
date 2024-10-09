@@ -1,0 +1,58 @@
+\doxysection{sorting/non\+\_\+recursive\+\_\+merge\+\_\+sort.cpp File Reference}
+\hypertarget{non__recursive__merge__sort_8cpp}{}\label{non__recursive__merge__sort_8cpp}\index{sorting/non\_recursive\_merge\_sort.cpp@{sorting/non\_recursive\_merge\_sort.cpp}}
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Iterator $>$ }\\void \mbox{\hyperlink{namespacesorting_aa26de383227859210f14dcf12201a079}{sorting\+::merge}} (Iterator l, Iterator r, const Iterator e, char b\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em merges 2 sorted adjacent segments into a larger sorted segment \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Iterator $>$ }\\void \mbox{\hyperlink{namespacesorting_a140d913e42fb94176a0b2c8b29a80420}{sorting\+::non\+\_\+recursive\+\_\+merge\+\_\+sort}} (const Iterator first, const Iterator last, const size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em bottom-\/up merge sort which sorts elements in a non-\/decreasing order \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Iterator $>$ }\\void \mbox{\hyperlink{namespacesorting_a27236b8d3df3832e1f1225576a122534}{sorting\+::non\+\_\+recursive\+\_\+merge\+\_\+sort}} (const Iterator first, const size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em bottom-\/up merge sort which sorts elements in a non-\/decreasing order \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Iterator $>$ }\\void \mbox{\hyperlink{namespacesorting_ae97f4dd815654c4682f564afd718e824}{sorting\+::non\+\_\+recursive\+\_\+merge\+\_\+sort}} (const Iterator first, const Iterator last)
+\begin{DoxyCompactList}\small\item\em bottom-\/up merge sort which sorts elements in a non-\/decreasing order \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{non__recursive__merge__sort_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Copyright 2020 \begin{DoxyAuthor}{Author}
+Albirair
+\end{DoxyAuthor}
+A generic implementation of non-\/recursive merge sort. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{non__recursive__merge__sort_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{non\_recursive\_merge\_sort.cpp@{non\_recursive\_merge\_sort.cpp}!main@{main}}
+\index{main@{main}!non\_recursive\_merge\_sort.cpp@{non\_recursive\_merge\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{non__recursive__merge__sort_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00096\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ elements\ :\ "{}};}
+\DoxyCodeLine{00097\ \ \ \ \ std::cin\ >>\ size;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}*\ arr\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[size];}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}arr["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ =\ "{}};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ std::cin\ >>\ arr[i];}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ non\_recursive\_merge\_sort(arr,\ size);}
+\DoxyCodeLine{00104\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sorted\ array\(\backslash\)n"{}};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ ++i)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}arr["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ =\ "{}}\ <<\ arr[i]\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{delete}[]\ arr;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00109\ \}}
+
+\end{DoxyCode}

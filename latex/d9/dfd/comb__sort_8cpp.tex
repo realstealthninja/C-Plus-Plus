@@ -1,0 +1,170 @@
+\doxysection{sorting/comb\+\_\+sort.cpp File Reference}
+\hypertarget{comb__sort_8cpp}{}\label{comb__sort_8cpp}\index{sorting/comb\_sort.cpp@{sorting/comb\_sort.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Comb_sort}{\texttt{ Comb Sort Algorithm (Comb Sort)}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{comb__sort_8cpp_aede08143e63105faba10e9ee8e745fd5}{Find\+Next\+Gap}} (int gap)
+\item 
+void \mbox{\hyperlink{comb__sort_8cpp_a0f4e7569090083fb53d5cdeaf0e2974f}{Comb\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int l, int r)
+\item 
+void \mbox{\hyperlink{comb__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{comb__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Comb_sort}{\texttt{ Comb Sort Algorithm (Comb Sort)}} 
+
+\begin{DoxyAuthor}{Author}
+
+\end{DoxyAuthor}
+
+\begin{DoxyItemize}
+\item A better version of bubble sort algorithm
+\item Bubble sort compares adjacent values whereas comb sort uses gap larger than 1
+\item Best case Time complexity O(n) Worst case Time complexity O(n\texorpdfstring{$^\wedge$}{\string^}2) 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{comb__sort_8cpp_a0f4e7569090083fb53d5cdeaf0e2974f}\index{comb\_sort.cpp@{comb\_sort.cpp}!CombSort@{CombSort}}
+\index{CombSort@{CombSort}!comb\_sort.cpp@{comb\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{CombSort()}{CombSort()}}
+{\footnotesize\ttfamily \label{comb__sort_8cpp_a0f4e7569090083fb53d5cdeaf0e2974f} 
+void Comb\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{l}{, }\item[{int}]{r}{}\end{DoxyParamCaption})}
+
+Function to sort array
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array to be sorted \\
+\hline
+{\em l} & start index of array \\
+\hline
+{\em r} & end index of array \\
+\hline
+\end{DoxyParams}
+initial gap will be maximum and the maximum possible value is the size of the array that is n and which is equal to r in this case so to avoid passing an extra parameter n that is the size of the array we are using r to initialize the initial gap.
+
+Initialize swapped as true to make sure that loop runs
+
+Keep running until gap = 1 or none elements were swapped
+
+Find next gap
+
+\doxylink{class_compare}{Compare} all elements with current gap
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ \ *\ initial\ gap\ will\ be\ maximum\ and\ the\ maximum\ possible\ value\ is}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ *\ the\ size\ of\ the\ array\ that\ is\ n\ and\ which\ is\ equal\ to\ r\ in\ this}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ *\ case\ so\ to\ avoid\ passing\ an\ extra\ parameter\ n\ that\ is\ the\ size\ of}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ *\ the\ array\ we\ are\ using\ r\ to\ initialize\ the\ initial\ gap.}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ gap\ =\ r;}
+\DoxyCodeLine{00052\ \textcolor{comment}{}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ ///\ Initialize\ swapped\ as\ true\ to\ make\ sure\ that\ loop\ runs}}
+\DoxyCodeLine{00054\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{bool}\ swapped\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00055\ \textcolor{comment}{}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ \ ///\ Keep\ running\ until\ gap\ =\ 1\ or\ none\ elements\ were\ swapped}}
+\DoxyCodeLine{00057\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{while}\ (gap\ !=\ 1\ ||\ swapped)\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Find\ next\ gap}}
+\DoxyCodeLine{00059\ \textcolor{comment}{}\ \ \ \ \ \ \ \ gap\ =\ \mbox{\hyperlink{comb__sort_8cpp_aede08143e63105faba10e9ee8e745fd5}{FindNextGap}}(gap);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ swapped\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00062\ \textcolor{comment}{}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Compare\ all\ elements\ with\ current\ gap}}
+\DoxyCodeLine{00064\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ l;\ i\ <\ r\ -\/\ gap;\ ++i)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ >\ arr[i\ +\ gap])\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[i\ +\ gap]);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ swapped\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}
+\Hypertarget{comb__sort_8cpp_aede08143e63105faba10e9ee8e745fd5}\index{comb\_sort.cpp@{comb\_sort.cpp}!FindNextGap@{FindNextGap}}
+\index{FindNextGap@{FindNextGap}!comb\_sort.cpp@{comb\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{FindNextGap()}{FindNextGap()}}
+{\footnotesize\ttfamily \label{comb__sort_8cpp_aede08143e63105faba10e9ee8e745fd5} 
+int Find\+Next\+Gap (\begin{DoxyParamCaption}\item[{int}]{gap}{}\end{DoxyParamCaption})}
+
+Find the next gap by shrinking the current gap by shrink factor of 1.\+3 
+\begin{DoxyParams}{Parameters}
+{\em gap} & current gap \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new gap 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ gap\ =\ (gap\ *\ 10)\ /\ 13;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ std::max(1,\ gap);}
+\DoxyCodeLine{00033\ \}}
+
+\end{DoxyCode}
+\Hypertarget{comb__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{comb\_sort.cpp@{comb\_sort.cpp}!main@{main}}
+\index{main@{main}!comb\_sort.cpp@{comb\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{comb__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function Running predefined tests
+
+For user interaction
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ ///\ Running\ predefined\ tests}}
+\DoxyCodeLine{00090\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{comb__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00091\ \textcolor{comment}{}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ ///\ For\ user\ interaction}}
+\DoxyCodeLine{00093\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00094\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ *arr\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[n];}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ std::cin\ >>\ arr[i];}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{comb__sort_8cpp_a0f4e7569090083fb53d5cdeaf0e2974f}{CombSort}}(arr,\ 0,\ n);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ std::cout\ <<\ arr[i]\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{delete}[]\ arr;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00101\ \}}
+
+\end{DoxyCode}
+\Hypertarget{comb__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{comb\_sort.cpp@{comb\_sort.cpp}!tests@{tests}}
+\index{tests@{tests}!comb\_sort.cpp@{comb\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{comb__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test 1
+
+Test 2
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ ///\ Test\ 1}}
+\DoxyCodeLine{00075\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{int}\ arr1[10]\ =\ \{34,\ 56,\ 6,\ 23,\ 76,\ 34,\ 76,\ 343,\ 4,\ 76\};}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{comb__sort_8cpp_a0f4e7569090083fb53d5cdeaf0e2974f}{CombSort}}(arr1,\ 0,\ 10);}
+\DoxyCodeLine{00077\ \ \ \ \ assert(std::is\_sorted(arr1,\ arr1\ +\ 10));}
+\DoxyCodeLine{00078\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00079\ \textcolor{comment}{}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ ///\ Test\ 2}}
+\DoxyCodeLine{00081\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{int}\ arr2[8]\ =\ \{-\/6,\ 56,\ -\/45,\ 56,\ 0,\ -\/1,\ 8,\ 8\};}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{comb__sort_8cpp_a0f4e7569090083fb53d5cdeaf0e2974f}{CombSort}}(arr2,\ 0,\ 8);}
+\DoxyCodeLine{00083\ \ \ \ \ assert(std::is\_sorted(arr2,\ arr2\ +\ 8));}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ Passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}

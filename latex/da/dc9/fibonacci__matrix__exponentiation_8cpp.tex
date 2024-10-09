@@ -1,0 +1,154 @@
+\doxysection{math/fibonacci\+\_\+matrix\+\_\+exponentiation.cpp File Reference}
+\hypertarget{fibonacci__matrix__exponentiation_8cpp}{}\label{fibonacci__matrix__exponentiation_8cpp}\index{math/fibonacci\_matrix\_exponentiation.cpp@{math/fibonacci\_matrix\_exponentiation.cpp}}
+
+
+This program computes the N\texorpdfstring{$^\wedge$}{\string^}th Fibonacci number in modulo mod input argument .  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}{fibo}} (uint64\+\_\+t n, uint64\+\_\+t mod)
+\item 
+void \mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}} ()
+\item 
+int \mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program computes the N\texorpdfstring{$^\wedge$}{\string^}th Fibonacci number in modulo mod input argument . 
+
+Takes O(logn) time to compute nth Fibonacci number
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/villayatali123}{\texttt{ villayatali123}} 
+
+\mbox{[}unknown author\mbox{]}() 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\doxylink{fibonacci_8cpp}{fibonacci.\+cpp}, \doxylink{fibonacci__fast_8cpp}{fibonacci\+\_\+fast.\+cpp}, \doxylink{string__fibonacci_8cpp}{string\+\_\+fibonacci.\+cpp}, \doxylink{fibonacci__large_8cpp}{fibonacci\+\_\+large.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}\index{fibonacci\_matrix\_exponentiation.cpp@{fibonacci\_matrix\_exponentiation.cpp}!fibo@{fibo}}
+\index{fibo@{fibo}!fibonacci\_matrix\_exponentiation.cpp@{fibonacci\_matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{fibo()}{fibo()}}
+{\footnotesize\ttfamily \label{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f} 
+uint64\+\_\+t fibo (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{, }\item[{uint64\+\_\+t}]{mod}{}\end{DoxyParamCaption})}
+
+This function finds nth fibonacci number in a given modulus 
+\begin{DoxyParams}{Parameters}
+{\em n} & nth fibonacci number \\
+\hline
+{\em mod} & modulo number \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<uint64\_t>\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}(2,0);}
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<std::vector<uint64\_t>>\ transition(2,std::vector<uint64\_t>(2,0));}
+\DoxyCodeLine{00027\ \ \ \ \ std::vector<std::vector<uint64\_t>>\ Identity(2,std::vector<uint64\_t>(2,0));}
+\DoxyCodeLine{00028\ \ \ \ \ n-\/-\/;}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[0]=1,\ \mbox{\hyperlink{fibonacci__sum_8cpp_aadb40ac4c74a7efc0680b83eeee138aa}{result}}[1]=1;}
+\DoxyCodeLine{00030\ \ \ \ \ Identity[0][0]=1;\ Identity[0][1]=0;}
+\DoxyCodeLine{00031\ \ \ \ \ Identity[1][0]=0;\ Identity[1][1]=1;}
+\DoxyCodeLine{00032\ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ transition[0][0]=0;}
+\DoxyCodeLine{00034\ \ \ \ \ transition[1][0]=transition[1][1]=transition[0][1]=1;}
+\DoxyCodeLine{00035\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{while}(n)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(n\%2)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<uint64\_t>>\ res(2,\ std::vector<uint64\_t>(2,0));}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<2;i++)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=0;j<2;j++)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ k=0;\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}<2;\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i][j]=(res[i][j]\%mod+((Identity[i][\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}]\%mod*transition[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}][j]\%mod))\%mod)\%mod;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<2;i++)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=0;j<2;j++)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Identity[i][j]=res[i][j];}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/-\/;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<uint64\_t>>\ res1(2,\ std::vector<uint64\_t>(2,0));}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<2;i++)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=0;j<2;j++)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ k=0;\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}<2;\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res1[i][j]=(res1[i][j]\%mod+((transition[i][\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}]\%mod*transition[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}][j]\%mod))\%mod)\%mod;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<2;i++)}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=0;j<2;j++)}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ transition[i][j]=res1[i][j];}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ n=n/2;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ ((result[0]\%mod*Identity[0][0]\%mod)\%mod+(result[1]\%mod*Identity[1][0]\%mod)\%mod)\%mod;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__matrix__exponentiation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fibonacci\_matrix\_exponentiation.cpp@{fibonacci\_matrix\_exponentiation.cpp}!main@{main}}
+\index{main@{main}!fibonacci\_matrix\_exponentiation.cpp@{fibonacci\_matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fibonacci__matrix__exponentiation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();}
+\DoxyCodeLine{00109\ \ \ \ \ uint64\_t\ mod=1000000007;}
+\DoxyCodeLine{00110\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Enter\ the\ value\ of\ N:\ "{}};}
+\DoxyCodeLine{00111\ \ \ \ \ uint64\_t\ n=0;\ std::cin>>n;\ }
+\DoxyCodeLine{00112\ \ \ \ \ std::cout<<n<<\textcolor{stringliteral}{"{}th\ Fibonacci\ number\ in\ modulo\ "{}}\ <<\ mod\ <<\ \textcolor{stringliteral}{"{}:\ "{}}<<\ \mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}{fibo}}(\ n\ ,\ mod)\ <<\ std::endl;}
+\DoxyCodeLine{00113\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__matrix__exponentiation_8cpp_ae1a3968e7947464bee7714f6d43b7002}\index{fibonacci\_matrix\_exponentiation.cpp@{fibonacci\_matrix\_exponentiation.cpp}!test@{test}}
+\index{test@{test}!fibonacci\_matrix\_exponentiation.cpp@{fibonacci\_matrix\_exponentiation.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{fibonacci__matrix__exponentiation_8cpp_ae1a3968e7947464bee7714f6d43b7002} 
+void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function to test above algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ assert(\mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}{fibo}}(6,\ 1000000007\ )\ ==\ 8);}
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:1\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ assert(\mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}{fibo}}(5,\ 1000000007\ \ )\ ==\ 5);}
+\DoxyCodeLine{00093\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:2\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ assert(\mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}{fibo}}(10\ ,\ 1000000007)\ ==\ 55);}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:3\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ assert(\mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}{fibo}}(500\ ,\ 100)\ ==\ 25);}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:3\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00098\ \ \ \ \ assert(\mbox{\hyperlink{fibonacci__matrix__exponentiation_8cpp_abc3bc08249058d57cfc8f54a29d9cf9f}{fibo}}(500\ ,\ 10000)\ ==\ 4125);}
+\DoxyCodeLine{00099\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:3\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/All\ tests\ passed-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{00101\ \}}
+
+\end{DoxyCode}

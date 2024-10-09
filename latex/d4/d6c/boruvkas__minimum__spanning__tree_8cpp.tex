@@ -1,0 +1,314 @@
+\doxysection{greedy\+\_\+algorithms/boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree.cpp File Reference}
+\hypertarget{boruvkas__minimum__spanning__tree_8cpp}{}\label{boruvkas__minimum__spanning__tree_8cpp}\index{greedy\_algorithms/boruvkas\_minimum\_spanning\_tree.cpp@{greedy\_algorithms/boruvkas\_minimum\_spanning\_tree.cpp}}
+
+
+\mbox{[}Borůvkas Algorithm\mbox{]}(\href{https://en.wikipedia.org/wiki/Bor\%C5\%AFvka's_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Borůvka\textquotesingle{}s\+\_\+algorithm}}) to find the \doxylink{namespace_minimum}{Minimum} Spanning Tree  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms}{greedy\+\_\+algorithms}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceboruvkas__minimum__spanning__tree}{boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree}}
+\begin{DoxyCompactList}\small\item\em Functions for the \mbox{[}Borůvkas Algorithm\mbox{]}(\href{https://en.wikipedia.org/wiki/Bor\%C5\%AFvka's_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Borůvka\textquotesingle{}s\+\_\+algorithm}}) implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a95de0f5e70e83164dbd1b4c515565e84}{greedy\+\_\+algorithms\+::boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree\+::find\+Parent}} (std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ parent, const int v)
+\begin{DoxyCompactList}\small\item\em Recursively returns the vertex\textquotesingle{}s parent at the root of the tree. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a94c615fc66b72e0adbcbcb99aabb1a59}{greedy\+\_\+algorithms\+::boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree\+::boruvkas}} (std\+::vector$<$ std\+::vector$<$ int $>$ $>$ adj)
+\begin{DoxyCompactList}\small\item\em the implementation of boruvka\textquotesingle{}s algorithm \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a2311b22324cf09926726e4ce1309af8b}{greedy\+\_\+algorithms\+::boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree\+::test\+\_\+find\+Graph\+Sum}} (std\+::vector$<$ std\+::vector$<$ int $>$ $>$ adj)
+\begin{DoxyCompactList}\small\item\em counts the sum of edges in the given tree \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}Borůvkas Algorithm\mbox{]}(\href{https://en.wikipedia.org/wiki/Bor\%C5\%AFvka's_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Borůvka\textquotesingle{}s\+\_\+algorithm}}) to find the \doxylink{namespace_minimum}{Minimum} Spanning Tree 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/JNardoni}{\texttt{ Jason Nardoni}}
+\end{DoxyAuthor}
+
+
+Boruvka\textquotesingle{}s algorithm is a greepy algorithm to find the MST by starting with small trees, and combining them to build bigger ones.
+\begin{DoxyEnumerate}
+\item Creates a group for every vertex.
+\item looks through each edge of every vertex for the smallest weight. Keeps track of the smallest edge for each of the current groups.
+\end{DoxyEnumerate}
+
+Combine each group with the group it shares its smallest edge, adding the smallest edge to the MST.
+\begin{DoxyEnumerate}
+\item Repeat step 2-\/3 until all vertices are combined into a single group.
+\end{DoxyEnumerate}
+
+It assumes that the graph is connected. Non-\/connected edges can be represented using 0 or INT\+\_\+\+MAX 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{boruvkas__minimum__spanning__tree_8cpp_a94c615fc66b72e0adbcbcb99aabb1a59}\index{boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}!boruvkas@{boruvkas}}
+\index{boruvkas@{boruvkas}!boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{boruvkas()}{boruvkas()}}
+{\footnotesize\ttfamily \label{boruvkas__minimum__spanning__tree_8cpp_a94c615fc66b72e0adbcbcb99aabb1a59} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ greedy\+\_\+algorithms\+::boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree\+::boruvkas (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$}]{adj}{}\end{DoxyParamCaption})}
+
+
+
+the implementation of boruvka\textquotesingle{}s algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & a graph adjancency matrix stored as 2d vectors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the MST as 2d vectors 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size\ =\ adj.size();}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ total\_groups\ =\ size;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ <=\ 1)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ adj;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Stores\ the\ current\ Minimum\ Spanning\ Tree.\ As\ groups\ are\ combined,\ they}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ are\ added\ to\ the\ MST}}
+\DoxyCodeLine{00070\ \ \ \ \ std::vector<std::vector<int>>\ MST(size,\ std::vector<int>(size,\ INT\_MAX));}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ MST[i][i]\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Step\ 1:\ Create\ a\ group\ for\ each\ vertex}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Stores\ the\ parent\ of\ the\ vertex\ and\ its\ current\ depth,\ both\ initialized}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ to\ 0}}
+\DoxyCodeLine{00079\ \ \ \ \ std::vector<std::pair<int,\ int>>\ parent(size,\ std::make\_pair(0,\ 0));}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ parent[i].first\ =}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ i;\ \ \textcolor{comment}{//\ Sets\ parent\ of\ each\ vertex\ to\ itself,\ depth\ remains\ 0}}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Repeat\ until\ all\ are\ in\ a\ single\ group}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{while}\ (total\_groups\ >\ 1)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::vector<std::pair<int,\ int>>\ smallest\_edge(}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ size,\ std::make\_pair(-\/1,\ -\/1));\ \ \textcolor{comment}{//\ Pairing:\ start\ node,\ end\ node}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ 2:\ Look\ throught\ each\ vertex\ for\ its\ smallest\ edge,\ only\ using}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ right\ half\ of\ the\ adj\ matrix}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ size;\ j++)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adj[i][j]\ ==\ INT\_MAX\ ||\ adj[i][j]\ ==\ 0)\ \{\ \ \textcolor{comment}{//\ No\ connection}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Finds\ the\ parents\ of\ the\ start\ and\ end\ points\ to\ make\ sure}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ they\ arent\ in\ the\ same\ group}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parentA\ =\ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a95de0f5e70e83164dbd1b4c515565e84}{findParent}}(parent,\ i);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parentB\ =\ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a95de0f5e70e83164dbd1b4c515565e84}{findParent}}(parent,\ j);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parentA\ !=\ parentB)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Grabs\ the\ start\ and\ end\ points\ for\ the\ first\ groups}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ current\ smallest\ edge}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\ =\ smallest\_edge[parentA].first;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\ =\ smallest\_edge[parentA].second;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ there\ is\ no\ current\ smallest\ edge,\ or\ the\ new\ edge\ is}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ smaller,\ records\ the\ new\ smallest}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ ==\ -\/1\ ||\ adj[i][j]\ <\ adj[start][end])\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ smallest\_edge[parentA].first\ =\ i;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ smallest\_edge[parentA].second\ =\ j;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Does\ the\ same\ for\ the\ second\ group}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ smallest\_edge[parentB].first;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\ =\ smallest\_edge[parentB].second;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ ==\ -\/1\ ||\ adj[j][i]\ <\ adj[start][end])\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ smallest\_edge[parentB].first\ =\ j;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ smallest\_edge[parentB].second\ =\ i;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ 3:\ Combine\ the\ groups\ based\ off\ their\ smallest\ edge}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Makes\ sure\ the\ smallest\ edge\ exists}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (smallest\_edge[i].first\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ and\ end\ points\ for\ the\ groups\ smallest\ edge}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\ =\ smallest\_edge[i].first;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\ =\ smallest\_edge[i].second;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Parents\ of\ the\ two\ groups\ -\/\ A\ is\ always\ itself}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parentA\ =\ i;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parentB\ =\ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a95de0f5e70e83164dbd1b4c515565e84}{findParent}}(parent,\ end);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Makes\ sure\ the\ two\ nodes\ dont\ share\ the\ same\ parent.\ Would}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ happen\ if\ the\ two\ groups\ have\ been}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ merged\ previously\ through\ a\ common\ shortest\ edge}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parentA\ ==\ parentB)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tries\ to\ balance\ the\ trees\ as\ much\ as\ possible\ as\ they\ are}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ merged.\ The\ parent\ of\ the\ shallower}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tree\ will\ be\ pointed\ to\ the\ parent\ of\ the\ deeper\ tree.}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parent[parentA].second\ <\ parent[parentB].second)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[parentB].first\ =\ parentA;\ \ \textcolor{comment}{//\ New\ parent}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[parentB].second++;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Increase\ depth}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[parentA].first\ =\ parentB;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[parentA].second++;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ the\ connection\ to\ the\ MST,\ using\ both\ halves\ of\ the\ adj}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ matrix}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MST[start][end]\ =\ adj[start][end];}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MST[end][start]\ =\ adj[end][start];}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ total\_groups-\/-\/;\ \ \textcolor{comment}{//\ one\ fewer\ group}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}\ MST;}
+\DoxyCodeLine{00168\ \}}
+
+\end{DoxyCode}
+\Hypertarget{boruvkas__minimum__spanning__tree_8cpp_a95de0f5e70e83164dbd1b4c515565e84}\index{boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}!findParent@{findParent}}
+\index{findParent@{findParent}!boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{findParent()}{findParent()}}
+{\footnotesize\ttfamily \label{boruvkas__minimum__spanning__tree_8cpp_a95de0f5e70e83164dbd1b4c515565e84} 
+int greedy\+\_\+algorithms\+::boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree\+::find\+Parent (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$}]{parent}{, }\item[{const int}]{v}{}\end{DoxyParamCaption})}
+
+
+
+Recursively returns the vertex\textquotesingle{}s parent at the root of the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the array that will be checked \\
+\hline
+{\em v} & vertex to find parent of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the parent of the vertex 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (parent[v].first\ !=\ v)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ parent[v].first\ =\ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a95de0f5e70e83164dbd1b4c515565e84}{findParent}}(parent,\ parent[v].first);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ parent[v].first;}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}
+\Hypertarget{boruvkas__minimum__spanning__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}!main@{main}}
+\index{main@{main}!boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{boruvkas__minimum__spanning__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00227\ \}}
+
+\end{DoxyCode}
+\Hypertarget{boruvkas__minimum__spanning__tree_8cpp_a2311b22324cf09926726e4ce1309af8b}\index{boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}!test\_findGraphSum@{test\_findGraphSum}}
+\index{test\_findGraphSum@{test\_findGraphSum}!boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_findGraphSum()}{test\_findGraphSum()}}
+{\footnotesize\ttfamily \label{boruvkas__minimum__spanning__tree_8cpp_a2311b22324cf09926726e4ce1309af8b} 
+int greedy\+\_\+algorithms\+::boruvkas\+\_\+minimum\+\_\+spanning\+\_\+tree\+::test\+\_\+find\+Graph\+Sum (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$}]{adj}{}\end{DoxyParamCaption})}
+
+
+
+counts the sum of edges in the given tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & 2D vector adjacency matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the int size of the tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size\ =\ adj.size();}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ =\ 0;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ Moves\ through\ one\ side\ of\ the\ adj\ matrix,\ counting\ the\ sums\ of\ each\ edge}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ size;\ j++)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adj[i][j]\ <\ INT\_MAX)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ +=\ adj[i][j];}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}};}
+\DoxyCodeLine{00188\ \}}
+
+\end{DoxyCode}
+\Hypertarget{boruvkas__minimum__spanning__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}!tests@{tests}}
+\index{tests@{tests}!boruvkas\_minimum\_spanning\_tree.cpp@{boruvkas\_minimum\_spanning\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{boruvkas__minimum__spanning__tree_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Starting\ tests...\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00198\ \ \ \ \ std::vector<std::vector<int>>\ \mbox{\hyperlink{namespacegraph}{graph}}\ =\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{0,\ 5,\ INT\_MAX,\ 3,\ INT\_MAX\},\ \{5,\ 0,\ 2,\ INT\_MAX,\ 5\},}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \{INT\_MAX,\ 2,\ 0,\ INT\_MAX,\ 3\},\ \{3,\ INT\_MAX,\ INT\_MAX,\ 0,\ INT\_MAX\},}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \{INT\_MAX,\ 5,\ 3,\ INT\_MAX,\ 0\},}
+\DoxyCodeLine{00202\ \ \ \ \ \};}
+\DoxyCodeLine{00203\ \ \ \ \ std::vector<std::vector<int>>\ MST\ =}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a94c615fc66b72e0adbcbcb99aabb1a59}{greedy\_algorithms::boruvkas\_minimum\_spanning\_tree::boruvkas}}(\mbox{\hyperlink{namespacegraph}{graph}});}
+\DoxyCodeLine{00205\ \ \ \ \ assert(greedy\_algorithms::boruvkas\_minimum\_spanning\_tree::test\_findGraphSum(}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MST)\ ==\ 13);}
+\DoxyCodeLine{00207\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{namespacegraph}{graph}}\ =\ \{\{0,\ 2,\ 0,\ 6,\ 0\},}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{2,\ 0,\ 3,\ 8,\ 5\},}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,\ 3,\ 0,\ 0,\ 7\},}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{6,\ 8,\ 0,\ 0,\ 9\},}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,\ 5,\ 7,\ 9,\ 0\}\};}
+\DoxyCodeLine{00214\ \ \ \ \ MST\ =\ \mbox{\hyperlink{boruvkas__minimum__spanning__tree_8cpp_a94c615fc66b72e0adbcbcb99aabb1a59}{greedy\_algorithms::boruvkas\_minimum\_spanning\_tree::boruvkas}}(\mbox{\hyperlink{namespacegraph}{graph}});}
+\DoxyCodeLine{00215\ \ \ \ \ assert(greedy\_algorithms::boruvkas\_minimum\_spanning\_tree::test\_findGraphSum(}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MST)\ ==\ 16);}
+\DoxyCodeLine{00217\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00218\ \}}
+
+\end{DoxyCode}

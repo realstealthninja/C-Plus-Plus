@@ -1,0 +1,182 @@
+\doxysection{bit\+\_\+manipulation/hamming\+\_\+distance.cpp File Reference}
+\hypertarget{hamming__distance_8cpp}{}\label{hamming__distance_8cpp}\index{bit\_manipulation/hamming\_distance.cpp@{bit\_manipulation/hamming\_distance.cpp}}
+
+
+Returns the \href{https://en.wikipedia.org/wiki/Hamming_distance}{\texttt{ Hamming distance}} between two integers.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebit__manipulation}{bit\+\_\+manipulation}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacehamming__distance}{hamming\+\_\+distance}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Hamming_distance}{\texttt{ Hamming distance}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{hamming__distance_8cpp_a65d845df3fecff7087a2126c7b72030b}{bit\+\_\+manipulation\+::hamming\+\_\+distance\+::bit\+Count}} (uint64\+\_\+t value)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{hamming__distance_8cpp_abfe6fbb2f3460a2623c96f283178a07a}{bit\+\_\+manipulation\+::hamming\+\_\+distance\+::hamming\+\_\+distance}} (uint64\+\_\+t a, uint64\+\_\+t b)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{hamming__distance_8cpp_a40ba9fe8b5df5c268f0c7d677ff2fe80}{bit\+\_\+manipulation\+::hamming\+\_\+distance\+::hamming\+\_\+distance}} (const std\+::string \&a, const std\+::string \&b)
+\item 
+static void \mbox{\hyperlink{hamming__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to the test hamming distance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hamming__distance_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Returns the \href{https://en.wikipedia.org/wiki/Hamming_distance}{\texttt{ Hamming distance}} between two integers. 
+
+To find hamming distance between two integers, we take their xor, which will have a set bit iff those bits differ in the two numbers. Hence, we return the number of such set bits.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/ravibitsgoa}{\texttt{ Ravishankar Joshi}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hamming__distance_8cpp_a65d845df3fecff7087a2126c7b72030b}\index{hamming\_distance.cpp@{hamming\_distance.cpp}!bitCount@{bitCount}}
+\index{bitCount@{bitCount}!hamming\_distance.cpp@{hamming\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{bitCount()}{bitCount()}}
+{\footnotesize\ttfamily \label{hamming__distance_8cpp_a65d845df3fecff7087a2126c7b72030b} 
+uint64\+\_\+t bit\+\_\+manipulation\+::hamming\+\_\+distance\+::bit\+Count (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+This function returns the number of set bits in the given number. 
+\begin{DoxyParams}{Parameters}
+{\em value} & the number of which we want to count the number of set bits. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of set bits in the given number. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ uint64\_t\ count\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{while}\ (value)\ \{\ \ \ \ \ \ \ \textcolor{comment}{//\ until\ all\ bits\ are\ zero}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ \&\ 1)\ \{\ \ \textcolor{comment}{//\ check\ lower\ bit}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ value\ >>=\ 1;\ \ \textcolor{comment}{//\ shift\ bits,\ removing\ lower\ bit}}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamming__distance_8cpp_a40ba9fe8b5df5c268f0c7d677ff2fe80}\index{hamming\_distance.cpp@{hamming\_distance.cpp}!hamming\_distance@{hamming\_distance}}
+\index{hamming\_distance@{hamming\_distance}!hamming\_distance.cpp@{hamming\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{hamming\_distance()}{hamming\_distance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{hamming__distance_8cpp_a40ba9fe8b5df5c268f0c7d677ff2fe80} 
+uint64\+\_\+t bit\+\_\+manipulation\+::hamming\+\_\+distance\+::hamming\+\_\+distance (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{a}{, }\item[{const std\+::string \&}]{b}{}\end{DoxyParamCaption})}
+
+This function returns the hamming distance between two strings. 
+\begin{DoxyParams}{Parameters}
+{\em a} & the first string \\
+\hline
+{\em b} & the second string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of characters differing between the two strings. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ assert(a.size()\ ==\ b.size());}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\ =\ a.size();}
+\DoxyCodeLine{00062\ \ \ \ \ uint64\_t\ count\ =\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ count\ +=\ (b[i]\ !=\ a[i]);}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamming__distance_8cpp_abfe6fbb2f3460a2623c96f283178a07a}\index{hamming\_distance.cpp@{hamming\_distance.cpp}!hamming\_distance@{hamming\_distance}}
+\index{hamming\_distance@{hamming\_distance}!hamming\_distance.cpp@{hamming\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{hamming\_distance()}{hamming\_distance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{hamming__distance_8cpp_abfe6fbb2f3460a2623c96f283178a07a} 
+uint64\+\_\+t bit\+\_\+manipulation\+::hamming\+\_\+distance\+::hamming\+\_\+distance (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{a}{, }\item[{uint64\+\_\+t}]{b}{}\end{DoxyParamCaption})}
+
+This function returns the hamming distance between two integers. 
+\begin{DoxyParams}{Parameters}
+{\em a} & the first number \\
+\hline
+{\em b} & the second number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of bits differing between the two integers. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{hamming__distance_8cpp_a65d845df3fecff7087a2126c7b72030b}{bitCount}}(a\ \string^\ b);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamming__distance_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{hamming\_distance.cpp@{hamming\_distance.cpp}!main@{main}}
+\index{main@{main}!hamming\_distance.cpp@{hamming\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{hamming__distance_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{hamming__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ execute\ the\ tests}}
+\DoxyCodeLine{00101\ \ \ \ \ uint64\_t\ a\ =\ 11;\ \ \textcolor{comment}{//\ 1011\ in\ binary}}
+\DoxyCodeLine{00102\ \ \ \ \ uint64\_t\ b\ =\ 2;\ \ \ \textcolor{comment}{//\ 0010\ in\ binary}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hamming\ distance\ between\ "{}}\ <<\ a\ <<\ \textcolor{stringliteral}{"{}\ and\ "{}}\ <<\ b\ <<\ \textcolor{stringliteral}{"{}\ is\ "{}}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{hamming__distance_8cpp_abfe6fbb2f3460a2623c96f283178a07a}{bit\_manipulation::hamming\_distance::hamming\_distance}}(a,\ b)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hamming__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{hamming\_distance.cpp@{hamming\_distance.cpp}!test@{test}}
+\index{test@{test}!hamming\_distance.cpp@{hamming\_distance.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{hamming__distance_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to the test hamming distance. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(11,\ 2)\ ==\ 2);}
+\DoxyCodeLine{00077\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(2,\ 0)\ ==\ 1);}
+\DoxyCodeLine{00078\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(11,\ 0)\ ==\ 3);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(\textcolor{stringliteral}{"{}1101"{}},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1111"{}})\ ==\ 1);}
+\DoxyCodeLine{00082\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(\textcolor{stringliteral}{"{}1111"{}},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1111"{}})\ ==\ 0);}
+\DoxyCodeLine{00084\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(\textcolor{stringliteral}{"{}0000"{}},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1111"{}})\ ==\ 4);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(\textcolor{stringliteral}{"{}alpha"{}},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}alphb"{}})\ ==\ 1);}
+\DoxyCodeLine{00089\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(\textcolor{stringliteral}{"{}abcd"{}},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}abcd"{}})\ ==\ 0);}
+\DoxyCodeLine{00091\ \ \ \ \ assert(bit\_manipulation::hamming\_distance::hamming\_distance(\textcolor{stringliteral}{"{}dcba"{}},}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}abcd"{}})\ ==\ 4);}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}

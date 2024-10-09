@@ -1,0 +1,101 @@
+\doxysection{hashing/chaining.cpp File Reference}
+\hypertarget{chaining_8cpp}{}\label{chaining_8cpp}\index{hashing/chaining.cpp@{hashing/chaining.cpp}}
+
+
+Implementation of \href{https://en.wikipedia.org/wiki/Hash_chain}{\texttt{ hash chains}}.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classhash__chain}{hash\+\_\+chain}}
+\begin{DoxyCompactList}\small\item\em Chain class with a given modulus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{chaining_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \href{https://en.wikipedia.org/wiki/Hash_chain}{\texttt{ hash chains}}. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/vasutomar}{\texttt{ vasutomar}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{chaining_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{chaining.cpp@{chaining.cpp}!main@{main}}
+\index{main@{main}!chaining.cpp@{chaining.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{chaining_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function \begin{DoxyReturn}{Returns}
+{\ttfamily 0} always 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{int}\ c\ =\ 0,\ x\ =\ 0,\ mod\ =\ 0,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ =\ 0;}
+\DoxyCodeLine{00135\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ size\ of\ Hash\ Table.\ =\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00136\ \ \ \ \ std::cin\ >>\ mod;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{classhash__chain}{hash\_chain}}\ mychain(mod);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ loop\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{while}\ (loop)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}PLEASE\ CHOOSE\ -\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Add\ element."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ Find\ element."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3.\ Generate\ Hash."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4.\ Display\ Hash\ table."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}5.\ Exit."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ std::cin\ >>\ c;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ element\ to\ add\ =\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ x;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ =\ mychain.hash(x);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ =\ std::abs(\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}});}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mychain.add(x,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}});}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ element\ to\ search\ =\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ x;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ =\ mychain.hash(x);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mychain.find(x,\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}});}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ element\ to\ generate\ hash\ =\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ x;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hash\ of\ "{}}\ <<\ x\ <<\ \textcolor{stringliteral}{"{}\ is\ =\ "{}}\ <<\ mychain.hash(x)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mychain.display();}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{/*add(1,\&head1);}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ \ \ \ add(2,\&head1);}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ \ add(3,\&head2);}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ \ add(5,\&head1);}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ \ display(\&head1);}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ \ \ \ display(\&head2);*/}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00186\ \}}
+
+\end{DoxyCode}

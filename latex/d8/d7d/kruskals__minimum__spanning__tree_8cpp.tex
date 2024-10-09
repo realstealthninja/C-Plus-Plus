@@ -1,0 +1,192 @@
+\doxysection{greedy\+\_\+algorithms/kruskals\+\_\+minimum\+\_\+spanning\+\_\+tree.cpp File Reference}
+\hypertarget{kruskals__minimum__spanning__tree_8cpp}{}\label{kruskals__minimum__spanning__tree_8cpp}\index{greedy\_algorithms/kruskals\_minimum\_spanning\_tree.cpp@{greedy\_algorithms/kruskals\_minimum\_spanning\_tree.cpp}}
+
+
+\href{https://www.simplilearn.com/tutorials/data-structure-tutorial/kruskal-algorithm}{\texttt{ Kruskals Minimum Spanning Tree}} implementation  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegreedy__algorithms}{greedy\+\_\+algorithms}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N, std\+::size\+\_\+t M$>$ }\\void \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\+\_\+algorithms\+::find\+Minimum\+Edge}} (const T \&infinity, const std\+::array$<$ std\+::array$<$ T, N $>$, M $>$ \&graph)
+\begin{DoxyCompactList}\small\item\em Finds the minimum edge of the given graph. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{kruskals__minimum__spanning__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{kruskals__minimum__spanning__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.simplilearn.com/tutorials/data-structure-tutorial/kruskal-algorithm}{\texttt{ Kruskals Minimum Spanning Tree}} implementation 
+
+{\itshape Quoted from \href{https://www.simplilearn.com/tutorials/data-structure-tutorial/kruskal-algorithm}{\texttt{ Simplilearn}}.}
+
+Kruskal’s algorithm is the concept that is introduced in the graph theory of discrete mathematics. It is used to discover the shortest path between two points in a connected weighted graph. This algorithm converts a given graph into the forest, considering each node as a separate tree. These trees can only link to each other if the edge connecting them has a low value and doesn’t generate a cycle in MST structure.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/coleman2246}{\texttt{ coleman2246}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{kruskals__minimum__spanning__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{kruskals\_minimum\_spanning\_tree.cpp@{kruskals\_minimum\_spanning\_tree.cpp}!main@{main}}
+\index{main@{main}!kruskals\_minimum\_spanning\_tree.cpp@{kruskals\_minimum\_spanning\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{kruskals__minimum__spanning__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \mbox{\hyperlink{kruskals__minimum__spanning__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ Self-\/test\ implementation}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00187\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kruskals__minimum__spanning__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{kruskals\_minimum\_spanning\_tree.cpp@{kruskals\_minimum\_spanning\_tree.cpp}!test@{test}}
+\index{test@{test}!kruskals\_minimum\_spanning\_tree.cpp@{kruskals\_minimum\_spanning\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{kruskals__minimum__spanning__tree_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+define a large value for int define a large value for float define a large value for double define a large value for uint32\+\_\+t
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ \ *\ define\ a\ large\ value\ for\ int}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ *\ define\ a\ large\ value\ for\ float}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ \ *\ define\ a\ large\ value\ for\ double}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ \ *\ define\ a\ large\ value\ for\ uint32\_t}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ INFINITY\_INT\ =\ std::numeric\_limits<int>::max();}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ INFINITY\_FLOAT\ =\ std::numeric\_limits<float>::max();}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ INFINITY\_DOUBLE\ =\ std::numeric\_limits<double>::max();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{constexpr}\ uint32\_t\ INFINITY\_UINT32\ =\ UINT32\_MAX;}
+\DoxyCodeLine{00075\ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Test\ case\ with\ integer\ values}}
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 1\ :\(\backslash\)n"{}};}
+\DoxyCodeLine{00078\ \ \ \ \ std::array<std::array<int,\ 6>,\ 6>\ graph1\{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 3,\ \ \ \ \ \ \ \ \ \ \ \ \ 8,\ \ \ \ \ \ \ \ \ \ \ \ \ 3,\ \ \ \ \ \ \ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ 3,\ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ \ \ \ \ 8,\ \ \ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ 7,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ 3,\ \ \ \ \ \ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ INFINITY\_INT,\ INFINITY\_INT,\ \ \ \ \ \ \ \ 7,\ \ \ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ 0\};}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ graph1);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ Test\ case\ with\ floating\ values}}
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 2\ :\(\backslash\)n"{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ std::array<std::array<float,\ 3>,\ 3>\ graph2\{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0f,\ \ \ \ \ \ \ \ \ \ \ 2.5f,\ \ INFINITY\_FLOAT,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.5f,\ \ \ \ \ \ \ \ \ \ \ 0.0f,\ \ \ \ \ \ \ 3.2f,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ INFINITY\_FLOAT,\ \ \ \ \ \ 3.2f,\ \ \ \ \ \ \ 0.0f\};}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_FLOAT,\ graph2);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ Test\ case\ with\ double\ values}}
+\DoxyCodeLine{00096\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 3\ :\(\backslash\)n"{}};}
+\DoxyCodeLine{00097\ \ \ \ std::array<std::array<double,\ 5>,\ 5>\ graph3\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0,\ \ \ \ \ \ \ \ \ \ \ \ \ 10.5,\ \ \ \ \ \ \ INFINITY\_DOUBLE,\ \ \ \ \ \ \ \ 6.7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.3,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10.5,\ \ \ \ \ \ \ \ \ \ \ \ 0.0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ 15.4,\ \ \ \ \ \ \ INFINITY\_DOUBLE,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ INFINITY\_DOUBLE,\ \ \ \ \ \ \ \ 8.1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0,\ \ \ \ \ \ \ \ INFINITY\_DOUBLE,\ \ \ \ \ \ \ \ \ 7.8,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6.7,\ \ \ \ \ \ \ \ \ \ \ \ \ 15.4,\ \ \ \ \ \ \ INFINITY\_DOUBLE,\ \ \ \ \ \ \ \ 0.0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9.9,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.3,\ \ \ \ \ \ \ INFINITY\_DOUBLE,\ \ \ \ \ \ \ \ 7.8,\ \ \ \ \ \ \ \ \ \ \ \ \ \ 9.9,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0\};}
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_DOUBLE,\ graph3);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ with\ negative\ weights}}
+\DoxyCodeLine{00106\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 4\ :\(\backslash\)n"{}};}
+\DoxyCodeLine{00107\ \ \ \ \ std::array<std::array<int,\ 3>,\ 3>\ graph\_neg\{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ 0,\ \ \ -\/2,\ \ \ 4,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ -\/2,\ \ \ \ 0,\ \ \ 3,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ 4,\ \ \ \ 3,\ \ \ 0\};}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ graph\_neg);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ with\ Self-\/Loops}}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 5\ :\(\backslash\)n"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ std::array<std::array<int,\ 3>,\ 3>\ graph\_self\_loop\{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ 1,\ INFINITY\_INT,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ 0,\ \ \ \ \ \ \ \ 4,}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ 4,\ \ \ \ \ \ \ \ 0\};}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ graph\_self\_loop);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ with\ no\ edges}}
+\DoxyCodeLine{00122\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 6\ :\(\backslash\)n"{}};}
+\DoxyCodeLine{00123\ \ \ \ \ std::array<std::array<int,\ 4>,\ 4>\ no\_edges\{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ INFINITY\_INT,\ \ \ INFINITY\_INT,\ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ INFINITY\_INT,\ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ \ \ \ 0\};}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ no\_edges);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ with\ a\ non-\/connected\ graph}}
+\DoxyCodeLine{00131\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 7:\(\backslash\)n"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ std::array<std::array<int,\ 4>,\ 4>\ partial\_graph\{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ \ 6,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 3,\ \ \ \ \ INFINITY\_INT,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ \ \ 3,\ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ 4,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6,\ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ \ \ \ \ \ 0\};}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ partial\_graph);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ Test\ Case\ with\ Directed\ weighted\ graph.\ The\ Krushkal\ algorithm\ does\ not\ give}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ optimal\ answer}}
+\DoxyCodeLine{00141\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 8:\(\backslash\)n"{}};}
+\DoxyCodeLine{00142\ \ \ \ \ std::array<std::array<int,\ 4>,\ 4>\ directed\_graph\{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 3,\ \ \ \ \ \ \ \ \ \ \ \ 7,\ \ \ INFINITY\_INT,\ \ \textcolor{comment}{//\ Vertex\ 0\ has\ edges\ to\ Vertex\ 1\ and\ Vertex\ 2}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ 5,\ \ \textcolor{comment}{//\ Vertex\ 1\ has\ edges\ to\ Vertex\ 2\ and\ Vertex\ 3}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ INFINITY\_INT,\ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ 1,\ \ \textcolor{comment}{//\ Vertex\ 2\ has\ an\ edge\ to\ Vertex\ 3}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ INFINITY\_INT,\ INFINITY\_INT,\ INFINITY\_INT,\ \ \ \ \ \ \ \ 0\};\ \ \textcolor{comment}{//\ Vertex\ 3\ has\ no\ outgoing\ edges}}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ directed\_graph);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ Test\ case\ with\ wrong\ input\ passed}}
+\DoxyCodeLine{00150\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 9:\(\backslash\)n"{}};}
+\DoxyCodeLine{00151\ \ \ \ std::array<std::array<int,\ 4>,\ 3>\ graph9\{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5\};}
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ graph9);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ Test\ case\ with\ all\ the\ same\ values\ between\ every\ edge}}
+\DoxyCodeLine{00158\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 10:\(\backslash\)n"{}};}
+\DoxyCodeLine{00159\ \ \ \ \ std::array<std::array<int,\ 5>,\ 5>\ graph10\{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ 5,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ 0\};}
+\DoxyCodeLine{00165\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_INT,\ graph10);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{comment}{//\ Test\ Case\ with\ uint32\_t\ values}}
+\DoxyCodeLine{00168\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ Case\ 11\ :\(\backslash\)n"{}};}
+\DoxyCodeLine{00169\ \ \ \ \ std::array<std::array<uint32\_t,\ 4>,\ 4>\ graph\_uint32\{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ INFINITY\_UINT32,\ \ \ \ \ \ \ \ \ \ 9,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ INFINITY\_UINT32,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ INFINITY\_UINT32,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6,}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INFINITY\_UINT32,\ \ \ \ \ \ \ \ \ 6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\};}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{namespacegreedy__algorithms_a349e4ab9a97532c3931a2bd2a19c0098}{greedy\_algorithms::findMinimumEdge}}(INFINITY\_UINT32,\ graph\_uint32);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nAll\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00177\ \}}
+
+\end{DoxyCode}

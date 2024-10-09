@@ -1,0 +1,257 @@
+\doxysection{math/area.cpp File Reference}
+\hypertarget{area_8cpp}{}\label{area_8cpp}\index{math/area.cpp@{math/area.cpp}}
+
+
+Implementations for the \href{https://en.wikipedia.org/wiki/Area}{\texttt{ area}} of various shapes.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a971ce57e368f2f631cf1f4ff3f864049}{math\+::square\+\_\+area}} (T length)
+\begin{DoxyCompactList}\small\item\em area of a \href{https://en.wikipedia.org/wiki/Square}{\texttt{ square}} (l \texorpdfstring{$\ast$}{*} l) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_ab31d141f7c5b551746b1eee0eb4dedca}{math\+::rect\+\_\+area}} (T length, T width)
+\begin{DoxyCompactList}\small\item\em area of a \href{https://en.wikipedia.org/wiki/Rectangle}{\texttt{ rectangle}} (l \texorpdfstring{$\ast$}{*} w) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_ab3b920cc56442abd92279ba23b50f4dc}{math\+::triangle\+\_\+area}} (T base, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em area of a \href{https://en.wikipedia.org/wiki/Triangle}{\texttt{ triangle}} (b \texorpdfstring{$\ast$}{*} h / 2) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a40e36c67da78d2131408c57ee091ad75}{math\+::circle\+\_\+area}} (T radius)
+\begin{DoxyCompactList}\small\item\em area of a \href{https://en.wikipedia.org/wiki/Area_of_a_circle}{\texttt{ circle}} (pi \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a5de184925e68658f15415dd53954df4f}{math\+::parallelogram\+\_\+area}} (T base, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em area of a \href{https://en.wikipedia.org/wiki/Parallelogram}{\texttt{ parallelogram}} (b \texorpdfstring{$\ast$}{*} h) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_abc46c784a297fc1d2eb8b33a327fba4c}{math\+::cube\+\_\+surface\+\_\+area}} (T length)
+\begin{DoxyCompactList}\small\item\em surface area of a \href{https://en.wikipedia.org/wiki/Cube}{\texttt{ cube}} ( 6 \texorpdfstring{$\ast$}{*} (l \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_ab7f29862d30df351c317eedd60a0c656}{math\+::sphere\+\_\+surface\+\_\+area}} (T radius)
+\begin{DoxyCompactList}\small\item\em surface area of a \href{https://en.wikipedia.org/wiki/Sphere}{\texttt{ sphere}} ( 4 \texorpdfstring{$\ast$}{*} pi \texorpdfstring{$\ast$}{*} r\texorpdfstring{$^\wedge$}{\string^}2) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_ac5803413618fcfb922cb32c6db0fc864}{math\+::cylinder\+\_\+surface\+\_\+area}} (T radius, T \mbox{\hyperlink{avltree_8cpp_ae4a66d8b0c2b0d626aea45977e358c83}{height}})
+\begin{DoxyCompactList}\small\item\em surface area of a \href{https://en.wikipedia.org/wiki/Cylinder}{\texttt{ cylinder}} (2 \texorpdfstring{$\ast$}{*} pi \texorpdfstring{$\ast$}{*} r \texorpdfstring{$\ast$}{*} h + 2 \texorpdfstring{$\ast$}{*} pi \texorpdfstring{$\ast$}{*} r\texorpdfstring{$^\wedge$}{\string^}2) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacemath_a3277e65a8f380e7632791975bfba0efb}{math\+::hemi\+\_\+sphere\+\_\+surface\+\_\+area}} (T radius)
+\begin{DoxyCompactList}\small\item\em surface area of a \href{https://en.wikipedia.org/wiki/Surface_area}{\texttt{ hemi-\/sphere}} ( 3 \texorpdfstring{$\ast$}{*} pi \texorpdfstring{$\ast$}{*} r\texorpdfstring{$^\wedge$}{\string^}2) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{area_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{area_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementations for the \href{https://en.wikipedia.org/wiki/Area}{\texttt{ area}} of various shapes. 
+
+The area of a shape is the amount of 2D space it takes up. All shapes have a formula to get the area of any given shape. These implementations support multiple return types.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Focusucof}{\texttt{ Focusucof}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{area_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{area.cpp@{area.cpp}!main@{main}}
+\index{main@{main}!area.cpp@{area.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{area_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \mbox{\hyperlink{area_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00303\ \}}
+
+\end{DoxyCode}
+\Hypertarget{area_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{area.cpp@{area.cpp}!test@{test}}
+\index{test@{test}!area.cpp@{area.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{area_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ I/O\ variables\ for\ testing}}
+\DoxyCodeLine{00132\ \ \ \ \ uint16\_t\ int\_length\ =\ 0;\ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ length\ input}}
+\DoxyCodeLine{00133\ \ \ \ \ uint16\_t\ int\_width\ =\ 0;\ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ width\ input}}
+\DoxyCodeLine{00134\ \ \ \ \ uint16\_t\ int\_base\ =\ 0;\ \ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ base\ input}}
+\DoxyCodeLine{00135\ \ \ \ \ uint16\_t\ int\_height\ =\ 0;\ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ height\ input}}
+\DoxyCodeLine{00136\ \ \ \ \ uint16\_t\ int\_expected\ =\ 0;\ \ \textcolor{comment}{//\ 16\ bit\ integer\ expected\ output}}
+\DoxyCodeLine{00137\ \ \ \ \ uint16\_t\ int\_area\ =\ 0;\ \ \ \ \ \ \textcolor{comment}{//\ 16\ bit\ integer\ output}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{float}\ float\_length\ =\ NAN;\ \ \ \ \textcolor{comment}{//\ float\ length\ input}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{float}\ float\_expected\ =\ NAN;\ \ \textcolor{comment}{//\ float\ expected\ output}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{float}\ float\_area\ =\ NAN;\ \ \ \ \ \ \textcolor{comment}{//\ float\ output}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_length\ =\ NAN;\ \ \ \ \textcolor{comment}{//\ double\ length\ input}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_width\ =\ NAN;\ \ \ \ \ \textcolor{comment}{//\ double\ width\ input}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_radius\ =\ NAN;\ \ \ \ \textcolor{comment}{//\ double\ radius\ input}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_height\ =\ NAN;\ \ \ \ \textcolor{comment}{//\ double\ height\ input}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_expected\ =\ NAN;\ \ \textcolor{comment}{//\ double\ expected\ output}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{double}\ double\_area\ =\ NAN;\ \ \ \ \ \ \textcolor{comment}{//\ double\ output}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00151\ \ \ \ \ int\_length\ =\ 5;}
+\DoxyCodeLine{00152\ \ \ \ \ int\_expected\ =\ 25;}
+\DoxyCodeLine{00153\ \ \ \ \ int\_area\ =\ \mbox{\hyperlink{namespacemath_a971ce57e368f2f631cf1f4ff3f864049}{math::square\_area}}(int\_length);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}AREA\ OF\ A\ SQUARE\ (int)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00156\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00157\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00158\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_area\ <<\ std::endl;}
+\DoxyCodeLine{00159\ \ \ \ \ assert(int\_area\ ==\ int\_expected);}
+\DoxyCodeLine{00160\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00163\ \ \ \ \ float\_length\ =\ 2.5;}
+\DoxyCodeLine{00164\ \ \ \ \ float\_expected\ =\ 6.25;}
+\DoxyCodeLine{00165\ \ \ \ \ float\_area\ =\ \mbox{\hyperlink{namespacemath_a971ce57e368f2f631cf1f4ff3f864049}{math::square\_area}}(float\_length);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}AREA\ OF\ A\ SQUARE\ (float)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00168\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ float\_length\ <<\ std::endl;}
+\DoxyCodeLine{00169\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ float\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00170\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ float\_area\ <<\ std::endl;}
+\DoxyCodeLine{00171\ \ \ \ \ assert(float\_area\ ==\ float\_expected);}
+\DoxyCodeLine{00172\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00175\ \ \ \ \ int\_length\ =\ 4;}
+\DoxyCodeLine{00176\ \ \ \ \ int\_width\ =\ 7;}
+\DoxyCodeLine{00177\ \ \ \ \ int\_expected\ =\ 28;}
+\DoxyCodeLine{00178\ \ \ \ \ int\_area\ =\ \mbox{\hyperlink{namespacemath_ab31d141f7c5b551746b1eee0eb4dedca}{math::rect\_area}}(int\_length,\ int\_width);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}AREA\ OF\ A\ RECTANGLE\ (int)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00181\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ int\_length\ <<\ std::endl;}
+\DoxyCodeLine{00182\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Width:\ "{}}\ <<\ int\_width\ <<\ std::endl;}
+\DoxyCodeLine{00183\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00184\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_area\ <<\ std::endl;}
+\DoxyCodeLine{00185\ \ \ \ \ assert(int\_area\ ==\ int\_expected);}
+\DoxyCodeLine{00186\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{//\ 4th\ test}}
+\DoxyCodeLine{00189\ \ \ \ \ double\_length\ =\ 2.5;}
+\DoxyCodeLine{00190\ \ \ \ \ double\_width\ =\ 5.7;}
+\DoxyCodeLine{00191\ \ \ \ \ double\_expected\ =\ 14.25;}
+\DoxyCodeLine{00192\ \ \ \ \ double\_area\ =\ \mbox{\hyperlink{namespacemath_ab31d141f7c5b551746b1eee0eb4dedca}{math::rect\_area}}(double\_length,\ double\_width);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}AREA\ OF\ A\ RECTANGLE\ (double)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00195\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ double\_length\ <<\ std::endl;}
+\DoxyCodeLine{00196\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Width:\ "{}}\ <<\ double\_width\ <<\ std::endl;}
+\DoxyCodeLine{00197\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00198\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_area\ <<\ std::endl;}
+\DoxyCodeLine{00199\ \ \ \ \ assert(double\_area\ ==\ double\_expected);}
+\DoxyCodeLine{00200\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ 5th\ test}}
+\DoxyCodeLine{00203\ \ \ \ \ int\_base\ =\ 10;}
+\DoxyCodeLine{00204\ \ \ \ \ int\_height\ =\ 3;}
+\DoxyCodeLine{00205\ \ \ \ \ int\_expected\ =\ 15;}
+\DoxyCodeLine{00206\ \ \ \ \ int\_area\ =\ \mbox{\hyperlink{namespacemath_ab3b920cc56442abd92279ba23b50f4dc}{math::triangle\_area}}(int\_base,\ int\_height);}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}AREA\ OF\ A\ TRIANGLE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00209\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Base:\ "{}}\ <<\ int\_base\ <<\ std::endl;}
+\DoxyCodeLine{00210\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ int\_height\ <<\ std::endl;}
+\DoxyCodeLine{00211\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00212\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_area\ <<\ std::endl;}
+\DoxyCodeLine{00213\ \ \ \ \ assert(int\_area\ ==\ int\_expected);}
+\DoxyCodeLine{00214\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{//\ 6th\ test}}
+\DoxyCodeLine{00217\ \ \ \ \ double\_radius\ =\ 6;}
+\DoxyCodeLine{00218\ \ \ \ \ double\_expected\ =}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ 113.09733552923255;\ \ \textcolor{comment}{//\ rounded\ down\ because\ the\ double\ datatype}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ truncates\ after\ 14\ decimal\ places}}
+\DoxyCodeLine{00221\ \ \ \ \ double\_area\ =\ \mbox{\hyperlink{namespacemath_a40e36c67da78d2131408c57ee091ad75}{math::circle\_area}}(double\_radius);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}AREA\ OF\ A\ CIRCLE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00224\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00225\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00226\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_area\ <<\ std::endl;}
+\DoxyCodeLine{00227\ \ \ \ \ assert(double\_area\ ==\ double\_expected);}
+\DoxyCodeLine{00228\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ 7th\ test}}
+\DoxyCodeLine{00231\ \ \ \ \ int\_base\ =\ 6;}
+\DoxyCodeLine{00232\ \ \ \ \ int\_height\ =\ 7;}
+\DoxyCodeLine{00233\ \ \ \ \ int\_expected\ =\ 42;}
+\DoxyCodeLine{00234\ \ \ \ \ int\_area\ =\ \mbox{\hyperlink{namespacemath_a5de184925e68658f15415dd53954df4f}{math::parallelogram\_area}}(int\_base,\ int\_height);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}AREA\ OF\ A\ PARALLELOGRAM"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00237\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Base:\ "{}}\ <<\ int\_base\ <<\ std::endl;}
+\DoxyCodeLine{00238\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ int\_height\ <<\ std::endl;}
+\DoxyCodeLine{00239\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ int\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00240\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ int\_area\ <<\ std::endl;}
+\DoxyCodeLine{00241\ \ \ \ \ assert(int\_area\ ==\ int\_expected);}
+\DoxyCodeLine{00242\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{//\ 8th\ test}}
+\DoxyCodeLine{00245\ \ \ \ \ double\_length\ =\ 5.5;}
+\DoxyCodeLine{00246\ \ \ \ \ double\_expected\ =\ 181.5;}
+\DoxyCodeLine{00247\ \ \ \ \ double\_area\ =\ \mbox{\hyperlink{namespacemath_abc46c784a297fc1d2eb8b33a327fba4c}{math::cube\_surface\_area}}(double\_length);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SURFACE\ AREA\ OF\ A\ CUBE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00250\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Length:\ "{}}\ <<\ double\_length\ <<\ std::endl;}
+\DoxyCodeLine{00251\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_area\ <<\ std::endl;}
+\DoxyCodeLine{00253\ \ \ \ \ assert(double\_area\ ==\ double\_expected);}
+\DoxyCodeLine{00254\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{comment}{//\ 9th\ test}}
+\DoxyCodeLine{00257\ \ \ \ \ double\_radius\ =\ 10.0;}
+\DoxyCodeLine{00258\ \ \ \ \ double\_expected\ =\ 1256.6370614359172;\ \ \textcolor{comment}{//\ rounded\ down\ because\ the\ whole}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value\ gets\ truncated}}
+\DoxyCodeLine{00260\ \ \ \ \ double\_area\ =\ \mbox{\hyperlink{namespacemath_ab7f29862d30df351c317eedd60a0c656}{math::sphere\_surface\_area}}(double\_radius);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SURFACE\ AREA\ OF\ A\ SPHERE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00263\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00264\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00265\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_area\ <<\ std::endl;}
+\DoxyCodeLine{00266\ \ \ \ \ assert(double\_area\ ==\ double\_expected);}
+\DoxyCodeLine{00267\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ 10th\ test}}
+\DoxyCodeLine{00270\ \ \ \ \ double\_radius\ =\ 4.0;}
+\DoxyCodeLine{00271\ \ \ \ \ double\_height\ =\ 7.0;}
+\DoxyCodeLine{00272\ \ \ \ \ double\_expected\ =\ 276.46015351590177;}
+\DoxyCodeLine{00273\ \ \ \ \ double\_area\ =\ \mbox{\hyperlink{namespacemath_ac5803413618fcfb922cb32c6db0fc864}{math::cylinder\_surface\_area}}(double\_radius,\ double\_height);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SURFACE\ AREA\ OF\ A\ CYLINDER"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00276\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00277\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Height:\ "{}}\ <<\ double\_height\ <<\ std::endl;}
+\DoxyCodeLine{00278\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00279\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_area\ <<\ std::endl;}
+\DoxyCodeLine{00280\ \ \ \ \ assert(double\_area\ ==\ double\_expected);}
+\DoxyCodeLine{00281\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ 11th\ test}}
+\DoxyCodeLine{00284\ \ \ \ \ double\_radius\ =\ 10.0;}
+\DoxyCodeLine{00285\ \ \ \ \ double\_expected\ =\ 942.4777960769379;}
+\DoxyCodeLine{00286\ \ \ \ \ double\_area\ =\ \mbox{\hyperlink{namespacemath_a3277e65a8f380e7632791975bfba0efb}{math::hemi\_sphere\_surface\_area}}(double\_radius);}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SURFACE\ AREA\ OF\ A\ HEMI-\/SPHERE"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00289\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ Radius:\ "{}}\ <<\ double\_radius\ <<\ std::endl;}
+\DoxyCodeLine{00290\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Expected\ Output:\ "{}}\ <<\ double\_expected\ <<\ std::endl;}
+\DoxyCodeLine{00291\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Output:\ "{}}\ <<\ double\_area\ <<\ std::endl;}
+\DoxyCodeLine{00292\ \ \ \ \ assert(double\_area\ ==\ double\_expected);}
+\DoxyCodeLine{00293\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TEST\ PASSED"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00294\ \}}
+
+\end{DoxyCode}

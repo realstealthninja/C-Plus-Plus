@@ -1,0 +1,71 @@
+\doxysection{others/happy\+\_\+number.cpp File Reference}
+\hypertarget{happy__number_8cpp}{}\label{happy__number_8cpp}\index{others/happy\_number.cpp@{others/happy\_number.cpp}}
+
+
+A happy number is a number whose sum of digits is calculated until the sum is a single digit, and this sum turns out to be 1.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{happy__number_8cpp_a00ccdb1166a7c83ac3c33ac67a2532b7}{is\+\_\+happy}} (T n)
+\item 
+int \mbox{\hyperlink{happy__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A happy number is a number whose sum of digits is calculated until the sum is a single digit, and this sum turns out to be 1. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{happy__number_8cpp_a00ccdb1166a7c83ac3c33ac67a2532b7}\index{happy\_number.cpp@{happy\_number.cpp}!is\_happy@{is\_happy}}
+\index{is\_happy@{is\_happy}!happy\_number.cpp@{happy\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_happy()}{is\_happy()}}
+{\footnotesize\ttfamily \label{happy__number_8cpp_a00ccdb1166a7c83ac3c33ac67a2532b7} 
+template$<$typename T $>$ \\
+bool is\+\_\+happy (\begin{DoxyParamCaption}\item[{T}]{n}{}\end{DoxyParamCaption})}
+
+Checks if a decimal number is a happy number \begin{DoxyReturn}{Returns}
+true if happy else false 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ T\ s\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stores\ sum\ of\ digits}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ >\ 9)\ \{\ \ \ \ \ \ \ \textcolor{comment}{//\ while\ number\ is\ >\ 9,\ there\ are\ more\ than\ 1\ digit}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ !=\ 0)\ \{\ \ \textcolor{comment}{//\ get\ digit}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ T\ d\ =\ n\ \%\ 10;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ s\ +=\ d;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ n\ /=\ 10;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ n\ =\ s;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ s\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ (n\ ==\ 1)\ ?\ true\ :\ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ true\ if\ k\ ==\ 1}}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+\Hypertarget{happy__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{happy\_number.cpp@{happy\_number.cpp}!main@{main}}
+\index{main@{main}!happy\_number.cpp@{happy\_number.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{happy__number_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00031\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ number:"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{happy__number_8cpp_a00ccdb1166a7c83ac3c33ac67a2532b7}{is\_happy}}(n))}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ is\ a\ happy\ number"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ is\ not\ a\ happy\ number"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}

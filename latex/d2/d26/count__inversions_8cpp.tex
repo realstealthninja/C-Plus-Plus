@@ -1,0 +1,311 @@
+\doxysection{sorting/count\+\_\+inversions.cpp File Reference}
+\hypertarget{count__inversions_8cpp}{}\label{count__inversions_8cpp}\index{sorting/count\_inversions.cpp@{sorting/count\_inversions.cpp}}
+
+
+Counting Inversions using \href{https://en.wikipedia.org/wiki/Merge_sort}{\texttt{ Merge Sort}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceinversion}{inversion}}
+\begin{DoxyCompactList}\small\item\em Functions for counting inversions using Merge Sort algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\uint32\+\_\+t \mbox{\hyperlink{count__inversions_8cpp_aad643c14734394e784a75169cb58132f}{sorting\+::inversion\+::merge}} (T \texorpdfstring{$\ast$}{*}arr, T \texorpdfstring{$\ast$}{*}temp, uint32\+\_\+t left, uint32\+\_\+t mid, uint32\+\_\+t right)
+\begin{DoxyCompactList}\small\item\em Function to merge two sub-\/arrays. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\uint32\+\_\+t \mbox{\hyperlink{count__inversions_8cpp_ae97a486e14101c4822ea8dc47f0d1661}{sorting\+::inversion\+::merge\+Sort}} (T \texorpdfstring{$\ast$}{*}arr, T \texorpdfstring{$\ast$}{*}temp, uint32\+\_\+t left, uint32\+\_\+t right)
+\begin{DoxyCompactList}\small\item\em Implement merge Sort and count inverions while merging. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\uint32\+\_\+t \mbox{\hyperlink{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80}{sorting\+::inversion\+::count\+Inversion}} (T \texorpdfstring{$\ast$}{*}arr, const uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Function \doxylink{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80}{count\+Inversion()} returns the number of inversion present in the input array. Inversions are an estimate of how close or far off the array is to being sorted. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{count__inversions_8cpp_a851ca6a0391d14fb49a97d55e4377497}{sorting\+::inversion\+::show}} (T \texorpdfstring{$\ast$}{*}arr, const uint32\+\_\+t array\+\_\+size)
+\begin{DoxyCompactList}\small\item\em UTILITY function to print array. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{count__inversions_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{count__inversions_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Program Body contains all main funtionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Counting Inversions using \href{https://en.wikipedia.org/wiki/Merge_sort}{\texttt{ Merge Sort}} 
+
+Program to count the number of inversions in an array using merge-\/sort.
+
+The count of inversions help to determine how close the array is to be sorted in ASCENDING order.
+
+two elements a\mbox{[}i\mbox{]} and a\mbox{[}j\mbox{]} form an inversion if {\ttfamily a\mbox{[}i\mbox{]}} \texorpdfstring{$>$}{>} {\ttfamily a\mbox{[}j\mbox{]}} and i \texorpdfstring{$<$}{<} j
+
+Time Complexity -\/-\/\texorpdfstring{$>$}{>} {\ttfamily O(n.\+log n)}
+
+Space Complexity -\/-\/\texorpdfstring{$>$}{>} {\ttfamily O(n)} ; additional array {\ttfamily temp\mbox{[}1..n\mbox{]}} \hypertarget{count__inversions_8cpp_autotoc_md110}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{count__inversions_8cpp_autotoc_md110}
+
+\begin{DoxyEnumerate}
+\item The idea is similar to merge sort, divide the array into two equal or almost equal halves in each step until the base case is reached.
+\item Create a function merge that counts the number of inversions when two halves of the array are merged, create two indices i and j, i is the index for first half and j is an index of the second half. if {\ttfamily a\mbox{[}i\mbox{]}} is greater than {\ttfamily a\mbox{[}j\mbox{]}}, then there are (mid – i) inversions, Because left and right subarrays are sorted, so all the remaining elements in left-\/subarray (a\mbox{[}i+1\mbox{]}, a\mbox{[}i+2\mbox{]} … a\mbox{[}mid\mbox{]}) will be greater than a\mbox{[}j\mbox{]}.
+\item Create a recursive function to divide the array into halves and find the answer by summing the number of inversions is the first half, number of inversion in the second half and the number of inversions by merging the two.
+\item The base case of recursion is when there is only one element in the given half.
+\item Print the answer
+\end{DoxyEnumerate}
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/rakshitraj}{\texttt{ Rakshit Raj}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80}\index{count\_inversions.cpp@{count\_inversions.cpp}!countInversion@{countInversion}}
+\index{countInversion@{countInversion}!count\_inversions.cpp@{count\_inversions.cpp}}
+\doxysubsubsection{\texorpdfstring{countInversion()}{countInversion()}}
+{\footnotesize\ttfamily \label{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80} 
+template$<$class T $>$ \\
+uint32\+\_\+t sorting\+::inversion\+::count\+Inversion (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{const uint32\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Function count\+Inversion() returns the number of inversion present in the input array. Inversions are an estimate of how close or far off the array is to being sorted. 
+
+Number of inversions in a sorted array is 0. Number of inversion in an array\mbox{[}1...n\mbox{]} sorted in non-\/ascending order is n(n-\/1)/2, since each pair of elements contitute an inversion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ array, data member of std\+::vector$<$int$>$, input for counting inversions \\
+\hline
+{\em array\+\_\+size} & -\/ number of elementa in the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of inversions in input array, sorts the array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ std::vector<T>\ temp;}
+\DoxyCodeLine{00166\ \ \ \ \ temp.reserve(size);}
+\DoxyCodeLine{00167\ \ \ \ \ temp.assign(size,\ 0);}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(arr,\ temp.data(),\ 0,\ size\ -\/\ 1);}
+\DoxyCodeLine{00169\ \}}
+
+\end{DoxyCode}
+\Hypertarget{count__inversions_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{count\_inversions.cpp@{count\_inversions.cpp}!main@{main}}
+\index{main@{main}!count\_inversions.cpp@{count\_inversions.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{count__inversions_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Program Body contains all main funtionality. 
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Main function \begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \mbox{\hyperlink{count__inversions_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ Run\ test\ implementations}}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{//\ body();\ //\ test\ your\ own\ array}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00275\ \}}
+
+\end{DoxyCode}
+\Hypertarget{count__inversions_8cpp_aad643c14734394e784a75169cb58132f}\index{count\_inversions.cpp@{count\_inversions.cpp}!merge@{merge}}
+\index{merge@{merge}!count\_inversions.cpp@{count\_inversions.cpp}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \label{count__inversions_8cpp_aad643c14734394e784a75169cb58132f} 
+template$<$typename T $>$ \\
+uint32\+\_\+t sorting\+::inversion\+::merge (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{temp}{, }\item[{uint32\+\_\+t}]{left}{, }\item[{uint32\+\_\+t}]{mid}{, }\item[{uint32\+\_\+t}]{right}{}\end{DoxyParamCaption})}
+
+
+
+Function to merge two sub-\/arrays. 
+
+\doxylink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge()} function is called from \doxylink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{merge\+Sort()} to merge the array after it split for sorting by the \doxylink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{merge\+Sort()} funtion.
+
+In this case the merge fuction will also count and return inversions detected when merging the sub arrays.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & input array, data-\/menber of vector \\
+\hline
+{\em temp} & stores the resultant merged array \\
+\hline
+{\em left} & lower bound of {\ttfamily arr\mbox{[}\mbox{]}} and left-\/sub-\/array \\
+\hline
+{\em mid} & midpoint, upper bound of left sub-\/array, {\ttfamily (mid+1)} gives the lower bound of right-\/sub-\/array \\
+\hline
+{\em right} & upper bound of {\ttfamily arr\mbox{[}\mbox{]}} and right-\/sub-\/array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of inversions found in merge step 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ uint32\_t\ i\ =\ left;\ \ \ \ \ \ \ \textcolor{comment}{/*\ i\ -\/-\/>\ index\ of\ left\ sub-\/array\ */}}
+\DoxyCodeLine{00087\ \ \ \ \ uint32\_t\ j\ =\ mid\ +\ 1;\ \ \ \ \textcolor{comment}{/*\ j\ -\/-\/>\ index\ for\ right\ sub-\/array\ */}}
+\DoxyCodeLine{00088\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ =\ left;\ \ \ \ \ \ \ \textcolor{comment}{/*\ k\ -\/-\/>\ index\ for\ resultant\ array\ temp\ */}}
+\DoxyCodeLine{00089\ \ \ \ \ uint32\_t\ inv\_count\ =\ 0;\ \ \textcolor{comment}{//\ inversion\ count}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{while}\ ((i\ <=\ mid)\ \&\&\ (j\ <=\ right))\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ <=\ arr[j])\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ temp[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++]\ =\ arr[i++];}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ temp[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++]\ =\ arr[j++];}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ inv\_count\ +=}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (mid\ -\/\ i\ +}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ tricky;\ may\ vary\ depending\ on\ selection\ of\ sub-\/array}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ Add\ remaining\ elements\ from\ the\ larger\ subarray\ to\ the\ end\ of\ temp}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <=\ mid)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ temp[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++]\ =\ arr[i++];}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{while}\ (j\ <=\ right)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ temp[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++]\ =\ arr[j++];}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ Copy\ temp[]\ to\ arr[]}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (k\ =\ left;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}\ <=\ right;\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}++)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ arr[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}]\ =\ temp[\mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}];}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{return}\ inv\_count;}
+\DoxyCodeLine{00113\ \}}
+
+\end{DoxyCode}
+\Hypertarget{count__inversions_8cpp_ae97a486e14101c4822ea8dc47f0d1661}\index{count\_inversions.cpp@{count\_inversions.cpp}!mergeSort@{mergeSort}}
+\index{mergeSort@{mergeSort}!count\_inversions.cpp@{count\_inversions.cpp}}
+\doxysubsubsection{\texorpdfstring{mergeSort()}{mergeSort()}}
+{\footnotesize\ttfamily \label{count__inversions_8cpp_ae97a486e14101c4822ea8dc47f0d1661} 
+template$<$typename T $>$ \\
+uint32\+\_\+t sorting\+::inversion\+::merge\+Sort (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{temp}{, }\item[{uint32\+\_\+t}]{left}{, }\item[{uint32\+\_\+t}]{right}{}\end{DoxyParamCaption})}
+
+
+
+Implement merge Sort and count inverions while merging. 
+
+The \doxylink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{merge\+Sort()} function implements Merge Sort, a Divide and conquer algorithm, it divides the input array into two halves and calls itself for each sub-\/array and then calls the \doxylink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge()} function to merge the two halves.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ array to be sorted \\
+\hline
+{\em temp} & -\/ merged resultant array \\
+\hline
+{\em left} & -\/ lower bound of array \\
+\hline
+{\em right} & -\/ upper bound of array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of inversions in array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ uint32\_t\ mid\ =\ 0,\ inv\_count\ =\ 0;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{if}\ (right\ >\ left)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ midpoint\ to\ split\ the\ array}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ mid\ =\ (right\ +\ left)\ /\ 2;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ inversions\ in\ left\ and\ right\ sub-\/arrays}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ inv\_count\ +=\ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(arr,\ temp,\ left,\ mid);\ \ \textcolor{comment}{//\ left\ sub-\/array}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ inv\_count\ +=\ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(arr,\ temp,\ mid\ +\ 1,\ right);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ inversions\ in\ the\ merge\ step}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ inv\_count\ +=\ \mbox{\hyperlink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge}}(arr,\ temp,\ left,\ mid,\ right);}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ inv\_count;}
+\DoxyCodeLine{00145\ \}}
+
+\end{DoxyCode}
+\Hypertarget{count__inversions_8cpp_a851ca6a0391d14fb49a97d55e4377497}\index{count\_inversions.cpp@{count\_inversions.cpp}!show@{show}}
+\index{show@{show}!count\_inversions.cpp@{count\_inversions.cpp}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily \label{count__inversions_8cpp_a851ca6a0391d14fb49a97d55e4377497} 
+template$<$typename T $>$ \\
+void sorting\+::inversion\+::show (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{const uint32\+\_\+t}]{array\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+UTILITY function to print array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr\mbox{[}$\,$\mbox{]}} & array to print \\
+\hline
+{\em array\+\_\+size} & size of input array arr\mbox{[}\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Printing\ array:\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ array\_size;\ i++)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ arr[i];}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}
+\Hypertarget{count__inversions_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{count\_inversions.cpp@{count\_inversions.cpp}!test@{test}}
+\index{test@{test}!count\_inversions.cpp@{count\_inversions.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{count__inversions_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ Test\ 1}}
+\DoxyCodeLine{00196\ \ \ \ \ std::vector<uint64\_t>\ arr1\ =\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ 100,\ 99,\ 98,\ 97,\ 96,\ 95,\ 94,\ 93,\ 92,\ 91,\ 90,\ 89,\ 88,\ 87,\ 86,\ 85,\ 84,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ 83,\ \ 82,\ 81,\ 80,\ 79,\ 78,\ 77,\ 76,\ 75,\ 74,\ 73,\ 72,\ 71,\ 70,\ 69,\ 68,\ 67,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ 66,\ \ 65,\ 64,\ 63,\ 62,\ 61,\ 60,\ 59,\ 58,\ 57,\ 56,\ 55,\ 54,\ 53,\ 52,\ 51,\ 50,}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ 49,\ \ 48,\ 47,\ 46,\ 45,\ 44,\ 43,\ 42,\ 41,\ 40,\ 39,\ 38,\ 37,\ 36,\ 35,\ 34,\ 33,}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ 32,\ \ 31,\ 30,\ 29,\ 28,\ 27,\ 26,\ 25,\ 24,\ 23,\ 22,\ 21,\ 20,\ 19,\ 18,\ 17,\ 16,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ 15,\ \ 14,\ 13,\ 12,\ 11,\ 10,\ 9,\ \ 8,\ \ 7,\ \ 6,\ \ 5,\ \ 4,\ \ 3,\ \ 2,\ \ 1\};}
+\DoxyCodeLine{00203\ \ \ \ \ uint32\_t\ size1\ =\ arr1.size();}
+\DoxyCodeLine{00204\ \ \ \ \ uint32\_t\ inv\_count1\ =\ 4950;}
+\DoxyCodeLine{00205\ \ \ \ \ uint32\_t\ result1\ =\ \mbox{\hyperlink{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80}{sorting::inversion::countInversion}}(arr1.data(),\ size1);}
+\DoxyCodeLine{00206\ \ \ \ \ assert(inv\_count1\ ==\ result1);}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//\ Test\ 2}}
+\DoxyCodeLine{00208\ \ \ \ \ std::vector<int>\ arr2\ =\ \{22,\ 66,\ 75,\ 23,\ 11,\ 87,\ 2,\ 44,\ 98,\ 43\};}
+\DoxyCodeLine{00209\ \ \ \ \ uint32\_t\ size2\ =\ arr2.size();}
+\DoxyCodeLine{00210\ \ \ \ \ uint32\_t\ inv\_count2\ =\ 20;}
+\DoxyCodeLine{00211\ \ \ \ \ uint32\_t\ result2\ =\ \mbox{\hyperlink{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80}{sorting::inversion::countInversion}}(arr2.data(),\ size2);}
+\DoxyCodeLine{00212\ \ \ \ \ assert(inv\_count2\ ==\ result2);}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ Test\ 3}}
+\DoxyCodeLine{00214\ \ \ \ \ std::vector<double>\ arr3\ =\ \{33.1,\ 45.2,\ 65.4,\ 76.5,\ 1.0,}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.9,\ \ 5.4,\ \ 7.7,\ \ 88.9,\ 12.4\};}
+\DoxyCodeLine{00216\ \ \ \ \ uint32\_t\ size3\ =\ arr3.size();}
+\DoxyCodeLine{00217\ \ \ \ \ uint32\_t\ inv\_count3\ =\ 21;}
+\DoxyCodeLine{00218\ \ \ \ \ uint32\_t\ result3\ =\ \mbox{\hyperlink{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80}{sorting::inversion::countInversion}}(arr3.data(),\ size3);}
+\DoxyCodeLine{00219\ \ \ \ \ assert(inv\_count3\ ==\ result3);}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{comment}{//\ Test\ 4}}
+\DoxyCodeLine{00221\ \ \ \ \ std::vector<char>\ arr4\ =\ \{\textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'d'},\ \textcolor{charliteral}{'e'}\};}
+\DoxyCodeLine{00222\ \ \ \ \ uint32\_t\ size4\ =\ arr4.size();}
+\DoxyCodeLine{00223\ \ \ \ \ uint32\_t\ inv\_count4\ =\ 0;}
+\DoxyCodeLine{00224\ \ \ \ \ uint32\_t\ result4\ =\ \mbox{\hyperlink{count__inversions_8cpp_a3332498eabf6579ef059c0d0e9f4ec80}{sorting::inversion::countInversion}}(arr4.data(),\ size4);}
+\DoxyCodeLine{00225\ \ \ \ \ assert(inv\_count4\ ==\ result4);}
+\DoxyCodeLine{00226\ \}}
+
+\end{DoxyCode}

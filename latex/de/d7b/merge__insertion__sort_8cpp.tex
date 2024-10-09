@@ -1,0 +1,269 @@
+\doxysection{sorting/merge\+\_\+insertion\+\_\+sort.cpp File Reference}
+\hypertarget{merge__insertion__sort_8cpp}{}\label{merge__insertion__sort_8cpp}\index{sorting/merge\_insertion\_sort.cpp@{sorting/merge\_insertion\_sort.cpp}}
+
+
+Algorithm that combines insertion sort and merge sort. \href{https://en.wikipedia.org/wiki/Merge-insertion_sort}{\texttt{ Wiki link}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemerge__insertion}{merge\+\_\+insertion}}
+\begin{DoxyCompactList}\small\item\em Combined Intersion-\/\+Merge sorting algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\static void \mbox{\hyperlink{merge__insertion__sort_8cpp_a0cba4fbf287ab8cb978ed7f8fef886b1}{sorting\+::merge\+\_\+insertion\+::\+Insertion\+Sort}} (std\+::array$<$ T, N $>$ \texorpdfstring{$\ast$}{*}A, size\+\_\+t start, size\+\_\+t end)
+\begin{DoxyCompactList}\small\item\em Insertion merge algorithm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\static void \mbox{\hyperlink{merge__insertion__sort_8cpp_af4de4067a9a866ffd985c5b5055ccedf}{sorting\+::merge\+\_\+insertion\+::merge}} (std\+::array$<$ T, N $>$ \texorpdfstring{$\ast$}{*}array, size\+\_\+t min, size\+\_\+t max, size\+\_\+t mid)
+\begin{DoxyCompactList}\small\item\em Perform merge of data in a window. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{merge__insertion__sort_8cpp_a7161278f18e83b671c6454b139cc5674}{sorting\+::merge\+\_\+insertion\+::merge\+Sort}} (std\+::array$<$ T, N $>$ \texorpdfstring{$\ast$}{*}array, size\+\_\+t min, size\+\_\+t max, size\+\_\+t threshold)
+\begin{DoxyCompactList}\small\item\em Final combined algorithm. Algorithm utilizes \doxylink{merge__insertion__sort_8cpp_a0cba4fbf287ab8cb978ed7f8fef886b1}{sorting\+::merge\+\_\+insertion\+::\+Insertion\+Sort} if window length is less than threshold, else performs merge sort recursively using \doxylink{merge__insertion__sort_8cpp_a7161278f18e83b671c6454b139cc5674}{sorting\+::merge\+\_\+insertion\+::merge\+Sort}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{merge__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test code using random arrays. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{merge__insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithm that combines insertion sort and merge sort. \href{https://en.wikipedia.org/wiki/Merge-insertion_sort}{\texttt{ Wiki link}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/sinkyoungdeok}{\texttt{ @sinkyoungdeok}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+Individual algorithms\+: \doxylink{insertion__sort_8cpp}{insertion\+\_\+sort.\+cpp} and \doxylink{merge__sort_8cpp}{merge\+\_\+sort.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{merge__insertion__sort_8cpp_a0cba4fbf287ab8cb978ed7f8fef886b1}\index{merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}!InsertionSort@{InsertionSort}}
+\index{InsertionSort@{InsertionSort}!merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{InsertionSort()}{InsertionSort()}}
+{\footnotesize\ttfamily \label{merge__insertion__sort_8cpp_a0cba4fbf287ab8cb978ed7f8fef886b1} 
+template$<$typename T , size\+\_\+t N$>$ \\
+static void sorting\+::merge\+\_\+insertion\+::\+Insertion\+Sort (\begin{DoxyParamCaption}\item[{std\+::array$<$ T, N $>$ \texorpdfstring{$\ast$}{*}}]{A}{, }\item[{size\+\_\+t}]{start}{, }\item[{size\+\_\+t}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Insertion merge algorithm. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{insertion__sort_8cpp}{insertion\+\_\+sort.\+cpp}
+\end{DoxySeeAlso}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & array data type \\
+\hline
+{\em N} & length of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & pointer to array to sort \\
+\hline
+{\em start} & start index of sorting window \\
+\hline
+{\em end} & end index of sorting window \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ i\ =\ 0,\ j\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ T\ *ptr\ =\ A-\/>data();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ start;\ i\ <\ end;\ i++)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ T\ temp\ =\ ptr[i];}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ j\ =\ i;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (j\ >\ start\ \&\&\ temp\ <\ ptr[j\ -\/\ 1])\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ ptr[j]\ =\ ptr[j\ -\/\ 1];}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ for\ (j\ =\ i;\ j\ >\ start\ \&\&\ temp\ <\ ptr[j\ -\/\ 1];\ -\/-\/j)\ \{}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ ptr[j]\ =\ ptr[j\ -\/\ 1];}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ ptr[j]\ =\ temp;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+\Hypertarget{merge__insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}!main@{main}}
+\index{main@{main}!merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{merge__insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{merge__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00163\ \}}
+
+\end{DoxyCode}
+\Hypertarget{merge__insertion__sort_8cpp_af4de4067a9a866ffd985c5b5055ccedf}\index{merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}!merge@{merge}}
+\index{merge@{merge}!merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \label{merge__insertion__sort_8cpp_af4de4067a9a866ffd985c5b5055ccedf} 
+template$<$typename T , size\+\_\+t N$>$ \\
+static void sorting\+::merge\+\_\+insertion\+::merge (\begin{DoxyParamCaption}\item[{std\+::array$<$ T, N $>$ \texorpdfstring{$\ast$}{*}}]{array}{, }\item[{size\+\_\+t}]{min}{, }\item[{size\+\_\+t}]{max}{, }\item[{size\+\_\+t}]{mid}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Perform merge of data in a window. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & array data type \\
+\hline
+{\em N} & length of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & pointer to array to sort \\
+\hline
+{\em min} & start index of window \\
+\hline
+{\em max} & end index of window \\
+\hline
+{\em mid} & mid-\/point of window \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ firstIndex\ =\ min;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ secondIndex\ =\ mid\ +\ 1;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ ptr\ =\ array-\/>data();}
+\DoxyCodeLine{00072\ \ \ \ \ std::array<T,\ N\ +\ 1>\ tempArray\{0\};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ While\ there\ are\ elements\ in\ the\ left\ or\ right\ runs}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ index\ =\ min;\ index\ <=\ max;\ index++)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ left\ run\ head\ exists\ and\ is\ <=\ existing\ right\ run\ head.}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (firstIndex\ <=\ mid\ \&\&}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ (secondIndex\ >\ max\ ||\ ptr[firstIndex]\ <=\ ptr[secondIndex]))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ tempArray[index]\ =\ ptr[firstIndex];}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ firstIndex++;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ tempArray[index]\ =\ ptr[secondIndex];}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ secondIndex++;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ transfer\ to\ the\ initial\ array}}
+\DoxyCodeLine{00088\ \ \ \ \ memcpy(ptr\ +\ min,\ tempArray.data()\ +\ min,\ (max\ -\/\ min)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ \ for\ (int\ index\ =\ min;\ index\ <=\ max;\ index++)\ ptr[index]\ =}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ \ tempArray[index];}}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{merge__insertion__sort_8cpp_a7161278f18e83b671c6454b139cc5674}\index{merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}!mergeSort@{mergeSort}}
+\index{mergeSort@{mergeSort}!merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{mergeSort()}{mergeSort()}}
+{\footnotesize\ttfamily \label{merge__insertion__sort_8cpp_a7161278f18e83b671c6454b139cc5674} 
+template$<$typename T , size\+\_\+t N$>$ \\
+void sorting\+::merge\+\_\+insertion\+::merge\+Sort (\begin{DoxyParamCaption}\item[{std\+::array$<$ T, N $>$ \texorpdfstring{$\ast$}{*}}]{array}{, }\item[{size\+\_\+t}]{min}{, }\item[{size\+\_\+t}]{max}{, }\item[{size\+\_\+t}]{threshold}{}\end{DoxyParamCaption})}
+
+
+
+Final combined algorithm. Algorithm utilizes \doxylink{merge__insertion__sort_8cpp_a0cba4fbf287ab8cb978ed7f8fef886b1}{sorting\+::merge\+\_\+insertion\+::\+Insertion\+Sort} if window length is less than threshold, else performs merge sort recursively using \doxylink{merge__insertion__sort_8cpp_a7161278f18e83b671c6454b139cc5674}{sorting\+::merge\+\_\+insertion\+::merge\+Sort}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & array data type \\
+\hline
+{\em N} & length of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & pointer to array to sort \\
+\hline
+{\em min} & start index of sort window \\
+\hline
+{\em max} & end index of sort window \\
+\hline
+{\em threshold} & window length threshold \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ prerequisite}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ ((max\ -\/\ min)\ <=\ threshold)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{merge__insertion__sort_8cpp_a0cba4fbf287ab8cb978ed7f8fef886b1}{InsertionSort}}(array,\ min,\ max);}
+\DoxyCodeLine{00112\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ the\ middle\ point}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ mid\ =\ (max\ +\ min)\ >>\ 1;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ merge\ sort\ to\ both\ parts\ of\ this}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(array,\ min,\ mid,\ threshold);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__sorting_gab6b14fea48d9841e29b9fc26be6e05d7}{mergeSort}}(array,\ mid,\ max,\ threshold);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ finally\ merge\ all\ that\ sorted\ stuff}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__sorting_ga460c61cd948203b4816bef2accb3fc73}{merge}}(array,\ min,\ max,\ mid);}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}
+\Hypertarget{merge__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}!test@{test}}
+\index{test@{test}!merge\_insertion\_sort.cpp@{merge\_insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{merge__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test code using random arrays. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ size\ =\ 30;}
+\DoxyCodeLine{00134\ \ \ \ \ std::array<int,\ size>\ array\{0\};}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ input}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ array[i]\ =\ std::rand()\ \%\ 100\ -\/\ 50;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ std::cout\ <<\ array[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{merge__insertion__sort_8cpp_a0cba4fbf287ab8cb978ed7f8fef886b1}{sorting::merge\_insertion::InsertionSort}}(\&array,\ 0,\ size);}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ \ sorting::merge\_insertion::mergeSort(\&array,\ 0,\ size,\ 10);}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ output}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ std::cout\ <<\ array[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ assert(std::is\_sorted(std::begin(array),\ std::end(array)));}
+\DoxyCodeLine{00152\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00153\ \}}
+
+\end{DoxyCode}

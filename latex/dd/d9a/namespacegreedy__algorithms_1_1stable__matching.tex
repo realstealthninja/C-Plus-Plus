@@ -1,0 +1,96 @@
+\doxysection{greedy\+\_\+algorithms\+::stable\+\_\+matching Namespace Reference}
+\hypertarget{namespacegreedy__algorithms_1_1stable__matching}{}\label{namespacegreedy__algorithms_1_1stable__matching}\index{greedy\_algorithms::stable\_matching@{greedy\_algorithms::stable\_matching}}
+
+
+Functions for the Gale-\/\+Shapley Algorithm.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::uint32\+\_\+t $>$ \mbox{\hyperlink{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c}{gale\+\_\+shapley}} (const std\+::vector$<$ std\+::vector$<$ std\+::uint32\+\_\+t $>$ $>$ \&secondary\+\_\+preferences, const std\+::vector$<$ std\+::vector$<$ std\+::uint32\+\_\+t $>$ $>$ \&primary\+\_\+preferences)
+\begin{DoxyCompactList}\small\item\em The main function that finds the stable matching between two sets of elements using the Gale-\/\+Shapley Algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for the Gale-\/\+Shapley Algorithm. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c}\index{greedy\_algorithms::stable\_matching@{greedy\_algorithms::stable\_matching}!gale\_shapley@{gale\_shapley}}
+\index{gale\_shapley@{gale\_shapley}!greedy\_algorithms::stable\_matching@{greedy\_algorithms::stable\_matching}}
+\doxysubsubsection{\texorpdfstring{gale\_shapley()}{gale\_shapley()}}
+{\footnotesize\ttfamily \label{namespacegreedy__algorithms_1_1stable__matching_a6d7e84df47dcf19e88f95f8f9040306c} 
+std\+::vector$<$ std\+::uint32\+\_\+t $>$ greedy\+\_\+algorithms\+::stable\+\_\+matching\+::gale\+\_\+shapley (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::uint32\+\_\+t $>$ $>$ \&}]{secondary\+\_\+preferences}{, }\item[{const std\+::vector$<$ std\+::vector$<$ std\+::uint32\+\_\+t $>$ $>$ \&}]{primary\+\_\+preferences}{}\end{DoxyParamCaption})}
+
+
+
+The main function that finds the stable matching between two sets of elements using the Gale-\/\+Shapley Algorithm. 
+
+\begin{DoxyNote}{Note}
+This doesn\textquotesingle{}t work on negative preferences. the preferences should be continuous integers starting from 0 to number of preferences -\/ 1. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em primary\+\_\+preferences} & the preferences of the primary set should be a 2D vector \\
+\hline
+{\em secondary\+\_\+preferences} & the preferences of the secondary set should be a 2D vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matches the stable matching between the two sets 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ std::uint32\_t\ num\_elements\ =\ secondary\_preferences.size();}
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<std::uint32\_t>\ matches(num\_elements,\ -\/1);}
+\DoxyCodeLine{00045\ \ \ \ \ std::vector<bool>\ is\_free\_primary(num\_elements,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00046\ \ \ \ \ std::vector<std::uint32\_t>\ proposal\_index(num\_elements,\ 0);\ \textcolor{comment}{//\ Tracks\ the\ next\ secondary\ to\ propose\ for\ each\ primary}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ free\_primary\_index\ =\ -\/1;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ next\ free\ primary}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::uint32\_t\ i\ =\ 0;\ i\ <\ num\_elements;\ i++)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_free\_primary[i])\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free\_primary\_index\ =\ i;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ no\ free\ primary\ is\ found,\ break\ the\ loop}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (free\_primary\_index\ ==\ -\/1)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ the\ next\ secondary\ to\ propose}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::uint32\_t\ secondary\_to\_propose\ =\ primary\_preferences[free\_primary\_index][proposal\_index[free\_primary\_index]];}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ proposal\_index[free\_primary\_index]++;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ the\ current\ match\ of\ the\ secondary}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::uint32\_t\ current\_match\ =\ matches[secondary\_to\_propose];}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ secondary\ is\ free,\ match\ them}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_match\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ matches[secondary\_to\_propose]\ =\ free\_primary\_index;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ is\_free\_primary[free\_primary\_index]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Determine\ if\ the\ current\ match\ should\ be\ replaced}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_proposer\_rank\ =\ std::find(secondary\_preferences[secondary\_to\_propose].begin(),}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ secondary\_preferences[secondary\_to\_propose].end(),}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free\_primary\_index);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ current\_match\_rank\ =\ std::find(secondary\_preferences[secondary\_to\_propose].begin(),}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ secondary\_preferences[secondary\_to\_propose].end(),}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_match);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ new\ proposer\ is\ preferred\ over\ the\ current\ match}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_proposer\_rank\ <\ current\_match\_rank)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matches[secondary\_to\_propose]\ =\ free\_primary\_index;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_free\_primary[free\_primary\_index]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_free\_primary[current\_match]\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Current\ match\ is\ now\ free}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ matches;}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}

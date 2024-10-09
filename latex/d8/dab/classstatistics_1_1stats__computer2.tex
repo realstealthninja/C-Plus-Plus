@@ -1,0 +1,126 @@
+\doxysection{statistics\+::stats\+\_\+computer2\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classstatistics_1_1stats__computer2}{}\label{classstatistics_1_1stats__computer2}\index{statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstatistics_1_1stats__computer2_ade6de704deea24fdc88077b3d9a0d534}{new\+\_\+val}} (T x)
+\item 
+double \mbox{\hyperlink{classstatistics_1_1stats__computer2_a8290966ad468f2a8c266d008bc60720e}{mean}} () const
+\item 
+double \mbox{\hyperlink{classstatistics_1_1stats__computer2_af6198817084276113b3c064e87ce0555}{variance}} () const
+\item 
+double \mbox{\hyperlink{classstatistics_1_1stats__computer2_acf2e84df4fc386bb3295016ef8fd156e}{std}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classstatistics_1_1stats__computer2_a80099005c6e5f9569b75da0e49b14cf6}\label{classstatistics_1_1stats__computer2_a80099005c6e5f9569b75da0e49b14cf6} 
+unsigned int {\bfseries n} = 0
+\item 
+\Hypertarget{classstatistics_1_1stats__computer2_a0acea0729769f430f2dc56260d179745}\label{classstatistics_1_1stats__computer2_a0acea0729769f430f2dc56260d179745} 
+double {\bfseries mu} = 0
+\item 
+\Hypertarget{classstatistics_1_1stats__computer2_ae1bfd81bd7bbbd4b0d51d7d956e532d2}\label{classstatistics_1_1stats__computer2_ae1bfd81bd7bbbd4b0d51d7d956e532d2} 
+double {\bfseries var} = 0
+\item 
+\Hypertarget{classstatistics_1_1stats__computer2_a8daf58bdecd775b8a83ce9ad70c014c4}\label{classstatistics_1_1stats__computer2_a8daf58bdecd775b8a83ce9ad70c014c4} 
+double {\bfseries M} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{classstatistics_1_1stats__computer2_ab444d485c9e7db35bdc2ff6b7775291a}{operator$>$$>$}} (std\+::istream \&input, \mbox{\hyperlink{classstatistics_1_1stats__computer2}{stats\+\_\+computer2}} \&stat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class statistics\+::stats\+\_\+computer2$<$ T $>$}
+continuous mean and variance computance using Welford\textquotesingle{}s algorithm (very accurate) 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classstatistics_1_1stats__computer2_a8290966ad468f2a8c266d008bc60720e}\index{statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}!mean@{mean}}
+\index{mean@{mean}!statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer2_a8290966ad468f2a8c266d008bc60720e} 
+template$<$typename T $>$ \\
+double \mbox{\hyperlink{classstatistics_1_1stats__computer2}{statistics\+::stats\+\_\+computer2}}$<$ T $>$\+::mean (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+return sample mean computed till last sample 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \{\ \textcolor{keywordflow}{return}\ mu;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstatistics_1_1stats__computer2_ade6de704deea24fdc88077b3d9a0d534}\index{statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}!new\_val@{new\_val}}
+\index{new\_val@{new\_val}!statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{new\_val()}{new\_val()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer2_ade6de704deea24fdc88077b3d9a0d534} 
+template$<$typename T $>$ \\
+void \mbox{\hyperlink{classstatistics_1_1stats__computer2}{statistics\+::stats\+\_\+computer2}}$<$ T $>$\+::new\+\_\+val (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & new data sample \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ n++;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ delta\ =\ x\ -\/\ mu;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ mu\ +=\ delta\ /\ n;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ delta2\ =\ x\ -\/\ mu;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ M\ +=\ delta\ *\ delta2;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstatistics_1_1stats__computer2_acf2e84df4fc386bb3295016ef8fd156e}\index{statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}!std@{std}}
+\index{std@{std}!statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{std()}{std()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer2_acf2e84df4fc386bb3295016ef8fd156e} 
+template$<$typename T $>$ \\
+double \mbox{\hyperlink{classstatistics_1_1stats__computer2}{statistics\+::stats\+\_\+computer2}}$<$ T $>$\+::std (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+return sample standard deviation computed till last sample 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \{\ \textcolor{keywordflow}{return}\ std::sqrt(this-\/>\mbox{\hyperlink{classstatistics_1_1stats__computer2_af6198817084276113b3c064e87ce0555}{variance}}());\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classstatistics_1_1stats__computer2_af6198817084276113b3c064e87ce0555}\index{statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}!variance@{variance}}
+\index{variance@{variance}!statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{variance()}{variance()}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer2_af6198817084276113b3c064e87ce0555} 
+template$<$typename T $>$ \\
+double \mbox{\hyperlink{classstatistics_1_1stats__computer2}{statistics\+::stats\+\_\+computer2}}$<$ T $>$\+::variance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+return data variance computed till last sample 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \{\ \textcolor{keywordflow}{return}\ M\ /\ n;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classstatistics_1_1stats__computer2_ab444d485c9e7db35bdc2ff6b7775291a}\index{statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!statistics::stats\_computer2$<$ T $>$@{statistics::stats\_computer2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily \label{classstatistics_1_1stats__computer2_ab444d485c9e7db35bdc2ff6b7775291a} 
+template$<$typename T $>$ \\
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input}{, }\item[{\mbox{\hyperlink{classstatistics_1_1stats__computer2}{stats\+\_\+computer2}}$<$ T $>$ \&}]{stat}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+short-\/hand operator to read new sample from input stream ~\newline
+ e.\+g.\+: {\ttfamily std\+::cin \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} stats1;} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ T\ val;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ input\ >>\ val;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ stat.\mbox{\hyperlink{classstatistics_1_1stats__computer2_ade6de704deea24fdc88077b3d9a0d534}{new\_val}}(val);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ input;}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+math/\mbox{\hyperlink{realtime__stats_8cpp}{realtime\+\_\+stats.\+cpp}}\end{DoxyCompactItemize}

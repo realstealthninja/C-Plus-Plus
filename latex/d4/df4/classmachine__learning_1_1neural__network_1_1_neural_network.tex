@@ -1,0 +1,784 @@
+\doxysection{machine\+\_\+learning\+::neural\+\_\+network\+::Neural\+Network Class Reference}
+\hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network}{}\label{classmachine__learning_1_1neural__network_1_1_neural_network}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_ae7cf126a3a8f9d20c81b21584d061a08}{Neural\+Network}} ()=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a62151b0398a2536be60d950e10ffe9a8}{Neural\+Network}} (const std\+::vector$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \&config)
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a176b955c90ae57d7dbc3c63f27c84c75}{Neural\+Network}} (const \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&model)=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a8973f687738ddd76f93b5562feae4027}{\texorpdfstring{$\sim$}{\string~}\+Neural\+Network}} ()=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \& \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a58a9614e4c6d4ca672d3358e99a3404f}{operator=}} (const \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&model)=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a173bb71780af6953ec2e307a4c74b025}{Neural\+Network}} (\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&\&)=default
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \& \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a2c49bfebf9b859d5ceb26035d3003601}{operator=}} (\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&\&)=default
+\item 
+std\+::pair$<$ std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$, std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a650c677fd6512665741ddd9b7983275d}{get\+\_\+\+XY\+\_\+from\+\_\+csv}} (const std\+::string \&file\+\_\+name, const bool \&last\+\_\+label, const bool \&normalize, const int \&slip\+\_\+lines=1)
+\item 
+std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f}{single\+\_\+predict}} (const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&X)
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a88bf9023ab3d4cdb61cf707c7cdfc86b}{batch\+\_\+predict}} (const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&X)
+\item 
+void \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a2be1b52bb9f57486f9a436f35c9089c0}{fit}} (const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&X\+\_\+, const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&Y\+\_\+, const int \&epochs=100, const double \&learning\+\_\+rate=0.\+01, const size\+\_\+t \&batch\+\_\+size=32, const bool \&shuffle=true)
+\item 
+void \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a5172a6791b9bd24f4232bab8d6b81fff}{fit\+\_\+from\+\_\+csv}} (const std\+::string \&file\+\_\+name, const bool \&last\+\_\+label, const int \&epochs, const double \&learning\+\_\+rate, const bool \&normalize, const int \&slip\+\_\+lines=1, const size\+\_\+t \&batch\+\_\+size=32, const bool \&shuffle=true)
+\item 
+void \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_aec648ea4f40bd71123b5f907a681dd8e}{evaluate}} (const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&X, const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&Y)
+\item 
+void \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a36494e26ff36d6e15c1022bb9a1ee848}{evaluate\+\_\+from\+\_\+csv}} (const std\+::string \&file\+\_\+name, const bool \&last\+\_\+label, const bool \&normalize, const int \&slip\+\_\+lines=1)
+\item 
+void \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a4f14e473bb0722c6490b9dc8da5982aa}{save\+\_\+model}} (const std\+::string \&\+\_\+file\+\_\+name)
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a58ed20abf6ce3744535bd8b5bb9e741b}{load\+\_\+model}} (const std\+::string \&file\+\_\+name)
+\item 
+void \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a61d30113d13304c664057118b92a5931}{summary}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a4c4c6f63ab965317f9471518ee931b89}{Neural\+Network}} (const std\+::vector$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \&config, const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&kernels)
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a361a45f3c3d8347d79103bf182d0570b}{\+\_\+\+\_\+detailed\+\_\+single\+\_\+prediction}} (const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&X)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a8c5a466131aa2ae6b7276185b0834053}\label{classmachine__learning_1_1neural__network_1_1_neural_network_a8c5a466131aa2ae6b7276185b0834053} 
+std\+::vector$<$ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer}{neural\+\_\+network\+::layers\+::\+Dense\+Layer}} $>$ {\bfseries layers}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network} class is implements MLP. This class is used by actual user to create and train networks. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a4c4c6f63ab965317f9471518ee931b89}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\index{NeuralNetwork@{NeuralNetwork}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a4c4c6f63ab965317f9471518ee931b89} 
+machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \&}]{config}{, }\item[{const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&}]{kernels}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Private Constructor for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}. This constructor is used internally to load model. 
+\begin{DoxyParams}{Parameters}
+{\em config} & vector containing pair (neurons, activation) \\
+\hline
+{\em kernels} & vector containing all pretrained kernels \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ layer\ should\ not\ have\ activation}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.begin()-\/>second\ !=\ \textcolor{stringliteral}{"{}none"{}})\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}First\ layer\ can't\ have\ activation\ other\ than\ none\ got\ "{}}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ config.begin()-\/>second;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ std::endl;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Network\ should\ have\ atleast\ two\ layers}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.size()\ <=\ 1)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Invalid\ size\ of\ network,\ "{}};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Atleast\ two\ layers\ are\ required"{}};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reconstructing\ all\ pretrained\ layers}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ config.size();\ i++)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelayers}{layers}}.emplace\_back(neural\_network::layers::DenseLayer(}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ config[i].first,\ config[i].second,\ kernels[i]));}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}INFO:\ Network\ constructed\ successfully"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00281\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_ae7cf126a3a8f9d20c81b21584d061a08}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\index{NeuralNetwork@{NeuralNetwork}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_ae7cf126a3a8f9d20c81b21584d061a08} 
+machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default Constructor for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}. This constructor is used to create empty variable of type \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network} class. \Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a62151b0398a2536be60d950e10ffe9a8}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\index{NeuralNetwork@{NeuralNetwork}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a62151b0398a2536be60d950e10ffe9a8} 
+machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ int, std\+::string $>$ $>$ \&}]{config}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}. This constructor is used by user. 
+\begin{DoxyParams}{Parameters}
+{\em config} & vector containing pair (neurons, activation) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ layer\ should\ not\ have\ activation}}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.begin()-\/>second\ !=\ \textcolor{stringliteral}{"{}none"{}})\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}First\ layer\ can't\ have\ activation\ other\ than\ none\ got\ "{}}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ config.begin()-\/>second;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ std::endl;}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Network\ should\ have\ atleast\ two\ layers}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.size()\ <=\ 1)\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Invalid\ size\ of\ network,\ "{}};}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Atleast\ two\ layers\ are\ required"{}};}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Separately\ creating\ first\ layer\ so\ it\ can\ have\ unit\ matrix}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ as\ kernel.}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelayers}{layers}}.push\_back(neural\_network::layers::DenseLayer(}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ config[0].first,\ config[0].second,}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \{config[0].first,\ config[0].first\},\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creating\ remaining\ layers}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <\ config.size();\ i++)\ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelayers}{layers}}.push\_back(neural\_network::layers::DenseLayer(}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ config[i].first,\ config[i].second,}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{config[i\ -\/\ 1].first,\ config[i].first\},\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}INFO:\ Network\ constructed\ successfully"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00343\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a176b955c90ae57d7dbc3c63f27c84c75}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\index{NeuralNetwork@{NeuralNetwork}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a176b955c90ae57d7dbc3c63f27c84c75} 
+machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy Constructor for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & instance of class to be copied. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a8973f687738ddd76f93b5562feae4027}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!````~NeuralNetwork@{\texorpdfstring{$\sim$}{\string~}NeuralNetwork}}
+\index{````~NeuralNetwork@{\texorpdfstring{$\sim$}{\string~}NeuralNetwork}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}NeuralNetwork()}{\string~NeuralNetwork()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a8973f687738ddd76f93b5562feae4027} 
+machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::\texorpdfstring{$\sim$}{\string~}\+Neural\+Network (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Destructor for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}. \Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a173bb71780af6953ec2e307a4c74b025}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\index{NeuralNetwork@{NeuralNetwork}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a173bb71780af6953ec2e307a4c74b025} 
+machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Move constructor for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network} 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a361a45f3c3d8347d79103bf182d0570b}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!\_\_detailed\_single\_prediction@{\_\_detailed\_single\_prediction}}
+\index{\_\_detailed\_single\_prediction@{\_\_detailed\_single\_prediction}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{\_\_detailed\_single\_prediction()}{\_\_detailed\_single\_prediction()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a361a45f3c3d8347d79103bf182d0570b} 
+std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::\+\_\+\+\_\+detailed\+\_\+single\+\_\+prediction (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&}]{X}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Private function to get detailed predictions (i.\+e. activated neuron values). This function is used in backpropagation, single predict and batch predict. 
+\begin{DoxyParams}{Parameters}
+{\em X} & input vector \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::valarray<double>>>\ details;}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ std::vector<std::valarray<double>>\ current\_pass\ =\ X;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ details.emplace\_back(X);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&l\ :\ \mbox{\hyperlink{namespacelayers}{layers}})\ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ current\_pass\ =\ \mbox{\hyperlink{namespacemachine__learning_a5342906d42b80fc6b6b3ad17bf00fcb9}{multiply}}(current\_pass,\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}.kernel);}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ current\_pass\ =\ \mbox{\hyperlink{namespacemachine__learning_ad0bdc88e5f1be47c46c0f0c8ebf754bb}{apply\_function}}(current\_pass,\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}.activation\_function);}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ details.emplace\_back(current\_pass);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ details;}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a88bf9023ab3d4cdb61cf707c7cdfc86b}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!batch\_predict@{batch\_predict}}
+\index{batch\_predict@{batch\_predict}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{batch\_predict()}{batch\_predict()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a88bf9023ab3d4cdb61cf707c7cdfc86b} 
+std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::batch\+\_\+predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&}]{X}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get prediction of model on batch 
+\begin{DoxyParams}{Parameters}
+{\em X} & array of feature vectors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns predicted values as vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ predicted\ values}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::valarray<double>>>\ predicted\_batch(}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ X.size());}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ X.size();\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ sample}}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Push\ predicted\ values}}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ predicted\_batch[i]\ =\ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f}{single\_predict}}(X[i]);}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ predicted\_batch;\ \ \textcolor{comment}{//\ Return\ predicted\ values}}
+\DoxyCodeLine{00474\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_aec648ea4f40bd71123b5f907a681dd8e}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_aec648ea4f40bd71123b5f907a681dd8e} 
+void machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::evaluate (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&}]{X}{, }\item[{const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&}]{Y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to evaluate model on supplied data 
+\begin{DoxyParams}{Parameters}
+{\em X} & array of feature vectors (input data) \\
+\hline
+{\em Y} & array of target values (label) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}INFO:\ Evaluation\ Started"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ acc\ =\ 0,\ loss\ =\ 0;\ \ \textcolor{comment}{//\ initialize\ performance\ metrics\ with\ zero}}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ X.size();\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ sample\ in\ input}}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ predictions}}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::valarray<double>>\ pred\ =}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f}{single\_predict}}(X[i]);}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ predicted\ class\ is\ correct}}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{argmax}}(pred)\ ==\ \mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{argmax}}(Y[i]))\ \{}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ acc\ +=\ 1;\ \ \textcolor{comment}{//\ Increment\ accuracy}}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculating\ loss\ -\/\ Mean\ Squared\ Error}}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ loss\ +=\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}(\mbox{\hyperlink{namespacemachine__learning_ad0bdc88e5f1be47c46c0f0c8ebf754bb}{apply\_function}}((Y[i]\ -\/\ pred),}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neural\_network::util\_functions::square)\ *}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.5);}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ acc\ /=\ X.size();\ \ \ \textcolor{comment}{//\ Averaging\ accuracy}}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ loss\ /=\ X.size();\ \ \textcolor{comment}{//\ Averaging\ loss}}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Prinitng\ performance\ of\ the\ model}}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Evaluation:\ Loss:\ "{}}\ <<\ loss;}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Accuracy:\ "{}}\ <<\ acc\ <<\ std::endl;}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00629\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a36494e26ff36d6e15c1022bb9a1ee848}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!evaluate\_from\_csv@{evaluate\_from\_csv}}
+\index{evaluate\_from\_csv@{evaluate\_from\_csv}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{evaluate\_from\_csv()}{evaluate\_from\_csv()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a36494e26ff36d6e15c1022bb9a1ee848} 
+void machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::evaluate\+\_\+from\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+name}{, }\item[{const bool \&}]{last\+\_\+label}{, }\item[{const bool \&}]{normalize}{, }\item[{const int \&}]{slip\+\_\+lines}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to evaluate model on data stored in csv file 
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & csv file name \\
+\hline
+{\em last\+\_\+label} & flag for whether label is in first or last column \\
+\hline
+{\em normalize} & flag for whether to normalize data \\
+\hline
+{\em slip\+\_\+lines} & number of lines to skip \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getting\ training\ data\ from\ csv\ file}}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\ =}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a650c677fd6512665741ddd9b7983275d}{get\_XY\_from\_csv}}(file\_name,\ last\_label,\ normalize,\ slip\_lines);}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluating\ model}}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_aec648ea4f40bd71123b5f907a681dd8e}{evaluate}}(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}.first,\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}.second);}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00646\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a2be1b52bb9f57486f9a436f35c9089c0}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!fit@{fit}}
+\index{fit@{fit}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a2be1b52bb9f57486f9a436f35c9089c0} 
+void machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::fit (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&}]{X\+\_\+}{, }\item[{const std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ \&}]{Y\+\_\+}{, }\item[{const int \&}]{epochs}{ = {\ttfamily 100}, }\item[{const double \&}]{learning\+\_\+rate}{ = {\ttfamily 0.01}, }\item[{const size\+\_\+t \&}]{batch\+\_\+size}{ = {\ttfamily 32}, }\item[{const bool \&}]{shuffle}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to fit model on supplied data 
+\begin{DoxyParams}{Parameters}
+{\em X} & array of feature vectors \\
+\hline
+{\em Y} & array of target values \\
+\hline
+{\em epochs} & number of epochs (default = 100) \\
+\hline
+{\em learning\+\_\+rate} & learning rate (default = 0.\+01) \\
+\hline
+{\em batch\+\_\+size} & batch size for gradient descent (default = 32) \\
+\hline
+{\em shuffle} & flag for whether to shuffle data (default = true) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::valarray<double>>>\ X\ =\ X\_,\ Y\ =\ Y\_;}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Both\ label\ and\ input\ data\ should\ have\ same\ size}}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (X.size()\ !=\ Y.size())\ \{}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}X\ and\ Y\ in\ fit\ have\ different\ sizes"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}INFO:\ Training\ Started"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ epoch\ =\ 1;\ epoch\ <=\ epochs;\ epoch++)\ \{\ \ \textcolor{comment}{//\ For\ every\ epoch}}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Shuffle\ X\ and\ Y\ if\ flag\ is\ set}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shuffle)\ \{}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_af801bf30591ca6b2c38ff4fed0ded23f}{equal\_shuffle}}(X,\ Y);}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ start\ =}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::high\_resolution\_clock::now();\ \ \textcolor{comment}{//\ Start\ clock}}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ loss\ =\ 0,}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ acc\ =\ 0;\ \ \textcolor{comment}{//\ Initialize\ performance\ metrics\ with\ zero}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ each\ starting\ index\ of\ batch}}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ batch\_start\ =\ 0;\ batch\_start\ <\ X.size();}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ batch\_start\ +=\ batch\_size)\ \{}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ batch\_start;}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ <\ std::min(X.size(),\ batch\_start\ +\ batch\_size);\ i++)\ \{}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::valarray<double>>\ grad,\ cur\_error,}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ predicted;}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceactivations}{activations}}\ =\ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a361a45f3c3d8347d79103bf182d0570b}{\_\_detailed\_single\_prediction}}(X[i]);}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gradients\ vector\ to\ store\ gradients\ for\ all\ layers}}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ They\ will\ be\ averaged\ and\ applied\ to\ kernel}}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<std::valarray<double>>>\ gradients;}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gradients.resize(this-\/>\mbox{\hyperlink{namespacelayers}{layers}}.size());}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ initialize\ gradients\ to\ zero}}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ gradients.size();\ i++)\ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_ac1bdaa2a724b4ce6a6bb371a5dbe2e7e}{zeroes\_initialization}}(}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gradients[i],\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(this-\/>\mbox{\hyperlink{namespacelayers}{layers}}[i].kernel));}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ predicted\ =\ \mbox{\hyperlink{namespaceactivations}{activations}}.back();\ \ \textcolor{comment}{//\ Predicted\ vector}}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_error\ =\ predicted\ -\/\ Y[i];\ \ \ \ \textcolor{comment}{//\ Absoulute\ error}}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculating\ loss\ with\ MSE}}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ loss\ +=\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}(\mbox{\hyperlink{namespacemachine__learning_ad0bdc88e5f1be47c46c0f0c8ebf754bb}{apply\_function}}(}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_error,\ neural\_network::util\_functions::square));}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ prediction\ is\ correct}}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{argmax}}(predicted)\ ==\ \mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{argmax}}(Y[i]))\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ acc\ +=\ 1;}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ every\ layer\ (except\ first)\ starting\ from\ last\ one}}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ this-\/>\mbox{\hyperlink{namespacelayers}{layers}}.size()\ -\/\ 1;\ j\ >=\ 1;\ j-\/-\/)\ \{}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Backpropogating\ errors}}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_error\ =\ \mbox{\hyperlink{namespacemachine__learning_acafa3e62b686aebdbad81c4f89913f43}{hadamard\_product}}(}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_error,}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_ad0bdc88e5f1be47c46c0f0c8ebf754bb}{apply\_function}}(}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceactivations}{activations}}[j\ +\ 1],}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{namespacelayers}{layers}}[j].dactivation\_function));}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculating\ gradient\ for\ current\ layer}}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ grad\ =\ \mbox{\hyperlink{namespacemachine__learning_a5342906d42b80fc6b6b3ad17bf00fcb9}{multiply}}(\mbox{\hyperlink{namespacemachine__learning_a89fde571b38f9483576594f66572958a}{transpose}}(\mbox{\hyperlink{namespaceactivations}{activations}}[j]),\ cur\_error);}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Change\ error\ according\ to\ current\ kernel\ values}}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_error\ =\ \mbox{\hyperlink{namespacemachine__learning_a5342906d42b80fc6b6b3ad17bf00fcb9}{multiply}}(cur\_error,}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_a89fde571b38f9483576594f66572958a}{transpose}}(this-\/>\mbox{\hyperlink{namespacelayers}{layers}}[j].kernel));}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Adding\ gradient\ values\ to\ collection\ of\ gradients}}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gradients[j]\ =\ gradients[j]\ +\ grad\ /\ double(batch\_size);}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Applying\ gradients}}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ this-\/>\mbox{\hyperlink{namespacelayers}{layers}}.size()\ -\/\ 1;\ j\ >=\ 1;\ j-\/-\/)\ \{}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Updating\ kernel\ (aka\ weights)}}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{namespacelayers}{layers}}[j].kernel\ =\ this-\/>\mbox{\hyperlink{namespacelayers}{layers}}[j].kernel\ -\/}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gradients[j]\ *\ learning\_rate;}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ stop\ =}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::high\_resolution\_clock::now();\ \ \textcolor{comment}{//\ Stoping\ the\ clock}}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ time\ taken\ by\ epoch}}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ duration\ =}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration\_cast<std::chrono::microseconds>(stop\ -\/}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start);}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ loss\ /=\ X.size();\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Averaging\ loss}}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ acc\ /=\ X.size();\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Averaging\ accuracy}}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout.precision(4);\ \ \textcolor{comment}{//\ set\ output\ precision\ to\ 4}}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Printing\ training\ stats}}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Training:\ Epoch\ "{}}\ <<\ epoch\ <<\ \textcolor{charliteral}{'/'}\ <<\ epochs;}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Loss:\ "{}}\ <<\ loss;}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Accuracy:\ "{}}\ <<\ acc;}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Taken\ time:\ "{}}\ <<\ duration.count()\ /\ 1e6}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ seconds"{}};}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00574\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a5172a6791b9bd24f4232bab8d6b81fff}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!fit\_from\_csv@{fit\_from\_csv}}
+\index{fit\_from\_csv@{fit\_from\_csv}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{fit\_from\_csv()}{fit\_from\_csv()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a5172a6791b9bd24f4232bab8d6b81fff} 
+void machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::fit\+\_\+from\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+name}{, }\item[{const bool \&}]{last\+\_\+label}{, }\item[{const int \&}]{epochs}{, }\item[{const double \&}]{learning\+\_\+rate}{, }\item[{const bool \&}]{normalize}{, }\item[{const int \&}]{slip\+\_\+lines}{ = {\ttfamily 1}, }\item[{const size\+\_\+t \&}]{batch\+\_\+size}{ = {\ttfamily 32}, }\item[{const bool \&}]{shuffle}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to fit model on data stored in csv file 
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & csv file name \\
+\hline
+{\em last\+\_\+label} & flag for whether label is in first or last column \\
+\hline
+{\em epochs} & number of epochs \\
+\hline
+{\em learning\+\_\+rate} & learning rate \\
+\hline
+{\em normalize} & flag for whether to normalize data \\
+\hline
+{\em slip\+\_\+lines} & number of lines to skip \\
+\hline
+{\em batch\+\_\+size} & batch size for gradient descent (default = 32) \\
+\hline
+{\em shuffle} & flag for whether to shuffle data (default = true) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getting\ training\ data\ from\ csv\ file}}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\ =}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a650c677fd6512665741ddd9b7983275d}{get\_XY\_from\_csv}}(file\_name,\ last\_label,\ normalize,\ slip\_lines);}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fit\ the\ model\ on\ training\ data}}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a2be1b52bb9f57486f9a436f35c9089c0}{fit}}(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}.first,\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}.second,\ epochs,\ learning\_rate,\ batch\_size,}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shuffle);}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00599\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a650c677fd6512665741ddd9b7983275d}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!get\_XY\_from\_csv@{get\_XY\_from\_csv}}
+\index{get\_XY\_from\_csv@{get\_XY\_from\_csv}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{get\_XY\_from\_csv()}{get\_XY\_from\_csv()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a650c677fd6512665741ddd9b7983275d} 
+std\+::pair$<$ std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$, std\+::vector$<$ std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ $>$ $>$ machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::get\+\_\+\+XY\+\_\+from\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+name}{, }\item[{const bool \&}]{last\+\_\+label}{, }\item[{const bool \&}]{normalize}{, }\item[{const int \&}]{slip\+\_\+lines}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get X and Y from csv file (where X = data, Y = label) 
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & csv file name \\
+\hline
+{\em last\+\_\+label} & flag for whether label is in first or last column \\
+\hline
+{\em normalize} & flag for whether to normalize data \\
+\hline
+{\em slip\+\_\+lines} & number of lines to skip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns pair of X and Y 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ std::ifstream\ in\_file;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ifstream\ to\ read\ file}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ in\_file.open(file\_name.c\_str(),\ std::ios::in);\ \ \textcolor{comment}{//\ Open\ file}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ there\ is\ any\ problem\ in\ opening\ file}}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!in\_file.is\_open())\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ open\ file:\ "{}}\ <<\ file\_name\ <<\ std::endl;}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::valarray<double>>>\ X,}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ Y;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ store\ X\ and\ Y}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ std::string\ line;\ \ \textcolor{comment}{//\ To\ store\ each\ line}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Skip\ lines}}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ slip\_lines;\ i++)\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(in\_file,\ line,\ \textcolor{charliteral}{'\(\backslash\)n'});\ \ \textcolor{comment}{//\ Ignore\ line}}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ While\ file\ has\ information}}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!in\_file.eof()\ \&\&\ std::getline(in\_file,\ line,\ \textcolor{charliteral}{'\(\backslash\)n'}))\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ std::valarray<double>\ x\_data,}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_data;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ store\ single\ sample\ and\ label}}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ ss(line);\ \ \textcolor{comment}{//\ Constructing\ stringstream\ from\ line}}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ token;\ \ \textcolor{comment}{//\ To\ store\ each\ token\ in\ line\ (seprated\ by\ ',')}}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(ss,\ token,\ \textcolor{charliteral}{','}))\ \{\ \ \textcolor{comment}{//\ For\ each\ token}}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Insert\ numerical\ value\ of\ token\ in\ x\_data}}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_data\ =\ \mbox{\hyperlink{namespacemachine__learning_a496302e3371aa7b478cb7d5917904bdd}{insert\_element}}(x\_data,\ std::stod(token));}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ label\ is\ in\ last\ column}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (last\_label)\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_data.resize(this-\/>\mbox{\hyperlink{namespacelayers}{layers}}.back().neurons);}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ task\ is\ classification}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\_data.size()\ >\ 1)\ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_data[x\_data[x\_data.size()\ -\/\ 1]]\ =\ 1;}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ task\ is\ regrssion\ (of\ single\ value)}}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_data[0]\ =\ x\_data[x\_data.size()\ -\/\ 1];}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_data\ =\ \mbox{\hyperlink{namespacemachine__learning_ae10178b082f0205c326550877d998e5d}{pop\_back}}(x\_data);\ \ \textcolor{comment}{//\ Remove\ label\ from\ x\_data}}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_data.resize(this-\/>\mbox{\hyperlink{namespacelayers}{layers}}.back().neurons);}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ task\ is\ classification}}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\_data.size()\ >\ 1)\ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_data[x\_data[x\_data.size()\ -\/\ 1]]\ =\ 1;}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ task\ is\ regrssion\ (of\ single\ value)}}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_data[0]\ =\ x\_data[x\_data.size()\ -\/\ 1];}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_data\ =\ \mbox{\hyperlink{namespacemachine__learning_a912cf68863063a38d6e63545be5eb093}{pop\_front}}(x\_data);\ \ \textcolor{comment}{//\ Remove\ label\ from\ x\_data}}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Push\ collected\ X\_data\ and\ y\_data\ in\ X\ and\ Y}}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ X.push\_back(\{x\_data\});}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ Y.push\_back(\{y\_data\});}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Normalize\ training\ data\ if\ flag\ is\ set}}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (normalize)\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Scale\ data\ between\ 0\ and\ 1\ using\ min-\/max\ scaler}}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ X\ =\ \mbox{\hyperlink{namespacemachine__learning_ac332d152078e96311e43ac5e7183ea26}{minmax\_scaler}}(X,\ 0.01,\ 1.0);}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ in\_file.close();\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Closing\ file}}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ make\_pair(X,\ Y);\ \ \textcolor{comment}{//\ Return\ pair\ of\ X\ and\ Y}}
+\DoxyCodeLine{00444\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a58ed20abf6ce3744535bd8b5bb9e741b}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!load\_model@{load\_model}}
+\index{load\_model@{load\_model}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{load\_model()}{load\_model()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a58ed20abf6ce3744535bd8b5bb9e741b} 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::load\+\_\+model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to load earlier saved model. 
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & file from which model will be loaded (\texorpdfstring{$\ast$}{*}.model) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+instance of \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network} class with pretrained weights 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ std::ifstream\ in\_file;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ifstream\ to\ read\ file}}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ in\_file.open(file\_name.c\_str());\ \ \textcolor{comment}{//\ Openinig\ file}}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ there\ is\ any\ problem\ in\ opening\ file}}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!in\_file.is\_open())\ \{}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ open\ file:\ "{}}\ <<\ file\_name\ <<\ std::endl;}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ std::vector<std::pair<int,\ std::string>>\ config;\ \ \textcolor{comment}{//\ To\ store\ config}}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::valarray<double>>>}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ kernels;\ \ \textcolor{comment}{//\ To\ store\ pretrained\ kernels}}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Loading\ model\ from\ saved\ file\ format}}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ total\_layers\ =\ 0;}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ in\_file\ >>\ total\_layers;}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ total\_layers;\ i++)\ \{}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ neurons\ =\ 0;}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ activation;}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ shape\_a\ =\ 0,\ shape\_b\ =\ 0;}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::valarray<double>>\ kernel;}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ in\_file\ >>\ neurons\ >>\ activation\ >>\ shape\_a\ >>\ shape\_b;}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ r\ =\ 0;\ r\ <\ shape\_a;\ r++)\ \{}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::valarray<double>\ row(shape\_b);}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ c\ =\ 0;\ c\ <\ shape\_b;\ c++)\ \{}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\_file\ >>\ row[c];}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kernel.push\_back(row);}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ config.emplace\_back(make\_pair(neurons,\ activation));}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ kernels.emplace\_back(kernel);}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}INFO:\ Model\ loaded\ successfully"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ in\_file.close();\ \ \textcolor{comment}{//\ Closing\ file}}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_ae7cf126a3a8f9d20c81b21584d061a08}{NeuralNetwork}}(}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ config,\ kernels);\ \ \textcolor{comment}{//\ Return\ instance\ of\ NeuralNetwork\ class}}
+\DoxyCodeLine{00768\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a58a9614e4c6d4ca672d3358e99a3404f}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!operator=@{operator=}}
+\index{operator=@{operator=}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a58a9614e4c6d4ca672d3358e99a3404f} 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \& machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy assignment operator for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network} \Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a2c49bfebf9b859d5ceb26035d3003601}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!operator=@{operator=}}
+\index{operator=@{operator=}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a2c49bfebf9b859d5ceb26035d3003601} 
+\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \& machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Move assignment operator for class \doxylink{classmachine__learning_1_1neural__network_1_1_neural_network}{Neural\+Network} \Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a4f14e473bb0722c6490b9dc8da5982aa}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!save\_model@{save\_model}}
+\index{save\_model@{save\_model}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{save\_model()}{save\_model()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a4f14e473bb0722c6490b9dc8da5982aa} 
+void machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::save\+\_\+model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+file\+\_\+name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to save current model. 
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & file name to save model (\texorpdfstring{$\ast$}{*}.model) \\
+\hline
+\end{DoxyParams}
+Format in which model is saved\+:
+
+total\+\_\+layers neurons(1st neural\+\_\+network\+::layers\+::\+Dense\+Layer) activation\+\_\+name(1st neural\+\_\+network\+::layers\+::\+Dense\+Layer) kernel\+\_\+shape(1st neural\+\_\+network\+::layers\+::\+Dense\+Layer) kernel\+\_\+values neurons(\+Nth neural\+\_\+network\+::layers\+::\+Dense\+Layer) activation\+\_\+name(\+Nth neural\+\_\+network\+::layers\+::\+Dense\+Layer) kernel\+\_\+shape(\+Nth neural\+\_\+network\+::layers\+::\+Dense\+Layer) kernel\+\_\+value
+
+For Example, pretrained model with 3 layers\+: 
+\begin{DoxyPre}
+ 3
+ 4 none
+ 4 4
+ 1 0 0 0
+ 0 1 0 0
+ 0 0 1 0
+ 0 0 0 1
+ 6 relu
+ 4 6
+ -\/1.88963 -\/3.61165 1.30757 -\/0.443906 -\/2.41039 -\/2.69653
+ -\/0.684753 0.0891452 0.795294 -\/2.39619 2.73377 0.318202
+ -\/2.91451 -\/4.43249 -\/0.804187 2.51995 -\/6.97524 -\/1.07049
+ -\/0.571531 -\/1.81689 -\/1.24485 1.92264 -\/2.81322 1.01741
+ 3 sigmoid
+ 6 3
+ 0.390267 -\/0.391703 -\/0.0989607
+ 0.499234 -\/0.564539 -\/0.28097
+ 0.553386 -\/0.153974 -\/1.92493
+ -\/2.01336 -\/0.0219682 1.44145
+ 1.72853 -\/0.465264 -\/0.705373
+ -\/0.908409 -\/0.740547 0.376416
+ \end{DoxyPre}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ std::string\ file\_name\ =\ \_file\_name;}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Adding\ "{}.model"{}\ extension\ if\ it\ is\ not\ already\ there\ in\ name}}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file\_name.find(\textcolor{stringliteral}{"{}.model"{}})\ ==\ file\_name.npos)\ \{}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ file\_name\ +=\ \textcolor{stringliteral}{"{}.model"{}};}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ std::ofstream\ out\_file;\ \ \textcolor{comment}{//\ Ofstream\ to\ write\ in\ file}}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Open\ file\ in\ out|trunc\ mode}}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ out\_file.open(file\_name.c\_str(),}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream::out\ |\ std::ofstream::trunc);}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ there\ is\ any\ problem\ in\ opening\ file}}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!out\_file.is\_open())\ \{}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}ERROR\ ("{}}\ <<\ \_\_func\_\_\ <<\ \textcolor{stringliteral}{"{})\ :\ "{}};}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ open\ file:\ "{}}\ <<\ file\_name\ <<\ std::endl;}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00668\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00669\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ Format\ in\ which\ model\ is\ saved:}}
+\DoxyCodeLine{00670\ \textcolor{comment}{}}
+\DoxyCodeLine{00671\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ total\_layers}}
+\DoxyCodeLine{00672\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ neurons(1st\ neural\_network::layers::DenseLayer)\ activation\_name(1st}}
+\DoxyCodeLine{00673\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ neural\_network::layers::DenseLayer)\ kernel\_shape(1st}}
+\DoxyCodeLine{00674\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ neural\_network::layers::DenseLayer)\ kernel\_values}}
+\DoxyCodeLine{00675\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ .}}
+\DoxyCodeLine{00676\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ .}}
+\DoxyCodeLine{00677\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ .}}
+\DoxyCodeLine{00678\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ neurons(Nth\ neural\_network::layers::DenseLayer)\ activation\_name(Nth}}
+\DoxyCodeLine{00679\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ neural\_network::layers::DenseLayer)\ kernel\_shape(Nth}}
+\DoxyCodeLine{00680\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ neural\_network::layers::DenseLayer)\ kernel\_value}}
+\DoxyCodeLine{00681\ \textcolor{comment}{}}
+\DoxyCodeLine{00682\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ For\ Example,\ pretrained\ model\ with\ 3\ layers:}}
+\DoxyCodeLine{00683\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ <pre>}}
+\DoxyCodeLine{00684\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00685\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 4\ none}}
+\DoxyCodeLine{00686\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 4\ 4}}
+\DoxyCodeLine{00687\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 1\ 0\ 0\ 0}}
+\DoxyCodeLine{00688\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 0\ 1\ 0\ 0}}
+\DoxyCodeLine{00689\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 0\ 0\ 1\ 0}}
+\DoxyCodeLine{00690\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 0\ 0\ 0\ 1}}
+\DoxyCodeLine{00691\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 6\ relu}}
+\DoxyCodeLine{00692\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 4\ 6}}
+\DoxyCodeLine{00693\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ -\/1.88963\ -\/3.61165\ 1.30757\ -\/0.443906\ -\/2.41039\ -\/2.69653}}
+\DoxyCodeLine{00694\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ -\/0.684753\ 0.0891452\ 0.795294\ -\/2.39619\ 2.73377\ 0.318202}}
+\DoxyCodeLine{00695\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ -\/2.91451\ -\/4.43249\ -\/0.804187\ 2.51995\ -\/6.97524\ -\/1.07049}}
+\DoxyCodeLine{00696\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ -\/0.571531\ -\/1.81689\ -\/1.24485\ 1.92264\ -\/2.81322\ 1.01741}}
+\DoxyCodeLine{00697\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 3\ sigmoid}}
+\DoxyCodeLine{00698\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 6\ 3}}
+\DoxyCodeLine{00699\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 0.390267\ -\/0.391703\ -\/0.0989607}}
+\DoxyCodeLine{00700\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 0.499234\ -\/0.564539\ -\/0.28097}}
+\DoxyCodeLine{00701\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 0.553386\ -\/0.153974\ -\/1.92493}}
+\DoxyCodeLine{00702\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ -\/2.01336\ -\/0.0219682\ 1.44145}}
+\DoxyCodeLine{00703\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ 1.72853\ -\/0.465264\ -\/0.705373}}
+\DoxyCodeLine{00704\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ -\/0.908409\ -\/0.740547\ 0.376416}}
+\DoxyCodeLine{00705\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ </pre>}}
+\DoxyCodeLine{00706\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Saving\ model\ in\ the\ same\ format}}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ out\_file\ <<\ \mbox{\hyperlink{namespacelayers}{layers}}.size();}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ out\_file\ <<\ std::endl;}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&layer\ :\ this-\/>\mbox{\hyperlink{namespacelayers}{layers}})\ \{}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ out\_file\ <<\ layer.neurons\ <<\ \textcolor{charliteral}{'\ '}\ <<\ layer.activation\ <<\ std::endl;}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ shape\ =\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(layer.kernel);}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \ \ \ \ out\_file\ <<\ shape.first\ <<\ \textcolor{charliteral}{'\ '}\ <<\ shape.second\ <<\ std::endl;}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&row\ :\ layer.kernel)\ \{}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&val\ :\ row)\ \{}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_file\ <<\ val\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_file\ <<\ std::endl;}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}INFO:\ Model\ saved\ successfully\ with\ name\ :\ "{}};}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ std::cout\ <<\ file\_name\ <<\ std::endl;}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ out\_file.close();\ \ \textcolor{comment}{//\ Closing\ file}}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00725\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!single\_predict@{single\_predict}}
+\index{single\_predict@{single\_predict}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{single\_predict()}{single\_predict()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f} 
+std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::single\+\_\+predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&}]{X}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get prediction of model on single sample. 
+\begin{DoxyParams}{Parameters}
+{\em X} & array of feature vectors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns predictions as vector 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ activations\ of\ all\ layers}}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceactivations}{activations}}\ =\ this-\/>\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a361a45f3c3d8347d79103bf182d0570b}{\_\_detailed\_single\_prediction}}(X);}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Return\ activations\ of\ last\ layer\ (actual\ predicted\ values)}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceactivations}{activations}}.back();}
+\DoxyCodeLine{00457\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmachine__learning_1_1neural__network_1_1_neural_network_a61d30113d13304c664057118b92a5931}\index{machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}!summary@{summary}}
+\index{summary@{summary}!machine\_learning::neural\_network::NeuralNetwork@{machine\_learning::neural\_network::NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{summary()}{summary()}}
+{\footnotesize\ttfamily \label{classmachine__learning_1_1neural__network_1_1_neural_network_a61d30113d13304c664057118b92a5931} 
+void machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network\+::summary (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to print summary of the network. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Printing\ Summary}}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ std::cout}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}==============================================================="{}}}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t+\ MODEL\ SUMMARY\ +\(\backslash\)t\(\backslash\)t\(\backslash\)n"{}};}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ std::cout}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}==============================================================="{}}}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <=\ \mbox{\hyperlink{namespacelayers}{layers}}.size();\ i++)\ \{\ \ \textcolor{comment}{//\ For\ every\ layer}}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ Neurons\ :\ "{}}}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacelayers}{layers}}[i\ -\/\ 1].neurons;\ \ \textcolor{comment}{//\ number\ of\ neurons}}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ Activation\ :\ "{}}}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacelayers}{layers}}[i\ -\/\ 1].activation;\ \ \textcolor{comment}{//\ activation}}
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ kernel\ Shape\ :\ "{}}}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacemachine__learning_aa4bbf61e65f8cd297255fa94b983d078}{get\_shape}}(\mbox{\hyperlink{namespacelayers}{layers}}[i\ -\/\ 1].kernel);\ \ \textcolor{comment}{//\ kernel\ shape}}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ std::cout}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}==============================================================="{}}}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00796\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+machine\+\_\+learning/\mbox{\hyperlink{neural__network_8cpp}{neural\+\_\+network.\+cpp}}\end{DoxyCompactItemize}

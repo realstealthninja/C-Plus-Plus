@@ -1,0 +1,75 @@
+\doxysection{others/fast\+\_\+integer\+\_\+input.cpp File Reference}
+\hypertarget{fast__integer__input_8cpp}{}\label{fast__integer__input_8cpp}\index{others/fast\_integer\_input.cpp@{others/fast\_integer\_input.cpp}}
+
+
+Read integers from stdin continuously as they are entered without waiting for the {\ttfamily \textbackslash{}n} character.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fast__integer__input_8cpp_a4e097ac8509b717bdc8ab09ecd86ae82}{fastinput}} (int \texorpdfstring{$\ast$}{*}number)
+\item 
+int \mbox{\hyperlink{fast__integer__input_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Read integers from stdin continuously as they are entered without waiting for the {\ttfamily \textbackslash{}n} character. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fast__integer__input_8cpp_a4e097ac8509b717bdc8ab09ecd86ae82}\index{fast\_integer\_input.cpp@{fast\_integer\_input.cpp}!fastinput@{fastinput}}
+\index{fastinput@{fastinput}!fast\_integer\_input.cpp@{fast\_integer\_input.cpp}}
+\doxysubsubsection{\texorpdfstring{fastinput()}{fastinput()}}
+{\footnotesize\ttfamily \label{fast__integer__input_8cpp_a4e097ac8509b717bdc8ab09ecd86ae82} 
+void fastinput (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{number}{}\end{DoxyParamCaption})}
+
+Function to read the number from stdin. The function reads input until a non numeric character is entered. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ variable\ to\ indicate\ sign\ of\ input\ integer}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ negative\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ c;}
+\DoxyCodeLine{00015\ \ \ \ \ *number\ =\ 0;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ extract\ current\ character\ from\ buffer}}
+\DoxyCodeLine{00018\ \ \ \ \ c\ =\ std::getchar();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ \textcolor{charliteral}{'-\/'})\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ is\ negative}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ negative\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ extract\ the\ next\ character\ from\ the\ buffer}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ c\ =\ std::getchar();}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Keep\ on\ extracting\ characters\ if\ they\ are\ integers}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ i.e\ ASCII\ Value\ lies\ from\ '0'(48)\ to\ '9'\ (57)}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ (c\ >\ 47\ \&\&\ c\ <\ 58);\ c\ =\ std::getchar())}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ *number\ =\ *number\ *\ 10\ +\ c\ -\/\ 48;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ if\ scanned\ input\ has\ a\ negative\ sign,\ negate\ the}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ value\ of\ the\ input\ number}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (negative)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ *(number)\ *=\ -\/1;}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fast__integer__input_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fast\_integer\_input.cpp@{fast\_integer\_input.cpp}!main@{main}}
+\index{main@{main}!fast\_integer\_input.cpp@{fast\_integer\_input.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fast__integer__input_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ number;}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{fast__integer__input_8cpp_a4e097ac8509b717bdc8ab09ecd86ae82}{fastinput}}(\&number);}
+\DoxyCodeLine{00042\ \ \ \ \ std::cout\ <<\ number\ <<\ std::endl;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}

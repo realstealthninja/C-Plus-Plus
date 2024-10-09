@@ -1,0 +1,298 @@
+\doxysection{data\+\_\+structures/binary\+\_\+search\+\_\+tree.cpp File Reference}
+\hypertarget{binary__search__tree_8cpp}{}\label{binary__search__tree_8cpp}\index{data\_structures/binary\_search\_tree.cpp@{data\_structures/binary\_search\_tree.cpp}}
+
+
+A simple tree implementation using structured nodes.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{structnode}{node}}
+\item 
+class \mbox{\hyperlink{struct_queue}{Queue}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{binary__search__tree_8cpp_a1ca1e6aad9a9e45c1d21a7c8f61bccc3}{enqueue}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n)
+\item 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{binary__search__tree_8cpp_a11b4c912d85c475c67abab608f86ecce}{dequeue}} ()
+\item 
+void \mbox{\hyperlink{binary__search__tree_8cpp_a521ea77f195e491750e602292c6dc335}{Insert}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n, int x)
+\item 
+int \mbox{\hyperlink{binary__search__tree_8cpp_a4a1aaff44d949318d93231e1fa5c7863}{find\+Max\+In\+Left\+ST}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n)
+\item 
+void \mbox{\hyperlink{binary__search__tree_8cpp_a4392f2f3d0680befc1a6db07d94d6c5d}{Remove}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n, int x)
+\item 
+void \mbox{\hyperlink{binary__search__tree_8cpp_aa65d9b7fa9bd517ace3d819abc85c8b6}{BFT}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n)
+\item 
+void \mbox{\hyperlink{binary__search__tree_8cpp_a9e98619e1c6cea9d6c56849a16ecc416}{Pre}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n)
+\item 
+void \mbox{\hyperlink{binary__search__tree_8cpp_adb338121baec7856c9593d79ddeb5e18}{In}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n)
+\item 
+void \mbox{\hyperlink{binary__search__tree_8cpp_a13dac1586cbb95ebfd63dc47aeeff0e1}{Post}} (\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}n)
+\item 
+int \mbox{\hyperlink{binary__search__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{binary__search__tree_8cpp_aebb1a5194a2cd7efe7ee7fc417e78293}\label{binary__search__tree_8cpp_aebb1a5194a2cd7efe7ee7fc417e78293} 
+\mbox{\hyperlink{struct_queue}{Queue}} {\bfseries queue}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple tree implementation using structured nodes. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]update code to use C++ STL library features and OO structure \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+This program is a poor implementation -\/ C style -\/ and does not utilize any of the C++ STL features. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{binary__search__tree_8cpp_aa65d9b7fa9bd517ace3d819abc85c8b6}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!BFT@{BFT}}
+\index{BFT@{BFT}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{BFT()}{BFT()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_aa65d9b7fa9bd517ace3d819abc85c8b6} 
+void BFT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ !=\ NULL)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::cout\ <<\ n-\/>val\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ enqueue(n-\/>left);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ enqueue(n-\/>right);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ BFT(dequeue());}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_a11b4c912d85c475c67abab608f86ecce}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_a11b4c912d85c475c67abab608f86ecce} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} dequeue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classqueue}{queue}}.t[\mbox{\hyperlink{classqueue}{queue}}.\mbox{\hyperlink{classqueue_a75e231798bc706b8b0773a07f78713e7}{front}}++]);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_a1ca1e6aad9a9e45c1d21a7c8f61bccc3}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_a1ca1e6aad9a9e45c1d21a7c8f61bccc3} 
+void enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{\ \mbox{\hyperlink{classqueue}{queue}}.t[\mbox{\hyperlink{classqueue}{queue}}.rear++]\ =\ n;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_a4a1aaff44d949318d93231e1fa5c7863}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!findMaxInLeftST@{findMaxInLeftST}}
+\index{findMaxInLeftST@{findMaxInLeftST}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{findMaxInLeftST()}{findMaxInLeftST()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_a4a1aaff44d949318d93231e1fa5c7863} 
+int find\+Max\+In\+Left\+ST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{while}\ (n-\/>right\ !=\ NULL)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ n\ =\ n-\/>right;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ n-\/>val;}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_adb338121baec7856c9593d79ddeb5e18}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!In@{In}}
+\index{In@{In}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{In()}{In()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_adb338121baec7856c9593d79ddeb5e18} 
+void In (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ !=\ NULL)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ In(n-\/>left);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ std::cout\ <<\ n-\/>val\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ In(n-\/>right);}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_a521ea77f195e491750e602292c6dc335}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!Insert@{Insert}}
+\index{Insert@{Insert}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_a521ea77f195e491750e602292c6dc335} 
+void Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{, }\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ n-\/>val)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n-\/>left\ ==\ NULL)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *temp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ temp-\/>val\ =\ x;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ temp-\/>left\ =\ NULL;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ temp-\/>right\ =\ NULL;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>left\ =\ temp;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ Insert(n-\/>left,\ x);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n-\/>right\ ==\ NULL)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *temp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ temp-\/>val\ =\ x;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ temp-\/>left\ =\ NULL;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ temp-\/>right\ =\ NULL;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>right\ =\ temp;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ Insert(n-\/>right,\ x);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!main@{main}}
+\index{main@{main}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{classqueue}{queue}}.\mbox{\hyperlink{classqueue_a75e231798bc706b8b0773a07f78713e7}{front}}\ =\ 0;}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classqueue}{queue}}.rear\ =\ 0;}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{int}\ value;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ ch;}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ *root\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00131\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ value\ of\ root\ node\ :"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ std::cin\ >>\ value;}
+\DoxyCodeLine{00133\ \ \ \ \ root-\/>val\ =\ value;}
+\DoxyCodeLine{00134\ \ \ \ \ root-\/>left\ =\ NULL;}
+\DoxyCodeLine{00135\ \ \ \ \ root-\/>right\ =\ NULL;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n1.\ Insert"{}}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n2.\ Delete"{}}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n3.\ Breadth\ First"{}}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n4.\ Preorder\ Depth\ First"{}}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n5.\ Inorder\ Depth\ First"{}}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n6.\ Postorder\ Depth\ First"{}};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ Your\ Choice\ :\ "{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ std::cin\ >>\ ch;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (ch)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ value\ to\ be\ Inserted\ :\ "{}};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ x;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ Insert(root,\ x);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ value\ to\ be\ Deleted\ :\ "{}};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ x;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ Remove(root,\ root,\ x);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ BFT(root);}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ Pre(root);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ In(root);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ Post(root);}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (ch\ !=\ 0);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00174\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_a13dac1586cbb95ebfd63dc47aeeff0e1}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!Post@{Post}}
+\index{Post@{Post}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_a13dac1586cbb95ebfd63dc47aeeff0e1} 
+void Post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ !=\ NULL)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ Post(n-\/>left);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ Post(n-\/>right);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ std::cout\ <<\ n-\/>val\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_a9e98619e1c6cea9d6c56849a16ecc416}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!Pre@{Pre}}
+\index{Pre@{Pre}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{Pre()}{Pre()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_a9e98619e1c6cea9d6c56849a16ecc416} 
+void Pre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ !=\ NULL)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ std::cout\ <<\ n-\/>val\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ Pre(n-\/>left);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ Pre(n-\/>right);}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree_8cpp_a4392f2f3d0680befc1a6db07d94d6c5d}\index{binary\_search\_tree.cpp@{binary\_search\_tree.cpp}!Remove@{Remove}}
+\index{Remove@{Remove}!binary\_search\_tree.cpp@{binary\_search\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily \label{binary__search__tree_8cpp_a4392f2f3d0680befc1a6db07d94d6c5d} 
+void Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*}}]{n}{, }\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (n-\/>val\ ==\ x)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n-\/>right\ ==\ NULL\ \&\&\ n-\/>left\ ==\ NULL)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ p-\/>val)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>right\ =\ NULL;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>left\ =\ NULL;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (n-\/>right\ ==\ NULL)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ p-\/>val)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>right\ =\ n-\/>left;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>left\ =\ n-\/>left;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (n-\/>left\ ==\ NULL)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ p-\/>val)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>right\ =\ n-\/>right;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p-\/>left\ =\ n-\/>right;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ findMaxInLeftST(n-\/>left);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>val\ =\ y;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ Remove(n,\ n-\/>right,\ y);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (x\ <\ n-\/>val)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ Remove(n,\ n-\/>left,\ x);}
+\DoxyCodeLine{00087\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ Remove(n,\ n-\/>right,\ x);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}

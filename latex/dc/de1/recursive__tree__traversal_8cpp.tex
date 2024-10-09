@@ -1,0 +1,364 @@
+\doxysection{others/recursive\+\_\+tree\+\_\+traversal.cpp File Reference}
+\hypertarget{recursive__tree__traversal_8cpp}{}\label{recursive__tree__traversal_8cpp}\index{others/recursive\_tree\_traversal.cpp@{others/recursive\_tree\_traversal.cpp}}
+
+
+Recursive version of Inorder, Preorder, and Postorder \mbox{[}Traversal of the Tree\mbox{]} (\href{https://en.wikipedia.org/wiki/Tree_traversal}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Tree\+\_\+traversal}})  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{others\+::recursive\+\_\+tree\+\_\+traversals\+::\+Node}}
+\begin{DoxyCompactList}\small\item\em The structure to hold Nodes of the tree. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t}{others\+::recursive\+\_\+tree\+\_\+traversals\+::\+BT}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classothers_1_1recursive__tree__traversals_1_1_b_t}{BT} used to make the entire structure of the binary tree and the functions associated with the binary tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceothers}{others}}
+\begin{DoxyCompactList}\small\item\em for {\ttfamily vector} \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceinterpolation__search}{interpolation\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em Functions for the Recursive version of Inorder, Preorder, and Postorder \href{https://en.wikipedia.org/wiki/Tree_traversal}{\texttt{ Traversal of the Tree}} algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{recursive__tree__traversal_8cpp_a951f01040f518d611228c1d182b8242c}{others\+::recursive\+\_\+tree\+\_\+traversals\+::delete\+All}} (const \mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}const root)
+\item 
+void \mbox{\hyperlink{recursive__tree__traversal_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\begin{DoxyCompactList}\small\item\em 1st test-\/case \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{recursive__tree__traversal_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}} ()
+\begin{DoxyCompactList}\small\item\em 2nd test-\/case \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{recursive__tree__traversal_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}} ()
+\begin{DoxyCompactList}\small\item\em 3rd test-\/case \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{recursive__tree__traversal_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{recursive__tree__traversal_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Recursive version of Inorder, Preorder, and Postorder \mbox{[}Traversal of the Tree\mbox{]} (\href{https://en.wikipedia.org/wiki/Tree_traversal}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Tree\+\_\+traversal}}) 
+
+\hypertarget{recursive__tree__traversal_8cpp_autotoc_md98}{}\doxysubsubsubsection{\texorpdfstring{Iterative Inorder Traversal of a tree}{Iterative Inorder Traversal of a tree}}\label{recursive__tree__traversal_8cpp_autotoc_md98}
+For traversing a (non-\/empty) binary tree in an inorder fashion, we must do these three things for every node n starting from the tree’s root\+:
+
+(L) Recursively traverse its left subtree. When this step is finished, we are back at n again. (N) Process n itself. (R) Recursively traverse its right subtree. When this step is finished, we are back at n again.
+
+In normal inorder traversal, we visit the left subtree before the right subtree. If we visit the right subtree before visiting the left subtree, it is referred to as reverse inorder traversal.\hypertarget{recursive__tree__traversal_8cpp_autotoc_md99}{}\doxysubsubsubsection{\texorpdfstring{Iterative Preorder Traversal of a tree}{Iterative Preorder Traversal of a tree}}\label{recursive__tree__traversal_8cpp_autotoc_md99}
+For traversing a (non-\/empty) binary tree in a preorder fashion, we must do these three things for every node n starting from the tree’s root\+:
+
+(N) Process n itself. (L) Recursively traverse its left subtree. When this step is finished, we are back at n again. (R) Recursively traverse its right subtree. When this step is finished, we are back at n again.
+
+In normal preorder traversal, visit the left subtree before the right subtree. If we visit the right subtree before visiting the left subtree, it is referred to as reverse preorder traversal.\hypertarget{recursive__tree__traversal_8cpp_autotoc_md100}{}\doxysubsubsubsection{\texorpdfstring{Iterative Postorder Traversal of a tree}{Iterative Postorder Traversal of a tree}}\label{recursive__tree__traversal_8cpp_autotoc_md100}
+For traversing a (non-\/empty) binary tree in a postorder fashion, we must do these three things for every node n starting from the tree’s root\+:
+
+(L) Recursively traverse its left subtree. When this step is finished, we are back at n again. (R) Recursively traverse its right subtree. When this step is finished, we are back at n again. (N) Process n itself.
+
+In normal postorder traversal, visit the left subtree before the right subtree. If we visit the right subtree before visiting the left subtree, it is referred to as reverse postorder traversal.
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Lazeeez}{\texttt{ Lajat Manekar}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{recursive__tree__traversal_8cpp_a951f01040f518d611228c1d182b8242c}\index{recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}!deleteAll@{deleteAll}}
+\index{deleteAll@{deleteAll}!recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteAll()}{deleteAll()}}
+{\footnotesize\ttfamily \label{recursive__tree__traversal_8cpp_a951f01040f518d611228c1d182b8242c} 
+void others\+::recursive\+\_\+tree\+\_\+traversals\+::delete\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}const}]{root}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{if}\ (root)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ deleteAll(root-\/>left);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ deleteAll(root-\/>right);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ root;}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \}}
+
+\end{DoxyCode}
+\Hypertarget{recursive__tree__traversal_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}!main@{main}}
+\index{main@{main}!recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{recursive__tree__traversal_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{recursive__tree__traversal_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00401\ \}}
+
+\end{DoxyCode}
+\Hypertarget{recursive__tree__traversal_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}\index{recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}!test1@{test1}}
+\index{test1@{test1}!recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}}
+\doxysubsubsection{\texorpdfstring{test1()}{test1()}}
+{\footnotesize\ttfamily \label{recursive__tree__traversal_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0} 
+void test1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+1st test-\/case 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} result stores the inorder traversal of the binary tree
+
+\texorpdfstring{$<$}{<} result stores the preorder traversal of the binary tree
+
+\texorpdfstring{$<$}{<} result stores the postorder traversal of the binary tree
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t}{others::recursive\_tree\_traversals::BT}}\ obj1;}
+\DoxyCodeLine{00203\ \ \ \ \ \mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{others::recursive\_tree\_traversals::Node}}\ *root\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(2);}
+\DoxyCodeLine{00204\ \ \ \ \ root-\/>left\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(7);}
+\DoxyCodeLine{00205\ \ \ \ \ root-\/>right\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(5);}
+\DoxyCodeLine{00206\ \ \ \ \ root-\/>left-\/>left\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(2);}
+\DoxyCodeLine{00207\ \ \ \ \ root-\/>left-\/>right\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(6);}
+\DoxyCodeLine{00208\ \ \ \ \ root-\/>right-\/>right\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(9);}
+\DoxyCodeLine{00209\ \ \ \ \ root-\/>left-\/>right-\/>left\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(5);}
+\DoxyCodeLine{00210\ \ \ \ \ root-\/>left-\/>right-\/>right\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(11);}
+\DoxyCodeLine{00211\ \ \ \ \ root-\/>right-\/>right-\/>left\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(4);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_inorder\{2,\ 7,\ 5,\ 6,\ 11,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ 5,\ 4,\ 9\};}
+\DoxyCodeLine{00215\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_preorder\{2,\ \ 7,\ 2,\ 6,\ 5,}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 11,\ 5,\ 9,\ 4\};}
+\DoxyCodeLine{00217\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_postorder\{2,\ 5,\ 11,\ 6,\ 7,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ 9,\ 5,\ \ 2\};}
+\DoxyCodeLine{00219\ \ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ result\_inorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ inorder}\textcolor{comment}{}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00222\ \textcolor{comment}{}\ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ result\_preorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ preorder}\textcolor{comment}{}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00225\ \textcolor{comment}{}\ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ result\_postorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ postorder}\textcolor{comment}{}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00228\ \textcolor{comment}{}}
+\DoxyCodeLine{00229\ \ \ \ \ std::uint64\_t\ size\ =\ actual\_result\_inorder.size();}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ Calling\ inorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ inorder\ traversal\ in\ result\_inorder.}}
+\DoxyCodeLine{00233\ \ \ \ \ result\_inorder\ =\ obj1.inorder(root);}
+\DoxyCodeLine{00234\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#1:\ Inorder\ Traversal..."{}};}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ assert(actual\_result\_inorder[i]\ ==\ result\_inorder[i]);}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{comment}{//\ Calling\ preorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ preorder\ traversal\ in\ result\_preorder.}}
+\DoxyCodeLine{00242\ \ \ \ \ result\_preorder\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5}{preorder}}(root);}
+\DoxyCodeLine{00243\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#1:\ Preorder\ Traversal..."{}};}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ assert(actual\_result\_preorder[i]\ ==\ result\_preorder[i]);}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{comment}{//\ Calling\ postorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ postorder\ traversal\ in\ result\_postorder.}}
+\DoxyCodeLine{00251\ \ \ \ \ result\_postorder\ =\ obj1.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c}{postorder}}(root);}
+\DoxyCodeLine{00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#1:\ Postorder\ Traversal..."{}};}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ assert(actual\_result\_postorder[i]\ ==\ result\_postorder[i]);}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00259\ \ \ \ \ deleteAll(root);}
+\DoxyCodeLine{00260\ \}}
+
+\end{DoxyCode}
+\Hypertarget{recursive__tree__traversal_8cpp_a0283886819c7c140a023582b7269e2d0}\index{recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}!test2@{test2}}
+\index{test2@{test2}!recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}}
+\doxysubsubsection{\texorpdfstring{test2()}{test2()}}
+{\footnotesize\ttfamily \label{recursive__tree__traversal_8cpp_a0283886819c7c140a023582b7269e2d0} 
+void test2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+2nd test-\/case 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} result stores the inorder traversal of the binary tree
+
+\texorpdfstring{$<$}{<} result stores the preorder traversal of the binary tree
+
+\texorpdfstring{$<$}{<} result stores the postorder traversal of the binary tree
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t}{others::recursive\_tree\_traversals::BT}}\ obj2;}
+\DoxyCodeLine{00268\ \ \ \ \ \mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{others::recursive\_tree\_traversals::Node}}\ *root\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(1);}
+\DoxyCodeLine{00269\ \ \ \ \ root-\/>left\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(2);}
+\DoxyCodeLine{00270\ \ \ \ \ root-\/>right\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(3);}
+\DoxyCodeLine{00271\ \ \ \ \ root-\/>left-\/>left\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(4);}
+\DoxyCodeLine{00272\ \ \ \ \ root-\/>right-\/>left\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(5);}
+\DoxyCodeLine{00273\ \ \ \ \ root-\/>right-\/>right\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(6);}
+\DoxyCodeLine{00274\ \ \ \ \ root-\/>right-\/>left-\/>left\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(7);}
+\DoxyCodeLine{00275\ \ \ \ \ root-\/>right-\/>left-\/>right\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(8);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_inorder\{4,\ 2,\ 1,\ 7,\ 5,\ 8,\ 3,\ 6\};}
+\DoxyCodeLine{00278\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_preorder\{1,\ 2,\ 4,\ 3,\ 5,\ 7,\ 8,\ 6\};}
+\DoxyCodeLine{00279\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_postorder\{4,\ 2,\ 7,\ 8,\ 5,\ 6,\ 3,\ 1\};}
+\DoxyCodeLine{00280\ \ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ result\_inorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ inorder}\textcolor{comment}{}}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00283\ \textcolor{comment}{}\ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ result\_preorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ preorder}\textcolor{comment}{}}
+\DoxyCodeLine{00285\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00286\ \textcolor{comment}{}\ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ result\_postorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ postorder}\textcolor{comment}{}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00289\ \textcolor{comment}{}}
+\DoxyCodeLine{00290\ \ \ \ \ std::uint64\_t\ size\ =\ actual\_result\_inorder.size();}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{comment}{//\ Calling\ inorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ inorder\ traversal\ in\ result\_inorder.}}
+\DoxyCodeLine{00294\ \ \ \ \ result\_inorder\ =\ obj2.inorder(root);}
+\DoxyCodeLine{00295\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#2:\ Inorder\ Traversal..."{}};}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ assert(actual\_result\_inorder[i]\ ==\ result\_inorder[i]);}
+\DoxyCodeLine{00298\ \ \ \ \ \}}
+\DoxyCodeLine{00299\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{comment}{//\ Calling\ preorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ preorder\ traversal\ in\ result\_preorder.}}
+\DoxyCodeLine{00303\ \ \ \ \ result\_preorder\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5}{preorder}}(root);}
+\DoxyCodeLine{00304\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#2:\ Preorder\ Traversal..."{}};}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ assert(actual\_result\_preorder[i]\ ==\ result\_preorder[i]);}
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+\DoxyCodeLine{00308\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{comment}{//\ Calling\ postorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ postorder\ traversal\ in\ result\_postorder.}}
+\DoxyCodeLine{00312\ \ \ \ \ result\_postorder\ =\ obj2.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c}{postorder}}(root);}
+\DoxyCodeLine{00313\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#2:\ Postorder\ Traversal..."{}};}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ assert(actual\_result\_postorder[i]\ ==\ result\_postorder[i]);}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00320\ \ \ \ \ deleteAll(root);}
+\DoxyCodeLine{00321\ \}}
+
+\end{DoxyCode}
+\Hypertarget{recursive__tree__traversal_8cpp_a6d0455dd5c30adda100e95f0423c786e}\index{recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}!test3@{test3}}
+\index{test3@{test3}!recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}}
+\doxysubsubsection{\texorpdfstring{test3()}{test3()}}
+{\footnotesize\ttfamily \label{recursive__tree__traversal_8cpp_a6d0455dd5c30adda100e95f0423c786e} 
+void test3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+3rd test-\/case 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} result stores the inorder traversal of the binary tree
+
+\texorpdfstring{$<$}{<} result stores the preorder traversal of the binary tree
+
+\texorpdfstring{$<$}{<} result stores the postorder traversal of the binary tree
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t}{others::recursive\_tree\_traversals::BT}}\ obj3;}
+\DoxyCodeLine{00329\ \ \ \ \ \mbox{\hyperlink{structothers_1_1recursive__tree__traversals_1_1_node}{others::recursive\_tree\_traversals::Node}}\ *root\ =\ obj3.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(1);}
+\DoxyCodeLine{00330\ \ \ \ \ root-\/>left\ =\ obj3.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(2);}
+\DoxyCodeLine{00331\ \ \ \ \ root-\/>right\ =\ obj3.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(3);}
+\DoxyCodeLine{00332\ \ \ \ \ root-\/>left-\/>left\ =\ obj3.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(4);}
+\DoxyCodeLine{00333\ \ \ \ \ root-\/>left-\/>right\ =\ obj3.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_af16da5fe0f5c54d31778d71d5a042114}{createNewNode}}(5);}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_inorder\{4,\ 2,\ 5,\ 1,\ 3\};}
+\DoxyCodeLine{00336\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_preorder\{1,\ 2,\ 4,\ 5,\ 3\};}
+\DoxyCodeLine{00337\ \ \ \ \ std::vector<std::uint64\_t>\ actual\_result\_postorder\{4,\ 5,\ 2,\ 3,\ 1\};}
+\DoxyCodeLine{00338\ \ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ result\_inorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ inorder}\textcolor{comment}{}}
+\DoxyCodeLine{00340\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00341\ \textcolor{comment}{}\ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ result\_preorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ preorder}\textcolor{comment}{}}
+\DoxyCodeLine{00343\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00344\ \textcolor{comment}{}\ \ \ \ std::vector<std::uint64\_t>}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ result\_postorder;\ \ \textcolor{comment}{///<\ result\ stores\ the\ postorder}\textcolor{comment}{}}
+\DoxyCodeLine{00346\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ traversal\ of\ the\ binary\ tree}}
+\DoxyCodeLine{00347\ \textcolor{comment}{}}
+\DoxyCodeLine{00348\ \ \ \ \ std::uint64\_t\ size\ =\ actual\_result\_inorder.size();}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{comment}{//\ Calling\ inorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ inorder\ traversal\ in\ result\_inorder.}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ result\_inorder\ =\ obj3.inorder(root);}
+\DoxyCodeLine{00354\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#3:\ Inorder\ Traversal..."{}};}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ assert(actual\_result\_inorder[i]\ ==\ result\_inorder[i]);}
+\DoxyCodeLine{00357\ \ \ \ \ \}}
+\DoxyCodeLine{00358\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{comment}{//\ Calling\ preorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ preorder\ traversal\ in\ result\_preorder.}}
+\DoxyCodeLine{00362\ \ \ \ \ result\_preorder\ =\ obj3.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_a6397b78ceec18cb1959a1d159e134da5}{preorder}}(root);}
+\DoxyCodeLine{00363\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#3:\ Preorder\ Traversal..."{}};}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ assert(actual\_result\_preorder[i]\ ==\ result\_preorder[i]);}
+\DoxyCodeLine{00366\ \ \ \ \ \}}
+\DoxyCodeLine{00367\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{comment}{//\ Calling\ postorder()\ function\ by\ passing\ a\ root\ node,}}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{comment}{//\ and\ storing\ the\ postorder\ traversal\ in\ result\_postorder.}}
+\DoxyCodeLine{00371\ \ \ \ \ result\_postorder\ =\ obj3.\mbox{\hyperlink{classothers_1_1recursive__tree__traversals_1_1_b_t_ac9404b65f407f631915515fa2e08a40c}{postorder}}(root);}
+\DoxyCodeLine{00372\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testcase\ \#3:\ Postorder\ Traversal..."{}};}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ assert(actual\_result\_postorder[i]\ ==\ result\_postorder[i]);}
+\DoxyCodeLine{00375\ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00379\ \ \ \ \ deleteAll(root);}
+\DoxyCodeLine{00380\ \}}
+
+\end{DoxyCode}
+\Hypertarget{recursive__tree__traversal_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}!tests@{tests}}
+\index{tests@{tests}!recursive\_tree\_traversal.cpp@{recursive\_tree\_traversal.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{recursive__tree__traversal_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00387\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test-\/case"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00388\ \ \ \ \ \mbox{\hyperlink{recursive__tree__traversal_8cpp_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}}();\ \ \textcolor{comment}{//\ run\ 1st\ test-\/case}}
+\DoxyCodeLine{00389\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test-\/case"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00390\ \ \ \ \ \mbox{\hyperlink{recursive__tree__traversal_8cpp_a0283886819c7c140a023582b7269e2d0}{test2}}();\ \ \textcolor{comment}{//\ run\ 2nd\ test-\/case}}
+\DoxyCodeLine{00391\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test-\/case"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00392\ \ \ \ \ \mbox{\hyperlink{recursive__tree__traversal_8cpp_a6d0455dd5c30adda100e95f0423c786e}{test3}}();\ \ \textcolor{comment}{//\ run\ 3rd\ test-\/case}}
+\DoxyCodeLine{00393\ \}}
+
+\end{DoxyCode}

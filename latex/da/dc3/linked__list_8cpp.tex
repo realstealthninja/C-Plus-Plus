@@ -1,0 +1,144 @@
+\doxysection{data\+\_\+structures/linked\+\_\+list.cpp File Reference}
+\hypertarget{linked__list_8cpp}{}\label{linked__list_8cpp}\index{data\_structures/linked\_list.cpp@{data\_structures/linked\_list.cpp}}
+
+
+Implementation of singly linked list algorithm.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1link}{data\+\_\+structures\+::linked\+\_\+list\+::link}}
+\item 
+class \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\+\_\+structures\+::linked\+\_\+list\+::list}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedata__structures}{data\+\_\+structures}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacelinked__list}{linked\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Functions for singly linked list algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{linked__list_8cpp_ab1a372fe1e605bc0e0987dcdd7361180}{data\+\_\+structures\+::linked\+\_\+list\+::is\+Digit}} (const std\+::string \&s)
+\item 
+int \mbox{\hyperlink{linked__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of singly linked list algorithm. 
+
+The linked list is a data structure used for holding a sequence of values, which can be added, removed and displayed. \hypertarget{linked__list_8cpp_autotoc_md41}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{linked__list_8cpp_autotoc_md41}
+Values can be added by iterating to the end of a \doxylink{structlist}{list(by following the pointers)} starting from the first link. Whichever link points to null is considered the last link and is pointed to the new value.
+
+Values can be removed by also iterating through the list. When the node containing the value is found, the node pointing to the current node is made to point to the node that the current node is pointing to, and then returning the current node to heap store. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linked__list_8cpp_ab1a372fe1e605bc0e0987dcdd7361180}\index{linked\_list.cpp@{linked\_list.cpp}!isDigit@{isDigit}}
+\index{isDigit@{isDigit}!linked\_list.cpp@{linked\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{isDigit()}{isDigit()}}
+{\footnotesize\ttfamily \label{linked__list_8cpp_ab1a372fe1e605bc0e0987dcdd7361180} 
+bool data\+\_\+structures\+::linked\+\_\+list\+::is\+Digit (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{}\end{DoxyParamCaption})}
+
+This function checks if the string passed consists of only digits. 
+\begin{DoxyParams}{Parameters}
+{\em s} & To be checked if s contains only integers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there are only digits present in the string 
+
+false if any other character is found 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ function\ statements\ here}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ i\ :\ s)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isdigit(i))\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{linked__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{linked\_list.cpp@{linked\_list.cpp}!main@{main}}
+\index{main@{main}!linked\_list.cpp@{linked\_list.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{linked__list_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function\+: Allows the user add and delete values from the list. Also allows user to search for and display values in the list. \begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1linked__list_1_1list}{data\_structures::linked\_list::list}}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}};}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ 0;}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{00226\ \ \ \ \ std::string\ s;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n1.\ Insert"{}};}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n2.\ Delete"{}};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n3.\ Search"{}};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n4.\ Print"{}};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n0.\ Exit"{}};}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nEnter\ you\ choice\ :\ "{}};}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ std::cin\ >>\ choice;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nQuitting\ the\ program...\(\backslash\)n"{}};}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ element\ to\ be\ inserted\ :\ "{}};}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ s;}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data\_structures::linked\_list::isDigit(s))\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ std::stoi(s);}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}.push\_back(x);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Wrong\ Input!\(\backslash\)n"{}};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ element\ to\ be\ removed\ :\ "{}};}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ s;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data\_structures::linked\_list::isDigit(s))\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ std::stoi(s);}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}.erase(x);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Wrong\ Input!\(\backslash\)n"{}};}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEnter\ the\ element\ to\ be\ searched\ :\ "{}};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ s;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data\_structures::linked\_list::isDigit(s))\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ std::stoi(s);}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<data\_structures::linked\_list::link>\ found\ =}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}.search(x);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Wrong\ Input!\(\backslash\)n"{}};}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}.display();}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ Input\(\backslash\)n"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 0);}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00281\ \}}
+
+\end{DoxyCode}

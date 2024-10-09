@@ -1,0 +1,293 @@
+\doxysection{machine\+\_\+learning/neural\+\_\+network.cpp File Reference}
+\hypertarget{neural__network_8cpp}{}\label{neural__network_8cpp}\index{machine\_learning/neural\_network.cpp@{machine\_learning/neural\_network.cpp}}
+
+
+Implementation of \mbox{[}Multilayer Perceptron\mbox{]} (\href{https://en.wikipedia.org/wiki/Multilayer_perceptron}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Multilayer\+\_\+perceptron}}).  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+ops.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer}{machine\+\_\+learning\+::neural\+\_\+network\+::layers\+::\+Dense\+Layer}}
+\item 
+class \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{machine\+\_\+learning\+::neural\+\_\+network\+::\+Neural\+Network}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemachine__learning}{machine\+\_\+learning}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}} \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceneural__network}{neural\+\_\+network}}
+\begin{DoxyCompactList}\small\item\em Neural Network or Multilayer Perceptron. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceactivations}{activations}}
+\begin{DoxyCompactList}\small\item\em Various activation functions used in Neural network. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceutil__functions}{util\+\_\+functions}}
+\begin{DoxyCompactList}\small\item\em Various utility functions used in Neural network. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacelayers}{layers}}
+\begin{DoxyCompactList}\small\item\em This namespace contains layers used in MLP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_a23aa9d32bcbcd65cfc85f0a41e2afadc}{machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::sigmoid}} (const double \&x)
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_a76eb66212d577f948a457b6e29d87c46}{machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::dsigmoid}} (const double \&x)
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_af8f264600754602b6a9ea19cc690e50e}{machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::relu}} (const double \&x)
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_aa69e95a34054d7989bf446f96b2ffaf9}{machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::drelu}} (const double \&x)
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_a371aa7dd5d5add0143d1756bb0a1b32f}{machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::tanh}} (const double \&x)
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_a2a5e874b9774aa5362dbcf288828b95c}{machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::dtanh}} (const double \&x)
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_a45d3e30406712ada3d9713ece3c1b153}{machine\+\_\+learning\+::neural\+\_\+network\+::util\+\_\+functions\+::square}} (const double \&x)
+\item 
+double \mbox{\hyperlink{neural__network_8cpp_a32c00da08f2cf641dd336270f6e3c407}{machine\+\_\+learning\+::neural\+\_\+network\+::util\+\_\+functions\+::identity\+\_\+function}} (const double \&x)
+\item 
+static void \mbox{\hyperlink{neural__network_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{neural__network_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of \mbox{[}Multilayer Perceptron\mbox{]} (\href{https://en.wikipedia.org/wiki/Multilayer_perceptron}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Multilayer\+\_\+perceptron}}). 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/imdeep2905}{\texttt{ Deep Raval}}
+\end{DoxyAuthor}
+
+
+A multilayer perceptron (MLP) is a class of feedforward artificial neural network (ANN). The term MLP is used ambiguously, sometimes loosely to any feedforward ANN, sometimes strictly to refer to networks composed of multiple layers of perceptrons (with threshold activation). Multilayer perceptrons are sometimes colloquially referred to as "{}vanilla"{} neural networks, especially when they have a single hidden layer.
+
+An MLP consists of at least three layers of nodes\+: an input layer, a hidden layer and an output layer. Except for the input nodes, each node is a neuron that uses a nonlinear activation function. MLP utilizes a supervised learning technique called backpropagation for training. Its multiple layers and non-\/linear activation distinguish MLP from a linear perceptron. It can distinguish data that is not linearly separable.
+
+See \href{https://en.wikipedia.org/wiki/Backpropagation}{\texttt{ Backpropagation}} for training algorithm.
+
+\begin{DoxyNote}{Note}
+This implementation uses mini-\/batch gradient descent as optimizer and MSE as loss function. Bias is also not included. 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{neural__network_8cpp_aa69e95a34054d7989bf446f96b2ffaf9}\index{neural\_network.cpp@{neural\_network.cpp}!drelu@{drelu}}
+\index{drelu@{drelu}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{drelu()}{drelu()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_aa69e95a34054d7989bf446f96b2ffaf9} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::drelu (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Derivative of relu function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+derivative of relu(x) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \{\ \textcolor{keywordflow}{return}\ x\ >=\ 0.0\ ?\ 1.0\ :\ 0.0;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_a76eb66212d577f948a457b6e29d87c46}\index{neural\_network.cpp@{neural\_network.cpp}!dsigmoid@{dsigmoid}}
+\index{dsigmoid@{dsigmoid}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{dsigmoid()}{dsigmoid()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_a76eb66212d577f948a457b6e29d87c46} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::dsigmoid (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Derivative of sigmoid function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns derivative of sigmoid(x) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \{\ \textcolor{keywordflow}{return}\ x\ *\ (1\ -\/\ x);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_a2a5e874b9774aa5362dbcf288828b95c}\index{neural\_network.cpp@{neural\_network.cpp}!dtanh@{dtanh}}
+\index{dtanh@{dtanh}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{dtanh()}{dtanh()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_a2a5e874b9774aa5362dbcf288828b95c} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::dtanh (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Derivative of Sigmoid function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns derivative of tanh(x) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \{\ \textcolor{keywordflow}{return}\ 1\ -\/\ x\ *\ x;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_a32c00da08f2cf641dd336270f6e3c407}\index{neural\_network.cpp@{neural\_network.cpp}!identity\_function@{identity\_function}}
+\index{identity\_function@{identity\_function}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{identity\_function()}{identity\_function()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_a32c00da08f2cf641dd336270f6e3c407} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::util\+\_\+functions\+::identity\+\_\+function (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Identity function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns x 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \{\ \textcolor{keywordflow}{return}\ x;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{neural\_network.cpp@{neural\_network.cpp}!main@{main}}
+\index{main@{main}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00834\ \ \ \ \ \textcolor{comment}{//\ Testing}}
+\DoxyCodeLine{00835\ \ \ \ \ \mbox{\hyperlink{neural__network_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();}
+\DoxyCodeLine{00836\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00837\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_af8f264600754602b6a9ea19cc690e50e}\index{neural\_network.cpp@{neural\_network.cpp}!relu@{relu}}
+\index{relu@{relu}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{relu()}{relu()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_af8f264600754602b6a9ea19cc690e50e} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::relu (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Relu function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+relu(x) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \{\ \textcolor{keywordflow}{return}\ std::max(0.0,\ x);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_a23aa9d32bcbcd65cfc85f0a41e2afadc}\index{neural\_network.cpp@{neural\_network.cpp}!sigmoid@{sigmoid}}
+\index{sigmoid@{sigmoid}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{sigmoid()}{sigmoid()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_a23aa9d32bcbcd65cfc85f0a41e2afadc} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::sigmoid (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Sigmoid function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns sigmoid(x) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \{\ \textcolor{keywordflow}{return}\ 1.0\ /\ (1.0\ +\ std::exp(-\/x));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_a45d3e30406712ada3d9713ece3c1b153}\index{neural\_network.cpp@{neural\_network.cpp}!square@{square}}
+\index{square@{square}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{square()}{square()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_a45d3e30406712ada3d9713ece3c1b153} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::util\+\_\+functions\+::square (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Square function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns x \texorpdfstring{$\ast$}{*} x 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \{\ \textcolor{keywordflow}{return}\ x\ *\ x;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_a371aa7dd5d5add0143d1756bb0a1b32f}\index{neural\_network.cpp@{neural\_network.cpp}!tanh@{tanh}}
+\index{tanh@{tanh}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{tanh()}{tanh()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_a371aa7dd5d5add0143d1756bb0a1b32f} 
+double machine\+\_\+learning\+::neural\+\_\+network\+::activations\+::tanh (\begin{DoxyParamCaption}\item[{const double \&}]{x}{}\end{DoxyParamCaption})}
+
+Tanh function 
+\begin{DoxyParams}{Parameters}
+{\em X} & Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns tanh(x) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \{\ \textcolor{keywordflow}{return}\ 2\ /\ (1\ +\ std::exp(-\/2\ *\ x))\ -\/\ 1;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{neural__network_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{neural\_network.cpp@{neural\_network.cpp}!test@{test}}
+\index{test@{test}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{neural__network_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function to test neural network \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00806\ \ \ \ \ \textcolor{comment}{//\ Creating\ network\ with\ 3\ layers\ for\ "{}iris.csv"{}}}
+\DoxyCodeLine{00807\ \ \ \ \ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{machine\_learning::neural\_network::NeuralNetwork}}\ myNN\ =}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network}{machine\_learning::neural\_network::NeuralNetwork}}(\{}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ \textcolor{stringliteral}{"{}none"{}}\},\ \ \textcolor{comment}{//\ First\ layer\ with\ 3\ neurons\ and\ "{}none"{}\ as\ activation}}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \ \ \ \ \{6,}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}relu"{}}\},\ \ \textcolor{comment}{//\ Second\ layer\ with\ 6\ neurons\ and\ "{}relu"{}\ as\ activation}}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ \textcolor{stringliteral}{"{}sigmoid"{}}\}\ \ \textcolor{comment}{//\ Third\ layer\ with\ 3\ neurons\ and\ "{}sigmoid"{}\ as}}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ activation}}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00815\ \ \ \ \ \textcolor{comment}{//\ Printing\ summary\ of\ model}}
+\DoxyCodeLine{00816\ \ \ \ \ myNN.\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a61d30113d13304c664057118b92a5931}{summary}}();}
+\DoxyCodeLine{00817\ \ \ \ \ \textcolor{comment}{//\ Training\ Model}}
+\DoxyCodeLine{00818\ \ \ \ \ myNN.\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a5172a6791b9bd24f4232bab8d6b81fff}{fit\_from\_csv}}(\textcolor{stringliteral}{"{}iris.csv"{}},\ \textcolor{keyword}{true},\ 100,\ 0.3,\ \textcolor{keyword}{false},\ 2,\ 32,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00819\ \ \ \ \ \textcolor{comment}{//\ Testing\ predictions\ of\ model}}
+\DoxyCodeLine{00820\ \ \ \ \ assert(\mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{machine\_learning::argmax}}(}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ myNN.\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f}{single\_predict}}(\{\{5,\ 3.4,\ 1.6,\ 0.4\}\}))\ ==\ 0);}
+\DoxyCodeLine{00822\ \ \ \ \ assert(\mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{machine\_learning::argmax}}(}
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ myNN.\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f}{single\_predict}}(\{\{6.4,\ 2.9,\ 4.3,\ 1.3\}\}))\ ==\ 1);}
+\DoxyCodeLine{00824\ \ \ \ \ assert(\mbox{\hyperlink{namespacemachine__learning_a50480fccfb39de20ca47f1bf51ecb6ec}{machine\_learning::argmax}}(}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ myNN.\mbox{\hyperlink{classmachine__learning_1_1neural__network_1_1_neural_network_a3b9eac1824d365dce715fb17c33cb96f}{single\_predict}}(\{\{6.2,\ 3.4,\ 5.4,\ 2.3\}\}))\ ==\ 2);}
+\DoxyCodeLine{00826\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00827\ \}}
+
+\end{DoxyCode}

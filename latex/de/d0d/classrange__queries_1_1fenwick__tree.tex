@@ -1,0 +1,250 @@
+\doxysection{range\+\_\+queries\+::fenwick\+\_\+tree Class Reference}
+\hypertarget{classrange__queries_1_1fenwick__tree}{}\label{classrange__queries_1_1fenwick__tree}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+
+
+The class that initializes the Fenwick Tree.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classrange__queries_1_1fenwick__tree_a5ea37183524553bbf2234a36a44a4b9a}{fenwick\+\_\+tree}} (const std\+::vector$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Class Constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classrange__queries_1_1fenwick__tree_aef7ba885b91af093e9e514358fa0f36c}{fenwick\+\_\+tree}} (T x)
+\begin{DoxyCompactList}\small\item\em Class Constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_a19dea5e88bbd7683a719030623315de9}{update}} (T id, T val)
+\begin{DoxyCompactList}\small\item\em Updates the value of an element in original array and accordingly updates the values in BIT array. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_a1fa0559d987fde0044761b17b35f5abd}{sum}} (T id)
+\begin{DoxyCompactList}\small\item\em Returns the sum of elements in range from 0 to ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_a0914a4b1401a7c427de91c92885724fe}{sum\+\_\+range}} (int l, int r)
+\begin{DoxyCompactList}\small\item\em Returns the prefix sum in range from L to R. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_ab492ebf07cab0e3c32d277ad986de801}{offset}} (int x)
+\begin{DoxyCompactList}\small\item\em Returns the highest power of two which is not more than {\ttfamily x}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6}\label{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6} 
+size\+\_\+t {\bfseries n} = 0
+\begin{DoxyCompactList}\small\item\em No. of elements present in input array. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af7b7a8c1c5724ed8683d7e28bef526e6}{bit}} \{\}
+\begin{DoxyCompactList}\small\item\em Array that represents Binary Indexed Tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class that initializes the Fenwick Tree. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrange__queries_1_1fenwick__tree_a5ea37183524553bbf2234a36a44a4b9a}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}!fenwick\_tree@{fenwick\_tree}}
+\index{fenwick\_tree@{fenwick\_tree}!range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+\doxysubsubsection{\texorpdfstring{fenwick\_tree()}{fenwick\_tree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1fenwick__tree_a5ea37183524553bbf2234a36a44a4b9a} 
+template$<$typename T $>$ \\
+range\+\_\+queries\+::fenwick\+\_\+tree\+::fenwick\+\_\+tree (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{arr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Class Constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of the array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arr} & Input array for which prefix sum is evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6}{n}}(arr.size())\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af7b7a8c1c5724ed8683d7e28bef526e6}{bit}}.assign(\mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6}{n}}\ +\ 1,\ 0);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6}{n}};\ ++i)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_a19dea5e88bbd7683a719030623315de9}{update}}(i,\ arr[i]);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1fenwick__tree_aef7ba885b91af093e9e514358fa0f36c}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}!fenwick\_tree@{fenwick\_tree}}
+\index{fenwick\_tree@{fenwick\_tree}!range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+\doxysubsubsection{\texorpdfstring{fenwick\_tree()}{fenwick\_tree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1fenwick__tree_aef7ba885b91af093e9e514358fa0f36c} 
+template$<$typename T $>$ \\
+range\+\_\+queries\+::fenwick\+\_\+tree\+::fenwick\+\_\+tree (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Class Constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of the variable \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Size of array that represents Binary Indexed Tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ :\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6}{n}}(x)\ \{\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af7b7a8c1c5724ed8683d7e28bef526e6}{bit}}.assign(\mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6}{n}}\ +\ 1,\ 0);\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrange__queries_1_1fenwick__tree_ab492ebf07cab0e3c32d277ad986de801}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}!offset@{offset}}
+\index{offset@{offset}!range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+\doxysubsubsection{\texorpdfstring{offset()}{offset()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1fenwick__tree_ab492ebf07cab0e3c32d277ad986de801} 
+int range\+\_\+queries\+::fenwick\+\_\+tree\+::offset (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Returns the highest power of two which is not more than {\ttfamily x}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Index of element in original array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offset of index. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{\ \textcolor{keywordflow}{return}\ (x\ \&\ (-\/x));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1fenwick__tree_a1fa0559d987fde0044761b17b35f5abd}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}!sum@{sum}}
+\index{sum@{sum}!range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1fenwick__tree_a1fa0559d987fde0044761b17b35f5abd} 
+template$<$typename T $>$ \\
+int range\+\_\+queries\+::fenwick\+\_\+tree\+::sum (\begin{DoxyParamCaption}\item[{T}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the sum of elements in range from 0 to ID. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of the variables \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Index in original array up to which sum is evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sum of elements in range from 0 to id. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}++;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ T\ res\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keywordtype}{id}\ >\ 0)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ res\ +=\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af7b7a8c1c5724ed8683d7e28bef526e6}{bit}}[id];}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ -\/=\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_ab492ebf07cab0e3c32d277ad986de801}{offset}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1fenwick__tree_a0914a4b1401a7c427de91c92885724fe}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}!sum\_range@{sum\_range}}
+\index{sum\_range@{sum\_range}!range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+\doxysubsubsection{\texorpdfstring{sum\_range()}{sum\_range()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1fenwick__tree_a0914a4b1401a7c427de91c92885724fe} 
+int range\+\_\+queries\+::fenwick\+\_\+tree\+::sum\+\_\+range (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the prefix sum in range from L to R. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & Left index of range. \\
+\hline
+{\em r} & Right index of range. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sum of elements in range from L to R. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_a1fa0559d987fde0044761b17b35f5abd}{sum}}(r)\ -\/\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_a1fa0559d987fde0044761b17b35f5abd}{sum}}(l\ -\/\ 1);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classrange__queries_1_1fenwick__tree_a19dea5e88bbd7683a719030623315de9}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}!update@{update}}
+\index{update@{update}!range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1fenwick__tree_a19dea5e88bbd7683a719030623315de9} 
+template$<$typename T $>$ \\
+void range\+\_\+queries\+::fenwick\+\_\+tree\+::update (\begin{DoxyParamCaption}\item[{T}]{id}{, }\item[{T}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the value of an element in original array and accordingly updates the values in BIT array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of the variables \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Index of element in original array. \\
+\hline
+{\em val} & Value with which element\textquotesingle{}s value is updated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}++;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keywordtype}{id}\ <=\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af9f543aa5976b8cc5422490b3d6250c6}{n}})\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_af7b7a8c1c5724ed8683d7e28bef526e6}{bit}}[id]\ +=\ val;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ +=\ \mbox{\hyperlink{classrange__queries_1_1fenwick__tree_ab492ebf07cab0e3c32d277ad986de801}{offset}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrange__queries_1_1fenwick__tree_af7b7a8c1c5724ed8683d7e28bef526e6}\index{range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}!bit@{bit}}
+\index{bit@{bit}!range\_queries::fenwick\_tree@{range\_queries::fenwick\_tree}}
+\doxysubsubsection{\texorpdfstring{bit}{bit}}
+{\footnotesize\ttfamily \label{classrange__queries_1_1fenwick__tree_af7b7a8c1c5724ed8683d7e28bef526e6} 
+std\+::vector$<$int$>$ range\+\_\+queries\+::fenwick\+\_\+tree\+::bit \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Array that represents Binary Indexed Tree. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \{\};\ \ \textcolor{comment}{///<\ Array\ that\ represents\ Binary\ Indexed\ Tree.}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+range\+\_\+queries/\mbox{\hyperlink{fenwick__tree_8cpp}{fenwick\+\_\+tree.\+cpp}}\end{DoxyCompactItemize}

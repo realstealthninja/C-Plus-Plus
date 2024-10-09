@@ -1,0 +1,211 @@
+\doxysection{probability/geometric\+\_\+dist.cpp File Reference}
+\hypertarget{geometric__dist_8cpp}{}\label{geometric__dist_8cpp}\index{probability/geometric\_dist.cpp@{probability/geometric\_dist.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Geometric_distribution}{\texttt{ Geometric Distribution}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution}{probability\+::geometric\+\_\+dist\+::geometric\+\_\+distribution}}
+\begin{DoxyCompactList}\small\item\em A class to model the geometric distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceprobability}{probability}}
+\begin{DoxyCompactList}\small\item\em Probability algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacegeometric__dist}{geometric\+\_\+dist}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/Geometric_distribution}{\texttt{ Geometric Distribution}} algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{geometric__dist_8cpp_a82964ca6180507deb5fafc71050012ba}{probability\+::geometric\+\_\+dist\+::generate\+\_\+uniform}} ()
+\begin{DoxyCompactList}\small\item\em Returns a random number between \mbox{[}0,1\mbox{]}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{geometric__dist_8cpp_a70fd1cc5c3a2813f28683dc75dcd65b6}{sample\+\_\+test}} (const \mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution}{probability\+::geometric\+\_\+dist\+::geometric\+\_\+distribution}} \&dist)
+\begin{DoxyCompactList}\small\item\em Tests the sampling method of the geometric distribution. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{geometric__dist_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{geometric__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Geometric_distribution}{\texttt{ Geometric Distribution}} 
+
+The geometric distribution models the experiment of doing Bernoulli trials until a sucess was observed. There are two formulations of the geometric distribution\+: 1) The probability distribution of the number X of Bernoulli trials needed to get one success, supported on the set \{ 1, 2, 3, ... \} 2) The probability distribution of the number Y = X − 1 of failures before the first success, supported on the set \{ 0, 1, 2, 3, ... \} Here, the first one is implemented.
+
+Common variables used\+: p -\/ The success probability k -\/ The number of tries
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/DerAndereDomenic}{\texttt{ Domenic Zingsheim}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{geometric__dist_8cpp_a82964ca6180507deb5fafc71050012ba}\index{geometric\_dist.cpp@{geometric\_dist.cpp}!generate\_uniform@{generate\_uniform}}
+\index{generate\_uniform@{generate\_uniform}!geometric\_dist.cpp@{geometric\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{generate\_uniform()}{generate\_uniform()}}
+{\footnotesize\ttfamily \label{geometric__dist_8cpp_a82964ca6180507deb5fafc71050012ba} 
+float probability\+::geometric\+\_\+dist\+::generate\+\_\+uniform (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns a random number between \mbox{[}0,1\mbox{]}. 
+
+\begin{DoxyReturn}{Returns}
+A uniformly distributed random number between 0 (included) and 1 (included) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(rand())\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(RAND\_MAX);}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{geometric__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{geometric\_dist.cpp@{geometric\_dist.cpp}!main@{main}}
+\index{main@{main}!geometric\_dist.cpp@{geometric\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{geometric__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ srand(time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00258\ \ \ \ \ \mbox{\hyperlink{geometric__dist_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00260\ \}}
+
+\end{DoxyCode}
+\Hypertarget{geometric__dist_8cpp_a70fd1cc5c3a2813f28683dc75dcd65b6}\index{geometric\_dist.cpp@{geometric\_dist.cpp}!sample\_test@{sample\_test}}
+\index{sample\_test@{sample\_test}!geometric\_dist.cpp@{geometric\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{sample\_test()}{sample\_test()}}
+{\footnotesize\ttfamily \label{geometric__dist_8cpp_a70fd1cc5c3a2813f28683dc75dcd65b6} 
+void sample\+\_\+test (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution}{probability\+::geometric\+\_\+dist\+::geometric\+\_\+distribution}} \&}]{dist}{}\end{DoxyParamCaption})}
+
+
+
+Tests the sampling method of the geometric distribution. 
+
+Draws 1000000 random samples and estimates mean and variance These should be close to the expected value and variance of the given distribution to pass. 
+\begin{DoxyParams}{Parameters}
+{\em dist} & The distribution to test \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ uint32\_t\ n\_tries\ =\ 1000000;}
+\DoxyCodeLine{00168\ \ \ \ \ std::vector<float>\ tries;}
+\DoxyCodeLine{00169\ \ \ \ \ tries.resize(n\_tries);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{float}\ mean\ =\ 0.0f;}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ n\_tries;\ ++i)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ tries[i]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(dist.\mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution_a8aae1cebcf42ed2332f1c7217c401aa3}{draw\_sample}}());}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ mean\ +=\ tries[i];}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ mean\ /=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(n\_tries);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{float}\ var\ =\ 0.0f;}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ n\_tries;\ ++i)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ var\ +=\ (tries[i]\ -\/\ mean)\ *\ (tries[i]\ -\/\ mean);}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ Unbiased\ estimate\ of\ variance}}
+\DoxyCodeLine{00185\ \ \ \ \ var\ /=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(n\_tries\ -\/\ 1);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ value\ should\ be\ near\ "{}}\ <<\ dist.\mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution_a41051365f8ac7700f2ed5880a6760413}{expected\_value}}()\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ mean\ <<\ std::endl;}
+\DoxyCodeLine{00189\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ value\ should\ be\ near\ "{}}\ <<\ dist.\mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution_aea8b0d649f0dc9a6f8baf3341a0b4960}{variance}}()\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ var}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00191\ \}}
+
+\end{DoxyCode}
+\Hypertarget{geometric__dist_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{geometric\_dist.cpp@{geometric\_dist.cpp}!test@{test}}
+\index{test@{test}!geometric\_dist.cpp@{geometric\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{geometric__dist_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution}{probability::geometric\_dist::geometric\_distribution}}\ dist(0.3);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ threshold\ =\ 1e-\/3f;}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Starting\ tests\ for\ p\ =\ 0.3..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00203\ \ \ \ \ assert(std::abs(dist.expected\_value()\ -\/\ 3.33333333f)\ <\ threshold);}
+\DoxyCodeLine{00204\ \ \ \ \ assert(std::abs(dist.variance()\ -\/\ 7.77777777f)\ <\ threshold);}
+\DoxyCodeLine{00205\ \ \ \ \ assert(std::abs(dist.standard\_deviation()\ -\/\ 2.788866755)\ <\ threshold);}
+\DoxyCodeLine{00206\ \ \ \ \ assert(std::abs(dist.probability\_density(5)\ -\/\ 0.07203)\ <\ threshold);}
+\DoxyCodeLine{00207\ \ \ \ \ assert(std::abs(dist.cumulative\_distribution(6)\ -\/\ 0.882351)\ <\ threshold);}
+\DoxyCodeLine{00208\ \ \ \ \ assert(std::abs(dist.inverse\_cumulative\_distribution(}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist.cumulative\_distribution(8))\ -\/}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8)\ <\ threshold);}
+\DoxyCodeLine{00211\ \ \ \ \ assert(std::abs(dist.range\_tries()\ -\/\ 1.0f)\ <\ threshold);}
+\DoxyCodeLine{00212\ \ \ \ \ assert(std::abs(dist.range\_tries(3)\ -\/\ 0.49f)\ <\ threshold);}
+\DoxyCodeLine{00213\ \ \ \ \ assert(std::abs(dist.range\_tries(5,\ 11)\ -\/\ 0.2203267f)\ <\ threshold);}
+\DoxyCodeLine{00214\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{geometric__dist_8cpp_a70fd1cc5c3a2813f28683dc75dcd65b6}{sample\_test}}(dist);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ dist\ =\ \mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution}{probability::geometric\_dist::geometric\_distribution}}(0.5f);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Starting\ tests\ for\ p\ =\ 0.5..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00220\ \ \ \ \ assert(std::abs(dist.expected\_value()\ -\/\ 2.0f)\ <\ threshold);}
+\DoxyCodeLine{00221\ \ \ \ \ assert(std::abs(dist.variance()\ -\/\ 2.0f)\ <\ threshold);}
+\DoxyCodeLine{00222\ \ \ \ \ assert(std::abs(dist.standard\_deviation()\ -\/\ 1.4142135f)\ <\ threshold);}
+\DoxyCodeLine{00223\ \ \ \ \ assert(std::abs(dist.probability\_density(5)\ -\/\ 0.03125)\ <\ threshold);}
+\DoxyCodeLine{00224\ \ \ \ \ assert(std::abs(dist.cumulative\_distribution(6)\ -\/\ 0.984375)\ <\ threshold);}
+\DoxyCodeLine{00225\ \ \ \ \ assert(std::abs(dist.inverse\_cumulative\_distribution(}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist.cumulative\_distribution(8))\ -\/}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8)\ <\ threshold);}
+\DoxyCodeLine{00228\ \ \ \ \ assert(std::abs(dist.range\_tries()\ -\/\ 1.0f)\ <\ threshold);}
+\DoxyCodeLine{00229\ \ \ \ \ assert(std::abs(dist.range\_tries(3)\ -\/\ 0.25f)\ <\ threshold);}
+\DoxyCodeLine{00230\ \ \ \ \ assert(std::abs(dist.range\_tries(5,\ 11)\ -\/\ 0.062011f)\ <\ threshold);}
+\DoxyCodeLine{00231\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{geometric__dist_8cpp_a70fd1cc5c3a2813f28683dc75dcd65b6}{sample\_test}}(dist);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ dist\ =\ \mbox{\hyperlink{classprobability_1_1geometric__dist_1_1geometric__distribution}{probability::geometric\_dist::geometric\_distribution}}(0.8f);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Starting\ tests\ for\ p\ =\ 0.8..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00237\ \ \ \ \ assert(std::abs(dist.expected\_value()\ -\/\ 1.25f)\ <\ threshold);}
+\DoxyCodeLine{00238\ \ \ \ \ assert(std::abs(dist.variance()\ -\/\ 0.3125f)\ <\ threshold);}
+\DoxyCodeLine{00239\ \ \ \ \ assert(std::abs(dist.standard\_deviation()\ -\/\ 0.559016f)\ <\ threshold);}
+\DoxyCodeLine{00240\ \ \ \ \ assert(std::abs(dist.probability\_density(5)\ -\/\ 0.00128)\ <\ threshold);}
+\DoxyCodeLine{00241\ \ \ \ \ assert(std::abs(dist.cumulative\_distribution(6)\ -\/\ 0.999936)\ <\ threshold);}
+\DoxyCodeLine{00242\ \ \ \ \ assert(std::abs(dist.inverse\_cumulative\_distribution(}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist.cumulative\_distribution(8))\ -\/}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8)\ <\ threshold);}
+\DoxyCodeLine{00245\ \ \ \ \ assert(std::abs(dist.range\_tries()\ -\/\ 1.0f)\ <\ threshold);}
+\DoxyCodeLine{00246\ \ \ \ \ assert(std::abs(dist.range\_tries(3)\ -\/\ 0.04f)\ <\ threshold);}
+\DoxyCodeLine{00247\ \ \ \ \ assert(std::abs(dist.range\_tries(5,\ 11)\ -\/\ 0.00159997f)\ <\ threshold);}
+\DoxyCodeLine{00248\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{geometric__dist_8cpp_a70fd1cc5c3a2813f28683dc75dcd65b6}{sample\_test}}(dist);}
+\DoxyCodeLine{00250\ \}}
+
+\end{DoxyCode}

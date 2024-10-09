@@ -1,0 +1,153 @@
+\doxysection{hashing/quadratic\+\_\+probing\+\_\+hash\+\_\+table.cpp File Reference}
+\hypertarget{quadratic__probing__hash__table_8cpp}{}\label{quadratic__probing__hash__table_8cpp}\index{hashing/quadratic\_probing\_hash\_table.cpp@{hashing/quadratic\_probing\_hash\_table.cpp}}
+
+
+Storage mechanism using \href{https://en.wikipedia.org/wiki/Quadratic_probing}{\texttt{ quadratic probing hash}} keys.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structquadratic__probing_1_1_entry}{quadratic\+\_\+probing\+::\+Entry}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacequadratic__probing}{quadratic\+\_\+probing}}
+\begin{DoxyCompactList}\small\item\em An implementation of hash table using \href{https://en.wikipedia.org/wiki/Quadratic_probing}{\texttt{ quadratic probing}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacequadratic__probing_adccc63a7e57cc6dba75bd62f40feb88b}{quadratic\+\_\+probing\+::put\+Prober}} (const \mbox{\hyperlink{structquadratic__probing_1_1_entry}{Entry}} \&entry, int key)
+\item 
+bool \mbox{\hyperlink{namespacequadratic__probing_aeb6bca8db4768226f8ea8291ea4f83f6}{quadratic\+\_\+probing\+::searching\+Prober}} (const \mbox{\hyperlink{structquadratic__probing_1_1_entry}{Entry}} \&entry, int key)
+\item 
+void \mbox{\hyperlink{namespacequadratic__probing_a00ebcc6d39653eccc26f8432efbfc8d9}{quadratic\+\_\+probing\+::add}} (int key)
+\item 
+size\+\_\+t \mbox{\hyperlink{namespacequadratic__probing_a2093d91dd3d377cf0a5c939e45dcefc7}{quadratic\+\_\+probing\+::hash\+Fxn}} (int key)
+\item 
+int \mbox{\hyperlink{namespacequadratic__probing_ab431981b54c0bae1b2956f716aee1dcf}{quadratic\+\_\+probing\+::quadratic\+Probe}} (int key, bool searching)
+\item 
+\mbox{\hyperlink{structquadratic__probing_1_1_entry}{Entry}} \mbox{\hyperlink{namespacequadratic__probing_a5ceee4128d92ca4412040b7104d1299d}{quadratic\+\_\+probing\+::find}} (int key)
+\item 
+void \mbox{\hyperlink{namespacequadratic__probing_a40d617ebf4d6ba21bcda8d8d1faa2357}{quadratic\+\_\+probing\+::display}} ()
+\item 
+void \mbox{\hyperlink{namespacequadratic__probing_ada6f1f44f7e83b0094fbcbe170788486}{quadratic\+\_\+probing\+::rehash}} ()
+\item 
+void \mbox{\hyperlink{namespacequadratic__probing_a07a0467b24102260fbb6b554c453c20a}{quadratic\+\_\+probing\+::remove}} (int key)
+\item 
+void \mbox{\hyperlink{namespacequadratic__probing_a312143ed316d48978084c025ff8d9768}{quadratic\+\_\+probing\+::add\+Info}} (int key)
+\item 
+void \mbox{\hyperlink{namespacequadratic__probing_a69fe1f7c36fe004ba83eef2ca82e7e30}{quadratic\+\_\+probing\+::removal\+Info}} (int key)
+\item 
+int \mbox{\hyperlink{quadratic__probing__hash__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacequadratic__probing_a90f9d8a71e3f148b65bcc0c1c8a49c70}\label{namespacequadratic__probing_a90f9d8a71e3f148b65bcc0c1c8a49c70} 
+int {\bfseries quadratic\+\_\+probing\+::not\+Present}
+\item 
+\Hypertarget{namespacequadratic__probing_a149e32e186c3fac390ffa81dd6c73147}\label{namespacequadratic__probing_a149e32e186c3fac390ffa81dd6c73147} 
+std\+::vector$<$ \mbox{\hyperlink{structquadratic__probing_1_1_entry}{Entry}} $>$ {\bfseries quadratic\+\_\+probing\+::table}
+\item 
+\Hypertarget{namespacequadratic__probing_a2d5722a3b692eeb1b96615fba6a248f3}\label{namespacequadratic__probing_a2d5722a3b692eeb1b96615fba6a248f3} 
+int {\bfseries quadratic\+\_\+probing\+::total\+Size}
+\item 
+\Hypertarget{namespacequadratic__probing_aaa4b6c021ba71ecdac8b23b45d55c774}\label{namespacequadratic__probing_aaa4b6c021ba71ecdac8b23b45d55c774} 
+int {\bfseries quadratic\+\_\+probing\+::tomb} = -\/1
+\item 
+\Hypertarget{namespacequadratic__probing_a6c60d84648b0f7bf78789da196bcd2b3}\label{namespacequadratic__probing_a6c60d84648b0f7bf78789da196bcd2b3} 
+int {\bfseries quadratic\+\_\+probing\+::size}
+\item 
+\Hypertarget{namespacequadratic__probing_ad20bb8020424def88917e26979051fae}\label{namespacequadratic__probing_ad20bb8020424def88917e26979051fae} 
+bool {\bfseries quadratic\+\_\+probing\+::rehashing}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Storage mechanism using \href{https://en.wikipedia.org/wiki/Quadratic_probing}{\texttt{ quadratic probing hash}} keys. 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/achance6}{\texttt{ achance6}} 
+
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+The implementation can be optimized by using OOP style. 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{quadratic__probing__hash__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{quadratic\_probing\_hash\_table.cpp@{quadratic\_probing\_hash\_table.cpp}!main@{main}}
+\index{main@{main}!quadratic\_probing\_hash\_table.cpp@{quadratic\_probing\_hash\_table.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{quadratic__probing__hash__table_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function \begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{int}\ cmd\ =\ 0,\ \mbox{\hyperlink{md5_8cpp_a88705fab5f92adf3427b4cf76ff33edb}{hash}}\ =\ 0,\ key\ =\ 0;}
+\DoxyCodeLine{00248\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ initial\ size\ of\ Hash\ Table.\ =\ "{}};}
+\DoxyCodeLine{00249\ \ \ \ \ std::cin\ >>\ totalSize;}
+\DoxyCodeLine{00250\ \ \ \ \ table\ =\ std::vector<Entry>(totalSize);}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{bool}\ loop\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{while}\ (loop)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}PLEASE\ CHOOSE\ -\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Add\ key.\ (Numeric\ only)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ Remove\ key."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3.\ Find\ key."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4.\ Generate\ Hash.\ (Numeric\ only)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}5.\ Display\ Hash\ table."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}6.\ Exit."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ std::cin\ >>\ cmd;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (cmd)\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ key\ to\ add\ =\ "{}};}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacequadratic__probing_a312143ed316d48978084c025ff8d9768}{quadratic\_probing::addInfo}}(key);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ key\ to\ remove\ =\ "{}};}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacequadratic__probing_a69fe1f7c36fe004ba83eef2ca82e7e30}{quadratic\_probing::removalInfo}}(key);}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ key\ to\ search\ =\ "{}};}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structquadratic__probing_1_1_entry}{quadratic\_probing::Entry}}\ entry\ =}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quadratic\_probing::table[\mbox{\hyperlink{namespacequadratic__probing_ab431981b54c0bae1b2956f716aee1dcf}{quadratic\_probing::quadraticProbe}}(}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ key,\ \textcolor{keyword}{true})];}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entry.\mbox{\hyperlink{structquadratic__probing_1_1_entry_a75f72858f08a2fc8b94402de98db12d8}{key}}\ ==\ quadratic\_probing::notPresent)\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Key\ not\ present"{}};}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ element\ to\ generate\ hash\ =\ "{}};}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ key;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hash\ of\ "{}}\ <<\ key}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ is\ =\ "{}}\ <<\ \mbox{\hyperlink{namespacequadratic__probing_a2093d91dd3d377cf0a5c939e45dcefc7}{quadratic\_probing::hashFxn}}(key);}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacequadratic__probing_a40d617ebf4d6ba21bcda8d8d1faa2357}{quadratic\_probing::display}}();}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ delete[]\ table;}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00301\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,226 @@
+\doxysection{Machine Learning Algorithms}
+\hypertarget{group__machine__learning}{}\label{group__machine__learning}\index{Machine Learning Algorithms@{Machine Learning Algorithms}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{adaline__learning_8cpp}{adaline\+\_\+learning.\+cpp}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/ADALINE}{\texttt{ Adaptive Linear Neuron (ADALINE)}} implementation \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{kohonen__som__topology_8cpp}{kohonen\+\_\+som\+\_\+topology.\+cpp}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/Self-organizing_map}{\texttt{ Kohonen self organizing map}} (topological map) \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{kohonen__som__trace_8cpp}{kohonen\+\_\+som\+\_\+trace.\+cpp}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/Self-organizing_map}{\texttt{ Kohonen self organizing map}} (data tracing) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemachine__learning}{machine\+\_\+learning}}
+\begin{DoxyCompactList}\small\item\em \href{https://en.wikipedia.org/wiki/A*_search_algorithm}{\texttt{ A\texorpdfstring{$\ast$}{*} search algorithm}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}{\+\_\+random}} (double a, double b)
+\item 
+int \mbox{\hyperlink{group__machine__learning_gabc90175770bf0d5853c466e14993a08c}{save\+\_\+2d\+\_\+data}} (const char \texorpdfstring{$\ast$}{*}fname, const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&X)
+\item 
+void \mbox{\hyperlink{group__machine__learning_ga60f9186ccb682724a8792a2bf81e9b9e}{get\+\_\+min\+\_\+2d}} (const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&X, double \texorpdfstring{$\ast$}{*}val, int \texorpdfstring{$\ast$}{*}x\+\_\+idx, int \texorpdfstring{$\ast$}{*}y\+\_\+idx)
+\item 
+int \mbox{\hyperlink{group__machine__learning_gae0208548f8b393528e5db01717e88e67}{save\+\_\+nd\+\_\+data}} (const char \texorpdfstring{$\ast$}{*}fname, const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&X)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{group__machine__learning_ga5118e5cbc4f0886e27b3a7a2544dded1}{MAX\+\_\+\+ITER}} = 500
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485}\index{Machine Learning Algorithms@{Machine Learning Algorithms}!\_random@{\_random}}
+\index{\_random@{\_random}!Machine Learning Algorithms@{Machine Learning Algorithms}}
+\doxysubsubsection{\texorpdfstring{\_random()}{\_random()}}
+{\footnotesize\ttfamily \label{group__machine__learning_gaf5ce14f026d6d231bef29161bac2b485} 
+double \+\_\+random (\begin{DoxyParamCaption}\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
+
+Helper function to generate a random number in a given interval. ~\newline
+ Steps\+:
+\begin{DoxyEnumerate}
+\item {\ttfamily r1 = rand() \% 100} gets a random number between 0 and 99
+\item {\ttfamily r2 = r1 / 100} converts random number to be between 0 and 0.\+99
+\item scale and offset the random number to given range of $[a,b]$
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & lower limit \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & upper limit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+random number in the range $[a,b]$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ ((b\ -\/\ a)\ *\ (std::rand()\ \%\ 100)\ /\ 100.f)\ +\ a;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__machine__learning_ga60f9186ccb682724a8792a2bf81e9b9e}\index{Machine Learning Algorithms@{Machine Learning Algorithms}!get\_min\_2d@{get\_min\_2d}}
+\index{get\_min\_2d@{get\_min\_2d}!Machine Learning Algorithms@{Machine Learning Algorithms}}
+\doxysubsubsection{\texorpdfstring{get\_min\_2d()}{get\_min\_2d()}}
+{\footnotesize\ttfamily \label{group__machine__learning_ga60f9186ccb682724a8792a2bf81e9b9e} 
+void get\+\_\+min\+\_\+2d (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&}]{X}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{val}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{x\+\_\+idx}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{y\+\_\+idx}{}\end{DoxyParamCaption})}
+
+Get minimum value and index of the value in a matrix 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em X} & matrix to search \\
+\hline
+\mbox{\texttt{ in}}  & {\em N} & number of points in the vector \\
+\hline
+\mbox{\texttt{ out}}  & {\em val} & minimum value found \\
+\hline
+\mbox{\texttt{ out}}  & {\em idx\+\_\+x} & x-\/index where minimum value was found \\
+\hline
+\mbox{\texttt{ out}}  & {\em idx\+\_\+y} & y-\/index where minimum value was found \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ val[0]\ =\ INFINITY;\ \ \textcolor{comment}{//\ initial\ min\ value}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ N\ =\ X.size();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ N;\ i++)\ \{\ \ \textcolor{comment}{//\ traverse\ each\ x-\/index}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ std::min\_element(std::begin(X[i]),\ std::end(X[i]));}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ d\_min\ =\ *result;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ std::ptrdiff\_t\ j\ =\ std::distance(std::begin(X[i]),\ result);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (d\_min\ <\ val[0])\ \{\ \ \textcolor{comment}{//\ if\ a\ lower\ value\ is\ found}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ save\ the\ value\ and\ its\ index}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ x\_idx[0]\ =\ i;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ y\_idx[0]\ =\ j;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ val[0]\ =\ d\_min;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__machine__learning_gabc90175770bf0d5853c466e14993a08c}\index{Machine Learning Algorithms@{Machine Learning Algorithms}!save\_2d\_data@{save\_2d\_data}}
+\index{save\_2d\_data@{save\_2d\_data}!Machine Learning Algorithms@{Machine Learning Algorithms}}
+\doxysubsubsection{\texorpdfstring{save\_2d\_data()}{save\_2d\_data()}}
+{\footnotesize\ttfamily \label{group__machine__learning_gabc90175770bf0d5853c466e14993a08c} 
+int save\+\_\+2d\+\_\+data (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fname}{, }\item[{const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&}]{X}{}\end{DoxyParamCaption})}
+
+Save a given n-\/dimensional data martix to file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & filename to save in (gets overwriten without confirmation) \\
+\hline
+\mbox{\texttt{ in}}  & {\em X} & matrix to save \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if all ok 
+
+-\/1 if file creation failed 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_points\ =\ X.size();\ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ rows}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_features\ =\ X[0].size();\ \ \textcolor{comment}{//\ number\ of\ columns}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ std::ofstream\ fp;}
+\DoxyCodeLine{00071\ \ \ \ \ fp.open(fname);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (!fp.is\_open())\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ error\ with\ opening\ file\ to\ write}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ opening\ file\ "{}}\ <<\ fname\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::strerror(errno)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ for\ each\ point\ in\ the\ array}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_points;\ i++)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ each\ feature\ in\ the\ array}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ num\_features;\ j++)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ X[i][j];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ print\ the\ feature\ value}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ num\_features\ -\/\ 1)\ \{\ \ \textcolor{comment}{//\ if\ not\ the\ last\ feature}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ \textcolor{stringliteral}{"{},"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ suffix\ comma}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ num\_points\ -\/\ 1)\ \{\ \ \textcolor{comment}{//\ if\ not\ the\ last\ row}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ start\ a\ new\ line}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ fp.close();}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__machine__learning_gae0208548f8b393528e5db01717e88e67}\index{Machine Learning Algorithms@{Machine Learning Algorithms}!save\_nd\_data@{save\_nd\_data}}
+\index{save\_nd\_data@{save\_nd\_data}!Machine Learning Algorithms@{Machine Learning Algorithms}}
+\doxysubsubsection{\texorpdfstring{save\_nd\_data()}{save\_nd\_data()}}
+{\footnotesize\ttfamily \label{group__machine__learning_gae0208548f8b393528e5db01717e88e67} 
+int save\+\_\+nd\+\_\+data (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fname}{, }\item[{const std\+::vector$<$ std\+::valarray$<$ double $>$ $>$ \&}]{X}{}\end{DoxyParamCaption})}
+
+Save a given n-\/dimensional data martix to file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & filename to save in (gets overwriten without confirmation) \\
+\hline
+\mbox{\texttt{ in}}  & {\em X} & matrix to save \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if all ok 
+
+-\/1 if file creation failed 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_points\ =\ X.size();\ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ rows}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_features\ =\ X[0].size();\ \ \textcolor{comment}{//\ number\ of\ columns}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ std::ofstream\ fp;}
+\DoxyCodeLine{00064\ \ \ \ \ fp.open(fname);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (!fp.is\_open())\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ error\ with\ opening\ file\ to\ write}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ opening\ file\ "{}}\ <<\ fname\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ for\ each\ point\ in\ the\ array}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_points;\ i++)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ each\ feature\ in\ the\ array}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ num\_features;\ j++)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ X[i][j];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ print\ the\ feature\ value}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ num\_features\ -\/\ 1)\ \{\ \ \textcolor{comment}{//\ if\ not\ the\ last\ feature}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ \textcolor{stringliteral}{"{},"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ suffix\ comma}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ num\_points\ -\/\ 1)\ \{\ \ \textcolor{comment}{//\ if\ not\ the\ last\ row}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ start\ a\ new\ line}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ fp.close();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{group__machine__learning_ga5118e5cbc4f0886e27b3a7a2544dded1}\index{Machine Learning Algorithms@{Machine Learning Algorithms}!MAX\_ITER@{MAX\_ITER}}
+\index{MAX\_ITER@{MAX\_ITER}!Machine Learning Algorithms@{Machine Learning Algorithms}}
+\doxysubsubsection{\texorpdfstring{MAX\_ITER}{MAX\_ITER}}
+{\footnotesize\ttfamily \label{group__machine__learning_ga5118e5cbc4f0886e27b3a7a2544dded1} 
+int MAX\+\_\+\+ITER = 500\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Maximum number of iterations to learn 

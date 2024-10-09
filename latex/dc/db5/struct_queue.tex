@@ -1,0 +1,153 @@
+\doxysection{Queue Class Reference}
+\hypertarget{struct_queue}{}\label{struct_queue}\index{Queue@{Queue}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_queue_a8e9326b15e162c2d7d663c5cfbdd4405}{enqueue}} (int val)
+\item 
+void \mbox{\hyperlink{struct_queue_aa01ff898c2bdab7e804bf243eb5bfb31}{dequeue}} ()
+\item 
+void \mbox{\hyperlink{struct_queue_af679dbf13749275935f617ac6ab0f9e9}{traverse}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_queue_abab0f9fbb31ee24a0130523c3562c863}\label{struct_queue_abab0f9fbb31ee24a0130523c3562c863} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} {\bfseries t} \mbox{[}100\mbox{]}
+\item 
+\Hypertarget{struct_queue_aa14801d5c5fea47f3d08483d103e0b57}\label{struct_queue_aa14801d5c5fea47f3d08483d103e0b57} 
+int {\bfseries front}
+\item 
+\Hypertarget{struct_queue_a8303807ce298d63d958f7e5765034d70}\label{struct_queue_a8303807ce298d63d958f7e5765034d70} 
+int {\bfseries rear}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_queue_a7a63a6fa59a5522f5a4798a17382ebe7}\label{struct_queue_a7a63a6fa59a5522f5a4798a17382ebe7} 
+{\bfseries Queue} (const \mbox{\hyperlink{struct_queue}{Queue}} \&)=delete
+\item 
+\Hypertarget{struct_queue_a489e02505707a98e0f562651a9132bc0}\label{struct_queue_a489e02505707a98e0f562651a9132bc0} 
+\mbox{\hyperlink{struct_queue}{Queue}} \& {\bfseries operator=} (const \mbox{\hyperlink{struct_queue}{Queue}} \&)=delete
+\item 
+void \mbox{\hyperlink{struct_queue_a7df5a5794b817bccb0d288e3e7893326}{create\+Node}} (int val)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_queue_a31b892ad81d0e915c20c8f6a88e75f02}\label{struct_queue_a31b892ad81d0e915c20c8f6a88e75f02} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} {\bfseries front} = nullptr
+\item 
+\Hypertarget{struct_queue_a3ed9e95fefd0c13071d192c1512c8db3}\label{struct_queue_a3ed9e95fefd0c13071d192c1512c8db3} 
+\mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} {\bfseries rear} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_queue_a00d119db8fa3050da37746e82cbcf94f}\index{Queue@{Queue}!````~Queue@{\texorpdfstring{$\sim$}{\string~}Queue}}
+\index{````~Queue@{\texorpdfstring{$\sim$}{\string~}Queue}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Queue()}{\string~Queue()}}
+{\footnotesize\ttfamily \label{struct_queue_a00d119db8fa3050da37746e82cbcf94f} 
+Queue\+::\texorpdfstring{$\sim$}{\string~}\+Queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (front)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ dequeue();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_queue_a7df5a5794b817bccb0d288e3e7893326}\index{Queue@{Queue}!createNode@{createNode}}
+\index{createNode@{createNode}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{createNode()}{createNode()}}
+{\footnotesize\ttfamily \label{struct_queue_a7df5a5794b817bccb0d288e3e7893326} 
+void Queue\+::create\+Node (\begin{DoxyParamCaption}\item[{int}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ nn\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ nn-\/>data\ =\ val;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ nn-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ front\ =\ nn;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ rear\ =\ nn;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{struct_queue_aa01ff898c2bdab7e804bf243eb5bfb31}\index{Queue@{Queue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily \label{struct_queue_aa01ff898c2bdab7e804bf243eb5bfb31} 
+void Queue\+::dequeue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnode}{node}}*\ \textcolor{keyword}{const}\ n\ =\ front;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ rear)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ front\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ rear\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ front\ =\ front-\/>next;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ rear-\/>next\ =\ front;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ n;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{struct_queue_a8e9326b15e162c2d7d663c5cfbdd4405}\index{Queue@{Queue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily \label{struct_queue_a8e9326b15e162c2d7d663c5cfbdd4405} 
+void Queue\+::enqueue (\begin{DoxyParamCaption}\item[{int}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ \textcolor{keyword}{nullptr}\ ||\ rear\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ createNode(val);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}*\ nn\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ nn-\/>data\ =\ val;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ rear-\/>next\ =\ nn;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ nn-\/>next\ =\ front;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ rear\ =\ nn;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{struct_queue_af679dbf13749275935f617ac6ab0f9e9}\index{Queue@{Queue}!traverse@{traverse}}
+\index{traverse@{traverse}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{traverse()}{traverse()}}
+{\footnotesize\ttfamily \label{struct_queue_af679dbf13749275935f617ac6ab0f9e9} 
+void Queue\+::traverse (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (front\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnode}{node}}*\ ptr\ =\ front;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ ptr-\/>data\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>next;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (ptr\ !=\ front);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{binary__search__tree_8cpp}{binary\+\_\+search\+\_\+tree.\+cpp}}\item 
+data\+\_\+structures/circular\+\_\+queue\+\_\+using\+\_\+linked\+\_\+list.\+cpp\end{DoxyCompactItemize}

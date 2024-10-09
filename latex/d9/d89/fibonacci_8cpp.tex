@@ -1,0 +1,118 @@
+\doxysection{math/fibonacci.cpp File Reference}
+\hypertarget{fibonacci_8cpp}{}\label{fibonacci_8cpp}\index{math/fibonacci.cpp@{math/fibonacci.cpp}}
+
+
+n-\/th \href{https://en.wikipedia.org/wiki/Fibonacci_sequence}{\texttt{ Fibonacci number}}.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacefibonacci}{fibonacci}}
+\begin{DoxyCompactList}\small\item\em Functions for Fibonacci sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{fibonacci_8cpp_aeaaf5439cb29de4630c7dff2fd914b28}{math\+::fibonacci\+::fibonacci}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Function to compute the n-\/th Fibonacci number. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{fibonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+n-\/th \href{https://en.wikipedia.org/wiki/Fibonacci_sequence}{\texttt{ Fibonacci number}}. 
+
+Naive recursive implementation to calculate the n-\/th Fibonacci number. \[\text{fib}(n) = \text{fib}(n-1) + \text{fib}(n-2)\]
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{fibonacci__large_8cpp}{fibonacci\+\_\+large.\+cpp}, \doxylink{fibonacci__fast_8cpp}{fibonacci\+\_\+fast.\+cpp}, \doxylink{string__fibonacci_8cpp}{string\+\_\+fibonacci.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fibonacci_8cpp_aeaaf5439cb29de4630c7dff2fd914b28}\index{fibonacci.cpp@{fibonacci.cpp}!fibonacci@{fibonacci}}
+\index{fibonacci@{fibonacci}!fibonacci.cpp@{fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{fibonacci()}{fibonacci()}}
+{\footnotesize\ttfamily \label{fibonacci_8cpp_aeaaf5439cb29de4630c7dff2fd914b28} 
+uint64\+\_\+t math\+::fibonacci\+::fibonacci (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Function to compute the n-\/th Fibonacci number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the index of the Fibonacci number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+n-\/th element of the Fibonacci\textquotesingle{}s sequence 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ If\ the\ input\ is\ 0\ or\ 1\ just\ return\ the\ same\ (Base\ Case)}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ This\ will\ set\ the\ first\ 2\ values\ of\ the\ sequence}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <=\ 1)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ preceding\ 2\ values\ of\ the\ sequence\ to\ get\ next}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacefibonacci}{fibonacci}}(n\ -\/\ 1)\ +\ \mbox{\hyperlink{namespacefibonacci}{fibonacci}}(n\ -\/\ 2);}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fibonacci.cpp@{fibonacci.cpp}!main@{main}}
+\index{main@{main}!fibonacci.cpp@{fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{fibonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{fibonacci.cpp@{fibonacci.cpp}!test@{test}}
+\index{test@{test}!fibonacci.cpp@{fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{fibonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementation. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ assert(math::fibonacci::fibonacci(0)\ ==\ 0);}
+\DoxyCodeLine{00049\ \ \ \ \ assert(math::fibonacci::fibonacci(1)\ ==\ 1);}
+\DoxyCodeLine{00050\ \ \ \ \ assert(math::fibonacci::fibonacci(2)\ ==\ 1);}
+\DoxyCodeLine{00051\ \ \ \ \ assert(math::fibonacci::fibonacci(3)\ ==\ 2);}
+\DoxyCodeLine{00052\ \ \ \ \ assert(math::fibonacci::fibonacci(4)\ ==\ 3);}
+\DoxyCodeLine{00053\ \ \ \ \ assert(math::fibonacci::fibonacci(15)\ ==\ 610);}
+\DoxyCodeLine{00054\ \ \ \ \ assert(math::fibonacci::fibonacci(20)\ ==\ 6765);}
+\DoxyCodeLine{00055\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ passed\ successfully!\(\backslash\)n"{}};}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,127 @@
+\doxysection{graph/connected\+\_\+components.cpp File Reference}
+\hypertarget{connected__components_8cpp}{}\label{connected__components_8cpp}\index{graph/connected\_components.cpp@{graph/connected\_components.cpp}}
+
+
+\mbox{[}\doxylink{class_graph}{Graph} Connected Components (Connected Components)\mbox{]} (\href{https://en.wikipedia.org/wiki/Component_(graph_theory)}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Component\+\_\+(graph\+\_\+theory)}})  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph\+::add\+Edge}} (std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \texorpdfstring{$\ast$}{*}adj, int u, int v)
+\begin{DoxyCompactList}\small\item\em Function that add edge between two nodes or vertices of graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacegraph_a3ae80bc4c6a79d041b4f3a6589eb7fb8}{graph\+::explore}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \texorpdfstring{$\ast$}{*}adj, int u, std\+::vector$<$ bool $>$ \texorpdfstring{$\ast$}{*}visited)
+\begin{DoxyCompactList}\small\item\em Utility function for depth first seach algorithm this function explores the vertex which is passed into. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacegraph_a83ab16e96cec644109a58dfc9329bc2b}{graph\+::get\+Connected\+Components}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \texorpdfstring{$\ast$}{*}adj)
+\begin{DoxyCompactList}\small\item\em Function that perfoms depth first search algorithm on graph and calculated the number of connected components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{connected__components_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}} ()
+\item 
+int \mbox{\hyperlink{connected__components_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}\doxylink{class_graph}{Graph} Connected Components (Connected Components)\mbox{]} (\href{https://en.wikipedia.org/wiki/Component_(graph_theory)}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Component\+\_\+(graph\+\_\+theory)}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/ayaankhan98}{\texttt{ Ayaan Khan}}
+\end{DoxyAuthor}
+A graph is a collection of nodes also called vertices and these vertices are connected by edges. A connected component in a graph refers to a set of vertices which are reachable form one another.
+
+
+\begin{DoxyPre}
+Example -\/ Here is graph with 3 connected components
+
+     1   4           5               8
+    / \textbackslash{} /           / \textbackslash{}             / \textbackslash{}
+   2-\/-\/-\/3           6   7           9   10
+
+   first          second           third
+   component      component        component
+\end{DoxyPre}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{connected__components_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{connected\_components.cpp@{connected\_components.cpp}!main@{main}}
+\index{main@{main}!connected\_components.cpp@{connected\_components.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{connected__components_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function running predefined tests
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ ///\ running\ predefined\ tests}}
+\DoxyCodeLine{00129\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{connected__components_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}{tests}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{int}\ vertices\ =\ int(),\ edges\ =\ int();}
+\DoxyCodeLine{00132\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ vertices\ :\ "{}};}
+\DoxyCodeLine{00133\ \ \ \ \ std::cin\ >>\ vertices;}
+\DoxyCodeLine{00134\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ edges\ :\ "{}};}
+\DoxyCodeLine{00135\ \ \ \ \ std::cin\ >>\ edges;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ std::vector<std::vector<int>>\ adj(vertices,\ std::vector<int>());}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ int(),\ v\ =\ int();}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges-\/-\/)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ std::cin\ >>\ u\ >>\ v;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj,\ u,\ v);}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{int}\ cc\ =\ \mbox{\hyperlink{namespacegraph_a83ab16e96cec644109a58dfc9329bc2b}{graph::getConnectedComponents}}(\&adj);}
+\DoxyCodeLine{00146\ \ \ \ \ std::cout\ <<\ cc\ <<\ std::endl;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00148\ \}}
+
+\end{DoxyCode}
+\Hypertarget{connected__components_8cpp_a88ec9ad42717780d6caaff9d3d6977f9}\index{connected\_components.cpp@{connected\_components.cpp}!tests@{tests}}
+\index{tests@{tests}!connected\_components.cpp@{connected\_components.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{connected__components_8cpp_a88ec9ad42717780d6caaff9d3d6977f9} 
+void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function to test the algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Running\ predefined\ tests..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initiating\ Test\ 1..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00096\ \ \ \ \ std::vector<std::vector<int>>\ adj1(9,\ std::vector<int>());}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 1,\ 2);}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 1,\ 3);}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 3,\ 4);}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 5,\ 7);}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 5,\ 6);}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj1,\ 8,\ 9);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_a83ab16e96cec644109a58dfc9329bc2b}{graph::getConnectedComponents}}(\&adj1)\ ==\ 3);}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Innitiating\ Test\ 2..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00108\ \ \ \ \ std::vector<std::vector<int>>\ adj2(10,\ std::vector<int>());}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 1,\ 2);}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 1,\ 3);}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 1,\ 4);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 2,\ 3);}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 3,\ 4);}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 4,\ 8);}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 4,\ 10);}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 8,\ 10);}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 8,\ 9);}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 5,\ 7);}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 5,\ 6);}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{namespacegraph_a9125ceb66bfbec3093bba64c2c1e99e2}{graph::addEdge}}(\&adj2,\ 6,\ 7);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ assert(\mbox{\hyperlink{namespacegraph_a83ab16e96cec644109a58dfc9329bc2b}{graph::getConnectedComponents}}(\&adj2)\ ==\ 2);}
+\DoxyCodeLine{00123\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}

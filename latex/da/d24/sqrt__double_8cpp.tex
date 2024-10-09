@@ -1,0 +1,81 @@
+\doxysection{math/sqrt\+\_\+double.cpp File Reference}
+\hypertarget{sqrt__double_8cpp}{}\label{sqrt__double_8cpp}\index{math/sqrt\_double.cpp@{math/sqrt\_double.cpp}}
+
+
+Calculate the square root of any positive real number in  $O(\log
+N)$ time, with precision fixed using \href{https://en.wikipedia.org/wiki/Bisection_method}{\texttt{ bisection method}} of root-\/finding.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{sqrt__double_8cpp_ae662282ad0740d2063ac404ca3bd74fc}{Sqrt}} (double a)
+\item 
+int \mbox{\hyperlink{sqrt__double_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calculate the square root of any positive real number in  $O(\log
+N)$ time, with precision fixed using \href{https://en.wikipedia.org/wiki/Bisection_method}{\texttt{ bisection method}} of root-\/finding. 
+
+\begin{DoxySeeAlso}{See also}
+Can be implemented using faster and better algorithms like \doxylink{newton__raphson__method_8cpp}{newton\+\_\+raphson\+\_\+method.\+cpp} and \doxylink{false__position_8cpp}{false\+\_\+position.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sqrt__double_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sqrt\_double.cpp@{sqrt\_double.cpp}!main@{main}}
+\index{main@{main}!sqrt\_double.cpp@{sqrt\_double.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sqrt__double_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{double}\ n\{\};}
+\DoxyCodeLine{00044\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00045\ \ \ \ \ assert(n\ >=\ 0);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ Change\ this\ line\ for\ a\ better\ precision}}
+\DoxyCodeLine{00047\ \ \ \ \ std::cout.precision(12);}
+\DoxyCodeLine{00048\ \ \ \ \ std::cout\ <<\ std::fixed\ <<\ \mbox{\hyperlink{sqrt__double_8cpp_ae662282ad0740d2063ac404ca3bd74fc}{Sqrt}}(n);}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sqrt__double_8cpp_ae662282ad0740d2063ac404ca3bd74fc}\index{sqrt\_double.cpp@{sqrt\_double.cpp}!Sqrt@{Sqrt}}
+\index{Sqrt@{Sqrt}!sqrt\_double.cpp@{sqrt\_double.cpp}}
+\doxysubsubsection{\texorpdfstring{Sqrt()}{Sqrt()}}
+{\footnotesize\ttfamily \label{sqrt__double_8cpp_ae662282ad0740d2063ac404ca3bd74fc} 
+double Sqrt (\begin{DoxyParamCaption}\item[{double}]{a}{}\end{DoxyParamCaption})}
+
+Bisection method implemented for the function $x^2-a=0$ whose roots are $\pm\sqrt{a}$ and only the positive root is returned. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ >\ 0\ \&\&\ a\ <\ 1)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1\ /\ \mbox{\hyperlink{sqrt__double_8cpp_ae662282ad0740d2063ac404ca3bd74fc}{Sqrt}}(1\ /\ a);}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ =\ 0,\ r\ =\ a;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{/*\ Epsilon\ is\ the\ precision.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ A\ great\ precision\ is}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ between\ 1e-\/7\ and\ 1e-\/12.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ \ \ \ double\ epsilon\ =\ 1e-\/12;}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ epsilon\ =\ 1e-\/12;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <=\ r)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mid\ =\ (\mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ +\ r)\ /\ 2;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mid\ *\ mid\ >\ a)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ mid;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ -\/\ mid\ *\ mid\ <\ epsilon)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mid;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ =\ mid;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}

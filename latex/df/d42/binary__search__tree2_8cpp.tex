@@ -1,0 +1,362 @@
+\doxysection{data\+\_\+structures/binary\+\_\+search\+\_\+tree2.cpp File Reference}
+\hypertarget{binary__search__tree2_8cpp}{}\label{binary__search__tree2_8cpp}\index{data\_structures/binary\_search\_tree2.cpp@{data\_structures/binary\_search\_tree2.cpp}}
+
+
+A generic \href{https://en.wikipedia.org/wiki/Binary_search_tree}{\texttt{ binary search tree}} implementation. Here you can find more information about the algorithm\+: \href{https://www.scaler.com/topics/data-structures/binary-search-tree/}{\texttt{ Scaler -\/ Binary Search tree}}.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbinary__search__tree}{binary\+\_\+search\+\_\+tree$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The Binary Search Tree class. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structbinary__search__tree_1_1bst__node}{binary\+\_\+search\+\_\+tree$<$ T $>$\+::bst\+\_\+node}}
+\begin{DoxyCompactList}\small\item\em A struct to represent a node in the Binary Search Tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_a8c882f43e1e52948a7841a8bfb091350}{test\+\_\+insert}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing \doxylink{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b}{insert()}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_ab1333c3ea06dcad896ee204bbd407c4e}{test\+\_\+remove}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing remove(). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_a1d42876440ac5346e2850a32497385c3}{test\+\_\+contains}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing contains(). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_af2847a901160fd45b4044550e9921cb4}{test\+\_\+find\+\_\+min}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing find\+\_\+min(). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_a9856b68e2cba50d2e26a1cbe374e0365}{test\+\_\+find\+\_\+max}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing find\+\_\+max(). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_a06f35064850e891d6fda0093c0d9ee6e}{test\+\_\+get\+\_\+elements\+\_\+inorder}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing get\+\_\+elements\+\_\+inorder(). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_ab00b8d0f21aeb5fbddb6decf3bcb640a}{test\+\_\+get\+\_\+elements\+\_\+preorder}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing get\+\_\+elements\+\_\+preorder(). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__search__tree2_8cpp_a94b76f781fcbe1ad0e3397ace6bb1965}{test\+\_\+get\+\_\+elements\+\_\+postorder}} ()
+\begin{DoxyCompactList}\small\item\em Function for testing get\+\_\+elements\+\_\+postorder(). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{binary__search__tree2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A generic \href{https://en.wikipedia.org/wiki/Binary_search_tree}{\texttt{ binary search tree}} implementation. Here you can find more information about the algorithm\+: \href{https://www.scaler.com/topics/data-structures/binary-search-tree/}{\texttt{ Scaler -\/ Binary Search tree}}. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{binary__search__tree_8cpp}{binary\+\_\+search\+\_\+tree.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{binary__search__tree2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!main@{main}}
+\index{main@{main}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00557\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_a8c882f43e1e52948a7841a8bfb091350}{test\_insert}}();}
+\DoxyCodeLine{00558\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_ab1333c3ea06dcad896ee204bbd407c4e}{test\_remove}}();}
+\DoxyCodeLine{00559\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_a1d42876440ac5346e2850a32497385c3}{test\_contains}}();}
+\DoxyCodeLine{00560\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_a9856b68e2cba50d2e26a1cbe374e0365}{test\_find\_max}}();}
+\DoxyCodeLine{00561\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_af2847a901160fd45b4044550e9921cb4}{test\_find\_min}}();}
+\DoxyCodeLine{00562\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_a06f35064850e891d6fda0093c0d9ee6e}{test\_get\_elements\_inorder}}();}
+\DoxyCodeLine{00563\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_ab00b8d0f21aeb5fbddb6decf3bcb640a}{test\_get\_elements\_preorder}}();}
+\DoxyCodeLine{00564\ \ \ \ \ \mbox{\hyperlink{binary__search__tree2_8cpp_a94b76f781fcbe1ad0e3397ace6bb1965}{test\_get\_elements\_postorder}}();}
+\DoxyCodeLine{00565\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_a1d42876440ac5346e2850a32497385c3}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_contains@{test\_contains}}
+\index{test\_contains@{test\_contains}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_contains()}{test\_contains()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_a1d42876440ac5346e2850a32497385c3} 
+static void test\+\_\+contains (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing contains(). 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00430\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ contains..."{}};}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00433\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00434\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00435\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00436\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(5));}
+\DoxyCodeLine{00439\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(4));}
+\DoxyCodeLine{00440\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(3));}
+\DoxyCodeLine{00441\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(6));}
+\DoxyCodeLine{00442\ \ \ \ \ assert(!tree.\mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(999));}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00445\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_a9856b68e2cba50d2e26a1cbe374e0365}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_find\_max@{test\_find\_max}}
+\index{test\_find\_max@{test\_find\_max}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_find\_max()}{test\_find\_max()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_a9856b68e2cba50d2e26a1cbe374e0365} 
+static void test\+\_\+find\+\_\+max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing find\+\_\+max(). 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00476\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ find\_max..."{}};}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ 0;}
+\DoxyCodeLine{00479\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00480\ \ \ \ \ assert(!tree.\mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(max));}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00483\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00484\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00485\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(max));}
+\DoxyCodeLine{00488\ \ \ \ \ assert(max\ ==\ 6);}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00491\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_af2847a901160fd45b4044550e9921cb4}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_find\_min@{test\_find\_min}}
+\index{test\_find\_min@{test\_find\_min}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_find\_min()}{test\_find\_min()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_af2847a901160fd45b4044550e9921cb4} 
+static void test\+\_\+find\+\_\+min (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing find\+\_\+min(). 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00453\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ find\_min..."{}};}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ 0;}
+\DoxyCodeLine{00456\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00457\ \ \ \ \ assert(!tree.\mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\_min}}(min));}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00460\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00461\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00462\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\_min}}(min));}
+\DoxyCodeLine{00465\ \ \ \ \ assert(min\ ==\ 3);}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00468\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_a06f35064850e891d6fda0093c0d9ee6e}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_get\_elements\_inorder@{test\_get\_elements\_inorder}}
+\index{test\_get\_elements\_inorder@{test\_get\_elements\_inorder}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_get\_elements\_inorder()}{test\_get\_elements\_inorder()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_a06f35064850e891d6fda0093c0d9ee6e} 
+static void test\+\_\+get\+\_\+elements\+\_\+inorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing get\+\_\+elements\+\_\+inorder(). 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00499\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ get\_elements\_inorder..."{}};}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00502\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00503\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00504\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00505\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \ \ std::vector<int>\ expected\ =\ \{3,\ 4,\ 5,\ 6\};}
+\DoxyCodeLine{00508\ \ \ \ \ std::vector<int>\ actual\ =\ tree.\mbox{\hyperlink{classbinary__search__tree_a1f23830316204664514f396a4eb5275a}{get\_elements\_inorder}}();}
+\DoxyCodeLine{00509\ \ \ \ \ assert(actual\ ==\ expected);}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00512\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_a94b76f781fcbe1ad0e3397ace6bb1965}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_get\_elements\_postorder@{test\_get\_elements\_postorder}}
+\index{test\_get\_elements\_postorder@{test\_get\_elements\_postorder}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_get\_elements\_postorder()}{test\_get\_elements\_postorder()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_a94b76f781fcbe1ad0e3397ace6bb1965} 
+static void test\+\_\+get\+\_\+elements\+\_\+postorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing get\+\_\+elements\+\_\+postorder(). 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00541\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ get\_elements\_postorder..."{}};}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00544\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00545\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00546\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00547\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ \ \ \ \ std::vector<int>\ expected\ =\ \{3,\ 4,\ 6,\ 5\};}
+\DoxyCodeLine{00550\ \ \ \ \ std::vector<int>\ actual\ =\ tree.\mbox{\hyperlink{classbinary__search__tree_a5c011e1b0863d79c3a7c11a0426bdcff}{get\_elements\_postorder}}();}
+\DoxyCodeLine{00551\ \ \ \ \ assert(actual\ ==\ expected);}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00554\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_ab00b8d0f21aeb5fbddb6decf3bcb640a}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_get\_elements\_preorder@{test\_get\_elements\_preorder}}
+\index{test\_get\_elements\_preorder@{test\_get\_elements\_preorder}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_get\_elements\_preorder()}{test\_get\_elements\_preorder()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_ab00b8d0f21aeb5fbddb6decf3bcb640a} 
+static void test\+\_\+get\+\_\+elements\+\_\+preorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing get\+\_\+elements\+\_\+preorder(). 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00520\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ get\_elements\_preorder..."{}};}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00522\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00523\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00524\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00525\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00526\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \ \ std::vector<int>\ expected\ =\ \{5,\ 4,\ 3,\ 6\};}
+\DoxyCodeLine{00529\ \ \ \ \ std::vector<int>\ actual\ =\ tree.\mbox{\hyperlink{classbinary__search__tree_a5764c1cf848f84a5b77462036a6d8c13}{get\_elements\_preorder}}();}
+\DoxyCodeLine{00530\ \ \ \ \ assert(actual\ ==\ expected);}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00533\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_a8c882f43e1e52948a7841a8bfb091350}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_insert@{test\_insert}}
+\index{test\_insert@{test\_insert}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_insert()}{test\_insert()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_a8c882f43e1e52948a7841a8bfb091350} 
+static void test\+\_\+insert (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing \doxylink{avltree_8cpp_a2473fe7416332495b2678ebe89652e4b}{insert()}. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ insert..."{}};}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{bool}\ res\ =\ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ -\/1,\ max\ =\ -\/1;}
+\DoxyCodeLine{00364\ \ \ \ \ assert(res);}
+\DoxyCodeLine{00365\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(max));}
+\DoxyCodeLine{00366\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\_min}}(min));}
+\DoxyCodeLine{00367\ \ \ \ \ assert(max\ ==\ 5);}
+\DoxyCodeLine{00368\ \ \ \ \ assert(min\ ==\ 5);}
+\DoxyCodeLine{00369\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}{size}}()\ ==\ 1);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00372\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00373\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00374\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(max));}
+\DoxyCodeLine{00375\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\_min}}(min));}
+\DoxyCodeLine{00376\ \ \ \ \ assert(max\ ==\ 6);}
+\DoxyCodeLine{00377\ \ \ \ \ assert(min\ ==\ 3);}
+\DoxyCodeLine{00378\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}{size}}()\ ==\ 4);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordtype}{bool}\ fail\_res\ =\ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00381\ \ \ \ \ assert(!fail\_res);}
+\DoxyCodeLine{00382\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}{size}}()\ ==\ 4);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00385\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__search__tree2_8cpp_ab1333c3ea06dcad896ee204bbd407c4e}\index{binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}!test\_remove@{test\_remove}}
+\index{test\_remove@{test\_remove}!binary\_search\_tree2.cpp@{binary\_search\_tree2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_remove()}{test\_remove()}}
+{\footnotesize\ttfamily \label{binary__search__tree2_8cpp_ab1333c3ea06dcad896ee204bbd407c4e} 
+static void test\+\_\+remove (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function for testing remove(). 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Testing\ BST\ remove..."{}};}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \mbox{\hyperlink{classbinary__search__tree}{binary\_search\_tree<int>}}\ tree;}
+\DoxyCodeLine{00396\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(5);}
+\DoxyCodeLine{00397\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(4);}
+\DoxyCodeLine{00398\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(3);}
+\DoxyCodeLine{00399\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_a9d1e7e10efa74d741bf48cf032df3778}{insert}}(6);}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{bool}\ res\ =\ tree.\mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(5);}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ -\/1,\ max\ =\ -\/1;}
+\DoxyCodeLine{00403\ \ \ \ \ assert(res);}
+\DoxyCodeLine{00404\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a75f897af6aa732a9901454401c869bcb}{find\_max}}(max));}
+\DoxyCodeLine{00405\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_af9a2c7c187a7ca3142c77ce342ef3153}{find\_min}}(min));}
+\DoxyCodeLine{00406\ \ \ \ \ assert(max\ ==\ 6);}
+\DoxyCodeLine{00407\ \ \ \ \ assert(min\ ==\ 3);}
+\DoxyCodeLine{00408\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}{size}}()\ ==\ 3);}
+\DoxyCodeLine{00409\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(5)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(4);}
+\DoxyCodeLine{00412\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(3);}
+\DoxyCodeLine{00413\ \ \ \ \ tree.\mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(6);}
+\DoxyCodeLine{00414\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}{size}}()\ ==\ 0);}
+\DoxyCodeLine{00415\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_aa4f84b2eec9b9201af1840868ddb5fb2}{contains}}(6)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{bool}\ fail\_res\ =\ tree.\mbox{\hyperlink{classbinary__search__tree_af4a865ce5244608819b169fc78a41153}{remove}}(5);}
+\DoxyCodeLine{00418\ \ \ \ \ assert(!fail\_res);}
+\DoxyCodeLine{00419\ \ \ \ \ assert(tree.\mbox{\hyperlink{classbinary__search__tree_a564fe43e7e8f7ecb6f10667a70fbc6f3}{size}}()\ ==\ 0);}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ok"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00422\ \}}
+
+\end{DoxyCode}

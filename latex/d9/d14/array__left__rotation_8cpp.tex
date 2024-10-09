@@ -1,0 +1,94 @@
+\doxysection{operations\+\_\+on\+\_\+datastructures/array\+\_\+left\+\_\+rotation.cpp File Reference}
+\hypertarget{array__left__rotation_8cpp}{}\label{array__left__rotation_8cpp}\index{operations\_on\_datastructures/array\_left\_rotation.cpp@{operations\_on\_datastructures/array\_left\_rotation.cpp}}
+
+
+Implementation for the \href{https://www.javatpoint.com/program-to-left-rotate-the-elements-of-an-array}{\texttt{ Array Left Rotation}} algorithm.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceoperations__on__datastructures}{operations\+\_\+on\+\_\+datastructures}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetests}{tests}}
+\begin{DoxyCompactList}\small\item\em Testcases to check Union of Two Arrays. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceoperations__on__datastructures_a6109193567a5b7e36a27f2b4865fce20}{operations\+\_\+on\+\_\+datastructures\+::print}} (const std\+::vector$<$ int32\+\_\+t $>$ \&array)
+\begin{DoxyCompactList}\small\item\em Prints the values of a vector sequentially, ending with a newline character. \end{DoxyCompactList}\item 
+std\+::vector$<$ int32\+\_\+t $>$ \mbox{\hyperlink{namespaceoperations__on__datastructures_afce39cf843989a39811a49ebe29dd6d8}{operations\+\_\+on\+\_\+datastructures\+::shift\+\_\+left}} (const std\+::vector$<$ int32\+\_\+t $>$ \&array, size\+\_\+t shift)
+\begin{DoxyCompactList}\small\item\em Shifts the given vector to the left by the shift amount and returns a new vector with the result. The original vector is not mutated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_a167c24bd817469ae47358d12e034f2d5}{tests\+::test1}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check an simple case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_abdd77344d4af8fd56d14a5cabbf2f669}{tests\+::test2}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check an empty vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_aa515639572647508b94986489aab6d76}{tests\+::test3}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check an invalid shift value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_a2b9769e44683dcb67fe1083ad91e134d}{tests\+::test4}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check a very large input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetests_af7b81d7a1534216af6a36a80135beb86}{tests\+::test5}} ()
+\begin{DoxyCompactList}\small\item\em A Test to check a shift of zero. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{array__left__rotation_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Function to test the correctness of shift\+\_\+left() function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{array__left__rotation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation for the \href{https://www.javatpoint.com/program-to-left-rotate-the-elements-of-an-array}{\texttt{ Array Left Rotation}} algorithm. 
+
+Shifting an array to the left involves moving each element of the array so that it occupies a position of a certain shift value before its current one. This implementation uses a result vector and does not mutate the input. \begin{DoxyAuthor}{Author}
+\href{https://github.com/polarvoid}{\texttt{ Alvin}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__left__rotation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{array\_left\_rotation.cpp@{array\_left\_rotation.cpp}!main@{main}}
+\index{main@{main}!array\_left\_rotation.cpp@{array\_left\_rotation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{array__left__rotation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+main function 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{array__left__rotation_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00174\ \}}
+
+\end{DoxyCode}
+\Hypertarget{array__left__rotation_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{array\_left\_rotation.cpp@{array\_left\_rotation.cpp}!test@{test}}
+\index{test@{test}!array\_left\_rotation.cpp@{array\_left\_rotation.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{array__left__rotation_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to test the correctness of shift\+\_\+left() function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{namespacetests_a167c24bd817469ae47358d12e034f2d5}{tests::test1}}();}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{namespacetests_abdd77344d4af8fd56d14a5cabbf2f669}{tests::test2}}();}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{namespacetests_aa515639572647508b94986489aab6d76}{tests::test3}}();}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{namespacetests_a2b9769e44683dcb67fe1083ad91e134d}{tests::test4}}();}
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{namespacetests_af7b81d7a1534216af6a36a80135beb86}{tests::test5}}();}
+\DoxyCodeLine{00165\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,157 @@
+\doxysection{math/n\+\_\+bonacci.cpp File Reference}
+\hypertarget{n__bonacci_8cpp}{}\label{n__bonacci_8cpp}\index{math/n\_bonacci.cpp@{math/n\_bonacci.cpp}}
+
+
+Implementation of the \href{http://oeis.org/wiki/N-bonacci_numbers}{\texttt{ N-\/bonacci}} series.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacen__bonacci}{n\+\_\+bonacci}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{http://oeis.org/wiki/N-bonacci_numbers}{\texttt{ N-\/bonacci}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{n__bonacci_8cpp_a6849b68f760be628d5975ab3eddec63d}{math\+::n\+\_\+bonacci\+::\+N\+\_\+bonacci}} (const uint64\+\_\+t \&n, const uint64\+\_\+t \&m)
+\begin{DoxyCompactList}\small\item\em Finds the N-\/\+Bonacci series for the {\ttfamily n} parameter value and {\ttfamily m} parameter terms. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{n__bonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{n__bonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{http://oeis.org/wiki/N-bonacci_numbers}{\texttt{ N-\/bonacci}} series. 
+
+In general, in N-\/bonacci sequence, we generate sum of preceding N numbers from the next term.
+
+For example, a 3-\/bonacci sequence is the following\+: 0, 0, 1, 1, 2, 4, 7, 13, 24, 44, 81 In this code we take N and M as input where M is the number of terms to be printed of the N-\/bonacci series
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/Swastyy}{\texttt{ Swastika Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{n__bonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{n\_bonacci.cpp@{n\_bonacci.cpp}!main@{main}}
+\index{main@{main}!n\_bonacci.cpp@{n\_bonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{n__bonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{n__bonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__bonacci_8cpp_a6849b68f760be628d5975ab3eddec63d}\index{n\_bonacci.cpp@{n\_bonacci.cpp}!N\_bonacci@{N\_bonacci}}
+\index{N\_bonacci@{N\_bonacci}!n\_bonacci.cpp@{n\_bonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{N\_bonacci()}{N\_bonacci()}}
+{\footnotesize\ttfamily \label{n__bonacci_8cpp_a6849b68f760be628d5975ab3eddec63d} 
+std\+::vector$<$ uint64\+\_\+t $>$ math\+::n\+\_\+bonacci\+::\+N\+\_\+bonacci (\begin{DoxyParamCaption}\item[{const uint64\+\_\+t \&}]{n}{, }\item[{const uint64\+\_\+t \&}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Finds the N-\/\+Bonacci series for the {\ttfamily n} parameter value and {\ttfamily m} parameter terms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & is in the N-\/\+Bonacci series \\
+\hline
+{\em m} & is the number of terms in the N-\/\+Bonacci sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the n-\/bonacci sequence as vector array 
+\end{DoxyReturn}
+we initialise the (n-\/1)th term as 1 which is the sum of preceding N zeros
+
+similarily the sum of preceding N zeros and the (N+1)th 1 is also 1
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<uint64\_t>\ a(}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ m,\ 0);\ \ \textcolor{comment}{//\ we\ create\ an\ array\ of\ size\ m\ filled\ with\ zeros}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\ <\ n\ ||\ n\ ==\ 0)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ a[n\ -\/\ 1]\ =\ 1;\ \ \textcolor{comment}{///\ we\ initialise\ the\ (n-\/1)th\ term\ as\ 1\ which\ is\ the\ sum\ of}\textcolor{comment}{}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ preceding\ N\ zeros}}
+\DoxyCodeLine{00049\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ m)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ a[n]\ =\ 1;\ \ \textcolor{comment}{///\ similarily\ the\ sum\ of\ preceding\ N\ zeros\ and\ the\ (N+1)th\ 1\ is}\textcolor{comment}{}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ also\ 1}}
+\DoxyCodeLine{00054\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ n\ +\ 1;\ i\ <\ m;\ i++)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ is\ an\ optimized\ solution\ that\ works\ in\ O(M)\ time\ and\ takes\ O(M)}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ extra\ space\ here\ we\ use\ the\ concept\ of\ the\ sliding\ window\ the\ current}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ term\ can\ be\ computed\ using\ the\ given\ formula}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ a[i]\ =\ 2\ *\ a[i\ -\/\ 1]\ -\/\ a[i\ -\/\ 1\ -\/\ n];}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__bonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{n\_bonacci.cpp@{n\_bonacci.cpp}!test@{test}}
+\index{test@{test}!n\_bonacci.cpp@{n\_bonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{n__bonacci_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_test_case}{TestCase}}\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ n;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ m;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint64\_t>\ expected;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{keyword}{const}\ uint64\_t\ in\_n,\ \textcolor{keyword}{const}\ uint64\_t\ in\_m,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::initializer\_list<uint64\_t>\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ :\ n(in\_n),\ m(in\_m),\ expected(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}})\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}.size()\ ==\ m);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<TestCase>\ test\_cases\ =\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(0,\ 0,\ \{\}),}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(0,\ 1,\ \{0\}),}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(0,\ 2,\ \{0,\ 0\}),}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(1,\ 0,\ \{\}),}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(1,\ 1,\ \{1\}),}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(1,\ 2,\ \{1,\ 1\}),}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(1,\ 3,\ \{1,\ 1,\ 1\}),}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(5,\ 15,\ \{0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 2,\ 4,\ 8,\ 16,\ 31,\ 61,\ 120,\ 236,\ 464\}),}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ 6,\ 17,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \{0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 2,\ 4,\ 8,\ 16,\ 32,\ 63,\ 125,\ 248,\ 492,\ 976\}),}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(56,\ 15,\ \{0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0\})\};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&tc\ :\ test\_cases)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ assert(math::n\_bonacci::N\_bonacci(tc.n,\ tc.m)\ ==\ tc.expected);}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}

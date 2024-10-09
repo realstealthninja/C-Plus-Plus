@@ -1,0 +1,207 @@
+\doxysection{probability/binomial\+\_\+dist.cpp File Reference}
+\hypertarget{binomial__dist_8cpp}{}\label{binomial__dist_8cpp}\index{probability/binomial\_dist.cpp@{probability/binomial\_dist.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Binomial_distribution}{\texttt{ Binomial distribution}} example  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{binomial__dist_8cpp_a4416a7bc7fa87201883c54cdc4c82813}{binomial\+\_\+expected}} (double n, double p)
+\item 
+double \mbox{\hyperlink{binomial__dist_8cpp_acd4dd4558031e4c5d045c801f73d8861}{binomial\+\_\+variance}} (double n, double p)
+\item 
+double \mbox{\hyperlink{binomial__dist_8cpp_af09e51f513cee647d41192ab0a872cdc}{binomial\+\_\+standard\+\_\+deviation}} (double n, double p)
+\item 
+double \mbox{\hyperlink{binomial__dist_8cpp_a78d36635232e54b5d71fcbf1eac9a49a}{n\+Cr}} (double n, double r)
+\item 
+double \mbox{\hyperlink{binomial__dist_8cpp_a19ae0a6a2bd200fd1eb0e31b2bf4cc76}{binomial\+\_\+x\+\_\+successes}} (double n, double p, double x)
+\item 
+double \mbox{\hyperlink{binomial__dist_8cpp_a76ed6ce71415fb400b65f0656cef3d25}{binomial\+\_\+range\+\_\+successes}} (double n, double p, double lower\+\_\+bound, double upper\+\_\+bound)
+\item 
+int \mbox{\hyperlink{binomial__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Binomial_distribution}{\texttt{ Binomial distribution}} example 
+
+The binomial distribution models the number of successes in a sequence of n independent events
+
+Summary of variables used\+:
+\begin{DoxyItemize}
+\item n \+: number of trials
+\item p \+: probability of success
+\item x \+: desired successes 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{binomial__dist_8cpp_a4416a7bc7fa87201883c54cdc4c82813}\index{binomial\_dist.cpp@{binomial\_dist.cpp}!binomial\_expected@{binomial\_expected}}
+\index{binomial\_expected@{binomial\_expected}!binomial\_dist.cpp@{binomial\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{binomial\_expected()}{binomial\_expected()}}
+{\footnotesize\ttfamily \label{binomial__dist_8cpp_a4416a7bc7fa87201883c54cdc4c82813} 
+double binomial\+\_\+expected (\begin{DoxyParamCaption}\item[{double}]{n}{, }\item[{double}]{p}{}\end{DoxyParamCaption})}
+
+finds the expected value of a binomial distribution 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\mu=np$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{\ \textcolor{keywordflow}{return}\ n\ *\ p;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__dist_8cpp_a76ed6ce71415fb400b65f0656cef3d25}\index{binomial\_dist.cpp@{binomial\_dist.cpp}!binomial\_range\_successes@{binomial\_range\_successes}}
+\index{binomial\_range\_successes@{binomial\_range\_successes}!binomial\_dist.cpp@{binomial\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{binomial\_range\_successes()}{binomial\_range\_successes()}}
+{\footnotesize\ttfamily \label{binomial__dist_8cpp_a76ed6ce71415fb400b65f0656cef3d25} 
+double binomial\+\_\+range\+\_\+successes (\begin{DoxyParamCaption}\item[{double}]{n}{, }\item[{double}]{p}{, }\item[{double}]{lower\+\_\+bound}{, }\item[{double}]{upper\+\_\+bound}{}\end{DoxyParamCaption})}
+
+calculates the probability of a result within a range (inclusive, inclusive) \begin{DoxyReturn}{Returns}
+$\displaystyle \left.P(n,p)\right|_{x_0}^{x_1} =
+\sum_{i=x_0}^{x_1} P(i)
+=\sum_{i=x_0}^{x_1} {n\choose i} p^i (1-p)^{n-i}$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceprobability}{probability}}\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ lower\_bound;\ i\ <=\ upper\_bound;\ i++)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceprobability}{probability}}\ +=\ \mbox{\hyperlink{binomial__dist_8cpp_a78d36635232e54b5d71fcbf1eac9a49a}{nCr}}(n,\ i)\ *\ std::pow(p,\ i)\ *\ std::pow(1\ -\/\ p,\ n\ -\/\ i);}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceprobability}{probability}};}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__dist_8cpp_af09e51f513cee647d41192ab0a872cdc}\index{binomial\_dist.cpp@{binomial\_dist.cpp}!binomial\_standard\_deviation@{binomial\_standard\_deviation}}
+\index{binomial\_standard\_deviation@{binomial\_standard\_deviation}!binomial\_dist.cpp@{binomial\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{binomial\_standard\_deviation()}{binomial\_standard\_deviation()}}
+{\footnotesize\ttfamily \label{binomial__dist_8cpp_af09e51f513cee647d41192ab0a872cdc} 
+double binomial\+\_\+standard\+\_\+deviation (\begin{DoxyParamCaption}\item[{double}]{n}{, }\item[{double}]{p}{}\end{DoxyParamCaption})}
+
+finds the standard deviation of the binomial distribution 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\sigma = \sqrt{\sigma^2} = \sqrt{n\cdot p\cdot (1-p)}$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(\mbox{\hyperlink{binomial__dist_8cpp_acd4dd4558031e4c5d045c801f73d8861}{binomial\_variance}}(n,\ p));}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__dist_8cpp_acd4dd4558031e4c5d045c801f73d8861}\index{binomial\_dist.cpp@{binomial\_dist.cpp}!binomial\_variance@{binomial\_variance}}
+\index{binomial\_variance@{binomial\_variance}!binomial\_dist.cpp@{binomial\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{binomial\_variance()}{binomial\_variance()}}
+{\footnotesize\ttfamily \label{binomial__dist_8cpp_acd4dd4558031e4c5d045c801f73d8861} 
+double binomial\+\_\+variance (\begin{DoxyParamCaption}\item[{double}]{n}{, }\item[{double}]{p}{}\end{DoxyParamCaption})}
+
+finds the variance of the binomial distribution 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\sigma^2 = n\cdot p\cdot (1-p)$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{\ \textcolor{keywordflow}{return}\ n\ *\ p\ *\ (1\ -\/\ p);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__dist_8cpp_a19ae0a6a2bd200fd1eb0e31b2bf4cc76}\index{binomial\_dist.cpp@{binomial\_dist.cpp}!binomial\_x\_successes@{binomial\_x\_successes}}
+\index{binomial\_x\_successes@{binomial\_x\_successes}!binomial\_dist.cpp@{binomial\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{binomial\_x\_successes()}{binomial\_x\_successes()}}
+{\footnotesize\ttfamily \label{binomial__dist_8cpp_a19ae0a6a2bd200fd1eb0e31b2bf4cc76} 
+double binomial\+\_\+x\+\_\+successes (\begin{DoxyParamCaption}\item[{double}]{n}{, }\item[{double}]{p}{, }\item[{double}]{x}{}\end{DoxyParamCaption})}
+
+calculates the probability of exactly x successes \begin{DoxyReturn}{Returns}
+$\displaystyle P(n,p,x) = {n\choose x} p^x (1-p)^{n-x}$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{binomial__dist_8cpp_a78d36635232e54b5d71fcbf1eac9a49a}{nCr}}(n,\ x)\ *\ std::pow(p,\ x)\ *\ std::pow(1\ -\/\ p,\ n\ -\/\ x);}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{binomial\_dist.cpp@{binomial\_dist.cpp}!main@{main}}
+\index{main@{main}!binomial\_dist.cpp@{binomial\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{binomial__dist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}expected\ value\ :\ "{}}\ <<\ \mbox{\hyperlink{binomial__dist_8cpp_a4416a7bc7fa87201883c54cdc4c82813}{binomial\_expected}}(100,\ 0.5)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}variance\ :\ "{}}\ <<\ \mbox{\hyperlink{binomial__dist_8cpp_acd4dd4558031e4c5d045c801f73d8861}{binomial\_variance}}(100,\ 0.5)\ <<\ std::endl;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}standard\ deviation\ :\ "{}}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{binomial__dist_8cpp_af09e51f513cee647d41192ab0a872cdc}{binomial\_standard\_deviation}}(100,\ 0.5)\ <<\ std::endl;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}exactly\ 30\ successes\ :\ "{}}\ <<\ \mbox{\hyperlink{binomial__dist_8cpp_a19ae0a6a2bd200fd1eb0e31b2bf4cc76}{binomial\_x\_successes}}(100,\ 0.5,\ 30)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}45\ or\ more\ successes\ :\ "{}}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{binomial__dist_8cpp_a76ed6ce71415fb400b65f0656cef3d25}{binomial\_range\_successes}}(100,\ 0.5,\ 45,\ 100)\ <<\ std::endl;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binomial__dist_8cpp_a78d36635232e54b5d71fcbf1eac9a49a}\index{binomial\_dist.cpp@{binomial\_dist.cpp}!nCr@{nCr}}
+\index{nCr@{nCr}!binomial\_dist.cpp@{binomial\_dist.cpp}}
+\doxysubsubsection{\texorpdfstring{nCr()}{nCr()}}
+{\footnotesize\ttfamily \label{binomial__dist_8cpp_a78d36635232e54b5d71fcbf1eac9a49a} 
+double n\+Cr (\begin{DoxyParamCaption}\item[{double}]{n}{, }\item[{double}]{r}{}\end{DoxyParamCaption})}
+
+Computes n choose r 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\displaystyle {n\choose r} =
+\frac{n!}{r!(n-r)!} = \frac{n\times(n-1)\times(n-2)\times\cdots(n-r)}{r!}
+$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{double}\ numerator\ =\ n;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{double}\ denominator\ =\ r;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ n\ -\/\ 1;\ i\ >=\ ((n\ -\/\ r)\ +\ 1);\ i-\/-\/)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ numerator\ *=\ i;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ denominator\ *=\ i;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ numerator\ /\ denominator;}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}

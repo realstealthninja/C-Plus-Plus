@@ -1,0 +1,203 @@
+\doxysection{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/math/quadratic\+\_\+equations\+\_\+complex\+\_\+numbers.\+cpp}
+\hypertarget{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2math_2quadratic_equations_complex_numbers_8cpp-example}{}\label{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2math_2quadratic_equations_complex_numbers_8cpp-example}int \doxylink{quadratic__equations__complex__numbers_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} \{ using std\+::array; using std\+::complex; using std\+::cout;
+
+array\texorpdfstring{$<$}{<}complex$<$long double, 2$>$ solutions = quadratic\+Equation(1, 2, 1); cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} solutions\mbox{[}0\mbox{]} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{} "{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} solutions\mbox{[}1\mbox{]} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\textbackslash{}n"{};
+
+solutions = quadratic\+Equation(1, 1, 1); // Reusing solutions. cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} solutions\mbox{[}0\mbox{]} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{} "{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} solutions\mbox{[}1\mbox{]} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\textbackslash{}n"{}; return 0; \}
+
+Output\+: (-\/1, 0) (-\/1, 0) (-\/0.\+5,0.\+866025) (-\/0.\+5,0.\+866025)
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @file}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Calculate\ quadratic\ equation\ with\ complex\ roots,\ i.e.\ b\string^2\ -\/\ 4ac\ <\ 0.}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @author\ [Renjian-\/buchai](https://github.com/Renjian-\/buchai)}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @description\ Calculates\ any\ quadratic\ equation\ in\ form\ ax\string^2\ +\ bx\ +\ c.}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Quadratic\ equation:}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ x\ =\ (-\/b\ +/-\/\ sqrt(b\string^2\ -\/\ 4ac))\ /\ 2a}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @example}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ int\ main()\ \{}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ using\ std::array;}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ using\ std::complex;}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ using\ std::cout;}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ array<complex<long\ double,\ 2>\ solutions\ =\ quadraticEquation(1,\ 2,\ 1);}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ cout\ <<\ solutions[0]\ <<\ "{}\ "{}\ <<\ solutions[1]\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ solutions\ =\ quadraticEquation(1,\ 1,\ 1);\ \ //\ Reusing\ solutions.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ cout\ <<\ solutions[0]\ <<\ "{}\ "{}\ <<\ solutions[1]\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \ \ return\ 0;}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ \}}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Output:}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ (-\/1,\ 0)\ (-\/1,\ 0)}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ (-\/0.5,0.866025)\ (-\/0.5,0.866025)}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <array>}\ \ \ \ \ \ \textcolor{comment}{///\ std::array}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <cassert>}\ \ \ \ \textcolor{comment}{///\ assert}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <cmath>}\ \ \ \ \ \ \textcolor{comment}{///\ std::sqrt,\ std::trunc,\ std::pow}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <complex>}\ \ \ \ \textcolor{comment}{///\ std::complex}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <exception>}\ \ \textcolor{comment}{///\ std::invalid\_argument}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iomanip>}\ \ \ \ \textcolor{comment}{///\ std::setprecision}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}\ \ \ \textcolor{comment}{///\ std::cout}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @namespace}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Mathematical\ algorithms}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemath}{math}}\ \{}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Quadratic\ equation\ calculator.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ a\ quadratic\ coefficient.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ b\ linear\ coefficient.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ c\ constant}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @return\ Array\ containing\ the\ roots\ of\ quadratic\ equation,\ incl.\ complex}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ root.}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{std::array<std::complex<long\ double>,\ 2>\ \mbox{\hyperlink{namespacemath_aacb1411ef2029e81f249c21e17c96fdb}{quadraticEquation}}(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ a,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ b,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ c)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (a\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}quadratic\ coefficient\ cannot\ be\ 0"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ discriminant\ =\ b\ *\ b\ -\/\ 4\ *\ a\ *\ c;}
+\DoxyCodeLine{\ \ \ \ std::array<std::complex<long\ double>,\ 2>\ solutions\{0,\ 0\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (discriminant\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ solutions[0]\ =\ -\/b\ *\ 0.5\ /\ a;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ solutions[1]\ =\ -\/b\ *\ 0.5\ /\ a;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ solutions;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Complex\ root\ (discriminant\ <\ 0)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Note\ that\ the\ left\ term\ (-\/b\ /\ 2a)\ is\ always\ real.\ The\ imaginary\ part}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ appears\ when\ b\string^2\ -\/\ 4ac\ <\ 0,\ so\ sqrt(b\string^2\ -\/\ 4ac)\ has\ no\ real\ roots.\ So,}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ the\ imaginary\ component\ is\ i\ *\ (+/-\/)sqrt(abs(b\string^2\ -\/\ 4ac))\ /\ 2a.}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (discriminant\ >\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Since\ discriminant\ >\ 0,\ there\ are\ only\ real\ roots.\ Therefore,}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ imaginary\ component\ =\ 0.}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ solutions[0]\ =\ std::complex<long\ double>\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (-\/b\ -\/\ std::sqrt(discriminant))\ *\ 0.5\ /\ a,\ 0\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ solutions[1]\ =\ std::complex<long\ double>\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (-\/b\ +\ std::sqrt(discriminant))\ *\ 0.5\ /\ a,\ 0\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ solutions;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Since\ b\string^2\ -\/\ 4ac\ is\ <\ 0,\ for\ faster\ computation,\ -\/discriminant\ is}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ enough\ to\ make\ it\ positive.}}
+\DoxyCodeLine{\ \ \ \ solutions[0]\ =\ std::complex<long\ double>\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/b\ *\ 0.5\ /\ a,\ -\/std::sqrt(-\/discriminant)\ *\ 0.5\ /\ a\};}
+\DoxyCodeLine{\ \ \ \ solutions[1]\ =\ std::complex<long\ double>\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/b\ *\ 0.5\ /\ a,\ std::sqrt(-\/discriminant)\ *\ 0.5\ /\ a\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ solutions;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \ \textcolor{comment}{//\ namespace\ math}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Asserts\ an\ array\ of\ complex\ numbers.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ input\ Input\ array\ of\ complex\ numbers.\ .}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ expected\ Expected\ array\ of\ complex\ numbers.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @param\ precision\ Precision\ to\ be\ asserted.\ Default=10}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadratic__equations__complex__numbers_8cpp_af7a6d4e3dc85a6288c8f1f7094830c5a}{assertArray}}(std::array<std::complex<long\ double>,\ 2>\ input,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<std::complex<long\ double>,\ 2>\ expected,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ precision\ =\ 10)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ exponent\ =\ std::pow(10,\ precision);}
+\DoxyCodeLine{\ \ \ \ input[0].real(std::round(input[0].real()\ *\ exponent));}
+\DoxyCodeLine{\ \ \ \ input[1].real(std::round(input[1].real()\ *\ exponent));}
+\DoxyCodeLine{\ \ \ \ input[0].imag(std::round(input[0].imag()\ *\ exponent));}
+\DoxyCodeLine{\ \ \ \ input[1].imag(std::round(input[1].imag()\ *\ exponent));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ expected[0].real(std::round(expected[0].real()\ *\ exponent));}
+\DoxyCodeLine{\ \ \ \ expected[1].real(std::round(expected[1].real()\ *\ exponent));}
+\DoxyCodeLine{\ \ \ \ expected[0].imag(std::round(expected[0].imag()\ *\ exponent));}
+\DoxyCodeLine{\ \ \ \ expected[1].imag(std::round(expected[1].imag()\ *\ exponent));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ assert(input\ ==\ expected);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Self-\/test\ implementations\ to\ test\ quadraticEquation\ function.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @note\ There\ are\ 4\ different\ types\ of\ solutions:\ Real\ and\ equal,\ real,}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ complex,\ complex\ and\ equal.}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Values\ are\ equal\ and\ real.}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}a=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}b=-\/2\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}c=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Expected\ output:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(1,\ 0),\ (1,\ 0)\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ std::array<std::complex<long\ double>,\ 2>\ equalCase\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::complex<long\ double>\{1,\ 0\},\ std::complex<long\ double>\{1,\ 0\}\};}
+\DoxyCodeLine{\ \ \ \ assert(\mbox{\hyperlink{namespacemath_aacb1411ef2029e81f249c21e17c96fdb}{math::quadraticEquation}}(1,\ -\/2,\ 1)\ ==\ equalCase);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Values\ are\ equal\ and\ complex.}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}a=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}b=4\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}c=5\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Expected\ output:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(-\/2,\ -\/1),\ (-\/2,\ 1)\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ std::array<std::complex<long\ double>,\ 2>\ complexCase\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::complex<long\ double>\{-\/2,\ -\/1\},\ std::complex<long\ double>\{-\/2,\ 1\}\};}
+\DoxyCodeLine{\ \ \ \ assert(\mbox{\hyperlink{namespacemath_aacb1411ef2029e81f249c21e17c96fdb}{math::quadraticEquation}}(1,\ 4,\ 5)\ ==\ complexCase);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Values\ are\ real.}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}a=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}b=5\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}c=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Expected\ output:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(-\/4.7912878475,\ 0),\ (-\/0.2087121525,\ 0)\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ std::array<std::complex<long\ double>,\ 2>\ floatCase\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::complex<long\ double>\{-\/4.7912878475,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::complex<long\ double>\{-\/0.2087121525,\ 0\}\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{quadratic__equations__complex__numbers_8cpp_af7a6d4e3dc85a6288c8f1f7094830c5a}{assertArray}}(\mbox{\hyperlink{namespacemath_aacb1411ef2029e81f249c21e17c96fdb}{math::quadraticEquation}}(1,\ 5,\ 1),\ floatCase);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Values\ are\ complex.}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}a=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}b=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}c=1\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Expected\ output:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(-\/0.5,\ -\/0.8660254038),\ (-\/0.5,\ 0.8660254038)\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ std::array<std::complex<long\ double>,\ 2>\ ifloatCase\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::complex<long\ double>\{-\/0.5,\ -\/0.8660254038\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::complex<long\ double>\{-\/0.5,\ 0.8660254038\}\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{quadratic__equations__complex__numbers_8cpp_af7a6d4e3dc85a6288c8f1f7094830c5a}{assertArray}}(\mbox{\hyperlink{namespacemath_aacb1411ef2029e81f249c21e17c96fdb}{math::quadraticEquation}}(1,\ 1,\ 1),\ ifloatCase);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Exception\ test:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Input:\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}a=0\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}b=0\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}c=0\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Expected\ output:\ Exception\ thrown\ \(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_aacb1411ef2029e81f249c21e17c96fdb}{math::quadraticEquation}}(0,\ 0,\ 0);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (std::invalid\_argument\&\ e)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Exception\ thrown\ successfully\ \(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @brief\ Main\ function}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ @returns\ 0\ on\ exit}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{generate__parentheses_8cpp_gae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{generate__parentheses_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ Run\ self-\/test\ implementation.}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

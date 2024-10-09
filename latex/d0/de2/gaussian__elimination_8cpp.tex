@@ -1,0 +1,99 @@
+\doxysection{numerical\+\_\+methods/gaussian\+\_\+elimination.cpp File Reference}
+\hypertarget{gaussian__elimination_8cpp}{}\label{gaussian__elimination_8cpp}\index{numerical\_methods/gaussian\_elimination.cpp@{numerical\_methods/gaussian\_elimination.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Gaussian_elimination}{\texttt{ Gaussian elimination method}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gaussian__elimination_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Gaussian_elimination}{\texttt{ Gaussian elimination method}} 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gaussian__elimination_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{gaussian\_elimination.cpp@{gaussian\_elimination.cpp}!main@{main}}
+\index{main@{main}!gaussian\_elimination.cpp@{gaussian\_elimination.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{gaussian__elimination_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}},\ i,\ j,\ step;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Matrix\ size:\ "{}};}
+\DoxyCodeLine{00013\ \ \ \ \ std::cin\ >>\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ create\ a\ 2D\ matrix\ by\ dynamic\ memory\ allocation}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ **mat\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}\ *[\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1],\ **x\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}\ *[\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}];}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ mat[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1];}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}})}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ x[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ +\ 1];}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ get\ the\ matrix\ elements\ from\ user}}
+\DoxyCodeLine{00024\ \ \ \ \ std::cout\ <<\ std::endl\ <<\ \textcolor{stringliteral}{"{}Enter\ value\ of\ the\ matrix:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ j++)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat[i][j];\ \ \textcolor{comment}{//\ Enter\ (mat\_size*mat\_size)\ value\ of\ the\ matrix.}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ perform\ Gaussian\ elimination}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (step\ =\ 0;\ step\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ -\/\ 1;\ step++)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ step;\ i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ (mat[i\ +\ 1][step]\ /\ mat[step][step]);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ step;\ j\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ j++)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat[i\ +\ 1][j]\ =\ mat[i\ +\ 1][j]\ -\/\ (a\ *\ mat[step][j]);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::cout\ <<\ std::endl}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Matrix\ using\ Gaussian\ Elimination\ method:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ j++)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ x[i][j]\ =\ mat[i][j];}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ mat[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ std::cout\ <<\ std::endl}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Value\ of\ the\ Gaussian\ Elimination\ method:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ -\/\ 1;\ i\ >=\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}\ -\/\ 1;\ j\ >\ i;\ j-\/-\/)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ x[i][j]\ =\ x[j][j]\ *\ x[i][j];}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}}\ =\ x[i][j]\ +\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x[i][i]\ ==\ 0)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ x[i][i]\ =\ 0;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ x[i][i]\ =\ (x[i][\mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}}]\ -\/\ \mbox{\hyperlink{namespacemachine__learning_a6f1c98c016ad34ff3d9f39372161bd35}{sum}})\ /\ (x[i][i]);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}x"{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}=\ "{}}\ <<\ x[i][i]\ <<\ std::endl;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <=\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}};\ i++)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ mat[i];}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ \mbox{\hyperlink{matrix__exponentiation_8cpp_a9977ad12548c4a49dee9dc3f0685aa54}{mat\_size}})}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ x[i];}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{delete}[]\ mat;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{delete}[]\ x;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}

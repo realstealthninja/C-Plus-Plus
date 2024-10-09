@@ -1,0 +1,176 @@
+\doxysection{dynamic\+\_\+programming/subset\+\_\+sum.cpp File Reference}
+\hypertarget{dynamic__programming_2subset__sum_8cpp}{}\label{dynamic__programming_2subset__sum_8cpp}\index{dynamic\_programming/subset\_sum.cpp@{dynamic\_programming/subset\_sum.cpp}}
+
+
+Implements \mbox{[}Sub-\/set sum problem\mbox{]} (\href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Subset\+\_\+sum\+\_\+problem}}) algorithm, which tells whether a subset with target sum exists or not.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacesubset__sum}{subset\+\_\+sum}}
+\begin{DoxyCompactList}\small\item\em Functions for \mbox{[}Sub-\/set sum problem\mbox{]} (\href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Subset\+\_\+sum\+\_\+problem}}) algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_a280fcfb2f6fe49a31c4da572e7032607}{dynamic\+\_\+programming\+::subset\+\_\+sum\+::subset\+\_\+sum\+\_\+recursion}} (const std\+::vector$<$ int $>$ \&arr, int target\+Sum, std\+::vector$<$ std\+::unordered\+\_\+map$<$ int, bool $>$ $>$ \texorpdfstring{$\ast$}{*}dp, int index=0)
+\item 
+bool \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_ac94e6c0dee11278ac0a5491f1b9a4a50}{dynamic\+\_\+programming\+::subset\+\_\+sum\+::subset\+\_\+sum\+\_\+problem}} (const std\+::vector$<$ int $>$ \&arr, const int target\+Sum)
+\item 
+static void \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test Function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements \mbox{[}Sub-\/set sum problem\mbox{]} (\href{https://en.wikipedia.org/wiki/Subset_sum_problem}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Subset\+\_\+sum\+\_\+problem}}) algorithm, which tells whether a subset with target sum exists or not. 
+
+In this problem, we use dynamic programming to find if we can pull out a subset from an array whose sum is equal to a given target sum. The overall time complexity of the problem is O(n \texorpdfstring{$\ast$}{*} target\+Sum) where n is the size of the array. For example, array = \mbox{[}1, -\/10, 2, 31, -\/6\mbox{]}, target\+Sum = -\/14. Output\+: true =\texorpdfstring{$>$}{>} We can pick subset \mbox{[}-\/10, 2, -\/6\mbox{]} with sum as (-\/10) + 2 + (-\/6) = -\/14. \begin{DoxyAuthor}{Author}
+\href{https://github.com/KillerAV}{\texttt{ Killer\+AV}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{dynamic__programming_2subset__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{subset\_sum.cpp@{subset\_sum.cpp}!main@{main}}
+\index{main@{main}!subset\_sum.cpp@{subset\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{dynamic__programming_2subset__sum_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{backtracking_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ execute\ the\ test}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}
+\Hypertarget{dynamic__programming_2subset__sum_8cpp_ac94e6c0dee11278ac0a5491f1b9a4a50}\index{subset\_sum.cpp@{subset\_sum.cpp}!subset\_sum\_problem@{subset\_sum\_problem}}
+\index{subset\_sum\_problem@{subset\_sum\_problem}!subset\_sum.cpp@{subset\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{subset\_sum\_problem()}{subset\_sum\_problem()}}
+{\footnotesize\ttfamily \label{dynamic__programming_2subset__sum_8cpp_ac94e6c0dee11278ac0a5491f1b9a4a50} 
+bool dynamic\+\_\+programming\+::subset\+\_\+sum\+::subset\+\_\+sum\+\_\+problem (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{arr}{, }\item[{const int}]{target\+Sum}{}\end{DoxyParamCaption})}
+
+Function implementing subset sum algorithm using top-\/down approach 
+\begin{DoxyParams}{Parameters}
+{\em arr} & input array \\
+\hline
+{\em target\+Sum} & the target sum of the subset \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false based on if the target sum subset exists or not. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\ =\ arr.size();}
+\DoxyCodeLine{00072\ \ \ \ \ std::vector<std::unordered\_map<int,\ bool>>\ \mbox{\hyperlink{namespacedp}{dp}}(n);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_a280fcfb2f6fe49a31c4da572e7032607}{subset\_sum\_recursion}}(arr,\ targetSum,\ \&\mbox{\hyperlink{namespacedp}{dp}});}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{dynamic__programming_2subset__sum_8cpp_a280fcfb2f6fe49a31c4da572e7032607}\index{subset\_sum.cpp@{subset\_sum.cpp}!subset\_sum\_recursion@{subset\_sum\_recursion}}
+\index{subset\_sum\_recursion@{subset\_sum\_recursion}!subset\_sum.cpp@{subset\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{subset\_sum\_recursion()}{subset\_sum\_recursion()}}
+{\footnotesize\ttfamily \label{dynamic__programming_2subset__sum_8cpp_a280fcfb2f6fe49a31c4da572e7032607} 
+bool dynamic\+\_\+programming\+::subset\+\_\+sum\+::subset\+\_\+sum\+\_\+recursion (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{arr}{, }\item[{int}]{target\+Sum}{, }\item[{std\+::vector$<$ std\+::unordered\+\_\+map$<$ int, bool $>$ $>$ \texorpdfstring{$\ast$}{*}}]{dp}{, }\item[{int}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Recursive function using dynamic programming to find if the required sum subset exists or not. 
+\begin{DoxyParams}{Parameters}
+{\em arr} & input array \\
+\hline
+{\em target\+Sum} & the target sum of the subset \\
+\hline
+{\em dp} & the map storing the results \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false based on if the target sum subset exists or not. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (targetSum\ ==\ 0)\ \{\ \ \textcolor{comment}{//\ Found\ a\ valid\ subset\ with\ required\ sum.}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ arr.size())\ \{\ \ \textcolor{comment}{//\ End\ of\ array}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*\mbox{\hyperlink{namespacedp}{dp}})[index].count(targetSum))\ \{\ \ \textcolor{comment}{//\ Answer\ already\ present\ in\ map}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\mbox{\hyperlink{namespacedp}{dp}})[index][targetSum];}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ ans\ =}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_a280fcfb2f6fe49a31c4da572e7032607}{subset\_sum\_recursion}}(arr,\ targetSum\ -\/\ arr[index],\ \mbox{\hyperlink{namespacedp}{dp}},\ index\ +\ 1)\ ||}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_a280fcfb2f6fe49a31c4da572e7032607}{subset\_sum\_recursion}}(arr,\ targetSum,\ \mbox{\hyperlink{namespacedp}{dp}},\ index\ +\ 1);}
+\DoxyCodeLine{00060\ \ \ \ \ (*dp)[index][targetSum]\ =\ ans;\ \ \textcolor{comment}{//\ Save\ ans\ in\ dp\ map.}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{dynamic__programming_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{subset\_sum.cpp@{subset\_sum.cpp}!test@{test}}
+\index{test@{test}!subset\_sum.cpp@{subset\_sum.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{dynamic__programming_2subset__sum_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test Function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ custom\ input\ vector}}
+\DoxyCodeLine{00084\ \ \ \ \ std::vector<std::vector<int>>\ custom\_input\_arr(3);}
+\DoxyCodeLine{00085\ \ \ \ \ custom\_input\_arr[0]\ =\ std::vector<int>\{1,\ -\/10,\ 2,\ 31,\ -\/6\};}
+\DoxyCodeLine{00086\ \ \ \ \ custom\_input\_arr[1]\ =\ std::vector<int>\{2,\ 3,\ 4\};}
+\DoxyCodeLine{00087\ \ \ \ \ custom\_input\_arr[2]\ =\ std::vector<int>\{0,\ 1,\ 0,\ 1,\ 0\};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ std::vector<int>\ custom\_input\_target\_sum(3);}
+\DoxyCodeLine{00090\ \ \ \ \ custom\_input\_target\_sum[0]\ =\ -\/14;}
+\DoxyCodeLine{00091\ \ \ \ \ custom\_input\_target\_sum[1]\ =\ 10;}
+\DoxyCodeLine{00092\ \ \ \ \ custom\_input\_target\_sum[2]\ =\ 2;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ calculated\ output\ vector\ by\ pal\_part\ Function}}
+\DoxyCodeLine{00095\ \ \ \ \ std::vector<int>\ calculated\_output(3);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ calculated\_output[i]\ =}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dynamic__programming_2subset__sum_8cpp_ac94e6c0dee11278ac0a5491f1b9a4a50}{dynamic\_programming::subset\_sum::subset\_sum\_problem}}(}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ custom\_input\_arr[i],\ custom\_input\_target\_sum[i]);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ expected\ output\ vector}}
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<bool>\ expected\_output\{\textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}\};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Testing\ implementation\ via\ assert\ function}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ It\ will\ throw\ error\ if\ any\ of\ the\ expected\ test\ fails}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ Else\ it\ will\ give\ nothing}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ assert(expected\_output[i]\ ==\ calculated\_output[i]);}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ passed\ successfully!\(\backslash\)n"{}};}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}

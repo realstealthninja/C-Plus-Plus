@@ -1,0 +1,175 @@
+\doxysection{bit\+\_\+manipulation/travelling\+\_\+salesman\+\_\+using\+\_\+bit\+\_\+manipulation.cpp File Reference}
+\hypertarget{travelling__salesman__using__bit__manipulation_8cpp}{}\label{travelling__salesman__using__bit__manipulation_8cpp}\index{bit\_manipulation/travelling\_salesman\_using\_bit\_manipulation.cpp@{bit\_manipulation/travelling\_salesman\_using\_bit\_manipulation.cpp}}
+
+
+Implementation to \mbox{[}Travelling Salesman problem using bit-\/masking\mbox{]} (\href{https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/travelling-\/salesman-\/problem-\/set-\/1/}})  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebit__manipulation}{bit\+\_\+manipulation}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetravelling_salesman__bitmanipulation}{travelling\+Salesman\+\_\+bitmanipulation}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/}{\texttt{ Travelling Salesman Bitmask}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_ad08f082be02c3437c2fe89cb035fcee1}{bit\+\_\+manipulation\+::travelling\+\_\+salesman\+\_\+using\+\_\+bit\+\_\+manipulation\+::travelling\+\_\+salesman\+\_\+using\+\_\+bit\+\_\+manipulation}} (std\+::vector$<$ std\+::vector$<$ uint32\+\_\+t $>$ $>$ dist, std\+::uint64\+\_\+t set\+Of\+Cities, std\+::uint64\+\_\+t city, std\+::uint64\+\_\+t n, std\+::vector$<$ std\+::vector$<$ uint32\+\_\+t $>$ $>$ \&dp)
+\begin{DoxyCompactList}\small\item\em The function implements travelling\+Salesman using bitmanipulation. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation to \mbox{[}Travelling Salesman problem using bit-\/masking\mbox{]} (\href{https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/}{\texttt{ https\+://www.\+geeksforgeeks.\+org/travelling-\/salesman-\/problem-\/set-\/1/}}) 
+
+Given the distance/cost(as and adjacency matrix) between each city/node to the other city/node , the problem is to find the shortest possible route that visits every city exactly once and returns to the starting point or we can say the minimum cost of whole tour.
+
+Explanation\+: INPUT -\/\texorpdfstring{$>$}{>} You are given with a adjacency matrix A = \{\} which contains the distance between two cities/node.
+
+OUTPUT -\/\texorpdfstring{$>$}{>} \doxylink{namespace_minimum}{Minimum} cost of whole tour from starting point
+
+Worst Case Time Complexity\+: O(n\texorpdfstring{$^\wedge$}{\string^}2 \texorpdfstring{$\ast$}{*} 2\texorpdfstring{$^\wedge$}{\string^}n) Space complexity\+: O(n) \begin{DoxyAuthor}{Author}
+\href{https://github.com/Rytnix}{\texttt{ Utkarsh Yadav}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{travelling__salesman__using__bit__manipulation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{travelling\_salesman\_using\_bit\_manipulation.cpp@{travelling\_salesman\_using\_bit\_manipulation.cpp}!main@{main}}
+\index{main@{main}!travelling\_salesman\_using\_bit\_manipulation.cpp@{travelling\_salesman\_using\_bit\_manipulation.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{travelling__salesman__using__bit__manipulation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+\Hypertarget{travelling__salesman__using__bit__manipulation_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{travelling\_salesman\_using\_bit\_manipulation.cpp@{travelling\_salesman\_using\_bit\_manipulation.cpp}!test@{test}}
+\index{test@{test}!travelling\_salesman\_using\_bit\_manipulation.cpp@{travelling\_salesman\_using\_bit\_manipulation.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{travelling__salesman__using__bit__manipulation_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ 1st\ test-\/case}}
+\DoxyCodeLine{00101\ \ \ \ \ std::vector<std::vector<uint32\_t>>\ dist\ =\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \{0,\ 20,\ 42,\ 35\},\ \{20,\ 0,\ 30,\ 34\},\ \{42,\ 30,\ 0,\ 12\},\ \{35,\ 34,\ 12,\ 0\}\};}
+\DoxyCodeLine{00103\ \ \ \ \ uint32\_t\ V\ =\ dist.size();}
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<std::vector<uint32\_t>>\ \mbox{\hyperlink{namespacedp}{dp}}(1\ <<\ V,\ std::vector<uint32\_t>(V,\ -\/1));}
+\DoxyCodeLine{00105\ \ \ \ \ assert(bit\_manipulation::travelling\_salesman\_using\_bit\_manipulation::}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_ad08f082be02c3437c2fe89cb035fcee1}{travelling\_salesman\_using\_bit\_manipulation}}(dist,\ 1,\ 0,\ V,\ \mbox{\hyperlink{namespacedp}{dp}})\ ==}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ 97);}
+\DoxyCodeLine{00108\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test-\/case:\ passed!"{}}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test-\/case}}
+\DoxyCodeLine{00112\ \ \ \ \ dist\ =\ \{\{0,\ 5,\ 10,\ 15\},\ \{5,\ 0,\ 20,\ 30\},\ \{10,\ 20,\ 0,\ 35\},\ \{15,\ 30,\ 35,\ 0\}\};}
+\DoxyCodeLine{00113\ \ \ \ \ V\ =\ dist.size();}
+\DoxyCodeLine{00114\ \ \ \ \ std::vector<std::vector<uint32\_t>>\ dp1(1\ <<\ V,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<uint32\_t>(V,\ -\/1));}
+\DoxyCodeLine{00116\ \ \ \ \ assert(bit\_manipulation::travelling\_salesman\_using\_bit\_manipulation::}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_ad08f082be02c3437c2fe89cb035fcee1}{travelling\_salesman\_using\_bit\_manipulation}}(dist,\ 1,\ 0,\ V,\ dp1)\ ==}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ 75);}
+\DoxyCodeLine{00119\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test-\/case:\ passed!"{}}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test-\/case}}
+\DoxyCodeLine{00122\ \ \ \ \ dist\ =\ \{\{0,\ 10,\ 15,\ 20\},\ \{10,\ 0,\ 35,\ 25\},\ \{15,\ 35,\ 0,\ 30\},\ \{20,\ 25,\ 30,\ 0\}\};}
+\DoxyCodeLine{00123\ \ \ \ \ V\ =\ dist.size();}
+\DoxyCodeLine{00124\ \ \ \ \ std::vector<std::vector<uint32\_t>>\ dp2(1\ <<\ V,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<uint32\_t>(V,\ -\/1));}
+\DoxyCodeLine{00126\ \ \ \ \ assert(bit\_manipulation::travelling\_salesman\_using\_bit\_manipulation::}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_ad08f082be02c3437c2fe89cb035fcee1}{travelling\_salesman\_using\_bit\_manipulation}}(dist,\ 1,\ 0,\ V,\ dp2)\ ==}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ 80);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test-\/case:\ passed!"{}}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00132\ \}}
+
+\end{DoxyCode}
+\Hypertarget{travelling__salesman__using__bit__manipulation_8cpp_ad08f082be02c3437c2fe89cb035fcee1}\index{travelling\_salesman\_using\_bit\_manipulation.cpp@{travelling\_salesman\_using\_bit\_manipulation.cpp}!travelling\_salesman\_using\_bit\_manipulation@{travelling\_salesman\_using\_bit\_manipulation}}
+\index{travelling\_salesman\_using\_bit\_manipulation@{travelling\_salesman\_using\_bit\_manipulation}!travelling\_salesman\_using\_bit\_manipulation.cpp@{travelling\_salesman\_using\_bit\_manipulation.cpp}}
+\doxysubsubsection{\texorpdfstring{travelling\_salesman\_using\_bit\_manipulation()}{travelling\_salesman\_using\_bit\_manipulation()}}
+{\footnotesize\ttfamily \label{travelling__salesman__using__bit__manipulation_8cpp_ad08f082be02c3437c2fe89cb035fcee1} 
+std\+::uint64\+\_\+t bit\+\_\+manipulation\+::travelling\+\_\+salesman\+\_\+using\+\_\+bit\+\_\+manipulation\+::travelling\+\_\+salesman\+\_\+using\+\_\+bit\+\_\+manipulation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ uint32\+\_\+t $>$ $>$}]{dist}{, }\item[{std\+::uint64\+\_\+t}]{set\+Of\+Cities}{, }\item[{std\+::uint64\+\_\+t}]{city}{, }\item[{std\+::uint64\+\_\+t}]{n}{, }\item[{std\+::vector$<$ std\+::vector$<$ uint32\+\_\+t $>$ $>$ \&}]{dp}{}\end{DoxyParamCaption})}
+
+
+
+The function implements travelling\+Salesman using bitmanipulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & is the cost to reach between two cities/nodes \\
+\hline
+{\em set\+Of\+Citites} & represents the city in bit form.\textbackslash{} \\
+\hline
+{\em city} & is taken to track the current city movement. \\
+\hline
+{\em n} & is the no of citys . \\
+\hline
+{\em dp} & vector is used to keep a record of state to avoid the recomputation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum cost of traversing whole nodes/cities from starting point back to starting point 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ base\ case;}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (setOfCities\ ==\ (1\ <<\ n)\ -\/\ 1)\ \{\ \ \textcolor{comment}{//\ we\ have\ covered\ all\ the\ cities}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dist[city][0];\ \ \textcolor{comment}{//\ return\ the\ cost\ from\ the\ current\ city\ to\ the}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ original\ city.}}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedp}{dp}}[setOfCities][city]\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedp}{dp}}[setOfCities][city];}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ otherwise\ try\ all\ possible\ options}}
+\DoxyCodeLine{00075\ \ \ \ \ uint64\_t\ ans\ =\ 2147483647;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ choice\ =\ 0;\ choice\ <\ n;\ choice++)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ the\ city\ is\ visited\ or\ not.}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((setOfCities\ \&\ (1\ <<\ choice))\ ==}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ 0)\ \{\ \ \textcolor{comment}{//\ this\ means\ that\ this\ perticular\ city\ is\ not\ visited.}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ subProb\ =}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist[city][choice]\ +}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{travelling__salesman__using__bit__manipulation_8cpp_ad08f082be02c3437c2fe89cb035fcee1}{travelling\_salesman\_using\_bit\_manipulation}}(}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist,\ setOfCities\ |\ (1\ <<\ choice),\ choice,\ n,\ \mbox{\hyperlink{namespacedp}{dp}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Here\ we\ are\ doing\ a\ recursive\ call\ to\ tsp\ with\ the\ updated\ set\ of}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ city/node\ and\ choice\ which\ tells\ that\ where\ we\ are\ currently.}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ std::min(ans,\ subProb);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}[setOfCities][city]\ =\ ans;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}

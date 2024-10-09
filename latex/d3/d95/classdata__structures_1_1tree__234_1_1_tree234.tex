@@ -1,0 +1,1124 @@
+\doxysection{data\+\_\+structures\+::tree\+\_\+234\+::Tree234 Class Reference}
+\hypertarget{classdata__structures_1_1tree__234_1_1_tree234}{}\label{classdata__structures_1_1tree__234_1_1_tree234}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+
+
+2-\/3-\/4 tree class  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ac9099c95f6ff571169b1d8d6ad9ab57d}\label{classdata__structures_1_1tree__234_1_1_tree234_ac9099c95f6ff571169b1d8d6ad9ab57d} 
+{\bfseries Tree234} (const \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234}{Tree234}} \&)=delete
+\item 
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_aad307a836df0f2ba1ee2e82a48b83fef}\label{classdata__structures_1_1tree__234_1_1_tree234_aad307a836df0f2ba1ee2e82a48b83fef} 
+{\bfseries Tree234} (const \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234}{Tree234}} \&\&)=delete
+\item 
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ada041962dd792b296112c14f1ed82848}\label{classdata__structures_1_1tree__234_1_1_tree234_ada041962dd792b296112c14f1ed82848} 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234}{Tree234}} \& {\bfseries operator=} (const \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234}{Tree234}} \&)=delete
+\item 
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a1707c67e131a56e8887cb992a0a9071a}\label{classdata__structures_1_1tree__234_1_1_tree234_a1707c67e131a56e8887cb992a0a9071a} 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234}{Tree234}} \& {\bfseries operator=} (const \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234}{Tree234}} \&\&)=delete
+\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a6749ebb40710c9752a2771eda03c6b3e}{Insert}} (int64\+\_\+t item)
+\begin{DoxyCompactList}\small\item\em Insert item to tree. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a5da1be3f5b5d967ebb36a201f3ebad11}{Remove}} (int64\+\_\+t item)
+\begin{DoxyCompactList}\small\item\em Remove item from tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a84ab7b4fe7442b5e2eeed8c050bb86bd}{Traverse}} ()
+\begin{DoxyCompactList}\small\item\em In-\/order traverse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a2e9a9db7792cf5383f4c4cc418255165}{Print}} (const char \texorpdfstring{$\ast$}{*}file\+\_\+name=nullptr)
+\begin{DoxyCompactList}\small\item\em Print tree into a dot file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a07811b3c564a3a443b106c9aa717629d}{Insert\+Pre\+Split}} (int64\+\_\+t item)
+\begin{DoxyCompactList}\small\item\em A insert implementation of pre-\/split. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_aa7e5e00033f38006a224f30bdbf3f703}{Insert\+Post\+Merge}} (int64\+\_\+t item)
+\begin{DoxyCompactList}\small\item\em A insert implementation of post-\/merge. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a02df91964915ca97609d35f847faff5f}{Insert}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}tree, int64\+\_\+t item)
+\begin{DoxyCompactList}\small\item\em A helper function used by post-\/merge insert. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a11f0d016dff7f7e62b3dddb9fdf47805}{Merge\+Node}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}dst\+\_\+node, \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em A helper function used during post-\/merge insert. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95}{Merge\+Node\+Not\+Full}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}dst\+\_\+node, \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em Merge node to a not-\/full target node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a370b625ca9f16bbef2b65e024ef78ea9}{Split\+Node}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structnode}{node}})
+\begin{DoxyCompactList}\small\item\em Split a 4-\/node to 1 parent and 2 children, and return the parent node. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ac85ba5abfd6d34dcd908b2afe6464657}{Get\+Tree\+Max\+Item}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}tree)
+\begin{DoxyCompactList}\small\item\em Get the max item of the tree. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a65a1235659356166a3e9b451c64fcc36}{Get\+Tree\+Min\+Item}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}tree)
+\begin{DoxyCompactList}\small\item\em Get the min item of the tree. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ac5361479dd996eb331759f33808657d9}{Try\+Left\+Rotate}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}to\+\_\+child)
+\begin{DoxyCompactList}\small\item\em A handy function to try if we can do a left rotate to the target node. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_aec0642d1d151521ca7c70ea85cdb15d3}{Try\+Right\+Rotate}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}to\+\_\+child)
+\begin{DoxyCompactList}\small\item\em A handy function to try if we can do a right rotate to the target node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ae68f8e62be02657c1287def6b38d7cc9}{Right\+Rotate}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}parent, int8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Do the actual right rotate operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ae58dca20f08eaf9313f6e7b0869c2d0e}{Left\+Rotate}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}parent, int8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Do the actual left rotate operation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a61dd051a74e5f36c8dc03dae8dca6ef4}{Remove\+Pre\+Merge}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structnode}{node}}, int64\+\_\+t item)
+\begin{DoxyCompactList}\small\item\em Main function implement the pre-\/merge remove operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9}{Merge}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}parent, int8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Merge the item at index of the parent node, and its left and right child. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a273511e84a5243ffffe81be28bd24855}{Delete\+Node}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}tree)
+\begin{DoxyCompactList}\small\item\em Recursive release the tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a936bb546e6a94d8b9d35b30ee1bb291a}{Traverse}} (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}tree)
+\begin{DoxyCompactList}\small\item\em In-\/order traverse the tree, print items. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be}{Print\+Node}} (std\+::ofstream \&ofs, \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structnode}{node}}, int64\+\_\+t parent\+\_\+index, int64\+\_\+t index, int8\+\_\+t parent\+\_\+child\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Print the tree to a dot file. You can convert it to picture with graphviz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\+\_\+}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em root node of the tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+2-\/3-\/4 tree class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ac4e7d1eb145af5e18b11c26f94a01e0e}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!````~Tree234@{\texorpdfstring{$\sim$}{\string~}Tree234}}
+\index{````~Tree234@{\texorpdfstring{$\sim$}{\string~}Tree234}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Tree234()}{\string~Tree234()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_ac4e7d1eb145af5e18b11c26f94a01e0e} 
+data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\texorpdfstring{$\sim$}{\string~}\+Tree234 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00541\ \{\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a273511e84a5243ffffe81be28bd24855}{DeleteNode}}(\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}});\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a273511e84a5243ffffe81be28bd24855}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!DeleteNode@{DeleteNode}}
+\index{DeleteNode@{DeleteNode}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{DeleteNode()}{DeleteNode()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a273511e84a5243ffffe81be28bd24855} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Delete\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Recursive release the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & root node of the tree to delete \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keywordflow}{if}\ (!tree)\ \{}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00550\ \ \ \ \ \}}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keywordflow}{for}\ (int8\_t\ i\ =\ 0;\ i\ <=\ tree-\/>GetCount();\ i++)\ \{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a273511e84a5243ffffe81be28bd24855}{DeleteNode}}(tree-\/>GetChild(i));}
+\DoxyCodeLine{00553\ \ \ \ \ \}}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keyword}{delete}\ tree;}
+\DoxyCodeLine{00556\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ac85ba5abfd6d34dcd908b2afe6464657}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!GetTreeMaxItem@{GetTreeMaxItem}}
+\index{GetTreeMaxItem@{GetTreeMaxItem}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{GetTreeMaxItem()}{GetTreeMaxItem()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_ac85ba5abfd6d34dcd908b2afe6464657} 
+int64\+\_\+t data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Get\+Tree\+Max\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the max item of the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & the tree we will get item from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+max item of the tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01099\ \ \ \ \ assert(tree);}
+\DoxyCodeLine{01100\ \ \ \ \ int64\_t\ max\ =\ 0;}
+\DoxyCodeLine{01101\ }
+\DoxyCodeLine{01102\ \ \ \ \ \textcolor{keywordflow}{while}\ (tree)\ \{}
+\DoxyCodeLine{01103\ \ \ \ \ \ \ \ \ max\ =\ tree-\/>GetMaxItem();}
+\DoxyCodeLine{01104\ \ \ \ \ \ \ \ \ tree\ =\ tree-\/>GetRightmostChild();}
+\DoxyCodeLine{01105\ \ \ \ \ \}}
+\DoxyCodeLine{01106\ }
+\DoxyCodeLine{01107\ \ \ \ \ \textcolor{keywordflow}{return}\ max;}
+\DoxyCodeLine{01108\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a65a1235659356166a3e9b451c64fcc36}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!GetTreeMinItem@{GetTreeMinItem}}
+\index{GetTreeMinItem@{GetTreeMinItem}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{GetTreeMinItem()}{GetTreeMinItem()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a65a1235659356166a3e9b451c64fcc36} 
+int64\+\_\+t data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Get\+Tree\+Min\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the min item of the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & the tree we will get item from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+min item of the tree 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01116\ \ \ \ \ assert(tree);}
+\DoxyCodeLine{01117\ \ \ \ \ int64\_t\ min\ =\ 0;}
+\DoxyCodeLine{01118\ }
+\DoxyCodeLine{01119\ \ \ \ \ \textcolor{keywordflow}{while}\ (tree)\ \{}
+\DoxyCodeLine{01120\ \ \ \ \ \ \ \ \ min\ =\ tree-\/>GetMinItem();}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ tree\ =\ tree-\/>GetLeftmostChild();}
+\DoxyCodeLine{01122\ \ \ \ \ \}}
+\DoxyCodeLine{01123\ }
+\DoxyCodeLine{01124\ \ \ \ \ \textcolor{keywordflow}{return}\ min;}
+\DoxyCodeLine{01125\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a6749ebb40710c9752a2771eda03c6b3e}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!Insert@{Insert}}
+\index{Insert@{Insert}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a6749ebb40710c9752a2771eda03c6b3e} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Insert (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Insert item to tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & item to insert \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00655\ \{\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a07811b3c564a3a443b106c9aa717629d}{InsertPreSplit}}(item);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a02df91964915ca97609d35f847faff5f}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!Insert@{Insert}}
+\index{Insert@{Insert}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a02df91964915ca97609d35f847faff5f} 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{int64\+\_\+t}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A helper function used by post-\/merge insert. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & tree where to insert item \\
+\hline
+{\em item} & item to insert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the node that split as the parent when overflow happen 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00664\ \ \ \ \ assert(tree\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00665\ }
+\DoxyCodeLine{00666\ \ \ \ \ std::unique\_ptr<Node>\ split\_node;}
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \ \ \ \ \textcolor{keywordflow}{if}\ (tree-\/>Contains(item))\ \{}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ return\ nullptr\ indicate\ current\ node\ not\ overflow}}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00671\ \ \ \ \ \}}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *next\_node\ =\ tree-\/>GetNextPossibleChild(item);}
+\DoxyCodeLine{00674\ \ \ \ \ \textcolor{keywordflow}{if}\ (next\_node)\ \{}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ split\_node.reset(\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a6749ebb40710c9752a2771eda03c6b3e}{Insert}}(next\_node,\ item));}
+\DoxyCodeLine{00676\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ split\_node.reset(\textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(item));}
+\DoxyCodeLine{00678\ \ \ \ \ \}}
+\DoxyCodeLine{00679\ }
+\DoxyCodeLine{00680\ \ \ \ \ \textcolor{keywordflow}{if}\ (split\_node)\ \{}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a11f0d016dff7f7e62b3dddb9fdf47805}{MergeNode}}(tree,\ split\_node.get());}
+\DoxyCodeLine{00682\ \ \ \ \ \}}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00684\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00685\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_aa7e5e00033f38006a224f30bdbf3f703}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!InsertPostMerge@{InsertPostMerge}}
+\index{InsertPostMerge@{InsertPostMerge}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{InsertPostMerge()}{InsertPostMerge()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_aa7e5e00033f38006a224f30bdbf3f703} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Insert\+Post\+Merge (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A insert implementation of post-\/merge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & item to insert \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}})\ \{}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(item);}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00641\ \ \ \ \ \}}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00643\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *split\_node\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a6749ebb40710c9752a2771eda03c6b3e}{Insert}}(\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}},\ item);}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \ \ \ \ \textcolor{comment}{//\ if\ root\ has\ split,\ then\ update\ root\_}}
+\DoxyCodeLine{00646\ \ \ \ \ \textcolor{keywordflow}{if}\ (split\_node)\ \{}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}}\ =\ split\_node;}
+\DoxyCodeLine{00648\ \ \ \ \ \}}
+\DoxyCodeLine{00649\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a07811b3c564a3a443b106c9aa717629d}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!InsertPreSplit@{InsertPreSplit}}
+\index{InsertPreSplit@{InsertPreSplit}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{InsertPreSplit()}{InsertPreSplit()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a07811b3c564a3a443b106c9aa717629d} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Insert\+Pre\+Split (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A insert implementation of pre-\/split. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & item to insert \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00586\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}})\ \{}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(item);}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00589\ \ \ \ \ \}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *parent\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00592\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{structnode}{node}}\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}};}
+\DoxyCodeLine{00593\ }
+\DoxyCodeLine{00594\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<Node>\ tmp(\textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(item));}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95}{MergeNodeNotFull}}(parent,\ tmp.get());}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>Contains(item))\ \{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>IsFull())\ \{}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a370b625ca9f16bbef2b65e024ef78ea9}{SplitNode}}(\mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *cur\_node\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (item\ <\ node-\/>GetItem(0))\ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_node\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetChild(0);}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_node\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetChild(1);}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!parent)\ \{}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ the\ root\ node\ parent\ is\ nullptr,\ we\ simply\ assign\ the}}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ split\ parent\ to\ root\_}}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}}\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ merge\ the\ split\ parent\ to\ its\ origin\ parent}}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95}{MergeNodeNotFull}}(parent,\ \mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00624\ }
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ cur\_node;}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ parent\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ parent-\/>GetNextPossibleChild(item);}
+\DoxyCodeLine{00630\ \ \ \ \ \}}
+\DoxyCodeLine{00631\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ae58dca20f08eaf9313f6e7b0869c2d0e}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!LeftRotate@{LeftRotate}}
+\index{LeftRotate@{LeftRotate}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{LeftRotate()}{LeftRotate()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_ae58dca20f08eaf9313f6e7b0869c2d0e} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Left\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{int8\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Do the actual left rotate operation. 
+
+Given parent node, and the pivot item index, the left rotate operation is uniquely identified. The function assume the requirements are fulfilled and won\textquotesingle{}t do any extra check. This function is call by \doxylink{classdata__structures_1_1tree__234_1_1_tree234_ac5361479dd996eb331759f33808657d9}{Try\+Left\+Rotate()}, and the condition checking should be done before call it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the parent node in this right rotate operation \\
+\hline
+{\em index} & the pivot item index of this right rotate operation. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00870\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\ =\ parent-\/>GetItemLeftChild(index);}
+\DoxyCodeLine{00871\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\ =\ parent-\/>GetItemRightChild(index);}
+\DoxyCodeLine{00872\ }
+\DoxyCodeLine{00873\ \ \ \ \ assert(right\ \&\&\ right-\/>Is34Node());}
+\DoxyCodeLine{00874\ \ \ \ \ assert(left\ \&\&\ left-\/>Is2Node());}
+\DoxyCodeLine{00875\ }
+\DoxyCodeLine{00876\ \ \ \ \ left-\/>InsertItemByIndex(left-\/>GetCount(),\ parent-\/>GetItem(index),}
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ right-\/>GetLeftmostChild(),\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00878\ \ \ \ \ parent-\/>SetItem(index,\ right-\/>GetMinItem());}
+\DoxyCodeLine{00879\ \ \ \ \ right-\/>RemoveItemByIndex(0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00880\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!Merge@{Merge}}
+\index{Merge@{Merge}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{Merge()}{Merge()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9} 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{int8\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Merge the item at index of the parent node, and its left and right child. 
+
+the left and right child node must be 2-\/node. The 3 items will be merged into a 4-\/node. In our case the parent can be a 2-\/node iff it is the root. Otherwise, it must be 3-\/node or 4-\/node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the parent node in the merging operation \\
+\hline
+{\em index} & the item index of the parent node that involved in the merging \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the merged 4-\/node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00895\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00896\ \ \ \ \ assert(parent);}
+\DoxyCodeLine{00897\ }
+\DoxyCodeLine{00898\ \ \ \ \ \textcolor{comment}{//\ bool\ is\_parent\_2node\ =\ parent-\/>Is2Node();}}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00900\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\_child\ =\ parent-\/>GetItemLeftChild(index);}
+\DoxyCodeLine{00901\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\_child\ =\ parent-\/>GetItemRightChild(index);}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00903\ \ \ \ \ assert(left\_child-\/>Is2Node()\ \&\&\ right\_child-\/>Is2Node());}
+\DoxyCodeLine{00904\ }
+\DoxyCodeLine{00905\ \ \ \ \ int64\_t\ item\ =\ parent-\/>GetItem(index);}
+\DoxyCodeLine{00906\ }
+\DoxyCodeLine{00907\ \ \ \ \ \textcolor{comment}{//\ 1.\ merge\ parent's\ item\ and\ right\ child\ to\ left\ child}}
+\DoxyCodeLine{00908\ \ \ \ \ left\_child-\/>SetItem(1,\ item);}
+\DoxyCodeLine{00909\ \ \ \ \ left\_child-\/>SetItem(2,\ right\_child-\/>GetItem(0));}
+\DoxyCodeLine{00910\ \ \ \ \ left\_child-\/>SetChild(2,\ right\_child-\/>GetChild(0));}
+\DoxyCodeLine{00911\ \ \ \ \ left\_child-\/>SetChild(3,\ right\_child-\/>GetChild(1));}
+\DoxyCodeLine{00912\ }
+\DoxyCodeLine{00913\ \ \ \ \ left\_child-\/>SetCount(3);}
+\DoxyCodeLine{00914\ }
+\DoxyCodeLine{00915\ \ \ \ \ \textcolor{comment}{//\ 2.\ remove\ the\ parent's\ item}}
+\DoxyCodeLine{00916\ \ \ \ \ parent-\/>RemoveItemByIndex(index,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00917\ }
+\DoxyCodeLine{00918\ \ \ \ \ \textcolor{comment}{//\ 3.\ delete\ the\ unused\ right\ child}}
+\DoxyCodeLine{00919\ \ \ \ \ \textcolor{keyword}{delete}\ right\_child;}
+\DoxyCodeLine{00920\ }
+\DoxyCodeLine{00921\ \ \ \ \ \textcolor{keywordflow}{return}\ left\_child;}
+\DoxyCodeLine{00922\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a11f0d016dff7f7e62b3dddb9fdf47805}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!MergeNode@{MergeNode}}
+\index{MergeNode@{MergeNode}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{MergeNode()}{MergeNode()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a11f0d016dff7f7e62b3dddb9fdf47805} 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Merge\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{dst\+\_\+node}{, }\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A helper function used during post-\/merge insert. 
+
+When the inserting leads to overflow, it will split the node to 1 parent and 2 children. The parent will be merged to its origin parent after that. This is the function to complete this task. So the param node is always a 2-\/node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst\+\_\+node} & the target node we will merge node to, can be type of 2-\/node, 3-\/node or 4-\/node \\
+\hline
+{\em node} & the source node we will merge from, type must be 2-\/node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+overflow node of this level 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00701\ \ \ \ \ assert(dst\_node\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ \mbox{\hyperlink{structnode}{node}}\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \ \ \textcolor{keywordflow}{if}\ (!dst\_node-\/>IsFull())\ \{}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95}{MergeNodeNotFull}}(dst\_node,\ \mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00706\ \ \ \ \ \}}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \ \ \ \ dst\_node\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a370b625ca9f16bbef2b65e024ef78ea9}{SplitNode}}(dst\_node);}
+\DoxyCodeLine{00709\ }
+\DoxyCodeLine{00710\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>GetItem(0)\ <\ dst\_node-\/>GetItem(0))\ \{}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95}{MergeNodeNotFull}}(dst\_node-\/>GetChild(0),\ \mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00713\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95}{MergeNodeNotFull}}(dst\_node-\/>GetChild(1),\ \mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{00715\ \ \ \ \ \}}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00717\ \ \ \ \ \textcolor{keywordflow}{return}\ dst\_node;}
+\DoxyCodeLine{00718\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!MergeNodeNotFull@{MergeNodeNotFull}}
+\index{MergeNodeNotFull@{MergeNodeNotFull}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{MergeNodeNotFull()}{MergeNodeNotFull()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_ad37e29e2a4a6cc0eb65cbd5595e1da95} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Merge\+Node\+Not\+Full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{dst\+\_\+node}{, }\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Merge node to a not-\/full target node. 
+
+Since the target node is not-\/full, no overflow will happen. So we have nothing to return.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst\+\_\+node} & the target not-\/full node, that is the type is either 2-\/node or 3-\/node, but not 4-\/node \\
+\hline
+{\em node} & the source node we will merge from, type must be 2-\/node \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00731\ \ \ \ \ assert(dst\_node\ \&\&\ \mbox{\hyperlink{structnode}{node}}\ \&\&\ !dst\_node-\/>IsFull()\ \&\&\ \mbox{\hyperlink{structnode}{node}}-\/>Is2Node());}
+\DoxyCodeLine{00732\ }
+\DoxyCodeLine{00733\ \ \ \ \ int8\_t\ i\ =\ dst\_node-\/>InsertItem(\mbox{\hyperlink{structnode}{node}}-\/>GetItem(0));}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00735\ \ \ \ \ dst\_node-\/>SetChild(i,\ \mbox{\hyperlink{structnode}{node}}-\/>GetChild(0));}
+\DoxyCodeLine{00736\ \ \ \ \ dst\_node-\/>SetChild(i\ +\ 1,\ \mbox{\hyperlink{structnode}{node}}-\/>GetChild(1));}
+\DoxyCodeLine{00737\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a2e9a9db7792cf5383f4c4cc418255165}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!Print@{Print}}
+\index{Print@{Print}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a2e9a9db7792cf5383f4c4cc418255165} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Print (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+
+
+Print tree into a dot file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & output file name, if nullptr then use "{}out.\+dot"{} as default \\
+\hline
+\end{DoxyParams}
+This is a helper structure to do a level order traversal to print the tree.
+
+\texorpdfstring{$<$}{<} tree node
+
+\texorpdfstring{$<$}{<} node index of level order that used when draw the link between child and parent
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01132\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file\_name)\ \{}
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ file\_name\ =\ \textcolor{stringliteral}{"{}out.dot"{}};}
+\DoxyCodeLine{01134\ \ \ \ \ \}}
+\DoxyCodeLine{01135\ }
+\DoxyCodeLine{01136\ \ \ \ \ std::ofstream\ ofs;}
+\DoxyCodeLine{01137\ }
+\DoxyCodeLine{01138\ \ \ \ \ ofs.open(file\_name);}
+\DoxyCodeLine{01139\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ofs)\ \{}
+\DoxyCodeLine{01140\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}create\ tree\ dot\ file\ failed,\ "{}}\ <<\ file\_name\ <<\ std::endl;}
+\DoxyCodeLine{01141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01142\ \ \ \ \ \}}
+\DoxyCodeLine{01143\ }
+\DoxyCodeLine{01144\ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}digraph\ G\ \{\(\backslash\)n"{}};}
+\DoxyCodeLine{01145\ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}node\ [shape=record]\(\backslash\)n"{}};}
+\DoxyCodeLine{01146\ }
+\DoxyCodeLine{01147\ \ \ \ \ int64\_t\ index\ =\ 0;}
+\DoxyCodeLine{01148\ \textcolor{comment}{}}
+\DoxyCodeLine{01149\ \textcolor{comment}{\ \ \ \ /**\ @brief\ This\ is\ a\ helper\ structure\ to\ do\ a\ level\ order\ traversal\ to\ print}}
+\DoxyCodeLine{01150\ \textcolor{comment}{\ \ \ \ \ *\ the\ tree.\ */}}
+\DoxyCodeLine{01151\ \ \ \ \ \textcolor{keyword}{struct\ }NodeInfo\ \{}
+\DoxyCodeLine{01152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};\ \ \ \ \ \textcolor{comment}{///<\ tree\ node}}
+\DoxyCodeLine{01153\ \ \ \ \ \ \ \ \ int64\_t\ index;\ \ \textcolor{comment}{///<\ node\ index\ of\ level\ order\ that\ used\ when\ draw\ the}\textcolor{comment}{}}
+\DoxyCodeLine{01154\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ link\ between\ child\ and\ parent}}
+\DoxyCodeLine{01155\ \textcolor{comment}{}\ \ \ \ \};}
+\DoxyCodeLine{01156\ }
+\DoxyCodeLine{01157\ \ \ \ \ std::queue<NodeInfo>\ q;}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01159\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}})\ \{}
+\DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ print\ root\ node}}
+\DoxyCodeLine{01161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be}{PrintNode}}(ofs,\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}},\ -\/1,\ index,\ 0);}
+\DoxyCodeLine{01162\ }
+\DoxyCodeLine{01163\ \ \ \ \ \ \ \ \ NodeInfo\ ni\{\};}
+\DoxyCodeLine{01164\ \ \ \ \ \ \ \ \ ni.node\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}};}
+\DoxyCodeLine{01165\ \ \ \ \ \ \ \ \ ni.index\ =\ index;}
+\DoxyCodeLine{01166\ }
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ q.push(ni);}
+\DoxyCodeLine{01168\ }
+\DoxyCodeLine{01169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!q.empty())\ \{}
+\DoxyCodeLine{01170\ \ \ \ \ \ \ \ \ \ \ \ \ NodeInfo\ node\_info\ =\ q.front();}
+\DoxyCodeLine{01171\ \ \ \ \ \ \ \ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{01172\ }
+\DoxyCodeLine{01173\ \ \ \ \ \ \ \ \ \ \ \ \ assert(node\_info.node-\/>GetCount()\ >\ 0);}
+\DoxyCodeLine{01174\ }
+\DoxyCodeLine{01175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!node\_info.node-\/>IsLeaf())\ \{}
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node\_info.node-\/>GetCount()\ >\ 0)\ \{}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be}{PrintNode}}(ofs,\ node\_info.node-\/>GetChild(0),\ node\_info.index,}
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++index,\ 0);}
+\DoxyCodeLine{01179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.node\ =\ node\_info.node-\/>GetChild(0);}
+\DoxyCodeLine{01180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.index\ =\ index;}
+\DoxyCodeLine{01181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(ni);}
+\DoxyCodeLine{01182\ }
+\DoxyCodeLine{01183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be}{PrintNode}}(ofs,\ node\_info.node-\/>GetChild(1),\ node\_info.index,}
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++index,\ 1);}
+\DoxyCodeLine{01185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.node\ =\ node\_info.node-\/>GetChild(1);}
+\DoxyCodeLine{01186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.index\ =\ index;}
+\DoxyCodeLine{01187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(ni);}
+\DoxyCodeLine{01188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01189\ }
+\DoxyCodeLine{01190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node\_info.node-\/>GetCount()\ >\ 1)\ \{}
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be}{PrintNode}}(ofs,\ node\_info.node-\/>GetChild(2),\ node\_info.index,}
+\DoxyCodeLine{01192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++index,\ 2);}
+\DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.node\ =\ node\_info.node-\/>GetChild(2);}
+\DoxyCodeLine{01194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.index\ =\ index;}
+\DoxyCodeLine{01195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(ni);}
+\DoxyCodeLine{01196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01197\ }
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node\_info.node-\/>GetCount()\ >\ 2)\ \{}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be}{PrintNode}}(ofs,\ node\_info.node-\/>GetChild(3),\ node\_info.index,}
+\DoxyCodeLine{01200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++index,\ 3);}
+\DoxyCodeLine{01201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.node\ =\ node\_info.node-\/>GetChild(3);}
+\DoxyCodeLine{01202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ni.index\ =\ index;}
+\DoxyCodeLine{01203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(ni);}
+\DoxyCodeLine{01204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01205\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01207\ \ \ \ \ \}}
+\DoxyCodeLine{01208\ }
+\DoxyCodeLine{01209\ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{01210\ \ \ \ \ ofs.close();}
+\DoxyCodeLine{01211\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!PrintNode@{PrintNode}}
+\index{PrintNode@{PrintNode}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{PrintNode()}{PrintNode()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_af260f0760344771bf8fce4fc9b1739be} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Print\+Node (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs}{, }\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{int64\+\_\+t}]{parent\+\_\+index}{, }\item[{int64\+\_\+t}]{index}{, }\item[{int8\+\_\+t}]{parent\+\_\+child\+\_\+index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Print the tree to a dot file. You can convert it to picture with graphviz. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & output file stream to print to \\
+\hline
+{\em node} & current node to print \\
+\hline
+{\em parent\+\_\+index} & current node\textquotesingle{}s parent node index, this is used to draw the link from parent to current node \\
+\hline
+{\em index} & current node\textquotesingle{}s index of level order which is used to name the node in dot file \\
+\hline
+{\em parent\+\_\+child\+\_\+index} & the index that current node in parent\textquotesingle{}s children array, range in \mbox{[}0,4), help to locate the start position of the link between nodes \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01228\ \ \ \ \ assert(\mbox{\hyperlink{structnode}{node}});}
+\DoxyCodeLine{01229\ }
+\DoxyCodeLine{01230\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{structnode}{node}}-\/>GetCount())\ \{}
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{01232\ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}node\_"{}}\ <<\ index\ <<\ \textcolor{stringliteral}{"{}\ [label=\(\backslash\)"{}<f0>\ "{}}\ <<\ \mbox{\hyperlink{structnode}{node}}-\/>GetItem(0)}
+\DoxyCodeLine{01233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{01234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}node\_"{}}\ <<\ index\ <<\ \textcolor{stringliteral}{"{}\ [label=\(\backslash\)"{}<f0>\ "{}}\ <<\ \mbox{\hyperlink{structnode}{node}}-\/>GetItem(0)}
+\DoxyCodeLine{01237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ |\ <f1>\ "{}}\ <<\ \mbox{\hyperlink{structnode}{node}}-\/>GetItem(1)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{01238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{01240\ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}node\_"{}}\ <<\ index\ <<\ \textcolor{stringliteral}{"{}\ [label=\(\backslash\)"{}<f0>\ "{}}\ <<\ \mbox{\hyperlink{structnode}{node}}-\/>GetItem(0)}
+\DoxyCodeLine{01241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ |\ <f1>\ "{}}\ <<\ \mbox{\hyperlink{structnode}{node}}-\/>GetItem(1)\ <<\ \textcolor{stringliteral}{"{}|\ <f2>\ "{}}}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{structnode}{node}}-\/>GetItem(2)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{01243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01244\ }
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{01246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01247\ \ \ \ \ \}}
+\DoxyCodeLine{01248\ }
+\DoxyCodeLine{01249\ \ \ \ \ \textcolor{comment}{//\ draw\ the\ edge}}
+\DoxyCodeLine{01250\ \ \ \ \ \textcolor{keywordflow}{if}\ (parent\_index\ >=\ 0)\ \{}
+\DoxyCodeLine{01251\ \ \ \ \ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}node\_"{}}\ <<\ parent\_index\ <<\ \textcolor{stringliteral}{"{}:f"{}}}
+\DoxyCodeLine{01252\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ (parent\_child\_index\ ==\ 0\ ?\ 0\ :\ parent\_child\_index\ -\/\ 1)\ <<\ \textcolor{stringliteral}{"{}:"{}}}
+\DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ (parent\_child\_index\ ==\ 0\ ?\ \textcolor{stringliteral}{"{}sw"{}}\ :\ \textcolor{stringliteral}{"{}se"{}})\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ node\_"{}}\ <<\ index}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{01255\ \ \ \ \ \}}
+\DoxyCodeLine{01256\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a5da1be3f5b5d967ebb36a201f3ebad11}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!Remove@{Remove}}
+\index{Remove@{Remove}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a5da1be3f5b5d967ebb36a201f3ebad11} 
+bool data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Remove (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Remove item from tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & item to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if item found and removed, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00929\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a61dd051a74e5f36c8dc03dae8dca6ef4}{RemovePreMerge}}(\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}},\ item);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a61dd051a74e5f36c8dc03dae8dca6ef4}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!RemovePreMerge@{RemovePreMerge}}
+\index{RemovePreMerge@{RemovePreMerge}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{RemovePreMerge()}{RemovePreMerge()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a61dd051a74e5f36c8dc03dae8dca6ef4} 
+bool data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Remove\+Pre\+Merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{int64\+\_\+t}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Main function implement the pre-\/merge remove operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the tree to remove item from \\
+\hline
+{\em item} & item to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if remove success, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00938\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>IsLeaf())\ \{}
+\DoxyCodeLine{00940\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>Contains(item))\ \{}
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>Is2Node())\ \{}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ node\ must\ be\ root}}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00945\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>RemoveItemByIndex(\mbox{\hyperlink{structnode}{node}}-\/>GetItemIndex(item),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00950\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00951\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00953\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ node\ is\ internal}}
+\DoxyCodeLine{00954\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>Contains(item))\ \{}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ \ \ \ \ \ \ int8\_t\ index\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetItemIndex(item);}
+\DoxyCodeLine{00956\ }
+\DoxyCodeLine{00957\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Here\ is\ important!!!\ What\ we\ do\ next\ depend\ on\ its\ children's}}
+\DoxyCodeLine{00958\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ state.\ Why?}}
+\DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\_child\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetItemLeftChild(index);}
+\DoxyCodeLine{00960\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\_child\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetItemRightChild(index);}
+\DoxyCodeLine{00961\ \ \ \ \ \ \ \ \ \ \ \ \ assert(left\_child\ \&\&\ right\_child);}
+\DoxyCodeLine{00962\ }
+\DoxyCodeLine{00963\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (left\_child-\/>Is2Node()\ \&\&\ right\_child-\/>Is2Node())\ \{}
+\DoxyCodeLine{00964\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ both\ left\ and\ right\ child\ are\ 2-\/node,we\ should\ not\ modify}}
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ current\ node\ in\ this\ situation.\ Because\ we\ are\ going\ to\ do}}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ merge\ with\ its\ children\ which\ will\ move\ target\ item\ to\ next}}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ layer.\ so\ if\ we\ replace\ the\ item\ with\ successor\ or}}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ predecessor\ now,\ when\ we\ do\ the\ recursive\ remove\ with}}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ successor\ or\ predecessor,\ we\ will\ result\ in\ removing\ the\ just}}
+\DoxyCodeLine{00970\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ replaced\ one\ in\ the\ merged\ node.\ That's\ not\ what\ we\ want.}}
+\DoxyCodeLine{00971\ }
+\DoxyCodeLine{00972\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ need\ to\ convert\ the\ child\ 2-\/node\ to\ 3-\/node\ or\ 4-\/node}}
+\DoxyCodeLine{00973\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ first.\ First\ we\ try\ to\ see\ if\ any\ of\ them\ can\ convert\ to}}
+\DoxyCodeLine{00974\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3-\/node\ by\ rotate.\ By\ using\ rotate\ we\ keep\ the\ empty\ house\ for}}
+\DoxyCodeLine{00975\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ future\ insertion\ which\ will\ be\ more\ efficient\ than\ merge.}}
+\DoxyCodeLine{00976\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00977\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ |\ ?\ |\ node\ |\ ?\ |}}
+\DoxyCodeLine{00978\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ /\ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00979\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \ \ \ \ \ \ \ \ \ /\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00980\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \ \ \ \ \ \ \ \ /\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00981\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \ \ \ \ \ \ \ /\ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00982\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \ \ \ \ \ \ /\ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00983\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \ \ \ \ \ /\ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00984\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \ \ \ \ ?\ \ left\_child\ \ right\_child\ \ \ ?}}
+\DoxyCodeLine{00985\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00986\ }
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ node\ must\ be\ the\ root}}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structnode}{node}}-\/>Is2Node())\ \{}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ means\ we\ can't\ avoid\ merging\ the\ target\ item\ into}}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ next\ layer,\ and\ this\ will\ cause\ us\ do\ different\ process}}
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compared\ with\ other\ cases}}
+\DoxyCodeLine{00992\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *new\_root\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9}{Merge}}(\mbox{\hyperlink{structnode}{node}},\ index);}
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}};}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}}\ =\ new\_root;}
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}};}
+\DoxyCodeLine{00996\ }
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ now\ node\ point\ to\ the}}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01000\ }
+\DoxyCodeLine{01001\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ here\ means\ we\ can\ avoid\ merging\ the\ target\ item\ into\ next}}
+\DoxyCodeLine{01002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ layer.\ So\ we\ convert\ one\ of\ its\ left\ or\ right\ child\ to\ 3-\/node}}
+\DoxyCodeLine{01003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ then\ do\ the\ successor\ or\ predecessor\ swap\ and\ recursive}}
+\DoxyCodeLine{01004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ the\ next\ layer\ will\ successor\ or\ predecessor.}}
+\DoxyCodeLine{01005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{01006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >\ 0)\ \{}
+\DoxyCodeLine{01007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ left\_child\ has\ left-\/sibling,\ we\ check\ if\ we\ can\ do\ a}}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ rotate}}
+\DoxyCodeLine{01009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\_sibling\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetItemLeftChild(index\ -\/\ 1);}
+\DoxyCodeLine{01010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (left\_sibling-\/>Is34Node())\ \{}
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ae68f8e62be02657c1287def6b38d7cc9}{RightRotate}}(\mbox{\hyperlink{structnode}{node}},\ index\ -\/\ 1);}
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01015\ }
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <\ node-\/>GetCount()\ -\/\ 1)\ \{}
+\DoxyCodeLine{01017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ right\_child\ has\ right-\/sibling,\ we\ check\ if\ we\ can\ do}}
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ rotate}}
+\DoxyCodeLine{01019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\_sibling\ =}
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>GetItemRightChild(index\ +\ 1);}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (right\_sibling-\/>Is34Node())\ \{}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ae58dca20f08eaf9313f6e7b0869c2d0e}{LeftRotate}}(\mbox{\hyperlink{structnode}{node}},\ index\ +\ 1);}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01026\ }
+\DoxyCodeLine{01027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ do\ a\ merge.\ We\ avoid\ merging\ the\ target\ item,\ which}}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ may\ trigger\ another\ merge\ in\ the\ recursion\ process.}}
+\DoxyCodeLine{01029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >\ 0)\ \{}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9}{Merge}}(\mbox{\hyperlink{structnode}{node}},\ index\ -\/\ 1);}
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01033\ }
+\DoxyCodeLine{01034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9}{Merge}}(\mbox{\hyperlink{structnode}{node}},\ index\ +\ 1);}
+\DoxyCodeLine{01035\ }
+\DoxyCodeLine{01036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{01037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01038\ }
+\DoxyCodeLine{01039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ refresh\ the\ left\_child\ and\ right\_child\ since\ they\ may\ be\ invalid}}
+\DoxyCodeLine{01040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ because\ of\ merge}}
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ \ \ \ \ left\_child\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetItemLeftChild(index);}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ \ \ \ \ right\_child\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetItemRightChild(index);}
+\DoxyCodeLine{01043\ }
+\DoxyCodeLine{01044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (left\_child-\/>Is34Node())\ \{}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ predecessor\_item\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ac85ba5abfd6d34dcd908b2afe6464657}{GetTreeMaxItem}}(left\_child);}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>SetItem(\mbox{\hyperlink{structnode}{node}}-\/>GetItemIndex(item),\ predecessor\_item);}
+\DoxyCodeLine{01047\ }
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ left\_child;}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ item\ =\ predecessor\_item;}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (right\_child-\/>Is34Node())\ \{}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ successor\_item\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a65a1235659356166a3e9b451c64fcc36}{GetTreeMinItem}}(right\_child);}
+\DoxyCodeLine{01055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}-\/>SetItem(\mbox{\hyperlink{structnode}{node}}-\/>GetItemIndex(item),\ successor\_item);}
+\DoxyCodeLine{01056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ right\_child;}
+\DoxyCodeLine{01057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ item\ =\ successor\_item;}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01061\ }
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *next\_node\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetNextPossibleChild(item);}
+\DoxyCodeLine{01063\ }
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (next\_node-\/>Is34Node())\ \{}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ next\_node;}
+\DoxyCodeLine{01066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01068\ }
+\DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_aec0642d1d151521ca7c70ea85cdb15d3}{TryRightRotate}}(\mbox{\hyperlink{structnode}{node}},\ next\_node))\ \{}
+\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ next\_node;}
+\DoxyCodeLine{01071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01073\ }
+\DoxyCodeLine{01074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ac5361479dd996eb331759f33808657d9}{TryLeftRotate}}(\mbox{\hyperlink{structnode}{node}},\ next\_node))\ \{}
+\DoxyCodeLine{01075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ next\_node;}
+\DoxyCodeLine{01076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01078\ }
+\DoxyCodeLine{01079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ here\ means\ both\ left\ sibling\ and\ right\ sibling\ of\ next\_node\ is}}
+\DoxyCodeLine{01080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2-\/node,\ so\ we\ do\ merge}}
+\DoxyCodeLine{01081\ \ \ \ \ \ \ \ \ int8\_t\ child\_index\ =\ \mbox{\hyperlink{structnode}{node}}-\/>GetChildIndex(next\_node);}
+\DoxyCodeLine{01082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (child\_index\ >\ 0)\ \{}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9}{Merge}}(\mbox{\hyperlink{structnode}{node}},\ child\_index\ -\/\ 1);}
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a36f4d5f603f7edb7db7c73fb53ba14e9}{Merge}}(\mbox{\hyperlink{structnode}{node}},\ child\_index);}
+\DoxyCodeLine{01086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01087\ }
+\DoxyCodeLine{01088\ \ \ \ \ \}\ \ \textcolor{comment}{//\ while}}
+\DoxyCodeLine{01089\ }
+\DoxyCodeLine{01090\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ae68f8e62be02657c1287def6b38d7cc9}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!RightRotate@{RightRotate}}
+\index{RightRotate@{RightRotate}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{RightRotate()}{RightRotate()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_ae68f8e62be02657c1287def6b38d7cc9} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Right\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{int8\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Do the actual right rotate operation. 
+
+Given parent node, and the pivot item index, the right rotate operation is uniquely identified. The function assume the requirements are fulfilled and won\textquotesingle{}t do any extra check. This function is call by \doxylink{classdata__structures_1_1tree__234_1_1_tree234_aec0642d1d151521ca7c70ea85cdb15d3}{Try\+Right\+Rotate()}, and the condition checking should be done before call it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the parent node in this right rotate operation \\
+\hline
+{\em index} & the pivot item index of this right rotate operation. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00846\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\ =\ parent-\/>GetItemLeftChild(index);}
+\DoxyCodeLine{00847\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\ =\ parent-\/>GetItemRightChild(index);}
+\DoxyCodeLine{00848\ }
+\DoxyCodeLine{00849\ \ \ \ \ assert(left\ \&\&\ left-\/>Is34Node());}
+\DoxyCodeLine{00850\ \ \ \ \ assert(right\ \&\&\ right-\/>Is2Node());}
+\DoxyCodeLine{00851\ }
+\DoxyCodeLine{00852\ \ \ \ \ right-\/>InsertItemByIndex(0,\ parent-\/>GetItem(index),}
+\DoxyCodeLine{00853\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ left-\/>GetRightmostChild(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00854\ \ \ \ \ parent-\/>SetItem(index,\ left-\/>GetMaxItem());}
+\DoxyCodeLine{00855\ \ \ \ \ left-\/>RemoveItemByIndex(left-\/>GetCount()\ -\/\ 1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00856\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a370b625ca9f16bbef2b65e024ef78ea9}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!SplitNode@{SplitNode}}
+\index{SplitNode@{SplitNode}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{SplitNode()}{SplitNode()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a370b625ca9f16bbef2b65e024ef78ea9} 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Split\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Split a 4-\/node to 1 parent and 2 children, and return the parent node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node to split, it must be a 4-\/node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+split parent node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00746\ \ \ \ \ assert(\mbox{\hyperlink{structnode}{node}}-\/>GetCount()\ ==\ 3);}
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00748\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\ =\ \mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}};}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(\mbox{\hyperlink{structnode}{node}}-\/>GetItem(2));}
+\DoxyCodeLine{00751\ \ \ \ \ right-\/>SetChild(0,\ \mbox{\hyperlink{structnode}{node}}-\/>GetChild(2));}
+\DoxyCodeLine{00752\ \ \ \ \ right-\/>SetChild(1,\ \mbox{\hyperlink{structnode}{node}}-\/>GetChild(3));}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *parent\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(\mbox{\hyperlink{structnode}{node}}-\/>GetItem(1));}
+\DoxyCodeLine{00755\ \ \ \ \ parent-\/>SetChild(0,\ left);}
+\DoxyCodeLine{00756\ \ \ \ \ parent-\/>SetChild(1,\ right);}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00758\ \ \ \ \ left-\/>SetCount(1);}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00760\ \ \ \ \ \textcolor{keywordflow}{return}\ parent;}
+\DoxyCodeLine{00761\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a84ab7b4fe7442b5e2eeed8c050bb86bd}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!Traverse@{Traverse}}
+\index{Traverse@{Traverse}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{Traverse()}{Traverse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a84ab7b4fe7442b5e2eeed8c050bb86bd} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Traverse (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+In-\/order traverse. 
+
+In-\/order traverse the tree, print items.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & tree to traverse \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00563\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a84ab7b4fe7442b5e2eeed8c050bb86bd}{Traverse}}(\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}{root\_}});}
+\DoxyCodeLine{00564\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00565\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a936bb546e6a94d8b9d35b30ee1bb291a}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!Traverse@{Traverse}}
+\index{Traverse@{Traverse}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{Traverse()}{Traverse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a936bb546e6a94d8b9d35b30ee1bb291a} 
+void data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Traverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+In-\/order traverse the tree, print items. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & tree to traverse \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00568\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structnode}{node}})\ \{}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00570\ \ \ \ \ \}}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00572\ \ \ \ \ int8\_t\ i\ =\ 0;}
+\DoxyCodeLine{00573\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structnode}{node}}-\/>GetCount();\ i++)\ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a84ab7b4fe7442b5e2eeed8c050bb86bd}{Traverse}}(\mbox{\hyperlink{structnode}{node}}-\/>GetChild(i));}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{structnode}{node}}-\/>GetItem(i)\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00576\ \ \ \ \ \}}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_a84ab7b4fe7442b5e2eeed8c050bb86bd}{Traverse}}(\mbox{\hyperlink{structnode}{node}}-\/>GetChild(i));}
+\DoxyCodeLine{00579\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_ac5361479dd996eb331759f33808657d9}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!TryLeftRotate@{TryLeftRotate}}
+\index{TryLeftRotate@{TryLeftRotate}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{TryLeftRotate()}{TryLeftRotate()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_ac5361479dd996eb331759f33808657d9} 
+bool data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Try\+Left\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{to\+\_\+child}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A handy function to try if we can do a left rotate to the target node. 
+
+Given two node, the parent and the target child, the left rotate operation is uniquely identified. The source node must be the right sibling of the target child. The operation can be successfully done if the to\+\_\+child has a right sibling and its right sibling is not 2-\/node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the parent node in this left rotate operation \\
+\hline
+{\em to\+\_\+child} & the target child of this left rotate operation. In our case, this node is always 2-\/node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we successfully do the rotate. false if the requirements are not fulfilled. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00779\ \ \ \ \ \textcolor{keywordtype}{int}\ to\_child\_index\ =\ parent-\/>GetChildIndex(to\_child);}
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00781\ \ \ \ \ \textcolor{comment}{//\ child\ is\ right\ most,\ can\ not\ do\ left\ rotate\ to\ it}}
+\DoxyCodeLine{00782\ \ \ \ \ \textcolor{keywordflow}{if}\ (to\_child\_index\ >=\ parent-\/>GetCount())\ \{}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00784\ \ \ \ \ \}}
+\DoxyCodeLine{00785\ }
+\DoxyCodeLine{00786\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\_sibling\ =\ parent-\/>GetChild(to\_child\_index\ +\ 1);}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \ \ \ \ \textcolor{comment}{//\ right\ sibling\ is\ 2-\/node.\ can\ not\ do\ left\ rotate.}}
+\DoxyCodeLine{00789\ \ \ \ \ \textcolor{keywordflow}{if}\ (right\_sibling-\/>Is2Node())\ \{}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00791\ \ \ \ \ \}}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00793\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ae58dca20f08eaf9313f6e7b0869c2d0e}{LeftRotate}}(parent,\ to\_child\_index);}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00796\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_aec0642d1d151521ca7c70ea85cdb15d3}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!TryRightRotate@{TryRightRotate}}
+\index{TryRightRotate@{TryRightRotate}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{TryRightRotate()}{TryRightRotate()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_aec0642d1d151521ca7c70ea85cdb15d3} 
+bool data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::\+Try\+Right\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{to\+\_\+child}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A handy function to try if we can do a right rotate to the target node. 
+
+Given two node, the parent and the target child, the right rotate operation is uniquely identified. The source node must be the left sibling of the target child. The operation can be successfully done if the to\+\_\+child has a left sibling and its left sibling is not 2-\/node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the parent node in this right rotate operation \\
+\hline
+{\em to\+\_\+child} & the target child of this right rotate operation. In our case, it is always 2-\/node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we successfully do the rotate. false if the requirements are not fulfilled. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00814\ \ \ \ \ int8\_t\ to\_child\_index\ =\ parent-\/>GetChildIndex(to\_child);}
+\DoxyCodeLine{00815\ }
+\DoxyCodeLine{00816\ \ \ \ \ \textcolor{comment}{//\ child\ is\ left\ most,\ can\ not\ do\ right\ rotate\ to\ it}}
+\DoxyCodeLine{00817\ \ \ \ \ \textcolor{keywordflow}{if}\ (to\_child\_index\ <=\ 0)\ \{}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00819\ \ \ \ \ \}}
+\DoxyCodeLine{00820\ }
+\DoxyCodeLine{00821\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\_sibling\ =\ parent-\/>GetChild(to\_child\_index\ -\/\ 1);}
+\DoxyCodeLine{00822\ }
+\DoxyCodeLine{00823\ \ \ \ \ \textcolor{comment}{//\ right\ sibling\ is\ 2-\/node.\ can\ not\ do\ left\ rotate.}}
+\DoxyCodeLine{00824\ \ \ \ \ \textcolor{keywordflow}{if}\ (left\_sibling-\/>Is2Node())\ \{}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00826\ \ \ \ \ \}}
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_tree234_ae68f8e62be02657c1287def6b38d7cc9}{RightRotate}}(parent,\ to\_child\_index\ -\/\ 1);}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00830\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00831\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36}\index{data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}!root\_@{root\_}}
+\index{root\_@{root\_}!data\_structures::tree\_234::Tree234@{data\_structures::tree\_234::Tree234}}
+\doxysubsubsection{\texorpdfstring{root\_}{root\_}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1tree__234_1_1_tree234_a348ea76c7629b2dcf740be062f970a36} 
+\mbox{\hyperlink{classdata__structures_1_1tree__234_1_1_node}{Node}}\texorpdfstring{$\ast$}{*} data\+\_\+structures\+::tree\+\_\+234\+::\+Tree234\+::root\+\_\+ \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+root node of the tree 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00538\ \{\textcolor{keyword}{nullptr}\};\ \ \textcolor{comment}{///<\ root\ node\ of\ the\ tree}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{tree__234_8cpp}{tree\+\_\+234.\+cpp}}\end{DoxyCompactItemize}

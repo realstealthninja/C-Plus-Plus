@@ -1,0 +1,97 @@
+\doxysection{Segment\+Intersection Struct Reference}
+\hypertarget{struct_segment_intersection}{}\label{struct_segment_intersection}\index{SegmentIntersection@{SegmentIntersection}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_segment_intersection_aefd077282f45bd16799b53f8aa430ffd}{intersect}} (\mbox{\hyperlink{struct_point}{Point}} first\+\_\+point, \mbox{\hyperlink{struct_point}{Point}} second\+\_\+point, \mbox{\hyperlink{struct_point}{Point}} third\+\_\+point, \mbox{\hyperlink{struct_point}{Point}} forth\+\_\+point)
+\item 
+int \mbox{\hyperlink{struct_segment_intersection_a3beb2ac1b35d67354f1dbaf9a971e655}{direction}} (\mbox{\hyperlink{struct_point}{Point}} first\+\_\+point, \mbox{\hyperlink{struct_point}{Point}} second\+\_\+point, \mbox{\hyperlink{struct_point}{Point}} third\+\_\+point)
+\item 
+bool \mbox{\hyperlink{struct_segment_intersection_a008941b2272866c64cdaf959afa939bf}{on\+\_\+segment}} (\mbox{\hyperlink{struct_point}{Point}} first\+\_\+point, \mbox{\hyperlink{struct_point}{Point}} second\+\_\+point, \mbox{\hyperlink{struct_point}{Point}} third\+\_\+point)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+intersect returns true if segments of two line intersects and false if they do not. It calls the subroutines direction which computes the orientation. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_segment_intersection_a3beb2ac1b35d67354f1dbaf9a971e655}\index{SegmentIntersection@{SegmentIntersection}!direction@{direction}}
+\index{direction@{direction}!SegmentIntersection@{SegmentIntersection}}
+\doxysubsubsection{\texorpdfstring{direction()}{direction()}}
+{\footnotesize\ttfamily \label{struct_segment_intersection_a3beb2ac1b35d67354f1dbaf9a971e655} 
+int Segment\+Intersection\+::direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{first\+\_\+point}{, }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{second\+\_\+point}{, }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{third\+\_\+point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+We will find direction of line here respect to @first\+\_\+point. Here @second\+\_\+point and @third\+\_\+point is first and second points of the line respectively. we want a method to determine which way a given angle these three points turns. If returned number is negative, then the angle is counter-\/clockwise. That means the line is going to right to left. We will fount angle as clockwise if the method returns positive number. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((third\_point.x\ -\/\ first\_point.x)\ *}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (second\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ -\/\ first\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}))\ -\/}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((second\_point.x\ -\/\ first\_point.x)\ *}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (third\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ -\/\ first\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}));}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{struct_segment_intersection_aefd077282f45bd16799b53f8aa430ffd}\index{SegmentIntersection@{SegmentIntersection}!intersect@{intersect}}
+\index{intersect@{intersect}!SegmentIntersection@{SegmentIntersection}}
+\doxysubsubsection{\texorpdfstring{intersect()}{intersect()}}
+{\footnotesize\ttfamily \label{struct_segment_intersection_aefd077282f45bd16799b53f8aa430ffd} 
+bool Segment\+Intersection\+::intersect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{first\+\_\+point}{, }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{second\+\_\+point}{, }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{third\+\_\+point}{, }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{forth\+\_\+point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction1\ =\ \mbox{\hyperlink{struct_segment_intersection_a3beb2ac1b35d67354f1dbaf9a971e655}{direction}}(third\_point,\ forth\_point,\ first\_point);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction2\ =\ \mbox{\hyperlink{struct_segment_intersection_a3beb2ac1b35d67354f1dbaf9a971e655}{direction}}(third\_point,\ forth\_point,\ second\_point);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction3\ =\ \mbox{\hyperlink{struct_segment_intersection_a3beb2ac1b35d67354f1dbaf9a971e655}{direction}}(first\_point,\ second\_point,\ third\_point);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction4\ =\ \mbox{\hyperlink{struct_segment_intersection_a3beb2ac1b35d67354f1dbaf9a971e655}{direction}}(first\_point,\ second\_point,\ forth\_point);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((direction1\ <\ 0\ ||\ direction2\ >\ 0)\ \&\&}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ (direction3\ <\ 0\ ||\ direction4\ >\ 0))}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction1\ ==\ 0\ \&\&}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_segment_intersection_a008941b2272866c64cdaf959afa939bf}{on\_segment}}(third\_point,\ forth\_point,\ first\_point))}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction2\ ==\ 0\ \&\&}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_segment_intersection_a008941b2272866c64cdaf959afa939bf}{on\_segment}}(third\_point,\ forth\_point,\ second\_point))}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction3\ ==\ 0\ \&\&}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_segment_intersection_a008941b2272866c64cdaf959afa939bf}{on\_segment}}(first\_point,\ second\_point,\ third\_point))}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction3\ ==\ 0\ \&\&}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_segment_intersection_a008941b2272866c64cdaf959afa939bf}{on\_segment}}(first\_point,\ second\_point,\ forth\_point))}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{struct_segment_intersection_a008941b2272866c64cdaf959afa939bf}\index{SegmentIntersection@{SegmentIntersection}!on\_segment@{on\_segment}}
+\index{on\_segment@{on\_segment}!SegmentIntersection@{SegmentIntersection}}
+\doxysubsubsection{\texorpdfstring{on\_segment()}{on\_segment()}}
+{\footnotesize\ttfamily \label{struct_segment_intersection_a008941b2272866c64cdaf959afa939bf} 
+bool Segment\+Intersection\+::on\+\_\+segment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{first\+\_\+point}{, }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{second\+\_\+point}{, }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{third\+\_\+point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method determines whether a point known to be colinear with a segment lies on that segment. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::min(first\_point.x,\ second\_point.x)\ <=\ third\_point.x\ \&\&}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ third\_point.x\ <=\ std::max(first\_point.x,\ second\_point.x)\ \&\&}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ std::min(first\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}},\ second\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}})\ <=\ third\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ \&\&}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ third\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}\ <=\ std::max(first\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}},\ second\_point.\mbox{\hyperlink{struct_point_a2e1b5fb2b2a83571f5c0bc0f66a73cf7}{y}}))}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+geometry/\mbox{\hyperlink{line__segment__intersection_8cpp}{line\+\_\+segment\+\_\+intersection.\+cpp}}\end{DoxyCompactItemize}

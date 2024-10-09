@@ -1,0 +1,183 @@
+\doxysection{search/median\+\_\+search2.cpp File Reference}
+\hypertarget{median__search2_8cpp}{}\label{median__search2_8cpp}\index{search/median\_search2.cpp@{search/median\_search2.cpp}}
+
+
+Given a linked list L\mbox{[}0,....,n\mbox{]} of n numbers, find the middle node.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_list_node}{List\+Node}}
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesearch}{search}}
+\begin{DoxyCompactList}\small\item\em for std\+::vector \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacemedian__search}{median\+\_\+search}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Median_search}{\texttt{ Median search}} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_list_node}{List\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{median__search2_8cpp_a5fefe132a0c3ee780ebc703f37ebce6a}{search\+::median\+\_\+search2\+::middle\+Node}} (\mbox{\hyperlink{struct_list_node}{List\+Node}} \texorpdfstring{$\ast$}{*}head)
+\item 
+void \mbox{\hyperlink{median__search2_8cpp_a565d9d4b66467f966b4e4f8ea2a2ef09}{search\+::median\+\_\+search2\+::delete\+All}} (const \mbox{\hyperlink{struct_list_node}{List\+Node}} \texorpdfstring{$\ast$}{*}const head)
+\item 
+static void \mbox{\hyperlink{median__search2_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{median__search2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Given a linked list L\mbox{[}0,....,n\mbox{]} of n numbers, find the middle node. 
+
+The technique utilized in this implementation is the \mbox{[}"{}\+Floyd\textquotesingle{}s tortoise and hare"{}\mbox{]}(\href{https://en.wikipedia.org/wiki/Cycle_detection\#Floyd's_tortoise_and_hare}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Cycle\+\_\+detection\#\+Floyd\textquotesingle{}s\+\_\+tortoise\+\_\+and\+\_\+hare}}) approach. This technique uses two pointers that iterate through the list at different \textquotesingle{}speeds\textquotesingle{} in order to solve problems. In this implementation, for every iteration the slow pointer advances one node while the fast pointer advances two nodes. The result of this is that since the fast pointer moves twice as fast as the slow pointer, when the fast pointer reaches the end of the list the slow pointer will be pointing to the middle node of the list.
+
+Here are some example lists you can use to see how the algorithm works A = \mbox{[}1,2,3,4,5\mbox{]} B = \mbox{[}1,2,3,4,5,6\mbox{]} print median(\+A) \#should be 39 print median(\+B) \#should be 4
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/weiss-ben}{\texttt{ Benjamin Weiss}} 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\doxylink{median__search_8cpp}{median\+\_\+search.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{median__search2_8cpp_a565d9d4b66467f966b4e4f8ea2a2ef09}\index{median\_search2.cpp@{median\_search2.cpp}!deleteAll@{deleteAll}}
+\index{deleteAll@{deleteAll}!median\_search2.cpp@{median\_search2.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteAll()}{deleteAll()}}
+{\footnotesize\ttfamily \label{median__search2_8cpp_a565d9d4b66467f966b4e4f8ea2a2ef09} 
+void search\+::median\+\_\+search2\+::delete\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_list_node}{List\+Node}} \texorpdfstring{$\ast$}{*}const}]{head}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (head)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ deleteAll(head-\/>next);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ head;}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{median__search2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{median\_search2.cpp@{median\_search2.cpp}!main@{main}}
+\index{main@{main}!median\_search2.cpp@{median\_search2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{median__search2_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{median__search2_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00142\ \}}
+
+\end{DoxyCode}
+\Hypertarget{median__search2_8cpp_a5fefe132a0c3ee780ebc703f37ebce6a}\index{median\_search2.cpp@{median\_search2.cpp}!middleNode@{middleNode}}
+\index{middleNode@{middleNode}!median\_search2.cpp@{median\_search2.cpp}}
+\doxysubsubsection{\texorpdfstring{middleNode()}{middleNode()}}
+{\footnotesize\ttfamily \label{median__search2_8cpp_a5fefe132a0c3ee780ebc703f37ebce6a} 
+\mbox{\hyperlink{struct_list_node}{List\+Node}} \texorpdfstring{$\ast$}{*} search\+::median\+\_\+search2\+::middle\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_list_node}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+
+This function searches for the median of a linked list. 
+\begin{DoxyParams}{Parameters}
+{\em head} & The head of the linked list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Median node of the linked list. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (!head)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ Fast\ and\ slow\ pointers}}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{struct_list_node}{ListNode}}*\ fastptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{struct_list_node}{ListNode}}*\ slowptr\ =\ fastptr\ =\ head;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ fast\ jumps\ 2\ while\ slow\ jumps\ 1}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{while}\ (fastptr-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}\ \&\&\ fastptr-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}})\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ slowptr\ =\ slowptr-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ fastptr\ =\ fastptr-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}};}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ (fastptr-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}})\ ?\ slowptr-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}\ :\ slowptr;}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{median__search2_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{median\_search2.cpp@{median\_search2.cpp}!test@{test}}
+\index{test@{test}!median\_search2.cpp@{median\_search2.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{median__search2_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{auto}*\ head1\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_list_node}{ListNode}};}
+\DoxyCodeLine{00092\ \ \ \ \ head1-\/>\mbox{\hyperlink{struct_list_node_a58389d1d1fc5430c2f4ce7c5d5dc48b3}{val}}\ =\ 1;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{struct_list_node}{ListNode}}*\ temp\ =\ head1;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <\ 6;\ ++i)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Allocate\ next}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ temp1\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_list_node}{ListNode}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ temp1-\/>\mbox{\hyperlink{struct_list_node_a58389d1d1fc5430c2f4ce7c5d5dc48b3}{val}}\ =\ i;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Advance}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ temp-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}\ =\ temp1;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ temp\ =\ temp1;}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ temp-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_list_node}{ListNode}}*\ \textcolor{keyword}{const}\ median\ =\ \mbox{\hyperlink{median__search2_8cpp_a5fefe132a0c3ee780ebc703f37ebce6a}{search::median\_search2::middleNode}}(head1);}
+\DoxyCodeLine{00107\ \ \ \ \ assert(3\ ==\ median-\/>\mbox{\hyperlink{struct_list_node_a58389d1d1fc5430c2f4ce7c5d5dc48b3}{val}});\ \ \textcolor{comment}{//\ 3\ is\ the\ value\ of\ the\ median\ node.}}
+\DoxyCodeLine{00108\ \ \ \ \ search::median\_search2::deleteAll(head1);}
+\DoxyCodeLine{00109\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:1\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ Test\ case\ \#\ 2}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{auto}*\ head2\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_list_node}{ListNode}};}
+\DoxyCodeLine{00113\ \ \ \ \ head2-\/>\mbox{\hyperlink{struct_list_node_a58389d1d1fc5430c2f4ce7c5d5dc48b3}{val}}\ =\ 1;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{struct_list_node}{ListNode}}*\ temp2\ =\ head2;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <\ 7;\ ++i)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Allocate\ next}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ temp3\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_list_node}{ListNode}};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ temp3-\/>\mbox{\hyperlink{struct_list_node_a58389d1d1fc5430c2f4ce7c5d5dc48b3}{val}}\ =\ i;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Advance}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ temp2-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}\ =\ temp3;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ temp2\ =\ temp3;}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ temp2-\/>\mbox{\hyperlink{struct_list_node_ad78b392c2ddc25c3243d0c2f30692fb1}{next}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_list_node}{ListNode}}*\ \textcolor{keyword}{const}\ median1\ =\ \mbox{\hyperlink{median__search2_8cpp_a5fefe132a0c3ee780ebc703f37ebce6a}{search::median\_search2::middleNode}}(head2);}
+\DoxyCodeLine{00128\ \ \ \ \ assert(4\ ==\ median1-\/>\mbox{\hyperlink{struct_list_node_a58389d1d1fc5430c2f4ce7c5d5dc48b3}{val}});\ \ \textcolor{comment}{//\ 4\ is\ the\ value\ of\ the\ median\ node.}}
+\DoxyCodeLine{00129\ \ \ \ \ search::median\_search2::deleteAll(head2);}
+\DoxyCodeLine{00130\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\ case:2\ passed\(\backslash\)n"{}};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/All\ tests\ passed-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}

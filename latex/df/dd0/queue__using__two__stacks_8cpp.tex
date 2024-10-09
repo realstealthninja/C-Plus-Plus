@@ -1,0 +1,81 @@
+\doxysection{data\+\_\+structures/queue\+\_\+using\+\_\+two\+\_\+stacks.cpp File Reference}
+\hypertarget{queue__using__two__stacks_8cpp}{}\label{queue__using__two__stacks_8cpp}\index{data\_structures/queue\_using\_two\_stacks.cpp@{data\_structures/queue\_using\_two\_stacks.cpp}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{queue__using__two__stacks_8cpp_a831ded10ecad88c14a8e22b96f4c1863}{queue\+\_\+test}} ()
+\item 
+int \mbox{\hyperlink{queue__using__two__stacks_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/shoniavika}{\texttt{ shoniavika}}
+\end{DoxyAuthor}
+Implementation of a \doxylink{struct_queue}{Queue} using two Stacks. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{queue__using__two__stacks_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{queue\_using\_two\_stacks.cpp@{queue\_using\_two\_stacks.cpp}!main@{main}}
+\index{main@{main}!queue\_using\_two\_stacks.cpp@{queue\_using\_two\_stacks.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{queue__using__two__stacks_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function, calls testing function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{queue__using__two__stacks_8cpp_a831ded10ecad88c14a8e22b96f4c1863}{queue\_test}}();}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00144\ \}}
+
+\end{DoxyCode}
+\Hypertarget{queue__using__two__stacks_8cpp_a831ded10ecad88c14a8e22b96f4c1863}\index{queue\_using\_two\_stacks.cpp@{queue\_using\_two\_stacks.cpp}!queue\_test@{queue\_test}}
+\index{queue\_test@{queue\_test}!queue\_using\_two\_stacks.cpp@{queue\_using\_two\_stacks.cpp}}
+\doxysubsubsection{\texorpdfstring{queue\_test()}{queue\_test()}}
+{\footnotesize\ttfamily \label{queue__using__two__stacks_8cpp_a831ded10ecad88c14a8e22b96f4c1863} 
+void queue\+\_\+test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Testing function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ MyQueue<int>\ que;}
+\DoxyCodeLine{00103\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ \#1\(\backslash\)n"{}};}
+\DoxyCodeLine{00104\ \ \ \ \ que.push(2);}
+\DoxyCodeLine{00105\ \ \ \ \ que.push(5);}
+\DoxyCodeLine{00106\ \ \ \ \ que.push(0);}
+\DoxyCodeLine{00107\ \ \ \ \ assert(que.peek()\ ==\ 2);}
+\DoxyCodeLine{00108\ \ \ \ \ assert(que.pop()\ ==\ 2);}
+\DoxyCodeLine{00109\ \ \ \ \ assert(que.peek()\ ==\ 5);}
+\DoxyCodeLine{00110\ \ \ \ \ assert(que.pop()\ ==\ 5);}
+\DoxyCodeLine{00111\ \ \ \ \ assert(que.peek()\ ==\ 0);}
+\DoxyCodeLine{00112\ \ \ \ \ assert(que.pop()\ ==\ 0);}
+\DoxyCodeLine{00113\ \ \ \ \ assert(que.empty()\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}PASSED\(\backslash\)n"{}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ \#2\(\backslash\)n"{}};}
+\DoxyCodeLine{00117\ \ \ \ \ que.push(-\/1);}
+\DoxyCodeLine{00118\ \ \ \ \ assert(que.empty()\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00119\ \ \ \ \ assert(que.peek()\ ==\ -\/1);}
+\DoxyCodeLine{00120\ \ \ \ \ assert(que.pop()\ ==\ -\/1);}
+\DoxyCodeLine{00121\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}PASSED\(\backslash\)n"{}};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ MyQueue<double>\ que2;}
+\DoxyCodeLine{00124\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ \#3\(\backslash\)n"{}};}
+\DoxyCodeLine{00125\ \ \ \ \ que2.push(2.31223);}
+\DoxyCodeLine{00126\ \ \ \ \ que2.push(3.1415926);}
+\DoxyCodeLine{00127\ \ \ \ \ que2.push(2.92);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ assert(que2.peek()\ ==\ 2.31223);}
+\DoxyCodeLine{00130\ \ \ \ \ assert(que2.pop()\ ==\ 2.31223);}
+\DoxyCodeLine{00131\ \ \ \ \ assert(que2.peek()\ ==\ 3.1415926);}
+\DoxyCodeLine{00132\ \ \ \ \ assert(que2.pop()\ ==\ 3.1415926);}
+\DoxyCodeLine{00133\ \ \ \ \ assert(que2.peek()\ ==\ 2.92);}
+\DoxyCodeLine{00134\ \ \ \ \ assert(que2.pop()\ ==\ 2.92);}
+\DoxyCodeLine{00135\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}PASSED\(\backslash\)n"{}};}
+\DoxyCodeLine{00136\ \}}
+
+\end{DoxyCode}

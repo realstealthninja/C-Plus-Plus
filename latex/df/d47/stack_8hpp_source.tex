@@ -1,0 +1,86 @@
+\doxysection{stack.\+hpp}
+\hypertarget{stack_8hpp_source}{}\label{stack_8hpp_source}\index{data\_structures/stack.hpp@{data\_structures/stack.hpp}}
+\mbox{\hyperlink{stack_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @author\ danghai}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ @author\ [Piotr\ Idzik](https://github.com/vil02)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ @brief\ \ This\ class\ specifies\ the\ basic\ operation\ on\ a\ stack\ as\ a\ linked\ list}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ **/}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ DATA\_STRUCTURES\_STACK\_HPP\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ DATA\_STRUCTURES\_STACK\_HPP\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdexcept>}\ \ \textcolor{comment}{///\ for\ std::invalid\_argument}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{node_8hpp}{node.hpp}}"{}}\ \ \textcolor{comment}{///\ for\ Node}}
+\DoxyCodeLine{00013\ \textcolor{comment}{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{/**\ Definition\ of\ the\ stack\ class}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \(\backslash\)tparam\ value\_type\ type\ of\ data\ nodes\ of\ the\ linked\ list\ in\ the\ stack\ should}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ contain}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classstack}{stack}}\ \{}
+\DoxyCodeLine{00020\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{using\ }value\_type\ =\ ValueType;}
+\DoxyCodeLine{00022\ \textcolor{comment}{}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ /**\ Show\ stack\ */}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstack_a8bce109630118a34faae717f72986033}{display}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Top\ -\/-\/>\ "{}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ display\_all(this-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}.get());}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Size\ of\ stack:\ "{}}\ <<\ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}\ <<\ std::endl;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<value\_type>\ toVector()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ push\_all\_to\_vector(this-\/>\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}.get(),\ this-\/>size);}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ ensureNotEmpty()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classstack_a163eb9a6206c874c9bf98d032fca11c5}{isEmptyStack}}())\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Stack\ is\ empty."{}});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ /**\ Determine\ whether\ the\ stack\ is\ empty\ */}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classstack_a163eb9a6206c874c9bf98d032fca11c5}{isEmptyStack}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ ==\ \textcolor{keyword}{nullptr});\ \}}
+\DoxyCodeLine{00045\ \textcolor{comment}{}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ /**\ Add\ new\ item\ to\ the\ stack\ */}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstack_a90df277532c23519aa7ac3c08ed90a1d}{push}}(\textcolor{keyword}{const}\ value\_type\&\ item)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newNode\ =\ std::make\_shared<Node<value\_type>>();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ newNode-\/>data\ =\ item;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ newNode-\/>next\ =\ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ =\ newNode;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}++;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \textcolor{comment}{}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ \ \ \ /**\ Return\ the\ top\ element\ of\ the\ stack\ */}}
+\DoxyCodeLine{00056\ \ \ \ \ value\_type\ \mbox{\hyperlink{classstack_ae09630c4384903d187801921b2ddc709}{top}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ ensureNotEmpty();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}-\/>data;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \textcolor{comment}{}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ /**\ Remove\ the\ top\ element\ of\ the\ stack\ */}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstack_a3647fb4418890f19e0dc414b8092b8b0}{pop}}()\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ ensureNotEmpty();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ =\ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}-\/>next;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}-\/-\/;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \textcolor{comment}{}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ /**\ Clear\ stack\ */}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstack_a6f13157faa1a762c59e67da8b9516092}{clear}}()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ std::shared\_ptr<Node<value\_type>>\ \mbox{\hyperlink{classstack_aefb3dac828e32b4ec014ff4b5d43a6b8}{stackTop}}\ =}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ stack\ */}}
+\DoxyCodeLine{00077\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{classstack_a0a6b2b93ec970296940798ee98a5072e}{size}}\ =\ 0;\ \ \textcolor{comment}{///<\ size\ of\ stack}}
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DATA\_STRUCTURES\_STACK\_HPP\_}}
+
+\end{DoxyCode}

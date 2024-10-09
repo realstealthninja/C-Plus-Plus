@@ -1,0 +1,138 @@
+\doxysection{sorting/recursive\+\_\+bubble\+\_\+sort.cpp File Reference}
+\hypertarget{recursive__bubble__sort_8cpp}{}\label{recursive__bubble__sort_8cpp}\index{sorting/recursive\_bubble\_sort.cpp@{sorting/recursive\_bubble\_sort.cpp}}
+
+
+This is an implementation of a recursive version of the \href{https://www.geeksforgeeks.org/recursive-bubble-sort/}{\texttt{ Bubble sort algorithm}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacesorting_ae3a775d99dbbb94c130a973df0cfddcf}{sorting\+::recursive\+\_\+bubble\+\_\+sort}} (std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}nums, uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em This is an implementation of the recursive\+\_\+bubble\+\_\+sort. A vector is passed to the function which is then dereferenced, so that the changes are reflected in the original vector. It also accepts a second parameter of type {\ttfamily int} and name {\ttfamily n}, which is the size of the array. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{recursive__bubble__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{recursive__bubble__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is an implementation of a recursive version of the \href{https://www.geeksforgeeks.org/recursive-bubble-sort/}{\texttt{ Bubble sort algorithm}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://adityaprakash.tech}{\texttt{ Aditya Prakash}} 
+\end{DoxyAuthor}
+The working principle of the Bubble sort algorithm.
+
+Bubble sort is a simple sorting algorithm used to rearrange a set of ascending or descending order elements. Bubble sort gets its name from the fact that data "{}bubbles"{} to the top of the dataset.\hypertarget{recursive__bubble__sort_8cpp_autotoc_md111}{}\doxysubsubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{recursive__bubble__sort_8cpp_autotoc_md111}
+What is Swap?
+
+Swapping two numbers means that we interchange their values. Often, an additional variable is required for this operation. This is further illustrated in the following\+:
+
+void swap(int x, int y)\{ int z = x; x = y; y = z; \}
+
+The above process is a typical displacement process. When we assign a value to x, the old value of x is lost. That\textquotesingle{}s why we create a temporary variable z to store the initial value of x. z is further used to assign the initial value of x to y, to complete swapping.
+
+Recursion
+
+While the recursive method does not necessarily have advantages over iterative versions, but it is useful to enhance the understanding of the algorithm and recursion itself. In Recursive Bubble sort algorithm, we firstly call the function on the entire array, and for every subsequent function call, we exclude the last element. This fixes the last element for that sub-\/array.\+Formally, for {\ttfamily ith} iteration, we consider elements up to n-\/i, where n is the number of elements in the array. Exit condition\+: n==1; i.\+e. the sub-\/array contains only one element.
+
+Complexity Time complexity\+: O(n) best case; O(n²) average case; O(n²) worst case Space complexity\+: O(n)
+
+We need to traverse the array {\ttfamily n \texorpdfstring{$\ast$}{*} (n-\/1)} times. However, if the entire array is already sorted, then we need to traverse it only once. Hence, O(n) is the best case complexity 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{recursive__bubble__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{recursive\_bubble\_sort.cpp@{recursive\_bubble\_sort.cpp}!main@{main}}
+\index{main@{main}!recursive\_bubble\_sort.cpp@{recursive\_bubble\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{recursive__bubble__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{recursive__bubble__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00149\ \}}
+
+\end{DoxyCode}
+\Hypertarget{recursive__bubble__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{recursive\_bubble\_sort.cpp@{recursive\_bubble\_sort.cpp}!test@{test}}
+\index{test@{test}!recursive\_bubble\_sort.cpp@{recursive\_bubble\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{recursive__bubble__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ 1st\ example.\ Creating\ an\ array\ of\ type\ \`{}int`.}}
+\DoxyCodeLine{00097\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test\ using\ \`{}int`\(\backslash\)n"{}};}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ size\ =\ 6;}
+\DoxyCodeLine{00099\ \ \ \ \ std::vector<int64\_t>\ arr;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ populating\ the\ array}}
+\DoxyCodeLine{00101\ \ \ \ \ arr.push\_back(22);}
+\DoxyCodeLine{00102\ \ \ \ \ arr.push\_back(46);}
+\DoxyCodeLine{00103\ \ \ \ \ arr.push\_back(94);}
+\DoxyCodeLine{00104\ \ \ \ \ arr.push\_back(12);}
+\DoxyCodeLine{00105\ \ \ \ \ arr.push\_back(37);}
+\DoxyCodeLine{00106\ \ \ \ \ arr.push\_back(63);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ array\ populating\ ends}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{namespacesorting_ae3a775d99dbbb94c130a973df0cfddcf}{sorting::recursive\_bubble\_sort}}(\&arr,\ size);}
+\DoxyCodeLine{00110\ \ \ \ \ assert(std::is\_sorted(std::begin(arr),\ std::end(arr)));}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ 1st\ test\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ printing\ the\ array}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ 2nd\ example.\ Creating\ an\ array\ of\ type\ \`{}double`.}}
+\DoxyCodeLine{00119\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test\ using\ doubles\(\backslash\)n"{}};}
+\DoxyCodeLine{00120\ \ \ \ \ std::vector<double>\ double\_arr;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ populating\ the\ array}}
+\DoxyCodeLine{00123\ \ \ \ \ double\_arr.push\_back(20.4);}
+\DoxyCodeLine{00124\ \ \ \ \ double\_arr.push\_back(62.7);}
+\DoxyCodeLine{00125\ \ \ \ \ double\_arr.push\_back(12.2);}
+\DoxyCodeLine{00126\ \ \ \ \ double\_arr.push\_back(43.6);}
+\DoxyCodeLine{00127\ \ \ \ \ double\_arr.push\_back(74.1);}
+\DoxyCodeLine{00128\ \ \ \ \ double\_arr.push\_back(57.9);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ array\ populating\ ends}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{namespacesorting_ae3a775d99dbbb94c130a973df0cfddcf}{sorting::recursive\_bubble\_sort}}(\&double\_arr,\ size);}
+\DoxyCodeLine{00132\ \ \ \ \ assert(std::is\_sorted(std::begin(double\_arr),\ std::end(double\_arr)));}
+\DoxyCodeLine{00133\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ 2nd\ test\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ printing\ the\ array}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ std::cout\ <<\ double\_arr[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \}}
+
+\end{DoxyCode}

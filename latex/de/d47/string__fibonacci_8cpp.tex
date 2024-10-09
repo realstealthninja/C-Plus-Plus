@@ -1,0 +1,136 @@
+\doxysection{math/string\+\_\+fibonacci.cpp File Reference}
+\hypertarget{string__fibonacci_8cpp}{}\label{string__fibonacci_8cpp}\index{math/string\_fibonacci.cpp@{math/string\_fibonacci.cpp}}
+
+
+This Programme returns the Nth fibonacci as a string.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{string__fibonacci_8cpp_a28052eee05d43c2ebc5147c52bd50c35}{add}} (std\+::string a, std\+::string b)
+\item 
+void \mbox{\hyperlink{string__fibonacci_8cpp_ad8055ee368a5d5b24de01bdde6bf8fca}{fib\+\_\+\+Accurate}} (uint64\+\_\+t n)
+\item 
+int \mbox{\hyperlink{string__fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This Programme returns the Nth fibonacci as a string. 
+
+The method used is manual addition with carry and placing it in a string which is called string addition This makes it have no bounds or limits
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{fibonacci__large_8cpp}{fibonacci\+\_\+large.\+cpp}, \doxylink{fibonacci__fast_8cpp}{fibonacci\+\_\+fast.\+cpp}, \doxylink{fibonacci_8cpp}{fibonacci.\+cpp} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{string__fibonacci_8cpp_a28052eee05d43c2ebc5147c52bd50c35}\index{string\_fibonacci.cpp@{string\_fibonacci.cpp}!add@{add}}
+\index{add@{add}!string\_fibonacci.cpp@{string\_fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{string__fibonacci_8cpp_a28052eee05d43c2ebc5147c52bd50c35} 
+std\+::string add (\begin{DoxyParamCaption}\item[{std\+::string}]{a}{, }\item[{std\+::string}]{b}{}\end{DoxyParamCaption})}
+
+function to add two string numbers 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & first number in string to add \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & second number in string to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sum as a std\+::string 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ temp\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ carry\ flag}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ carry\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ fills\ up\ with\ zeros}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{while}\ (a.length()\ <\ b.length())\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ a\ =\ \textcolor{stringliteral}{"{}0"{}}\ +\ a;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ fills\ up\ with\ zeros}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{while}\ (b.length()\ <\ a.length())\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ b\ =\ \textcolor{stringliteral}{"{}0"{}}\ +\ b;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ adds\ the\ numbers\ a\ and\ b}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ a.length()\ -\/\ 1;\ i\ >=\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ val\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(((a[i]\ -\/\ 48)\ +\ (b[i]\ -\/\ 48))\ +\ 48\ +\ carry);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (val\ >\ 57)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ carry\ =\ 1;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ val\ -\/=\ 10;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ carry\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ temp\ =\ val\ +\ temp;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ processes\ the\ carry\ flag}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (carry\ ==\ 1)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ temp\ =\ \textcolor{stringliteral}{"{}1"{}}\ +\ temp;}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ removes\ leading\ zeros.}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp[0]\ ==\ \textcolor{charliteral}{'0'}\ \&\&\ temp.length()\ >\ 1)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ temp\ =\ temp.substr(1);}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{string__fibonacci_8cpp_ad8055ee368a5d5b24de01bdde6bf8fca}\index{string\_fibonacci.cpp@{string\_fibonacci.cpp}!fib\_Accurate@{fib\_Accurate}}
+\index{fib\_Accurate@{fib\_Accurate}!string\_fibonacci.cpp@{string\_fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{fib\_Accurate()}{fib\_Accurate()}}
+{\footnotesize\ttfamily \label{string__fibonacci_8cpp_ad8055ee368a5d5b24de01bdde6bf8fca} 
+void fib\+\_\+\+Accurate (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+Fibonacci iterator 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & n\texorpdfstring{$^\wedge$}{\string^}th Fibonacci number \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ std::string\ tmp\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00070\ \ \ \ \ std::string\ fibMinus1\ =\ \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{00071\ \ \ \ \ std::string\ fibMinus2\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ tmp\ =\ \mbox{\hyperlink{string__fibonacci_8cpp_a28052eee05d43c2ebc5147c52bd50c35}{add}}(fibMinus1,\ fibMinus2);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ fibMinus2\ =\ fibMinus1;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ fibMinus1\ =\ tmp;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ fibMinus2;}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{string__fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{string\_fibonacci.cpp@{string\_fibonacci.cpp}!main@{main}}
+\index{main@{main}!string\_fibonacci.cpp@{string\_fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{string__fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00083\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ whatever\ number\ N\ you\ want\ to\ find\ the\ fibonacci\ of\(\backslash\)n"{}};}
+\DoxyCodeLine{00084\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{00085\ \ \ \ \ std::cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ th\ Fibonacci\ is\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{string__fibonacci_8cpp_ad8055ee368a5d5b24de01bdde6bf8fca}{fib\_Accurate}}(n);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}

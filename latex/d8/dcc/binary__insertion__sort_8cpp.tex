@@ -1,0 +1,126 @@
+\doxysection{sorting/binary\+\_\+insertion\+\_\+sort.cpp File Reference}
+\hypertarget{binary__insertion__sort_8cpp}{}\label{binary__insertion__sort_8cpp}\index{sorting/binary\_insertion\_sort.cpp@{sorting/binary\_insertion\_sort.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Insertion_sort}{\texttt{ Binary Insertion Sort Algorithm (Insertion Sort)}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\int64\+\_\+t \mbox{\hyperlink{namespacesorting_a034d8b276518a902962e87d3158b64fd}{sorting\+::binary\+\_\+search}} (std\+::vector$<$ T $>$ \&arr, T val, int64\+\_\+t low, int64\+\_\+t high)
+\begin{DoxyCompactList}\small\item\em Binary search function to find the most suitable pace for an element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacesorting_a5f4bc75cca6dd8294af2d0e328006c68}{sorting\+::insertion\+Sort\+\_\+binsrch}} (std\+::vector$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Insertion sort function to sort the vector. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{binary__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{binary__insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Insertion_sort}{\texttt{ Binary Insertion Sort Algorithm (Insertion Sort)}} 
+
+If the cost of comparisons exceeds the cost of swaps, as is the case for example with string keys stored by reference or with human interaction (such as choosing one of a pair displayed side-\/by-\/side), then using binary insertion sort may yield better performance. Binary insertion sort employs a binary search to determine the correct location to insert new elements, and therefore performs ⌈log2 n⌉ comparisons in the worst case. When each element in the array is searched for and inserted this is O(n log n). The algorithm as a whole still has a running time of O(n2) on average because of the series
+\begin{DoxyItemize}
+\item of swaps required for each insertion. However it has several advantages such as
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item Easy to implement
+\item For small set of data it is quite efficient
+\item More efficient that other Quadratic complexity algorithms like Selection sort or bubble sort.
+\item It is efficient to use it when the cost of comparison is high.
+\item It\textquotesingle{}s stable that is it does not change the relative order of elements with equal keys.
+\item It can sort the array or list as it receives.
+\end{DoxyEnumerate}
+
+Example execution steps\+:
+\begin{DoxyEnumerate}
+\item Suppose initially we have \begin{bmatrix}40 &30 &20 &50 &10\end{bmatrix}
+\item We start traversing from 40 till we reach 10 when we reach at 30 we find that it is not at it\textquotesingle{}s correct place so we take 30 and place it at a correct position thus the array will become \begin{bmatrix}30 &40 &20 &50 &10\end{bmatrix}
+\item In the next iteration we are at 20 we find that this is also misplaced so we place it at the correct sorted position thus the array in this iteration becomes \begin{bmatrix}20 &30 &40 &50 &10\end{bmatrix}
+\item We do not do anything with 50 and move on to the next iteration and select 10 which is misplaced and place it at correct position. Thus, we have \begin{bmatrix}10 &20 &30 &40 &50\end{bmatrix} 
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{binary__insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{binary\_insertion\_sort.cpp@{binary\_insertion\_sort.cpp}!main@{main}}
+\index{main@{main}!binary\_insertion\_sort.cpp@{binary\_insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{binary__insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{binary__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00146\ \}}
+
+\end{DoxyCode}
+\Hypertarget{binary__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{binary\_insertion\_sort.cpp@{binary\_insertion\_sort.cpp}!test@{test}}
+\index{test@{test}!binary\_insertion\_sort.cpp@{binary\_insertion\_sort.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{binary__insertion__sort_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{/*\ descriptions\ of\ the\ following\ test\ */}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{/*\ 1st\ test: }}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ \ \ \ \ \ [5,\ -\/3,\ -\/1,\ -\/2,\ 7]\ returns\ [-\/3,\ -\/2,\ -\/1,\ 5,\ 7]\ */}}
+\DoxyCodeLine{00108\ \ \ \ \ std::vector<int64\_t>\ arr1(\{5,\ -\/3,\ -\/1,\ -\/2,\ 7\});}
+\DoxyCodeLine{00109\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test...\ "{}};}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a5f4bc75cca6dd8294af2d0e328006c68}{sorting::insertionSort\_binsrch}}(arr1);}
+\DoxyCodeLine{00111\ \ \ \ \ assert(std::is\_sorted(std::begin(arr1),\ std::end(arr1)));}
+\DoxyCodeLine{00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{/*\ 2nd\ test: }}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ \ \ \ \ \ \ [12,\ 26,\ 15,\ 91,\ 32,\ 54,\ 41]\ returns\ [12,\ 15,\ 26,\ 32,\ 41,\ 54,\ 91]\ */}}
+\DoxyCodeLine{00116\ \ \ \ \ std::vector<int64\_t>\ arr2(\{12,\ 26,\ 15,\ 91,\ 32,\ 54,\ 41\});}
+\DoxyCodeLine{00117\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test...\ "{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a5f4bc75cca6dd8294af2d0e328006c68}{sorting::insertionSort\_binsrch}}(arr2);}
+\DoxyCodeLine{00119\ \ \ \ \ assert(std::is\_sorted(std::begin(arr2),\ std::end(arr2)));}
+\DoxyCodeLine{00120\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{/*\ 3rd\ test: }}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ \ \ \ [7.1,\ -\/2.5,\ -\/4.0,\ -\/2.1,\ 5.7]\ returns\ [-\/4.0,\ -\/2.5,\ -\/2.1,\ 5.7,\ 7.1]\ */}}
+\DoxyCodeLine{00124\ \ \ \ \ std::vector<float>\ arr3(\{7.1,\ -\/2.5,\ -\/4.0,\ -\/2.1,\ 5.7\});}
+\DoxyCodeLine{00125\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test...\ "{}};}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a5f4bc75cca6dd8294af2d0e328006c68}{sorting::insertionSort\_binsrch}}(arr3);}
+\DoxyCodeLine{00127\ \ \ \ \ assert(std::is\_sorted(std::begin(arr3),\ std::end(arr3)));}
+\DoxyCodeLine{00128\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{/*\ 4th\ test: }}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ \ \ [12.8,\ -\/3.7,\ -\/20.7,\ -\/7.1,\ 2.2]\ returns\ [-\/20.7,\ -\/7.1,\ -\/3.7,\ 2.2,\ 12.8]\ */}}
+\DoxyCodeLine{00132\ \ \ \ \ std::vector<float>\ arr4(\{12.8,\ -\/3.7,\ -\/20.7,\ -\/7.1,\ 2.2\});}
+\DoxyCodeLine{00133\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4th\ test...\ "{}};}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{namespacesorting_a5f4bc75cca6dd8294af2d0e328006c68}{sorting::insertionSort\_binsrch}}(arr4);}
+\DoxyCodeLine{00135\ \ \ \ \ assert(std::is\_sorted(std::begin(arr4),\ std::end(arr4)));}
+\DoxyCodeLine{00136\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}

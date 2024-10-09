@@ -1,0 +1,210 @@
+\doxysection{backtracking/n\+\_\+queens\+\_\+all\+\_\+solution\+\_\+optimised.cpp File Reference}
+\hypertarget{n__queens__all__solution__optimised_8cpp}{}\label{n__queens__all__solution__optimised_8cpp}\index{backtracking/n\_queens\_all\_solution\_optimised.cpp@{backtracking/n\_queens\_all\_solution\_optimised.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Eight_queens_puzzle}{\texttt{ N queens}} all optimized  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacen__queens__optimized}{n\+\_\+queens\+\_\+optimized}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Eight_queens_puzzle}{\texttt{ Eight Queens}} puzzle optimized. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t n$>$ }\\void \mbox{\hyperlink{n__queens__all__solution__optimised_8cpp_a04090463be4942a69ea91fe7386da905}{backtracking\+::n\+\_\+queens\+\_\+optimized\+::\+Print\+Sol}} (const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&board)
+\item 
+{\footnotesize template$<$size\+\_\+t n$>$ }\\bool \mbox{\hyperlink{n__queens__all__solution__optimised_8cpp_a9e48455584a4faa33e83dd1891efd9b9}{backtracking\+::n\+\_\+queens\+\_\+optimized\+::\+Can\+IMove}} (const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&board, int row, int col)
+\item 
+{\footnotesize template$<$size\+\_\+t n$>$ }\\void \mbox{\hyperlink{n__queens__all__solution__optimised_8cpp_a23c0547e4fd1708e6fb643b08327a60f}{backtracking\+::n\+\_\+queens\+\_\+optimized\+::\+NQueen\+Sol}} (std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ board, int col)
+\item 
+int \mbox{\hyperlink{n__queens__all__solution__optimised_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Eight_queens_puzzle}{\texttt{ N queens}} all optimized 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/deadshotsb}{\texttt{ Sombit Bose}} 
+
+\href{https://github.com/Panquesito7}{\texttt{ David Leal}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{n__queens__all__solution__optimised_8cpp_a9e48455584a4faa33e83dd1891efd9b9}\index{n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}!CanIMove@{CanIMove}}
+\index{CanIMove@{CanIMove}!n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}}
+\doxysubsubsection{\texorpdfstring{CanIMove()}{CanIMove()}}
+{\footnotesize\ttfamily \label{n__queens__all__solution__optimised_8cpp_a9e48455584a4faa33e83dd1891efd9b9} 
+template$<$size\+\_\+t n$>$ \\
+bool backtracking\+::n\+\_\+queens\+\_\+optimized\+::\+Can\+IMove (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&}]{board}{, }\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+Check if a queen can be placed on matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & number of matrix size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & matrix where numbers are saved \\
+\hline
+{\em row} & current index in rows \\
+\hline
+{\em col} & current index in columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if queen can be placed on matrix 
+
+{\ttfamily false} if queen can\textquotesingle{}t be placed on matrix 
+\end{DoxyReturn}
+check in the row
+
+check the first diagonal
+
+check the second diagonal
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ ///\ check\ in\ the\ row}}
+\DoxyCodeLine{00062\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ col;\ i++)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[row][i]\ ==\ 1)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ ///\ check\ the\ first\ diagonal}}
+\DoxyCodeLine{00068\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ row,\ j\ =\ col;\ i\ >=\ 0\ \&\&\ j\ >=\ 0;\ i-\/-\/,\ j-\/-\/)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[i][j]\ ==\ 1)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \}\textcolor{comment}{}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ ///\ check\ the\ second\ diagonal}}
+\DoxyCodeLine{00074\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ row,\ j\ =\ col;\ i\ <=\ n\ -\/\ 1\ \&\&\ j\ >=\ 0;\ i++,\ j-\/-\/)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (board[i][j]\ ==\ 1)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__queens__all__solution__optimised_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}!main@{main}}
+\index{main@{main}!n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{n__queens__all__solution__optimised_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ 4;}
+\DoxyCodeLine{00111\ \ \ \ \ std::array<std::array<int,\ n>,\ n>\ board\{\};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ \%\ 2\ ==\ 0)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ n\ /\ 2\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (backtracking::n\_queens\_optimized::CanIMove(board,\ i,\ 0))\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ board[i][0]\ =\ 1;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{n__queens__all__solution__optimised_8cpp_a23c0547e4fd1708e6fb643b08327a60f}{backtracking::n\_queens\_optimized::NQueenSol}}(board,\ 1);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ board[i][0]\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ n\ /\ 2;\ i++)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (backtracking::n\_queens\_optimized::CanIMove(board,\ i,\ 0))\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ board[i][0]\ =\ 1;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{n__queens__all__solution__optimised_8cpp_a23c0547e4fd1708e6fb643b08327a60f}{backtracking::n\_queens\_optimized::NQueenSol}}(board,\ 1);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ board[i][0]\ =\ 0;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__queens__all__solution__optimised_8cpp_a23c0547e4fd1708e6fb643b08327a60f}\index{n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}!NQueenSol@{NQueenSol}}
+\index{NQueenSol@{NQueenSol}!n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}}
+\doxysubsubsection{\texorpdfstring{NQueenSol()}{NQueenSol()}}
+{\footnotesize\ttfamily \label{n__queens__all__solution__optimised_8cpp_a23c0547e4fd1708e6fb643b08327a60f} 
+template$<$size\+\_\+t n$>$ \\
+void backtracking\+::n\+\_\+queens\+\_\+optimized\+::\+NQueen\+Sol (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::array$<$ int, n $>$, n $>$}]{board}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+Solve n queens problem 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & number of matrix size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & matrix where numbers are saved \\
+\hline
+{\em col} & current index in columns \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (col\ >=\ n)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ PrintSol<n>(board);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (CanIMove<n>(board,\ i,\ col))\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ board[i][col]\ =\ 1;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ NQueenSol<n>(board,\ col\ +\ 1);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ board[i][col]\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \}}
+
+\end{DoxyCode}
+\Hypertarget{n__queens__all__solution__optimised_8cpp_a04090463be4942a69ea91fe7386da905}\index{n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}!PrintSol@{PrintSol}}
+\index{PrintSol@{PrintSol}!n\_queens\_all\_solution\_optimised.cpp@{n\_queens\_all\_solution\_optimised.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintSol()}{PrintSol()}}
+{\footnotesize\ttfamily \label{n__queens__all__solution__optimised_8cpp_a04090463be4942a69ea91fe7386da905} 
+template$<$size\+\_\+t n$>$ \\
+void backtracking\+::n\+\_\+queens\+\_\+optimized\+::\+Print\+Sol (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::array$<$ int, n $>$, n $>$ \&}]{board}{}\end{DoxyParamCaption})}
+
+Utility function to print matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & number of matrix size \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & matrix where numbers are saved \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ board[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ \%\ 2\ ==\ 0\ ||\ (n\ \%\ 2\ ==\ 1\ \&\&\ board[n\ /\ 2\ +\ 1][0]\ !=\ 1))\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ board[j][i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}

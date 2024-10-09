@@ -1,0 +1,118 @@
+\doxysection{math/modular\+\_\+inverse\+\_\+fermat\+\_\+little\+\_\+theorem.cpp File Reference}
+\hypertarget{modular__inverse__fermat__little__theorem_8cpp}{}\label{modular__inverse__fermat__little__theorem_8cpp}\index{math/modular\_inverse\_fermat\_little\_theorem.cpp@{math/modular\_inverse\_fermat\_little\_theorem.cpp}}
+
+
+C++ Program to find the modular inverse using \href{https://en.wikipedia.org/wiki/Fermat\%27s_little_theorem}{\texttt{ Fermat\textquotesingle{}s Little Theorem}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int64\+\_\+t \mbox{\hyperlink{modular__inverse__fermat__little__theorem_8cpp_a4c6eefd1254eab3e8d34bf02c205e0f4}{bin\+Expo}} (int64\+\_\+t a, int64\+\_\+t b, int64\+\_\+t m)
+\item 
+bool \mbox{\hyperlink{modular__inverse__fermat__little__theorem_8cpp_a09660096b134753128952246f4f4e4bd}{is\+Prime}} (int64\+\_\+t m)
+\item 
+int \mbox{\hyperlink{modular__inverse__fermat__little__theorem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C++ Program to find the modular inverse using \href{https://en.wikipedia.org/wiki/Fermat\%27s_little_theorem}{\texttt{ Fermat\textquotesingle{}s Little Theorem}} 
+
+Fermat\textquotesingle{}s Little Theorem state that \[ϕ(m) = m-1\] where $m$ is a prime number.    \begin{eqnarray*}
+  a \cdot x &≡& 1 \;\text{mod}\; m\\
+  x &≡& a^{-1} \;\text{mod}\; m
+ \end{eqnarray*} Using Euler\textquotesingle{}s theorem we can modify the equation.   \[
+ a^{ϕ(m)} ≡ 1 \;\text{mod}\; m
+ \] (Where \textquotesingle{}\texorpdfstring{$^\wedge$}{\string^}\textquotesingle{} denotes the exponent operator)
+
+Here \textquotesingle{}ϕ\textquotesingle{} is Euler\textquotesingle{}s Totient Function. For modular inverse existence \textquotesingle{}a\textquotesingle{} and \textquotesingle{}m\textquotesingle{} must be relatively primes numbers. To apply Fermat\textquotesingle{}s Little Theorem is necessary that \textquotesingle{}m\textquotesingle{} must be a prime number. Generally in many competitive programming competitions \textquotesingle{}m\textquotesingle{} is either 1000000007 (1e9+7) or 998244353.
+
+We considered m as large prime (1e9+7). $a^{ϕ(m)} ≡ 1 \;\text{mod}\; m$ (Using Euler\textquotesingle{}s Theorem) $ϕ(m) = m-1$ using Fermat\textquotesingle{}s Little Theorem. $a^{m-1} ≡ 1 \;\text{mod}\; m$ Now multiplying both side by $a^{-1}$.    \begin{eqnarray*}
+ a^{m-1} \cdot a^{-1} &≡& a^{-1} \;\text{mod}\; m\\
+ a^{m-2} &≡&  a^{-1} \;\text{mod}\; m
+ \end{eqnarray*}
+
+We will find the exponent using binary exponentiation. Such that the algorithm works in $O(\log m)$ time.
+
+Examples\+: -\/
+\begin{DoxyItemize}
+\item a = 3 and m = 7
+\item $a^{-1} \;\text{mod}\; m$ is equivalent to $a^{m-2} \;\text{mod}\; m$
+\item $3^5 \;\text{mod}\; 7 = 243 \;\text{mod}\; 7 = 5$ ~\newline
+Hence, $3^{-1} \;\text{mod}\; 7 = 5$ or $3 \times 5  \;\text{mod}\; 7 = 1 \;\text{mod}\; 7$ (as $a\times a^{-1} = 1$) 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{modular__inverse__fermat__little__theorem_8cpp_a4c6eefd1254eab3e8d34bf02c205e0f4}\index{modular\_inverse\_fermat\_little\_theorem.cpp@{modular\_inverse\_fermat\_little\_theorem.cpp}!binExpo@{binExpo}}
+\index{binExpo@{binExpo}!modular\_inverse\_fermat\_little\_theorem.cpp@{modular\_inverse\_fermat\_little\_theorem.cpp}}
+\doxysubsubsection{\texorpdfstring{binExpo()}{binExpo()}}
+{\footnotesize\ttfamily \label{modular__inverse__fermat__little__theorem_8cpp_a4c6eefd1254eab3e8d34bf02c205e0f4} 
+int64\+\_\+t bin\+Expo (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{a}{, }\item[{int64\+\_\+t}]{b}{, }\item[{int64\+\_\+t}]{m}{}\end{DoxyParamCaption})}
+
+Recursive function to calculate exponent in $O(\log n)$ using binary exponent. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ a\ \%=\ m;}
+\DoxyCodeLine{00054\ \ \ \ \ int64\_t\ res\ =\ 1;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{while}\ (b\ >\ 0)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ \%\ 2)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ res\ *\ a\ \%\ m;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ a\ =\ a\ *\ a\ \%\ m;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dividing\ b\ by\ 2\ is\ similar\ to\ right\ shift.}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ b\ >>=\ 1;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\Hypertarget{modular__inverse__fermat__little__theorem_8cpp_a09660096b134753128952246f4f4e4bd}\index{modular\_inverse\_fermat\_little\_theorem.cpp@{modular\_inverse\_fermat\_little\_theorem.cpp}!isPrime@{isPrime}}
+\index{isPrime@{isPrime}!modular\_inverse\_fermat\_little\_theorem.cpp@{modular\_inverse\_fermat\_little\_theorem.cpp}}
+\doxysubsubsection{\texorpdfstring{isPrime()}{isPrime()}}
+{\footnotesize\ttfamily \label{modular__inverse__fermat__little__theorem_8cpp_a09660096b134753128952246f4f4e4bd} 
+bool is\+Prime (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{m}{}\end{DoxyParamCaption})}
+
+Prime check in $O(\sqrt{m})$ time. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\ <=\ 1)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 2;\ i\ *\ i\ <=\ m;\ i++)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\ \%\ i\ ==\ 0)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+\Hypertarget{modular__inverse__fermat__little__theorem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{modular\_inverse\_fermat\_little\_theorem.cpp@{modular\_inverse\_fermat\_little\_theorem.cpp}!main@{main}}
+\index{main@{main}!modular\_inverse\_fermat\_little\_theorem.cpp@{modular\_inverse\_fermat\_little\_theorem.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{modular__inverse__fermat__little__theorem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ int64\_t\ a,\ m;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Take\ input\ of\ \ a\ and\ m.}}
+\DoxyCodeLine{00087\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Computing\ ((a\string^(-\/1))\%(m))\ using\ Fermat's\ Little\ Theorem"{}};}
+\DoxyCodeLine{00088\ \ \ \ \ std::cout\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00089\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Give\ input\ 'a'\ and\ 'm'\ space\ separated\ :\ "{}};}
+\DoxyCodeLine{00090\ \ \ \ \ std::cin\ >>\ a\ >>\ m;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{modular__inverse__fermat__little__theorem_8cpp_a09660096b134753128952246f4f4e4bd}{isPrime}}(m))\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ modular\ inverse\ of\ a\ with\ mod\ m\ is\ (a\string^(m-\/2))\ :\ "{}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{modular__inverse__fermat__little__theorem_8cpp_a4c6eefd1254eab3e8d34bf02c205e0f4}{binExpo}}(a,\ m\ -\/\ 2,\ m)\ <<\ std::endl;}
+\DoxyCodeLine{00094\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}m\ must\ be\ a\ prime\ number."{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}

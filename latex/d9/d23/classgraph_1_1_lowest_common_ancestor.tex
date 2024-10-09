@@ -1,0 +1,140 @@
+\doxysection{graph\+::Lowest\+Common\+Ancestor Class Reference}
+\hypertarget{classgraph_1_1_lowest_common_ancestor}{}\label{classgraph_1_1_lowest_common_ancestor}\index{graph::LowestCommonAncestor@{graph::LowestCommonAncestor}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a80825a4fd4c41860b689d253dd2c8e93}{Lowest\+Common\+Ancestor}} (const \mbox{\hyperlink{classgraph_1_1_rooted_tree}{Rooted\+Tree}} \&tree\+\_\+)
+\begin{DoxyCompactList}\small\item\em Stores the tree and precomputs "{}up lifts"{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a60151e19512b48cc0b14ea121df00488}{lowest\+\_\+common\+\_\+ancestor}} (int u, int v) const
+\begin{DoxyCompactList}\small\item\em Query the structure to find the lowest common ancestor. Assumes that the provided numbers are valid indices of vertices. Iterativelly modifies ("{}lifts"{}) u an v until it finnds their lowest common ancestor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgraph_1_1_lowest_common_ancestor_ad6ae1f39c3ce27fc009970e6aa3c022a}\label{classgraph_1_1_lowest_common_ancestor_ad6ae1f39c3ce27fc009970e6aa3c022a} 
+const \mbox{\hyperlink{classgraph_1_1_rooted_tree}{Rooted\+Tree}} \& {\bfseries tree}
+\item 
+\Hypertarget{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}\label{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries up}
+\begin{DoxyCompactList}\small\item\em for every vertex stores a list of its ancestors by powers of two For each vertex, the first element of the corresponding list contains the index of its parent. The i-\/th element of the list is an index of the (2\texorpdfstring{$^\wedge$}{\string^}i)-\/th ancestor of the vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a42589cc39d6bbff6c997152f1b96e356}{populate\+\_\+up}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A structure that holds a rooted tree and allow for effecient queries of the lowest common ancestor of two given vertices in the tree. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgraph_1_1_lowest_common_ancestor_a80825a4fd4c41860b689d253dd2c8e93}\index{graph::LowestCommonAncestor@{graph::LowestCommonAncestor}!LowestCommonAncestor@{LowestCommonAncestor}}
+\index{LowestCommonAncestor@{LowestCommonAncestor}!graph::LowestCommonAncestor@{graph::LowestCommonAncestor}}
+\doxysubsubsection{\texorpdfstring{LowestCommonAncestor()}{LowestCommonAncestor()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_lowest_common_ancestor_a80825a4fd4c41860b689d253dd2c8e93} 
+graph\+::\+Lowest\+Common\+Ancestor\+::\+Lowest\+Common\+Ancestor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgraph_1_1_rooted_tree}{Rooted\+Tree}} \&}]{tree\+\_\+}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Stores the tree and precomputs "{}up lifts"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree\+\_\+} & rooted tree. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ tree(tree\_)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a42589cc39d6bbff6c997152f1b96e356}{populate\_up}}();}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgraph_1_1_lowest_common_ancestor_a60151e19512b48cc0b14ea121df00488}\index{graph::LowestCommonAncestor@{graph::LowestCommonAncestor}!lowest\_common\_ancestor@{lowest\_common\_ancestor}}
+\index{lowest\_common\_ancestor@{lowest\_common\_ancestor}!graph::LowestCommonAncestor@{graph::LowestCommonAncestor}}
+\doxysubsubsection{\texorpdfstring{lowest\_common\_ancestor()}{lowest\_common\_ancestor()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_lowest_common_ancestor_a60151e19512b48cc0b14ea121df00488} 
+int graph\+::\+Lowest\+Common\+Ancestor\+::lowest\+\_\+common\+\_\+ancestor (\begin{DoxyParamCaption}\item[{int}]{u}{, }\item[{int}]{v}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Query the structure to find the lowest common ancestor. Assumes that the provided numbers are valid indices of vertices. Iterativelly modifies ("{}lifts"{}) u an v until it finnds their lowest common ancestor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & index of one of the queried vertex \\
+\hline
+{\em v} & index of the other queried vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of the vertex which is the lowet common ancestor of u and v 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ensure\ u\ is\ the\ deeper\ (higher\ level)\ of\ the\ two\ vertices}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tree.\mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[v]\ >\ tree.\mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[u])\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(u,\ v);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Lift"{}\ u\ to\ the\ same\ level\ as\ v.}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ level\_diff\ =\ tree.\mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[u]\ -\/\ tree.\mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[v];}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ (1\ <<\ i)\ <=\ level\_diff;\ ++i)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (level\_diff\ \&\ (1\ <<\ i))\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[u][i];}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ assert(tree.\mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[u]\ ==\ tree.\mbox{\hyperlink{classgraph_1_1_rooted_tree_a2ee3ad1161ac2532da30c3e22c265ad3}{level}}[v]);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ ==\ v)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ u;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Lift"{}\ u\ and\ v\ to\ their\ 2\string^i\ th\ ancestor\ if\ they\ are\ different}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[u].size())\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[u][i]\ !=\ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[v][i])\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[u][i];}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[v][i];}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ As\ we\ regressed\ u\ an\ v\ such\ that\ they\ cannot\ further\ be\ lifted\ so}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ that\ their\ ancestor\ would\ be\ different,\ the\ only\ logical}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ consequence\ is\ that\ their\ parent\ is\ the\ sought\ answer.}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[u][0]\ ==\ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[v][0]);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[u][0];}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_lowest_common_ancestor_a42589cc39d6bbff6c997152f1b96e356}\index{graph::LowestCommonAncestor@{graph::LowestCommonAncestor}!populate\_up@{populate\_up}}
+\index{populate\_up@{populate\_up}!graph::LowestCommonAncestor@{graph::LowestCommonAncestor}}
+\doxysubsubsection{\texorpdfstring{populate\_up()}{populate\_up()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_lowest_common_ancestor_a42589cc39d6bbff6c997152f1b96e356} 
+void graph\+::\+Lowest\+Common\+Ancestor\+::populate\+\_\+up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Populate the "{}up"{} structure. See above. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}.resize(tree.\mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\_of\_vertices}}());}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ vertex\ =\ 0;\ vertex\ <\ tree.\mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\_of\_vertices}}();\ ++vertex)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[vertex].push\_back(tree.\mbox{\hyperlink{classgraph_1_1_rooted_tree_a3831583a91914988897a4cc8748fda43}{parent}}[vertex]);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ level\ =\ 0;\ (1\ <<\ level)\ <\ tree.\mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\_of\_vertices}}();\ ++level)\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ vertex\ =\ 0;\ vertex\ <\ tree.\mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\_of\_vertices}}();\ ++vertex)\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ up[vertex][level\ +\ 1]\ =\ 2\string^(level\ +\ 1)\ th\ ancestor\ of\ vertex\ =}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =\ 2\string^level\ th\ ancestor\ of\ 2\string^level\ th\ ancestor\ of\ vertex\ =}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =\ 2\string^level\ th\ ancestor\ of\ up[vertex][level]}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[vertex].push\_back(\mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[\mbox{\hyperlink{classgraph_1_1_lowest_common_ancestor_a46d10f669791e3da9a4809bd8ff8d3ad}{up}}[vertex][level]][level]);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/\mbox{\hyperlink{lowest__common__ancestor_8cpp}{lowest\+\_\+common\+\_\+ancestor.\+cpp}}\end{DoxyCompactItemize}

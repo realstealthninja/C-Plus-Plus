@@ -1,0 +1,188 @@
+\doxysection{search/fibonacci\+\_\+search.cpp File Reference}
+\hypertarget{fibonacci__search_8cpp}{}\label{fibonacci__search_8cpp}\index{search/fibonacci\_search.cpp@{search/fibonacci\_search.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Fibonacci_search_technique}{\texttt{ Fibonacci search algorithm}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{fibonacci__search_8cpp_a0bc61b3903d9a53061bf31e5d110fe61}{fibonacci\+\_\+search}} (const std\+::vector$<$ int $>$ \&arr, int value)
+\begin{DoxyCompactList}\small\item\em using fibonacci search algorithm finds an index of a given element in a sorted array \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{fibonacci__search_8cpp_a5e144326104e57a3808aed7eb098db0d}{no\+\_\+occurence\+\_\+tests}} ()
+\begin{DoxyCompactList}\small\item\em random tests for checking performance when an array doesn\textquotesingle{}t contain an element \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{fibonacci__search_8cpp_a2aa09bef74ee063c1331de0883af4f4f}{random\+\_\+tests}} ()
+\begin{DoxyCompactList}\small\item\em random tests which cover cases when we have one, multiple or zero occurences of the value we\textquotesingle{}re looking for \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fibonacci__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Fibonacci_search_technique}{\texttt{ Fibonacci search algorithm}} 
+
+\begin{DoxyAuthor}{Author}
+sprintyaf 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fibonacci__search_8cpp_a0bc61b3903d9a53061bf31e5d110fe61}\index{fibonacci\_search.cpp@{fibonacci\_search.cpp}!fibonacci\_search@{fibonacci\_search}}
+\index{fibonacci\_search@{fibonacci\_search}!fibonacci\_search.cpp@{fibonacci\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{fibonacci\_search()}{fibonacci\_search()}}
+{\footnotesize\ttfamily \label{fibonacci__search_8cpp_a0bc61b3903d9a53061bf31e5d110fe61} 
+int fibonacci\+\_\+search (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{arr}{, }\item[{int}]{value}{}\end{DoxyParamCaption})}
+
+
+
+using fibonacci search algorithm finds an index of a given element in a sorted array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & sorted array \\
+\hline
+{\em value} & value that we\textquotesingle{}re looking for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the array contains the value, returns an index of the element. otherwise -\/1. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ initialize\ last\ and\ current\ members\ of\ Fibonacci\ sequence\ }}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ last\ =\ 0,\ current\ =\ 1;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ length\ =\ arr.size();\ \textcolor{comment}{//\ array\ size}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ next\ member\ of\ Fibonacci\ sequence\ which\ is\ "{}last"{}\ +\ "{}current"{}}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ next\ =\ last\ +\ current;\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ "{}next"{}\ will\ store\ the\ smallest\ Fibonacci\ number\ greater\ or\ equal\ to\ "{}length"{}}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{while}(next\ <\ length)\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ last\ =\ current;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ current\ =\ next;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ next\ =\ last\ +\ current;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ "{}offset"{}\ is\ the\ end\ of\ eliminated\ range\ from\ front}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ offset\ =\ -\/1,\ index;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ while\ loop\ until\ there\ are\ elements\ left\ to\ consider.}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ when\ "{}next"{}\ becomes\ 1,\ last\ is\ equal\ to\ 0,\ so\ search\ is\ done,}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ because\ arr[offset]\ will\ already\ be\ eliminated}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{while}(next\ >\ 1)\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ "{}last"{}\ is\ valid\ location}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ index\ =\ std::min(offset\ +\ last,\ length-\/1);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ value\ is\ greater\ than\ the\ value\ at\ "{}index"{},\ eliminate\ the\ subarray\ from\ offset\ to\ index}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(arr[index]\ <\ value)\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ current;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ last;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ last\ =\ next\ -\/\ current;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ offset\ =\ index;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ value\ is\ less\ than\ the\ value\ at\ "{}index"{},\ eliminate\ the\ subarray\ after\ index+1}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(arr[index]\ >\ value)\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ last;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current\ -\/\ last;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ last\ =\ next\ -\/\ current;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ element\ is\ found}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ comparing\ the\ last\ element}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}(current\ \&\&\ !arr.empty()\ \&\&\ arr[offset+1]\ ==\ value)\{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ offset+1;}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ value\ was\ not\ found,\ return\ -\/1}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{fibonacci\_search.cpp@{fibonacci\_search.cpp}!main@{main}}
+\index{main@{main}!fibonacci\_search.cpp@{fibonacci\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fibonacci__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main Function testing the algorithm 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ assert(\mbox{\hyperlink{fibonacci__search_8cpp_a5e144326104e57a3808aed7eb098db0d}{no\_occurence\_tests}}());}
+\DoxyCodeLine{00125\ \ \ \ \ assert(\mbox{\hyperlink{fibonacci__search_8cpp_a2aa09bef74ee063c1331de0883af4f4f}{random\_tests}}());}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00127\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__search_8cpp_a5e144326104e57a3808aed7eb098db0d}\index{fibonacci\_search.cpp@{fibonacci\_search.cpp}!no\_occurence\_tests@{no\_occurence\_tests}}
+\index{no\_occurence\_tests@{no\_occurence\_tests}!fibonacci\_search.cpp@{fibonacci\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{no\_occurence\_tests()}{no\_occurence\_tests()}}
+{\footnotesize\ttfamily \label{fibonacci__search_8cpp_a5e144326104e57a3808aed7eb098db0d} 
+bool no\+\_\+occurence\+\_\+tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+random tests for checking performance when an array doesn\textquotesingle{}t contain an element 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ passed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ rand\_num,\ rand\_value,\ index,\ num\_tests\ =\ 1000;}
+\DoxyCodeLine{00075\ \ \ \ \ std::vector<int>\ arr;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{while}(num\_tests-\/-\/)\{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ arr.clear();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ rand\_num\ =\ std::rand()\ \%\ 1000;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ arr.push\_back(rand\_num);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ rand\_value\ =\ std::rand()\ \%\ 1000;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(std::find(arr.begin(),\ arr.end(),\ rand\_value)\ !=\ arr.end())\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::remove(arr.begin(),\ arr.end(),\ rand\_value);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ sort(arr.begin(),\ arr.end());}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ index\ =\ \mbox{\hyperlink{fibonacci__search_8cpp_a0bc61b3903d9a53061bf31e5d110fe61}{fibonacci\_search}}(arr,\ rand\_value);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ passed\ =\ passed\ \&\&\ (index\ ==\ -\/1);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return}\ passed;}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{fibonacci__search_8cpp_a2aa09bef74ee063c1331de0883af4f4f}\index{fibonacci\_search.cpp@{fibonacci\_search.cpp}!random\_tests@{random\_tests}}
+\index{random\_tests@{random\_tests}!fibonacci\_search.cpp@{fibonacci\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{random\_tests()}{random\_tests()}}
+{\footnotesize\ttfamily \label{fibonacci__search_8cpp_a2aa09bef74ee063c1331de0883af4f4f} 
+bool random\+\_\+tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+random tests which cover cases when we have one, multiple or zero occurences of the value we\textquotesingle{}re looking for 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ passed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ rand\_num,\ rand\_value,\ index,\ real\_value,\ num\_tests\ =\ 10000;}
+\DoxyCodeLine{00099\ \ \ \ \ std::vector<int>\ arr;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{while}(num\_tests-\/-\/)\{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ arr.clear();}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ rand\_num\ =\ std::rand()\ \%\ 1000;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ arr.push\_back(rand\_num);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ rand\_value\ =\ std::rand()\ \%\ 1000;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ std::sort(arr.begin(),\ arr.end());}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ index\ =\ \mbox{\hyperlink{fibonacci__search_8cpp_a0bc61b3903d9a53061bf31e5d110fe61}{fibonacci\_search}}(arr,\ rand\_value);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(index\ !=\ -\/1)\{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ real\_value\ =\ arr[index];}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ passed\ =\ passed\ \&\&\ (real\_value\ ==\ rand\_value);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ passed\ =\ passed\ \&\&\ (std::find(arr.begin(),\ arr.end(),\ rand\_value)\ ==\ arr.end());}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ passed;}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}

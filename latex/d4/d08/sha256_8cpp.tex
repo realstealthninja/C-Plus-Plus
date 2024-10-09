@@ -1,0 +1,436 @@
+\doxysection{hashing/sha256.cpp File Reference}
+\hypertarget{sha256_8cpp}{}\label{sha256_8cpp}\index{hashing/sha256.cpp@{hashing/sha256.cpp}}
+
+
+Simple C++ implementation of the \mbox{[}SHA-\/256 Hashing Algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/SHA-2}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+SHA-\/2}})  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classhashing_1_1sha256_1_1_hash}{hashing\+::sha256\+::\+Hash}}
+\begin{DoxyCompactList}\small\item\em Contains hash array and functions to update it and convert it to a hexadecimal string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacehashing}{hashing}}
+\begin{DoxyCompactList}\small\item\em Hashing algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_s_h_a}{SHA}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://en.wikipedia.org/wiki/SHA-1}{\texttt{ SHA-\/1}} algorithm implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{sha256_8cpp_adbcd504103c342a4da718f8fce6ff06c}{hashing\+::sha256\+::right\+\_\+rotate}} (uint32\+\_\+t n, size\+\_\+t rotate)
+\begin{DoxyCompactList}\small\item\em Rotates the bits of a 32-\/bit unsigned integer. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{sha256_8cpp_a28c1c6724dc6bcf91a39818699bbec27}{hashing\+::sha256\+::compute\+\_\+padded\+\_\+size}} (const std\+::size\+\_\+t input\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Computes size of the padded input. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\uint8\+\_\+t \mbox{\hyperlink{sha256_8cpp_afea411191ec5281f43e91ea327984627}{hashing\+::sha256\+::extract\+\_\+byte}} (const T in\+\_\+value, const std\+::size\+\_\+t byte\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Returns the byte at position byte\+\_\+num in in\+\_\+value. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{hashing\+::sha256\+::get\+\_\+char}} (const std\+::string \&input, std\+::size\+\_\+t pos)
+\begin{DoxyCompactList}\small\item\em Returns the character at pos after the input is padded. \end{DoxyCompactList}\item 
+std\+::array$<$ uint32\+\_\+t, 64 $>$ \mbox{\hyperlink{sha256_8cpp_a525531b3939ed44fbf01674e21931b3a}{hashing\+::sha256\+::create\+\_\+message\+\_\+schedule\+\_\+array}} (const std\+::string \&input, const size\+\_\+t byte\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Creates the message schedule array. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{sha256_8cpp_a55475649a2bb7aae15de0716a217f43a}{hashing\+::sha256\+::sha256}} (const std\+::string \&input)
+\begin{DoxyCompactList}\small\item\em Computes the final hash value. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{sha256_8cpp_af9b52eba85d23e309035354141259f27}{test\+\_\+compute\+\_\+padded\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{sha256_8cpp_a5afb183bc9072e33fed6c375ae6b7341}{test\+\_\+extract\+\_\+byte}} ()
+\item 
+static void \mbox{\hyperlink{sha256_8cpp_ad2776cb73ddf27e044f890b4a79ab947}{test\+\_\+get\+\_\+char}} ()
+\item 
+static void \mbox{\hyperlink{sha256_8cpp_a33eb7fad4a4b36804c881e0ee98effc1}{test\+\_\+right\+\_\+rotate}} ()
+\item 
+static void \mbox{\hyperlink{sha256_8cpp_a51e22dc64aeeda7363a674627f37e966}{test\+\_\+sha256}} ()
+\item 
+static void \mbox{\hyperlink{sha256_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{sha256_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple C++ implementation of the \mbox{[}SHA-\/256 Hashing Algorithm\mbox{]} (\href{https://en.wikipedia.org/wiki/SHA-2}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+SHA-\/2}}) 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/mdanisulh}{\texttt{ Md. Anisul Haque}} 
+\end{DoxyAuthor}
+\href{https://en.wikipedia.org/wiki/SHA-2}{\texttt{ SHA-\/2}} is a set of cryptographic hash functions that was designed by the \href{https://en.wikipedia.org/wiki/National_Security_Agency}{\texttt{ NSA}} and first published in 2001. SHA-\/256 is a part of the SHA-\/2 family. SHA-\/256 is widely used for authenticating software packages and secure password hashing. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sha256_8cpp_a28c1c6724dc6bcf91a39818699bbec27}\index{sha256.cpp@{sha256.cpp}!compute\_padded\_size@{compute\_padded\_size}}
+\index{compute\_padded\_size@{compute\_padded\_size}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{compute\_padded\_size()}{compute\_padded\_size()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_a28c1c6724dc6bcf91a39818699bbec27} 
+std\+::size\+\_\+t hashing\+::sha256\+::compute\+\_\+padded\+\_\+size (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{input\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Computes size of the padded input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Size of the padded input 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\_size\ \%\ 64\ <\ 56)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ input\_size\ +\ 64\ -\/\ (input\_size\ \%\ 64);}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ input\_size\ +\ 128\ -\/\ (input\_size\ \%\ 64);}
+\DoxyCodeLine{00148\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_a525531b3939ed44fbf01674e21931b3a}\index{sha256.cpp@{sha256.cpp}!create\_message\_schedule\_array@{create\_message\_schedule\_array}}
+\index{create\_message\_schedule\_array@{create\_message\_schedule\_array}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{create\_message\_schedule\_array()}{create\_message\_schedule\_array()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_a525531b3939ed44fbf01674e21931b3a} 
+std\+::array$<$ uint32\+\_\+t, 64 $>$ hashing\+::sha256\+::create\+\_\+message\+\_\+schedule\+\_\+array (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input}{, }\item[{const size\+\_\+t}]{byte\+\_\+num}{}\end{DoxyParamCaption})}
+
+
+
+Creates the message schedule array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input string \\
+\hline
+{\em byte\+\_\+num} & Position of the first byte of the chunk \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::array$<$uint32\+\_\+t, 64$>$ Message schedule array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ std::array<uint32\_t,\ 64>\ blocks\{\};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{comment}{//\ Copy\ chunk\ into\ first\ 16\ words\ of\ the\ message\ schedule\ array}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ block\_num\ =\ 0;\ block\_num\ <\ 16;\ ++block\_num)\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ blocks[block\_num]\ =}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(\mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(input,\ byte\_num\ +\ block\_num\ *\ 4))}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ 24)\ |}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(\mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(input,\ byte\_num\ +\ block\_num\ *\ 4\ +\ 1))}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ 16)\ |}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(\mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(input,\ byte\_num\ +\ block\_num\ *\ 4\ +\ 2))}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ 8)\ |}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(\mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{get\_char}}(input,\ byte\_num\ +\ block\_num\ *\ 4\ +\ 3));}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ Extend\ the\ first\ 16\ words\ into\ remaining\ 48\ words\ of\ the\ message\ schedule}}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{comment}{//\ array}}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ block\_num\ =\ 16;\ block\_num\ <\ 64;\ ++block\_num)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ s0\ =\ \mbox{\hyperlink{sha256_8cpp_adbcd504103c342a4da718f8fce6ff06c}{right\_rotate}}(blocks[block\_num\ -\/\ 15],\ 7)\ \string^}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8cpp_adbcd504103c342a4da718f8fce6ff06c}{right\_rotate}}(blocks[block\_num\ -\/\ 15],\ 18)\ \string^}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (blocks[block\_num\ -\/\ 15]\ >>\ 3);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ s1\ =\ \mbox{\hyperlink{sha256_8cpp_adbcd504103c342a4da718f8fce6ff06c}{right\_rotate}}(blocks[block\_num\ -\/\ 2],\ 17)\ \string^}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8cpp_adbcd504103c342a4da718f8fce6ff06c}{right\_rotate}}(blocks[block\_num\ -\/\ 2],\ 19)\ \string^}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (blocks[block\_num\ -\/\ 2]\ >>\ 10);}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ blocks[block\_num]\ =}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ blocks[block\_num\ -\/\ 16]\ +\ s0\ +\ blocks[block\_num\ -\/\ 7]\ +\ s1;}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{return}\ blocks;}
+\DoxyCodeLine{00225\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_afea411191ec5281f43e91ea327984627}\index{sha256.cpp@{sha256.cpp}!extract\_byte@{extract\_byte}}
+\index{extract\_byte@{extract\_byte}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{extract\_byte()}{extract\_byte()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_afea411191ec5281f43e91ea327984627} 
+template$<$typename T $>$ \\
+uint8\+\_\+t hashing\+::sha256\+::extract\+\_\+byte (\begin{DoxyParamCaption}\item[{const T}]{in\+\_\+value}{, }\item[{const std\+::size\+\_\+t}]{byte\+\_\+num}{}\end{DoxyParamCaption})}
+
+
+
+Returns the byte at position byte\+\_\+num in in\+\_\+value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+value} & Input value \\
+\hline
+{\em byte\+\_\+num} & Position of byte to be returned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t Byte at position byte\+\_\+num 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{sizeof}(in\_value)\ <=\ byte\_num)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Byte\ at\ index\ byte\_num\ does\ not\ exist"{}});}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{return}\ (in\_value\ >>\ (byte\_num\ *\ 8))\ \&\ 0xFF;}
+\DoxyCodeLine{00162\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}\index{sha256.cpp@{sha256.cpp}!get\_char@{get\_char}}
+\index{get\_char@{get\_char}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_char()}{get\_char()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da} 
+char hashing\+::sha256\+::get\+\_\+char (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input}{, }\item[{std\+::size\+\_\+t}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+Returns the character at pos after the input is padded. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input string \\
+\hline
+{\em pos} & Position of character to be returned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char Character at the index pos in the padded string 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ input\_size\ =\ input.length();}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ input\_size)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ input[pos];}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ input\_size)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{'\(\backslash\)x80'};}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ padded\_input\_size\ =\ \mbox{\hyperlink{sha256_8cpp_a28c1c6724dc6bcf91a39818699bbec27}{compute\_padded\_size}}(input\_size);}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ padded\_input\_size\ -\/\ 8)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{'\(\backslash\)x00'};}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{if}\ (padded\_input\_size\ <=\ pos)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}pos\ is\ out\ of\ range"{}});}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ extract\_byte<size\_t>(input\_size\ *\ 8,\ padded\_input\_size\ -\/\ pos\ -\/\ 1));}
+\DoxyCodeLine{00187\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{sha256.cpp@{sha256.cpp}!main@{main}}
+\index{main@{main}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \mbox{\hyperlink{caesar__cipher_8cpp_ae1a3968e7947464bee7714f6d43b7002}{test}}();\ \ \textcolor{comment}{//\ Run\ self-\/test\ implementations}}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00329\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_adbcd504103c342a4da718f8fce6ff06c}\index{sha256.cpp@{sha256.cpp}!right\_rotate@{right\_rotate}}
+\index{right\_rotate@{right\_rotate}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{right\_rotate()}{right\_rotate()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_adbcd504103c342a4da718f8fce6ff06c} 
+uint32\+\_\+t hashing\+::sha256\+::right\+\_\+rotate (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n}{, }\item[{size\+\_\+t}]{rotate}{}\end{DoxyParamCaption})}
+
+
+
+Rotates the bits of a 32-\/bit unsigned integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer to rotate \\
+\hline
+{\em rotate} & Number of bits to rotate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t The rotated integer 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ (n\ >>\ rotate)\ |\ (n\ <<\ (32\ -\/\ rotate));}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_a55475649a2bb7aae15de0716a217f43a}\index{sha256.cpp@{sha256.cpp}!sha256@{sha256}}
+\index{sha256@{sha256}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{sha256()}{sha256()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_a55475649a2bb7aae15de0716a217f43a} 
+std\+::string hashing\+::sha256\+::sha256 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Computes the final hash value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string The final hash value 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00233\ \ \ \ \ Hash\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}};}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{comment}{//\ Process\ message\ in\ successive\ 512-\/bit\ (64-\/byte)\ chunks}}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ byte\_num\ =\ 0;\ byte\_num\ <\ \mbox{\hyperlink{sha256_8cpp_a28c1c6724dc6bcf91a39818699bbec27}{compute\_padded\_size}}(input.length());}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ byte\_num\ +=\ 64)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}.update(\mbox{\hyperlink{sha256_8cpp_a525531b3939ed44fbf01674e21931b3a}{create\_message\_schedule\_array}}(input,\ byte\_num));}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}.to\_string();}
+\DoxyCodeLine{00240\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{sha256.cpp@{sha256.cpp}!test@{test}}
+\index{test@{test}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \mbox{\hyperlink{sha256_8cpp_af9b52eba85d23e309035354141259f27}{test\_compute\_padded\_size}}();}
+\DoxyCodeLine{00314\ \ \ \ \ test\_extract\_byte();}
+\DoxyCodeLine{00315\ \ \ \ \ test\_get\_char();}
+\DoxyCodeLine{00316\ \ \ \ \ test\_right\_rotate();}
+\DoxyCodeLine{00317\ \ \ \ \ test\_sha256();}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ tests\ have\ successfully\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00320\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_af9b52eba85d23e309035354141259f27}\index{sha256.cpp@{sha256.cpp}!test\_compute\_padded\_size@{test\_compute\_padded\_size}}
+\index{test\_compute\_padded\_size@{test\_compute\_padded\_size}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_compute\_padded\_size()}{test\_compute\_padded\_size()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_af9b52eba85d23e309035354141259f27} 
+static void test\+\_\+compute\+\_\+padded\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ assert(hashing::sha256::compute\_padded\_size(55)\ ==\ 64);}
+\DoxyCodeLine{00250\ \ \ \ \ assert(hashing::sha256::compute\_padded\_size(56)\ ==\ 128);}
+\DoxyCodeLine{00251\ \ \ \ \ assert(hashing::sha256::compute\_padded\_size(130)\ ==\ 192);}
+\DoxyCodeLine{00252\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_a5afb183bc9072e33fed6c375ae6b7341}\index{sha256.cpp@{sha256.cpp}!test\_extract\_byte@{test\_extract\_byte}}
+\index{test\_extract\_byte@{test\_extract\_byte}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_extract\_byte()}{test\_extract\_byte()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_a5afb183bc9072e33fed6c375ae6b7341} 
+static void test\+\_\+extract\+\_\+byte (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ assert(hashing::sha256::extract\_byte<uint32\_t>(512,\ 0)\ ==\ 0);}
+\DoxyCodeLine{00256\ \ \ \ \ assert(hashing::sha256::extract\_byte<uint32\_t>(512,\ 1)\ ==\ 2);}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{bool}\ exception\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ hashing::sha256::extract\_byte<uint32\_t>(512,\ 5);}
+\DoxyCodeLine{00260\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::out\_of\_range\ \&)\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ exception\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \ \ \ \ assert(exception);}
+\DoxyCodeLine{00264\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_ad2776cb73ddf27e044f890b4a79ab947}\index{sha256.cpp@{sha256.cpp}!test\_get\_char@{test\_get\_char}}
+\index{test\_get\_char@{test\_get\_char}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_get\_char()}{test\_get\_char()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_ad2776cb73ddf27e044f890b4a79ab947} 
+static void test\+\_\+get\+\_\+char (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ assert(hashing::sha256::get\_char(\textcolor{stringliteral}{"{}test"{}},\ 3)\ ==\ \textcolor{charliteral}{'t'});}
+\DoxyCodeLine{00268\ \ \ \ \ assert(hashing::sha256::get\_char(\textcolor{stringliteral}{"{}test"{}},\ 4)\ ==\ \textcolor{stringliteral}{'\(\backslash\)x80'});}
+\DoxyCodeLine{00269\ \ \ \ \ assert(hashing::sha256::get\_char(\textcolor{stringliteral}{"{}test"{}},\ 5)\ ==\ \textcolor{stringliteral}{'\(\backslash\)x00'});}
+\DoxyCodeLine{00270\ \ \ \ \ assert(hashing::sha256::get\_char(\textcolor{stringliteral}{"{}test"{}},\ 63)\ ==\ 32);}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordtype}{bool}\ exception\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8cpp_a9e98c180d32b04aab6f767cb0c13e1da}{hashing::sha256::get\_char}}(\textcolor{stringliteral}{"{}test"{}},\ 64);}
+\DoxyCodeLine{00274\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::out\_of\_range\ \&)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ exception\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ assert(exception);}
+\DoxyCodeLine{00278\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_a33eb7fad4a4b36804c881e0ee98effc1}\index{sha256.cpp@{sha256.cpp}!test\_right\_rotate@{test\_right\_rotate}}
+\index{test\_right\_rotate@{test\_right\_rotate}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_right\_rotate()}{test\_right\_rotate()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_a33eb7fad4a4b36804c881e0ee98effc1} 
+static void test\+\_\+right\+\_\+rotate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00281\ \ \ \ \ assert(hashing::sha256::right\_rotate(128,\ 3)\ ==\ 16);}
+\DoxyCodeLine{00282\ \ \ \ \ assert(hashing::sha256::right\_rotate(1,\ 30)\ ==\ 4);}
+\DoxyCodeLine{00283\ \ \ \ \ assert(hashing::sha256::right\_rotate(6,\ 30)\ ==\ 24);}
+\DoxyCodeLine{00284\ \}}
+
+\end{DoxyCode}
+\Hypertarget{sha256_8cpp_a51e22dc64aeeda7363a674627f37e966}\index{sha256.cpp@{sha256.cpp}!test\_sha256@{test\_sha256}}
+\index{test\_sha256@{test\_sha256}!sha256.cpp@{sha256.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_sha256()}{test\_sha256()}}
+{\footnotesize\ttfamily \label{sha256_8cpp_a51e22dc64aeeda7363a674627f37e966} 
+static void test\+\_\+sha256 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_test_case}{TestCase}}\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ input;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\_hash;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(std::string\ input,\ std::string\ expected\_hash)}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ :\ input(std::move(input)),}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ expected\_hash(std::move(expected\_hash))\ \{\}}
+\DoxyCodeLine{00293\ \ \ \ \ \};}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<TestCase>\ test\_cases\{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"{}}),}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}test"{}},}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"{}}),}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hello\ World"{}},}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e"{}}),}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_test_case}{TestCase}}(\textcolor{stringliteral}{"{}Hello\ World!"{}},}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9"{}}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}069"{}})\};}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&tc\ :\ test\_cases)\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ assert(hashing::sha256::sha256(tc.input)\ ==\ tc.expected\_hash);}
+\DoxyCodeLine{00309\ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \}}
+
+\end{DoxyCode}

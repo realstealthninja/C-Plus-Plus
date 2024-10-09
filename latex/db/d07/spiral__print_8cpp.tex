@@ -1,0 +1,141 @@
+\doxysection{others/spiral\+\_\+print.cpp File Reference}
+\hypertarget{spiral__print_8cpp}{}\label{spiral__print_8cpp}\index{others/spiral\_print.cpp@{others/spiral\_print.cpp}}
+
+
+Print the elements of a matrix traversing it spirally.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{spiral__print_8cpp_acfff36db81326fb990a643ab198ee8a5}{gen\+Array}} (int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}a, int r, int c)
+\item 
+void \mbox{\hyperlink{spiral__print_8cpp_a850d3f55e1a8d227176cdcc67352c197}{spiral\+Print}} (int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}a, int r, int c)
+\item 
+int \mbox{\hyperlink{spiral__print_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Print the elements of a matrix traversing it spirally. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{spiral__print_8cpp_acfff36db81326fb990a643ab198ee8a5}\index{spiral\_print.cpp@{spiral\_print.cpp}!genArray@{genArray}}
+\index{genArray@{genArray}!spiral\_print.cpp@{spiral\_print.cpp}}
+\doxysubsubsection{\texorpdfstring{genArray()}{genArray()}}
+{\footnotesize\ttfamily \label{spiral__print_8cpp_acfff36db81326fb990a643ab198ee8a5} 
+void gen\+Array (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{a}{, }\item[{int}]{r}{, }\item[{int}]{c}{}\end{DoxyParamCaption})}
+
+Arrange sequence of numbers from \textquotesingle{}1\textquotesingle{} in a matrix form 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em a} & matrix to fill \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & number of columns \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ value\ =\ 1;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ a[i][j]\ =\ value;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ a[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ value++;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \}}
+
+\end{DoxyCode}
+\Hypertarget{spiral__print_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{spiral\_print.cpp@{spiral\_print.cpp}!main@{main}}
+\index{main@{main}!spiral\_print.cpp@{spiral\_print.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{spiral__print_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ r,\ c;}
+\DoxyCodeLine{00071\ \ \ \ \ std::cin\ >>\ r\ >>\ c;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ **a\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}\ *[r];}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r;\ i++)\ a[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[c];}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{spiral__print_8cpp_acfff36db81326fb990a643ab198ee8a5}{genArray}}(a,\ r,\ c);}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{spiral__print_8cpp_a850d3f55e1a8d227176cdcc67352c197}{spiralPrint}}(a,\ r,\ c);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \textcolor{keyword}{delete}[]\ a[i];}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{delete}[]\ a;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{spiral__print_8cpp_a850d3f55e1a8d227176cdcc67352c197}\index{spiral\_print.cpp@{spiral\_print.cpp}!spiralPrint@{spiralPrint}}
+\index{spiralPrint@{spiralPrint}!spiral\_print.cpp@{spiral\_print.cpp}}
+\doxysubsubsection{\texorpdfstring{spiralPrint()}{spiralPrint()}}
+{\footnotesize\ttfamily \label{spiral__print_8cpp_a850d3f55e1a8d227176cdcc67352c197} 
+void spiral\+Print (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{a}{, }\item[{int}]{r}{, }\item[{int}]{c}{}\end{DoxyParamCaption})}
+
+Traverse the matrix spirally and print the sequence of elements 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & matrix to read from \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & number of columns \\
+\hline
+\end{DoxyParams}
+Print start row
+
+Print the end col
+
+Print the end row
+
+Print the start Col
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ startRow\ =\ 0,\ endRow\ =\ r\ -\/\ 1;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ startCol\ =\ 0,\ endCol\ =\ c\ -\/\ 1;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{while}\ (startRow\ <=\ endRow\ \&\&\ startCol\ <=\ endCol)\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Print\ start\ row}}
+\DoxyCodeLine{00036\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ startCol;\ i\ <=\ endCol;\ i++,\ cnt++)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ a[startRow][i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ startRow++;}
+\DoxyCodeLine{00040\ \textcolor{comment}{}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Print\ the\ end\ col}}
+\DoxyCodeLine{00042\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ startRow;\ i\ <=\ endRow;\ i++,\ cnt++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ a[i][endCol]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ endCol-\/-\/;}
+\DoxyCodeLine{00046\ \textcolor{comment}{}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Print\ the\ end\ row}}
+\DoxyCodeLine{00048\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\ ==\ r\ *\ c)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ endCol;\ i\ >=\ startCol;\ i-\/-\/,\ cnt++)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ a[endRow][i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ endRow-\/-\/;}
+\DoxyCodeLine{00056\ \textcolor{comment}{}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Print\ the\ start\ Col}}
+\DoxyCodeLine{00058\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\ ==\ r\ *\ c)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ endRow;\ i\ >=\ startRow;\ i-\/-\/,\ cnt++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ a[i][startCol]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ startCol++;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}

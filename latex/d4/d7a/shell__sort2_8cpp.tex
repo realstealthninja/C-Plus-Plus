@@ -1,0 +1,274 @@
+\doxysection{sorting/shell\+\_\+sort2.cpp File Reference}
+\hypertarget{shell__sort2_8cpp}{}\label{shell__sort2_8cpp}\index{sorting/shell\_sort2.cpp@{sorting/shell\_sort2.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Shell_sort}{\texttt{ Shell sort}} algorithm  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesorting}{sorting}}
+\begin{DoxyCompactList}\small\item\em for working with vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{shell__sort2_8cpp_a951127aea9d7e1e53ea9ae0868633246}{show\+\_\+data}} (T \texorpdfstring{$\ast$}{*}arr, size\+\_\+t LEN)
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{shell__sort2_8cpp_a63aaff7cabfa3da2da8b9477b5fad9d6}{show\+\_\+data}} (T(\&arr)\mbox{[}N\mbox{]})
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacesorting_a5669396c6a6b1e14b97589b6e37980aa}{sorting\+::shell\+\_\+sort}} (T \texorpdfstring{$\ast$}{*}arr, size\+\_\+t LEN)
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespacesorting_a4d76603c54d3dc56146e92d10a043924}{sorting\+::shell\+\_\+sort}} (T(\&arr)\mbox{[}N\mbox{]})
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacesorting_af2c5b92cbfe73f63f6074c61b0a45331}{sorting\+::shell\+\_\+sort}} (std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}arr)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}{compare}} (const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b)
+\item 
+void \mbox{\hyperlink{shell__sort2_8cpp_a895b313cb2671e8f712040460325573e}{test\+\_\+int}} (const int NUM\+\_\+\+DATA)
+\item 
+void \mbox{\hyperlink{shell__sort2_8cpp_a22ea0d1f7943ebb4371d31e44b465b6d}{test\+\_\+f}} (const int NUM\+\_\+\+DATA)
+\item 
+int \mbox{\hyperlink{shell__sort2_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Shell_sort}{\texttt{ Shell sort}} algorithm 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/kvedala}{\texttt{ Krishna Vedala}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c}\index{shell\_sort2.cpp@{shell\_sort2.cpp}!compare@{compare}}
+\index{compare@{compare}!shell\_sort2.cpp@{shell\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}}
+{\footnotesize\ttfamily \label{shell__sort2_8cpp_a7eb77daed2cf1513f6d68c47a1c2db1c} 
+template$<$typename T $>$ \\
+int compare (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+function to compare sorting using cstdlib\textquotesingle{}s qsort 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ T\ arg1\ =\ *\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }T\ *\textcolor{keyword}{>}(a);}
+\DoxyCodeLine{00089\ \ \ \ \ T\ arg2\ =\ *\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }T\ *\textcolor{keyword}{>}(b);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (arg1\ <\ arg2)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (arg1\ >\ arg2)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ \ return\ (arg1\ >\ arg2)\ -\/\ (arg1\ <\ arg2);\ //\ possible\ shortcut}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ \ return\ arg1\ -\/\ arg2;\ //\ erroneous\ shortcut\ (fails\ if\ INT\_MIN\ is\ present)}}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+\Hypertarget{shell__sort2_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{shell\_sort2.cpp@{shell\_sort2.cpp}!main@{main}}
+\index{main@{main}!shell\_sort2.cpp@{shell\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{shell__sort2_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ initialize\ random\ number\ generator\ -\/\ once\ per\ program}}
+\DoxyCodeLine{00185\ \ \ \ \ std::srand(std::time(NULL));}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{quick__sort__3_8cpp_a07e5c62de28aeddea986890ce7ac1bda}{test\_int}}(100);\ \ \textcolor{comment}{//\ test\ with\ sorting\ random\ array\ of\ 100\ values}}
+\DoxyCodeLine{00188\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ -\/\ 100\ int\ values\ -\/\ passed.\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00189\ \ \ \ \ \mbox{\hyperlink{quick__sort__3_8cpp_a07e5c62de28aeddea986890ce7ac1bda}{test\_int}}(1000);\ \ \textcolor{comment}{//\ test\ with\ sorting\ random\ array\ of\ 1000\ values}}
+\DoxyCodeLine{00190\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ -\/\ 1000\ int\ values\ -\/\ passed.\(\backslash\)n"{}};}
+\DoxyCodeLine{00191\ \ \ \ \ \mbox{\hyperlink{quick__sort__3_8cpp_a07e5c62de28aeddea986890ce7ac1bda}{test\_int}}(10000);\ \ \textcolor{comment}{//\ test\ with\ sorting\ random\ array\ of\ 10000\ values}}
+\DoxyCodeLine{00192\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3\ -\/\ 10000\ int\ values\ -\/\ passed.\(\backslash\)n"{}};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{shell__sort2_8cpp_a22ea0d1f7943ebb4371d31e44b465b6d}{test\_f}}(100);\ \ \textcolor{comment}{//\ test\ with\ sorting\ random\ array\ of\ 100\ values}}
+\DoxyCodeLine{00195\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ -\/\ 100\ float\ values\ -\/\ passed.\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{shell__sort2_8cpp_a22ea0d1f7943ebb4371d31e44b465b6d}{test\_f}}(1000);\ \ \textcolor{comment}{//\ test\ with\ sorting\ random\ array\ of\ 1000\ values}}
+\DoxyCodeLine{00197\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ -\/\ 1000\ float\ values\ -\/\ passed.\(\backslash\)n"{}};}
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{shell__sort2_8cpp_a22ea0d1f7943ebb4371d31e44b465b6d}{test\_f}}(10000);\ \ \textcolor{comment}{//\ test\ with\ sorting\ random\ array\ of\ 10000\ values}}
+\DoxyCodeLine{00199\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3\ -\/\ 10000\ float\ values\ -\/\ passed.\(\backslash\)n"{}};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ NUM\_DATA;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ NUM\_DATA\ =\ atoi(argv[1]);}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ NUM\_DATA\ =\ 200;}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{comment}{//\ int\ array\ =\ new\ int[NUM\_DATA];}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[NUM\_DATA];}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ int\ array2\ =\ new\ int[NUM\_DATA];}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{int}\ range\ =\ 1800;}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ std::srand(time(NULL));}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ NUM\_DATA;\ i++)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ allocate\ random\ numbers\ in\ the\ given\ range}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[i]\ =\ (std::rand()\ \%\ range)\ -\/\ (range\ >>\ 1);}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Unsorted\ original\ data:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{shell__sort2_8cpp_a951127aea9d7e1e53ea9ae0868633246}{show\_data}}(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}},\ NUM\_DATA);}
+\DoxyCodeLine{00221\ \ \ \ \ std::clock\_t\ start\ =\ std::clock();}
+\DoxyCodeLine{00222\ \ \ \ \ shell\_sort(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}},\ NUM\_DATA);\ \ \textcolor{comment}{//\ perform\ sorting}}
+\DoxyCodeLine{00223\ \ \ \ \ std::clock\_t\ end\ =\ std::clock();}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ std::cout\ <<\ std::endl}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Data\ Sorted\ using\ custom\ implementation:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{shell__sort2_8cpp_a951127aea9d7e1e53ea9ae0868633246}{show\_data}}(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}},\ NUM\_DATA);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{double}\ elapsed\_time\ =\ (end\ -\/\ start)\ *\ 1.f\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00230\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ spent\ sorting:\ "{}}\ <<\ elapsed\_time\ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00234\ \}}
+
+\end{DoxyCode}
+\Hypertarget{shell__sort2_8cpp_a951127aea9d7e1e53ea9ae0868633246}\index{shell\_sort2.cpp@{shell\_sort2.cpp}!show\_data@{show\_data}}
+\index{show\_data@{show\_data}!shell\_sort2.cpp@{shell\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{show\_data()}{show\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{shell__sort2_8cpp_a951127aea9d7e1e53ea9ae0868633246} 
+template$<$class T $>$ \\
+void show\+\_\+data (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{size\+\_\+t}]{LEN}{}\end{DoxyParamCaption})}
+
+pretty print array 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arr} & array to print \\
+\hline
+\mbox{\texttt{ in}}  & {\em LEN} & length of array to print \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ i;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ LEN;\ i++)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::cout\ <<\ arr[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}
+\Hypertarget{shell__sort2_8cpp_a63aaff7cabfa3da2da8b9477b5fad9d6}\index{shell\_sort2.cpp@{shell\_sort2.cpp}!show\_data@{show\_data}}
+\index{show\_data@{show\_data}!shell\_sort2.cpp@{shell\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{show\_data()}{show\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{shell__sort2_8cpp_a63aaff7cabfa3da2da8b9477b5fad9d6} 
+template$<$typename T , size\+\_\+t N$>$ \\
+void show\+\_\+data (\begin{DoxyParamCaption}\item[{T(\&)}]{arr}{\mbox{[}\+N\mbox{]}}\end{DoxyParamCaption})}
+
+pretty print array 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arr} & array to print \\
+\hline
+\mbox{\texttt{ in}}  & {\em N} & length of array to print \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{shell__sort2_8cpp_a951127aea9d7e1e53ea9ae0868633246}{show\_data}}(arr,\ N);}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{shell__sort2_8cpp_a22ea0d1f7943ebb4371d31e44b465b6d}\index{shell\_sort2.cpp@{shell\_sort2.cpp}!test\_f@{test\_f}}
+\index{test\_f@{test\_f}!shell\_sort2.cpp@{shell\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_f()}{test\_f()}}
+{\footnotesize\ttfamily \label{shell__sort2_8cpp_a22ea0d1f7943ebb4371d31e44b465b6d} 
+void test\+\_\+f (\begin{DoxyParamCaption}\item[{const int}]{NUM\+\_\+\+DATA}{}\end{DoxyParamCaption})}
+
+Test implementation of shell\+\_\+sort on float arrays by comparing results against std\+::qsort. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ int\ array\ =\ new\ int[NUM\_DATA];}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[NUM\_DATA];}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{float}\ *data2\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[NUM\_DATA];}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ int\ array2\ =\ new\ int[NUM\_DATA];}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ range\ =\ 1000;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ NUM\_DATA;\ i++)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[i]\ =\ data2[i]\ =\ ((std::rand()\ \%\ range)\ -\/\ (range\ >>\ 1))\ /\ 100.;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{/*\ sort\ using\ our\ implementation\ */}}
+\DoxyCodeLine{00157\ \ \ \ \ std::clock\_t\ start\ =\ std::clock();}
+\DoxyCodeLine{00158\ \ \ \ \ shell\_sort(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}},\ NUM\_DATA);}
+\DoxyCodeLine{00159\ \ \ \ \ std::clock\_t\ end\ =\ std::clock();}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{double}\ elapsed\_time\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\ -\/\ start)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00161\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ spent\ sorting\ using\ shell\_sort2:\ "{}}\ <<\ elapsed\_time}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{/*\ sort\ using\ std::qsort\ */}}
+\DoxyCodeLine{00165\ \ \ \ \ start\ =\ std::clock();}
+\DoxyCodeLine{00166\ \ \ \ \ std::qsort(data2,\ NUM\_DATA,\ \textcolor{keyword}{sizeof}(data2[0]),\ \mbox{\hyperlink{structcompare}{compare<float>}});}
+\DoxyCodeLine{00167\ \ \ \ \ end\ =\ std::clock();}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ elapsed\_time\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\ -\/\ start)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00170\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ spent\ sorting\ using\ std::qsort:\ "{}}\ <<\ elapsed\_time}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ NUM\_DATA;\ i++)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[i]\ ==\ data2[i]);\ \ \textcolor{comment}{//\ ensure\ that\ our\ sorting\ results\ match}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ standard\ results}}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{delete}[]\ data2;}
+\DoxyCodeLine{00180\ \}}
+
+\end{DoxyCode}
+\Hypertarget{shell__sort2_8cpp_a895b313cb2671e8f712040460325573e}\index{shell\_sort2.cpp@{shell\_sort2.cpp}!test\_int@{test\_int}}
+\index{test\_int@{test\_int}!shell\_sort2.cpp@{shell\_sort2.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_int()}{test\_int()}}
+{\footnotesize\ttfamily \label{shell__sort2_8cpp_a895b313cb2671e8f712040460325573e} 
+void test\+\_\+int (\begin{DoxyParamCaption}\item[{const int}]{NUM\+\_\+\+DATA}{}\end{DoxyParamCaption})}
+
+Test implementation of shell\+\_\+sort on integer arrays by comparing results against std\+::qsort. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ int\ array\ =\ new\ int[NUM\_DATA];}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[NUM\_DATA];}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ *data2\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[NUM\_DATA];}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ int\ array2\ =\ new\ int[NUM\_DATA];}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ range\ =\ 1800;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ NUM\_DATA;\ i++)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[i]\ =\ data2[i]\ =\ (std::rand()\ \%\ range)\ -\/\ (range\ >>\ 1);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{/*\ sort\ using\ our\ implementation\ */}}
+\DoxyCodeLine{00116\ \ \ \ \ std::clock\_t\ start\ =\ std::clock();}
+\DoxyCodeLine{00117\ \ \ \ \ shell\_sort(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}},\ NUM\_DATA);}
+\DoxyCodeLine{00118\ \ \ \ \ std::clock\_t\ end\ =\ std::clock();}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{double}\ elapsed\_time\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\ -\/\ start)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00120\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ spent\ sorting\ using\ shell\_sort2:\ "{}}\ <<\ elapsed\_time}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{/*\ sort\ using\ std::qsort\ */}}
+\DoxyCodeLine{00124\ \ \ \ \ start\ =\ std::clock();}
+\DoxyCodeLine{00125\ \ \ \ \ std::qsort(data2,\ NUM\_DATA,\ \textcolor{keyword}{sizeof}(data2[0]),\ \mbox{\hyperlink{structcompare}{compare<int>}});}
+\DoxyCodeLine{00126\ \ \ \ \ end\ =\ std::clock();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ elapsed\_time\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(end\ -\/\ start)\ /\ CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{00129\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ spent\ sorting\ using\ std::qsort:\ "{}}\ <<\ elapsed\_time}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ NUM\_DATA;\ i++)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}}[i]\ ==\ data2[i]);\ \ \textcolor{comment}{//\ ensure\ that\ our\ sorting\ results\ match}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ standard\ results}}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{hash__search_8cpp_a6e1a77282bc65ad359d753d25df23243}{data}};}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{delete}[]\ data2;}
+\DoxyCodeLine{00139\ \}}
+
+\end{DoxyCode}

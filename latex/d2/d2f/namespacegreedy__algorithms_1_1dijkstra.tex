@@ -1,0 +1,157 @@
+\doxysection{greedy\+\_\+algorithms\+::dijkstra Namespace Reference}
+\hypertarget{namespacegreedy__algorithms_1_1dijkstra}{}\label{namespacegreedy__algorithms_1_1dijkstra}\index{greedy\_algorithms::dijkstra@{greedy\_algorithms::dijkstra}}
+
+
+Functions for the \href{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}{\texttt{ Dijkstra}} algorithm implementation.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgreedy__algorithms_1_1dijkstra_1_1_graph}{Graph}}
+\begin{DoxyCompactList}\small\item\em Wrapper class for storing a graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacegreedy__algorithms_1_1dijkstra_af6cb29ca6dc5771439f6ea7262058a71}{minimum\+\_\+distance}} (std\+::vector$<$ int $>$ mdist, std\+::vector$<$ bool $>$ vset, int V)
+\begin{DoxyCompactList}\small\item\em Utility function that finds the vertex with the minimum distance in {\ttfamily mdist}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacegreedy__algorithms_1_1dijkstra_a7341d7c76a6145e991cdd231f689fca8}{print}} (std\+::vector$<$ int $>$ dist, int V)
+\begin{DoxyCompactList}\small\item\em Utility function to print the distances to vertices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacegreedy__algorithms_1_1dijkstra_af915876d0ca33cc71a6a6191a8cd3ccd}{dijkstra}} (\mbox{\hyperlink{classgreedy__algorithms_1_1dijkstra_1_1_graph}{Graph}} graph, int src)
+\begin{DoxyCompactList}\small\item\em The main function that finds the shortest path from a given source to all other vertices using Dijkstra\textquotesingle{}s Algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for the \href{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}{\texttt{ Dijkstra}} algorithm implementation. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacegreedy__algorithms_1_1dijkstra_af915876d0ca33cc71a6a6191a8cd3ccd}\index{greedy\_algorithms::dijkstra@{greedy\_algorithms::dijkstra}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!greedy\_algorithms::dijkstra@{greedy\_algorithms::dijkstra}}
+\doxysubsubsection{\texorpdfstring{dijkstra()}{dijkstra()}}
+{\footnotesize\ttfamily \label{namespacegreedy__algorithms_1_1dijkstra_af915876d0ca33cc71a6a6191a8cd3ccd} 
+void greedy\+\_\+algorithms\+::dijkstra\+::dijkstra (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgreedy__algorithms_1_1dijkstra_1_1_graph}{Graph}}}]{graph}{, }\item[{int}]{src}{}\end{DoxyParamCaption})}
+
+
+
+The main function that finds the shortest path from a given source to all other vertices using Dijkstra\textquotesingle{}s Algorithm. 
+
+\begin{DoxyNote}{Note}
+This doesn\textquotesingle{}t work on negative weights. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & the graph to be processed \\
+\hline
+{\em src} & the source of the given vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ V\ =\ \mbox{\hyperlink{namespacegraph}{graph}}.vertexNum;}
+\DoxyCodeLine{00126\ \ \ \ \ std::vector<int>\ mdist\{\};\ \ \textcolor{comment}{//\ Stores\ updated\ distances\ to\ the\ vertex}}
+\DoxyCodeLine{00127\ \ \ \ \ std::vector<bool>\ vset\{\};\ \ \textcolor{comment}{//\ \`{}vset[i]`\ is\ true\ if\ the\ vertex\ \`{}i`\ is\ included\ in\ the\ shortest\ path\ tree}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Initialize\ \`{}mdist\ and\ \`{}vset`.\ Set\ the\ distance\ of\ the\ source\ as\ zero}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ V;\ i++)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ mdist[i]\ =\ INT\_MAX;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ vset[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ mdist[src]\ =\ 0;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ iterate\ to\ find\ the\ shortest\ path}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ count\ =\ 0;\ count\ <\ V\ -\/\ 1;\ count++)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ \mbox{\hyperlink{namespacegreedy__algorithms_1_1dijkstra_af6cb29ca6dc5771439f6ea7262058a71}{minimum\_distance}}(mdist,\ vset,\ V);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ vset[u]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ =\ 0;\ v\ <\ V;\ v++)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!vset[v]\ \&\&\ \mbox{\hyperlink{namespacegraph}{graph}}.edges[u][v]\ \&\&}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mdist[u]\ +\ \mbox{\hyperlink{namespacegraph}{graph}}.edges[u][v]\ <\ mdist[v])\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mdist[v]\ =\ mdist[u]\ +\ \mbox{\hyperlink{namespacegraph}{graph}}.edges[u][v];}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ print(mdist,\ V);}
+\DoxyCodeLine{00152\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacegreedy__algorithms_1_1dijkstra_af6cb29ca6dc5771439f6ea7262058a71}\index{greedy\_algorithms::dijkstra@{greedy\_algorithms::dijkstra}!minimum\_distance@{minimum\_distance}}
+\index{minimum\_distance@{minimum\_distance}!greedy\_algorithms::dijkstra@{greedy\_algorithms::dijkstra}}
+\doxysubsubsection{\texorpdfstring{minimum\_distance()}{minimum\_distance()}}
+{\footnotesize\ttfamily \label{namespacegreedy__algorithms_1_1dijkstra_af6cb29ca6dc5771439f6ea7262058a71} 
+int greedy\+\_\+algorithms\+::dijkstra\+::minimum\+\_\+distance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{mdist}{, }\item[{std\+::vector$<$ bool $>$}]{vset}{, }\item[{int}]{V}{}\end{DoxyParamCaption})}
+
+
+
+Utility function that finds the vertex with the minimum distance in {\ttfamily mdist}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mdist} & array of distances to each vertex \\
+\hline
+{\em vset} & array indicating inclusion in the shortest path tree \\
+\hline
+{\em V} & the number of vertices in the graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of the vertex with the minimum distance 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ minVal\ =\ INT\_MAX,\ minInd\ =\ 0;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ V;\ i++)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!vset[i]\ \&\&\ (mdist[i]\ <\ minVal))\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ minVal\ =\ mdist[i];}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ minInd\ =\ i;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ minInd;}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacegreedy__algorithms_1_1dijkstra_a7341d7c76a6145e991cdd231f689fca8}\index{greedy\_algorithms::dijkstra@{greedy\_algorithms::dijkstra}!print@{print}}
+\index{print@{print}!greedy\_algorithms::dijkstra@{greedy\_algorithms::dijkstra}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{namespacegreedy__algorithms_1_1dijkstra_a7341d7c76a6145e991cdd231f689fca8} 
+void greedy\+\_\+algorithms\+::dijkstra\+::print (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{dist}{, }\item[{int}]{V}{}\end{DoxyParamCaption})}
+
+
+
+Utility function to print the distances to vertices. 
+
+This function prints the distances to each vertex in a tabular format. If the distance is equal to INT\+\_\+\+MAX, it is displayed as "{}\+INF"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & An array representing the distances to each vertex. \\
+\hline
+{\em V} & The number of vertices in the graph. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nVertex\ \ Distance\(\backslash\)n"{}};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ V;\ i++)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dist[i]\ <\ INT\_MAX)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ dist[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)tINF"{}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}

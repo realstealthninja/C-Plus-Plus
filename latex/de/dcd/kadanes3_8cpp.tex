@@ -1,0 +1,142 @@
+\doxysection{others/kadanes3.cpp File Reference}
+\hypertarget{kadanes3_8cpp}{}\label{kadanes3_8cpp}\index{others/kadanes3.cpp@{others/kadanes3.cpp}}
+
+
+Efficient implementation for maximum contiguous subarray sum by \href{https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/}{\texttt{ Kadane\textquotesingle{}s algorithm}}.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t SIZE$>$ }\\int \mbox{\hyperlink{kadanes3_8cpp_a338439a04148ae89f695595acfa5c147}{max\+\_\+subarray\+\_\+sum}} (std\+::array$<$ int64\+\_\+t, SIZE $>$ arr, uint64\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em for IO operations \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{kadanes3_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{kadanes3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Efficient implementation for maximum contiguous subarray sum by \href{https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/}{\texttt{ Kadane\textquotesingle{}s algorithm}}. 
+
+Our task is to take length of array and then the whole array as input from the user and then calculate the maximum contiguos subarray sum for the input array, using the kadane\textquotesingle{}s algorithm.
+
+There can be a case that all the elements in the input array are negative. In that case, the least value among all elements is the maximum sum with subarray length = 1. \begin{DoxyAuthor}{Author}
+\href{https://github.com/thisabhijeet}{\texttt{ Abhijeet Tiwari}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{kadanes3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{kadanes3.cpp@{kadanes3.cpp}!main@{main}}
+\index{main@{main}!kadanes3.cpp@{kadanes3.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{kadanes3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Below\ is\ the\ code\ for\ accepting\ array\ from\ the\ user\ and\ then}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ calling\ the\ function\ for\ the\ required\ output.}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ It\ has\ been\ commented\ for\ now\ so\ that\ the\ test()\ function\ can\ run}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ and\ the\ test\ cases\ can\ be\ verified.}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ code\ for\ accepting\ array\ from\ user\ starts}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ std::size\_t\ n;\ \ //\ variable\ for\ length\ of\ input\ array}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Enter\ length\ of\ the\ array:\ "{};}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ std::cin\ >>\ n;}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ std::array<int64\_t,\ 100>\ arr\ =\ \{0\};}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ //\ we\ need\ to\ give\ a\ constant\ in\ size.\ Hence\ we\ have\ allocated\ 100}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ for\ now.}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ for\ (int\ i\ =\ 0;\ i\ <\ n;\ i++)}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ taking\ input\ of\ each\ element\ of\ the\ array}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ std::cin\ >>\ arr[i];}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ code\ for\ accepting\ array\ from\ user\ ends}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ int\ max\_sum\ =\ max\_subarray\_sum(arr,\ n);}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Maximum\ contiguous\ sum\ for\ this\ array\ is\ :\ "{}\ <<\ max\_sum}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{kadanes3_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kadanes3_8cpp_a338439a04148ae89f695595acfa5c147}\index{kadanes3.cpp@{kadanes3.cpp}!max\_subarray\_sum@{max\_subarray\_sum}}
+\index{max\_subarray\_sum@{max\_subarray\_sum}!kadanes3.cpp@{kadanes3.cpp}}
+\doxysubsubsection{\texorpdfstring{max\_subarray\_sum()}{max\_subarray\_sum()}}
+{\footnotesize\ttfamily \label{kadanes3_8cpp_a338439a04148ae89f695595acfa5c147} 
+template$<$std\+::size\+\_\+t SIZE$>$ \\
+int max\+\_\+subarray\+\_\+sum (\begin{DoxyParamCaption}\item[{std\+::array$<$ int64\+\_\+t, SIZE $>$}]{arr}{, }\item[{uint64\+\_\+t}]{length}{}\end{DoxyParamCaption})}
+
+
+
+for IO operations 
+
+for std\+::array for assert for INT\+\_\+\+MIN value
+
+Utility function to check the current maximum number 
+\begin{DoxyParams}{Parameters}
+{\em arr} & input array \\
+\hline
+{\em length} & length of the input array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum contiguous subarray sum 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ int64\_t\ current\_max\ =\ INT\_MIN,\ current\_sum\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length;\ i++)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ current\_sum\ =\ current\_sum\ +\ arr[i];}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_max\ <\ current\_sum)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ current\_max\ =\ current\_sum;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_sum\ <\ 0)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ current\_sum\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ current\_max;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{kadanes3_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{kadanes3.cpp@{kadanes3.cpp}!test@{test}}
+\index{test@{test}!kadanes3.cpp@{kadanes3.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{kadanes3_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ std::array<int64\_t,\ 4>\ arr\ =\ \{1,\ 2,\ 3,\ 4\};}
+\DoxyCodeLine{00050\ \ \ \ \ std::array<int64\_t,\ 5>\ arr1\ =\ \{-\/1,\ -\/2,\ -\/4,\ -\/6,\ 7\};}
+\DoxyCodeLine{00051\ \ \ \ \ assert(\mbox{\hyperlink{kadanes3_8cpp_a338439a04148ae89f695595acfa5c147}{max\_subarray\_sum}}(arr,\ 4)\ ==\ 10);}
+\DoxyCodeLine{00052\ \ \ \ \ assert(\mbox{\hyperlink{kadanes3_8cpp_a338439a04148ae89f695595acfa5c147}{max\_subarray\_sum}}(arr1,\ 5)\ ==\ 7);}
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}All\ test\ cases\ have\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}

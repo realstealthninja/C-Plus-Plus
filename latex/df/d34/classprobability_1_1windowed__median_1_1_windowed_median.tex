@@ -1,0 +1,276 @@
+\doxysection{probability\+::windowed\+\_\+median\+::Windowed\+Median Class Reference}
+\hypertarget{classprobability_1_1windowed__median_1_1_windowed_median}{}\label{classprobability_1_1windowed__median_1_1_windowed_median}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+
+
+A class to calculate the median of a leading sliding window at the back of a stream of integer values.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aac676369661d15a3eb782c0fee77d45d}{Windowed\+Median}} (size\+\_\+type window\+Size)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classprobability_1_1windowed__median_1_1_windowed_median}{Windowed\+Median} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a6b52b7851750f28d53508e63c52a69f7}{insert}} (int value)
+\begin{DoxyCompactList}\small\item\em Insert a new value to the stream. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a938cafbdf70dc01e86e9bb12d29ec65d}{get\+Median}} () const
+\begin{DoxyCompactList}\small\item\em Gets the median of the values in the sliding window. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a61804988fcb1a6caf640f8291979aaa6}{get\+Median\+Naive}} () const
+\begin{DoxyCompactList}\small\item\em A naive and inefficient method to obtain the median of the sliding window. Used for testing! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a3a7f57679e9cd6c9f042dfd0612b2b24}{insert\+To\+Sorted}} (int value)
+\begin{DoxyCompactList}\small\item\em Inserts a value to a sorted multi-\/value BST. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_af544e271ea19a6fd69a6b3ed6816453e}{erase\+From\+Sorted}} (int value)
+\begin{DoxyCompactList}\small\item\em Erases a value from a sorted multi-\/value BST. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_aafda847b152684578dab891e5268d750}\label{classprobability_1_1windowed__median_1_1_windowed_median_aafda847b152684578dab891e5268d750} 
+const size\+\_\+type {\bfseries \+\_\+window\+Size}
+\begin{DoxyCompactList}\small\item\em sliding window size \end{DoxyCompactList}\item 
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_a825a7aaef844c9f743a27b268e8569b2}\label{classprobability_1_1windowed__median_1_1_windowed_median_a825a7aaef844c9f743a27b268e8569b2} 
+Window {\bfseries \+\_\+window}
+\begin{DoxyCompactList}\small\item\em a sliding window of values along the stream \end{DoxyCompactList}\item 
+std\+::multiset$<$ int $>$ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\+\_\+sorted\+Values}}
+\item 
+std\+::multiset$<$ int $>$\+::const\+\_\+iterator \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\+\_\+it\+Median}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to calculate the median of a leading sliding window at the back of a stream of integer values. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_aac676369661d15a3eb782c0fee77d45d}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!WindowedMedian@{WindowedMedian}}
+\index{WindowedMedian@{WindowedMedian}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{WindowedMedian()}{WindowedMedian()}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_aac676369661d15a3eb782c0fee77d45d} 
+probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::\+Windowed\+Median (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{window\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classprobability_1_1windowed__median_1_1_windowed_median}{Windowed\+Median} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+Size} & Sliding window size \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ :\ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aafda847b152684578dab891e5268d750}{\_windowSize}}(windowSize)\{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_af544e271ea19a6fd69a6b3ed6816453e}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!eraseFromSorted@{eraseFromSorted}}
+\index{eraseFromSorted@{eraseFromSorted}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{eraseFromSorted()}{eraseFromSorted()}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_af544e271ea19a6fd69a6b3ed6816453e} 
+void probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::erase\+From\+Sorted (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Erases a value from a sorted multi-\/value BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value to insert \\
+\hline
+\end{DoxyParams}
+If the erased value is on the left branch or the median itself and the number of elements is even, the new median will be the right child of the current one
+
+O(1) -\/ traversing one step to the right child
+
+However, if the erased value is on the right branch or the median itself, and the number of elements is odd, the new median will be the left child of the current one
+
+Find the (first) position of the value we want to erase, and erase it
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ sz\ =\ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\_sortedValues}}.size();}
+\DoxyCodeLine{00097\ \textcolor{comment}{}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ If\ the\ erased\ value\ is\ on\ the\ left\ branch\ or\ the\ median\ itself\ and}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ the\ number\ of\ elements\ is\ even,\ the\ new\ median\ will\ be\ the\ right}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ child\ of\ the\ current\ one}}
+\DoxyCodeLine{00101\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <=\ *\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}}\ \&\&\ sz\ \%\ 2\ ==\ 0)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}};\ \ \textcolor{comment}{///\ O(1)\ -\/\ traversing\ one\ step\ to\ the\ right\ child}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \textcolor{comment}{}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ However,\ if\ the\ erased\ value\ is\ on\ the\ right\ branch\ or\ the\ median}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ itself,\ and\ the\ number\ of\ elements\ is\ odd,\ the\ new\ median\ will\ be}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ the\ left\ child\ of\ the\ current\ one}}
+\DoxyCodeLine{00108\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (value\ >=\ *\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}}\ \&\&\ sz\ \%\ 2\ !=\ 0)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}};\ \ \textcolor{comment}{//\ O(1)\ -\/\ traversing\ one\ step\ to\ the\ left\ child}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \textcolor{comment}{}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Find\ the\ (first)\ position\ of\ the\ value\ we\ want\ to\ erase,\ and\ erase}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ it}}
+\DoxyCodeLine{00114\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\_sortedValues}}.find(value);\ \ \textcolor{comment}{//\ O(logN)}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\_sortedValues}}.erase(it);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ O(logN)}}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_a938cafbdf70dc01e86e9bb12d29ec65d}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!getMedian@{getMedian}}
+\index{getMedian@{getMedian}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{getMedian()}{getMedian()}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_a938cafbdf70dc01e86e9bb12d29ec65d} 
+float probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::get\+Median (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the median of the values in the sliding window. 
+
+\begin{DoxyReturn}{Returns}
+Median of sliding window. For even window size return the average between the two values in the middle 
+\end{DoxyReturn}
+O(1)
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\_sortedValues}}.size()\ \%\ 2\ !=\ 0)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}};\ \ \textcolor{comment}{//\ O(1)}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ *\ *\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}}\ +\ 0.5f\ *\ *next(\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}});\ \ \textcolor{comment}{///\ O(1)}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_a61804988fcb1a6caf640f8291979aaa6}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!getMedianNaive@{getMedianNaive}}
+\index{getMedianNaive@{getMedianNaive}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{getMedianNaive()}{getMedianNaive()}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_a61804988fcb1a6caf640f8291979aaa6} 
+float probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::get\+Median\+Naive (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A naive and inefficient method to obtain the median of the sliding window. Used for testing! 
+
+\begin{DoxyReturn}{Returns}
+Median of sliding window. For even window size return the average between the two values in the middle 
+\end{DoxyReturn}
+Sort window -\/ O(\+Nlog\+N)
+
+Find value in the middle -\/ O(\+N)
+
+O(\+N)
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ window\ =\ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a825a7aaef844c9f743a27b268e8569b2}{\_window}};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ window.sort();\ \ \textcolor{comment}{///\ Sort\ window\ -\/\ O(NlogN)}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ median\ =}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ *next(window.begin(),}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.size()\ /\ 2);\ \ \textcolor{comment}{///\ Find\ value\ in\ the\ middle\ -\/\ O(N)}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (window.size()\ \%\ 2\ !=\ 0)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ median;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ *\ median\ +}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.5f\ *\ *next(window.begin(),\ window.size()\ /\ 2\ -\/\ 1);\ \ \textcolor{comment}{///\ O(N)}}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_a6b52b7851750f28d53508e63c52a69f7}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!insert@{insert}}
+\index{insert@{insert}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_a6b52b7851750f28d53508e63c52a69f7} 
+void probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::insert (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert a new value to the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & New value to insert \\
+\hline
+\end{DoxyParams}
+Push new value to the back of the sliding window -\/ O(1)
+
+If exceeding size of window, pop from its left side
+
+Erase from the multi-\/value BST the window left side value
+
+Pop the left side value from the window -\/ O(1)
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ Push\ new\ value\ to\ the\ back\ of\ the\ sliding\ window\ -\/\ O(1)}}
+\DoxyCodeLine{00131\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a825a7aaef844c9f743a27b268e8569b2}{\_window}}.push\_back(value);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a3a7f57679e9cd6c9f042dfd0612b2b24}{insertToSorted}}(value);\ \ \textcolor{comment}{//\ Insert\ value\ to\ the\ multi-\/value\ BST\ -\/\ O(logN)}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a825a7aaef844c9f743a27b268e8569b2}{\_window}}.size()\ >\ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aafda847b152684578dab891e5268d750}{\_windowSize}})\ \{\ \ \textcolor{comment}{///\ If\ exceeding\ size\ of\ window,}\textcolor{comment}{}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ pop\ from\ its\ left\ side}}
+\DoxyCodeLine{00135\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_af544e271ea19a6fd69a6b3ed6816453e}{eraseFromSorted}}(}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a825a7aaef844c9f743a27b268e8569b2}{\_window}}.front());\ \ \textcolor{comment}{///\ Erase\ from\ the\ multi-\/value\ BST}\textcolor{comment}{}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ the\ window\ left\ side\ value}}
+\DoxyCodeLine{00138\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a825a7aaef844c9f743a27b268e8569b2}{\_window}}.pop\_front();\ \ \ \textcolor{comment}{///\ Pop\ the\ left\ side\ value\ from\ the\ window\ -\/}\textcolor{comment}{}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ O(1)}}
+\DoxyCodeLine{00140\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_a3a7f57679e9cd6c9f042dfd0612b2b24}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!insertToSorted@{insertToSorted}}
+\index{insertToSorted@{insertToSorted}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{insertToSorted()}{insertToSorted()}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_a3a7f57679e9cd6c9f042dfd0612b2b24} 
+void probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::insert\+To\+Sorted (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Inserts a value to a sorted multi-\/value BST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value to insert \\
+\hline
+\end{DoxyParams}
+Insert value to BST -\/ O(log\+N)
+
+For the first value, set median iterator to BST root
+
+If new value goes to left tree branch, and number of elements is even, the new median in the balanced tree is the left child of the median before the insertion
+
+However, if the new value goes to the right branch, the previous median\textquotesingle{}s right child is the new median in the balanced tree
+
+O(1) -\/ traversing one step to the right child
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\_sortedValues}}.insert(value);\ \ \textcolor{comment}{///\ Insert\ value\ to\ BST\ -\/\ O(logN)}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ sz\ =\ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\_sortedValues}}.size();}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sz\ ==\ 1)\ \{\ \ \textcolor{comment}{///\ For\ the\ first\ value,\ set\ median\ iterator\ to\ BST\ root}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}}\ =\ \mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}{\_sortedValues}}.begin();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \textcolor{comment}{}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ If\ new\ value\ goes\ to\ left\ tree\ branch,\ and\ number\ of\ elements\ is}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ even,\ the\ new\ median\ in\ the\ balanced\ tree\ is\ the\ left\ child\ of\ the}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ median\ before\ the\ insertion}}
+\DoxyCodeLine{00080\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ *\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}}\ \&\&\ sz\ \%\ 2\ ==\ 0)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}};\ \ \textcolor{comment}{//\ O(1)\ -\/\ traversing\ one\ step\ to\ the\ left\ child}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \textcolor{comment}{}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ However,\ if\ the\ new\ value\ goes\ to\ the\ right\ branch,\ the\ previous}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ median's\ right\ child\ is\ the\ new\ median\ in\ the\ balanced\ tree}}
+\DoxyCodeLine{00086\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (value\ >=\ *\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}}\ \&\&\ sz\ \%\ 2\ !=\ 0)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}{\_itMedian}};\ \ \textcolor{comment}{///\ O(1)\ -\/\ traversing\ one\ step\ to\ the\ right\ child}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!\_itMedian@{\_itMedian}}
+\index{\_itMedian@{\_itMedian}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{\_itMedian}{\_itMedian}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_a55ae3543a76045dffcb5ec7904a32a20} 
+std\+::multiset$<$int$>$\+::const\+\_\+iterator probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::\+\_\+it\+Median\hspace{0.3cm}{\ttfamily [private]}}
+
+an iterator that points to the root of the multi-\/value BST \Hypertarget{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de}\index{probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}!\_sortedValues@{\_sortedValues}}
+\index{\_sortedValues@{\_sortedValues}!probability::windowed\_median::WindowedMedian@{probability::windowed\_median::WindowedMedian}}
+\doxysubsubsection{\texorpdfstring{\_sortedValues}{\_sortedValues}}
+{\footnotesize\ttfamily \label{classprobability_1_1windowed__median_1_1_windowed_median_aacd76f078632faee1a8788d031e6c2de} 
+std\+::multiset$<$int$>$ probability\+::windowed\+\_\+median\+::\+Windowed\+Median\+::\+\_\+sorted\+Values\hspace{0.3cm}{\ttfamily [private]}}
+
+a DS to represent a balanced multi-\/value binary search tree (BST) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+probability/\mbox{\hyperlink{windowed__median_8cpp}{windowed\+\_\+median.\+cpp}}\end{DoxyCompactItemize}

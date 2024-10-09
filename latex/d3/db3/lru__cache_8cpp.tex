@@ -1,0 +1,275 @@
+\doxysection{others/lru\+\_\+cache.cpp File Reference}
+\hypertarget{lru__cache_8cpp}{}\label{lru__cache_8cpp}\index{others/lru\_cache.cpp@{others/lru\_cache.cpp}}
+
+
+An implementation of \href{https://en.wikipedia.org/wiki/Cache_replacement_policies\#Least_recently_used_(LRU)}{\texttt{ LRU Cache}}. Lru is a part of cache algorithms (also frequently called cache replacement algorithms or cache replacement policies).  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache}{others\+::lru\+\_\+cache\+::\+LRUCache}}
+\begin{DoxyCompactList}\small\item\em LRU cache class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceothers}{others}}
+\begin{DoxyCompactList}\small\item\em for {\ttfamily vector} \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacelru__cache}{lru\+\_\+cache}}
+\begin{DoxyCompactList}\small\item\em Implementation of the \href{https://en.wikipedia.org/wiki/Cache_replacement_policies\#Least_recently_used_(LRU)}{\texttt{ LRU caching algorithm}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{lru\+\_\+tests\+::log}} (T msg)
+\begin{DoxyCompactList}\small\item\em A function to print given message on console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{lru__cache_8cpp_a6401e8f2d41d8cc9cd0e52ab381608d4}{lru\+\_\+tests\+::test\+\_\+1}} ()
+\begin{DoxyCompactList}\small\item\em A simple test case The assert statement will check expected hist and miss to resultant hits and miss. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{lru__cache_8cpp_a4b02e288a407876a8d6024f98a2a25ec}{lru\+\_\+tests\+::test\+\_\+2}} ()
+\begin{DoxyCompactList}\small\item\em A test case contains hits more than cache size The assert statement will check expected hist and miss to resultant hits and miss. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{lru__cache_8cpp_a01ec21fc91ddafd964ae2035ba7892c0}{lru\+\_\+tests\+::test\+\_\+3}} ()
+\begin{DoxyCompactList}\small\item\em A simple test case The assert statement will check expected hist and miss to resultant hits and miss. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{lru__cache_8cpp_a6a3be6d8871b1f5dc03688da8f3ee9e6}{lru\+\_\+tests\+::run\+\_\+tests}} ()
+\begin{DoxyCompactList}\small\item\em A function to invoke all test cases. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lru__cache_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of \href{https://en.wikipedia.org/wiki/Cache_replacement_policies\#Least_recently_used_(LRU)}{\texttt{ LRU Cache}}. Lru is a part of cache algorithms (also frequently called cache replacement algorithms or cache replacement policies). 
+
+\hypertarget{lru__cache_8cpp_autotoc_md95}{}\doxysubsubsubsection{\texorpdfstring{Logic}{Logic}}\label{lru__cache_8cpp_autotoc_md95}
+
+\begin{DoxyItemize}
+\item Discards the least recently used items first.
+\item This algorithm requires keeping track of what was used when, which is expensive if one wants to make sure the algorithm always discards the least recently used item.
+\item General implementations of this technique require keeping "{}age bits"{} for cache-\/lines and track the "{}\+Least Recently Used"{} cache-\/line based on age-\/bits.
+\item In such an implementation, every time a cache-\/line is used, the age of all other cache-\/lines changes
+\end{DoxyItemize}\hypertarget{lru__cache_8cpp_autotoc_md96}{}\doxysubsubsubsection{\texorpdfstring{Algorithm explanation}{Algorithm explanation}}\label{lru__cache_8cpp_autotoc_md96}
+For a cache of page frame x\+:
+\begin{DoxyItemize}
+\item Check if the page is present in cache.
+\item If not present, then check is the cache is full or not\+:
+\item If the cache is full, REMOVE the last element from the cache.
+\item If the element is present in cache, then shift that element to first position in cache from its original position.
+\begin{DoxyItemize}
+\item This way you can keep the least recently used elements in the last and most recently used in front of the cache.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Every time a requested page is not found in cache, that is a miss or page fault, and if the page is present in cache, then its a hit.\hypertarget{lru__cache_8cpp_autotoc_md97}{}\doxysubsubsection{\texorpdfstring{Data Structure used}{Data Structure used}}\label{lru__cache_8cpp_autotoc_md97}
+
+\begin{DoxyItemize}
+\item In the algorithm below we used two different data structure, one is linked list and other one is a hash map
+\item The linked list is used to contain the pages and the hash map contains the pages and their address.
+\item Every time a new page is requested, we first check in the hash map if the page is present or not.
+\item If not present, and the cache is full, we simply delete the last entry in the cache.
+\item If present, we shift that page from its current location to beginning of the cache and update the address in hash map for that page.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/foo290}{\texttt{ Nitin Sharma}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}\index{lru\_cache.cpp@{lru\_cache.cpp}!log@{log}}
+\index{log@{log}!lru\_cache.cpp@{lru\_cache.cpp}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \label{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058} 
+template$<$typename T $>$ \\
+void lru\+\_\+tests\+::log (\begin{DoxyParamCaption}\item[{T}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+A function to print given message on console. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the given message. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ It's\ just\ to\ avoid\ writing\ cout\ and\ endl}}
+\DoxyCodeLine{00150\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[TESTS]\ :\ -\/-\/-\/>\ "{}}\ <<\ msg\ <<\ std::endl;}
+\DoxyCodeLine{00151\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lru__cache_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{lru\_cache.cpp@{lru\_cache.cpp}!main@{main}}
+\index{main@{main}!lru\_cache.cpp@{lru\_cache.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{lru__cache_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a6a3be6d8871b1f5dc03688da8f3ee9e6}{lru\_tests::run\_tests}}();}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{//\ Usage}}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache}{others::lru\_cache::LRUCache}}\ cache(4);}
+\DoxyCodeLine{00256\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00257\ \ \ \ \ cache.refer(2);}
+\DoxyCodeLine{00258\ \ \ \ \ cache.refer(3);}
+\DoxyCodeLine{00259\ \ \ \ \ cache.refer(4);}
+\DoxyCodeLine{00260\ \ \ \ \ cache.refer(5);}
+\DoxyCodeLine{00261\ \ \ \ \ cache.refer(5);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ cache.display();}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hits:\ "{}}\ <<\ cache.getHits()}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ Miss:\ "{}}\ <<\ cache.getPageFault()\ <<\ std::endl;}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00268\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lru__cache_8cpp_a6a3be6d8871b1f5dc03688da8f3ee9e6}\index{lru\_cache.cpp@{lru\_cache.cpp}!run\_tests@{run\_tests}}
+\index{run\_tests@{run\_tests}!lru\_cache.cpp@{lru\_cache.cpp}}
+\doxysubsubsection{\texorpdfstring{run\_tests()}{run\_tests()}}
+{\footnotesize\ttfamily \label{lru__cache_8cpp_a6a3be6d8871b1f5dc03688da8f3ee9e6} 
+static void lru\+\_\+tests\+::run\+\_\+tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A function to invoke all test cases. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a34b8683a2b429de5cce57e6d733ec817}{test\_1}}();}
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{heavy__light__decomposition_8cpp_a458410412185a5f09199deaff7157a8d}{test\_2}}();}
+\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{heavy__light__decomposition_8cpp_af31ec5409537703d9c8a47350386b32a}{test\_3}}();}
+\DoxyCodeLine{00242\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}TESTS\ COMPLETED!"{}});}
+\DoxyCodeLine{00244\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lru__cache_8cpp_a6401e8f2d41d8cc9cd0e52ab381608d4}\index{lru\_cache.cpp@{lru\_cache.cpp}!test\_1@{test\_1}}
+\index{test\_1@{test\_1}!lru\_cache.cpp@{lru\_cache.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_1()}{test\_1()}}
+{\footnotesize\ttfamily \label{lru__cache_8cpp_a6401e8f2d41d8cc9cd0e52ab381608d4} 
+static void lru\+\_\+tests\+::test\+\_\+1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A simple test case The assert statement will check expected hist and miss to resultant hits and miss. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ uint64\_t\ expected\_hits\ =\ 2;}
+\DoxyCodeLine{00161\ \ \ \ \ uint64\_t\ expected\_pageFault\ =\ 4;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Running\ Test-\/1..."{}});}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache}{others::lru\_cache::LRUCache}}\ cache(4);}
+\DoxyCodeLine{00166\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00167\ \ \ \ \ cache.refer(2);}
+\DoxyCodeLine{00168\ \ \ \ \ cache.refer(5);}
+\DoxyCodeLine{00169\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00170\ \ \ \ \ cache.refer(4);}
+\DoxyCodeLine{00171\ \ \ \ \ cache.refer(5);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Checking\ assert\ statement..."{}});}
+\DoxyCodeLine{00174\ \ \ \ \ assert(cache.getHits()\ ==\ expected\_hits\ \&\&}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ cache.getPageFault()\ ==\ expected\_pageFault);}
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Assert\ successful!"{}});}
+\DoxyCodeLine{00177\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Test-\/1\ complete!"{}});}
+\DoxyCodeLine{00178\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lru__cache_8cpp_a4b02e288a407876a8d6024f98a2a25ec}\index{lru\_cache.cpp@{lru\_cache.cpp}!test\_2@{test\_2}}
+\index{test\_2@{test\_2}!lru\_cache.cpp@{lru\_cache.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_2()}{test\_2()}}
+{\footnotesize\ttfamily \label{lru__cache_8cpp_a4b02e288a407876a8d6024f98a2a25ec} 
+static void lru\+\_\+tests\+::test\+\_\+2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A test case contains hits more than cache size The assert statement will check expected hist and miss to resultant hits and miss. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ uint64\_t\ expected\_hits\ =\ 4;}
+\DoxyCodeLine{00188\ \ \ \ \ uint64\_t\ expected\_pageFault\ =\ 2;}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Running\ Test-\/2..."{}});}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache}{others::lru\_cache::LRUCache}}\ cache(4);}
+\DoxyCodeLine{00193\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00194\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00195\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00196\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00197\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00198\ \ \ \ \ cache.refer(5);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Checking\ assert\ statement..."{}});}
+\DoxyCodeLine{00201\ \ \ \ \ assert(cache.getHits()\ ==\ expected\_hits\ \&\&}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ cache.getPageFault()\ ==\ expected\_pageFault);}
+\DoxyCodeLine{00203\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Assert\ successful!"{}});}
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Test-\/2\ complete!"{}});}
+\DoxyCodeLine{00205\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lru__cache_8cpp_a01ec21fc91ddafd964ae2035ba7892c0}\index{lru\_cache.cpp@{lru\_cache.cpp}!test\_3@{test\_3}}
+\index{test\_3@{test\_3}!lru\_cache.cpp@{lru\_cache.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_3()}{test\_3()}}
+{\footnotesize\ttfamily \label{lru__cache_8cpp_a01ec21fc91ddafd964ae2035ba7892c0} 
+static void lru\+\_\+tests\+::test\+\_\+3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A simple test case The assert statement will check expected hist and miss to resultant hits and miss. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00214\ \ \ \ \ uint64\_t\ expected\_hits\ =\ 1;}
+\DoxyCodeLine{00215\ \ \ \ \ uint64\_t\ expected\_pageFault\ =\ 5;}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Running\ Test-\/3..."{}});}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{classothers_1_1lru__cache_1_1_l_r_u_cache}{others::lru\_cache::LRUCache}}\ cache(4);}
+\DoxyCodeLine{00220\ \ \ \ \ cache.refer(1);}
+\DoxyCodeLine{00221\ \ \ \ \ cache.refer(2);}
+\DoxyCodeLine{00222\ \ \ \ \ cache.refer(3);}
+\DoxyCodeLine{00223\ \ \ \ \ cache.refer(4);}
+\DoxyCodeLine{00224\ \ \ \ \ cache.refer(5);}
+\DoxyCodeLine{00225\ \ \ \ \ cache.refer(5);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Checking\ assert\ statement..."{}});}
+\DoxyCodeLine{00228\ \ \ \ \ assert(cache.getHits()\ ==\ expected\_hits\ \&\&}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ cache.getPageFault()\ ==\ expected\_pageFault);}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Assert\ successful!"{}});}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{lru__cache_8cpp_a24d21a345ed06f7fba6919718cf3e058}{log}}(\textcolor{stringliteral}{"{}Test-\/3\ complete!"{}});}
+\DoxyCodeLine{00232\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,254 @@
+\doxysection{dynamic\+\_\+programming/word\+\_\+break.cpp File Reference}
+\hypertarget{word__break_8cpp}{}\label{word__break_8cpp}\index{dynamic\_programming/word\_break.cpp@{dynamic\_programming/word\_break.cpp}}
+
+
+\href{https://leetcode.com/problems/word-break/}{\texttt{ Word Break Problem}}  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedynamic__programming}{dynamic\+\_\+programming}}
+\begin{DoxyCompactList}\small\item\em Dynamic Programming algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceword__break}{word\+\_\+break}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://leetcode.com/problems/word-break/}{\texttt{ Word Break}} problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{word__break_8cpp_a1cc9dd6e6190d10a010fdcdfe7a21a81}{dynamic\+\_\+programming\+::word\+\_\+break\+::exists}} (const std\+::string \&str, const std\+::unordered\+\_\+set$<$ std\+::string $>$ \&str\+Set)
+\begin{DoxyCompactList}\small\item\em Function that checks if the string passed in param is present in the the unordered\+\_\+set passed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{word__break_8cpp_a272b0f5cdb4e41fd6dee4538b808c06a}{dynamic\+\_\+programming\+::word\+\_\+break\+::check}} (const std\+::string \&s, const std\+::unordered\+\_\+set$<$ std\+::string $>$ \&str\+Set, int pos, std\+::vector$<$ int $>$ \texorpdfstring{$\ast$}{*}dp)
+\begin{DoxyCompactList}\small\item\em Function that checks if the string passed in param can be segmented from position \textquotesingle{}pos\textquotesingle{}, and then correctly go on to segment the rest of the string correctly as well to reach a solution. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{word__break_8cpp_afe4dcd6fd5282e535685361cba645d7c}{dynamic\+\_\+programming\+::word\+\_\+break\+::word\+Break}} (const std\+::string \&s, const std\+::vector$<$ std\+::string $>$ \&word\+Dict)
+\begin{DoxyCompactList}\small\item\em Function that checks if the string passed in param can be segmented into the strings present in the vector. In others words, it checks if any permutation of strings in the vector can be concatenated to form the final string. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{word__break_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{word__break_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://leetcode.com/problems/word-break/}{\texttt{ Word Break Problem}} 
+
+Given a non-\/empty string s and a dictionary word\+Dict containing a list of non-\/empty words, determine if s can be segmented into a space-\/separated sequence of one or more dictionary words.
+
+Note\+: The same word in the dictionary may be reused multiple times in the segmentation. You may assume the dictionary does not contain duplicate words.
+
+Example 1\+: Input\+: s = "{}leetcode"{}, word\+Dict = \mbox{[}"{}leet"{}, "{}code"{}\mbox{]} Output\+: true Explanation\+: Return true because "{}leetcode"{} can be segmented as "{}leet code"{}.
+
+Example 2\+: Input\+: s = "{}applepenapple"{}, word\+Dict = \mbox{[}"{}apple"{}, "{}pen"{}\mbox{]} Output\+: true Explanation\+: Return true because "{}applepenapple"{} can be segmented as "{}apple pen apple"{}. Note that you are allowed to reuse a dictionary word.
+
+Example 3\+: Input\+: s = "{}catsandog"{}, word\+Dict = \mbox{[}"{}cats"{}, "{}dog"{}, "{}sand"{}, "{}and"{}, "{}cat"{}\mbox{]} Output\+: false
+
+\begin{DoxyAuthor}{Author}
+\mbox{[}Akshay Anand\mbox{]} (\href{https://github.com/axayjha}{\texttt{ https\+://github.\+com/axayjha}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{word__break_8cpp_a272b0f5cdb4e41fd6dee4538b808c06a}\index{word\_break.cpp@{word\_break.cpp}!check@{check}}
+\index{check@{check}!word\_break.cpp@{word\_break.cpp}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily \label{word__break_8cpp_a272b0f5cdb4e41fd6dee4538b808c06a} 
+bool dynamic\+\_\+programming\+::word\+\_\+break\+::check (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{, }\item[{const std\+::unordered\+\_\+set$<$ std\+::string $>$ \&}]{str\+Set}{, }\item[{int}]{pos}{, }\item[{std\+::vector$<$ int $>$ \texorpdfstring{$\ast$}{*}}]{dp}{}\end{DoxyParamCaption})}
+
+
+
+Function that checks if the string passed in param can be segmented from position \textquotesingle{}pos\textquotesingle{}, and then correctly go on to segment the rest of the string correctly as well to reach a solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the complete string to be segmented \\
+\hline
+{\em str\+Set} & unordered set of string, that is to be used as the reference dictionary \\
+\hline
+{\em pos} & the index value at which we will segment string and test further if it is correctly segmented at pos \\
+\hline
+{\em dp} & the vector to memoize solution for each position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if a valid solution/segmentation is possible by segmenting at index pos 
+
+{\ttfamily false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ s.length())\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ we\ have\ reached\ till\ the\ end\ of\ the\ string,\ means\ we\ have}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ segmented\ throughout\ correctly\ hence\ we\ have\ a\ solution,\ thus}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ returning\ true}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedp}{dp}}-\/>at(pos)\ !=\ INT\_MAX)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ dp[pos]\ is\ not\ INT\_MAX,\ means\ we\ must\ have\ saved\ a\ solution}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ the\ position\ pos;\ then\ return\ if\ the\ solution\ at\ pos\ is\ true}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ or\ not}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedp}{dp}}-\/>at(pos)\ ==\ 1;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ std::string\ wordTillNow\ =}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ string\ to\ save\ the\ prefixes\ of\ word\ till\ different\ positons}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ pos;\ i\ <\ s.length();\ i++)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Loop\ starting\ from\ pos\ to\ end,\ to\ check\ valid\ set\ of}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ segmentations\ if\ any}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ wordTillNow\ +=}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(1,\ s[i]);\ \ \textcolor{comment}{//\ storing\ the\ prefix\ till\ the\ position\ i}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ the\ prefix\ till\ current\ position\ is\ present\ in\ the\ dictionary}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ the\ remaining\ substring\ can\ also\ be\ segmented\ legally,\ then}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ solution\ at\ position\ pos\ in\ the\ memo,\ and\ return\ true}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{word__break_8cpp_a1cc9dd6e6190d10a010fdcdfe7a21a81}{exists}}(wordTillNow,\ strSet)\ and\ check(s,\ strSet,\ i\ +\ 1,\ \mbox{\hyperlink{namespacedp}{dp}}))\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}-\/>at(pos)\ =\ 1;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ if\ function\ has\ still\ not\ returned,\ then\ there\ must\ be\ no\ legal}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ segmentation\ possible\ after\ segmenting\ at\ pos}}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{namespacedp}{dp}}-\/>at(pos)\ =\ 0;\ \ \textcolor{comment}{//\ so\ set\ solution\ at\ pos\ as\ false}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \ \ \ \ \textcolor{comment}{//\ and\ return\ no\ solution\ at\ position\ pos}}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}
+\Hypertarget{word__break_8cpp_a1cc9dd6e6190d10a010fdcdfe7a21a81}\index{word\_break.cpp@{word\_break.cpp}!exists@{exists}}
+\index{exists@{exists}!word\_break.cpp@{word\_break.cpp}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily \label{word__break_8cpp_a1cc9dd6e6190d10a010fdcdfe7a21a81} 
+bool dynamic\+\_\+programming\+::word\+\_\+break\+::exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{, }\item[{const std\+::unordered\+\_\+set$<$ std\+::string $>$ \&}]{str\+Set}{}\end{DoxyParamCaption})}
+
+
+
+Function that checks if the string passed in param is present in the the unordered\+\_\+set passed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & the string to be searched \\
+\hline
+{\em str\+Set} & unordered set of string, that is to be looked into \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if str is present in str\+Set 
+
+{\ttfamily false} if str is not present in str\+Set 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ strSet.find(str)\ !=\ strSet.end();}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{word__break_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{word\_break.cpp@{word\_break.cpp}!main@{main}}
+\index{main@{main}!word\_break.cpp@{word\_break.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{word__break_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{word__break_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ call\ the\ test\ function\ :)}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ the\ complete\ string}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ s\ =\ \textcolor{stringliteral}{"{}applepenapple"{}};}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ the\ dictionary\ to\ be\ used}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ wordDict\ =\ \{\textcolor{stringliteral}{"{}apple"{}},\ \textcolor{stringliteral}{"{}pen"{}}\};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ should\ return\ true,\ as\ applepenapple\ can\ be\ segmented\ as\ apple\ +\ pen\ +}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//\ apple}}
+\DoxyCodeLine{00184\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{word__break_8cpp_afe4dcd6fd5282e535685361cba645d7c}{dynamic\_programming::word\_break::wordBreak}}(s,\ wordDict)}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00186\ \}}
+
+\end{DoxyCode}
+\Hypertarget{word__break_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{word\_break.cpp@{word\_break.cpp}!test@{test}}
+\index{test@{test}!word\_break.cpp@{word\_break.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{word__break_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ the\ complete\ string}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ s\ =\ \textcolor{stringliteral}{"{}applepenapple"{}};}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ the\ dictionary\ to\ be\ used}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ wordDict\ =\ \{\textcolor{stringliteral}{"{}apple"{}},\ \textcolor{stringliteral}{"{}pen"{}}\};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ assert(dynamic\_programming::word\_break::wordBreak(s,\ wordDict));}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ should\ return\ true,\ as\ applepenapple\ can\ be\ segmented\ as\ apple\ +\ pen\ +}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//\ apple}}
+\DoxyCodeLine{00166\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{word__break_8cpp_afe4dcd6fd5282e535685361cba645d7c}{dynamic\_programming::word\_break::wordBreak}}(s,\ wordDict)}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00168\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ implementation\ passed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00169\ \}}
+
+\end{DoxyCode}
+\Hypertarget{word__break_8cpp_afe4dcd6fd5282e535685361cba645d7c}\index{word\_break.cpp@{word\_break.cpp}!wordBreak@{wordBreak}}
+\index{wordBreak@{wordBreak}!word\_break.cpp@{word\_break.cpp}}
+\doxysubsubsection{\texorpdfstring{wordBreak()}{wordBreak()}}
+{\footnotesize\ttfamily \label{word__break_8cpp_afe4dcd6fd5282e535685361cba645d7c} 
+bool dynamic\+\_\+programming\+::word\+\_\+break\+::word\+Break (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{, }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{word\+Dict}{}\end{DoxyParamCaption})}
+
+
+
+Function that checks if the string passed in param can be segmented into the strings present in the vector. In others words, it checks if any permutation of strings in the vector can be concatenated to form the final string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the complete string to be segmented \\
+\hline
+{\em word\+Dict} & a vector of words to be used as dictionary to look into \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if s can be formed by a combination of strings present in word\+Dict 
+
+{\ttfamily false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ unordered\ set\ to\ store\ words\ in\ the\ dictionary\ for\ constant\ time}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ search}}
+\DoxyCodeLine{00134\ \ \ \ \ std::unordered\_set<std::string>\ strSet;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&s\ :\ wordDict)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ strSet.insert(s);}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ a\ vector\ to\ be\ used\ for\ memoization,\ whose\ value\ at\ index\ i\ will}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ tell\ if\ the\ string\ s\ can\ be\ segmented\ (correctly)\ at\ position\ i.}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ initializing\ it\ with\ INT\_MAX\ (which\ will\ denote\ no\ solution)}}
+\DoxyCodeLine{00141\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{namespacedp}{dp}}(s.length(),\ INT\_MAX);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ calling\ check\ method\ with\ position\ =\ 0,\ to\ check\ from\ left}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ from\ where\ can\ be\ start\ segmenting\ the\ complete\ string\ in\ correct}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ manner}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{return}\ check(s,\ strSet,\ 0,\ \&\mbox{\hyperlink{namespacedp}{dp}});}
+\DoxyCodeLine{00147\ \}}
+
+\end{DoxyCode}

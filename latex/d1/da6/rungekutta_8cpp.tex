@@ -1,0 +1,202 @@
+\doxysection{numerical\+\_\+methods/rungekutta.cpp File Reference}
+\hypertarget{rungekutta_8cpp}{}\label{rungekutta_8cpp}\index{numerical\_methods/rungekutta.cpp@{numerical\_methods/rungekutta.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Runge\%E2\%80\%93Kutta_methods}{\texttt{ Runge Kutta fourth order}} method implementation  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacenumerical__methods}{numerical\+\_\+methods}}
+\begin{DoxyCompactList}\small\item\em for assert \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacerunge__kutta}{runge\+\_\+kutta}}
+\begin{DoxyCompactList}\small\item\em Functions for \href{https://en.wikipedia.org/wiki/Runge\%E2\%80\%93Kutta_methods}{\texttt{ Runge Kutta fourth order}} method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{numerical\+\_\+methods\+::runge\+\_\+kutta\+::runge\+Kutta}} (double init\+\_\+x, const double \&init\+\_\+y, const double \&x, const double \&\mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}})
+\begin{DoxyCompactList}\small\item\em the Runge Kutta method finds the value of integration of a function in the given limits. the lower limit of integration as the initial value and the upper limit is the given x \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em for using the vector container \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{rungekutta_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Tests to check algorithm implementation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rungekutta_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Runge\%E2\%80\%93Kutta_methods}{\texttt{ Runge Kutta fourth order}} method implementation 
+
+\begin{DoxyAuthor}{Author}
+\href{http://github.com/rudra697}{\texttt{ Rudra Prasad Das}}
+\end{DoxyAuthor}
+It solves the unknown value of y for a given value of x only first order differential equations can be solved 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}\index{rungekutta.cpp@{rungekutta.cpp}!change@{change}}
+\index{change@{change}!rungekutta.cpp@{rungekutta.cpp}}
+\doxysubsubsection{\texorpdfstring{change()}{change()}}
+{\footnotesize\ttfamily \label{rungekutta_8cpp_a450497475f5607333f9aca8f88901579} 
+static double change (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+for using the vector container 
+
+asserting the test functions for io operations
+
+The \doxylink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change()} function is used to return the updated iterative value corresponding to the given function 
+\begin{DoxyParams}{Parameters}
+{\em x} & is the value corresponding to the x coordinate \\
+\hline
+{\em y} & is the value corresponding to the y coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the computed function value at that call 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2numerical_methods_2rungekutta_8cpp-example}{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/numerical\+\_\+methods/rungekutta.\+cpp}}.\end{Desc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{\ \textcolor{keywordflow}{return}\ ((x\ -\/\ y)\ /\ 2.0);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{rungekutta_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{rungekutta.cpp@{rungekutta.cpp}!main@{main}}
+\index{main@{main}!rungekutta.cpp@{rungekutta.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{rungekutta_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{rungekutta_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ Execute\ the\ tests}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}\index{rungekutta.cpp@{rungekutta.cpp}!rungeKutta@{rungeKutta}}
+\index{rungeKutta@{rungeKutta}!rungekutta.cpp@{rungekutta.cpp}}
+\doxysubsubsection{\texorpdfstring{rungeKutta()}{rungeKutta()}}
+{\footnotesize\ttfamily \label{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856} 
+double numerical\+\_\+methods\+::runge\+\_\+kutta\+::runge\+Kutta (\begin{DoxyParamCaption}\item[{double}]{init\+\_\+x}{, }\item[{const double \&}]{init\+\_\+y}{, }\item[{const double \&}]{x}{, }\item[{const double \&}]{h}{}\end{DoxyParamCaption})}
+
+
+
+the Runge Kutta method finds the value of integration of a function in the given limits. the lower limit of integration as the initial value and the upper limit is the given x 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+\_\+x} & is the value of initial x and is updated after each call \\
+\hline
+{\em init\+\_\+y} & is the value of initial x and is updated after each call \\
+\hline
+{\em x} & is current iteration at which the function needs to be evaluated \\
+\hline
+{\em h} & is the step value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of y at thr required value of x from the initial conditions 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2numerical_methods_2rungekutta_8cpp-example}{/\+Users/runner/work/\+C-\/\+Plus-\/\+Plus/\+C-\/\+Plus-\/\+Plus/numerical\+\_\+methods/rungekutta.\+cpp}}.\end{Desc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Count\ number\ of\ iterations}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ using\ step\ size\ or}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ step\ height\ h}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ n\ calucates\ the\ number\ of\ iterations}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ k1,\ k2,\ k3,\ k4\ are\ the\ Runge\ Kutta\ variables}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ used\ for\ calculation\ of\ y\ at\ each\ iteration}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{auto}\ n\ =\ \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}((x\ -\/\ init\_x)\ /\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}});}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ used\ a\ vector\ container\ for\ the\ variables}}
+\DoxyCodeLine{00069\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}(4,\ 0.0);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ Iterate\ for\ number\ of\ iterations}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ init\_y;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n;\ ++i)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Apply\ Runge\ Kutta\ Formulas}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ find\ next\ value\ of\ y}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[0]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x,\ y);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[1]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x\ +\ 0.5\ *\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ y\ +\ 0.5\ *\ k[0]);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[2]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x\ +\ 0.5\ *\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ y\ +\ 0.5\ *\ k[1]);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a1b74d828b33760094906797042b89442}{k}}[3]\ =\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}}\ *\ \mbox{\hyperlink{rungekutta_8cpp_a450497475f5607333f9aca8f88901579}{change}}(init\_x\ +\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}},\ y\ +\ k[2]);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ next\ value\ of\ y}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ y\ +=\ (1.0\ /\ 6.0)\ *\ (k[0]\ +\ 2\ *\ k[1]\ +\ 2\ *\ k[2]\ +\ k[3]);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ next\ value\ of\ x}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ init\_x\ +=\ \mbox{\hyperlink{hash__search_8cpp_a566eaf0ffafd50bc61e644561fd27001}{h}};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{rungekutta_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{rungekutta.cpp@{rungekutta.cpp}!test@{test}}
+\index{test@{test}!rungekutta.cpp@{rungekutta.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{rungekutta_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tests to check algorithm implementation. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ Runge\ Kutta\ function\ will\ be\ tested\ on\ the\ basis\ of\ "{}}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}precomputed\ values\(\backslash\)n"{}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1...."{}}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ valfirst\ =\ \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{numerical\_methods::runge\_kutta::rungeKutta}}(}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ 2,\ 3,\ 4,\ 0.2);\ \ \textcolor{comment}{//\ Tests\ the\ function\ with\ pre\ calculated\ values}}
+\DoxyCodeLine{00108\ \ \ \ \ assert(valfirst\ ==\ 3.10363932323749570);}
+\DoxyCodeLine{00109\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 1\(\backslash\)n"{}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2...."{}}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{double}\ valsec\ =\ \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{numerical\_methods::runge\_kutta::rungeKutta}}(}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ 1,\ 2,\ 5,\ 0.1);\ \ \textcolor{comment}{//\ The\ value\ of\ step\ changed}}
+\DoxyCodeLine{00115\ \ \ \ \ assert(valsec\ ==\ 3.40600589380261409);}
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3...."{}}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{double}\ valthird\ =\ \mbox{\hyperlink{rungekutta_8cpp_a7b9f40c7b5e9749cc550f19be3dc8856}{numerical\_methods::runge\_kutta::rungeKutta}}(}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ -\/1,\ 3,\ 4,\ 0.1);\ \ \textcolor{comment}{//\ Tested\ with\ negative\ value}}
+\DoxyCodeLine{00122\ \ \ \ \ assert(valthird\ ==\ 2.49251005860244268);}
+\DoxyCodeLine{00123\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Passed\ Test\ 3\(\backslash\)n"{}};}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}

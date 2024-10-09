@@ -1,0 +1,197 @@
+\doxysection{graph\+::Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classgraph_1_1_graph}{}\label{classgraph_1_1_graph}\index{graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}}
+Inheritance diagram for graph\+::Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d61/classgraph_1_1_graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\+\_\+edge}} (T u, T v, bool bidir=true)
+\item 
+std\+::map$<$ T, bool $>$ \mbox{\hyperlink{classgraph_1_1_graph_a3755ec9e6a842238c7f4aac10b661981}{breadth\+\_\+first\+\_\+search}} (T src)
+\item 
+\mbox{\hyperlink{classgraph_1_1_graph_a8839fa14bff19d2deab4a618447c13e5}{Graph}} (size\+\_\+t N, const std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&undirected\+\_\+edges)
+\begin{DoxyCompactList}\small\item\em Populate the adjacency list for each vertex in the graph. Assumes that evey edge is a pair of valid vertex indices. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}{number\+\_\+of\+\_\+vertices}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgraph_1_1_graph_a59940c462861f2fcf4951d1b6c084e6a}\label{classgraph_1_1_graph_a59940c462861f2fcf4951d1b6c084e6a} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries neighbors}
+\begin{DoxyCompactList}\small\item\em for each vertex it stores a list indicies of its neighbors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ T, std\+::list$<$ T $>$ $>$ \mbox{\hyperlink{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0}{adjacency\+\_\+list}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class graph\+::\+Graph$<$ T $>$}
+Class for representing a graph as an adjacency list. Its vertices are indexed 0, 1, ..., N -\/ 1. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgraph_1_1_graph_a8839fa14bff19d2deab4a618447c13e5}\index{graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}!Graph@{Graph}}
+\index{Graph@{Graph}!graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_graph_a8839fa14bff19d2deab4a618447c13e5} 
+template$<$typename T $>$ \\
+\mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph}}$<$ T $>$\mbox{\hyperlink{class_graph}{\+::\+Graph}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{N}{, }\item[{const std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&}]{undirected\+\_\+edges}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Populate the adjacency list for each vertex in the graph. Assumes that evey edge is a pair of valid vertex indices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & number of vertices in the graph \\
+\hline
+{\em undirected\+\_\+edges} & list of graph\textquotesingle{}s undirected edges \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph_a59940c462861f2fcf4951d1b6c084e6a}{neighbors}}.resize(N);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&edge\ :\ undirected\_edges)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph_a59940c462861f2fcf4951d1b6c084e6a}{neighbors}}[edge.first].push\_back(edge.second);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph_a59940c462861f2fcf4951d1b6c084e6a}{neighbors}}[edge.second].push\_back(edge.first);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}\index{graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}!add\_edge@{add\_edge}}
+\index{add\_edge@{add\_edge}!graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add\_edge()}{add\_edge()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19} 
+template$<$typename T $>$ \\
+void \mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph}}$<$ T $>$\+::add\+\_\+edge (\begin{DoxyParamCaption}\item[{T}]{u}{, }\item[{T}]{v}{, }\item[{bool}]{bidir}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+add\+\_\+edge(u,v,bidir) is used to add an edge between node u and node v by default , bidir is made true , i.\+e graph is bidirectional . It means if edge(u,v) is added then u-\/-\/\texorpdfstring{$>$}{>}v and v-\/-\/\texorpdfstring{$>$}{>}u both edges exist.
+
+to make the graph unidirectional pass the third parameter of add\+\_\+edge as false which will
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ \ add\_edge(u,v,bidir)\ is\ used\ to\ add\ an\ edge\ between\ node\ u\ and}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ node\ v\ by\ default\ ,\ bidir\ is\ made\ true\ ,\ i.e\ graph\ is}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ bidirectional\ .\ It\ means\ if\ edge(u,v)\ is\ added\ then\ u-\/-\/>v\ \ and}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ v-\/-\/>u\ both\ edges\ exist.}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ \ to\ make\ the\ graph\ unidirectional\ pass\ the\ third\ parameter\ of}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ add\_edge\ as\ false\ which\ will}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0}{adjacency\_list}}[u].push\_back(v);\ \ \textcolor{comment}{//\ u-\/-\/>v\ edge\ added}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bidir\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ graph\ is\ bidirectional}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0}{adjacency\_list}}[v].push\_back(u);\ \ \textcolor{comment}{//\ v-\/-\/>u\ edge\ added}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_graph_a3755ec9e6a842238c7f4aac10b661981}\index{graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}!breadth\_first\_search@{breadth\_first\_search}}
+\index{breadth\_first\_search@{breadth\_first\_search}!graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{breadth\_first\_search()}{breadth\_first\_search()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_graph_a3755ec9e6a842238c7f4aac10b661981} 
+template$<$typename T $>$ \\
+std\+::map$<$ T, bool $>$ \mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph}}$<$ T $>$\+::breadth\+\_\+first\+\_\+search (\begin{DoxyParamCaption}\item[{T}]{src}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this function performs the breadth first search on graph and return a mapping which maps the nodes to a boolean value representing whether the node was traversed or not. mapping to keep track of all visited nodes
+
+initialise every possible vertex to map to false initially none of the vertices are unvisited
+
+queue to store the nodes which are yet to be traversed
+
+push the source vertex to queue to begin traversing
+
+mark the source vertex as visited
+
+traverse the graph till no connected vertex are left extract a node from queue for further traversal
+
+remove the node from the queue
+
+check every vertex connected to the node which are still unvisited
+
+if the neighbour is unvisited , push it into the queue
+
+mark the neighbour as visited
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ mapping\ to\ keep\ track\ of\ all\ visited\ nodes}}
+\DoxyCodeLine{00098\ \textcolor{comment}{}\ \ \ \ \ \ \ \ std::map<T,\ bool>\ visited;\textcolor{comment}{}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ initialise\ every\ possible\ vertex\ to\ map\ to\ false}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ initially\ none\ of\ the\ vertices\ are\ unvisited}}
+\DoxyCodeLine{00101\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ \&adjlist\ :\ \mbox{\hyperlink{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0}{adjacency\_list}})\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ visited[adjlist.first]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ \&\mbox{\hyperlink{structnode}{node}}\ :\ \mbox{\hyperlink{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0}{adjacency\_list}}[adjlist.first])\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ visited[\mbox{\hyperlink{avltree_8cpp_a74f0cf18a0e5b832d9994e2f2d022287}{node}}]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \textcolor{comment}{}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ queue\ to\ store\ the\ nodes\ which\ are\ yet\ to\ be\ traversed}}
+\DoxyCodeLine{00109\ \textcolor{comment}{}\ \ \ \ \ \ \ \ std::queue<T>\ tracker;}
+\DoxyCodeLine{00110\ \textcolor{comment}{}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ push\ the\ source\ vertex\ to\ queue\ to\ begin\ traversing}}
+\DoxyCodeLine{00112\ \textcolor{comment}{}\ \ \ \ \ \ \ \ tracker.push(src);\textcolor{comment}{}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ ///\ mark\ the\ source\ vertex\ as\ visited}}
+\DoxyCodeLine{00114\ \textcolor{comment}{}\ \ \ \ \ \ \ \ visited[src]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!tracker.empty())\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ traverse\ the\ graph\ till\ no\ connected\ vertex\ are\ left}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ extract\ a\ node\ from\ queue\ for\ further\ traversal}}
+\DoxyCodeLine{00118\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{structnode}{node}}\ =\ tracker.front();\textcolor{comment}{}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ///\ remove\ the\ node\ from\ the\ queue}}
+\DoxyCodeLine{00120\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ tracker.pop();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (T\ \textcolor{keyword}{const}\ \&neighbour\ :\ \mbox{\hyperlink{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0}{adjacency\_list}}[\mbox{\hyperlink{structnode}{node}}])\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ check\ every\ vertex\ connected\ to\ the\ node\ which\ are\ still}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ unvisited}}
+\DoxyCodeLine{00124\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited[neighbour])\ \{\textcolor{comment}{}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ if\ the\ neighbour\ is\ unvisited\ ,\ push\ it\ into\ the\ queue}}
+\DoxyCodeLine{00126\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracker.push(neighbour);\textcolor{comment}{}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///\ mark\ the\ neighbour\ as\ visited}}
+\DoxyCodeLine{00128\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ visited[neighbour]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ visited;}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904}\index{graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}!number\_of\_vertices@{number\_of\_vertices}}
+\index{number\_of\_vertices@{number\_of\_vertices}!graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{number\_of\_vertices()}{number\_of\_vertices()}}
+{\footnotesize\ttfamily \label{classgraph_1_1_graph_a8930d1470d132b19e430d1c71f94c904} 
+template$<$typename T $>$ \\
+int \mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph}}$<$ T $>$\+::number\+\_\+of\+\_\+vertices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get the number of vertices in the graph \begin{DoxyReturn}{Returns}
+the number of vertices in the graph. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgraph_1_1_graph_a59940c462861f2fcf4951d1b6c084e6a}{neighbors}}.size();\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0}\index{graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}!adjacency\_list@{adjacency\_list}}
+\index{adjacency\_list@{adjacency\_list}!graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{adjacency\_list}{adjacency\_list}}
+{\footnotesize\ttfamily \label{classgraph_1_1_graph_acebf0505d625b043bb9c8c27c7a8def0} 
+template$<$typename T $>$ \\
+std\+::map$<$T, std\+::list$<$T$>$ $>$ \mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph}}$<$ T $>$\+::adjacency\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+adjacency\+\_\+list maps every vertex to the list of its neighbours in the order in which they are added. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graph/\mbox{\hyperlink{breadth__first__search_8cpp}{breadth\+\_\+first\+\_\+search.\+cpp}}\item 
+graph/\mbox{\hyperlink{lowest__common__ancestor_8cpp}{lowest\+\_\+common\+\_\+ancestor.\+cpp}}\end{DoxyCompactItemize}

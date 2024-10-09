@@ -1,0 +1,124 @@
+\doxysection{graph/is\+\_\+graph\+\_\+bipartite.cpp File Reference}
+\hypertarget{is__graph__bipartite_8cpp}{}\label{is__graph__bipartite_8cpp}\index{graph/is\_graph\_bipartite.cpp@{graph/is\_graph\_bipartite.cpp}}
+
+
+Algorithm to check whether a graph is \href{https://en.wikipedia.org/wiki/Bipartite_graph}{\texttt{ bipartite}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph}{graph\+::is\+\_\+graph\+\_\+bipartite\+::\+Graph}}
+\begin{DoxyCompactList}\small\item\em Class for representing graph as an adjacency list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceis__graph__bipartite}{is\+\_\+graph\+\_\+bipartite}}
+\begin{DoxyCompactList}\small\item\em Functions for checking whether a graph is bipartite or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{is__graph__bipartite_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\item 
+int \mbox{\hyperlink{is__graph__bipartite_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithm to check whether a graph is \href{https://en.wikipedia.org/wiki/Bipartite_graph}{\texttt{ bipartite}} 
+
+A graph is a collection of nodes also called vertices and these vertices are connected by edges. A graph is bipartite if its vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V.
+
+The algorithm implemented in this file determines whether the given graph is bipartite or not.
+
+
+\begin{DoxyPre}
+ Example -\/ Here is a graph g1 with 5 vertices and is bipartite
+
+    1   4
+   / \textbackslash{} / \textbackslash{}
+  2   3   5
+
+Example -\/ Here is a graph G2 with 3 vertices and is not bipartite
+
+  1 -\/-\/-\/ 2
+   \textbackslash{}   /
+     3
+
+\end{DoxyPre}
+
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/AkVaya}{\texttt{ Akshat Vaya}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{is__graph__bipartite_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{is\_graph\_bipartite.cpp@{is\_graph\_bipartite.cpp}!main@{main}}
+\index{main@{main}!is\_graph\_bipartite.cpp@{is\_graph\_bipartite.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{is__graph__bipartite_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function Testing
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{is__graph__bipartite_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{///\ Testing}}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00171\ \}}
+
+\end{DoxyCode}
+\Hypertarget{is__graph__bipartite_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{is\_graph\_bipartite.cpp@{is\_graph\_bipartite.cpp}!test@{test}}
+\index{test@{test}!is\_graph\_bipartite.cpp@{is\_graph\_bipartite.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{is__graph__bipartite_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function to test the above algorithm \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+creating graph G1 with 5 vertices
+
+adding edges to the graphs as per the illustrated example
+
+creating graph G2 with 3 vertices
+
+adding edges to the graphs as per the illustrated example
+
+checking whether the graphs are bipartite or not
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph}{graph::is\_graph\_bipartite::Graph}}\ G1(}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ 5);\ \ \textcolor{comment}{///\ creating\ graph\ G1\ with\ 5\ vertices}\textcolor{comment}{}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ ///\ adding\ edges\ to\ the\ graphs\ as\ per\ the\ illustrated\ example}}
+\DoxyCodeLine{00140\ \textcolor{comment}{}\ \ \ \ G1.addEdge(1,\ 2);}
+\DoxyCodeLine{00141\ \ \ \ \ G1.addEdge(1,\ 3);}
+\DoxyCodeLine{00142\ \ \ \ \ G1.addEdge(3,\ 4);}
+\DoxyCodeLine{00143\ \ \ \ \ G1.addEdge(4,\ 5);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1is__graph__bipartite_1_1_graph}{graph::is\_graph\_bipartite::Graph}}\ G2(}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ 3);\ \ \textcolor{comment}{///\ creating\ graph\ G2\ with\ 3\ vertices}\textcolor{comment}{}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ \ \ ///\ adding\ edges\ to\ the\ graphs\ as\ per\ the\ illustrated\ example}}
+\DoxyCodeLine{00148\ \textcolor{comment}{}\ \ \ \ G2.addEdge(1,\ 2);}
+\DoxyCodeLine{00149\ \ \ \ \ G2.addEdge(1,\ 3);}
+\DoxyCodeLine{00150\ \ \ \ \ G2.addEdge(2,\ 3);}
+\DoxyCodeLine{00151\ \textcolor{comment}{}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ ///\ checking\ whether\ the\ graphs\ are\ bipartite\ or\ not}}
+\DoxyCodeLine{00153\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordflow}{if}\ (G1.is\_bipartite())\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ given\ graph\ G1\ is\ a\ bipartite\ graph\(\backslash\)n"{}};}
+\DoxyCodeLine{00155\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ given\ graph\ G1\ is\ not\ a\ bipartite\ graph\(\backslash\)n"{}};}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}\ (G2.is\_bipartite())\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ given\ graph\ G2\ is\ a\ bipartite\ graph\(\backslash\)n"{}};}
+\DoxyCodeLine{00160\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ given\ graph\ G2\ is\ not\ a\ bipartite\ graph\(\backslash\)n"{}};}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \}}
+
+\end{DoxyCode}

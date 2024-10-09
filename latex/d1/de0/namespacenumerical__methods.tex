@@ -1,0 +1,329 @@
+\doxysection{numerical\+\_\+methods Namespace Reference}
+\hypertarget{namespacenumerical__methods}{}\label{namespacenumerical__methods}\index{numerical\_methods@{numerical\_methods}}
+
+
+for assert  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespacenumerical__methods_a28e67885f8606564cc8335f483f63309}{babylonian\+\_\+method}} (double radicand)
+\begin{DoxyCompactList}\small\item\em Babylonian methods is an iterative function which returns square root of radicand. \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150}{Fast\+Fourier\+Transform}} (std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}p, uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Fast\+Fourier\+Transform is a recursive function which returns list of complex numbers. \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacenumerical__methods_aee56dc85997b8cd42bad71a5d6bd2d93}{Inverse\+Fast\+Fourier\+Transform}} (std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}p, uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Inverse\+Fast\+Fourier\+Transform is a recursive function which returns list of complex numbers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+for assert 
+
+Numerical Methods.
+
+for std\+::map container
+
+for std\+::vector
+
+for io operations
+
+for math functions
+
+for IO operations
+
+Numerical algorithms/methods
+
+for assert for integer allocation for std\+::atof for std\+::function for IO operations for std\+::map container
+
+Numerical algorithms/methods
+
+for math operations
+
+Numerical methods
+
+for assert for mathematical-\/related functions for storing points and coefficents for IO operations
+
+Numerical algorithms/methods
+
+for std\+::array for assert for fabs
+
+Numerical Methods algorithms
+
+for assert for math functions for integer allocation for std\+::atof for std\+::function for IO operations
+
+Numerical algorithms/methods 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacenumerical__methods_a28e67885f8606564cc8335f483f63309}\index{numerical\_methods@{numerical\_methods}!babylonian\_method@{babylonian\_method}}
+\index{babylonian\_method@{babylonian\_method}!numerical\_methods@{numerical\_methods}}
+\doxysubsubsection{\texorpdfstring{babylonian\_method()}{babylonian\_method()}}
+{\footnotesize\ttfamily \label{namespacenumerical__methods_a28e67885f8606564cc8335f483f63309} 
+double numerical\+\_\+methods\+::babylonian\+\_\+method (\begin{DoxyParamCaption}\item[{double}]{radicand}{}\end{DoxyParamCaption})}
+
+
+
+Babylonian methods is an iterative function which returns square root of radicand. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radicand} & is the radicand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+x1 the square root of radicand 
+\end{DoxyReturn}
+To find initial root or rough approximation
+
+Real Initial value will be i-\/1 as loop stops on +1 value
+
+Storing previous value for comparison
+
+Storing calculated value for comparison
+
+Temp variable to x0 and x1
+
+Newly calculated root
+
+Returning final root
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 1;\ \ \textcolor{comment}{///\ To\ find\ initial\ root\ or\ rough\ approximation }}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ *\ i\ <=\ radicand)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ i-\/-\/;\ \ \textcolor{comment}{///\ Real\ Initial\ value\ will\ be\ i-\/1\ as\ loop\ stops\ on\ +1\ value }}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ x0\ =\ i;\ \ \textcolor{comment}{///\ Storing\ previous\ value\ for\ comparison }}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{double}\ x1\ =}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ (radicand\ /\ x0\ +\ x0)\ /\ 2;\ \ \textcolor{comment}{///\ Storing\ calculated\ value\ for\ comparison }}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ temp\ =\ NAN;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{///\ Temp\ variable\ to\ x0\ and\ x1 }}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::max(x0,\ x1)\ -\/\ std::min(x0,\ x1)\ <\ 0.0001)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ temp\ =\ (radicand\ /\ x1\ +\ x1)\ /\ 2;\ \ \textcolor{comment}{///\ Newly\ calculated\ root }}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ x0\ =\ x1;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ x1\ =\ temp;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ x1;\ \ \textcolor{comment}{///\ Returning\ final\ root }}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150}\index{numerical\_methods@{numerical\_methods}!FastFourierTransform@{FastFourierTransform}}
+\index{FastFourierTransform@{FastFourierTransform}!numerical\_methods@{numerical\_methods}}
+\doxysubsubsection{\texorpdfstring{FastFourierTransform()}{FastFourierTransform()}}
+{\footnotesize\ttfamily \label{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150} 
+std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*} numerical\+\_\+methods\+::\+Fast\+Fourier\+Transform (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{uint8\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Fast\+Fourier\+Transform is a recursive function which returns list of complex numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & List of Coefficents in form of complex numbers \\
+\hline
+{\em n} & Count of elements in list p \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+p if n==1 
+
+y if n!=1 
+\end{DoxyReturn}
+Base Case To return
+
+Declaring value of pi
+
+Calculating value of omega
+
+Coefficients of even power
+
+Coefficients of odd power
+
+Assigning values of even Coefficients
+
+Assigning value of odd Coefficients
+
+Recursive Call
+
+Recursive Call
+
+Final value representation list
+
+Updating the first n/2 elements
+
+Updating the last n/2 elements
+
+Deleting dynamic array ye
+
+Deleting dynamic array yo
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 1)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;\ \ \textcolor{comment}{///\ Base\ Case\ To\ return }}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ pi\ =\ 2\ *\ asin(1.0);\ \ \textcolor{comment}{///\ Declaring\ value\ of\ pi }}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ std::complex<double>\ om\ =\ std::complex<double>(}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ cos(2\ *\ pi\ /\ n),\ sin(2\ *\ pi\ /\ n));\ \ \textcolor{comment}{///\ Calculating\ value\ of\ omega }}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{auto}\ *pe\ =\ \textcolor{keyword}{new}\ std::complex<double>[n\ /\ 2];\ \ \textcolor{comment}{///\ Coefficients\ of\ even\ power }}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{auto}\ *po\ =\ \textcolor{keyword}{new}\ std::complex<double>[n\ /\ 2];\ \ \textcolor{comment}{///\ Coefficients\ of\ odd\ power }}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ k1\ =\ 0,\ k2\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ \%\ 2\ ==\ 0)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ pe[k1++]\ =\ p[j];\ \ \textcolor{comment}{///\ Assigning\ values\ of\ even\ Coefficients }}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ po[k2++]\ =\ p[j];\ \ \textcolor{comment}{///\ Assigning\ value\ of\ odd\ Coefficients }}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::complex<double>\ *ye\ =}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150}{FastFourierTransform}}(pe,\ n\ /\ 2);\ \ \textcolor{comment}{///\ Recursive\ Call }}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::complex<double>\ *yo\ =}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenumerical__methods_a158fd271b9a53e8f3f60b08b18857150}{FastFourierTransform}}(po,\ n\ /\ 2);\ \ \textcolor{comment}{///\ Recursive\ Call }}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ *y\ =\ \textcolor{keyword}{new}\ std::complex<double>[n];\ \ \textcolor{comment}{///\ Final\ value\ representation\ list }}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ k1\ =\ 0,\ k2\ =\ 0;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\ /\ 2;\ i++)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ y[i]\ =}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ ye[k1]\ +\ pow(om,\ i)\ *\ yo[k2];\ \ \textcolor{comment}{///\ Updating\ the\ first\ n/2\ elements }}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ y[i\ +\ n\ /\ 2]\ =}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ ye[k1]\ -\/\ pow(om,\ i)\ *\ yo[k2];\ \ \textcolor{comment}{///\ Updating\ the\ last\ n/2\ elements }}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ k1++;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ k2++;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ !=\ 2)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ pe;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ po;}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{delete}[]\ ye;\ \ \textcolor{comment}{///\ Deleting\ dynamic\ array\ ye }}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{delete}[]\ yo;\ \ \textcolor{comment}{///\ Deleting\ dynamic\ array\ yo }}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacenumerical__methods_aee56dc85997b8cd42bad71a5d6bd2d93}\index{numerical\_methods@{numerical\_methods}!InverseFastFourierTransform@{InverseFastFourierTransform}}
+\index{InverseFastFourierTransform@{InverseFastFourierTransform}!numerical\_methods@{numerical\_methods}}
+\doxysubsubsection{\texorpdfstring{InverseFastFourierTransform()}{InverseFastFourierTransform()}}
+{\footnotesize\ttfamily \label{namespacenumerical__methods_aee56dc85997b8cd42bad71a5d6bd2d93} 
+std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*} numerical\+\_\+methods\+::\+Inverse\+Fast\+Fourier\+Transform (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{uint8\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Inverse\+Fast\+Fourier\+Transform is a recursive function which returns list of complex numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & List of Coefficents in form of complex numbers \\
+\hline
+{\em n} & Count of elements in list p \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+p if n==1 
+
+y if n!=1 
+\end{DoxyReturn}
+Base Case To return
+
+Declaring value of pi
+
+Calculating value of omega
+
+One change in comparison with DFT
+
+One change in comparison with DFT
+
+Coefficients of even power
+
+Coefficients of odd power
+
+Assigning values of even Coefficients
+
+Assigning value of odd Coefficients
+
+Recursive Call
+
+Recursive Call
+
+Final value representation list
+
+Updating the first n/2 elements
+
+Updating the last n/2 elements
+
+Deleting dynamic array ye
+
+Deleting dynamic array yo
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 1)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;\ \ \textcolor{comment}{///\ Base\ Case\ To\ return}}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ pi\ =\ 2\ *\ asin(1.0);\ \ \textcolor{comment}{///\ Declaring\ value\ of\ pi}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::complex<double>\ om\ =\ std::complex<double>(}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ cos(2\ *\ pi\ /\ n),\ sin(2\ *\ pi\ /\ n));\ \ \textcolor{comment}{///\ Calculating\ value\ of\ omega}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ om.real(om.real()\ /\ n);\ \ \textcolor{comment}{///\ One\ change\ in\ comparison\ with\ DFT}}
+\DoxyCodeLine{00045\ \ \ \ \ om.imag(om.imag()\ /\ n);\ \ \textcolor{comment}{///\ One\ change\ in\ comparison\ with\ DFT}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{auto}\ *pe\ =\ \textcolor{keyword}{new}\ std::complex<double>[n\ /\ 2];\ \ \textcolor{comment}{///\ Coefficients\ of\ even\ power}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{auto}\ *po\ =\ \textcolor{keyword}{new}\ std::complex<double>[n\ /\ 2];\ \ \textcolor{comment}{///\ Coefficients\ of\ odd\ power}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ k1\ =\ 0,\ k2\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ \%\ 2\ ==\ 0)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ pe[k1++]\ =\ p[j];\ \ \textcolor{comment}{///\ Assigning\ values\ of\ even\ Coefficients}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ po[k2++]\ =\ p[j];\ \ \textcolor{comment}{///\ Assigning\ value\ of\ odd\ Coefficients}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ std::complex<double>\ *ye\ =}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenumerical__methods_aee56dc85997b8cd42bad71a5d6bd2d93}{InverseFastFourierTransform}}(pe,\ n\ /\ 2);\ \ \textcolor{comment}{///\ Recursive\ Call}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::complex<double>\ *yo\ =}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenumerical__methods_aee56dc85997b8cd42bad71a5d6bd2d93}{InverseFastFourierTransform}}(po,\ n\ /\ 2);\ \ \textcolor{comment}{///\ Recursive\ Call}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{auto}\ *y\ =\ \textcolor{keyword}{new}\ std::complex<double>[n];\ \ \textcolor{comment}{///\ Final\ value\ representation\ list}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ k1\ =\ 0,\ k2\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\ /\ 2;\ i++)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ y[i]\ =}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ ye[k1]\ +\ pow(om,\ i)\ *\ yo[k2];\ \ \textcolor{comment}{///\ Updating\ the\ first\ n/2\ elements}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ y[i\ +\ n\ /\ 2]\ =}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ ye[k1]\ -\/\ pow(om,\ i)\ *\ yo[k2];\ \ \textcolor{comment}{///\ Updating\ the\ last\ n/2\ elements}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ k1++;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ k2++;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ !=\ 2)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ pe;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ po;}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{delete}[]\ ye;\ \ \textcolor{comment}{///\ Deleting\ dynamic\ array\ ye}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{delete}[]\ yo;\ \ \textcolor{comment}{///\ Deleting\ dynamic\ array\ yo}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}

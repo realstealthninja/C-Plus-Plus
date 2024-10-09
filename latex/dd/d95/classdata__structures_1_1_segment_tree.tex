@@ -1,0 +1,257 @@
+\doxysection{data\+\_\+structures\+::Segment\+Tree\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdata__structures_1_1_segment_tree}{}\label{classdata__structures_1_1_segment_tree}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+
+
+class representation of the segment tree  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdata__structures_1_1_segment_tree_a330724f79c5d1bdb745c29474ff3eac2}{Segment\+Tree}} (int n)
+\item 
+void \mbox{\hyperlink{classdata__structures_1_1_segment_tree_ad0e78179ab979ae2bc4304bdc181db17}{update}} (int pos, T val)
+\begin{DoxyCompactList}\small\item\em Updates a value at a certain position. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a1c5331b509d9b55bedfadf979b30dd5b}{range\+\_\+comb}} (int l, int r)
+\begin{DoxyCompactList}\small\item\em Returns comb across all values between l and r. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a8d22286b7be3dcbb701ac5c7d9c79841}{comb}} (T x, T y)
+\begin{DoxyCompactList}\small\item\em Any associative function that combines x and y. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a6d3beccc936af2377c8eeb17067fd141}{mid}} (int l, int r)
+\begin{DoxyCompactList}\small\item\em Gives the midpoint between two integers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a2a04f1832c5ce86def50c3021b2ab6b1}{update}} (int i, int l, int r, int pos, T val)
+\begin{DoxyCompactList}\small\item\em Helper method for update method below. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a8fecc48e8e3f6f5f6e728495a4282e52}{range\+\_\+comb}} (int i, int l, int r, int tl, int tr)
+\begin{DoxyCompactList}\small\item\em Helper method for range\+\_\+comb method below. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1_segment_tree_a10ffa5fc03c66170f0bc2592b843baa3}\label{classdata__structures_1_1_segment_tree_a10ffa5fc03c66170f0bc2592b843baa3} 
+const T {\bfseries ID} = 0
+\begin{DoxyCompactList}\small\item\em Comb(\+ID, x) = x. \end{DoxyCompactList}\item 
+\Hypertarget{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258}\label{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258} 
+std\+::vector$<$ T $>$ {\bfseries t}
+\begin{DoxyCompactList}\small\item\em Vector to represent the tree. \end{DoxyCompactList}\item 
+\Hypertarget{classdata__structures_1_1_segment_tree_a167fd91b68048e49e97859a8947690f3}\label{classdata__structures_1_1_segment_tree_a167fd91b68048e49e97859a8947690f3} 
+int {\bfseries size} = 0
+\begin{DoxyCompactList}\small\item\em Number of elements available for querying in the tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class data\+\_\+structures\+::\+Segment\+Tree$<$ T $>$}
+class representation of the segment tree 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the class that goes in the datastructure \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdata__structures_1_1_segment_tree_a330724f79c5d1bdb745c29474ff3eac2}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}!SegmentTree@{SegmentTree}}
+\index{SegmentTree@{SegmentTree}!data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SegmentTree()}{SegmentTree()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_segment_tree_a330724f79c5d1bdb745c29474ff3eac2} 
+template$<$class T $>$ \\
+\mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree}}$<$ T $>$\+::\+Segment\+Tree (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ :\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258}{t}}(n\ *\ 4,\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a10ffa5fc03c66170f0bc2592b843baa3}{ID}}),\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a167fd91b68048e49e97859a8947690f3}{size}}(n)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1_segment_tree_a8d22286b7be3dcbb701ac5c7d9c79841}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}!comb@{comb}}
+\index{comb@{comb}!data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{comb()}{comb()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_segment_tree_a8d22286b7be3dcbb701ac5c7d9c79841} 
+template$<$class T $>$ \\
+T \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree}}$<$ T $>$\+::comb (\begin{DoxyParamCaption}\item[{T}]{x}{, }\item[{T}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Any associative function that combines x and y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The first operand \\
+\hline
+{\em y} & The second operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Some associative operation applied to these two values. In this case, I used addition 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x\ +\ y;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_segment_tree_a6d3beccc936af2377c8eeb17067fd141}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}!mid@{mid}}
+\index{mid@{mid}!data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mid()}{mid()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_segment_tree_a6d3beccc936af2377c8eeb17067fd141} 
+template$<$class T $>$ \\
+int \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree}}$<$ T $>$\+::mid (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Gives the midpoint between two integers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The left endpoint \\
+\hline
+{\em r} & The right endpoint \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the middle point between them 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}}\ +\ (r\ -\/\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a6d8df83a6f26ce24a75d3b358b7f5b8a}{l}})\ /\ 2;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_segment_tree_a8fecc48e8e3f6f5f6e728495a4282e52}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}!range\_comb@{range\_comb}}
+\index{range\_comb@{range\_comb}!data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{range\_comb()}{range\_comb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_segment_tree_a8fecc48e8e3f6f5f6e728495a4282e52} 
+template$<$class T $>$ \\
+T \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree}}$<$ T $>$\+::range\+\_\+comb (\begin{DoxyParamCaption}\item[{int}]{i}{, }\item[{int}]{l}{, }\item[{int}]{r}{, }\item[{int}]{tl}{, }\item[{int}]{tr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Helper method for range\+\_\+comb method below. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The current node \\
+\hline
+{\em l} & The leftmost node of the current node \\
+\hline
+{\em r} & The rightmost node of the current node \\
+\hline
+{\em tl} & The left endpoint of the range \\
+\hline
+{\em tr} & The right endpoint of the range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The comb operation applied to all values between tl and tr 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(l\ ==\ tl\ \&\&\ r\ ==\ tr)\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258}{t}}[i];}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tl\ >\ tr)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a6d3beccc936af2377c8eeb17067fd141}{mid}}(l,\ r);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a8d22286b7be3dcbb701ac5c7d9c79841}{comb}}(\mbox{\hyperlink{classdata__structures_1_1_segment_tree_a8fecc48e8e3f6f5f6e728495a4282e52}{range\_comb}}(i\ *\ 2,\ l,\ m,\ tl,\ std::min(tr,\ m)),\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a8fecc48e8e3f6f5f6e728495a4282e52}{range\_comb}}(i\ *\ 2\ +\ 1,\ m\ +\ 1,\ r,\ std::max(tl,\ m\ +\ 1),\ tr));}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_segment_tree_a1c5331b509d9b55bedfadf979b30dd5b}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}!range\_comb@{range\_comb}}
+\index{range\_comb@{range\_comb}!data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{range\_comb()}{range\_comb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_segment_tree_a1c5331b509d9b55bedfadf979b30dd5b} 
+template$<$class T $>$ \\
+T \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree}}$<$ T $>$\+::range\+\_\+comb (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns comb across all values between l and r. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The left endpoint of the range \\
+\hline
+{\em r} & The right endpoint of the range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the comb operations 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a8fecc48e8e3f6f5f6e728495a4282e52}{range\_comb}}(1,\ 1,\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a167fd91b68048e49e97859a8947690f3}{size}},\ l,\ r);}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_segment_tree_a2a04f1832c5ce86def50c3021b2ab6b1}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}!update@{update}}
+\index{update@{update}!data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_segment_tree_a2a04f1832c5ce86def50c3021b2ab6b1} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree}}$<$ T $>$\+::update (\begin{DoxyParamCaption}\item[{int}]{i}{, }\item[{int}]{l}{, }\item[{int}]{r}{, }\item[{int}]{pos}{, }\item[{T}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Helper method for update method below. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the current node \\
+\hline
+{\em l} & The leftmost node of the current node \\
+\hline
+{\em r} & The rightmost node of the current node \\
+\hline
+{\em pos} & The position to update \\
+\hline
+{\em val} & The value to update it to \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(l\ ==\ r)\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258}{t}}[i]\ =\ val;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a6d3beccc936af2377c8eeb17067fd141}{mid}}(l,\ r);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos\ <=\ m)\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a2a04f1832c5ce86def50c3021b2ab6b1}{update}}(i\ *\ 2,\ l,\ m,\ pos,\ val);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a2a04f1832c5ce86def50c3021b2ab6b1}{update}}(i\ *\ 2\ +\ 1,\ m\ +\ 1,\ r,\ pos,\ val);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258}{t}}[i]\ =\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a8d22286b7be3dcbb701ac5c7d9c79841}{comb}}(\mbox{\hyperlink{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258}{t}}[i\ *\ 2],\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a735d072a603f3abb7c03818440575258}{t}}[i\ *\ 2\ +\ 1]);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_segment_tree_ad0e78179ab979ae2bc4304bdc181db17}\index{data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}!update@{update}}
+\index{update@{update}!data\_structures::SegmentTree$<$ T $>$@{data\_structures::SegmentTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_segment_tree_ad0e78179ab979ae2bc4304bdc181db17} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classdata__structures_1_1_segment_tree}{data\+\_\+structures\+::\+Segment\+Tree}}$<$ T $>$\+::update (\begin{DoxyParamCaption}\item[{int}]{pos}{, }\item[{T}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates a value at a certain position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position to update \\
+\hline
+{\em val} & The value to update it to \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a2a04f1832c5ce86def50c3021b2ab6b1}{update}}(1,\ 1,\ \mbox{\hyperlink{classdata__structures_1_1_segment_tree_a167fd91b68048e49e97859a8947690f3}{size}},\ pos,\ val);}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{segment__tree_8cpp}{segment\+\_\+tree.\+cpp}}\end{DoxyCompactItemize}

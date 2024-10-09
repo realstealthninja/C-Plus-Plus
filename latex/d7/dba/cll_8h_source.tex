@@ -1,0 +1,49 @@
+\doxysection{cll.\+h}
+\hypertarget{cll_8h_source}{}\label{cll_8h_source}\index{data\_structures/cll/cll.h@{data\_structures/cll/cll.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Simple\ data\ structure\ CLL\ (Cicular\ Linear\ Linked\ List)}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ CLL\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ CLL\_H}}
+\DoxyCodeLine{00011\ \textcolor{comment}{/*The\ data\ structure\ is\ a\ linear\ linked\ list\ of\ integers\ */}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ data;}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}*\ next;}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcll}{cll}}\ \{}
+\DoxyCodeLine{00018\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classcll}{cll}}();\ \textcolor{comment}{/*\ Construct\ without\ parameter\ */}}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classcll}{\string~cll}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ display();\ \textcolor{comment}{/*\ Show\ the\ list\ */}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ /******************************************************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ \ \ \ \ *\ Useful\ method\ for\ list}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ \ \ \ \ *******************************************************/}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_front(\textcolor{keywordtype}{int}\ new\_data);\ \ \textcolor{comment}{/*\ Insert\ a\ new\ value\ at\ head\ \ */}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_tail(\textcolor{keywordtype}{int}\ new\_data);\ \ \ \textcolor{comment}{/*\ Insert\ a\ new\ value\ at\ tail\ */}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_size();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Get\ total\ element\ in\ list\ */}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ find\_item(\textcolor{keywordtype}{int}\ item\_to\_find);\ \textcolor{comment}{/*\ Find\ an\ item\ in\ list\ */}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ /******************************************************}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ \ *\ Overloading\ method\ for\ list}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ \ *******************************************************/}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ operator*();\ \textcolor{comment}{/*\ Returns\ the\ info\ contained\ in\ head\ */}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{/*\ Overload\ the\ pre-\/increment\ operator.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ \ \ \ The\ iterator\ is\ advanced\ to\ the\ next\ node.\ */}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ operator++();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structnode}{node}}*\ head;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ total;\ \textcolor{comment}{/*\ Total\ element\ in\ a\ list\ */}}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,160 @@
+\doxysection{graph/breadth\+\_\+first\+\_\+search.cpp File Reference}
+\hypertarget{breadth__first__search_8cpp}{}\label{breadth__first__search_8cpp}\index{graph/breadth\_first\_search.cpp@{graph/breadth\_first\_search.cpp}}
+
+
+\href{https://en.wikipedia.org/wiki/Breadth-first_search}{\texttt{ Breadth First Search Algorithm (Breadth First Search)}}  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgraph_1_1_graph}{graph\+::\+Graph$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegraph}{graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgraph_1_1_graph}{Graph} Algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{breadth__first__search_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}} ()
+\item 
+int \mbox{\hyperlink{breadth__first__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://en.wikipedia.org/wiki/Breadth-first_search}{\texttt{ Breadth First Search Algorithm (Breadth First Search)}} 
+
+\begin{DoxyAuthor}{Author}
+\href{https://github.com/ayaankhan98}{\texttt{ Ayaan Khan}} 
+
+\href{https://github.com/gpamangkp}{\texttt{ Aman Kumar Pandey}}
+\end{DoxyAuthor}
+Breadth First Search also quoted as BFS is a \doxylink{class_graph}{Graph} Traversal Algorithm. Time Complexity O(\texorpdfstring{$\vert$}{|}\+V\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}\+E\texorpdfstring{$\vert$}{|}) where V are the number of vertices and E are the number of edges in the graph.
+
+Applications of Breadth First Search are
+
+
+\begin{DoxyEnumerate}
+\item Finding shortest path between two vertices say u and v, with path length measured by number of edges (an advantage over depth first search algorithm)
+\item Ford-\/\+Fulkerson Method for computing the maximum flow in a flow network.
+\item Testing bipartiteness of a graph.
+\item Cheney\textquotesingle{}s Algorithm, Copying garbage collection.
+\end{DoxyEnumerate}
+
+And there are many more...
+
+\doxysubsubsubsubsection*{working}
+
+In the implementation below we first created a graph using the adjacency list representation of graph. Breadth First Search Works as follows it requires a vertex as a start vertex, Start vertex is that vertex from where you want to start traversing the graph. We maintain a bool array or a vector to keep track of the vertices which we have visited so that we do not traverse the visited vertices again and again and eventually fall into an infinite loop. Along with this boolen array we use a \doxylink{struct_queue}{Queue}.
+
+
+\begin{DoxyEnumerate}
+\item First we mark the start vertex as visited.
+\item Push this visited vertex in the \doxylink{struct_queue}{Queue}.
+\item while the queue is not empty we repeat the following steps
+\begin{DoxyEnumerate}
+\item Take out an element from the front of queue
+\item Explore the adjacency list of this vertex if element in the adjacency list is not visited then we push that element into the queue and mark this as visited 
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{breadth__first__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{breadth\_first\_search.cpp@{breadth\_first\_search.cpp}!main@{main}}
+\index{main@{main}!breadth\_first\_search.cpp@{breadth\_first\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{breadth__first__search_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{breadth__first__search_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}{tests}}();}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ edges\ =\ 0;}
+\DoxyCodeLine{00189\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ edges:\ "{}};}
+\DoxyCodeLine{00190\ \ \ \ \ std::cin\ >>\ edges;}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph}{graph::Graph<int>}}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ space-\/separated\ pairs\ of\ vertices\ that\ form\ edges:\ "{}}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges-\/-\/)\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ u\ =\ 0,\ v\ =\ 0;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ std::cin\ >>\ u\ >>\ v;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.add\_edge(u,\ v);}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.breadth\_first\_search(0);}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00204\ \}}
+
+\end{DoxyCode}
+\Hypertarget{breadth__first__search_8cpp_a483bb8ccf42aaf7375a83e91490eda1e}\index{breadth\_first\_search.cpp@{breadth\_first\_search.cpp}!tests@{tests}}
+\index{tests@{tests}!breadth\_first\_search.cpp@{breadth\_first\_search.cpp}}
+\doxysubsubsection{\texorpdfstring{tests()}{tests()}}
+{\footnotesize\ttfamily \label{breadth__first__search_8cpp_a483bb8ccf42aaf7375a83e91490eda1e} 
+static void tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test function Test 1 Begin
+
+Test 2 Begin
+
+Test 3 Begins
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ \ ///\ Test\ 1\ Begin}}
+\DoxyCodeLine{00141\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph}{graph::Graph<int>}}\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}};}
+\DoxyCodeLine{00142\ \ \ \ \ std::map<int,\ bool>\ correct\_result;}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.add\_edge(0,\ 1);}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.add\_edge(1,\ 2);}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.add\_edge(2,\ 3);}
+\DoxyCodeLine{00146\ \ \ \ \ correct\_result[0]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00147\ \ \ \ \ correct\_result[1]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00148\ \ \ \ \ correct\_result[2]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00149\ \ \ \ \ correct\_result[3]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ std::map<int,\ bool>\ returned\_result\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.breadth\_first\_search(2);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ assert(returned\_result\ ==\ correct\_result);}
+\DoxyCodeLine{00154\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00155\ \textcolor{comment}{}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ \ \ \ ///\ Test\ 2\ Begin}}
+\DoxyCodeLine{00157\ \textcolor{comment}{}\ \ \ \ returned\_result\ =\ \mbox{\hyperlink{composite__simpson__rule_8cpp_a2f67508d5f392b0321772169342c98ad}{g}}.breadth\_first\_search(0);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ assert(returned\_result\ ==\ correct\_result);}
+\DoxyCodeLine{00160\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 2\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00161\ \textcolor{comment}{}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ \ \ \ ///\ Test\ 3\ Begins}}
+\DoxyCodeLine{00163\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{classgraph_1_1_graph}{graph::Graph<std::string>}}\ g2;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ g2.\mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\_edge}}(\textcolor{stringliteral}{"{}Gorakhpur"{}},\ \textcolor{stringliteral}{"{}Lucknow"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00166\ \ \ \ \ g2.\mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\_edge}}(\textcolor{stringliteral}{"{}Gorakhpur"{}},\ \textcolor{stringliteral}{"{}Kanpur"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00167\ \ \ \ \ g2.\mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\_edge}}(\textcolor{stringliteral}{"{}Lucknow"{}},\ \textcolor{stringliteral}{"{}Agra"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00168\ \ \ \ \ g2.\mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\_edge}}(\textcolor{stringliteral}{"{}Kanpur"{}},\ \textcolor{stringliteral}{"{}Agra"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00169\ \ \ \ \ g2.\mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\_edge}}(\textcolor{stringliteral}{"{}Lucknow"{}},\ \textcolor{stringliteral}{"{}Prayagraj"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00170\ \ \ \ \ g2.\mbox{\hyperlink{classgraph_1_1_graph_a877b2cba40d8d46dde6fb4209effed19}{add\_edge}}(\textcolor{stringliteral}{"{}Agra"{}},\ \textcolor{stringliteral}{"{}Noida"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ std::map<std::string,\ bool>\ correct\_res;}
+\DoxyCodeLine{00173\ \ \ \ \ std::map<std::string,\ bool>\ returned\_res\ =}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ g2.\mbox{\hyperlink{classgraph_1_1_graph_a3755ec9e6a842238c7f4aac10b661981}{breadth\_first\_search}}(\textcolor{stringliteral}{"{}Kanpur"{}});}
+\DoxyCodeLine{00175\ \ \ \ \ correct\_res[\textcolor{stringliteral}{"{}Gorakhpur"{}}]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00176\ \ \ \ \ correct\_res[\textcolor{stringliteral}{"{}Lucknow"{}}]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00177\ \ \ \ \ correct\_res[\textcolor{stringliteral}{"{}Kanpur"{}}]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00178\ \ \ \ \ correct\_res[\textcolor{stringliteral}{"{}Agra"{}}]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00179\ \ \ \ \ correct\_res[\textcolor{stringliteral}{"{}Prayagraj"{}}]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00180\ \ \ \ \ correct\_res[\textcolor{stringliteral}{"{}Noida"{}}]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00181\ \ \ \ \ assert(correct\_res\ ==\ returned\_res);}
+\DoxyCodeLine{00182\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 3\ Passed..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00183\ \}}
+
+\end{DoxyCode}

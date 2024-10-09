@@ -1,0 +1,210 @@
+\doxysection{backtracking/wildcard\+\_\+matching.cpp File Reference}
+\hypertarget{wildcard__matching_8cpp}{}\label{wildcard__matching_8cpp}\index{backtracking/wildcard\_matching.cpp@{backtracking/wildcard\_matching.cpp}}
+
+
+Implementation of the \href{https://www.geeksforgeeks.org/wildcard-pattern-matching/}{\texttt{ Wildcard Matching}} problem.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacebacktracking}{backtracking}}
+\begin{DoxyCompactList}\small\item\em for vector container \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacewildcard__matching}{wildcard\+\_\+matching}}
+\begin{DoxyCompactList}\small\item\em Functions for the \href{https://www.geeksforgeeks.org/wildcard-pattern-matching/}{\texttt{ Wildcard Matching}} problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int64\+\_\+t $>$ $>$ \mbox{\hyperlink{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7}{backtracking\+::wildcard\+\_\+matching\+::dp\+Table}} (1000, std\+::vector$<$ int64\+\_\+t $>$(1000, -\/1))
+\begin{DoxyCompactList}\small\item\em The main function implements if pattern can be matched with given string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{wildcard__matching_8cpp_a182d0f016b34e40f86be8d6df05dc9ac}{backtracking\+::wildcard\+\_\+matching\+::wildcard\+\_\+matching}} (std\+::string s, std\+::string p, uint32\+\_\+t pos1, uint32\+\_\+t pos2)
+\item 
+static void \mbox{\hyperlink{wildcard__matching_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}} ()
+\begin{DoxyCompactList}\small\item\em Self-\/test implementations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{wildcard__matching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \href{https://www.geeksforgeeks.org/wildcard-pattern-matching/}{\texttt{ Wildcard Matching}} problem. 
+
+Given a matching string and a pattern, implement wildcard pattern matching with support for {\ttfamily ?} and {\ttfamily \texorpdfstring{$\ast$}{*}}. {\ttfamily ?} matches any single character. {\ttfamily \texorpdfstring{$\ast$}{*}} matches any sequence of characters (including the empty sequence). The matching should cover the entire matching string (not partial). The task is to determine if the pattern matches with the matching string \begin{DoxyAuthor}{Author}
+\href{https://github.com/Swastyy}{\texttt{ Swastika Gupta}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7}\index{wildcard\_matching.cpp@{wildcard\_matching.cpp}!dpTable@{dpTable}}
+\index{dpTable@{dpTable}!wildcard\_matching.cpp@{wildcard\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{dpTable()}{dpTable()}}
+{\footnotesize\ttfamily \label{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7} 
+std\+::vector$<$ std\+::vector$<$ int64\+\_\+t $>$ $>$ backtracking\+::wildcard\+\_\+matching\+::dp\+Table (\begin{DoxyParamCaption}\item[{1000}]{}{, }\item[{std\+::vector$<$ int64\+\_\+t $>$}]{}{1000, -\/1}\end{DoxyParamCaption})}
+
+
+
+The main function implements if pattern can be matched with given string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & is the given matching string \\
+\hline
+{\em p} & is the given pattern \\
+\hline
+{\em pos1} & is the starting index \\
+\hline
+{\em pos2} & is the last index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if pattern matches with matching string otherwise 0 
+\end{DoxyReturn}
+\Hypertarget{wildcard__matching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{wildcard\_matching.cpp@{wildcard\_matching.cpp}!main@{main}}
+\index{main@{main}!wildcard\_matching.cpp@{wildcard\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{wildcard__matching_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+0 on exit 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{wildcard__matching_8cpp_aa8dca7b867074164d5f45b0f3851269d}{test}}();\ \ \textcolor{comment}{//\ run\ self-\/test\ implementations}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}
+\Hypertarget{wildcard__matching_8cpp_aa8dca7b867074164d5f45b0f3851269d}\index{wildcard\_matching.cpp@{wildcard\_matching.cpp}!test@{test}}
+\index{test@{test}!wildcard\_matching.cpp@{wildcard\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{wildcard__matching_8cpp_aa8dca7b867074164d5f45b0f3851269d} 
+static void test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Self-\/test implementations. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ 1st\ test}}
+\DoxyCodeLine{00103\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1st\ test\ "{}};}
+\DoxyCodeLine{00104\ \ \ \ \ std::string\ matching1\ =\ \textcolor{stringliteral}{"{}baaabab"{}};}
+\DoxyCodeLine{00105\ \ \ \ \ std::string\ pattern1\ =\ \textcolor{stringliteral}{"{}*****ba*****ab"{}};}
+\DoxyCodeLine{00106\ \ \ \ \ assert(backtracking::wildcard\_matching::wildcard\_matching(matching1,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pattern1,\ 0,\ 0)\ ==}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ here\ the\ pattern\ matches\ with\ given\ string}}
+\DoxyCodeLine{00109\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ 2nd\ test}}
+\DoxyCodeLine{00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2nd\ test\ "{}};}
+\DoxyCodeLine{00113\ \ \ \ \ std::string\ matching2\ =\ \textcolor{stringliteral}{"{}baaabab"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ std::string\ pattern2\ =\ \textcolor{stringliteral}{"{}ba*****ab"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ assert(backtracking::wildcard\_matching::wildcard\_matching(matching2,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pattern2,\ 0,\ 0)\ ==}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ here\ the\ pattern\ matches\ with\ given\ string}}
+\DoxyCodeLine{00118\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ 3rd\ test}}
+\DoxyCodeLine{00121\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}3rd\ test\ "{}};}
+\DoxyCodeLine{00122\ \ \ \ \ std::string\ matching3\ =\ \textcolor{stringliteral}{"{}baaabab"{}};}
+\DoxyCodeLine{00123\ \ \ \ \ std::string\ pattern3\ =\ \textcolor{stringliteral}{"{}ba*ab"{}};}
+\DoxyCodeLine{00124\ \ \ \ \ assert(backtracking::wildcard\_matching::wildcard\_matching(matching3,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pattern3,\ 0,\ 0)\ ==}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ here\ the\ pattern\ matches\ with\ given\ string}}
+\DoxyCodeLine{00127\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ 4th\ test}}
+\DoxyCodeLine{00130\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}4th\ test\ "{}};}
+\DoxyCodeLine{00131\ \ \ \ \ std::string\ matching4\ =\ \textcolor{stringliteral}{"{}baaabab"{}};}
+\DoxyCodeLine{00132\ \ \ \ \ std::string\ pattern4\ =\ \textcolor{stringliteral}{"{}a*ab"{}};}
+\DoxyCodeLine{00133\ \ \ \ \ assert(backtracking::wildcard\_matching::wildcard\_matching(matching4,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pattern4,\ 0,\ 0)\ ==}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ here\ the\ pattern\ matches\ with\ given\ string}}
+\DoxyCodeLine{00136\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ 5th\ test}}
+\DoxyCodeLine{00139\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}5th\ test\ "{}};}
+\DoxyCodeLine{00140\ \ \ \ \ std::string\ matching5\ =\ \textcolor{stringliteral}{"{}baaabab"{}};}
+\DoxyCodeLine{00141\ \ \ \ \ std::string\ pattern5\ =\ \textcolor{stringliteral}{"{}aa?ab"{}};}
+\DoxyCodeLine{00142\ \ \ \ \ assert(backtracking::wildcard\_matching::wildcard\_matching(matching5,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pattern5,\ 0,\ 0)\ ==}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ 1);\ \ \textcolor{comment}{//\ here\ the\ pattern\ matches\ with\ given\ string}}
+\DoxyCodeLine{00145\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}passed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00146\ \}}
+
+\end{DoxyCode}
+\Hypertarget{wildcard__matching_8cpp_a182d0f016b34e40f86be8d6df05dc9ac}\index{wildcard\_matching.cpp@{wildcard\_matching.cpp}!wildcard\_matching@{wildcard\_matching}}
+\index{wildcard\_matching@{wildcard\_matching}!wildcard\_matching.cpp@{wildcard\_matching.cpp}}
+\doxysubsubsection{\texorpdfstring{wildcard\_matching()}{wildcard\_matching()}}
+{\footnotesize\ttfamily \label{wildcard__matching_8cpp_a182d0f016b34e40f86be8d6df05dc9ac} 
+bool backtracking\+::wildcard\+\_\+matching\+::wildcard\+\_\+matching (\begin{DoxyParamCaption}\item[{std\+::string}]{s}{, }\item[{std\+::string}]{p}{, }\item[{uint32\+\_\+t}]{pos1}{, }\item[{uint32\+\_\+t}]{pos2}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ uint32\_t\ n\ =\ s.length();}
+\DoxyCodeLine{00042\ \ \ \ \ uint32\_t\ m\ =\ p.length();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ matching\ is\ successfull\ if\ both\ strings\ are\ done}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos1\ ==\ n\ \&\&\ pos2\ ==\ m)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ matching\ is\ unsuccessfull\ if\ pattern\ is\ not\ finished\ but\ matching\ string}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ is}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos1\ !=\ n\ \&\&\ pos2\ ==\ m)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ all\ the\ remaining\ characters\ of\ patterns\ must\ be\ *\ inorder\ to\ match\ with}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ finished\ string}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos1\ ==\ n\ \&\&\ pos2\ !=\ m)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (pos2\ <\ m\ \&\&\ p[pos2]\ ==\ \textcolor{charliteral}{'*'})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ pos2++;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pos2\ ==\ m;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ if\ already\ calculted\ for\ these\ positions}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (dpTable[pos1][pos2]\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7}{dpTable}}[pos1][pos2];}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ if\ the\ characters\ are\ same\ just\ go\ ahead\ in\ both\ the\ string}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (s[pos1]\ ==\ p[pos2])\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7}{dpTable}}[pos1][pos2]\ =}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewildcard__matching}{wildcard\_matching}}(s,\ p,\ pos1\ +\ 1,\ pos2\ +\ 1);}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ can\ only\ single\ character}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p[pos2]\ ==\ \textcolor{charliteral}{'?'})\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7}{dpTable}}[pos1][pos2]\ =}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewildcard__matching}{wildcard\_matching}}(s,\ p,\ pos1\ +\ 1,\ pos2\ +\ 1);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ have\ choice\ either\ to\ match\ one\ or\ more\ charcters}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p[pos2]\ ==\ \textcolor{charliteral}{'*'})\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7}{dpTable}}[pos1][pos2]\ =}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewildcard__matching}{wildcard\_matching}}(s,\ p,\ pos1,\ pos2\ +\ 1)\ ||}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewildcard__matching}{wildcard\_matching}}(s,\ p,\ pos1\ +\ 1,\ pos2);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ not\ possible\ to\ match}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{wildcard__matching_8cpp_a1f8c260cf0d7e22c666b85f1f71ee4a7}{dpTable}}[pos1][pos2]\ =\ 0;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}

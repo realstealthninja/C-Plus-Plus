@@ -1,0 +1,156 @@
+\doxysection{data\+\_\+structures\+::Bitset Class Reference}
+\hypertarget{classdata__structures_1_1_bitset}{}\label{classdata__structures_1_1_bitset}\index{data\_structures::Bitset@{data\_structures::Bitset}}
+
+
+Simple bitset implementation for bloom filter.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdata__structures_1_1_bitset_a15b05aabb28f9b1896b0a61e8ef60130}{Bitset}} (std\+::size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Bit\+Set class constructor. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classdata__structures_1_1_bitset_a2f1f44d6a12b0de4aaf242872b1c7b54}{size}} ()
+\begin{DoxyCompactList}\small\item\em Utility function to return the size of the inner array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdata__structures_1_1_bitset_a17dbe1b1d559302312e8091f82f7499c}{add}} (std\+::size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Turn bit on position x to 1s. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdata__structures_1_1_bitset_a9ef54c7c3f6494b36ead3ae2e5cf43ac}{contains}} (std\+::size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Doest bitset contains element x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}\label{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73} 
+std\+::vector$<$ std\+::size\+\_\+t $>$ {\bfseries data}
+\begin{DoxyCompactList}\small\item\em short info of this variable \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::size\+\_\+t \mbox{\hyperlink{classdata__structures_1_1_bitset_ad7f7d479079a95bcc9175465395fa23f}{block\+Size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple bitset implementation for bloom filter. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdata__structures_1_1_bitset_a15b05aabb28f9b1896b0a61e8ef60130}\index{data\_structures::Bitset@{data\_structures::Bitset}!Bitset@{Bitset}}
+\index{Bitset@{Bitset}!data\_structures::Bitset@{data\_structures::Bitset}}
+\doxysubsubsection{\texorpdfstring{Bitset()}{Bitset()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bitset_a15b05aabb28f9b1896b0a61e8ef60130} 
+data\+\_\+structures\+::\+Bitset\+::\+Bitset (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{init\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Bit\+Set class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+Size} & amount of blocks, each contain sizeof(std\+::size\+\_\+t) bits \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ :\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}{data}}(initSize)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1_bitset_a17dbe1b1d559302312e8091f82f7499c}\index{data\_structures::Bitset@{data\_structures::Bitset}!add@{add}}
+\index{add@{add}!data\_structures::Bitset@{data\_structures::Bitset}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bitset_a17dbe1b1d559302312e8091f82f7499c} 
+void data\+\_\+structures\+::\+Bitset\+::add (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Turn bit on position x to 1s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position to turn bit on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ std::size\_t\ blockIndex\ =\ x\ /\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ad7f7d479079a95bcc9175465395fa23f}{blockSize}};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (blockIndex\ >=\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}{data}}.size())\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}{data}}.resize(blockIndex\ +\ 1);}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}{data}}[blockIndex]\ |=\ 1\ <<\ (x\ \%\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ad7f7d479079a95bcc9175465395fa23f}{blockSize}});}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_bitset_a9ef54c7c3f6494b36ead3ae2e5cf43ac}\index{data\_structures::Bitset@{data\_structures::Bitset}!contains@{contains}}
+\index{contains@{contains}!data\_structures::Bitset@{data\_structures::Bitset}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bitset_a9ef54c7c3f6494b36ead3ae2e5cf43ac} 
+bool data\+\_\+structures\+::\+Bitset\+::contains (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Doest bitset contains element x. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position in bitset to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if bit position x is 1 
+
+false if bit position x is 0 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ std::size\_t\ blockIndex\ =\ x\ /\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ad7f7d479079a95bcc9175465395fa23f}{blockSize}};}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (blockIndex\ >=\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}{data}}.size())\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}{data}}[blockIndex]\ \&\ (1\ <<\ (x\ \%\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ad7f7d479079a95bcc9175465395fa23f}{blockSize}}));}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_bitset_a2f1f44d6a12b0de4aaf242872b1c7b54}\index{data\_structures::Bitset@{data\_structures::Bitset}!size@{size}}
+\index{size@{size}!data\_structures::Bitset@{data\_structures::Bitset}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bitset_a2f1f44d6a12b0de4aaf242872b1c7b54} 
+std\+::size\+\_\+t data\+\_\+structures\+::\+Bitset\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Utility function to return the size of the inner array. 
+
+\begin{DoxyReturn}{Returns}
+the size of inner array 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdata__structures_1_1_bitset_ae86688cf99b77342deedb75149573e73}{data}}.size();\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdata__structures_1_1_bitset_ad7f7d479079a95bcc9175465395fa23f}\index{data\_structures::Bitset@{data\_structures::Bitset}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!data\_structures::Bitset@{data\_structures::Bitset}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_bitset_ad7f7d479079a95bcc9175465395fa23f} 
+const std\+::size\+\_\+t data\+\_\+structures\+::\+Bitset\+::block\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(std::size\_t)}
+
+\end{DoxyCode}
+size of integer type, that we are using in our bitset 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{bloom__filter_8cpp}{bloom\+\_\+filter.\+cpp}}\end{DoxyCompactItemize}

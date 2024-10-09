@@ -1,0 +1,234 @@
+\doxysection{data\+\_\+structures\+::Skip\+List Class Reference}
+\hypertarget{classdata__structures_1_1_skip_list}{}\label{classdata__structures_1_1_skip_list}\index{data\_structures::SkipList@{data\_structures::SkipList}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdata__structures_1_1_skip_list_a7ffc3688725b9d1ec6e5bb881a6e2ae4}{Skip\+List}} ()
+\item 
+int \mbox{\hyperlink{classdata__structures_1_1_skip_list_aa3f3813e9896792fc86b296547689ba4}{random\+Level}} ()
+\item 
+void \mbox{\hyperlink{classdata__structures_1_1_skip_list_a40a4042bdf0b6683b5f21ae7854de8a9}{insert\+Element}} (int key, void \texorpdfstring{$\ast$}{*}value)
+\item 
+void \mbox{\hyperlink{classdata__structures_1_1_skip_list_a86925c53e139cc6c3f7df1e9003bb0b0}{delete\+Element}} (int key)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdata__structures_1_1_skip_list_af2f3d4e15b1f47afac849c2e08a730f4}{search\+Element}} (int key)
+\item 
+void \mbox{\hyperlink{classdata__structures_1_1_skip_list_a812611f80b8079268dbb19cc4e9bee5c}{display\+List}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}\label{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650} 
+int {\bfseries level}
+\begin{DoxyCompactList}\small\item\em Maximum level of the skiplist. \end{DoxyCompactList}\item 
+\Hypertarget{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}\label{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structdata__structures_1_1_node}{Node}} $>$ {\bfseries header}
+\begin{DoxyCompactList}\small\item\em Pointer to the header node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classdata__structures_1_1_skip_list}{Skip\+List} class implementation with basic methods 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdata__structures_1_1_skip_list_a7ffc3688725b9d1ec6e5bb881a6e2ae4}\index{data\_structures::SkipList@{data\_structures::SkipList}!SkipList@{SkipList}}
+\index{SkipList@{SkipList}!data\_structures::SkipList@{data\_structures::SkipList}}
+\doxysubsubsection{\texorpdfstring{SkipList()}{SkipList()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_skip_list_a7ffc3688725b9d1ec6e5bb881a6e2ae4} 
+data\+\_\+structures\+::\+Skip\+List\+::\+Skip\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Skip List constructor. Initializes header, start \doxylink{structdata__structures_1_1_node}{Node} for searching in the list 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}}\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Header\ initialization}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}{header}}\ =\ std::make\_shared<Node>(-\/1,\ \mbox{\hyperlink{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a}{MAX\_LEVEL}});}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdata__structures_1_1_skip_list_a86925c53e139cc6c3f7df1e9003bb0b0}\index{data\_structures::SkipList@{data\_structures::SkipList}!deleteElement@{deleteElement}}
+\index{deleteElement@{deleteElement}!data\_structures::SkipList@{data\_structures::SkipList}}
+\doxysubsubsection{\texorpdfstring{deleteElement()}{deleteElement()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_skip_list_a86925c53e139cc6c3f7df1e9003bb0b0} 
+void data\+\_\+structures\+::\+Skip\+List\+::delete\+Element (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes an element by key and prints if has been removed successfully 
+\begin{DoxyParams}{Parameters}
+{\em key} & is number that is used for comparision. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ x\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}{header}};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ std::array<std::shared\_ptr<Node>,\ \mbox{\hyperlink{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a}{MAX\_LEVEL}}\ +\ 1>\ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}.fill(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}};\ i\ >=\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (x-\/>forward[i]\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ x-\/>forward[i]-\/>key\ <\ key)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ x-\/>forward[i];}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}[i]\ =\ x;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ x\ =\ x-\/>forward[0];}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doesnt\_exist\ =\ (x\ ==\ \textcolor{keyword}{nullptr}\ ||\ x-\/>key\ !=\ key);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!doesnt\_exist)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}};\ i++)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}[i]-\/>forward[i]\ !=\ x)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}[i]-\/>forward[i]\ =\ x-\/>forward[i];}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Remove\ empty\ levels*/}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}}\ >\ 0\ \&\&\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}{header}}-\/>forward[\mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}}]\ ==\ \textcolor{keyword}{nullptr})\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}}-\/-\/;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Deleted"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Doesn't\ exist"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_skip_list_a812611f80b8079268dbb19cc4e9bee5c}\index{data\_structures::SkipList@{data\_structures::SkipList}!displayList@{displayList}}
+\index{displayList@{displayList}!data\_structures::SkipList@{data\_structures::SkipList}}
+\doxysubsubsection{\texorpdfstring{displayList()}{displayList()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_skip_list_a812611f80b8079268dbb19cc4e9bee5c} 
+void data\+\_\+structures\+::\+Skip\+List\+::display\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Display skip list level 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Displaying\ list:\(\backslash\)n"{}};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}};\ i++)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ \mbox{\hyperlink{structnode}{node}}\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}{header}}-\/>forward[i];}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Level\ "{}}\ <<\ (i)\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{structnode}{node}}\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{structnode}{node}}-\/>key\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnode}{node}}\ =\ \mbox{\hyperlink{structnode}{node}}-\/>forward[i];}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_skip_list_a40a4042bdf0b6683b5f21ae7854de8a9}\index{data\_structures::SkipList@{data\_structures::SkipList}!insertElement@{insertElement}}
+\index{insertElement@{insertElement}!data\_structures::SkipList@{data\_structures::SkipList}}
+\doxysubsubsection{\texorpdfstring{insertElement()}{insertElement()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_skip_list_a40a4042bdf0b6683b5f21ae7854de8a9} 
+void data\+\_\+structures\+::\+Skip\+List\+::insert\+Element (\begin{DoxyParamCaption}\item[{int}]{key}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inserts elements with given key and value; It\textquotesingle{}s level is computed by \doxylink{classdata__structures_1_1_skip_list_aa3f3813e9896792fc86b296547689ba4}{random\+Level()} function. 
+\begin{DoxyParams}{Parameters}
+{\em key} & is number that is used for comparision \\
+\hline
+{\em value} & pointer to a value, that can be any type \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Inserting"{}}\ <<\ key\ <<\ \textcolor{stringliteral}{"{}..."{}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ x\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}{header}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ std::array<std::shared\_ptr<Node>,\ \mbox{\hyperlink{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a}{MAX\_LEVEL}}\ +\ 1>\ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}.fill(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}};\ i\ >=\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (x-\/>forward[i]\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ x-\/>forward[i]-\/>key\ <\ key)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ x-\/>forward[i];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}[i]\ =\ x;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ x\ =\ x-\/>forward[0];}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doesnt\_exist\ =\ (x\ ==\ \textcolor{keyword}{nullptr}\ ||\ x-\/>key\ !=\ key);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (doesnt\_exist)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rlevel\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_aa3f3813e9896792fc86b296547689ba4}{randomLevel}}();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rlevel\ >\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}})\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}}\ +\ 1;\ i\ <\ rlevel\ +\ 1;\ i++)\ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}[i]\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}{header}};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ current\ level}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}}\ =\ rlevel;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ n\ =}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_shared<Node>(key,\ rlevel,\ value);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ rlevel;\ i++)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>forward[i]\ =\ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}[i]-\/>forward[i];}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segtree_8cpp_abd3e818681fb2e29cf08f4f60f82c8e0}{update}}[i]-\/>forward[i]\ =\ n;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Inserted"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Exists"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_skip_list_aa3f3813e9896792fc86b296547689ba4}\index{data\_structures::SkipList@{data\_structures::SkipList}!randomLevel@{randomLevel}}
+\index{randomLevel@{randomLevel}!data\_structures::SkipList@{data\_structures::SkipList}}
+\doxysubsubsection{\texorpdfstring{randomLevel()}{randomLevel()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_skip_list_aa3f3813e9896792fc86b296547689ba4} 
+int data\+\_\+structures\+::\+Skip\+List\+::random\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns random level of the skip list. Every higher level is 2 times less likely. \begin{DoxyReturn}{Returns}
+random level for skip list 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lvl\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(std::rand())\ /\ RAND\_MAX\ <\ \mbox{\hyperlink{namespacedata__structures_a903639d8e6f955dd8d5c263781455d61}{PROBABILITY}}\ \&\&}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lvl\ <\ \mbox{\hyperlink{namespacedata__structures_ac0d7e0be24da9f41bcb19745873c436a}{MAX\_LEVEL}})\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ lvl++;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lvl;}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdata__structures_1_1_skip_list_af2f3d4e15b1f47afac849c2e08a730f4}\index{data\_structures::SkipList@{data\_structures::SkipList}!searchElement@{searchElement}}
+\index{searchElement@{searchElement}!data\_structures::SkipList@{data\_structures::SkipList}}
+\doxysubsubsection{\texorpdfstring{searchElement()}{searchElement()}}
+{\footnotesize\ttfamily \label{classdata__structures_1_1_skip_list_af2f3d4e15b1f47afac849c2e08a730f4} 
+void \texorpdfstring{$\ast$}{*} data\+\_\+structures\+::\+Skip\+List\+::search\+Element (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searching element in skip list structure 
+\begin{DoxyParams}{Parameters}
+{\em key} & is number that is used for comparision \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the value of the node 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ std::shared\_ptr<Node>\ x\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_ad7e392386d7db622185d6f7c718e4f16}{header}};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Searching\ for\ "{}}\ <<\ key\ <<\ std::endl;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{classdata__structures_1_1_skip_list_a3e249c2c35a8b7f5ffd2d77fee60d650}{level}};\ i\ >=\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (x-\/>forward[i]\ \&\&\ x-\/>forward[i]-\/>key\ <\ key)\ x\ =\ x-\/>forward[i];}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ x\ =\ x-\/>forward[0];}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ \&\&\ x-\/>key\ ==\ key)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x-\/>value;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Not\ Found"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/\mbox{\hyperlink{skip__list_8cpp}{skip\+\_\+list.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,115 @@
+\doxysection{spirograph Namespace Reference}
+\hypertarget{namespacespirograph}{}\label{namespacespirograph}\index{spirograph@{spirograph}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespacespirograph_aeca22dbe4563358960e907a40cd3e1ac}{spirograph}} (std\+::array$<$ std\+::pair$<$ double, double $>$, N $>$ \texorpdfstring{$\ast$}{*}points, double l, double k, double rot)
+\item 
+void \mbox{\hyperlink{namespacespirograph_a8e83a64e8443fff1e5ffdc1c299c1e99}{test}} ()
+\begin{DoxyCompactList}\small\item\em Test function to save resulting points to a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions related to \doxylink{spirograph_8cpp}{spirograph.\+cpp} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacespirograph_aeca22dbe4563358960e907a40cd3e1ac}\index{spirograph@{spirograph}!spirograph@{spirograph}}
+\index{spirograph@{spirograph}!spirograph@{spirograph}}
+\doxysubsubsection{\texorpdfstring{spirograph()}{spirograph()}}
+{\footnotesize\ttfamily \label{namespacespirograph_aeca22dbe4563358960e907a40cd3e1ac} 
+template$<$std\+::size\+\_\+t N$>$ \\
+void spirograph\+::spirograph (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::pair$<$ double, double $>$, N $>$ \texorpdfstring{$\ast$}{*}}]{points}{, }\item[{double}]{l}{, }\item[{double}]{k}{, }\item[{double}]{rot}{}\end{DoxyParamCaption})}
+
+Generate spirograph curve into arrays {\ttfamily x} and {\ttfamily y} such that the i\texorpdfstring{$^\wedge$}{\string^}th point in 2D is represented by {\ttfamily (x\mbox{[}i\mbox{]},y\mbox{[}i\mbox{]})}. The generating function is given by\+:     \begin{eqnarray*}
+x &=& R\left[ (1-k) \cos (t) + l\cdot k\cdot\cos \left(\frac{1-k}{k}t\right)
+\right]\\
+y &=& R\left[ (1-k) \sin (t) - l\cdot k\cdot\sin \left(\frac{1-k}{k}t\right)
+\right] \end{eqnarray*} where
+\begin{DoxyItemize}
+\item $R$ is the scaling parameter that we will consider $=1$
+\item $l=\frac{\rho}{r}$ is the relative distance of marker from the centre of inner circle and $0\le l\le1$
+\item $\rho$ is physical distance of marker from centre of inner circle
+\item $r$ is the radius of inner circle
+\item $k=\frac{r}{R}$ is the ratio of radius of inner circle to outer circle and $0<k<1$
+\item $R$ is the radius of outer circle
+\item $t$ is the angle of rotation of the point i.\+e., represents the time parameter
+\end{DoxyItemize}
+
+Since we are considering ratios, the actual values of $r$ and $R$ are immaterial.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & number of points = size of array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em points} & Array of 2D points represented as std\+::pair \\
+\hline
+ & {\em l} & the relative distance of marker from the centre of inner circle and $0\le l\le1$ \\
+\hline
+ & {\em k} & the ratio of radius of inner circle to outer circle and $0<k<1$ \\
+\hline
+ & {\em rot} & the number of rotations to perform (can be fractional value) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ dt\ =\ rot\ *\ 2.f\ *\ M\_PI\ /\ N;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ R\ =\ 1.f;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ k1\ =\ 1.f\ -\/\ k;}
+\DoxyCodeLine{00075\ \ \ \ \ int32\_t\ step\ =\ 0;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#pragma\ omp\ for}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (step\ =\ 0;\ step\ <\ N;\ step++)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ dt\ *\ step;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ first\ =\ R\ *\ (k1\ *\ std::cos(t)\ +\ l\ *\ k\ *\ std::cos(k1\ *\ t\ /\ k));}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ second\ =\ R\ *\ (k1\ *\ std::sin(t)\ -\/\ l\ *\ k\ *\ std::sin(k1\ *\ t\ /\ k));}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ points[0][step].first\ =\ first;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ points[0][step].second\ =\ second;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacespirograph_a8e83a64e8443fff1e5ffdc1c299c1e99}\index{spirograph@{spirograph}!test@{test}}
+\index{test@{test}!spirograph@{spirograph}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily \label{namespacespirograph_a8e83a64e8443fff1e5ffdc1c299c1e99} 
+void spirograph\+::test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to save resulting points to a CSV file. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ N\ =\ 500;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{double}\ l\ =\ 0.3,\ k\ =\ 0.75,\ rot\ =\ 10.;}
+\DoxyCodeLine{00096\ \ \ \ \ std::stringstream\ fname;}
+\DoxyCodeLine{00097\ \ \ \ \ fname\ <<\ std::setw(3)\ <<\ \textcolor{stringliteral}{"{}spirograph\_"{}}\ <<\ l\ <<\ \textcolor{stringliteral}{"{}\_"{}}\ <<\ k\ <<\ \textcolor{stringliteral}{"{}\_"{}}\ <<\ rot}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}.csv"{}};}
+\DoxyCodeLine{00099\ \ \ \ \ std::ofstream\ fp(fname.str());}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (!fp.is\_open())\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ perror(fname.str().c\_str());}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ std::array<std::pair<double,\ double>,\ N>\ points;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{namespacespirograph}{spirograph}}(\&points,\ l,\ k,\ rot);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ i++)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ fp\ <<\ points[i].first\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ points[i].first;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ N\ -\/\ 1)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ fp\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ fp.close();}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}
