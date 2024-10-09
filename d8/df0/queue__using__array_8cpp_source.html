@@ -124,65 +124,29 @@ $(function(){initNavTree('d8/df0/queue__using__array_8cpp_source.html','../../')
   <div class="headertitle"><div class="title">queue_using_array.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d8/df0/queue__using__array_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Implementation of Linear [Queue using array]</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * (https://www.geeksforgeeks.org/array-implementation-of-queue-simple/).</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * The Linear Queue is a data structure used for holding a sequence of</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * values, which can be added to the end line (enqueue), removed from</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * head of line (dequeue) and displayed.</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * ### Algorithm</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Values can be added by increasing the `rear` variable by 1 (which points to</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * the end of the array), then assigning new value to `rear`&#39;s element of the</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * array.</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * Values can be removed by increasing the `front` variable by 1 (which points</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * to the first of the array), so it cannot reached any more.</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * @author [Pooja](https://github.com/pooja-git11)</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * @author [Farbod Ahmadian](https://github.com/farbodahm)</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;array&gt;</span>     <span class="comment">/// for std::array</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;iostream&gt;</span>  <span class="comment">/// for io operations</span></div>
+<a href="../../d8/df0/queue__using__array_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;array&gt;</span>     </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;iostream&gt;</span>  </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d8/df0/queue__using__array_8cpp.html#a2d49e79bd164c298912db252970520d8">   23</a></span><span class="keyword">constexpr</span> uint16_t <a class="code hl_variable" href="../../d8/df0/queue__using__array_8cpp.html#a2d49e79bd164c298912db252970520d8">max_size</a>{10};  <span class="comment">///&lt; Maximum size of the queue</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @namespace data_structures</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @brief Algorithms with data structures</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d8/df0/queue__using__array_8cpp.html#a2d49e79bd164c298912db252970520d8">   23</a></span><span class="keyword">constexpr</span> uint16_t <a class="code hl_variable" href="../../d8/df0/queue__using__array_8cpp.html#a2d49e79bd164c298912db252970520d8">max_size</a>{10};  </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d3c/namespacedata__structures.html">data_structures</a> {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"></span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d9/d70/namespacequeue__using__array.html">   32</a></span><span class="comment"> * @namespace queue_using_array</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @brief Functions for [Queue using Array]</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * (https://www.geeksforgeeks.org/array-implementation-of-queue-simple/)</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * implementation.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d9/d70/namespacequeue__using__array.html">queue_using_array</a> {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * @brief Queue_Array class containing the main data and also index of head and</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * tail of the array.</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html">   43</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html">Queue_Array</a> {</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a4dc64488c36f84d927365fa8d1933663">enqueue</a>(<span class="keyword">const</span> int16_t&amp;);  <span class="comment">///&lt; Add element to the first of the queue</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2aaf88c9954ef3ab686f8e4bfbd87622">dequeue</a>();                 <span class="comment">///&lt; Delete element from back of the queue</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a688b7ea064739ea9fa66bf64bf4ae631">display</a>() <span class="keyword">const</span>;          <span class="comment">///&lt; Show all saved data</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a4dc64488c36f84d927365fa8d1933663">enqueue</a>(<span class="keyword">const</span> int16_t&amp;);  </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2aaf88c9954ef3ab686f8e4bfbd87622">dequeue</a>();                 </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a688b7ea064739ea9fa66bf64bf4ae631">display</a>() <span class="keyword">const</span>;          </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2f676f2f249eb36dfd49711a03e9e67e">   49</a></span>    int8_t <a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2f676f2f249eb36dfd49711a03e9e67e">front</a>{-1};                     <span class="comment">///&lt; Index of head of the array</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a9883dfcceede9a42227d2d313ae86f85">   50</a></span>    int8_t <a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a9883dfcceede9a42227d2d313ae86f85">rear</a>{-1};                      <span class="comment">///&lt; Index of tail of the array</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#ae69a0bf6c9921b37c516c8a4d2fb904d">   51</a></span>    std::array&lt;int16_t, max_size&gt; <a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#ae69a0bf6c9921b37c516c8a4d2fb904d">arr</a>{};  <span class="comment">///&lt; All stored data</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2f676f2f249eb36dfd49711a03e9e67e">   49</a></span>    int8_t <a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2f676f2f249eb36dfd49711a03e9e67e">front</a>{-1};                     </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a9883dfcceede9a42227d2d313ae86f85">   50</a></span>    int8_t <a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a9883dfcceede9a42227d2d313ae86f85">rear</a>{-1};                      </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#ae69a0bf6c9921b37c516c8a4d2fb904d">   51</a></span>    std::array&lt;int16_t, max_size&gt; <a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#ae69a0bf6c9921b37c516c8a4d2fb904d">arr</a>{};  </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * @brief Adds new element to the end of the queue</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * @param ele to be added to the end of the queue</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a4dc64488c36f84d927365fa8d1933663">   58</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a4dc64488c36f84d927365fa8d1933663">Queue_Array::enqueue</a>(<span class="keyword">const</span> int16_t&amp; ele) {</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a9883dfcceede9a42227d2d313ae86f85">rear</a> == <a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#ae69a0bf6c9921b37c516c8a4d2fb904d">arr</a>.size() - 1) {</div>
@@ -197,11 +161,7 @@ $(function(){initNavTree('d8/df0/queue__using__array_8cpp_source.html','../../')
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"></span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * @brief Remove element that is located at the first of the queue</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * @returns data that is deleted if queue is not empty</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2aaf88c9954ef3ab686f8e4bfbd87622">   75</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2aaf88c9954ef3ab686f8e4bfbd87622">Queue_Array::dequeue</a>() {</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    int8_t d{0};</div>
@@ -218,10 +178,7 @@ $(function(){initNavTree('d8/df0/queue__using__array_8cpp_source.html','../../')
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">return</span> d;</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
 </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"></span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> * @brief Utility function to show all elements in the queue</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a688b7ea064739ea9fa66bf64bf4ae631">   93</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a688b7ea064739ea9fa66bf64bf4ae631">Queue_Array::display</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2f676f2f249eb36dfd49711a03e9e67e">front</a> == -1) {</div>
@@ -234,14 +191,7 @@ $(function(){initNavTree('d8/df0/queue__using__array_8cpp_source.html','../../')
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}  <span class="comment">// namespace queue_using_array</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}  <span class="comment">// namespace data_structures</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * Allows the user to add and delete values from the queue.</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * Also allows user to display values in the queue.</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../d8/df0/queue__using__array_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  111</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d8/df0/queue__using__array_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">int</span> op{0}, <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>{0};</div>

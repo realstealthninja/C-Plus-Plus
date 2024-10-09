@@ -124,13 +124,7 @@ $(function(){initNavTree('de/d75/qr__eigen__values_8cpp_source.html','../../'); 
   <div class="headertitle"><div class="title">qr_eigen_values.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../de/d75/qr__eigen__values_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * \brief Compute real eigen values and eigen vectors of a symmetric matrix</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * using [QR decomposition](https://en.wikipedia.org/wiki/QR_decomposition)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * method.</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * \author [Krishna Vedala](https://github.com/kvedala)</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
+<a href="../../de/d75/qr__eigen__values_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
@@ -143,14 +137,7 @@ $(function(){initNavTree('de/d75/qr__eigen__values_8cpp_source.html','../../'); 
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d68/qr__decompose_8h.html">./qr_decompose.h</a>&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">using </span>qr_algorithm::operator&lt;&lt;;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../de/d75/qr__eigen__values_8cpp.html#aee57a411f07599034f5ceb8cc7d65b40">   20</a></span><span class="preprocessor">#define LIMS 9 </span><span class="comment">/**&lt; limit of range of matrix values */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * create a symmetric square matrix of given size with random elements. A</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * symmetric square matrix will *always* have real eigen values.</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * \param[out] A matrix to create (must be pre-allocated in memory)</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../de/d75/qr__eigen__values_8cpp.html#aee57a411f07599034f5ceb8cc7d65b40">   20</a></span><span class="preprocessor">#define LIMS 9 </span></div>
 <div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../de/d75/qr__eigen__values_8cpp.html#a9bbf469d5525a816b0d6ca812119093d">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d75/qr__eigen__values_8cpp.html#a9bbf469d5525a816b0d6ca812119093d">create_matrix</a>(std::valarray&lt;std::valarray&lt;double&gt;&gt; *A) {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> i, j, tmp, lim2 = <a class="code hl_define" href="../../de/d75/qr__eigen__values_8cpp.html#aee57a411f07599034f5ceb8cc7d65b40">LIMS</a> &gt;&gt; 1;</div>
@@ -169,16 +156,7 @@ $(function(){initNavTree('de/d75/qr__eigen__values_8cpp_source.html','../../'); 
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * Perform multiplication of two matrices.</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * * R2 must be equal to C1</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * * Resultant matrix size should be R1xC2</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * \param[in] A first matrix to multiply</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * \param[in] B second matrix to multiply</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * \param[out] OUT output matrix (must be pre-allocated)</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * \returns pointer to resultant matrix</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../de/d75/qr__eigen__values_8cpp.html#abb8bf4c55e10685a5eb2ad3797fde1ae">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d75/qr__eigen__values_8cpp.html#abb8bf4c55e10685a5eb2ad3797fde1ae">mat_mul</a>(<span class="keyword">const</span> std::valarray&lt;std::valarray&lt;double&gt;&gt; &amp;A,</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>             <span class="keyword">const</span> std::valarray&lt;std::valarray&lt;double&gt;&gt; &amp;B,</div>
@@ -203,28 +181,7 @@ $(function(){initNavTree('de/d75/qr__eigen__values_8cpp_source.html','../../'); 
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d2/d3b/namespaceqr__algorithm.html">qr_algorithm</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">/** Compute eigen values using iterative shifted QR decomposition algorithm as</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * follows:</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * 1. Use last diagonal element of A as eigen value approximation \f$c\f$</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> * 2. Shift diagonals of matrix \f$A&#39; = A - cI\f$</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> * 3. Decompose matrix \f$A&#39;=QR\f$</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> * 4. Compute next approximation \f$A&#39;_1 = RQ \f$</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> * 5. Shift diagonals back \f$A_1 = A&#39;_1 + cI\f$</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * 6. Termination condition check: last element below diagonal is almost 0</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> *   1. If not 0, go back to step 1 with the new approximation \f$A_1\f$</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> *   2. If 0, continue to step 7</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> * 7. Save last known \f$c\f$ as the eigen value.</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * 8. Are all eigen values found?</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> *   1. If not, remove last row and column of \f$A_1\f$ and go back to step 1.</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> *   2. If yes, stop.</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * \note The matrix \f$A\f$ gets modified</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * \param[in,out] A matrix to compute eigen values for</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * \param[in] print_intermediates (optional) whether to print intermediate A, Q</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * and R matrices (default = `false`)</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d2/d3b/namespaceqr__algorithm.html">qr_algorithm</a> {</div>
 <div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d2/d3b/namespaceqr__algorithm.html#a28e2fa3e803abaea6c568dc45d69d8cc">   98</a></span>std::valarray&lt;double&gt; <a class="code hl_function" href="../../d2/d3b/namespaceqr__algorithm.html#a28e2fa3e803abaea6c568dc45d69d8cc">eigen_values</a>(std::valarray&lt;std::valarray&lt;double&gt;&gt; *A,</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                                   <span class="keywordtype">bool</span> print_intermediates = <span class="keyword">false</span>) {</div>
@@ -297,15 +254,7 @@ $(function(){initNavTree('de/d75/qr__eigen__values_8cpp_source.html','../../'); 
 </div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}  <span class="comment">// namespace qr_algorithm</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"></span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"> * test function to compute eigen values of a 2x2 matrix</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"> * \f[\begin{bmatrix}</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> * 5 &amp; 7\\</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> * 7 &amp; 11</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"> * \end{bmatrix}\f]</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"> * which are approximately, {15.56158, 0.384227}</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
 <div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="../../de/d75/qr__eigen__values_8cpp.html#a1440a7779ac56f47a3f355ce4a8c7da0">  177</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d75/qr__eigen__values_8cpp.html#a1440a7779ac56f47a3f355ce4a8c7da0">test1</a>() {</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    std::valarray&lt;std::valarray&lt;double&gt;&gt; X = {{5, 7}, {7, 11}};</div>
@@ -329,18 +278,7 @@ $(function(){initNavTree('de/d75/qr__eigen__values_8cpp_source.html','../../'); 
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 1 Passed\n\n&quot;</span>;</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>}</div>
 </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"></span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment"> * test function to compute eigen values of a 2x2 matrix</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment"> * \f[\begin{bmatrix}</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment"> * -4&amp; 4&amp; 2&amp; 0&amp; -3\\</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"> * 4&amp; -4&amp; 4&amp; -3&amp; -1\\</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment"> * 2&amp; 4&amp; 4&amp; 3&amp; -3\\</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment"> * 0&amp; -3&amp; 3&amp; -1&amp;-1\\</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment"> * -3&amp; -1&amp; -3&amp; -3&amp; 0</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment"> * \end{bmatrix}\f]</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment"> * which are approximately, {9.27648, -9.26948, 2.0181, -1.03516, -5.98994}</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
 <div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../de/d75/qr__eigen__values_8cpp.html#a0283886819c7c140a023582b7269e2d0">  210</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d75/qr__eigen__values_8cpp.html#a0283886819c7c140a023582b7269e2d0">test2</a>() {</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    std::valarray&lt;std::valarray&lt;double&gt;&gt; X = {{-4, 4, 2, 0, -3},</div>
@@ -372,10 +310,7 @@ $(function(){initNavTree('de/d75/qr__eigen__values_8cpp_source.html','../../'); 
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 2 Passed\n\n&quot;</span>;</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>}</div>
 </div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment"></span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment"> * main function</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
 <div class="foldopen" id="foldopen00243" data-start="{" data-end="}">
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="../../de/d75/qr__eigen__values_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  243</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#gae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d7/d35/matrix__exponentiation_8cpp.html#a9977ad12548c4a49dee9dc3f0685aa54">mat_size</a> = 5;</div>

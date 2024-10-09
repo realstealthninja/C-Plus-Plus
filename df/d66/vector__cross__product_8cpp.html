@@ -216,9 +216,8 @@ Example:</h3>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d66/vector__cross__product_8cpp_source.html#l00069">69</a> of file <a class="el" href="../../df/d66/vector__cross__product_8cpp_source.html">vector_cross_product.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   69</span>                                                                                              {</div>
-<div class="line"><span class="lineno">   70</span>            std::array&lt;double, 3&gt; product;<span class="comment"></span></div>
-<div class="line"><span class="lineno">   71</span><span class="comment">            /// Performs the cross product as shown in @algorithm.</span></div>
-<div class="line"><span class="lineno">   72</span><span class="comment"></span>            product[0] = (A[1] * B[2]) - (A[2] * B[1]);</div>
+<div class="line"><span class="lineno">   70</span>            std::array&lt;double, 3&gt; product;</div>
+<div class="line"><span class="lineno">   72</span>            product[0] = (A[1] * B[2]) - (A[2] * B[1]);</div>
 <div class="line"><span class="lineno">   73</span>            product[1] = -((A[0] * B[2]) - (A[2] * B[0]));</div>
 <div class="line"><span class="lineno">   74</span>            product[2] = (A[0] * B[1]) - (A[1] * B[0]);</div>
 <div class="line"><span class="lineno">   75</span>            <span class="keywordflow">return</span> product;</div>
@@ -283,27 +282,22 @@ Example:</h3>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d66/vector__cross__product_8cpp_source.html#l00109">109</a> of file <a class="el" href="../../df/d66/vector__cross__product_8cpp_source.html">vector_cross_product.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  109</span>           {</div>
-<div class="line"><span class="lineno">  110</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  111</span><span class="comment">    /// Tests the functions with sample input before asking for user input.</span></div>
-<div class="line"><span class="lineno">  112</span><span class="comment"></span>    <a class="code hl_function" href="#aa8dca7b867074164d5f45b0f3851269d">test</a>();</div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  112</span>    <a class="code hl_function" href="#aa8dca7b867074164d5f45b0f3851269d">test</a>();</div>
 <div class="line"><span class="lineno">  113</span> </div>
 <div class="line"><span class="lineno">  114</span>    std::array&lt;double, 3&gt; vec1;</div>
 <div class="line"><span class="lineno">  115</span>    std::array&lt;double, 3&gt; vec2;</div>
-<div class="line"><span class="lineno">  116</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  117</span><span class="comment">    /// Gets the values for the first vector.</span></div>
-<div class="line"><span class="lineno">  118</span><span class="comment"></span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\nPass the first Vector: &quot;</span>;</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  118</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\nPass the first Vector: &quot;</span>;</div>
 <div class="line"><span class="lineno">  119</span>    std::cin &gt;&gt; vec1[0] &gt;&gt; vec1[1] &gt;&gt; vec1[2];</div>
-<div class="line"><span class="lineno">  120</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  121</span><span class="comment">    /// Gets the values for the second vector.</span></div>
-<div class="line"><span class="lineno">  122</span><span class="comment"></span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\nPass the second Vector: &quot;</span>;</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  122</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\nPass the second Vector: &quot;</span>;</div>
 <div class="line"><span class="lineno">  123</span>    std::cin &gt;&gt; vec2[0] &gt;&gt; vec2[1] &gt;&gt; vec2[2];</div>
-<div class="line"><span class="lineno">  124</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  125</span><span class="comment">    /// Displays the output out.</span></div>
-<div class="line"><span class="lineno">  126</span><span class="comment"></span>    std::array&lt;double, 3&gt; product = <a class="code hl_function" href="#a225732399c5c076976eae5b180a9f8c9">math::vector_cross::cross</a>(vec1, vec2);</div>
+<div class="line"><span class="lineno">  124</span> </div>
+<div class="line"><span class="lineno">  126</span>    std::array&lt;double, 3&gt; product = <a class="code hl_function" href="#a225732399c5c076976eae5b180a9f8c9">math::vector_cross::cross</a>(vec1, vec2);</div>
 <div class="line"><span class="lineno">  127</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\nThe cross product is: &quot;</span> &lt;&lt; product[0] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; product[1] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; product[2] &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  128</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  129</span><span class="comment">    /// Displays the magnitude of the cross product.</span></div>
-<div class="line"><span class="lineno">  130</span><span class="comment"></span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Magnitude: &quot;</span> &lt;&lt; <a class="code hl_function" href="#a4b2a9757a87c18e1642d72410ecfaba8">math::vector_cross::mag</a>(product) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  130</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Magnitude: &quot;</span> &lt;&lt; <a class="code hl_function" href="#a4b2a9757a87c18e1642d72410ecfaba8">math::vector_cross::mag</a>(product) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">  131</span> </div>
 <div class="line"><span class="lineno">  132</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  133</span>}</div>
@@ -343,13 +337,11 @@ Example:</h3>
 <p>Tests the mag() function.</p>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d66/vector__cross__product_8cpp_source.html#l00094">94</a> of file <a class="el" href="../../df/d66/vector__cross__product_8cpp_source.html">vector_cross_product.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   94</span>                   {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   95</span><span class="comment">    /// Tests the cross() function.</span></div>
-<div class="line"><span class="lineno">   96</span><span class="comment"></span>    std::array&lt;double, 3&gt; t_vec = <a class="code hl_function" href="#a225732399c5c076976eae5b180a9f8c9">math::vector_cross::cross</a>({1, 2, 3}, {4, 5, 6});</div>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>                   {</div>
+<div class="line"><span class="lineno">   96</span>    std::array&lt;double, 3&gt; t_vec = <a class="code hl_function" href="#a225732399c5c076976eae5b180a9f8c9">math::vector_cross::cross</a>({1, 2, 3}, {4, 5, 6});</div>
 <div class="line"><span class="lineno">   97</span>    assert(t_vec[0] == -3 &amp;&amp; t_vec[1] == 6 &amp;&amp; t_vec[2] == -3);</div>
-<div class="line"><span class="lineno">   98</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   99</span><span class="comment">    /// Tests the mag() function.</span></div>
-<div class="line"><span class="lineno">  100</span><span class="comment"></span>    <span class="keywordtype">double</span> t_mag = <a class="code hl_function" href="#a4b2a9757a87c18e1642d72410ecfaba8">math::vector_cross::mag</a>({6, 8, 0});</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordtype">double</span> t_mag = <a class="code hl_function" href="#a4b2a9757a87c18e1642d72410ecfaba8">math::vector_cross::mag</a>({6, 8, 0});</div>
 <div class="line"><span class="lineno">  101</span>    assert(t_mag == 10);</div>
 <div class="line"><span class="lineno">  102</span>}</div>
 </div><!-- fragment -->

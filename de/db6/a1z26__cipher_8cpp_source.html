@@ -124,36 +124,17 @@ $(function(){initNavTree('de/db6/a1z26__cipher_8cpp_source.html','../../'); init
   <div class="headertitle"><div class="title">a1z26_cipher.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../de/db6/a1z26__cipher_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Implementation of the [A1Z26</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * cipher](https://www.dcode.fr/letter-number-cipher)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @details The A1Z26 cipher is a simple substiution cipher where each letter is</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * replaced by the number of the order they&#39;re in. For example, A corresponds to</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * 1, B = 2, C = 3, etc.</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @author [Focusucof](https://github.com/Focusucof)</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;algorithm&gt;</span>  <span class="comment">/// for std::transform and std::replace</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;cassert&gt;</span>    <span class="comment">/// for assert</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;cstdint&gt;</span>    <span class="comment">/// for uint8_t</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;iostream&gt;</span>   <span class="comment">/// for IO operations</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;map&gt;</span>        <span class="comment">/// for std::map</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;sstream&gt;</span>    <span class="comment">/// for std::stringstream</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;string&gt;</span>     <span class="comment">/// for std::string</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;vector&gt;</span>     <span class="comment">/// for std::vector</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d6/d4e/namespaceciphers.html">   22</a></span><span class="comment"> * @namespace ciphers</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @brief Algorithms for encryption and decryption</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d4e/namespaceciphers.html">ciphers</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d8/d2a/namespacea1z26.html">   27</a></span><span class="comment"> * @namespace a1z26</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief Functions for [A1Z26](https://www.dcode.fr/letter-number-cipher)</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * encryption and decryption implementation</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
+<a href="../../de/db6/a1z26__cipher_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;algorithm&gt;</span>  </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;cassert&gt;</span>    </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;cstdint&gt;</span>    </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;iostream&gt;</span>   </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;map&gt;</span>        </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;sstream&gt;</span>    </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;string&gt;</span>     </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;vector&gt;</span>     </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d4e/namespaceciphers.html">ciphers</a> {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d2a/namespacea1z26.html">a1z26</a> {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>std::map&lt;uint8_t, char&gt; a1z26_decrypt_map = {</div>
@@ -168,12 +149,7 @@ $(function(){initNavTree('de/db6/a1z26__cipher_8cpp_source.html','../../'); init
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {<span class="charliteral">&#39;h&#39;</span>, 8},  {<span class="charliteral">&#39;i&#39;</span>, 9},  {<span class="charliteral">&#39;j&#39;</span>, 10}, {<span class="charliteral">&#39;k&#39;</span>, 11}, {<span class="charliteral">&#39;l&#39;</span>, 12}, {<span class="charliteral">&#39;m&#39;</span>, 13}, {<span class="charliteral">&#39;n&#39;</span>, 14},</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {<span class="charliteral">&#39;o&#39;</span>, 15}, {<span class="charliteral">&#39;p&#39;</span>, 16}, {<span class="charliteral">&#39;q&#39;</span>, 17}, {<span class="charliteral">&#39;r&#39;</span>, 18}, {<span class="charliteral">&#39;s&#39;</span>, 19}, {<span class="charliteral">&#39;t&#39;</span>, 20}, {<span class="charliteral">&#39;u&#39;</span>, 21},</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {<span class="charliteral">&#39;v&#39;</span>, 22}, {<span class="charliteral">&#39;w&#39;</span>, 23}, {<span class="charliteral">&#39;x&#39;</span>, 24}, {<span class="charliteral">&#39;y&#39;</span>, 25}, {<span class="charliteral">&#39;z&#39;</span>, 26}};</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * @brief a1z26 encryption implementation</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @param text is the plaintext input</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * @returns encoded string with dashes to seperate letters</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../de/db6/a1z26__cipher_8cpp.html#a77a6b827a0b9c7aca2d705811459d744">   51</a></span>std::string <a class="code hl_function" href="../../de/db6/a1z26__cipher_8cpp.html#a77a6b827a0b9c7aca2d705811459d744">encrypt</a>(std::string text) {</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::string result;</div>
@@ -195,14 +171,7 @@ $(function(){initNavTree('de/db6/a1z26__cipher_8cpp_source.html','../../'); init
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"></span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * @brief a1z26 decryption implementation</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * @param text is the encrypted text input</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * @param bReturnUppercase is if the decoded string should be in uppercase or</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * not</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * @returns the decrypted string in all uppercase or all lowercase</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../de/db6/a1z26__cipher_8cpp.html#a0a78954e96c862430904ee3e64623c38">   78</a></span>std::string <a class="code hl_function" href="../../de/db6/a1z26__cipher_8cpp.html#a0a78954e96c862430904ee3e64623c38">decrypt</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keywordtype">bool</span> bReturnUppercase = <span class="keyword">false</span>) {</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::string result;</div>
@@ -242,11 +211,7 @@ $(function(){initNavTree('de/db6/a1z26__cipher_8cpp_source.html','../../'); init
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}  <span class="comment">// namespace a1z26</span></div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}  <span class="comment">// namespace ciphers</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"></span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * @brief Self-test implementations</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @returns void</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="../../de/db6/a1z26__cipher_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">  120</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/db6/a1z26__cipher_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">// 1st test</span></div>
@@ -283,11 +248,7 @@ $(function(){initNavTree('de/db6/a1z26__cipher_8cpp_source.html','../../'); init
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;TEST PASSED&quot;</span>;</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>}</div>
 </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"></span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
 <div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="../../de/db6/a1z26__cipher_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  159</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../de/db6/a1z26__cipher_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <a class="code hl_function" href="../../de/db6/a1z26__cipher_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run self-test implementations</span></div>

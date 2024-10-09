@@ -124,28 +124,18 @@ $(function(){initNavTree('db/d0d/prime__factorization_8cpp_source.html','../../'
   <div class="headertitle"><div class="title">prime_factorization.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../db/d0d/prime__factorization_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Prime factorization of positive integers</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> */</span></div>
+<a href="../../db/d0d/prime__factorization_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;cstring&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"></span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/** Declaring variables for maintaing prime numbers and to check whether a</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * number is prime or not</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../db/d0d/prime__factorization_8cpp.html#a7fe38b570a51e448430d6a0f072c2f23">   13</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="../../db/d0d/prime__factorization_8cpp.html#a7fe38b570a51e448430d6a0f072c2f23">isprime</a>[1000006];</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"></span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/** list of prime numbers */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../db/d0d/prime__factorization_8cpp.html#af097796783684712b8326e5b82bfd4fe">   16</a></span>std::vector&lt;int&gt; <a class="code hl_variable" href="../../db/d0d/prime__factorization_8cpp.html#af097796783684712b8326e5b82bfd4fe">prime_numbers</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"></span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/** list of prime factor-pairs */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../db/d0d/prime__factorization_8cpp.html#acfb0df439a4beae5a34ef131ce737c1b">   19</a></span>std::vector&lt;std::pair&lt;int, int&gt;&gt; <a class="code hl_variable" href="../../db/d0d/prime__factorization_8cpp.html#acfb0df439a4beae5a34ef131ce737c1b">factors</a>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/** Calculating prime number upto a given range</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../db/d0d/prime__factorization_8cpp.html#affe577b9bce8f604f5e2f861c63c7099">   23</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d0d/prime__factorization_8cpp.html#affe577b9bce8f604f5e2f861c63c7099">SieveOfEratosthenes</a>(<span class="keywordtype">int</span> N) {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// initializes the array isprime</span></div>
@@ -163,8 +153,7 @@ $(function(){initNavTree('db/d0d/prime__factorization_8cpp_source.html','../../'
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/** Prime factorization of a number */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../db/d0d/prime__factorization_8cpp.html#a0ece0145fb29a5cf48378c23dde2da46">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d0d/prime__factorization_8cpp.html#a0ece0145fb29a5cf48378c23dde2da46">prime_factorization</a>(<span class="keywordtype">int</span> num) {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">int</span> number = num;</div>
@@ -187,8 +176,7 @@ $(function(){initNavTree('db/d0d/prime__factorization_8cpp_source.html','../../'
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">/** Main program */</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../db/d0d/prime__factorization_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   62</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../db/d0d/prime__factorization_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> num;</div>

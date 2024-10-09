@@ -124,31 +124,7 @@ $(function(){initNavTree('d7/d1e/graph_2dijkstra_8cpp_source.html','../../'); in
   <div class="headertitle"><div class="title">dijkstra.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/d1e/graph_2dijkstra_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief [Graph Dijkstras Shortest Path Algorithm</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * (Dijkstra&#39;s Shortest Path)]</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * (https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @author [Ayaan Khan](http://github.com/ayaankhan98)</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Dijkstra&#39;s Algorithm is used to find the shortest path from a source</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * vertex to all other reachable vertex in the graph.</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * The algorithm initially assumes all the nodes are unreachable from the</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * given source vertex so we mark the distances of all vertices as INF</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * (infinity) from source vertex (INF / infinity denotes unable to reach).</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * in similar fashion with BFS we assume the distance of source vertex as 0</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * and pushes the vertex in a priority queue with it&#39;s distance.</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * we maintain the priority queue as a min heap so that we can get the</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * minimum element at the top of heap</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * Basically what we do in this algorithm is that we try to minimize the</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * distances of all the reachable vertices from the current vertex, look</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * at the code below to understand in better way.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
+<a href="../../d7/d1e/graph_2dijkstra_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
@@ -158,19 +134,8 @@ $(function(){initNavTree('d7/d1e/graph_2dijkstra_8cpp_source.html','../../'); in
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">constexpr</span> int64_t <a class="code hl_variable" href="../../d7/d07/bidirectional__dijkstra_8cpp.html#a330a2b0a904f01802ada1f8f3b28e76c">INF</a> = std::numeric_limits&lt;int64_t&gt;::max();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"></span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * @namespace graph</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * @brief Graph Algorithms</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * @brief Function that add edge between two nodes or vertices of graph</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * @param u any node or vertex of graph</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @param v any node or vertex of graph</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a> {</div>
 <div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../df/dce/namespacegraph.html#a0e30e0dca68cb6e4f671440819b35b6a">   48</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../df/dce/namespacegraph.html#a9125ceb66bfbec3093bba64c2c1e99e2">addEdge</a>(std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; *adj, <span class="keywordtype">int</span> u, <span class="keywordtype">int</span> v,</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>             <span class="keywordtype">int</span> w) {</div>
@@ -178,54 +143,30 @@ $(function(){initNavTree('d7/d1e/graph_2dijkstra_8cpp_source.html','../../'); in
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// (*adj)[v - 1].push_back(std::make_pair(u - 1, w));</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * @brief Function runs the dijkstra algorithm for some source vertex and</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * target vertex in the graph and returns the shortest distance of target</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * from the source.</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * @param adj input graph</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * @param s source vertex</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * @param t target vertex</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * @return shortest distance if target is reachable from source else -1 in</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * case if target is not reachable from source.</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../df/dce/namespacegraph.html#adc68cbc8ba09eb1142265935c0d45b84">   66</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../df/dce/namespacegraph.html#adc68cbc8ba09eb1142265935c0d45b84">dijkstra</a>(std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; *adj, <span class="keywordtype">int</span> s, <span class="keywordtype">int</span> t) {<span class="comment"></span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">    /// n denotes the number of vertices in graph</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span>    <span class="keywordtype">int</span> n = adj-&gt;size();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"></span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">    /// setting all the distances initially to INF</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span>    std::vector&lt;int64_t&gt; dist(n, <a class="code hl_variable" href="../../d7/d07/bidirectional__dijkstra_8cpp.html#a330a2b0a904f01802ada1f8f3b28e76c">INF</a>);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">    /// creating a min heap using priority queue</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">    /// first element of pair contains the distance</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">    /// second element of pair contains the vertex</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"></span>    std::priority_queue&lt;std::pair&lt;int, int&gt;, std::vector&lt;std::pair&lt;int, int&gt;&gt;,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../df/dce/namespacegraph.html#adc68cbc8ba09eb1142265935c0d45b84">   66</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../df/dce/namespacegraph.html#adc68cbc8ba09eb1142265935c0d45b84">dijkstra</a>(std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; *adj, <span class="keywordtype">int</span> s, <span class="keywordtype">int</span> t) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">int</span> n = adj-&gt;size();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::vector&lt;int64_t&gt; dist(n, <a class="code hl_variable" href="../../d7/d07/bidirectional__dijkstra_8cpp.html#a330a2b0a904f01802ada1f8f3b28e76c">INF</a>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::priority_queue&lt;std::pair&lt;int, int&gt;, std::vector&lt;std::pair&lt;int, int&gt;&gt;,</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                        std::greater&lt;std::pair&lt;int, int&gt;&gt;&gt;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        pq;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"></span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">    /// pushing the source vertex &#39;s&#39; with 0 distance in min heap</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span>    pq.push(std::make_pair(0, s));</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    /// marking the distance of source as 0</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span>    dist[s] = 0;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    pq.push(std::make_pair(0, s));</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    dist[s] = 0;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">while</span> (!pq.empty()) {<span class="comment"></span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">        /// second element of pair denotes the node / vertex</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span>        <span class="keywordtype">int</span> currentNode = pq.top().second;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"></span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">        /// first element of pair denotes the distance</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"></span>        <span class="keywordtype">int</span> currentDist = pq.top().first;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">while</span> (!pq.empty()) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordtype">int</span> currentNode = pq.top().second;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordtype">int</span> currentDist = pq.top().first;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        pq.pop();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"></span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">        /// for all the reachable vertex from the currently exploring vertex</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">        /// we will try to minimize the distance</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj)[currentNode]) {<span class="comment"></span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">            /// minimizing distances</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[edge.first]) {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj)[currentNode]) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[edge.first]) {</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                dist[edge.first] = currentDist + edge.second;</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                pq.push(std::make_pair(dist[edge.first], edge.first));</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            }</div>
@@ -238,8 +179,7 @@ $(function(){initNavTree('d7/d1e/graph_2dijkstra_8cpp_source.html','../../'); in
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
 </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}  <span class="comment">// namespace graph</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"></span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/** Function to test the Algorithm */</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
 <div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d7/d1e/graph_2dijkstra_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">  113</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1e/graph_2dijkstra_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>() {</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiatinig Predefined Tests...&quot;</span> &lt;&lt; std::endl;</div>
@@ -279,8 +219,7 @@ $(function(){initNavTree('d7/d1e/graph_2dijkstra_8cpp_source.html','../../'); in
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;All Test Passed...&quot;</span> &lt;&lt; std::endl &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
 </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"></span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">/** Main function */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../d7/d1e/graph_2dijkstra_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  152</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d1e/graph_2dijkstra_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="comment">// running predefined tests</span></div>

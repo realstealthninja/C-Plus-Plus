@@ -124,35 +124,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
   <div class="headertitle"><div class="title">neural_network.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d2/d58/neural__network_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @author [Deep Raval](https://github.com/imdeep2905)</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @brief Implementation of [Multilayer Perceptron]</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * (https://en.wikipedia.org/wiki/Multilayer_perceptron).</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * A multilayer perceptron (MLP) is a class of feedforward artificial neural</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * network (ANN). The term MLP is used ambiguously, sometimes loosely to any</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * feedforward ANN, sometimes strictly to refer to networks composed of multiple</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * layers of perceptrons (with threshold activation). Multilayer perceptrons are</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * sometimes colloquially referred to as &quot;vanilla&quot; neural networks, especially</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * when they have a single hidden layer.</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * An MLP consists of at least three layers of nodes: an input layer, a hidden</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * layer and an output layer. Except for the input nodes, each node is a neuron</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * that uses a nonlinear activation function. MLP utilizes a supervised learning</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * technique called backpropagation for training. Its multiple layers and</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * non-linear activation distinguish MLP from a linear perceptron. It can</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * distinguish data that is not linearly separable.</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * See [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation) for</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * training algorithm.</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * \note This implementation uses mini-batch gradient descent as optimizer and</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * MSE as loss function. Bias is also not included.</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<a href="../../d2/d58/neural__network_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
@@ -165,89 +137,27 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d95/vector__ops_8hpp.html">vector_ops.hpp</a>&quot;</span>  <span class="comment">// Custom header file for vector operations</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/** \namespace machine_learning</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * \brief Machine learning algorithms</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d77/namespacemachine__learning.html">machine_learning</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d0/d2e/namespaceneural__network.html">   47</a></span><span class="comment">/** \namespace neural_network</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * \brief Neural Network or Multilayer Perceptron</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d2e/namespaceneural__network.html">neural_network</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d5/d39/namespaceactivations.html">   51</a></span><span class="comment">/** \namespace activations</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * \brief Various activation functions used in Neural network</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d39/namespaceactivations.html">activations</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * Sigmoid function</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * @return Returns sigmoid(x)</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d77/namespacemachine__learning.html">machine_learning</a> {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d2e/namespaceneural__network.html">neural_network</a> {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d39/namespaceactivations.html">activations</a> {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#a23aa9d32bcbcd65cfc85f0a41e2afadc">   60</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#a23aa9d32bcbcd65cfc85f0a41e2afadc">sigmoid</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> 1.0 / (1.0 + std::exp(-x)); }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"></span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * Derivative of sigmoid function</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * @return Returns derivative of sigmoid(x)</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#a76eb66212d577f948a457b6e29d87c46">   67</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#a76eb66212d577f948a457b6e29d87c46">dsigmoid</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> x * (1 - x); }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * Relu function</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * @returns relu(x)</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#af8f264600754602b6a9ea19cc690e50e">   74</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#af8f264600754602b6a9ea19cc690e50e">relu</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> std::max(0.0, x); }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"></span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * Derivative of relu function</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * @returns derivative of relu(x)</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#aa69e95a34054d7989bf446f96b2ffaf9">   81</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#aa69e95a34054d7989bf446f96b2ffaf9">drelu</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> x &gt;= 0.0 ? 1.0 : 0.0; }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * Tanh function</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> * @return Returns tanh(x)</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#a371aa7dd5d5add0143d1756bb0a1b32f">   88</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#a371aa7dd5d5add0143d1756bb0a1b32f">tanh</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> 2 / (1 + std::exp(-2 * x)) - 1; }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"></span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> * Derivative of Sigmoid function</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> * @return Returns derivative of tanh(x)</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#a2a5e874b9774aa5362dbcf288828b95c">   95</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#a2a5e874b9774aa5362dbcf288828b95c">dtanh</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> 1 - x * x; }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}  <span class="comment">// namespace activations</span><span class="comment"></span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d3/d17/namespaceutil__functions.html">   97</a></span><span class="comment">/** \namespace util_functions</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * \brief Various utility functions used in Neural network</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d3/d17/namespaceutil__functions.html">util_functions</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> * Square function</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> * @return Returns x * x</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#a45d3e30406712ada3d9713ece3c1b153">  106</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#a45d3e30406712ada3d9713ece3c1b153">square</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> x * x; }<span class="comment"></span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * Identity function</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * @param X Value</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> * @return Returns x</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}  <span class="comment">// namespace activations</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d3/d17/namespaceutil__functions.html">util_functions</a> {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#a45d3e30406712ada3d9713ece3c1b153">  106</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#a45d3e30406712ada3d9713ece3c1b153">square</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> x * x; }</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#a32c00da08f2cf641dd336270f6e3c407">  112</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#a32c00da08f2cf641dd336270f6e3c407">identity_function</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x) { <span class="keywordflow">return</span> x; }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}  <span class="comment">// namespace util_functions</span><span class="comment"></span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="../../d5/d2c/namespacelayers.html">  114</a></span><span class="comment">/** \namespace layers</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> * \brief This namespace contains layers used</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> * in MLP.</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d2c/namespacelayers.html">layers</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * neural_network::layers::DenseLayer class is used to store all necessary</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> * information about the layers (i.e. neurons, activation and kernel). This</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> * class is used by NeuralNetwork class to store layers.</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}  <span class="comment">// namespace util_functions</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d2c/namespacelayers.html">layers</a> {</div>
 <div class="foldopen" id="foldopen00125" data-start="{" data-end="};">
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">  125</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">DenseLayer</a> {</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> <span class="keyword">public</span>:</div>
@@ -257,14 +167,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">int</span> neurons;             <span class="comment">// To store number of neurons (used in summary)</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    std::string activation;  <span class="comment">// To store activation name (used in summary)</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    std::vector&lt;std::valarray&lt;double&gt;&gt; kernel;  <span class="comment">// To store kernel (aka weights)</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"></span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">     * Constructor for neural_network::layers::DenseLayer class</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">     * @param neurons number of neurons</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">     * @param activation activation function for layer</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">     * @param kernel_shape shape of kernel</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">     * @param random_kernel flag for whether to initialize kernel randomly</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
 <div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a11046825be0b6dbb73fbe834aa49200e">  141</a></span>    <a class="code hl_function" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a11046825be0b6dbb73fbe834aa49200e">DenseLayer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;neurons, <span class="keyword">const</span> std::string &amp;activation,</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>               <span class="keyword">const</span> std::pair&lt;size_t, size_t&gt; &amp;kernel_shape,</div>
@@ -301,14 +204,8 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <a class="code hl_function" href="../../d8/d77/namespacemachine__learning.html#a8dd3f1ffbc2f26a3c88da1b1f8b7e9c4">unit_matrix_initialization</a>(kernel, kernel_shape);</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        }</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }<span class="comment"></span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
 </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">     * Constructor for neural_network::layers::DenseLayer class</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">     * @param neurons number of neurons</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">     * @param activation activation function for layer</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">     * @param kernel values of kernel (useful in loading model)</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#af136ec31dbd35b1be2eb9a057677c704">  183</a></span>    <a class="code hl_function" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#af136ec31dbd35b1be2eb9a057677c704">DenseLayer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;neurons, <span class="keyword">const</span> std::string &amp;activation,</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>               <span class="keyword">const</span> std::vector&lt;std::valarray&lt;double&gt;&gt; &amp;kernel) {</div>
@@ -341,51 +238,23 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        this-&gt;kernel = kernel;          <span class="comment">// Setting supplied kernel values</span></div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
 </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment"></span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">     * Copy Constructor for class DenseLayer.</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">     * @param model instance of class to be copied.</span></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a2871146feaaa453558239df67b21e0d2">  219</a></span>    <a class="code hl_function" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a2871146feaaa453558239df67b21e0d2">DenseLayer</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">DenseLayer</a> &amp;layer) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"></span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">     * Destructor for class DenseLayer.</span></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#ac9cda9453c4a0caf5bae7f9213b019a0">  224</a></span>    <a class="code hl_function" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#ac9cda9453c4a0caf5bae7f9213b019a0">~DenseLayer</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment"></span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">     * Copy assignment operator for class DenseLayer</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#ae077132526d2863e46aa77cb0f7d6aa2">  229</a></span>    <a class="code hl_class" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">DenseLayer</a> &amp;<a class="code hl_function" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#ae077132526d2863e46aa77cb0f7d6aa2">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">DenseLayer</a> &amp;layer) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment"></span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">     * Move constructor for class DenseLayer</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a6c859e3737aa88b29854df0347b29f4e">  234</a></span>    <a class="code hl_function" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a6c859e3737aa88b29854df0347b29f4e">DenseLayer</a>(<a class="code hl_class" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">DenseLayer</a> &amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment"></span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">     * Move assignment operator for class DenseLayer</span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a19aaccad279b22dbbb6c55e5697b4114">  239</a></span>    <a class="code hl_class" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">DenseLayer</a> &amp;<a class="code hl_function" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a19aaccad279b22dbbb6c55e5697b4114">operator=</a>(<a class="code hl_class" href="../../dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html">DenseLayer</a> &amp;&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>};</div>
 </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}  <span class="comment">// namespace layers</span><span class="comment"></span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment"> * NeuralNetwork class is implements MLP. This class is</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment"> * used by actual user to create and train networks.</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}  <span class="comment">// namespace layers</span></div>
 <div class="foldopen" id="foldopen00247" data-start="{" data-end="};">
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">  247</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> {</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    std::vector&lt;neural_network::layers::DenseLayer&gt; <a class="code hl_namespace" href="../../d5/d2c/namespacelayers.html">layers</a>;  <span class="comment">// To store layers</span><span class="comment"></span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">     * Private Constructor for class NeuralNetwork. This constructor</span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">     * is used internally to load model.</span></div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment">     * @param config vector containing pair (neurons, activation)</span></div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment">     * @param kernels vector containing all pretrained kernels</span></div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    std::vector&lt;neural_network::layers::DenseLayer&gt; <a class="code hl_namespace" href="../../d5/d2c/namespacelayers.html">layers</a>;  <span class="comment">// To store layers</span></div>
 <div class="foldopen" id="foldopen00256" data-start="{" data-end="}">
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a4c4c6f63ab965317f9471518ee931b89">  256</a></span>    <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a4c4c6f63ab965317f9471518ee931b89">NeuralNetwork</a>(</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keyword">const</span> std::vector&lt;std::pair&lt;int, std::string&gt;&gt; &amp;config,</div>
@@ -412,14 +281,8 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                config[i].first, config[i].second, kernels[i]));</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        }</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;INFO: Network constructed successfully&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }<span class="comment"></span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }</div>
 </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment">     * Private function to get detailed predictions (i.e.</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment">     * activated neuron values). This function is used in</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment">     * backpropagation, single predict and batch predict.</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment">     * @param X input vector</span></div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt;</div>
 <div class="foldopen" id="foldopen00289" data-start="{" data-end="}">
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a361a45f3c3d8347d79103bf182d0570b">  289</a></span>    <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a361a45f3c3d8347d79103bf182d0570b">__detailed_single_prediction</a>(<span class="keyword">const</span> std::vector&lt;std::valarray&lt;double&gt;&gt; &amp;X) {</div>
@@ -435,18 +298,9 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    }</div>
 </div>
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment">     * Default Constructor for class NeuralNetwork. This constructor</span></div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment">     * is used to create empty variable of type NeuralNetwork class.</span></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#ae7cf126a3a8f9d20c81b21584d061a08">  306</a></span>    <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#ae7cf126a3a8f9d20c81b21584d061a08">NeuralNetwork</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment"></span> </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="comment">     * Constructor for class NeuralNetwork. This constructor</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment">     * is used by user.</span></div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment">     * @param config vector containing pair (neurons, activation)</span></div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
 <div class="foldopen" id="foldopen00313" data-start="{" data-end="}">
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a62151b0398a2536be60d950e10ffe9a8">  313</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a62151b0398a2536be60d950e10ffe9a8">NeuralNetwork</a>(</div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keyword">const</span> std::vector&lt;std::pair&lt;int, std::string&gt;&gt; &amp;config) {</div>
@@ -480,42 +334,17 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;INFO: Network constructed successfully&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    }</div>
 </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="comment"></span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="comment">     * Copy Constructor for class NeuralNetwork.</span></div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="comment">     * @param model instance of class to be copied.</span></div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a176b955c90ae57d7dbc3c63f27c84c75">  350</a></span>    <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a176b955c90ae57d7dbc3c63f27c84c75">NeuralNetwork</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> &amp;model) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="comment"></span> </div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="comment">     * Destructor for class NeuralNetwork.</span></div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a8973f687738ddd76f93b5562feae4027">  355</a></span>    <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a8973f687738ddd76f93b5562feae4027">~NeuralNetwork</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="comment"></span> </div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="comment">     * Copy assignment operator for class NeuralNetwork</span></div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a58a9614e4c6d4ca672d3358e99a3404f">  360</a></span>    <a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> &amp;<a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a58a9614e4c6d4ca672d3358e99a3404f">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> &amp;model) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="comment"></span> </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span><span class="comment">     * Move constructor for class NeuralNetwork</span></div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a173bb71780af6953ec2e307a4c74b025">  365</a></span>    <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a173bb71780af6953ec2e307a4c74b025">NeuralNetwork</a>(<a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> &amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="comment"></span> </div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="comment">     * Move assignment operator for class NeuralNetwork</span></div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a2c49bfebf9b859d5ceb26035d3003601">  370</a></span>    <a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> &amp;<a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a2c49bfebf9b859d5ceb26035d3003601">operator=</a>(<a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> &amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="comment"></span> </div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="comment">     * Function to get X and Y from csv file (where X = data, Y = label)</span></div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="comment">     * @param file_name csv file name</span></div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="comment">     * @param last_label flag for whether label is in first or last column</span></div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="comment">     * @param normalize flag for whether to normalize data</span></div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="comment">     * @param slip_lines number of lines to skip</span></div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="comment">     * @return returns pair of X and Y</span></div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
 <div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    std::pair&lt;std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt;,</div>
 <div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>              std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt;&gt;</div>
 <div class="foldopen" id="foldopen00382" data-start="{" data-end="}">
@@ -583,12 +412,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>        <span class="keywordflow">return</span> make_pair(X, Y);  <span class="comment">// Return pair of X and Y</span></div>
 <div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    }</div>
 </div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="comment"></span> </div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="comment">     * Function to get prediction of model on single sample.</span></div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span><span class="comment">     * @param X array of feature vectors</span></div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span><span class="comment">     * @return returns predictions as vector</span></div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span> </div>
 <div class="foldopen" id="foldopen00451" data-start="{" data-end="}">
 <div class="line"><a id="l00451" name="l00451"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a3b9eac1824d365dce715fb17c33cb96f">  451</a></span>    std::vector&lt;std::valarray&lt;double&gt;&gt; <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a3b9eac1824d365dce715fb17c33cb96f">single_predict</a>(</div>
 <div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>        <span class="keyword">const</span> std::vector&lt;std::valarray&lt;double&gt;&gt; &amp;X) {</div>
@@ -598,12 +422,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>        <span class="keywordflow">return</span> <a class="code hl_namespace" href="../../d5/d39/namespaceactivations.html">activations</a>.back();</div>
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    }</div>
 </div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span><span class="comment"></span> </div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span><span class="comment">     * Function to get prediction of model on batch</span></div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span><span class="comment">     * @param X array of feature vectors</span></div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span><span class="comment">     * @return returns predicted values as vector</span></div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span> </div>
 <div class="foldopen" id="foldopen00464" data-start="{" data-end="}">
 <div class="line"><a id="l00464" name="l00464"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a88bf9023ab3d4cdb61cf707c7cdfc86b">  464</a></span>    std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt; <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a88bf9023ab3d4cdb61cf707c7cdfc86b">batch_predict</a>(</div>
 <div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>        <span class="keyword">const</span> std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt; &amp;X) {</div>
@@ -617,16 +436,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>        <span class="keywordflow">return</span> predicted_batch;  <span class="comment">// Return predicted values</span></div>
 <div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>    }</div>
 </div>
-<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span><span class="comment"></span> </div>
-<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span><span class="comment">     * Function to fit model on supplied data</span></div>
-<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span><span class="comment">     * @param X array of feature vectors</span></div>
-<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span><span class="comment">     * @param Y array of target values</span></div>
-<div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span><span class="comment">     * @param epochs number of epochs (default = 100)</span></div>
-<div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span><span class="comment">     * @param learning_rate learning rate (default = 0.01)</span></div>
-<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span><span class="comment">     * @param batch_size batch size for gradient descent (default = 32)</span></div>
-<div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span><span class="comment">     * @param shuffle flag for whether to shuffle data (default = true)</span></div>
-<div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span> </div>
 <div class="foldopen" id="foldopen00485" data-start="{" data-end="}">
 <div class="line"><a id="l00485" name="l00485"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a2be1b52bb9f57486f9a436f35c9089c0">  485</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a2be1b52bb9f57486f9a436f35c9089c0">fit</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt; &amp;X_,</div>
 <div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>             <span class="keyword">const</span> std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt; &amp;Y_,</div>
@@ -719,18 +529,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>    }</div>
 </div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span><span class="comment"></span> </div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span><span class="comment">     * Function to fit model on data stored in csv file</span></div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span><span class="comment">     * @param file_name csv file name</span></div>
-<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span><span class="comment">     * @param last_label flag for whether label is in first or last column</span></div>
-<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span><span class="comment">     * @param epochs number of epochs</span></div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span><span class="comment">     * @param learning_rate learning rate</span></div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span><span class="comment">     * @param normalize flag for whether to normalize data</span></div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span><span class="comment">     * @param slip_lines number of lines to skip</span></div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span><span class="comment">     * @param batch_size batch size for gradient descent (default = 32)</span></div>
-<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span><span class="comment">     * @param shuffle flag for whether to shuffle data (default = true)</span></div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span> </div>
 <div class="foldopen" id="foldopen00587" data-start="{" data-end="}">
 <div class="line"><a id="l00587" name="l00587"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a5172a6791b9bd24f4232bab8d6b81fff">  587</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a5172a6791b9bd24f4232bab8d6b81fff">fit_from_csv</a>(<span class="keyword">const</span> std::string &amp;file_name, <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;last_label,</div>
 <div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>                      <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;epochs, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;learning_rate,</div>
@@ -746,12 +545,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    }</div>
 </div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span><span class="comment"></span> </div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span><span class="comment">     * Function to evaluate model on supplied data</span></div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span><span class="comment">     * @param X array of feature vectors (input data)</span></div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span><span class="comment">     * @param Y array of target values (label)</span></div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
 <div class="foldopen" id="foldopen00606" data-start="{" data-end="}">
 <div class="line"><a id="l00606" name="l00606"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#aec648ea4f40bd71123b5f907a681dd8e">  606</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#aec648ea4f40bd71123b5f907a681dd8e">evaluate</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt; &amp;X,</div>
 <div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>                  <span class="keyword">const</span> std::vector&lt;std::vector&lt;std::valarray&lt;double&gt;&gt;&gt; &amp;Y) {</div>
@@ -778,14 +572,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>    }</div>
 </div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span><span class="comment"></span> </div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span><span class="comment">     * Function to evaluate model on data stored in csv file</span></div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span><span class="comment">     * @param file_name csv file name</span></div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span><span class="comment">     * @param last_label flag for whether label is in first or last column</span></div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span><span class="comment">     * @param normalize flag for whether to normalize data</span></div>
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span><span class="comment">     * @param slip_lines number of lines to skip</span></div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span> </div>
 <div class="foldopen" id="foldopen00638" data-start="{" data-end="}">
 <div class="line"><a id="l00638" name="l00638"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a36494e26ff36d6e15c1022bb9a1ee848">  638</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a36494e26ff36d6e15c1022bb9a1ee848">evaluate_from_csv</a>(<span class="keyword">const</span> std::string &amp;file_name, <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;last_label,</div>
 <div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>                           <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;normalize, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;slip_lines = 1) {</div>
@@ -797,11 +584,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>    }</div>
 </div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span><span class="comment"></span> </div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span><span class="comment">     * Function to save current model.</span></div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span><span class="comment">     * @param file_name file name to save model (*.model)</span></div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span> </div>
 <div class="foldopen" id="foldopen00652" data-start="{" data-end="}">
 <div class="line"><a id="l00652" name="l00652"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a4f14e473bb0722c6490b9dc8da5982aa">  652</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a4f14e473bb0722c6490b9dc8da5982aa">save_model</a>(<span class="keyword">const</span> std::string &amp;_file_name) {</div>
 <div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>        std::string file_name = _file_name;</div>
@@ -818,46 +601,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>            std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR (&quot;</span> &lt;&lt; __func__ &lt;&lt; <span class="stringliteral">&quot;) : &quot;</span>;</div>
 <div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>            std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to open file: &quot;</span> &lt;&lt; file_name &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>            std::exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        }<span class="comment"></span></div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span><span class="comment">        /**</span></div>
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span><span class="comment">            Format in which model is saved:</span></div>
-<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span><span class="comment"></span> </div>
-<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span><span class="comment">            total_layers</span></div>
-<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span><span class="comment">            neurons(1st neural_network::layers::DenseLayer) activation_name(1st</span></div>
-<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span><span class="comment">           neural_network::layers::DenseLayer) kernel_shape(1st</span></div>
-<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span><span class="comment">           neural_network::layers::DenseLayer) kernel_values</span></div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span><span class="comment">            .</span></div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span><span class="comment">            .</span></div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span><span class="comment">            .</span></div>
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span><span class="comment">            neurons(Nth neural_network::layers::DenseLayer) activation_name(Nth</span></div>
-<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span><span class="comment">           neural_network::layers::DenseLayer) kernel_shape(Nth</span></div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span><span class="comment">           neural_network::layers::DenseLayer) kernel_value</span></div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span><span class="comment"></span> </div>
-<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span><span class="comment">            For Example, pretrained model with 3 layers:</span></div>
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span><span class="comment">            &lt;pre&gt;</span></div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span><span class="comment">            3</span></div>
-<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span><span class="comment">            4 none</span></div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span><span class="comment">            4 4</span></div>
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span><span class="comment">            1 0 0 0</span></div>
-<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span><span class="comment">            0 1 0 0</span></div>
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span><span class="comment">            0 0 1 0</span></div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span><span class="comment">            0 0 0 1</span></div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span><span class="comment">            6 relu</span></div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span><span class="comment">            4 6</span></div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span><span class="comment">            -1.88963 -3.61165 1.30757 -0.443906 -2.41039 -2.69653</span></div>
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span><span class="comment">            -0.684753 0.0891452 0.795294 -2.39619 2.73377 0.318202</span></div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span><span class="comment">            -2.91451 -4.43249 -0.804187 2.51995 -6.97524 -1.07049</span></div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span><span class="comment">            -0.571531 -1.81689 -1.24485 1.92264 -2.81322 1.01741</span></div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span><span class="comment">            3 sigmoid</span></div>
-<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span><span class="comment">            6 3</span></div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span><span class="comment">            0.390267 -0.391703 -0.0989607</span></div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span><span class="comment">            0.499234 -0.564539 -0.28097</span></div>
-<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span><span class="comment">            0.553386 -0.153974 -1.92493</span></div>
-<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span><span class="comment">            -2.01336 -0.0219682 1.44145</span></div>
-<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span><span class="comment">            1.72853 -0.465264 -0.705373</span></div>
-<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span><span class="comment">            -0.908409 -0.740547 0.376416</span></div>
-<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span><span class="comment">            &lt;/pre&gt;</span></div>
-<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span><span class="comment">        */</span></div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        }</div>
 <div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>        <span class="comment">// Saving model in the same format</span></div>
 <div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>        out_file &lt;&lt; <a class="code hl_namespace" href="../../d5/d2c/namespacelayers.html">layers</a>.size();</div>
 <div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>        out_file &lt;&lt; std::endl;</div>
@@ -878,12 +622,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>    }</div>
 </div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span><span class="comment"></span> </div>
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span><span class="comment">     * Function to load earlier saved model.</span></div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span><span class="comment">     * @param file_name file from which model will be loaded (*.model)</span></div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span><span class="comment">     * @return instance of NeuralNetwork class with pretrained weights</span></div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span> </div>
 <div class="foldopen" id="foldopen00732" data-start="{" data-end="}">
 <div class="line"><a id="l00732" name="l00732"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a58ed20abf6ce3744535bd8b5bb9e741b">  732</a></span>    <a class="code hl_class" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html">NeuralNetwork</a> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a58ed20abf6ce3744535bd8b5bb9e741b">load_model</a>(<span class="keyword">const</span> std::string &amp;file_name) {</div>
 <div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>        std::ifstream in_file;            <span class="comment">// Ifstream to read file</span></div>
@@ -923,10 +662,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>            config, kernels);  <span class="comment">// Return instance of NeuralNetwork class</span></div>
 <div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    }</div>
 </div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span><span class="comment"></span> </div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span><span class="comment">     * Function to print summary of the network.</span></div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span> </div>
 <div class="foldopen" id="foldopen00773" data-start="{" data-end="}">
 <div class="line"><a id="l00773" name="l00773"></a><span class="lineno"><a class="line" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a61d30113d13304c664057118b92a5931">  773</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a61d30113d13304c664057118b92a5931">summary</a>() {</div>
 <div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        <span class="comment">// Printing Summary</span></div>
@@ -957,11 +693,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 </div>
 <div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>}  <span class="comment">// namespace neural_network</span></div>
 <div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>}  <span class="comment">// namespace machine_learning</span></div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span><span class="comment"></span> </div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span><span class="comment"> * Function to test neural network</span></div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span><span class="comment"> * @returns none</span></div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span> </div>
 <div class="foldopen" id="foldopen00805" data-start="{" data-end="}">
 <div class="line"><a id="l00805" name="l00805"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">  805</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
 <div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>    <span class="comment">// Creating network with 3 layers for &quot;iris.csv&quot;</span></div>
@@ -987,11 +719,7 @@ $(function(){initNavTree('d2/d58/neural__network_8cpp_source.html','../../'); in
 <div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>    <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>}</div>
 </div>
-<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span><span class="comment"></span> </div>
-<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span> </div>
 <div class="foldopen" id="foldopen00833" data-start="{" data-end="}">
 <div class="line"><a id="l00833" name="l00833"></a><span class="lineno"><a class="line" href="../../d2/d58/neural__network_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  833</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d2/d58/neural__network_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>    <span class="comment">// Testing</span></div>

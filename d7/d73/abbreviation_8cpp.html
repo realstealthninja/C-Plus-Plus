@@ -313,18 +313,7 @@ Algorithm</h3>
 <div class="line"><span class="lineno">   65</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (str_idx == str.size() &amp;&amp; result_idx != <a class="code hl_function" href="../../de/dc3/fibonacci__sum_8cpp.html#aadb40ac4c74a7efc0680b83eeee138aa">result</a>.size()) {</div>
 <div class="line"><span class="lineno">   66</span>        <span class="comment">// result `t` is not converted, return false</span></div>
 <div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   68</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!visited-&gt;at(str_idx).at(result_idx)) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   69</span><span class="comment">        /**</span></div>
-<div class="line"><span class="lineno">   70</span><span class="comment">         * `(str[i] == result[j])`: if str char at position i is equal to</span></div>
-<div class="line"><span class="lineno">   71</span><span class="comment">         * `result` char at position j, then s character is a capitalized one,</span></div>
-<div class="line"><span class="lineno">   72</span><span class="comment">         * move on to next character `str[i] - 32 == result[j]`:</span></div>
-<div class="line"><span class="lineno">   73</span><span class="comment">         * if `str[i]` character is lowercase of `result[j]` then explore two</span></div>
-<div class="line"><span class="lineno">   74</span><span class="comment">         * possibilites:</span></div>
-<div class="line"><span class="lineno">   75</span><span class="comment">         * 1. convert it to capitalized letter and move both to next pointer</span></div>
-<div class="line"><span class="lineno">   76</span><span class="comment">         * `(i + 1, j + 1)`</span></div>
-<div class="line"><span class="lineno">   77</span><span class="comment">         * 2. Discard the character `(str[i])` and move to next char `(i + 1,</span></div>
-<div class="line"><span class="lineno">   78</span><span class="comment">         * j)`</span></div>
-<div class="line"><span class="lineno">   79</span><span class="comment">         */</span></div>
+<div class="line"><span class="lineno">   68</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!visited-&gt;at(str_idx).at(result_idx)) {</div>
 <div class="line"><span class="lineno">   80</span>        <span class="keywordflow">if</span> (str[str_idx] == result[result_idx]) {</div>
 <div class="line"><span class="lineno">   81</span>            ans = <a class="code hl_function" href="#add60b8858720bf217df22d992d0fefaa">abbreviation_recursion</a>(memo, visited, str, result,</div>
 <div class="line"><span class="lineno">   82</span>                                         str_idx + 1, result_idx + 1);</div>

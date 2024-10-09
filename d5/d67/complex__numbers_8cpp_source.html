@@ -124,25 +124,14 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
   <div class="headertitle"><div class="title">complex_numbers.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d5/d67/complex__numbers_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @author tjgurwara99</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * \brief An implementation of Complex Number as Objects</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * \details A basic implementation of Complex Number field as a class with</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * operators overloaded to accommodate (mathematical) field operations.</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<a href="../../d5/d67/complex__numbers_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;complex&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * \brief Class Complex to represent complex numbers as a field.</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// The real value of the complex number</span></div>
@@ -150,23 +139,7 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// The imaginary value of the complex number</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">double</span> im;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     * \brief Complex Constructor which initialises our complex number.</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     * \details</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     * Complex Constructor which initialises the complex number which takes</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     * three arguments.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     * @param x If the third parameter is &#39;true&#39; then this x is the absolute</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     * value of the complex number, if the third parameter is &#39;false&#39; then this</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     * x is the real value of the complex number (optional).</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     * @param y If the third parameter is &#39;true&#39; then this y is the argument of</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     * the complex number, if the third parameter is &#39;false&#39; then this y is the</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     * imaginary value of the complex number (optional).</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     * @param is_polar &#39;false&#39; by default. If we want to initialise our complex</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     * number using polar form then set this to true, otherwise set it to false</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     * to use initialiser which initialises real and imaginary values using the</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     * first two parameters (optional).</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#a3cfc522c782726f49ee20af17b77f867">   43</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../da/d5a/class_complex.html#a3cfc522c782726f49ee20af17b77f867">Complex</a>(<span class="keywordtype">double</span> x = 0.f, <span class="keywordtype">double</span> y = 0.f, <span class="keywordtype">bool</span> is_polar = <span class="keyword">false</span>) {</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">if</span> (!is_polar) {</div>
@@ -179,76 +152,35 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        im = x * std::sin(y);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">     * \brief Copy Constructor</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">     * @param other The other number to equate our number to.</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#a466cd7b664cc6a864937ceb3dead1323">   58</a></span>    <a class="code hl_function" href="../../da/d5a/class_complex.html#a466cd7b664cc6a864937ceb3dead1323">Complex</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;other) : re(other.<a class="code hl_function" href="../../da/d5a/class_complex.html#a312e4b19146128408fb06e0150b0faf6">real</a>()), im(other.<a class="code hl_function" href="../../da/d5a/class_complex.html#af8aacf982e2e6c142921bc850f6dc974">imag</a>()) {}</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"></span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     * \brief Member function to get real value of our complex number.</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     * Member function (getter) to access the class&#39; re value.</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#a312e4b19146128408fb06e0150b0faf6">   64</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="../../da/d5a/class_complex.html#a312e4b19146128408fb06e0150b0faf6">real</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;re; }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"></span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">     * \brief Member function to get imaginary value of our complex number.</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">     * Member function (getter) to access the class&#39; im value.</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#af8aacf982e2e6c142921bc850f6dc974">   70</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="../../da/d5a/class_complex.html#af8aacf982e2e6c142921bc850f6dc974">imag</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;im; }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">     * \brief Member function to give the modulus of our complex number.</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     * Member function to which gives the absolute value (modulus) of our</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     * complex number</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     * @return \f$ \sqrt{z \bar{z}} \f$ where \f$ z \f$ is our complex</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     * number.</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#ae5b51b749ea4964104b9527af9d8f556">   79</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="../../da/d5a/class_complex.html#ae5b51b749ea4964104b9527af9d8f556">abs</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> std::sqrt(this-&gt;re * this-&gt;re + this-&gt;im * this-&gt;im);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
 </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     * \brief Member function to give the argument of our complex number.</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     * @return Argument of our Complex number in radians.</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#ae1e03712837450549e0c9b4017533a41">   87</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="../../da/d5a/class_complex.html#ae1e03712837450549e0c9b4017533a41">arg</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::atan2(this-&gt;im, this-&gt;re); }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     * \brief Operator overload of &#39;+&#39; on Complex class.</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     * Operator overload to be able to add two complex numbers.</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">     * @param other The other number that is added to the current number.</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">     * @return result current number plus other number</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#a820afcbb330df716577459d7a3aa3a1c">   95</a></span>    <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> <a class="code hl_function" href="../../da/d5a/class_complex.html#a820afcbb330df716577459d7a3aa3a1c">operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;other) {</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> result(this-&gt;re + other.re, this-&gt;im + other.im);</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
 </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     * \brief Operator overload of &#39;-&#39; on Complex class.</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     * Operator overload to be able to subtract two complex numbers.</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     * @param other The other number being subtracted from the current number.</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     * @return result current number subtract other number</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
 <div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#a36739619a07b5478bcd8a28ad2f8b7da">  106</a></span>    <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> <a class="code hl_function" href="../../da/d5a/class_complex.html#a36739619a07b5478bcd8a28ad2f8b7da">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;other) {</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> result(this-&gt;re - other.re, this-&gt;im - other.im);</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
 </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     * \brief Operator overload of &#39;*&#39; on Complex class.</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     * Operator overload to be able to multiple two complex numbers.</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     * @param other The other number to multiply the current number to.</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     * @return result current number times other number.</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#aa9b4a7d6083ca7040ddd4fe93db5c19d">  117</a></span>    <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> <a class="code hl_function" href="../../da/d5a/class_complex.html#aa9b4a7d6083ca7040ddd4fe93db5c19d">operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;other) {</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> result(this-&gt;re * other.re - this-&gt;im * other.im,</div>
@@ -256,28 +188,14 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
 </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"></span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">     * \brief Operator overload of &#39;~&#39; on Complex class.</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">     * Operator overload of the BITWISE NOT which gives us the conjugate of our</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">     * complex number. NOTE: This is overloading the BITWISE operator but its</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">     * not a BITWISE operation in this definition.</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">     * @return result The conjugate of our complex number.</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
 <div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#a8d5427f6c42c15283031d73e1418c59d">  130</a></span>    <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> <a class="code hl_function" href="../../da/d5a/class_complex.html#a8d5427f6c42c15283031d73e1418c59d">operator~</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> result(this-&gt;re, -(this-&gt;im));</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"></span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">     * \brief Operator overload of &#39;/&#39; on Complex class.</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">     * Operator overload to be able to divide two complex numbers. This function</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">     * would throw an exception if the other number is zero.</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">     * @param other The other number we divide our number by.</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">     * @return result Current number divided by other number.</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
 <div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#ac38437c10eb798f176c384a695171b90">  142</a></span>    <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> <a class="code hl_function" href="../../da/d5a/class_complex.html#ac38437c10eb798f176c384a695171b90">operator/</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;other) {</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> result = *<span class="keyword">this</span> * ~other;</div>
@@ -292,12 +210,7 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        }</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
 </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"></span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">     * \brief Operator overload of &#39;=&#39; on Complex class.</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">     * Operator overload to be able to copy RHS instance of Complex to LHS</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">     * instance of Complex</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
 <div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../da/d5a/class_complex.html#a4ac9f529d54cacf2969f2c7179b4c4ac">  160</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;<a class="code hl_function" href="../../da/d5a/class_complex.html#a4ac9f529d54cacf2969f2c7179b4c4ac">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;other) {</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        this-&gt;re = other.<a class="code hl_function" href="../../da/d5a/class_complex.html#a312e4b19146128408fb06e0150b0faf6">real</a>();</div>
@@ -307,28 +220,13 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
 </div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>};</div>
 </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment"></span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"> * \brief Operator overload of &#39;==&#39; on Complex class.</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment"> * Logical Equal overload for our Complex class.</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"> * @param a Left hand side of our expression</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"> * @param b Right hand side of our expression</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> * @return &#39;True&#39; If real and imaginary parts of a and b are same</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> * @return &#39;False&#39; Otherwise.</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
 <div class="foldopen" id="foldopen00175" data-start="{" data-end="}">
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="../../d5/d67/complex__numbers_8cpp.html#a5a73e9d4e68af8cedb95bd0864054b89">  175</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d67/complex__numbers_8cpp.html#a5a73e9d4e68af8cedb95bd0864054b89">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;b) {</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">return</span> a.real() == b.<a class="code hl_function" href="../../da/d5a/class_complex.html#a312e4b19146128408fb06e0150b0faf6">real</a>() &amp;&amp; a.imag() == b.<a class="code hl_function" href="../../da/d5a/class_complex.html#af8aacf982e2e6c142921bc850f6dc974">imag</a>();</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
 </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"></span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"> * \brief Operator overload of &#39;&lt;&lt;&#39; of ostream for Complex class.</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment"> * Overloaded insersion operator to accommodate the printing of our complex</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment"> * number in their standard form.</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"> * @param os The console stream</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"> * @param num The complex number.</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
 <div class="foldopen" id="foldopen00186" data-start="{" data-end="}">
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="../../d5/d67/complex__numbers_8cpp.html#a44d5f25b573e870accdf26fd32b8484d">  186</a></span>std::ostream &amp;<a class="code hl_function" href="../../d5/d67/complex__numbers_8cpp.html#a44d5f25b573e870accdf26fd32b8484d">operator&lt;&lt;</a>(std::ostream &amp;os, <span class="keyword">const</span> <a class="code hl_class" href="../../da/d5a/class_complex.html">Complex</a> &amp;num) {</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    os &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; num.<a class="code hl_function" href="../../da/d5a/class_complex.html#a312e4b19146128408fb06e0150b0faf6">real</a>();</div>
@@ -341,16 +239,9 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordflow">return</span> os;</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>}</div>
 </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment"></span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"> * \brief Function to get random numbers to generate our complex numbers for</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment"> * test</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="../../d5/d67/complex__numbers_8cpp.html#a5d4d5b8250b50703de888514c8e7a7a0">  201</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d5/d67/complex__numbers_8cpp.html#a5d4d5b8250b50703de888514c8e7a7a0">get_rand</a>() { <span class="keywordflow">return</span> (std::rand() % 100 - 50) / 100.f; }</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment"></span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment"> * Tests Function</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
 <div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="../../d5/d67/complex__numbers_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">  206</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d67/complex__numbers_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>() {</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    std::srand(std::time(<span class="keyword">nullptr</span>));</div>
@@ -411,10 +302,7 @@ $(function(){initNavTree('d5/d67/complex__numbers_8cpp_source.html','../../'); i
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Seventh test passes.\n&quot;</span>;</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>}</div>
 </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment"></span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="comment"> * Main function</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
 <div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="../../d5/d67/complex__numbers_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  268</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d67/complex__numbers_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <a class="code hl_function" href="../../d5/d67/complex__numbers_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>();</div>

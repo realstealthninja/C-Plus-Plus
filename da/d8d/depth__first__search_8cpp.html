@@ -211,21 +211,18 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  112</span>    std::cin &gt;&gt; vertices;</div>
 <div class="line"><span class="lineno">  113</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Enter the Edges : &quot;</span>;</div>
 <div class="line"><span class="lineno">  114</span>    std::cin &gt;&gt; edges;</div>
-<div class="line"><span class="lineno">  115</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  116</span><span class="comment">    /// creating graph</span></div>
-<div class="line"><span class="lineno">  117</span><span class="comment"></span>    std::vector&lt;std::vector&lt;size_t&gt;&gt; adj(vertices, std::vector&lt;size_t&gt;());</div>
-<div class="line"><span class="lineno">  118</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  119</span><span class="comment">    /// taking input for edges</span></div>
-<div class="line"><span class="lineno">  120</span><span class="comment"></span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Enter the vertices which have edges between them : &quot;</span></div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  117</span>    std::vector&lt;std::vector&lt;size_t&gt;&gt; adj(vertices, std::vector&lt;size_t&gt;());</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  120</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Enter the vertices which have edges between them : &quot;</span></div>
 <div class="line"><span class="lineno">  121</span>              &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">  122</span>    <span class="keywordflow">while</span> (edges--) {</div>
 <div class="line"><span class="lineno">  123</span>        <span class="keywordtype">size_t</span> u = 0, v = 0;</div>
 <div class="line"><span class="lineno">  124</span>        std::cin &gt;&gt; u &gt;&gt; v;</div>
 <div class="line"><span class="lineno">  125</span>        <a class="code hl_function" href="../../df/dce/namespacegraph.html#a9125ceb66bfbec3093bba64c2c1e99e2">graph::addEdge</a>(&amp;adj, u, v);</div>
 <div class="line"><span class="lineno">  126</span>    }</div>
-<div class="line"><span class="lineno">  127</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  128</span><span class="comment">    /// running depth first search over graph</span></div>
-<div class="line"><span class="lineno">  129</span><span class="comment"></span>    <a class="code hl_function" href="../../df/dce/namespacegraph.html#ab5428a3519267a28bba4b4310cfbb6ae">graph::depth_first_search</a>(adj, 2);</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_function" href="../../df/dce/namespacegraph.html#ab5428a3519267a28bba4b4310cfbb6ae">graph::depth_first_search</a>(adj, 2);</div>
 <div class="line"><span class="lineno">  130</span> </div>
 <div class="line"><span class="lineno">  131</span>    std::cout &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">  132</span>    <span class="keywordflow">return</span> 0;</div>

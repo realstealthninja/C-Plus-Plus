@@ -124,26 +124,7 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
   <div class="headertitle"><div class="title">kohonen_som_trace.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/d49/kohonen__som__trace_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * \addtogroup machine_learning Machine Learning Algorithms</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @{</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * \file</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * \brief [Kohonen self organizing</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * map](https://en.wikipedia.org/wiki/Self-organizing_map) (data tracing)</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * This example implements a powerful self organizing map algorithm.</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * The algorithm creates a connected network of weights that closely</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * follows the given data points. This this creates a chain of nodes that</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * resembles the given input shape.</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * \author [Krishna Vedala](https://github.com/kvedala)</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * \note This C++ version of the program is considerable slower than its [C</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * counterpart](https://github.com/kvedala/C/blob/master/machine_learning/kohonen_som_trace.c)</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * \note The compiled code is much slower when compiled with MS Visual C++ 2019</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * than with GCC on windows</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * \see kohonen_som_topology.cpp</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
+<a href="../../d9/d49/kohonen__som__trace_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define _USE_MATH_DEFINES  </span><span class="comment">// required for MS Visual C++</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;array&gt;</span></div>
@@ -157,30 +138,11 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#ifdef _OPENMP  </span><span class="comment">// check if OpenMP based parallellization is available</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;omp.h&gt;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * Helper function to generate a random number in a given interval.</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * \n Steps:</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * 1. `r1 = rand() % 100` gets a random number between 0 and 99</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * 2. `r2 = r1 / 100` converts random number to be between 0 and 0.99</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * 3. scale and offset the random number to given range of \f$[a,b]\f$</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * \param[in] a lower limit</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * \param[in] b upper limit</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * \returns random number in the range \f$[a,b]\f$</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d9/d66/group__machine__learning.html#gaf5ce14f026d6d231bef29161bac2b485">_random</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">return</span> ((b - a) * (std::rand() % 100) / 100.f) + a;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * Save a given n-dimensional data martix to file.</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * \param[in] fname filename to save in (gets overwriten without confirmation)</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> * \param[in] X matrix to save</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * \returns 0 if all ok</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * \returns -1 if file creation failed</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d9/d66/group__machine__learning.html#gae0208548f8b393528e5db01717e88e67">   58</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/d66/group__machine__learning.html#gae0208548f8b393528e5db01717e88e67">save_nd_data</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *fname,</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                 <span class="keyword">const</span> std::vector&lt;std::valarray&lt;double&gt;&gt; &amp;X) {</div>
@@ -213,21 +175,9 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/** \namespace machine_learning</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> * \brief Machine learning algorithms</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d77/namespacemachine__learning.html">machine_learning</a> {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * Update weights of the SOM using Kohonen algorithm</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> * \param[in] X data point</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * \param[in,out] W weights matrix</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * \param[in,out] D temporary vector to store distances</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> * \param[in] alpha learning rate \f$0&lt;\alpha\le1\f$</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * \param[in] R neighborhood range</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d8/d77/namespacemachine__learning.html#aa6aac06ccf128b0a9c55c9ee1a8e5631">  103</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d77/namespacemachine__learning.html#ae868ad43698a1d69ba46ea3827d7d2c3">update_weights</a>(<span class="keyword">const</span> std::valarray&lt;double&gt; &amp;x,</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                    std::vector&lt;std::valarray&lt;double&gt;&gt; *W,</div>
@@ -267,15 +217,7 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
 </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"></span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment"> * Apply incremental algorithm with updating neighborhood and learning rates</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"> * on all samples in the given datset.</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"> * \param[in] X data set</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> * \param[in,out] W weights matrix</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment"> * \param[in] alpha_min terminal value of alpha</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
 <div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d8/d77/namespacemachine__learning.html#a042f435bca0839e721fc1574a61e8da3">  149</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d77/namespacemachine__learning.html#a042f435bca0839e721fc1574a61e8da3">kohonen_som_tracer</a>(<span class="keyword">const</span> std::vector&lt;std::valarray&lt;double&gt;&gt; &amp;X,</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                        std::vector&lt;std::valarray&lt;double&gt;&gt; *W,</div>
@@ -308,23 +250,9 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 </div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}  <span class="comment">// namespace machine_learning</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"></span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">/** @} */</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keyword">using </span><a class="code hl_function" href="../../d8/d77/namespacemachine__learning.html#a042f435bca0839e721fc1574a61e8da3">machine_learning::kohonen_som_tracer</a>;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"></span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">/** Creates a random set of points distributed *near* the circumference</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment"> * of a circle and trains an SOM that finds that circular pattern. The</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"> * generating function is</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment"> * \f{eqnarray*}{</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment"> * r &amp;\in&amp; [1-\delta r, 1+\delta r)\\</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment"> * \theta &amp;\in&amp; [0, 2\pi)\\</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment"> * x &amp;=&amp; r\cos\theta\\</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment"> * y &amp;=&amp; r\sin\theta</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment"> * \f}</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment"> * \param[out] data matrix to store data in</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
 <div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#ae571600aa42a81bc14a4a602ea5ff00d">  196</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d49/kohonen__som__trace_8cpp.html#ae571600aa42a81bc14a4a602ea5ff00d">test_circle</a>(std::vector&lt;std::valarray&lt;double&gt;&gt; *<a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>) {</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N = <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>-&gt;size();</div>
@@ -344,26 +272,7 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>}</div>
 </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment"></span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">/** Test that creates a random set of points distributed *near* the</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment"> * circumference of a circle and trains an SOM that finds that circular pattern.</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment"> * The following [CSV](https://en.wikipedia.org/wiki/Comma-separated_values)</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment"> * files are created to validate the execution:</span></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment"> * * `test1.csv`: random test samples points with a circular pattern</span></div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment"> * * `w11.csv`: initial random map</span></div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"> * * `w12.csv`: trained SOM map</span></div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment"> * The outputs can be readily plotted in [gnuplot](https:://gnuplot.info) using</span></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"> * the following snippet</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment"> * ```gnuplot</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment"> * set datafile separator &#39;,&#39;</span></div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment"> * plot &quot;test1.csv&quot; title &quot;original&quot;, \</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment"> *      &quot;w11.csv&quot; title &quot;w1&quot;, \</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment"> *      &quot;w12.csv&quot; title &quot;w2&quot;</span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment"> * ```</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment"> * ![Sample execution</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment"> * output](https://raw.githubusercontent.com/TheAlgorithms/C-Plus-Plus/docs/images/machine_learning/kohonen/test1.svg)</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
 <div class="foldopen" id="foldopen00233" data-start="{" data-end="}">
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#a1440a7779ac56f47a3f355ce4a8c7da0">  233</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d49/kohonen__som__trace_8cpp.html#a1440a7779ac56f47a3f355ce4a8c7da0">test1</a>() {</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">int</span> j = 0, N = 500;</div>
@@ -396,20 +305,7 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <a class="code hl_function" href="../../d9/d66/group__machine__learning.html#gae0208548f8b393528e5db01717e88e67">save_nd_data</a>(<span class="stringliteral">&quot;w12.csv&quot;</span>, W);      <span class="comment">// save the resultant weights</span></div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>}</div>
 </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment"></span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment">/** Creates a random set of points distributed *near* the locus</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment"> * of the [Lamniscate of</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="comment"> * Gerono](https://en.wikipedia.org/wiki/Lemniscate_of_Gerono).</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment"> * \f{eqnarray*}{</span></div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment"> * \delta r &amp;=&amp; 0.2\\</span></div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment"> * \delta x &amp;\in&amp; [-\delta r, \delta r)\\</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment"> * \delta y &amp;\in&amp; [-\delta r, \delta r)\\</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment"> * \theta &amp;\in&amp; [0, \pi)\\</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment"> * x &amp;=&amp; \delta x + \cos\theta\\</span></div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="comment"> * y &amp;=&amp; \delta y + \frac{\sin(2\theta)}{2}</span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="comment"> * \f}</span></div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment"> * \param[out] data matrix to store data in</span></div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
 <div class="foldopen" id="foldopen00277" data-start="{" data-end="}">
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#a53082f2e5bacec40266499da4547309a">  277</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d49/kohonen__som__trace_8cpp.html#a53082f2e5bacec40266499da4547309a">test_lamniscate</a>(std::vector&lt;std::valarray&lt;double&gt;&gt; *<a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>) {</div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N = <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>-&gt;size();</div>
@@ -428,28 +324,7 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    }</div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>}</div>
 </div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment"></span> </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment">/** Test that creates a random set of points distributed *near* the locus</span></div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment"> * of the [Lamniscate of</span></div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment"> * Gerono](https://en.wikipedia.org/wiki/Lemniscate_of_Gerono) and trains an SOM</span></div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment"> * that finds that circular pattern. The following</span></div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment"> * [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) files are created</span></div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="comment"> * to validate the execution:</span></div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="comment"> * * `test2.csv`: random test samples points with a lamniscate pattern</span></div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="comment"> * * `w21.csv`: initial random map</span></div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="comment"> * * `w22.csv`: trained SOM map</span></div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment"> * The outputs can be readily plotted in [gnuplot](https:://gnuplot.info) using</span></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment"> * the following snippet</span></div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment"> * ```gnuplot</span></div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment"> * set datafile separator &#39;,&#39;</span></div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="comment"> * plot &quot;test2.csv&quot; title &quot;original&quot;, \</span></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="comment"> *      &quot;w21.csv&quot; title &quot;w1&quot;, \</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment"> *      &quot;w22.csv&quot; title &quot;w2&quot;</span></div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment"> * ```</span></div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment"> * ![Sample execution</span></div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment"> * output](https://raw.githubusercontent.com/TheAlgorithms/C-Plus-Plus/docs/images/machine_learning/kohonen/test2.svg)</span></div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
 <div class="foldopen" id="foldopen00315" data-start="{" data-end="}">
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#a0283886819c7c140a023582b7269e2d0">  315</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d49/kohonen__som__trace_8cpp.html#a0283886819c7c140a023582b7269e2d0">test2</a>() {</div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="keywordtype">int</span> j = 0, N = 500;</div>
@@ -482,20 +357,7 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <a class="code hl_function" href="../../d9/d66/group__machine__learning.html#gae0208548f8b393528e5db01717e88e67">save_nd_data</a>(<span class="stringliteral">&quot;w22.csv&quot;</span>, W);       <span class="comment">// save the resultant weights</span></div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>}</div>
 </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="comment"></span> </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="comment">/** Creates a random set of points distributed in six clusters in</span></div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment"> * 3D space with centroids at the points</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="comment"> * * \f${0.5, 0.5, 0.5}\f$</span></div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment"> * * \f${0.5, 0.5, -0.5}\f$</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="comment"> * * \f${0.5, -0.5, 0.5}\f$</span></div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="comment"> * * \f${0.5, -0.5, -0.5}\f$</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="comment"> * * \f${-0.5, 0.5, 0.5}\f$</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="comment"> * * \f${-0.5, 0.5, -0.5}\f$</span></div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="comment"> * * \f${-0.5, -0.5, 0.5}\f$</span></div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="comment"> * * \f${-0.5, -0.5, -0.5}\f$</span></div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="comment"> * \param[out] data matrix to store data in</span></div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
 <div class="foldopen" id="foldopen00359" data-start="{" data-end="}">
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#a7154fe319e6033485a8a6cd6f0d8932d">  359</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d49/kohonen__som__trace_8cpp.html#a7154fe319e6033485a8a6cd6f0d8932d">test_3d_classes</a>(std::vector&lt;std::valarray&lt;double&gt;&gt; *<a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>) {</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> N = <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>-&gt;size();</div>
@@ -533,26 +395,7 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    }</div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>}</div>
 </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span><span class="comment"></span> </div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span><span class="comment">/** Test that creates a random set of points distributed in six clusters in</span></div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span><span class="comment"> * 3D space. The following</span></div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span><span class="comment"> * [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) files are created</span></div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span><span class="comment"> * to validate the execution:</span></div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="comment"> * * `test3.csv`: random test samples points with a circular pattern</span></div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="comment"> * * `w31.csv`: initial random map</span></div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span><span class="comment"> * * `w32.csv`: trained SOM map</span></div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span><span class="comment"> * The outputs can be readily plotted in [gnuplot](https:://gnuplot.info) using</span></div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span><span class="comment"> * the following snippet</span></div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span><span class="comment"> * ```gnuplot</span></div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span><span class="comment"> * set datafile separator &#39;,&#39;</span></div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span><span class="comment"> * plot &quot;test3.csv&quot; title &quot;original&quot;, \</span></div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="comment"> *      &quot;w31.csv&quot; title &quot;w1&quot;, \</span></div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><span class="comment"> *      &quot;w32.csv&quot; title &quot;w2&quot;</span></div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span><span class="comment"> * ```</span></div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span><span class="comment"> * ![Sample execution</span></div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="comment"> * output](https://raw.githubusercontent.com/TheAlgorithms/C-Plus-Plus/docs/images/machine_learning/kohonen/test3.svg)</span></div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
 <div class="foldopen" id="foldopen00414" data-start="{" data-end="}">
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#a6d0455dd5c30adda100e95f0423c786e">  414</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d49/kohonen__som__trace_8cpp.html#a6d0455dd5c30adda100e95f0423c786e">test3</a>() {</div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <span class="keywordtype">int</span> j = 0, N = 200;</div>
@@ -585,21 +428,13 @@ $(function(){initNavTree('d9/d49/kohonen__som__trace_8cpp_source.html','../../')
 <div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <a class="code hl_function" href="../../d9/d66/group__machine__learning.html#gae0208548f8b393528e5db01717e88e67">save_nd_data</a>(<span class="stringliteral">&quot;w32.csv&quot;</span>, W);       <span class="comment">// save the resultant weights</span></div>
 <div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>}</div>
 </div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span><span class="comment"></span> </div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span><span class="comment"> * Convert clock cycle difference to time in seconds</span></div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span><span class="comment"> * \param[in] start_t start clock</span></div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span><span class="comment"> * \param[in] end_t end clock</span></div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span><span class="comment"> * \returns time difference in seconds</span></div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span> </div>
 <div class="foldopen" id="foldopen00452" data-start="{" data-end="}">
 <div class="line"><a id="l00452" name="l00452"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#a2256c10b16edba377b64a44b6c656908">  452</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d9/d49/kohonen__som__trace_8cpp.html#a2256c10b16edba377b64a44b6c656908">get_clock_diff</a>(clock_t start_t, clock_t end_t) {</div>
 <div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(end_t - start_t) / CLOCKS_PER_SEC;</div>
 <div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>}</div>
 </div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span><span class="comment"></span> </div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span><span class="comment">/** Main function */</span></div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
 <div class="foldopen" id="foldopen00457" data-start="{" data-end="}">
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno"><a class="line" href="../../d9/d49/kohonen__som__trace_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  457</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#gae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
 <div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span><span class="preprocessor">#ifdef _OPENMP</span></div>

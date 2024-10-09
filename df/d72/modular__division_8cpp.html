@@ -247,9 +247,9 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d72/modular__division_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../df/d72/modular__division_8cpp_source.html">modular_division.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   74</span>                                                          {</div>
-<div class="line"><span class="lineno">   75</span>    uint64_t inverse = <a class="code hl_function" href="../../df/def/power__for__huge__numbers_8cpp.html#ae249a2af508aa94266023ce8aa81426f">power</a>(b, p - 2, p) % p;  <span class="comment">/// Calculate the inverse of b</span></div>
+<div class="line"><span class="lineno">   75</span>    uint64_t inverse = <a class="code hl_function" href="../../df/def/power__for__huge__numbers_8cpp.html#ae249a2af508aa94266023ce8aa81426f">power</a>(b, p - 2, p) % p;  </div>
 <div class="line"><span class="lineno">   76</span>    uint64_t <a class="code hl_function" href="../../de/dc3/fibonacci__sum_8cpp.html#aadb40ac4c74a7efc0680b83eeee138aa">result</a> =</div>
-<div class="line"><span class="lineno">   77</span>        ((a % p) * (inverse % p)) % p;  <span class="comment">/// Calculate the final result</span></div>
+<div class="line"><span class="lineno">   77</span>        ((a % p) * (inverse % p)) % p;  </div>
 <div class="line"><span class="lineno">   78</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../de/dc3/fibonacci__sum_8cpp.html#aadb40ac4c74a7efc0680b83eeee138aa">result</a>;</div>
 <div class="line"><span class="lineno">   79</span>}</div>
 <div class="ttc" id="afibonacci__sum_8cpp_html_aadb40ac4c74a7efc0680b83eeee138aa"><div class="ttname"><a href="../../de/dc3/fibonacci__sum_8cpp.html#aadb40ac4c74a7efc0680b83eeee138aa">math::fibonacci_sum::result</a></div><div class="ttdeci">uint64_t result(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc3/fibonacci__sum_8cpp_source.html#l00076">fibonacci_sum.cpp:76</a></div></div>
@@ -300,18 +300,16 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d72/modular__division_8cpp_source.html#l00049">49</a> of file <a class="el" href="../../df/d72/modular__division_8cpp_source.html">modular_division.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   49</span>                                                   {</div>
-<div class="line"><span class="lineno">   50</span>    uint64_t ans = 1;  <span class="comment">/// Initialize the answer to be returned</span></div>
-<div class="line"><span class="lineno">   51</span>    a = a % c;         <span class="comment">/// Update a if it is more than or equal to c</span></div>
+<div class="line"><span class="lineno">   50</span>    uint64_t ans = 1;  </div>
+<div class="line"><span class="lineno">   51</span>    a = a % c;         </div>
 <div class="line"><span class="lineno">   52</span>    <span class="keywordflow">if</span> (a == 0) {</div>
-<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">return</span> 0;  <span class="comment">/// In case a is divisible by c;</span></div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">return</span> 0;  </div>
 <div class="line"><span class="lineno">   54</span>    }</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">while</span> (b &gt; 0) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   56</span><span class="comment">        /// If b is odd, multiply a with answer</span></div>
-<div class="line"><span class="lineno">   57</span><span class="comment"></span>        <span class="keywordflow">if</span> (b &amp; 1) {</div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">while</span> (b &gt; 0) {</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">if</span> (b &amp; 1) {</div>
 <div class="line"><span class="lineno">   58</span>            ans = ((ans % c) * (a % c)) % c;</div>
-<div class="line"><span class="lineno">   59</span>        }<span class="comment"></span></div>
-<div class="line"><span class="lineno">   60</span><span class="comment">        /// b must be even now</span></div>
-<div class="line"><span class="lineno">   61</span><span class="comment"></span>        b = b &gt;&gt; 1;  <span class="comment">/// b = b/2</span></div>
+<div class="line"><span class="lineno">   59</span>        }</div>
+<div class="line"><span class="lineno">   61</span>        b = b &gt;&gt; 1;  </div>
 <div class="line"><span class="lineno">   62</span>        a = ((a % c) * (a % c)) % c;</div>
 <div class="line"><span class="lineno">   63</span>    }</div>
 <div class="line"><span class="lineno">   64</span>    <span class="keywordflow">return</span> ans;</div>

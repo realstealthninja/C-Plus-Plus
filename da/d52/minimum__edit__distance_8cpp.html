@@ -231,34 +231,24 @@ Algorithm</h3>
 <p>returning the minimum cost of operations needed to convert str1 to str2</p>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>                                                                            {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   89</span><span class="comment">  /// Create a table to store results of subproblems</span></div>
-<div class="line"><span class="lineno">   90</span><span class="comment"></span>  std::vector&lt;std::vector&lt;uint64_t&gt;&gt;<a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>(m+1, std::vector&lt;uint64_t&gt;(n+1)); <span class="comment">/// creasting 2D vector dp to store the results of subproblems</span></div>
-<div class="line"><span class="lineno">   91</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   92</span><span class="comment">  /// Fill d[][] in bottom up manner</span></div>
-<div class="line"><span class="lineno">   93</span><span class="comment"></span>  <span class="keywordflow">for</span> (uint64_t i = 0; i &lt;= m; i++) {</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">for</span> (uint64_t j = 0; j &lt;= n; j++) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   95</span><span class="comment">      /// If first string is empty, only option is to</span></div>
-<div class="line"><span class="lineno">   96</span><span class="comment">      /// insert all characters of second string</span></div>
-<div class="line"><span class="lineno">   97</span><span class="comment"></span>      <span class="keywordflow">if</span> (i == 0) {</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = j; <span class="comment">/// Minimum operations = j</span></div>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>                                                                            {</div>
+<div class="line"><span class="lineno">   90</span>  std::vector&lt;std::vector&lt;uint64_t&gt;&gt;<a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>(m+1, std::vector&lt;uint64_t&gt;(n+1)); </div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   93</span>  <span class="keywordflow">for</span> (uint64_t i = 0; i &lt;= m; i++) {</div>
+<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">for</span> (uint64_t j = 0; j &lt;= n; j++) {</div>
+<div class="line"><span class="lineno">   97</span>      <span class="keywordflow">if</span> (i == 0) {</div>
+<div class="line"><span class="lineno">   98</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = j; </div>
 <div class="line"><span class="lineno">   99</span>      }</div>
-<div class="line"><span class="lineno">  100</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  101</span><span class="comment">      /// If second string is empty, only option is to</span></div>
-<div class="line"><span class="lineno">  102</span><span class="comment">      /// remove all characters of second string</span></div>
-<div class="line"><span class="lineno">  103</span><span class="comment"></span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (j == 0) {</div>
-<div class="line"><span class="lineno">  104</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = i; <span class="comment">/// Minimum operations = i</span></div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  103</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (j == 0) {</div>
+<div class="line"><span class="lineno">  104</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = i; </div>
 <div class="line"><span class="lineno">  105</span>      }</div>
-<div class="line"><span class="lineno">  106</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  107</span><span class="comment">      /// If last characters are same, ignore last char</span></div>
-<div class="line"><span class="lineno">  108</span><span class="comment">      /// and recur for remaining string</span></div>
-<div class="line"><span class="lineno">  109</span><span class="comment"></span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (str1[i - 1] == str2[j - 1]) {</div>
+<div class="line"><span class="lineno">  106</span> </div>
+<div class="line"><span class="lineno">  109</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (str1[i - 1] == str2[j - 1]) {</div>
 <div class="line"><span class="lineno">  110</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j - 1];</div>
 <div class="line"><span class="lineno">  111</span>      }</div>
-<div class="line"><span class="lineno">  112</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  113</span><span class="comment">      /// If the last character is different, consider all</span></div>
-<div class="line"><span class="lineno">  114</span><span class="comment">      /// possibilities and find the minimum</span></div>
-<div class="line"><span class="lineno">  115</span><span class="comment"></span>      <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  112</span> </div>
+<div class="line"><span class="lineno">  115</span>      <span class="keywordflow">else</span> {</div>
 <div class="line"><span class="lineno">  116</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = 1 + min(<a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j - 1],      <span class="comment">// Insert</span></div>
 <div class="line"><span class="lineno">  117</span>                           <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j],      <span class="comment">// Remove</span></div>
 <div class="line"><span class="lineno">  118</span>                           <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j - 1]); <span class="comment">// Replace</span></div>
@@ -266,7 +256,7 @@ Algorithm</h3>
 <div class="line"><span class="lineno">  120</span>    }</div>
 <div class="line"><span class="lineno">  121</span>  }</div>
 <div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>  <span class="keywordflow">return</span> <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[m][n]; <span class="comment">/// returning the minimum cost of operations needed to convert str1 to str2</span></div>
+<div class="line"><span class="lineno">  123</span>  <span class="keywordflow">return</span> <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[m][n]; </div>
 <div class="line"><span class="lineno">  124</span>}</div>
 <div class="ttc" id="anamespacedp_html"><div class="ttname"><a href="../../df/d88/namespacedp.html">dp</a></div><div class="ttdoc">for std::vector</div><div class="ttdef"><b>Definition</b> <a href="../../de/d8c/partition__problem_8cpp_source.html#l00039">partition_problem.cpp:39</a></div></div>
 </div><!-- fragment -->
@@ -355,13 +345,13 @@ z if <code>z</code> is the minimum value </dd></dl>
 <p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   63</span>                                                 {</div>
 <div class="line"><span class="lineno">   64</span>  <span class="keywordflow">if</span> (x &lt;= y &amp;&amp; x &lt;= z) {</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> x; <span class="comment">/// returns x, if x is the minimum value</span></div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> x; </div>
 <div class="line"><span class="lineno">   66</span>  }</div>
 <div class="line"><span class="lineno">   67</span>  <span class="keywordflow">if</span> (y &lt;= x &amp;&amp; y &lt;= z) {</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">return</span> y; <span class="comment">/// returns y, if y is the minimum value</span></div>
+<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">return</span> y; </div>
 <div class="line"><span class="lineno">   69</span>  }</div>
 <div class="line"><span class="lineno">   70</span>  <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> z; <span class="comment">/// returns z if z is the minimum value</span></div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> z; </div>
 <div class="line"><span class="lineno">   72</span>  }</div>
 <div class="line"><span class="lineno">   73</span>}</div>
 </div><!-- fragment -->

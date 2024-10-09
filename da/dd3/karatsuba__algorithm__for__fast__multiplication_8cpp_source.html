@@ -124,42 +124,14 @@ $(function(){initNavTree('da/dd3/karatsuba__algorithm__for__fast__multiplication
   <div class="headertitle"><div class="title">karatsuba_algorithm_for_fast_multiplication.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Implementation of the [Karatsuba algorithm for fast</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * multiplication](https://en.wikipedia.org/wiki/Karatsuba_algorithm)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Given two strings in binary notation we want to multiply them and return the</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * value. Simple approach is to multiply bits one by one which will give the time</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * complexity of around O(n^2). To make it more efficient we will be using</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * Karatsuba algorithm to find the product which will solve the problem</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * O(nlogn) of time.</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * @author [Swastika Gupta](https://github.com/Swastyy)</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * @author [Ameer Carlo Lubang](https://github.com/poypoyan)</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;cassert&gt;</span>   <span class="comment">/// for assert</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;cstring&gt;</span>   <span class="comment">/// for string</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;iostream&gt;</span>  <span class="comment">/// for IO operations</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;vector&gt;</span>    <span class="comment">/// for std::vector</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../dd/dba/namespacedivide__and__conquer.html">   21</a></span><span class="comment"> * @namespace divide_and_conquer</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * @brief Divide and Conquer algorithms</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/dba/namespacedivide__and__conquer.html">divide_and_conquer</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../de/d41/namespacekaratsuba__algorithm.html">   26</a></span><span class="comment"> * @namespace karatsuba_algorithm</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @brief Functions for the [Karatsuba algorithm for fast</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * multiplication](https://en.wikipedia.org/wiki/Karatsuba_algorithm) implementation</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/d41/namespacekaratsuba__algorithm.html">karatsuba_algorithm</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @brief Binary addition</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @param first, the input string 1</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * @param second, the input string 2</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * @returns the sum binary string</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> */</span></div>
+<a href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;cassert&gt;</span>   </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;cstring&gt;</span>   </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;iostream&gt;</span>  </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;vector&gt;</span>    </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/dba/namespacedivide__and__conquer.html">divide_and_conquer</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/d41/namespacekaratsuba__algorithm.html">karatsuba_algorithm</a> {</div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#ad76f5cac3ef8dc034f6abb99b64c2b20">   37</a></span>std::string <a class="code hl_function" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#ad76f5cac3ef8dc034f6abb99b64c2b20">add_strings</a>(std::string first, std::string second) {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    std::string result;  <span class="comment">// to store the resulting sum bits</span></div>
@@ -201,16 +173,7 @@ $(function(){initNavTree('da/dd3/karatsuba__algorithm__for__fast__multiplication
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
 </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"></span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * @brief Wrapper function for substr that considers leading zeros.</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * @param str, the binary input string.</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> * @param x1, the substr parameter integer 1</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> * @param x2, the substr parameter integer 2</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> * @param n, is the length of the &quot;whole&quot; string: leading zeros + str</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> * @returns the &quot;safe&quot; substring for the algorithm *without* leading zeros</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * @returns &quot;0&quot; if substring spans to leading zeros only</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#aad9e3edfe156b59fc06a5585403fe0d6">   86</a></span>std::string <a class="code hl_function" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#aad9e3edfe156b59fc06a5585403fe0d6">safe_substr</a>(<span class="keyword">const</span> std::string &amp;str, int64_t x1, int64_t x2, int64_t n) {</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    int64_t len = str.size();</div>
@@ -231,14 +194,7 @@ $(function(){initNavTree('da/dd3/karatsuba__algorithm__for__fast__multiplication
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
 </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * @brief The main function implements Karatsuba&#39;s algorithm for fast</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * multiplication</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * @param str1 the input string 1</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * @param str2 the input string 2</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> * @returns the product number value</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#a7a890d2f26855ada3b9f1d43aec70a86">  112</a></span>int64_t <a class="code hl_namespace" href="../../de/d41/namespacekaratsuba__algorithm.html">karatsuba_algorithm</a>(std::string str1, std::string str2) {</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    int64_t len1 = str1.size();</div>
@@ -275,11 +231,7 @@ $(function(){initNavTree('da/dd3/karatsuba__algorithm__for__fast__multiplication
 </div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}  <span class="comment">// namespace karatsuba_algorithm</span></div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>}  <span class="comment">// namespace divide_and_conquer</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"></span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> * @brief Self-test implementations</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment"> * @returns void</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
 <div class="foldopen" id="foldopen00151" data-start="{" data-end="}">
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">  151</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="comment">// 1st test</span></div>
@@ -307,11 +259,7 @@ $(function(){initNavTree('da/dd3/karatsuba__algorithm__for__fast__multiplication
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>}</div>
 </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"></span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
 <div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  181</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <a class="code hl_function" href="../../da/dd3/karatsuba__algorithm__for__fast__multiplication_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run self-test implementations</span></div>

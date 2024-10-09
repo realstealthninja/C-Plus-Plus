@@ -302,103 +302,76 @@ Variables</h2></td></tr>
 <p>check if currentNode has already been visited</p>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d07/bidirectional__dijkstra_8cpp_source.html">bidirectional_dijkstra.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>                                       {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   89</span><span class="comment">    /// n denotes the number of vertices in graph</span></div>
-<div class="line"><span class="lineno">   90</span><span class="comment"></span>    uint64_t n = adj1-&gt;size();</div>
-<div class="line"><span class="lineno">   91</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   92</span><span class="comment">    /// setting all the distances initially to INF</span></div>
-<div class="line"><span class="lineno">   93</span><span class="comment"></span>    std::vector&lt;std::vector&lt;uint64_t&gt;&gt; dist(2, std::vector&lt;uint64_t&gt;(n, <a class="code hl_variable" href="#a330a2b0a904f01802ada1f8f3b28e76c">INF</a>));</div>
-<div class="line"><span class="lineno">   94</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   95</span><span class="comment">    /// creating a a vector of min heap using priority queue</span></div>
-<div class="line"><span class="lineno">   96</span><span class="comment">    /// pq[0] contains the min heap for the direct search</span></div>
-<div class="line"><span class="lineno">   97</span><span class="comment">    /// pq[1] contains the min heap for the reverse search</span></div>
-<div class="line"><span class="lineno">   98</span><span class="comment"></span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   99</span><span class="comment">    /// first element of pair contains the distance</span></div>
-<div class="line"><span class="lineno">  100</span><span class="comment">    /// second element of pair contains the vertex</span></div>
-<div class="line"><span class="lineno">  101</span><span class="comment"></span>    std::vector&lt;</div>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>                                       {</div>
+<div class="line"><span class="lineno">   90</span>    uint64_t n = adj1-&gt;size();</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   93</span>    std::vector&lt;std::vector&lt;uint64_t&gt;&gt; dist(2, std::vector&lt;uint64_t&gt;(n, <a class="code hl_variable" href="#a330a2b0a904f01802ada1f8f3b28e76c">INF</a>));</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">  101</span>    std::vector&lt;</div>
 <div class="line"><span class="lineno">  102</span>        std::priority_queue&lt;std::pair&lt;uint64_t, uint64_t&gt;,</div>
 <div class="line"><span class="lineno">  103</span>                            std::vector&lt;std::pair&lt;uint64_t, uint64_t&gt;&gt;,</div>
 <div class="line"><span class="lineno">  104</span>                            std::greater&lt;std::pair&lt;uint64_t, uint64_t&gt;&gt;&gt;&gt;</div>
-<div class="line"><span class="lineno">  105</span>        pq(2);<span class="comment"></span></div>
-<div class="line"><span class="lineno">  106</span><span class="comment">    /// vector for store the nodes or vertices in the shortest path</span></div>
-<div class="line"><span class="lineno">  107</span><span class="comment"></span>    std::vector&lt;uint64_t&gt; workset(n);<span class="comment"></span></div>
-<div class="line"><span class="lineno">  108</span><span class="comment">    /// vector for store the nodes or vertices visited</span></div>
-<div class="line"><span class="lineno">  109</span><span class="comment"></span>    std::vector&lt;bool&gt; visited(n);</div>
-<div class="line"><span class="lineno">  110</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  111</span><span class="comment">    /// pushing the source vertex &#39;s&#39; with 0 distance in pq[0] min heap</span></div>
-<div class="line"><span class="lineno">  112</span><span class="comment"></span>    pq[0].push(std::make_pair(0, s));</div>
-<div class="line"><span class="lineno">  113</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  114</span><span class="comment">    /// marking the distance of source as 0</span></div>
-<div class="line"><span class="lineno">  115</span><span class="comment"></span>    dist[0][s] = 0;</div>
-<div class="line"><span class="lineno">  116</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  117</span><span class="comment">    /// pushing the target vertex &#39;t&#39; with 0 distance in pq[1] min heap</span></div>
-<div class="line"><span class="lineno">  118</span><span class="comment"></span>    pq[1].push(std::make_pair(0, t));</div>
-<div class="line"><span class="lineno">  119</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  120</span><span class="comment">    /// marking the distance of target as 0</span></div>
-<div class="line"><span class="lineno">  121</span><span class="comment"></span>    dist[1][t] = 0;</div>
+<div class="line"><span class="lineno">  105</span>        pq(2);</div>
+<div class="line"><span class="lineno">  107</span>    std::vector&lt;uint64_t&gt; workset(n);</div>
+<div class="line"><span class="lineno">  109</span>    std::vector&lt;bool&gt; visited(n);</div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  112</span>    pq[0].push(std::make_pair(0, s));</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  115</span>    dist[0][s] = 0;</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  118</span>    pq[1].push(std::make_pair(0, t));</div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  121</span>    dist[1][t] = 0;</div>
 <div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">  124</span><span class="comment">        /// direct search</span></div>
-<div class="line"><span class="lineno">  125</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  125</span> </div>
 <div class="line"><span class="lineno">  126</span>        <span class="comment">// If pq[0].size() is equal to zero then the node/ vertex is not</span></div>
 <div class="line"><span class="lineno">  127</span>        <span class="comment">// reachable from s</span></div>
 <div class="line"><span class="lineno">  128</span>        <span class="keywordflow">if</span> (pq[0].size() == 0) {</div>
 <div class="line"><span class="lineno">  129</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  130</span>        }<span class="comment"></span></div>
-<div class="line"><span class="lineno">  131</span><span class="comment">        /// second element of pair denotes the node / vertex</span></div>
-<div class="line"><span class="lineno">  132</span><span class="comment"></span>        uint64_t currentNode = pq[0].top().second;</div>
-<div class="line"><span class="lineno">  133</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  134</span><span class="comment">        /// first element of pair denotes the distance</span></div>
-<div class="line"><span class="lineno">  135</span><span class="comment"></span>        uint64_t currentDist = pq[0].top().first;</div>
+<div class="line"><span class="lineno">  130</span>        }</div>
+<div class="line"><span class="lineno">  132</span>        uint64_t currentNode = pq[0].top().second;</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  135</span>        uint64_t currentDist = pq[0].top().first;</div>
 <div class="line"><span class="lineno">  136</span> </div>
 <div class="line"><span class="lineno">  137</span>        pq[0].pop();</div>
-<div class="line"><span class="lineno">  138</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  139</span><span class="comment">        /// for all the reachable vertex from the currently exploring vertex</span></div>
-<div class="line"><span class="lineno">  140</span><span class="comment">        /// we will try to minimize the distance</span></div>
-<div class="line"><span class="lineno">  141</span><span class="comment"></span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj1)[currentNode]) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">  142</span><span class="comment">            /// minimizing distances</span></div>
-<div class="line"><span class="lineno">  143</span><span class="comment"></span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[0][edge.first]) {</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj1)[currentNode]) {</div>
+<div class="line"><span class="lineno">  143</span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[0][edge.first]) {</div>
 <div class="line"><span class="lineno">  144</span>                dist[0][edge.first] = currentDist + edge.second;</div>
 <div class="line"><span class="lineno">  145</span>                pq[0].push(std::make_pair(dist[0][edge.first], edge.first));</div>
 <div class="line"><span class="lineno">  146</span>            }</div>
 <div class="line"><span class="lineno">  147</span>        }</div>
 <div class="line"><span class="lineno">  148</span>        <span class="comment">// store the processed node/ vertex</span></div>
 <div class="line"><span class="lineno">  149</span>        workset.push_back(currentNode);</div>
-<div class="line"><span class="lineno">  150</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  151</span><span class="comment">        /// check if currentNode has already been visited</span></div>
-<div class="line"><span class="lineno">  152</span><span class="comment"></span>        <span class="keywordflow">if</span> (visited[currentNode] == 1) {</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  152</span>        <span class="keywordflow">if</span> (visited[currentNode] == 1) {</div>
 <div class="line"><span class="lineno">  153</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="#a22f1b7277e1dd4190f25014b48487ce6">Shortest_Path_Distance</a>(workset, dist);</div>
 <div class="line"><span class="lineno">  154</span>        }</div>
-<div class="line"><span class="lineno">  155</span>        visited[currentNode] = <span class="keyword">true</span>;<span class="comment"></span></div>
-<div class="line"><span class="lineno">  156</span><span class="comment">        /// reversed search</span></div>
-<div class="line"><span class="lineno">  157</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">  155</span>        visited[currentNode] = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  157</span> </div>
 <div class="line"><span class="lineno">  158</span>        <span class="comment">// If pq[1].size() is equal to zero then the node/ vertex is not</span></div>
 <div class="line"><span class="lineno">  159</span>        <span class="comment">// reachable from t</span></div>
 <div class="line"><span class="lineno">  160</span>        <span class="keywordflow">if</span> (pq[1].size() == 0) {</div>
 <div class="line"><span class="lineno">  161</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  162</span>        }<span class="comment"></span></div>
-<div class="line"><span class="lineno">  163</span><span class="comment">        /// second element of pair denotes the node / vertex</span></div>
-<div class="line"><span class="lineno">  164</span><span class="comment"></span>        currentNode = pq[1].top().second;</div>
-<div class="line"><span class="lineno">  165</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  166</span><span class="comment">        /// first element of pair denotes the distance</span></div>
-<div class="line"><span class="lineno">  167</span><span class="comment"></span>        currentDist = pq[1].top().first;</div>
+<div class="line"><span class="lineno">  162</span>        }</div>
+<div class="line"><span class="lineno">  164</span>        currentNode = pq[1].top().second;</div>
+<div class="line"><span class="lineno">  165</span> </div>
+<div class="line"><span class="lineno">  167</span>        currentDist = pq[1].top().first;</div>
 <div class="line"><span class="lineno">  168</span> </div>
 <div class="line"><span class="lineno">  169</span>        pq[1].pop();</div>
-<div class="line"><span class="lineno">  170</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  171</span><span class="comment">        /// for all the reachable vertex from the currently exploring vertex</span></div>
-<div class="line"><span class="lineno">  172</span><span class="comment">        /// we will try to minimize the distance</span></div>
-<div class="line"><span class="lineno">  173</span><span class="comment"></span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj2)[currentNode]) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">  174</span><span class="comment">            /// minimizing distances</span></div>
-<div class="line"><span class="lineno">  175</span><span class="comment"></span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[1][edge.first]) {</div>
+<div class="line"><span class="lineno">  170</span> </div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj2)[currentNode]) {</div>
+<div class="line"><span class="lineno">  175</span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[1][edge.first]) {</div>
 <div class="line"><span class="lineno">  176</span>                dist[1][edge.first] = currentDist + edge.second;</div>
 <div class="line"><span class="lineno">  177</span>                pq[1].push(std::make_pair(dist[1][edge.first], edge.first));</div>
 <div class="line"><span class="lineno">  178</span>            }</div>
 <div class="line"><span class="lineno">  179</span>        }</div>
 <div class="line"><span class="lineno">  180</span>        <span class="comment">// store the processed node/ vertex</span></div>
 <div class="line"><span class="lineno">  181</span>        workset.push_back(currentNode);</div>
-<div class="line"><span class="lineno">  182</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  183</span><span class="comment">        /// check if currentNode has already been visited</span></div>
-<div class="line"><span class="lineno">  184</span><span class="comment"></span>        <span class="keywordflow">if</span> (visited[currentNode] == 1) {</div>
+<div class="line"><span class="lineno">  182</span> </div>
+<div class="line"><span class="lineno">  184</span>        <span class="keywordflow">if</span> (visited[currentNode] == 1) {</div>
 <div class="line"><span class="lineno">  185</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="#a22f1b7277e1dd4190f25014b48487ce6">Shortest_Path_Distance</a>(workset, dist);</div>
 <div class="line"><span class="lineno">  186</span>        }</div>
 <div class="line"><span class="lineno">  187</span>        visited[currentNode] = <span class="keyword">true</span>;</div>

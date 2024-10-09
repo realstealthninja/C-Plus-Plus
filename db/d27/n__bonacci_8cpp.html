@@ -236,14 +236,12 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> a;</div>
 <div class="line"><span class="lineno">   45</span>    }</div>
 <div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    a[n - 1] = 1;  <span class="comment">/// we initialise the (n-1)th term as 1 which is the sum of</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   48</span><span class="comment">                   /// preceding N zeros</span></div>
-<div class="line"><span class="lineno">   49</span><span class="comment"></span>    <span class="keywordflow">if</span> (n == m) {</div>
+<div class="line"><span class="lineno">   47</span>    a[n - 1] = 1;  </div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">if</span> (n == m) {</div>
 <div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> a;</div>
 <div class="line"><span class="lineno">   51</span>    }</div>
-<div class="line"><span class="lineno">   52</span>    a[n] = 1;  <span class="comment">/// similarily the sum of preceding N zeros and the (N+1)th 1 is</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   53</span><span class="comment">               /// also 1</span></div>
-<div class="line"><span class="lineno">   54</span><span class="comment"></span>    <span class="keywordflow">for</span> (uint64_t i = n + 1; i &lt; m; i++) {</div>
+<div class="line"><span class="lineno">   52</span>    a[n] = 1;  </div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">for</span> (uint64_t i = n + 1; i &lt; m; i++) {</div>
 <div class="line"><span class="lineno">   55</span>        <span class="comment">// this is an optimized solution that works in O(M) time and takes O(M)</span></div>
 <div class="line"><span class="lineno">   56</span>        <span class="comment">// extra space here we use the concept of the sliding window the current</span></div>
 <div class="line"><span class="lineno">   57</span>        <span class="comment">// term can be computed using the given formula</span></div>

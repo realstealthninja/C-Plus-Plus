@@ -124,83 +124,22 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
   <div class="headertitle"><div class="title">md5.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d5/d96/md5_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @author [tGautot](https://github.com/tGautot)</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @brief Simple C++ implementation of the [MD5 Hashing</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Algorithm](https://en.wikipedia.org/wiki/MD5)</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * The [MD5 Algorithm](https://en.wikipedia.org/wiki/MD5) is a</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * hashing algorithm which was designed in 1991 by [Ronal</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * Rivest](https://en.wikipedia.org/wiki/Ron_Rivest).</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * MD5 is one of the most used hashing algorithm there is. Some of its</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * use cases are:</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *  1. Providing checksum for downloaded software</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *  2. Store salted password</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * However MD5 has be know to be cryptographically weak for quite some</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * time, yet it is still widely used. This weakness was exploited by the</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * [Flame Malware](https://en.wikipedia.org/wiki/Flame_(malware)) in 2012</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * ### Algorithm</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * First of all, all values are expected to be in [little endian]</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * (https://en.wikipedia.org/wiki/Endianness). This is especially important</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * when using part of the bytestring as an integer.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * The first step of the algorithm is to pad the message for its length to</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * be a multiple of 64 (bytes). This is done by first adding 0x80 (10000000)</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * and then only zeroes until the last 8 bytes must be filled, where then the</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * 64 bit size of the input will be added</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * Once this is done, the algo breaks down this padded message</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * into 64 bytes chunks. Each chunk is used for one *round*, a round</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * breaks the chunk into 16 blocks of 4 bytes. During these rounds</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * the algorithm will update its 128 bit state (represented by 4 ints: A,B,C,D)</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * For more precisions on these operations please see the [Wikipedia</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * aritcle](https://en.wikipedia.org/wiki/MD5#Algorithm).</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * The signature given by MD5 is its 128 bit state once all rounds are done.</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * @note This is a simple implementation for a byte string but</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * some implmenetations can work on bytestream, messages of unknown length.</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;algorithm&gt;</span>  <span class="comment">/// Used for std::copy</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;array&gt;</span>      <span class="comment">/// Used for std::array</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;cassert&gt;</span>    <span class="comment">/// Used for assert</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;cstring&gt;</span>    <span class="comment">/// Used for std::memcopy</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &lt;iostream&gt;</span>   <span class="comment">/// Used for IO operations</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &lt;string&gt;</span>     <span class="comment">/// Used for strings</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &lt;vector&gt;</span>     <span class="comment">/// Used for std::vector</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"></span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d6/d0c/namespacehashing.html">   50</a></span><span class="comment"> * @namespace hashing</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * @brief Hashing algorithms</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d0c/namespacehashing.html">hashing</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../dd/d43/namespace_m_d5.html">   55</a></span><span class="comment"> * @namespace MD5</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * @brief Functions for the [MD5](https://en.wikipedia.org/wiki/MD5) algorithm</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * implementation</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">namespace </span>md5 {<span class="comment"></span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * @brief Rotates the bits of a 32-bit unsigned integer</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * @param n Integer to rotate</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * @param rotate How many bits for the rotation</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * @return uint32_t The rotated integer</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
+<a href="../../d5/d96/md5_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;algorithm&gt;</span>  </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;array&gt;</span>      </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;cassert&gt;</span>    </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;cstring&gt;</span>    </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &lt;iostream&gt;</span>   </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &lt;string&gt;</span>     </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &lt;vector&gt;</span>     </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d0c/namespacehashing.html">hashing</a> {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">namespace </span>md5 {</div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#add2bf982d5dd64a45d13cba52c2b371d">   66</a></span>uint32_t <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#add2bf982d5dd64a45d13cba52c2b371d">leftRotate32bits</a>(uint32_t n, std::size_t rotate) {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> (n &lt;&lt; rotate) | (n &gt;&gt; (32 - rotate));</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * @brief Checks whether integers are stored as big endian or not</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * @note Taken from [this](https://stackoverflow.com/a/1001373) StackOverflow</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * post</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * @return true IF integers are detected to work as big-endian</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * @return false IF integers are detected to work as little-endian</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#af8e96bde0183c4b0a7ff04668f11e446">   76</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#af8e96bde0183c4b0a7ff04668f11e446">isBigEndian</a>() {</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">union </span>{</div>
@@ -209,13 +148,8 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    } bint = {0x01020304};</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">return</span> bint.c[0] == 1;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> * @brief Sets 32-bit integer to little-endian if needed</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> * @param n Number to set to little-endian (uint32_t)</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> * @return uint32_t param n with binary representation as little-endian</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#a694712c9665051ba52b686387b87a689">   89</a></span>uint32_t <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#a694712c9665051ba52b686387b87a689">toLittleEndian32</a>(uint32_t n) {</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="../../d5/d96/md5_8cpp.html#af8e96bde0183c4b0a7ff04668f11e446">isBigEndian</a>()) {</div>
@@ -224,13 +158,8 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// Machine works on little endian, no need to change anything</span></div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> n;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * @brief Sets 64-bit integer to little-endian if needed</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * @param n Number to set to little-endian (uint64_t)</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> * @return uint64_t param n with binary representation as little-endian</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#a6be48c1e6e742f9bd329f501d61dcaef">  102</a></span>uint64_t <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#a6be48c1e6e742f9bd329f501d61dcaef">toLittleEndian64</a>(uint64_t n) {</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="../../d5/d96/md5_8cpp.html#af8e96bde0183c4b0a7ff04668f11e446">isBigEndian</a>()) {</div>
@@ -246,13 +175,8 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// Machine works on little endian, no need to change anything</span></div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">return</span> n;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @brief Transforms the 128-bit MD5 signature into a 32 char hex string</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> * @param sig The MD5 signature (Expected 16 bytes)</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * @return std::string The hex signature</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#aaee69c6136a841043f956de32116e348">  122</a></span>std::string <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#aaee69c6136a841043f956de32116e348">sig2hex</a>(<span class="keywordtype">void</span>* sig) {</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* hexChars = <span class="stringliteral">&quot;0123456789abcdef&quot;</span>;</div>
@@ -263,14 +187,8 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        hex.push_back(hexChars[(intsig[i]) &amp; 0xF]);</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordflow">return</span> hex;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}</div>
 </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> * @brief The MD5 algorithm itself, taking in a bytestring</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> * @param input_bs The bytestring to hash</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> * @param input_size The size (in BYTES) of the input</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"> * @return void* Pointer to the 128-bit signature</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#a5341431cef7fcfc33794326e1deb2425">  138</a></span><span class="keywordtype">void</span>* <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#a5341431cef7fcfc33794326e1deb2425">hash_bs</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* input_bs, uint64_t input_size) {</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keyword">auto</span>* input = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>uint8_t*<span class="keyword">&gt;</span>(input_bs);</div>
@@ -284,17 +202,7 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21};</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment">// K is pseudo-random values used each round</span></div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// The values can be obtained by the following python code:</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"></span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">     * @brief Values of K are pseudo-random and used to &quot;salt&quot; each round</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">     * The values can be obtained by the following python code</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">     * @code{.py}</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">     * from math import floor, sin</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">     * for i in range(64):</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">     *     print(floor(2**32 * abs(sin(i+1))))</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">     * @endcode</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    std::array&lt;uint32_t, 64&gt; K = {</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        3614090360, 3905402710, 606105819,  3250441966, 4118548399, 1200080426,</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        2821735955, 4249261313, 1770035416, 2336552879, 4294925233, 2304563134,</div>
@@ -415,13 +323,8 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keywordflow">return</span> sig;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>}</div>
 </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment"> * @brief Converts the string to bytestring and calls the main algorithm</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment"> * @param message Plain character message to hash</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment"> * @return void* Pointer to the MD5 signature</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00287" data-start="{" data-end="}">
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#a88705fab5f92adf3427b4cf76ff33edb">  287</a></span><span class="keywordtype">void</span>* <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#a88705fab5f92adf3427b4cf76ff33edb">hash</a>(<span class="keyword">const</span> std::string&amp; message) {</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#a5341431cef7fcfc33794326e1deb2425">hash_bs</a>(&amp;message[0], message.size());</div>
@@ -429,11 +332,7 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 </div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>}  <span class="comment">// namespace md5</span></div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>}  <span class="comment">// namespace hashing</span></div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment"></span> </div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment"> * @brief Self-test implementations of well-known MD5 hashes</span></div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment"> * @returns void</span></div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
 <div class="foldopen" id="foldopen00297" data-start="{" data-end="}">
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">  297</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <span class="comment">// Hashes empty string and stores signature</span></div>
@@ -484,12 +383,7 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>               <span class="stringliteral">&quot;d174ab98d277d9f5a5611c2c9f419d9f&quot;</span>) == 0);</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>}</div>
 </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="comment"></span> </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment"> * @brief Puts user in a loop where inputs can be given and MD5 hash will be</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="comment"> * computed and printed</span></div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment"> * @returns void</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
 <div class="foldopen" id="foldopen00351" data-start="{" data-end="}">
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#ac9e1a11f44135b890dd10a00e73b5661">  351</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#ac9e1a11f44135b890dd10a00e73b5661">interactive</a>() {</div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
@@ -512,11 +406,7 @@ $(function(){initNavTree('d5/d96/md5_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    }</div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>}</div>
 </div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="comment"></span> </div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
 <div class="foldopen" id="foldopen00376" data-start="{" data-end="}">
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno"><a class="line" href="../../d5/d96/md5_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  376</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <a class="code hl_function" href="../../d5/d96/md5_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run self-test implementations</span></div>

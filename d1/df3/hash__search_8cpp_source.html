@@ -124,62 +124,29 @@ $(function(){initNavTree('d1/df3/hash__search_8cpp_source.html','../../'); initR
   <div class="headertitle"><div class="title">hash_search.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/df3/hash__search_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * \file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * \brief Hash Search Algorithm - Best Time Complexity Ω(1)</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * \copyright 2020 Arctic2333</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * In this algorithm, we use the method of division and reservation remainder to</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * construct the hash function, and use the method of chain address to solve the</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * conflict, that is, we link a chain list after the data, and store all the</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * records whose keywords are synonyms in the same linear chain list.</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * @warning This program is only for educational purposes. It has serious flaws</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * in implementation with regards to memory management resulting in large</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * amounts of memory leaks.</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @todo fix the program for memory leaks and better structure in C++ and not C</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * fashion</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
+<a href="../../d1/df3/hash__search_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326">   21</a></span><span class="preprocessor">#define MAX 6      </span><span class="comment">///&lt; Determines how much data</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a77c722016053a1d484aa177ce205b367">   22</a></span><span class="preprocessor">#define HASHMAX 5  </span><span class="comment">///&lt; Determines the length of the hash table</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326">   21</a></span><span class="preprocessor">#define MAX 6      </span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a77c722016053a1d484aa177ce205b367">   22</a></span><span class="preprocessor">#define HASHMAX 5  </span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">   24</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>[<a class="code hl_define" href="../../d1/df3/hash__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326">MAX</a>] = {1, 10, 15, 5, 8, 7};  <span class="comment">//!&lt; test data</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"></span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * a one-way linked list</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">   24</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#a6e1a77282bc65ad359d753d25df23243">data</a>[<a class="code hl_define" href="../../d1/df3/hash__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326">MAX</a>] = {1, 10, 15, 5, 8, 7};  </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d8/d10/structlist.html">   29</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/d10/structlist.html">list</a> {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">   30</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">key</a>;            <span class="comment">//!&lt; key value for node</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d8/d10/structlist.html#a1900fe79e875e2838625b2eb60837f8f">   31</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/d10/structlist.html">list</a>* <a class="code hl_variable" href="../../d8/d10/structlist.html#a1900fe79e875e2838625b2eb60837f8f">next</a>;  <span class="comment">//!&lt; pointer to next link in the chain</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a8ca8dcb494104d273679e219e53d0555">   32</a></span>} <a class="code hl_typedef" href="../../d1/df3/hash__search_8cpp.html#a8ca8dcb494104d273679e219e53d0555">node</a>,                 <span class="comment">/**&lt; define node as one item list */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">   30</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">key</a>;            </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d8/d10/structlist.html#a1900fe79e875e2838625b2eb60837f8f">   31</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/d10/structlist.html">list</a>* <a class="code hl_variable" href="../../d8/d10/structlist.html#a1900fe79e875e2838625b2eb60837f8f">next</a>;  </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a8ca8dcb494104d273679e219e53d0555">   32</a></span>} <a class="code hl_typedef" href="../../d1/df3/hash__search_8cpp.html#a8ca8dcb494104d273679e219e53d0555">node</a>,                 </div>
 </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#ad6fcd983304f85afa199d97a9b0ca9f6">   33</a></span>    *<a class="code hl_typedef" href="../../d1/df3/hash__search_8cpp.html#ad6fcd983304f85afa199d97a9b0ca9f6">link</a>;              <span class="comment">///&lt; pointer to nodes</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#ad6fcd983304f85afa199d97a9b0ca9f6">   33</a></span>    *<a class="code hl_typedef" href="../../d1/df3/hash__search_8cpp.html#ad6fcd983304f85afa199d97a9b0ca9f6">link</a>;              </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#af413b1740073db54796642b0ab814d6d">   35</a></span><a class="code hl_class" href="../../d5/da1/structnode.html">node</a> <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#af413b1740073db54796642b0ab814d6d">hashtab</a>[<a class="code hl_define" href="../../d1/df3/hash__search_8cpp.html#a77c722016053a1d484aa177ce205b367">HASHMAX</a>];  <span class="comment">///&lt; array of nodes</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#af413b1740073db54796642b0ab814d6d">   35</a></span><a class="code hl_class" href="../../d5/da1/structnode.html">node</a> <a class="code hl_variable" href="../../d1/df3/hash__search_8cpp.html#af413b1740073db54796642b0ab814d6d">hashtab</a>[<a class="code hl_define" href="../../d1/df3/hash__search_8cpp.html#a77c722016053a1d484aa177ce205b367">HASHMAX</a>];  </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">// int counter = 1;</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * Mode of hash detection :</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * Division method</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * \param [in] key to hash</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * \returns hash value for `key`</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">   45</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/df3/hash__search_8cpp.html#a566eaf0ffafd50bc61e644561fd27001">h</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">key</a>) { <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">key</a> % <a class="code hl_define" href="../../d1/df3/hash__search_8cpp.html#a77c722016053a1d484aa177ce205b367">HASHMAX</a>; }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"></span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * The same after the remainder will be added after the same hash header</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * To avoid conflict, zipper method is used</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * Insert elements into the linked list in the header</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * \param [in] key key to add to list</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * \warning dynamic memory allocated to `n` never gets freed.</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * \todo fix memory leak</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#ad0831425f1389166a9518f422d0c6ec5">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/df3/hash__search_8cpp.html#ad0831425f1389166a9518f422d0c6ec5">create_list</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">key</a>) {  <span class="comment">// Construct hash table</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_typedef" href="../../d1/df3/hash__search_8cpp.html#ad6fcd983304f85afa199d97a9b0ca9f6">link</a> p, n;</div>
@@ -197,12 +164,7 @@ $(function(){initNavTree('d1/df3/hash__search_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"></span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * Input the key to be searched, and get the hash header position through the H</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * (int key) function, then one-dimensional linear search. If found @return</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * element depth and number of searches If not found @return -1</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#a36ea13c16028f18ef2d5ff47f3fda7a2">   76</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/df3/hash__search_8cpp.html#a36ea13c16028f18ef2d5ff47f3fda7a2">hash_search</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d10/structlist.html#aaab2e33bc1ca6f44e72239bfb58f100c">key</a>, <span class="keywordtype">int</span>* counter) {  <span class="comment">// Hash lookup function</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_typedef" href="../../d1/df3/hash__search_8cpp.html#ad6fcd983304f85afa199d97a9b0ca9f6">link</a> pointer;</div>
@@ -226,8 +188,7 @@ $(function(){initNavTree('d1/df3/hash__search_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/** main function */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../d1/df3/hash__search_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   99</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/df3/hash__search_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_typedef" href="../../d1/df3/hash__search_8cpp.html#ad6fcd983304f85afa199d97a9b0ca9f6">link</a> p;</div>

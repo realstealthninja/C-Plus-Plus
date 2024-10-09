@@ -374,37 +374,31 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html">is_graph_bipartite2.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   37</span>                                                                {</div>
-<div class="line"><span class="lineno">   38</span>    std::queue&lt;int64_t&gt; q;  <span class="comment">///&lt; stores the neighbouring node indexes in squence</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   39</span><span class="comment">                            /// of being reached</span></div>
-<div class="line"><span class="lineno">   40</span><span class="comment"></span>    q.push(index);          <span class="comment">/// insert the current node into the queue</span></div>
-<div class="line"><span class="lineno">   41</span>    (*visited)[index] = 1;  <span class="comment">/// mark the current node as travelled</span></div>
+<div class="line"><span class="lineno">   38</span>    std::queue&lt;int64_t&gt; q;  </div>
+<div class="line"><span class="lineno">   40</span>    q.push(index);          </div>
+<div class="line"><span class="lineno">   41</span>    (*visited)[index] = 1;  </div>
 <div class="line"><span class="lineno">   42</span>    <span class="keywordflow">while</span> (q.size()) {</div>
 <div class="line"><span class="lineno">   43</span>        int64_t u = q.front();</div>
 <div class="line"><span class="lineno">   44</span>        q.pop();</div>
 <div class="line"><span class="lineno">   45</span>        <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>[u].size(); i++) {</div>
 <div class="line"><span class="lineno">   46</span>            int64_t v =</div>
-<div class="line"><span class="lineno">   47</span>                <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>[u][i];     <span class="comment">///&lt; stores the neighbour of the current node</span></div>
-<div class="line"><span class="lineno">   48</span>            <span class="keywordflow">if</span> (!(*visited)[v])  <span class="comment">/// check whether the neighbour node is</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   49</span><span class="comment">                                 /// travelled already or not</span></div>
-<div class="line"><span class="lineno">   50</span><span class="comment"></span>            {</div>
+<div class="line"><span class="lineno">   47</span>                <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>[u][i];     </div>
+<div class="line"><span class="lineno">   48</span>            <span class="keywordflow">if</span> (!(*visited)[v])  </div>
+<div class="line"><span class="lineno">   50</span>            {</div>
 <div class="line"><span class="lineno">   51</span>                (*visited)[v] =</div>
 <div class="line"><span class="lineno">   52</span>                    ((*visited)[u] == 1)</div>
 <div class="line"><span class="lineno">   53</span>                        ? -1</div>
-<div class="line"><span class="lineno">   54</span>                        : 1;  <span class="comment">/// colour the neighbouring node with</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   55</span><span class="comment">                              /// different colour than the current node</span></div>
-<div class="line"><span class="lineno">   56</span><span class="comment"></span>                q.push(v);    <span class="comment">/// insert the neighbouring node into the queue</span></div>
+<div class="line"><span class="lineno">   54</span>                        : 1;  </div>
+<div class="line"><span class="lineno">   56</span>                q.push(v);    </div>
 <div class="line"><span class="lineno">   57</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*visited)[v] ==</div>
-<div class="line"><span class="lineno">   58</span>                       (*visited)[u])  <span class="comment">/// if both the current node and its</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   59</span><span class="comment">                                       /// neighbour has the same state then it</span></div>
-<div class="line"><span class="lineno">   60</span><span class="comment">                                       /// is not a bipartite graph</span></div>
-<div class="line"><span class="lineno">   61</span><span class="comment"></span>            {</div>
+<div class="line"><span class="lineno">   58</span>                       (*visited)[u])  </div>
+<div class="line"><span class="lineno">   61</span>            {</div>
 <div class="line"><span class="lineno">   62</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">   63</span>            }</div>
 <div class="line"><span class="lineno">   64</span>        }</div>
 <div class="line"><span class="lineno">   65</span>    }</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;  <span class="comment">/// return true when all the connected nodes of the current</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   67</span><span class="comment">                  /// nodes are travelled and satisify all the above conditions</span></div>
-<div class="line"><span class="lineno">   68</span><span class="comment"></span>}</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;  </div>
+<div class="line"><span class="lineno">   68</span>}</div>
 <div class="ttc" id="anamespacegraph_html"><div class="ttname"><a href="../../df/dce/namespacegraph.html">graph</a></div><div class="ttdoc">Graph Algorithms.</div></div>
 </div><!-- fragment -->
 </div>
@@ -493,40 +487,28 @@ Functions</h2></td></tr>
 <p>minimizing distances</p>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d1e/graph_2dijkstra_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d7/d1e/graph_2dijkstra_8cpp_source.html">dijkstra.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   66</span>                                                                         {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   67</span><span class="comment">    /// n denotes the number of vertices in graph</span></div>
-<div class="line"><span class="lineno">   68</span><span class="comment"></span>    <span class="keywordtype">int</span> n = adj-&gt;size();</div>
-<div class="line"><span class="lineno">   69</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   70</span><span class="comment">    /// setting all the distances initially to INF</span></div>
-<div class="line"><span class="lineno">   71</span><span class="comment"></span>    std::vector&lt;int64_t&gt; dist(n, INF);</div>
-<div class="line"><span class="lineno">   72</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   73</span><span class="comment">    /// creating a min heap using priority queue</span></div>
-<div class="line"><span class="lineno">   74</span><span class="comment">    /// first element of pair contains the distance</span></div>
-<div class="line"><span class="lineno">   75</span><span class="comment">    /// second element of pair contains the vertex</span></div>
-<div class="line"><span class="lineno">   76</span><span class="comment"></span>    std::priority_queue&lt;std::pair&lt;int, int&gt;, std::vector&lt;std::pair&lt;int, int&gt;&gt;,</div>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>                                                                         {</div>
+<div class="line"><span class="lineno">   68</span>    <span class="keywordtype">int</span> n = adj-&gt;size();</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   71</span>    std::vector&lt;int64_t&gt; dist(n, INF);</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   76</span>    std::priority_queue&lt;std::pair&lt;int, int&gt;, std::vector&lt;std::pair&lt;int, int&gt;&gt;,</div>
 <div class="line"><span class="lineno">   77</span>                        std::greater&lt;std::pair&lt;int, int&gt;&gt;&gt;</div>
 <div class="line"><span class="lineno">   78</span>        pq;</div>
-<div class="line"><span class="lineno">   79</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   80</span><span class="comment">    /// pushing the source vertex &#39;s&#39; with 0 distance in min heap</span></div>
-<div class="line"><span class="lineno">   81</span><span class="comment"></span>    pq.push(std::make_pair(0, s));</div>
-<div class="line"><span class="lineno">   82</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   83</span><span class="comment">    /// marking the distance of source as 0</span></div>
-<div class="line"><span class="lineno">   84</span><span class="comment"></span>    dist[s] = 0;</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   81</span>    pq.push(std::make_pair(0, s));</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   84</span>    dist[s] = 0;</div>
 <div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">while</span> (!pq.empty()) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   87</span><span class="comment">        /// second element of pair denotes the node / vertex</span></div>
-<div class="line"><span class="lineno">   88</span><span class="comment"></span>        <span class="keywordtype">int</span> currentNode = pq.top().second;</div>
-<div class="line"><span class="lineno">   89</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   90</span><span class="comment">        /// first element of pair denotes the distance</span></div>
-<div class="line"><span class="lineno">   91</span><span class="comment"></span>        <span class="keywordtype">int</span> currentDist = pq.top().first;</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">while</span> (!pq.empty()) {</div>
+<div class="line"><span class="lineno">   88</span>        <span class="keywordtype">int</span> currentNode = pq.top().second;</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   91</span>        <span class="keywordtype">int</span> currentDist = pq.top().first;</div>
 <div class="line"><span class="lineno">   92</span> </div>
 <div class="line"><span class="lineno">   93</span>        pq.pop();</div>
-<div class="line"><span class="lineno">   94</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   95</span><span class="comment">        /// for all the reachable vertex from the currently exploring vertex</span></div>
-<div class="line"><span class="lineno">   96</span><span class="comment">        /// we will try to minimize the distance</span></div>
-<div class="line"><span class="lineno">   97</span><span class="comment"></span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj)[currentNode]) {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   98</span><span class="comment">            /// minimizing distances</span></div>
-<div class="line"><span class="lineno">   99</span><span class="comment"></span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[edge.first]) {</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">for</span> (std::pair&lt;int, int&gt; edge : (*adj)[currentNode]) {</div>
+<div class="line"><span class="lineno">   99</span>            <span class="keywordflow">if</span> (currentDist + edge.second &lt; dist[edge.first]) {</div>
 <div class="line"><span class="lineno">  100</span>                dist[edge.first] = currentDist + edge.second;</div>
 <div class="line"><span class="lineno">  101</span>                pq.push(std::make_pair(dist[edge.first], edge.first));</div>
 <div class="line"><span class="lineno">  102</span>            }</div>
@@ -703,15 +685,11 @@ Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00075">75</a> of file <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html">is_graph_bipartite2.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   75</span>                                                             {</div>
 <div class="line"><span class="lineno">   76</span>    std::vector&lt;int64_t&gt; visited(</div>
-<div class="line"><span class="lineno">   77</span>        <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>.size());  <span class="comment">///&lt; stores boolean values</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   78</span><span class="comment">                        /// which signify whether that node had been visited or</span></div>
-<div class="line"><span class="lineno">   79</span><span class="comment">                        /// not</span></div>
-<div class="line"><span class="lineno">   80</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   77</span>        <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>.size());  </div>
+<div class="line"><span class="lineno">   80</span> </div>
 <div class="line"><span class="lineno">   81</span>    <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>.size(); i++) {</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">if</span> (!visited[i])  <span class="comment">/// if the current node is not visited then check</span><span class="comment"></span></div>
-<div class="line"><span class="lineno">   83</span><span class="comment">                          /// whether the sub-graph of that node is a bipartite</span></div>
-<div class="line"><span class="lineno">   84</span><span class="comment">                          /// or not</span></div>
-<div class="line"><span class="lineno">   85</span><span class="comment"></span>        {</div>
+<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">if</span> (!visited[i])  </div>
+<div class="line"><span class="lineno">   85</span>        {</div>
 <div class="line"><span class="lineno">   86</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a8e1b547cd407c0774e63f0dc95cda9e7">checkBipartite</a>(<a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>, i, &amp;visited)) {</div>
 <div class="line"><span class="lineno">   87</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">   88</span>            }</div>
@@ -758,31 +736,26 @@ Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00040">40</a> of file <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html">travelling_salesman_problem.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>                                                       {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   42</span><span class="comment">    //// vtx stores the vertexs of the graph</span></div>
-<div class="line"><span class="lineno">   43</span><span class="comment"></span>    std::vector&lt;uint32_t&gt; vtx;</div>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>                                                       {</div>
+<div class="line"><span class="lineno">   43</span>    std::vector&lt;uint32_t&gt; vtx;</div>
 <div class="line"><span class="lineno">   44</span>    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; V; i++) {</div>
 <div class="line"><span class="lineno">   45</span>        <span class="keywordflow">if</span> (i != src) {</div>
 <div class="line"><span class="lineno">   46</span>            vtx.push_back(i);</div>
 <div class="line"><span class="lineno">   47</span>        }</div>
 <div class="line"><span class="lineno">   48</span>    }</div>
-<div class="line"><span class="lineno">   49</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   50</span><span class="comment">    //// store minimum weight Hamiltonian Cycle.</span></div>
-<div class="line"><span class="lineno">   51</span><span class="comment"></span>    int32_t min_path = 2147483647;</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">do</span> {<span class="comment"></span></div>
-<div class="line"><span class="lineno">   53</span><span class="comment">        //// store current Path weight(cost)</span></div>
-<div class="line"><span class="lineno">   54</span><span class="comment"></span>        int32_t curr_weight = 0;</div>
-<div class="line"><span class="lineno">   55</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   56</span><span class="comment">        //// compute current path weight</span></div>
-<div class="line"><span class="lineno">   57</span><span class="comment"></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a> = src;</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   51</span>    int32_t min_path = 2147483647;</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">   54</span>        int32_t curr_weight = 0;</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a> = src;</div>
 <div class="line"><span class="lineno">   58</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i : vtx) {</div>
 <div class="line"><span class="lineno">   59</span>            curr_weight += (*cities)[<a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a>][i];</div>
 <div class="line"><span class="lineno">   60</span>            <a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a> = i;</div>
 <div class="line"><span class="lineno">   61</span>        }</div>
 <div class="line"><span class="lineno">   62</span>        curr_weight += (*cities)[<a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a>][src];</div>
-<div class="line"><span class="lineno">   63</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   64</span><span class="comment">        //// update minimum</span></div>
-<div class="line"><span class="lineno">   65</span><span class="comment"></span>        min_path = std::min(min_path, curr_weight);</div>
+<div class="line"><span class="lineno">   63</span> </div>
+<div class="line"><span class="lineno">   65</span>        min_path = std::min(min_path, curr_weight);</div>
 <div class="line"><span class="lineno">   66</span> </div>
 <div class="line"><span class="lineno">   67</span>    } <span class="keywordflow">while</span> (next_permutation(vtx.begin(), vtx.end()));</div>
 <div class="line"><span class="lineno">   68</span> </div>

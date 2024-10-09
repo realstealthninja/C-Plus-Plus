@@ -124,53 +124,7 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
   <div class="headertitle"><div class="title">hopcroft_karp.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/d9a/hopcroft__karp_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file </span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief  Implementation of [Hopcroft–Karp](https://en.wikipedia.org/wiki/Hopcroft%E2%80%93Karp_algorithm) algorithm.</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @details </span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * The Hopcroft–Karp algorithm is an algorithm that takes as input a bipartite graph </span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * and produces as output a maximum cardinality matching, it runs in O(E√V) time in worst case.</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * ### Bipartite graph</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * A bipartite graph (or bigraph) is a graph whose vertices can be divided into two disjoint </span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * and independent sets U and V such that every edge connects a vertex in U to one in V. </span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Vertex sets U and V are usually called the parts of the graph. </span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * Equivalently, a bipartite graph is a graph that does not contain any odd-length cycles.</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * ### Matching and Not-Matching edges</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * Given a matching M, edges that are part of matching are called Matching edges and edges that are not part </span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * of M (or connect free nodes) are called Not-Matching edges.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * ### Maximum cardinality matching</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * Given a bipartite graphs G = ( V = ( X , Y ) , E ) whose partition has the parts X and Y, </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * with E denoting the edges of the graph, the goal is to find a matching with as many edges as possible. </span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * Equivalently, a matching that covers as many vertices as possible.</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * ### Augmenting paths</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * Given a matching M, an augmenting path is an alternating path that starts from and ends on free vertices. </span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * All single edge paths that start and end with free vertices are augmenting paths.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * ### Concept</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * A matching M is not maximum if there exists an augmenting path. It is also true other way,</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * i.e, a matching is maximum if no augmenting path exists.</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * ### Algorithm</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * 1) Initialize the Maximal Matching M as empty.</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * 2) While there exists an Augmenting Path P</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> *   Remove matching edges of P from M and add not-matching edges of P to M</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> *   (This increases size of M by 1 as P starts and ends with a free vertex</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> *   i.e. a node that is not part of matching.)</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * 3) Return M. </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * @author [Krishna Pal Deora](https://github.com/Krishnapal4050)</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<a href="../../d1/d9a/hopcroft__karp_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &lt;cstdlib&gt;</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
@@ -178,30 +132,22 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &lt;climits&gt;</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"></span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * @namespace graph </span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * @brief Graph algorithms</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> <span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a> { </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"></span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * @brief Represents Bipartite graph for</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * Hopcroft Karp implementation</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html">   66</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d8/d69/classgraph_1_1_h_k_graph.html">HKGraph</a></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74">   68</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74">m</a>{};  <span class="comment">///&lt; m is the number of vertices on left side of Bipartite Graph</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6f5a9fdbb83ef731d739ba6707e21c3c">   69</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6f5a9fdbb83ef731d739ba6707e21c3c">n</a>{};  <span class="comment">///&lt; n is the number of vertices on right side of Bipartite Graph</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74">   68</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74">m</a>{};  </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6f5a9fdbb83ef731d739ba6707e21c3c">   69</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6f5a9fdbb83ef731d739ba6707e21c3c">n</a>{};  </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> NIL{0};</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> INF{INT_MAX};</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a35893def7a1c5cd60907b4893117796f">   73</a></span>    std::vector&lt;std::list&lt;int&gt; &gt;<a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a35893def7a1c5cd60907b4893117796f">adj</a>;  <span class="comment">///&lt; adj[u] stores adjacents of left side and 0 is used for dummy vertex</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a35893def7a1c5cd60907b4893117796f">   73</a></span>    std::vector&lt;std::list&lt;int&gt; &gt;<a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a35893def7a1c5cd60907b4893117796f">adj</a>;  </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a86ebff8a70cbfedd05281993d5d1987b">   75</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a86ebff8a70cbfedd05281993d5d1987b">pair_u</a>; <span class="comment">///&lt; value of vertex &#39;u&#39; ranges from 1 to m</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a976ee239402cc2726a280e781c706d77">   76</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a976ee239402cc2726a280e781c706d77">pair_v</a>; <span class="comment">///&lt; value of vertex &#39;v&#39; ranges from 1 to n</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6a0228bbba3818447fcf6b56128b552a">   77</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6a0228bbba3818447fcf6b56128b552a">dist</a>;   <span class="comment">///&lt; dist represents the distance between vertex &#39;u&#39; and vertex &#39;v&#39;</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a86ebff8a70cbfedd05281993d5d1987b">   75</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a86ebff8a70cbfedd05281993d5d1987b">pair_u</a>; </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a976ee239402cc2726a280e781c706d77">   76</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a976ee239402cc2726a280e781c706d77">pair_v</a>; </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6a0228bbba3818447fcf6b56128b552a">   77</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6a0228bbba3818447fcf6b56128b552a">dist</a>;   </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#af02b0c83911070ac6d95fc9905e58aa9">   80</a></span>    <a class="code hl_function" href="../../d8/d69/classgraph_1_1_h_k_graph.html#af02b0c83911070ac6d95fc9905e58aa9">HKGraph</a>();             <span class="comment">// Default Constructor</span></div>
@@ -215,11 +161,7 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
 </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"></span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * @brief This function counts the number of augmenting paths between left and right sides of the Bipartite graph</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> * @returns size of maximum matching</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a9dbda80d02bdc26c3e8ff7330c9be75d">   95</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a9dbda80d02bdc26c3e8ff7330c9be75d">HKGraph::hopcroftKarpAlgorithm</a>()</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>{</div>
@@ -254,12 +196,7 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
 </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"></span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> * @brief This function checks for the possibility of augmented path availability </span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> * @returns `true` if there is an augmenting path available</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> * @returns `false` if there is no augmenting path available</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
 <div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a7491add14d9fc04f679114ca6d6f0f93">  133</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a7491add14d9fc04f679114ca6d6f0f93">HKGraph::bfs</a>()</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>{</div>
@@ -313,13 +250,7 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a6a0228bbba3818447fcf6b56128b552a">dist</a>[NIL] != INF);   <span class="comment">// If we could come back to NIL using alternating path of distinct vertices then there is an augmenting path available</span></div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>}</div>
 </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"></span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"> * @brief This functions checks whether an augmenting path is available exists beginning with free vertex u</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment"> * @param u represents position of vertex</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment"> * @returns `true` if there is an augmenting path beginning with free vertex u</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment"> * @returns `false` if there is no augmenting path beginning with free vertex u</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
 <div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#ae794950cb3407b6b47d3dc986cf714c0">  191</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d69/classgraph_1_1_h_k_graph.html#ae794950cb3407b6b47d3dc986cf714c0">HKGraph::dfs</a>(<span class="keywordtype">int</span> u)</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>{</div>
@@ -351,17 +282,9 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>}</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"></span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment"> * @brief Default Constructor for initialization</span></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><a class="code hl_function" href="../../d8/d69/classgraph_1_1_h_k_graph.html#af02b0c83911070ac6d95fc9905e58aa9">HKGraph::HKGraph</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment"></span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment"> * @brief Constructor for initialization</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment"> * @param m is the number of vertices on left side of Bipartite Graph</span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment"> * @param n is the number of vertices on right side of Bipartite Graph</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
 <div class="foldopen" id="foldopen00231" data-start="{" data-end="}">
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a0da5aa674d3b3e54a38251ee60d7cd64">  231</a></span><a class="code hl_function" href="../../d8/d69/classgraph_1_1_h_k_graph.html#af02b0c83911070ac6d95fc9905e58aa9">HKGraph::HKGraph</a>(<span class="keywordtype">int</span> m, <span class="keywordtype">int</span> n) {</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    this-&gt;m = <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74">m</a>;</div>
@@ -369,12 +292,7 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a35893def7a1c5cd60907b4893117796f">adj</a> = std::vector&lt;std::list&lt;int&gt; &gt;(<a class="code hl_variable" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74">m</a> + 1);</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>}</div>
 </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"></span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment"> * @brief function to add edge from u to v</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment"> * @param u is the position of first vertex</span></div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment"> * @param v is the position of second vertex</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
 <div class="foldopen" id="foldopen00242" data-start="{" data-end="}">
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3b49011c09cf90a116ab53bef61cd95a">  242</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d69/classgraph_1_1_h_k_graph.html#a3b49011c09cf90a116ab53bef61cd95a">HKGraph::addEdge</a>(<span class="keywordtype">int</span> u, <span class="keywordtype">int</span> v)</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>{</div>
@@ -385,11 +303,7 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>} <span class="comment">// namespace graph</span></div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keyword">using </span><a class="code hl_class" href="../../d8/d69/classgraph_1_1_h_k_graph.html">graph::HKGraph</a>;</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment"></span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment"> * Self-test implementation</span></div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment"> * @returns none</span></div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
 <div class="foldopen" id="foldopen00255" data-start="{" data-end="}">
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="../../d1/d9a/hopcroft__karp_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">  255</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d9a/hopcroft__karp_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>(){</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>     <span class="comment">// Sample test case 1</span></div>
@@ -438,11 +352,7 @@ $(function(){initNavTree('d1/d9a/hopcroft__karp_8cpp_source.html','../../'); ini
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        </div>
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>}</div>
 </div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="comment"></span> </div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
 <div class="foldopen" id="foldopen00306" data-start="{" data-end="}">
 <div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="../../d1/d9a/hopcroft__karp_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  306</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/d9a/hopcroft__karp_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>{</div>

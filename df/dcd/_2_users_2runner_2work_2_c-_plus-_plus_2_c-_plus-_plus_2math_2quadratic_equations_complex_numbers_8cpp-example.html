@@ -128,58 +128,17 @@ $(function(){initNavTree('df/dcd/_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plu
 <p>array&lt;complex&lt;long double, 2&gt; solutions = quadraticEquation(1, 2, 1); cout &lt;&lt; solutions[0] &lt;&lt; " " &lt;&lt; solutions[1] &lt;&lt; "\n";</p>
 <p>solutions = quadraticEquation(1, 1, 1); // Reusing solutions. cout &lt;&lt; solutions[0] &lt;&lt; " " &lt;&lt; solutions[1] &lt;&lt; "\n"; return 0; }</p>
 <p>Output: (-1, 0) (-1, 0) (-0.5,0.866025) (-0.5,0.866025)</p>
-<div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file</span></div>
-<div class="line"><span class="comment"> * @brief Calculate quadratic equation with complex roots, i.e. b^2 - 4ac &lt; 0.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @author [Renjian-buchai](https://github.com/Renjian-buchai)</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @description Calculates any quadratic equation in form ax^2 + bx + c.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * Quadratic equation:</span></div>
-<div class="line"><span class="comment"> * x = (-b +/- sqrt(b^2 - 4ac)) / 2a</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @example</span></div>
-<div class="line"><span class="comment"> * int main() {</span></div>
-<div class="line"><span class="comment"> *   using std::array;</span></div>
-<div class="line"><span class="comment"> *   using std::complex;</span></div>
-<div class="line"><span class="comment"> *   using std::cout;</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> *   array&lt;complex&lt;long double, 2&gt; solutions = quadraticEquation(1, 2, 1);</span></div>
-<div class="line"><span class="comment"> *   cout &lt;&lt; solutions[0] &lt;&lt; &quot; &quot; &lt;&lt; solutions[1] &lt;&lt; &quot;\n&quot;;</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> *   solutions = quadraticEquation(1, 1, 1);  // Reusing solutions.</span></div>
-<div class="line"><span class="comment"> *   cout &lt;&lt; solutions[0] &lt;&lt; &quot; &quot; &lt;&lt; solutions[1] &lt;&lt; &quot;\n&quot;;</span></div>
-<div class="line"><span class="comment"> *   return 0;</span></div>
-<div class="line"><span class="comment"> * }</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * Output:</span></div>
-<div class="line"><span class="comment"> * (-1, 0) (-1, 0)</span></div>
-<div class="line"><span class="comment"> * (-0.5,0.866025) (-0.5,0.866025)</span></div>
-<div class="line"><span class="comment"> */</span></div>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;array&gt;</span>      </div>
+<div class="line"><span class="preprocessor">#include &lt;cassert&gt;</span>    </div>
+<div class="line"><span class="preprocessor">#include &lt;cmath&gt;</span>      </div>
+<div class="line"><span class="preprocessor">#include &lt;complex&gt;</span>    </div>
+<div class="line"><span class="preprocessor">#include &lt;exception&gt;</span>  </div>
+<div class="line"><span class="preprocessor">#include &lt;iomanip&gt;</span>    </div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span>   </div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;array&gt;</span>      <span class="comment">/// std::array</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cassert&gt;</span>    <span class="comment">/// assert</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cmath&gt;</span>      <span class="comment">/// std::sqrt, std::trunc, std::pow</span></div>
-<div class="line"><span class="preprocessor">#include &lt;complex&gt;</span>    <span class="comment">/// std::complex</span></div>
-<div class="line"><span class="preprocessor">#include &lt;exception&gt;</span>  <span class="comment">/// std::invalid_argument</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iomanip&gt;</span>    <span class="comment">/// std::setprecision</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span>   <span class="comment">/// std::cout</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @namespace</span></div>
-<div class="line"><span class="comment"> * @brief Mathematical algorithms</span></div>
-<div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/d47/namespacemath.html">math</a> {</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Quadratic equation calculator.</span></div>
-<div class="line"><span class="comment"> * @param a quadratic coefficient.</span></div>
-<div class="line"><span class="comment"> * @param b linear coefficient.</span></div>
-<div class="line"><span class="comment"> * @param c constant</span></div>
-<div class="line"><span class="comment"> * @return Array containing the roots of quadratic equation, incl. complex</span></div>
-<div class="line"><span class="comment"> * root.</span></div>
-<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
 <div class="line">std::array&lt;std::complex&lt;long double&gt;, 2&gt; <a id="a0" name="a0"></a><a class="code hl_function" href="../../dd/d47/namespacemath.html#aacb1411ef2029e81f249c21e17c96fdb">quadraticEquation</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> a,</div>
 <div class="line">                                                           <span class="keywordtype">long</span> <span class="keywordtype">double</span> b,</div>
 <div class="line">                                                           <span class="keywordtype">long</span> <span class="keywordtype">double</span> c) {</div>
@@ -220,13 +179,7 @@ $(function(){initNavTree('df/dcd/_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plu
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">}  <span class="comment">// namespace math</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Asserts an array of complex numbers.</span></div>
-<div class="line"><span class="comment"> * @param input Input array of complex numbers. .</span></div>
-<div class="line"><span class="comment"> * @param expected Expected array of complex numbers.</span></div>
-<div class="line"><span class="comment"> * @param precision Precision to be asserted. Default=10</span></div>
-<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../da/d18/quadratic__equations__complex__numbers_8cpp.html#af7a6d4e3dc85a6288c8f1f7094830c5a">assertArray</a>(std::array&lt;std::complex&lt;long double&gt;, 2&gt; input,</div>
 <div class="line">                 std::array&lt;std::complex&lt;long double&gt;, 2&gt; expected,</div>
 <div class="line">                 <span class="keywordtype">size_t</span> precision = 10) {</div>
@@ -243,12 +196,7 @@ $(function(){initNavTree('df/dcd/_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plu
 <div class="line"> </div>
 <div class="line">    assert(input == expected);</div>
 <div class="line">}</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Self-test implementations to test quadraticEquation function.</span></div>
-<div class="line"><span class="comment"> * @note There are 4 different types of solutions: Real and equal, real,</span></div>
-<div class="line"><span class="comment"> * complex, complex and equal.</span></div>
-<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> <a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
 <div class="line">    <span class="comment">// Values are equal and real.</span></div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Input: \n&quot;</span></div>
@@ -308,11 +256,7 @@ $(function(){initNavTree('df/dcd/_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plu
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Exception thrown successfully \n&quot;</span>;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function</span></div>
-<div class="line"><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> <a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#gae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line">    <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// Run self-test implementation.</span></div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>

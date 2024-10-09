@@ -124,26 +124,13 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
   <div class="headertitle"><div class="title">ordinary_least_squares_regressor.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * \brief Linear regression example using [Ordinary least</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * squares](https://en.wikipedia.org/wiki/Ordinary_least_squares)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Program that gets the number of data samples and number of features per</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * sample along with output per sample. It applies OLS regression to compute</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * the regression output for additional test data samples.</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * \author [Krishna Vedala](https://github.com/kvedala)</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> */</span></div>
+<a href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;cmath&gt;</span>    <span class="comment">// for std::abs</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;iomanip&gt;</span>  <span class="comment">// for print formatting</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"></span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * operator to print a matrix</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a7075a0fccad9b2d79be0275bfe8948d4">   22</a></span>std::ostream &amp;<a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a7075a0fccad9b2d79be0275bfe8948d4">operator&lt;&lt;</a>(std::ostream &amp;out,</div>
@@ -162,10 +149,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * operator to print a vector</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ab1ad727903d7817c2758d25bcb52cbc8">   42</a></span>std::ostream &amp;<a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a7075a0fccad9b2d79be0275bfe8948d4">operator&lt;&lt;</a>(std::ostream &amp;out, std::vector&lt;T&gt; <span class="keyword">const</span> &amp;v) {</div>
@@ -180,11 +164,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * function to check if given matrix is a square matrix</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * \returns 1 if true, 0 if false</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a8fa731952b0ee3bc7ec51c51ed21911e">   59</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a8fa731952b0ee3bc7ec51c51ed21911e">is_square</a>(std::vector&lt;std::vector&lt;T&gt;&gt; <span class="keyword">const</span> &amp;A) {</div>
@@ -198,14 +178,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"></span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * Matrix multiplication such that if A is size (mxn) and</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * B is of size (pxq) then the multiplication is defined</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * only when n = p and the resultant matrix is of size (mxq)</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * \returns resultant matrix</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> **/</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ae2edd40354a1ca7aeaee3d1e3589e713">   78</a></span>std::vector&lt;std::vector&lt;T&gt;&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ae2edd40354a1ca7aeaee3d1e3589e713">operator*</a>(std::vector&lt;std::vector&lt;T&gt;&gt; <span class="keyword">const</span> &amp;A,</div>
@@ -237,11 +210,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
 </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"></span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * multiplication of a matrix with a column vector</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * \returns resultant vector</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a865e8d26a01962cc93aca66e71346f37">  112</a></span>std::vector&lt;T&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ae2edd40354a1ca7aeaee3d1e3589e713">operator*</a>(std::vector&lt;std::vector&lt;T&gt;&gt; <span class="keyword">const</span> &amp;A,</div>
@@ -265,11 +234,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}</div>
 </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"></span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> * pre-multiplication of a vector by a scalar</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> * \returns resultant vector</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a207b3a99fd5974d3117e0b0ac0aad234">  138</a></span>std::vector&lt;float&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ae2edd40354a1ca7aeaee3d1e3589e713">operator*</a>(<span class="keywordtype">float</span> <span class="keyword">const</span> scalar, std::vector&lt;T&gt; <span class="keyword">const</span> &amp;A) {</div>
@@ -285,11 +250,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
 </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"></span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"> * post-multiplication of a vector by a scalar</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"> * \returns resultant vector</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a42535e20e97d85aa61271e0894cc0359">  156</a></span>std::vector&lt;float&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ae2edd40354a1ca7aeaee3d1e3589e713">operator*</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;A, <span class="keywordtype">float</span> <span class="keyword">const</span> scalar) {</div>
@@ -305,22 +266,14 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}</div>
 </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"></span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"> * division of a vector by a scalar</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"> * \returns resultant vector</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a7a2d742b9a3ae7b85292e1f86428bb4f">  174</a></span>std::vector&lt;float&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a7a2d742b9a3ae7b85292e1f86428bb4f">operator/</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;A, <span class="keywordtype">float</span> <span class="keyword">const</span> scalar) {</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span> (1.f / scalar) * A;</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
 </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment"></span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"> * subtraction of two vectors of identical lengths</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"> * \returns resultant vector</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a4a6a560dbdd0177633783b72db37dc19">  183</a></span>std::vector&lt;T&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a4a6a560dbdd0177633783b72db37dc19">operator-</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;A, std::vector&lt;T&gt; <span class="keyword">const</span> &amp;B) {</div>
@@ -339,11 +292,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>}</div>
 </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"></span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment"> * addition of two vectors of identical lengths</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment"> * \returns resultant vector</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a01e6c7bf2b09272578b9c5819ce0f36f">  204</a></span>std::vector&lt;T&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a01e6c7bf2b09272578b9c5819ce0f36f">operator+</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;A, std::vector&lt;T&gt; <span class="keyword">const</span> &amp;B) {</div>
@@ -362,12 +311,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>}</div>
 </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment"></span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment"> * Get matrix inverse using Row-trasnformations. Given matrix must</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment"> * be a square and non-singular.</span></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"> * \returns inverse matrix</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment"> **/</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#af7243bdc6ae3c7169f01b85bb226e66a">  226</a></span>std::vector&lt;std::vector&lt;float&gt;&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#af7243bdc6ae3c7169f01b85bb226e66a">get_inverse</a>(</div>
@@ -439,11 +383,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordflow">return</span> inverse;</div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>}</div>
 </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment"></span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment"> * matrix transpose</span></div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment"> * \returns resultant matrix</span></div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment"> **/</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00300" data-start="{" data-end="}">
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a21c80569aaffb7bf1657e54fa4b97deb">  300</a></span>std::vector&lt;std::vector&lt;T&gt;&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a21c80569aaffb7bf1657e54fa4b97deb">get_transpose</a>(</div>
@@ -459,14 +399,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>}</div>
 </div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment"></span> </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment"> * Perform Ordinary Least Squares curve fit. This operation is defined as</span></div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="comment"> * \f[\beta = \left(X^TXX^T\right)Y\f]</span></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="comment"> * \param X feature matrix with rows representing sample vector of features</span></div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment"> * \param Y known regression value for each sample</span></div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="comment"> * \returns fitted regression model polynomial coefficients</span></div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00321" data-start="{" data-end="}">
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#aaddc683af581b51351e1023d2a01ef3b">  321</a></span>std::vector&lt;float&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#aaddc683af581b51351e1023d2a01ef3b">fit_OLS_regressor</a>(std::vector&lt;std::vector&lt;T&gt;&gt; <span class="keyword">const</span> &amp;X,</div>
@@ -490,20 +423,11 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordflow">return</span> out * Y;</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>}</div>
 </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="comment"></span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="comment"> * Given data and OLS model coeffficients, predict</span></div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="comment"> * regression estimates. This operation is defined as</span></div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="comment"> * \f[y_{\text{row}=i} = \sum_{j=\text{columns}}\beta_j\cdot X_{i,j}\f]</span></div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment"> * \param X feature matrix with rows representing sample vector of features</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="comment"> * \param beta fitted regression model</span></div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment"> * \return vector with regression values for each sample</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="comment"> **/</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00352" data-start="{" data-end="}">
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ade6e463f37878fe2a219f927c65b5493">  352</a></span>std::vector&lt;float&gt; <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ade6e463f37878fe2a219f927c65b5493">predict_OLS_regressor</a>(std::vector&lt;std::vector&lt;T&gt;&gt; <span class="keyword">const</span> &amp;X,</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>                                         std::vector&lt;float&gt; <span class="keyword">const</span> &amp;beta <span class="comment">/**&lt; */</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>                                         std::vector&lt;float&gt; <span class="keyword">const</span> &amp;beta </div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>) {</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    std::vector&lt;float&gt; result(X.size());</div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
@@ -518,8 +442,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>}</div>
 </div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="comment"></span> </div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="comment">/** Self test checks */</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
 <div class="foldopen" id="foldopen00369" data-start="{" data-end="}">
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a4261f3c3c3dfdb86f3004eb8aaffea8d">  369</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a4261f3c3c3dfdb86f3004eb8aaffea8d">ols_test</a>() {</div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordtype">int</span> F = 3, N = 5;</div>
@@ -572,10 +495,7 @@ $(function(){initNavTree('dc/d38/ordinary__least__squares__regressor_8cpp_source
 <div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>                             <span class="comment">// (flush stdout)</span></div>
 <div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>}</div>
 </div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span><span class="comment"></span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span><span class="comment"> * main function</span></div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
 <div class="foldopen" id="foldopen00423" data-start="{" data-end="}">
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno"><a class="line" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  423</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    <a class="code hl_function" href="../../dc/d38/ordinary__least__squares__regressor_8cpp.html#a4261f3c3c3dfdb86f3004eb8aaffea8d">ols_test</a>();</div>

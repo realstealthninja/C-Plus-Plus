@@ -124,44 +124,22 @@ $(function(){initNavTree('d7/d83/trie__tree_8cpp_source.html','../../'); initRes
   <div class="headertitle"><div class="title">trie_tree.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/d83/trie__tree_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @author [@Arctic2333](https://github.com/Arctic2333)</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author [Krishna Vedala](https://github.com/kvedala)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @brief Implementation of [Trie](https://en.wikipedia.org/wiki/Trie) data</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * structure for English alphabets in small characters.</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @note the function ::data_structure::trie::deleteString might be erroneous</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @see trie_modern.cpp</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<a href="../../d7/d83/trie__tree_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/** \namespace data_structures</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * \brief Data-structure algorithms</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d3c/namespacedata__structures.html">data_structures</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * @brief [Trie](https://en.wikipedia.org/wiki/Trie) implementation for</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * small-case English alphabets `a-z`</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d3c/namespacedata__structures.html">data_structures</a> {</div>
 <div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html">   25</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d0/d3e/classdata__structures_1_1trie.html">trie</a> {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a4bfac4be6ed1a34c7159eddb42469191">   27</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="../../d0/d3e/classdata__structures_1_1trie.html#a4bfac4be6ed1a34c7159eddb42469191">NUM_CHARS</a> = 26;  <span class="comment">///&lt; Number of alphabets</span><span class="comment"></span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">    /** @brief Recursive tree nodes as an array of shared-pointers */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a4bfac4be6ed1a34c7159eddb42469191">   27</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="../../d0/d3e/classdata__structures_1_1trie.html#a4bfac4be6ed1a34c7159eddb42469191">NUM_CHARS</a> = 26;  </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a362dd78748a1f01ab019e55fd6098a8b">   29</a></span>    std::array&lt;std::shared_ptr&lt;trie&gt;, <a class="code hl_variable" href="../../d0/d3e/classdata__structures_1_1trie.html#a4bfac4be6ed1a34c7159eddb42469191">NUM_CHARS &lt;&lt; 1&gt;</a> <a class="code hl_variable" href="../../d0/d3e/classdata__structures_1_1trie.html#a362dd78748a1f01ab019e55fd6098a8b">arr</a>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a4cb0f775b5a4bc14a6d39b5c93883eb6">   30</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d0/d3e/classdata__structures_1_1trie.html#a4cb0f775b5a4bc14a6d39b5c93883eb6">isEndofWord</a> = <span class="keyword">false</span>;  <span class="comment">///&lt; identifier if a node is terminal node</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     * @brief Convert a character to integer for indexing</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     * @param ch character to index</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     * @return unsigned integer index</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a4cb0f775b5a4bc14a6d39b5c93883eb6">   30</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d0/d3e/classdata__structures_1_1trie.html#a4cb0f775b5a4bc14a6d39b5c93883eb6">isEndofWord</a> = <span class="keyword">false</span>;  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#aab373beb3f618b90922528c68797d988">   38</a></span>    uint8_t <a class="code hl_function" href="../../d0/d3e/classdata__structures_1_1trie.html#aab373beb3f618b90922528c68797d988">char_to_int</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>&amp; ch)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">if</span> (ch &gt;= <span class="charliteral">&#39;A&#39;</span> &amp;&amp; ch &lt;= <span class="charliteral">&#39;Z&#39;</span>) {</div>
@@ -175,13 +153,7 @@ $(function(){initNavTree('d7/d83/trie__tree_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">    /** search a string exists inside a given root trie</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">     * @param str string to search for</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">     * @param index start index to search from</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">     * @returns `true` if found</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">     * @returns `false` if not found</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a961eb5d576d2420f2036009154397c63">   56</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d3e/classdata__structures_1_1trie.html#a961eb5d576d2420f2036009154397c63">search</a>(<span class="keyword">const</span> std::shared_ptr&lt;trie&gt;&amp; root, <span class="keyword">const</span> std::string&amp; str,</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordtype">int</span> index) {</div>
@@ -200,11 +172,8 @@ $(function(){initNavTree('d7/d83/trie__tree_8cpp_source.html','../../'); initRes
 </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a87d8bf99aea936f9381141753f1e90a8">   72</a></span>    <a class="code hl_function" href="../../d0/d3e/classdata__structures_1_1trie.html#a87d8bf99aea936f9381141753f1e90a8">trie</a>() = <span class="keywordflow">default</span>;  <span class="comment">///&lt; Class default constructor</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"></span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">    /** insert string into the trie</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     * @param str String to insert in the tree</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a87d8bf99aea936f9381141753f1e90a8">   72</a></span>    <a class="code hl_function" href="../../d0/d3e/classdata__structures_1_1trie.html#a87d8bf99aea936f9381141753f1e90a8">trie</a>() = <span class="keywordflow">default</span>;  </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a0ab94bc6417e3f59fab33cea5b64d546">   77</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d3e/classdata__structures_1_1trie.html#a0ab94bc6417e3f59fab33cea5b64d546">insert</a>(<span class="keyword">const</span> std::string&amp; str) {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        std::shared_ptr&lt;trie&gt; root(<span class="keyword">nullptr</span>);</div>
@@ -230,13 +199,7 @@ $(function(){initNavTree('d7/d83/trie__tree_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        root-&gt;isEndofWord = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
 </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"></span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">    /** search a string exists inside the trie</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     * @param str string to search for</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     * @param index start index to search from</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     * @returns `true` if found</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     * @returns `false` if not found</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#a499f87fd833203ef9492b4870aa6d42d">  107</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d3e/classdata__structures_1_1trie.html#a499f87fd833203ef9492b4870aa6d42d">search</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keywordtype">int</span> index) {</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">if</span> (index == str.length()) {</div>
@@ -252,20 +215,7 @@ $(function(){initNavTree('d7/d83/trie__tree_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> <a class="code hl_namespace" href="../../d9/dca/namespacesearch.html">search</a>(<a class="code hl_variable" href="../../d0/d3e/classdata__structures_1_1trie.html#a362dd78748a1f01ab019e55fd6098a8b">arr</a>[j], str, index + 1);</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
 </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"></span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">     * removes the string if it is not a prefix of any  other</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">     * string, if it is then just sets the ::data_structure::trie::isEndofWord</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">     * to false, else removes the given string</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">     * @note the function ::data_structure::trie::deleteString might be</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">     * erroneous</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">     * @todo review the function ::data_structure::trie::deleteString and the</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">     * commented lines</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">     * @param str string to remove</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">     * @param index index to remove from</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">     * @returns `true` if successful</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">     * @returns `false` if unsuccessful</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
 <div class="foldopen" id="foldopen00134" data-start="{" data-end="}">
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="../../d0/d3e/classdata__structures_1_1trie.html#aeac27cfd397d2dd3f2f519efffafeeab">  134</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d3e/classdata__structures_1_1trie.html#aeac27cfd397d2dd3f2f519efffafeeab">deleteString</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keywordtype">int</span> index) {</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">if</span> (index == str.length()) {</div>
@@ -308,11 +258,7 @@ $(function(){initNavTree('d7/d83/trie__tree_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>};</div>
 </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>}  <span class="comment">// namespace data_structures</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"></span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"> * @brief Testing function</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"> * @returns void</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
 <div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="../../d7/d83/trie__tree_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">  178</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d83/trie__tree_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_class" href="../../d0/d3e/classdata__structures_1_1trie.html">data_structures::trie</a> root;</div>
@@ -337,11 +283,7 @@ $(function(){initNavTree('d7/d83/trie__tree_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="comment">// std::cout &lt;&lt; &quot;hello - &quot; &lt;&lt; root.search(&quot;world&quot;, 0) &lt;&lt; &quot;\n&quot;;</span></div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>}</div>
 </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment"></span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"> * @return 0 on exit</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
 <div class="foldopen" id="foldopen00205" data-start="{" data-end="}">
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="../../d7/d83/trie__tree_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  205</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d83/trie__tree_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <a class="code hl_function" href="../../d7/d83/trie__tree_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();</div>

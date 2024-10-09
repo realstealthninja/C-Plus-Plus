@@ -124,41 +124,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
   <div class="headertitle"><div class="title">hill_cipher.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/db9/hill__cipher_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file hill_cipher.cpp</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Implementation of [Hill</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * cipher](https://en.wikipedia.org/wiki/Hill_cipher) algorithm.</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Program to generate the encryption-decryption key and perform encryption and</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * decryption of ASCII text using the famous block cipher algorithm. This is a</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * powerful encryption algorithm that is relatively easy to implement with a</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * given key. The strength of the algorithm depends on the size of the block</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * encryption matrix key; the bigger the matrix, the stronger the encryption and</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * more difficult to break it. However, the important requirement for the matrix</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * is that:</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * 1. matrix should be invertible - all inversion conditions should be satisfied</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * and</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * 2. its determinant must not have any common factors with the length of</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * character set</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * Due to this restriction, most implementations only implement with small 3x3</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * encryption keys and a small subset of ASCII alphabets.</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * In the current implementation, I present to you an implementation for</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * generating larger encryption keys (I have attempted upto 10x10) and an ASCII</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * character set of 97 printable characters. Hence, a typical ASCII text file</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * could be easily encrypted with the module. The larger character set increases</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * the modulo of cipher and hence the matrix determinants can get very large</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * very quickly rendering them ill-defined.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * \note This program uses determinant computation using LU decomposition from</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * the file lu_decomposition.h</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * \note The matrix generation algorithm is very rudimentary and does not</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * guarantee an invertible modulus matrix. \todo Better matrix generation</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * algorithm.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @author [Krishna Vedala](https://github.com/kvedala)</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<a href="../../d7/db9/hill__cipher_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;cstring&gt;</span></div>
@@ -172,10 +138,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/dbe/lu__decomposition_8h.html">../numerical_methods/lu_decomposition.h</a>&quot;</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * operator to print a matrix</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d7/db9/hill__cipher_8cpp.html#a34bfcd756610834acac501f9eea1e2eb">   54</a></span><span class="keyword">static</span> std::ostream &amp;<a class="code hl_function" href="../../d7/db9/hill__cipher_8cpp.html#a34bfcd756610834acac501f9eea1e2eb">operator&lt;&lt;</a>(std::ostream &amp;out, <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;T&gt;</a> <span class="keyword">const</span> &amp;v) {</div>
@@ -192,31 +155,15 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"></span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">/** \namespace ciphers</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * \brief Algorithms for encryption and decryption</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d4e/namespaceciphers.html">ciphers</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/** dictionary of characters that can be encrypted and decrypted */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/d4e/namespaceciphers.html">ciphers</a> {</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d6/d4e/namespaceciphers.html#ab9aec0ccf4b6809f652bb540be87c216">   73</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_variable" href="../../d6/d4e/namespaceciphers.html#ab9aec0ccf4b6809f652bb540be87c216">STRKEY</a> =</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="stringliteral">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&amp;&quot;</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="stringliteral">&quot;*()_+`-=[]{}|;&#39;:\&quot;,./&lt;&gt;?\\\r\n \0&quot;</span>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"></span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * @brief Implementation of [Hill</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * Cipher](https://en.wikipedia.org/wiki/Hill_cipher) algorithm</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="foldopen" id="foldopen00081" data-start="{" data-end="};">
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html">   81</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d26/classciphers_1_1_hill_cipher.html">HillCipher</a> {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> <span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     * @brief Function to generate a random integer in a given interval</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">     * @param a lower limit of interval</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">     * @param b upper limit of interval</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     * @tparam T type of output</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     * @return random integer in the interval \f$[a,b)\f$</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</div>
 <div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a629be41c1ab78850963e4ce14e1d11d9">   92</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> T2 <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a629be41c1ab78850963e4ce14e1d11d9">rand_range</a>(T1 a, T1 b) {</div>
@@ -227,24 +174,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T2<span class="keyword">&gt;</span>(r * (b - a) + a);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
 </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     * @brief Function overload to fill a matrix with random integers in a given</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     * interval</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     * @param M pointer to matrix to be filled with random numbers</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     * @param a lower limit of interval</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">     * @param b upper limit of interval</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">     * @tparam T1 type of input range</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     * @tparam T2 type of matrix</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">     * @return determinant of generated random matrix</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">     * @warning There will need to be a balance between the matrix size and the</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     * range of random numbers. If the matrix is large, the range of random</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     * numbers must be small to have a well defined keys. Or if the matrix is</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     * smaller, the random numbers range can be larger. For an 8x8 matrix, range</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     * should be no more than \f$[0,10]\f$</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</div>
 <div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a716d0313141499d16f57c0c107f04395">  118</a></span>    <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a716d0313141499d16f57c0c107f04395">rand_range</a>(<a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;T2&gt;</a> *M, T1 a, T1 b) {</div>
@@ -257,16 +187,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d1/dbe/lu__decomposition_8h.html#a3108d43bd32c6fb3b3c158476c51ba7f">determinant_lu</a>(*M);</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
 </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"></span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">     * @brief Compute</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">     * [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor) of two</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">     * integers using Euler&#39;s algorithm</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">     * @param a first number</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">     * @param b second number</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">     * @return GCD of \f$a\f$ and \f$b\f$</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a7760f3665651a0a37937c79c62f219c0">  138</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> T <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a7760f3665651a0a37937c79c62f219c0">gcd</a>(T a, T b) {</div>
@@ -282,15 +203,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">return</span> a;</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
 </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"></span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">     * @brief helper function to perform vector multiplication with encryption</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">     * or decryption matrix</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">     * @param vector vector to multiply</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">     * @param key encryption or decryption key matrix</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">     * @return corresponding encrypted or decrypted text</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ad36cbcc7a458b3f3a2af0c4aa1126590">  159</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> std::valarray&lt;uint8_t&gt; <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ad36cbcc7a458b3f3a2af0c4aa1126590">mat_mul</a>(</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keyword">const</span> std::valarray&lt;uint8_t&gt; &amp;vector, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a> &amp;key) {</div>
@@ -309,21 +222,9 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    }</div>
 </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"></span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">     * @brief Get the character at a given index in the ::STRKEY</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">     * @param idx index value</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">     * @return character at the index</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a12f727cca9e21f9539cd74b6603adf0c">  182</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">char</span> <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a12f727cca9e21f9539cd74b6603adf0c">get_idx_char</a>(<span class="keyword">const</span> uint8_t idx) { <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d6/d4e/namespaceciphers.html#ab9aec0ccf4b6809f652bb540be87c216">STRKEY</a>[idx]; }</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"></span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">     * @brief Get the index of a character in the ::STRKEY</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     * @param ch character to search</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">     * @return index of character</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
 <div class="foldopen" id="foldopen00190" data-start="{" data-end="}">
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ae77cad522fa44b8c985779a7188d2f41">  190</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> uint8_t <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ae77cad522fa44b8c985779a7188d2f41">get_char_idx</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> ch) {</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keywordtype">size_t</span> L = std::strlen(<a class="code hl_variable" href="../../d6/d4e/namespaceciphers.html#ab9aec0ccf4b6809f652bb540be87c216">STRKEY</a>);</div>
@@ -337,15 +238,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    }</div>
 </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment"></span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">     * @brief Convenience function to perform block cipher operations. The</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">     * operations are identical for both encryption and decryption.</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">     * @param text input text to encrypt or decrypt</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">     * @param key key for encryption or decryption</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">     * @return encrypted/decrypted output</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
 <div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ad667fa0860977f6d6d443fa1dbcd80aa">  210</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ad667fa0860977f6d6d443fa1dbcd80aa">codec</a>(<span class="keyword">const</span> std::string &amp;text,</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                                   <span class="keyword">const</span> <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a> &amp;key) {</div>
@@ -381,12 +274,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordflow">return</span> coded_text;</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    }</div>
 </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment"></span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">     * Get matrix inverse using Row-transformations. Given matrix must</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">     * be a square and non-singular.</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment">     * \returns inverse matrix</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">     **/</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a2eb58750b978a93ac5e6eb29e3e570b7">  250</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;double&gt;</a> <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a2eb58750b978a93ac5e6eb29e3e570b7">get_inverse</a>(<a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;T&gt;</a> <span class="keyword">const</span> &amp;A) {</div>
@@ -461,24 +349,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    }</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="comment">     * @brief Generate encryption matrix of a given size. Larger size matrices</span></div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="comment">     * are difficult to generate but provide more security. Important conditions</span></div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="comment">     * are:</span></div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="comment">     * 1. matrix should be invertible</span></div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="comment">     * 2. determinant must not have any common factors with the length of</span></div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span><span class="comment">     * character key</span></div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="comment">     * There is no head-fast way to generate hte matrix under the given</span></div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="comment">     * numerical restrictions of the machine but the conditions added achieve</span></div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="comment">     * the goals. Bigger the matrix, greater is the probability of the matrix</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="comment">     * being ill-defined.</span></div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="comment">     * @param size size of matrix (typically \f$\text{size}\le10\f$)</span></div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="comment">     * @param limit1 lower limit of range of random elements (default=0)</span></div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="comment">     * @param limit2 upper limit of range of random elements (default=10)</span></div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="comment">     * @return Encryption martix</span></div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> <span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00339" data-start="{" data-end="}">
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a642f70fb54cb50b00fb6df7c3f2b120e">  339</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a> <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a642f70fb54cb50b00fb6df7c3f2b120e">generate_encryption_key</a>(<span class="keywordtype">size_t</span> size, <span class="keywordtype">int</span> limit1 = 0,</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>                                               <span class="keywordtype">int</span> limit2 = 10) {</div>
@@ -506,13 +377,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keywordflow">return</span> encrypt_key;</div>
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    }</div>
 </div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="comment"></span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="comment">     * @brief Generate decryption matrix from an encryption matrix key.</span></div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="comment">     * @param encrypt_key encryption key for which to create a decrypt key</span></div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="comment">     * @return Decryption martix</span></div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
 <div class="foldopen" id="foldopen00371" data-start="{" data-end="}">
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ab02c7563889bf1e363deb8e21967b706">  371</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a> <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ab02c7563889bf1e363deb8e21967b706">generate_decryption_key</a>(<a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a> <span class="keyword">const</span> &amp;encrypt_key) {</div>
 <div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>        <span class="keywordtype">size_t</span> size = encrypt_key.size();</div>
@@ -556,18 +421,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        <span class="keywordflow">return</span> decrypt_key;</div>
 <div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    }</div>
 </div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="comment"></span> </div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span><span class="comment">     * @brief Generate encryption and decryption key pair</span></div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span><span class="comment">     * @param size size of matrix key (typically \f$\text{size}\le10\f$)</span></div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="comment">     * @param limit1 lower limit of range of random elements (default=0)</span></div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span><span class="comment">     * @param limit2 upper limit of range of random elements (default=10)</span></div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span><span class="comment">     * @return std::pair&lt;matrix&lt;int&gt;, matrix&lt;int&gt;&gt; encryption and decryption</span></div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span><span class="comment">     * keys as a pair</span></div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span><span class="comment">     * @see ::generate_encryption_key</span></div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span> </div>
 <div class="foldopen" id="foldopen00424" data-start="{" data-end="}">
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a405b0a28d66a61239d3565d5256f9cb5">  424</a></span>    <span class="keyword">static</span> std::pair&lt;matrix&lt;int&gt;, <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a>&gt; <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a405b0a28d66a61239d3565d5256f9cb5">generate_keys</a>(<span class="keywordtype">size_t</span> size,</div>
 <div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>                                                             <span class="keywordtype">int</span> limit1 = 0,</div>
@@ -583,28 +437,14 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>        <span class="keywordflow">return</span> std::make_pair(encrypt_key, decrypt_key);</div>
 <div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    }</div>
 </div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span><span class="comment"></span> </div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="comment">     * @brief Encrypt a given text using a given key</span></div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="comment">     * @param text string to encrypt</span></div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span><span class="comment">     * @param encrypt_key  key for encryption</span></div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span><span class="comment">     * @return encrypted text</span></div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
 <div class="foldopen" id="foldopen00445" data-start="{" data-end="}">
 <div class="line"><a id="l00445" name="l00445"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#aa8bbb6e4a5749f6008b06602d5103917">  445</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#aa8bbb6e4a5749f6008b06602d5103917">encrypt_text</a>(<span class="keyword">const</span> std::string &amp;text,</div>
 <div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>                                          <span class="keyword">const</span> <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a> &amp;encrypt_key) {</div>
 <div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#ad667fa0860977f6d6d443fa1dbcd80aa">codec</a>(text, encrypt_key);</div>
 <div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    }</div>
 </div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span><span class="comment"></span> </div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span><span class="comment">     * @brief Decrypt a given text using a given key</span></div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span><span class="comment">     * @param text string to decrypt</span></div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span><span class="comment">     * @param decrypt_key  key for decryption</span></div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span><span class="comment">     * @return decrypted text</span></div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span> </div>
 <div class="foldopen" id="foldopen00457" data-start="{" data-end="}">
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno"><a class="line" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a427acfac1dbff3f48a2b071d449d965b">  457</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_function" href="../../d6/d26/classciphers_1_1_hill_cipher.html#a427acfac1dbff3f48a2b071d449d965b">decrypt_text</a>(<span class="keyword">const</span> std::string &amp;text,</div>
 <div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>                                          <span class="keyword">const</span> <a class="code hl_typedef" href="../../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4">matrix&lt;int&gt;</a> &amp;decrypt_key) {</div>
@@ -615,12 +455,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 </div>
 <div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span> </div>
 <div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>}  <span class="comment">// namespace ciphers</span></div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span><span class="comment"></span> </div>
-<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span><span class="comment"> * @brief Self test 1 - using 3x3 randomly generated key</span></div>
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span><span class="comment"> * @param text string to encrypt and decrypt</span></div>
-<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
 <div class="foldopen" id="foldopen00470" data-start="{" data-end="}">
 <div class="line"><a id="l00470" name="l00470"></a><span class="lineno"><a class="line" href="../../d7/db9/hill__cipher_8cpp.html#a3147ad576f8a94a2a6b66948672b452b">  470</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dae/dsu__path__compression_8cpp.html#ae7880ce913f3058a35ff106d5be9e243">test1</a>(<span class="keyword">const</span> std::string &amp;text) {</div>
 <div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>    <span class="comment">// std::string text = &quot;Hello world!&quot;;</span></div>
@@ -652,12 +487,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Passed :)\n&quot;</span>;</div>
 <div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>}</div>
 </div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span><span class="comment"></span> </div>
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span><span class="comment"> * @brief Self test 2 - using 8x8 randomly generated key</span></div>
-<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span><span class="comment"> * @param text string to encrypt and decrypt</span></div>
-<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span> </div>
 <div class="foldopen" id="foldopen00505" data-start="{" data-end="}">
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno"><a class="line" href="../../d7/db9/hill__cipher_8cpp.html#a04391124480d2a49f2dec900237b0712">  505</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dae/dsu__path__compression_8cpp.html#a45d94ead4cf4e1ff9f87c38bc99f59ae">test2</a>(<span class="keyword">const</span> std::string &amp;text) {</div>
 <div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>    <span class="comment">// std::string text = &quot;Hello world!&quot;;</span></div>
@@ -685,8 +515,7 @@ $(function(){initNavTree('d7/db9/hill__cipher_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Passed :)\n&quot;</span>;</div>
 <div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>}</div>
 </div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span><span class="comment"></span> </div>
-<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span><span class="comment">/** Main function */</span></div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span> </div>
 <div class="foldopen" id="foldopen00532" data-start="{" data-end="}">
 <div class="line"><a id="l00532" name="l00532"></a><span class="lineno"><a class="line" href="../../d7/db9/hill__cipher_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  532</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/db9/hill__cipher_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>    std::srand(std::time(<span class="keyword">nullptr</span>));</div>

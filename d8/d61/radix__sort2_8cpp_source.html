@@ -124,54 +124,14 @@ $(function(){initNavTree('d8/d61/radix__sort2_8cpp_source.html','../../'); initR
   <div class="headertitle"><div class="title">radix_sort2.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d8/d61/radix__sort2_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Algorithm of [Radix sort](https://en.wikipedia.org/wiki/Radix_sort)</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author [Suyash Jaiswal](https://github.com/Suyashjaiswal)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Sort the vector of unsigned integers using radix sort i.e. sorting digit by</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * digit using [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) as</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * subroutine. Running time of radix sort is O(d*(n+b)) where b is the base for</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * representing numbers and d in the max digits in input integers and n is</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * number of unsigned integers. consider example for n = 5, aray elements =</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * 432,234,143,332,123 sorting digit by digit sorting according to 1) 1st digit</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * place</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * =&gt; 432, 332, 143, 123, 234</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * 2) 2nd digit place</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * =&gt; 123, 432, 332, 234, 143</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * 3) 3rd digit place</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * =&gt; 123, 143, 234, 332, 432</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * using count sort at each step, which is stable.</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * stable =&gt; already sorted according to previous digits.</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/// header files</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span><span class="preprocessor">#include &lt;algorithm&gt;</span>  <span class="comment">/// for collection of functions</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;cassert&gt;</span>  <span class="comment">/// for a macro called assert which can be used to verify assumptions</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;iostream&gt;</span>  <span class="comment">/// for io operations</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;vector&gt;</span>    <span class="comment">/// for std::vector</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"></span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @namespace sorting</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @brief Sorting algorithms</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d91/namespacesorting.html">sorting</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../da/dda/namespaceradix__sort.html">   37</a></span><span class="comment"> * @namespace radix_sort</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * @brief Functions for [Radix sort](https://en.wikipedia.org/wiki/Radix_sort)</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * algorithm</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/dda/namespaceradix__sort.html">radix_sort</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * @brief Function to sort vector according to current digit using stable</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * sorting.</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * @param cur_digit - sort according to the cur_digit</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @param ar - vector to be sorted</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * @returns std::vector sorted till ith digit</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> */</span></div>
+<a href="../../d8/d61/radix__sort2_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;algorithm&gt;</span>  </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;cassert&gt;</span>  </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;iostream&gt;</span>  </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;vector&gt;</span>    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/d91/namespacesorting.html">sorting</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/dda/namespaceradix__sort.html">radix_sort</a> {</div>
 <div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d8/d61/radix__sort2_8cpp.html#a98ead7d43b11505398daf9a894f122f9">   49</a></span>std::vector&lt;uint64_t&gt; <a class="code hl_function" href="../../d8/d61/radix__sort2_8cpp.html#a98ead7d43b11505398daf9a894f122f9">step_ith</a>(</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    uint16_t cur_digit,</div>
@@ -198,13 +158,8 @@ $(function(){initNavTree('d8/d61/radix__sort2_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                         <span class="comment">// current place used by ar[i].</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">return</span> temp;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * @brief Function to sort vector digit by digit.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * @param ar - vector to be sorted</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * @returns sorted vector</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d8/d61/radix__sort2_8cpp.html#ae0cfd94fa3765b53d4ec7893ffaee5f8">   80</a></span>std::vector&lt;uint64_t&gt; <a class="code hl_function" href="../../d8/d61/radix__sort2_8cpp.html#ae0cfd94fa3765b53d4ec7893ffaee5f8">radix</a>(<span class="keyword">const</span> std::vector&lt;uint64_t&gt;&amp; ar) {</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    uint64_t max_ele =</div>
@@ -224,28 +179,18 @@ $(function(){initNavTree('d8/d61/radix__sort2_8cpp_source.html','../../'); initR
 </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}  <span class="comment">// namespace radix_sort</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}  <span class="comment">// namespace sorting</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * @brief Function to test the above algorithm</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> * @returns none</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d8/d61/radix__sort2_8cpp.html#a483bb8ccf42aaf7375a83e91490eda1e">  102</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d61/radix__sort2_8cpp.html#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>() {<span class="comment"></span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">    /// Test 1</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span>    std::vector&lt;uint64_t&gt; ar1 = {432, 234, 143, 332, 123};</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d8/d61/radix__sort2_8cpp.html#a483bb8ccf42aaf7375a83e91490eda1e">  102</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d61/radix__sort2_8cpp.html#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>() {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    std::vector&lt;uint64_t&gt; ar1 = {432, 234, 143, 332, 123};</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    ar1 = sorting::radix_sort::radix(ar1);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    assert(std::is_sorted(ar1.begin(), ar1.end()));<span class="comment"></span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">    /// Test 2</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"></span>    std::vector&lt;uint64_t&gt; ar2 = {213, 3214, 123, 111, 112, 142,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    assert(std::is_sorted(ar1.begin(), ar1.end()));</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    std::vector&lt;uint64_t&gt; ar2 = {213, 3214, 123, 111, 112, 142,</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                                 133, 132,  32,  12,  113};</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    ar2 = sorting::radix_sort::radix(ar2);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    assert(std::is_sorted(ar2.begin(), ar2.end()));</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}<span class="comment"></span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
 </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> * @brief Main function</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> * @returns 0 on exit</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../d8/d61/radix__sort2_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  117</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d8/d61/radix__sort2_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_function" href="../../d8/d61/radix__sort2_8cpp.html#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>();  <span class="comment">// execute the tests</span></div>

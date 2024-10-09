@@ -124,15 +124,7 @@ $(function(){initNavTree('d6/d7a/golden__search__extrema_8cpp_source.html','../.
   <div class="headertitle"><div class="title">golden_search_extrema.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d6/d7a/golden__search__extrema_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * \file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * \brief Find extrema of a univariate real function in a given interval using</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * [golden section search</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * algorithm](https://en.wikipedia.org/wiki/Golden-section_search).</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * \see brent_method_extrema.cpp</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * \author [Krishna Vedala](https://github.com/kvedala)</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<a href="../../d6/d7a/golden__search__extrema_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define _USE_MATH_DEFINES  </span><span class="comment">//&lt; required for MS Visual C++</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
@@ -140,18 +132,8 @@ $(function(){initNavTree('d6/d7a/golden__search__extrema_8cpp_source.html','../.
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d6/d7a/golden__search__extrema_8cpp.html#a002b2f4894492820fe708b1b7e7c5e70">   17</a></span><span class="preprocessor">#define EPSILON 1e-7  </span><span class="comment">///&lt; solution accuracy limit</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * @brief Get the minima of a function in the given interval. To get the maxima,</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * simply negate the function. The golden ratio used here is:\f[</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * k=\frac{3-\sqrt{5}}{2} \approx 0.381966\ldots\f]</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @param f function to get minima for</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @param lim_a lower limit of search window</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @param lim_b upper limit of search window</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @return local minima found in the interval</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d6/d7a/golden__search__extrema_8cpp.html#a002b2f4894492820fe708b1b7e7c5e70">   17</a></span><span class="preprocessor">#define EPSILON 1e-7  </span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d6/d7a/golden__search__extrema_8cpp.html#a1aa76a6d5fd4d333f9072beff1dc486b">   29</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d6/d7a/golden__search__extrema_8cpp.html#a1aa76a6d5fd4d333f9072beff1dc486b">get_minima</a>(<span class="keyword">const</span> std::function&lt;<span class="keywordtype">double</span>(<span class="keywordtype">double</span>)&gt; &amp;f, <span class="keywordtype">double</span> lim_a,</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                  <span class="keywordtype">double</span> lim_b) {</div>
@@ -196,13 +178,7 @@ $(function(){initNavTree('d6/d7a/golden__search__extrema_8cpp_source.html','../.
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">return</span> prev_mean;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * @brief Test function to find minima for the function</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * \f$f(x)= (x-2)^2\f$</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * in the interval \f$[1,5]\f$</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * \n Expected result = 2</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d6/d7a/golden__search__extrema_8cpp.html#a1440a7779ac56f47a3f355ce4a8c7da0">   78</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d7a/golden__search__extrema_8cpp.html#a1440a7779ac56f47a3f355ce4a8c7da0">test1</a>() {</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// define the function to minimize as a lambda function</span></div>
@@ -220,13 +196,7 @@ $(function(){initNavTree('d6/d7a/golden__search__extrema_8cpp_source.html','../.
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
 </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * @brief Test function to find *maxima* for the function</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * \f$f(x)= x^{\frac{1}{x}}\f$</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> * in the interval \f$[-2,10]\f$</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * \n Expected result: \f$e\approx 2.71828182845904509\f$</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../d6/d7a/golden__search__extrema_8cpp.html#a0283886819c7c140a023582b7269e2d0">  100</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d7a/golden__search__extrema_8cpp.html#a0283886819c7c140a023582b7269e2d0">test2</a>() {</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// define the function to maximize as a lambda function</span></div>
@@ -245,13 +215,7 @@ $(function(){initNavTree('d6/d7a/golden__search__extrema_8cpp_source.html','../.
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
 </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"></span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @brief Test function to find *maxima* for the function</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> * \f$f(x)= \cos x\f$</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * in the interval \f$[0,12]\f$</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> * \n Expected result: \f$\pi\approx 3.14159265358979312\f$</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
 <div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="../../d6/d7a/golden__search__extrema_8cpp.html#a6d0455dd5c30adda100e95f0423c786e">  123</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d7a/golden__search__extrema_8cpp.html#a6d0455dd5c30adda100e95f0423c786e">test3</a>() {</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">// define the function to maximize as a lambda function</span></div>
@@ -268,8 +232,7 @@ $(function(){initNavTree('d6/d7a/golden__search__extrema_8cpp_source.html','../.
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
 </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"></span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">/** Main function */</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
 <div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d6/d7a/golden__search__extrema_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  139</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d6/d7a/golden__search__extrema_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    std::cout.precision(9);</div>

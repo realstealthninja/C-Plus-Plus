@@ -124,57 +124,23 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
   <div class="headertitle"><div class="title">lfu_cache.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/d65/lfu__cache_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Implementation for [LFU Cache]</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * (https://en.wikipedia.org/wiki/Least_frequently_used)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @details</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * LFU discards the least frequently used value. if there are multiple items</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * with the same minimum frequency then, the least recently used among them is</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * discarded. Data structures used - doubly linked list and unordered_map(hash</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * map).</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * Hashmap maps the key to the address of the node of the linked list and its</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * current usage frequency. If the element is accessed the element is removed</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * from the linked list of the current frequency and added to the linked list of</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * incremented frequency.</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * When the cache is full, the last element in the minimum frequency linked list</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * is popped.</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * @author [Karan Sharma](https://github.com/deDSeC00720)</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<a href="../../d9/d65/lfu__cache_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;cassert&gt;</span>        <span class="comment">// for assert</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;iostream&gt;</span>       <span class="comment">// for std::cout</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;unordered_map&gt;</span>  <span class="comment">// for std::unordered_map</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @namespace</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @brief Other algorithms</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d6f/namespaceothers.html">others</a> {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"></span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * @namespace</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * @brief Cache algorithm</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/dde/namespaceothers_1_1_cache.html">   37</a></span><span class="keyword">namespace </span>Cache {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * @class</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * @brief Node for a doubly linked list with data, prev and next pointers</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * @tparam T type of the data of the node</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">   45</a></span><span class="keyword">class </span><a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">D_Node</a> {</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a8902e7ff872fa3c80fe6ce5f5cf5cc75">   47</a></span>    T <a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a8902e7ff872fa3c80fe6ce5f5cf5cc75">data</a>;           <span class="comment">///&lt; data of the node</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a1c5295011209f1241fa0aac827129414">   48</a></span>    <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">D_Node&lt;T&gt;</a> *<a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a1c5295011209f1241fa0aac827129414">prev</a>;  <span class="comment">///&lt; previous node in the doubly linked list</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a99420ff7864ecea51429fe61f9c6cb14">   49</a></span>    <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">D_Node&lt;T&gt;</a> *<a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a99420ff7864ecea51429fe61f9c6cb14">next</a>;  <span class="comment">///&lt; next node in the doubly linked list</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a8902e7ff872fa3c80fe6ce5f5cf5cc75">   47</a></span>    T <a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a8902e7ff872fa3c80fe6ce5f5cf5cc75">data</a>;           </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a1c5295011209f1241fa0aac827129414">   48</a></span>    <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">D_Node&lt;T&gt;</a> *<a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a1c5295011209f1241fa0aac827129414">prev</a>;  </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a99420ff7864ecea51429fe61f9c6cb14">   49</a></span>    <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">D_Node&lt;T&gt;</a> *<a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a99420ff7864ecea51429fe61f9c6cb14">next</a>;  </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">D_Node</a>(T <a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a8902e7ff872fa3c80fe6ce5f5cf5cc75">data</a>) : <a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a8902e7ff872fa3c80fe6ce5f5cf5cc75">data</a>(<a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a8902e7ff872fa3c80fe6ce5f5cf5cc75">data</a>), <a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a1c5295011209f1241fa0aac827129414">prev</a>(nullptr), <a class="code hl_variable" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html#a99420ff7864ecea51429fe61f9c6cb14">next</a>(nullptr) {}</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
@@ -182,39 +148,22 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">using </span>CacheNode = D_Node&lt;std::pair&lt;K, V&gt;&gt;;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * @class</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * @brief LFUCache</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * @tparam K type of key in the LFU</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * @tparam V type of value in the LFU</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
 <div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html">   64</a></span><span class="keyword">class </span><a class="code hl_class" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html">LFUCache</a> {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::unordered_map&lt;K, std::pair&lt;CacheNode&lt;K, V&gt; *, <span class="keywordtype">int</span>&gt;&gt;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">   66</a></span>        <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">node_map</a>;  <span class="comment">///&lt; maps the key to the node address and frequency</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">   66</a></span>        <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">node_map</a>;  </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    std::unordered_map&lt;int, std::pair&lt;CacheNode&lt;K, V&gt; *, <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">CacheNode&lt;K, V&gt;</a> *&gt;&gt;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#aba5d59d0f6ab0c0d30a92551ca5a05f2">   68</a></span>        <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#aba5d59d0f6ab0c0d30a92551ca5a05f2">freq_map</a>;  <span class="comment">///&lt; maps the frequency to doubly linked list</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#aba5d59d0f6ab0c0d30a92551ca5a05f2">   68</a></span>        <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#aba5d59d0f6ab0c0d30a92551ca5a05f2">freq_map</a>;  </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a6de844d1589a809239cc07752f311285">   70</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a6de844d1589a809239cc07752f311285">minFreq</a>;    <span class="comment">///&lt; minimum frequency in the cache</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">   71</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">_capacity</a>;  <span class="comment">///&lt; maximum capacity of the cache</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a6de844d1589a809239cc07752f311285">   70</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a6de844d1589a809239cc07752f311285">minFreq</a>;    </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">   71</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">_capacity</a>;  </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     * @brief Constructor, Initialize with minFreq and _capacity.</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     * @param _capacity Total capacity of the cache.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#affd7776c246caa2d0f92fd8616f6e5dc">   78</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#affd7776c246caa2d0f92fd8616f6e5dc">LFUCache</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">_capacity</a>) : <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a6de844d1589a809239cc07752f311285">minFreq</a>(0), <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">_capacity</a>(<a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">_capacity</a>) {}</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> <span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">     * @brief push the node at first position in the linked list of given</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">     * frequency</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     * @param freq the frequency mapping to the linked list where node should be</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     * pushed.</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">     * @param node node to be pushed to the linked list.</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> <span class="keyword">private</span>:</div>
 <div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#adad4ab43141fb8ba43facd3a71e07047">   88</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#adad4ab43141fb8ba43facd3a71e07047">push</a>(<span class="keywordtype">int</span> freq, <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">CacheNode&lt;K, V&gt;</a> *<a class="code hl_class" href="../../d5/da1/structnode.html">node</a>) {</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">// if freq is not present, then make a new list with node as the head as</span></div>
@@ -233,11 +182,7 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        p.first = <a class="code hl_typedef" href="../../d8/dee/avltree_8cpp.html#a74f0cf18a0e5b832d9994e2f2d022287">node</a>;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
 </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">     * @brief increase the frequency of node and push it in the respective list.</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">     * @param p_node the node to be updated</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a16a25c102554c5653721a5112ef676c9">  109</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a16a25c102554c5653721a5112ef676c9">increase_frequency</a>(std::pair&lt;<a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">CacheNode&lt;K, V&gt;</a> *, <span class="keywordtype">int</span>&gt; &amp;p_node) {</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">CacheNode&lt;K, V&gt;</a> *<a class="code hl_class" href="../../d5/da1/structnode.html">node</a> = p_node.first;</div>
@@ -276,10 +221,7 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        ++p_node.second;</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
 </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"></span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">     * @brief pop the last node in the least frequently used linked list</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
 <div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ab3561ab204754295199f9566924f7e69">  149</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ab3561ab204754295199f9566924f7e69">pop</a>() {</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        std::pair&lt;CacheNode&lt;K, V&gt; *, <a class="code hl_class" href="../../de/d21/classothers_1_1_cache_1_1_d___node.html">CacheNode&lt;K, V&gt;</a> *&gt; &amp;p = <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#aba5d59d0f6ab0c0d30a92551ca5a05f2">freq_map</a>[<a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a6de844d1589a809239cc07752f311285">minFreq</a>];</div>
@@ -301,12 +243,7 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
 </div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">     * @brief upsert a key-value pair</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">     * @param key key of the key-value pair</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     * @param value value of the key-value pair</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> <span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#af6f8e5a66a45436b490dfe015ff8866e">  174</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#af6f8e5a66a45436b490dfe015ff8866e">put</a>(K key, V value) {</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="comment">// update the value if key already exists</span></div>
@@ -330,13 +267,7 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#adad4ab43141fb8ba43facd3a71e07047">push</a>(1, <a class="code hl_class" href="../../d5/da1/structnode.html">node</a>);</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
 </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment"></span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">     * @brief get the value of the key-value pair if exists</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">     * @param key key of the key-value pair</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">     * @return the value mapped to the given key</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">     * @exception exception is thrown if the key is not present in the cache</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
 <div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a58e37d3713f28d36abbb8cdf6c432781">  202</a></span>    V <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a58e37d3713f28d36abbb8cdf6c432781">get</a>(K key) {</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">node_map</a>.count(key)) {</div>
@@ -349,29 +280,13 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span> value;</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
 </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment"></span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">     * @brief Returns the number of items present in the cache.</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">     * @return number of items in the cache</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#adbfb2ef7358423fdf1f49d410f55f195">  217</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#adbfb2ef7358423fdf1f49d410f55f195">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">node_map</a>.size(); }</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment"></span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">     * @brief Returns the total capacity of the cache</span></div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">     * @return Total capacity of the cache</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac27c9076377cbed2a2acc45a189fed2c">  223</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac27c9076377cbed2a2acc45a189fed2c">capacity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a3acc10e6bb67d9d9c4187f625723e6c5">_capacity</a>; }</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment"></span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">     * @brief returns true if the cache is empty, false otherwise.</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">     * @return true if the cache is empty, false otherwise.</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a68e1be0a3e0a6478aa35f04000e0e9b0">  229</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a68e1be0a3e0a6478aa35f04000e0e9b0">empty</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">node_map</a>.empty(); }</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment"></span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">     * @brief destructs the cache, iterates on the map and deletes every node</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">     * present in the cache.</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
 <div class="foldopen" id="foldopen00235" data-start="{" data-end="}">
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a8857531ecc8ed2e36868e267148eff36">  235</a></span>    <a class="code hl_function" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#a8857531ecc8ed2e36868e267148eff36">~LFUCache</a>() {</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keyword">auto</span> it = <a class="code hl_variable" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html#ac7684879e2e5da3d8bc5b1699ee42d35">node_map</a>.begin();</div>
@@ -386,11 +301,7 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>}  <span class="comment">// namespace Cache</span></div>
 </div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>}  <span class="comment">// namespace others</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment"></span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment"> * @brief self test implementation</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment"> * @return void</span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
 <div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="../../d9/d65/lfu__cache_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">  250</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d65/lfu__cache_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <a class="code hl_class" href="../../df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html">others::Cache::LFUCache&lt;int, int&gt;</a> cache(5);</div>
@@ -439,11 +350,7 @@ $(function(){initNavTree('d9/d65/lfu__cache_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;test - passed\n&quot;</span>;</div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>}</div>
 </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment"></span> </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment"> * @brief main function</span></div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="comment"> * @return 0 on exit</span></div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
 <div class="foldopen" id="foldopen00301" data-start="{" data-end="}">
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno"><a class="line" href="../../d9/d65/lfu__cache_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  301</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/d65/lfu__cache_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <a class="code hl_function" href="../../d9/d65/lfu__cache_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run the self test implementation</span></div>

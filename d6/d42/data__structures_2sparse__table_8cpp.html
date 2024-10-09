@@ -265,23 +265,23 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  131</span><span class="comment">     */</span></div>
 <div class="line"><span class="lineno">  132</span>    std::array&lt;int64_t, 10&gt; testcase = {</div>
 <div class="line"><span class="lineno">  133</span>        1, 2, 3, 4, 5,</div>
-<div class="line"><span class="lineno">  134</span>        6, 7, 8, 9, 10};  <span class="comment">///&lt; array on which RMQ will be performed.</span></div>
+<div class="line"><span class="lineno">  134</span>        6, 7, 8, 9, 10};  </div>
 <div class="line"><span class="lineno">  135</span>    <span class="keywordtype">size_t</span> testcase_size =</div>
-<div class="line"><span class="lineno">  136</span>        <span class="keyword">sizeof</span>(testcase) / <span class="keyword">sizeof</span>(testcase[0]);  <span class="comment">///&lt; size of self test&#39;s array</span></div>
+<div class="line"><span class="lineno">  136</span>        <span class="keyword">sizeof</span>(testcase) / <span class="keyword">sizeof</span>(testcase[0]);  </div>
 <div class="line"><span class="lineno">  137</span> </div>
 <div class="line"><span class="lineno">  138</span>    <a class="code hl_struct" href="../../da/d37/structdata__structures_1_1sparse__table_1_1_sparse__table.html">data_structures::sparse_table::Sparse_table</a></div>
-<div class="line"><span class="lineno">  139</span>        st{};  <span class="comment">///&lt; declaring sparse tree</span></div>
+<div class="line"><span class="lineno">  139</span>        st{};  </div>
 <div class="line"><span class="lineno">  140</span> </div>
 <div class="line"><span class="lineno">  141</span>    std::copy(std::begin(testcase), std::end(testcase),</div>
-<div class="line"><span class="lineno">  142</span>              std::begin(st.A));  <span class="comment">///&lt; copying array to the struct</span></div>
-<div class="line"><span class="lineno">  143</span>    st.n = testcase_size;         <span class="comment">///&lt; passing the array&#39;s size to the struct</span></div>
+<div class="line"><span class="lineno">  142</span>              std::begin(st.A));  </div>
+<div class="line"><span class="lineno">  143</span>    st.n = testcase_size;         </div>
 <div class="line"><span class="lineno">  144</span> </div>
-<div class="line"><span class="lineno">  145</span>    st.buildST();  <span class="comment">///&lt; precomputing sparse tree</span></div>
+<div class="line"><span class="lineno">  145</span>    st.buildST();  </div>
 <div class="line"><span class="lineno">  146</span> </div>
 <div class="line"><span class="lineno">  147</span>    <span class="comment">// pass queries of the form: [l,r]</span></div>
-<div class="line"><span class="lineno">  148</span>    assert(st.query(1, 9) == 1);  <span class="comment">///&lt; as 1 is smallest from 1..9</span></div>
-<div class="line"><span class="lineno">  149</span>    assert(st.query(2, 6) == 2);  <span class="comment">///&lt; as 2 is smallest from 2..6</span></div>
-<div class="line"><span class="lineno">  150</span>    assert(st.query(3, 8) == 3);  <span class="comment">///&lt; as 3 is smallest from 3..8</span></div>
+<div class="line"><span class="lineno">  148</span>    assert(st.query(1, 9) == 1);  </div>
+<div class="line"><span class="lineno">  149</span>    assert(st.query(2, 6) == 2);  </div>
+<div class="line"><span class="lineno">  150</span>    assert(st.query(3, 8) == 3);  </div>
 <div class="line"><span class="lineno">  151</span> </div>
 <div class="line"><span class="lineno">  152</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Self-test implementations passed!&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">  153</span>}</div>
