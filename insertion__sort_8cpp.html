@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -130,7 +119,18 @@ $(function(){initNavTree('insertion__sort_8cpp.html',''); initResizable(true); }
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for insertion_sort.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="insertion__sort_8cpp__incl.svg" width="350" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><img src="insertion__sort_8cpp__incl.png" border="0" usemap="#asorting_2insertion__sort_8cpp" alt=""/></div>
+<map name="asorting_2insertion__sort_8cpp" id="asorting_2insertion__sort_8cpp">
+<area shape="rect" title="Insertion Sort Algorithm (Insertion Sort)" alt="" coords="98,5,265,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,80,105"/>
+<area shape="poly" title=" " alt="" coords="159,34,81,74,79,69,156,29"/>
+<area shape="rect" title=" " alt="" coords="104,79,168,105"/>
+<area shape="poly" title=" " alt="" coords="176,33,154,67,149,64,171,30"/>
+<area shape="rect" title=" " alt="" coords="192,79,264,105"/>
+<area shape="poly" title=" " alt="" coords="191,30,214,64,209,67,187,33"/>
+<area shape="rect" title=" " alt="" coords="287,79,344,105"/>
+<area shape="poly" title=" " alt="" coords="205,29,281,69,278,74,203,34"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -166,19 +166,19 @@ Functions</h2></td></tr>
 <p>It is based on the same idea that people use to sort the playing cards in their hands. the algorithms goes in the manner that we start iterating over the array of elements as soon as we find a unsorted element that is a misplaced element we place it at a sorted position.</p>
 <p>Example execution steps:</p><ol type="1">
 <li>Suppose initially we have <p class="formulaDsp">
-\begin{bmatrix}4 &amp;3 &amp;2 &amp;5 &amp;1\end{bmatrix}
+<picture><source srcset="form_262_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}4 &amp;3 &amp;2 &amp;5 &amp;1\end{bmatrix}" src="form_262.png"/></picture>
 </p>
 </li>
 <li>We start traversing from 4 till we reach 1 when we reach at 3 we find that it is misplaced so we take 3 and place it at a correct position thus the array will become <p class="formulaDsp">
-\begin{bmatrix}3 &amp;4 &amp;2 &amp;5 &amp;1\end{bmatrix}
+<picture><source srcset="form_263_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}3 &amp;4 &amp;2 &amp;5 &amp;1\end{bmatrix}" src="form_263.png"/></picture>
 </p>
 </li>
 <li>In the next iteration we are at 2 we find that this is also misplaced so we place it at the correct sorted position thus the array in this iteration becomes <p class="formulaDsp">
-\begin{bmatrix}2 &amp;3 &amp;4 &amp;5 &amp;1\end{bmatrix}
+<picture><source srcset="form_264_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}2 &amp;3 &amp;4 &amp;5 &amp;1\end{bmatrix}" src="form_264.png"/></picture>
 </p>
 </li>
 <li>We do not do anything with 5 and move on to the next iteration and select 1 which is misplaced and place it at correct position. Thus, we have <p class="formulaDsp">
-\begin{bmatrix}1 &amp;2 &amp;3 &amp;4 &amp;5\end{bmatrix}
+<picture><source srcset="form_265_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{bmatrix}1 &amp;2 &amp;3 &amp;4 &amp;5\end{bmatrix}" src="form_265.png"/></picture>
 </p>
  </li>
 </ol>
@@ -200,11 +200,6 @@ Functions</h2></td></tr>
 <p>Main Function </p>
 <p>Running predefined tests to test algorithm</p>
 <p>For user insteraction</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="insertion__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="348" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -223,11 +218,6 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Test Cases to test algorithm </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="insertion__sort_8cpp_a88ec9ad42717780d6caaff9d3d6977f9_cgraph.svg" width="251" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

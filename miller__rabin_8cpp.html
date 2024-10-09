@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -126,7 +115,18 @@ $(function(){initNavTree('miller__rabin_8cpp.html',''); initResizable(true); });
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for miller_rabin.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="miller__rabin_8cpp__incl.svg" width="342" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><img src="miller__rabin_8cpp__incl.png" border="0" usemap="#amath_2miller__rabin_8cpp" alt=""/></div>
+<map name="amath_2miller__rabin_8cpp" id="amath_2miller__rabin_8cpp">
+<area shape="rect" title=" " alt="" coords="102,5,248,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,70,105"/>
+<area shape="poly" title=" " alt="" coords="153,34,76,74,73,69,150,29"/>
+<area shape="rect" title=" " alt="" coords="94,79,165,105"/>
+<area shape="poly" title=" " alt="" coords="170,33,147,67,143,64,165,30"/>
+<area shape="rect" title=" " alt="" coords="189,79,254,105"/>
+<area shape="poly" title=" " alt="" coords="185,30,208,64,203,67,180,33"/>
+<area shape="rect" title=" " alt="" coords="278,79,336,105"/>
+<area shape="poly" title=" " alt="" coords="198,29,273,69,270,74,196,34"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -167,11 +167,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Main function </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="miller__rabin_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
 
 </div>
 </div>
@@ -205,12 +200,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>'false' if num is composite </dd>
 <dd>
 'true' if num is (probably) prime</dd></dl>
-<p>\detail First we check whether the num input is less than 4, if so we can determine whether this is a prime or composite by checking for 2 and 3. Next we check whether this num is odd (as all primes greater than 2 are odd). Next we write our num in the following format \(num = 2^r \cdot d + 1\). After finding r and d for our input num, we use for loop repeat number of times inside which we check the miller conditions using the function miller_test. If miller_test returns false then the number is composite After the loop finishes completely without issuing a false return call, we can conclude that this number is probably prime. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="miller__rabin_8cpp_a901288288ef5ebe8e97414cc30797cce_cgraph.svg" width="634" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>\detail First we check whether the num input is less than 4, if so we can determine whether this is a prime or composite by checking for 2 and 3. Next we check whether this num is odd (as all primes greater than 2 are odd). Next we write our num in the following format <picture><source srcset="form_123_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$num = 2^r \cdot d + 1$" src="form_123.png"/></picture>. After finding r and d for our input num, we use for loop repeat number of times inside which we check the miller conditions using the function miller_test. If miller_test returns false then the number is composite After the loop finishes completely without issuing a false return call, we can conclude that this number is probably prime. </p>
 
 </div>
 </div>
@@ -236,7 +226,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Function for testing the conditions that are satisfied when a number is prime. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">d</td><td>number such that \(d \cdot 2^r = n - 1\) where \(n = num\) parameter and \(r \geq 1\) </td></tr>
+    <tr><td class="paramname">d</td><td>number such that <picture><source srcset="form_120_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$d \cdot 2^r = n - 1$" src="form_120.png"/></picture> where <picture><source srcset="form_121_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$n = num$" src="form_121.png"/></picture> parameter and <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r \geq 1$" src="form_122.png"/></picture> </td></tr>
     <tr><td class="paramname">num</td><td>number being tested for primality. </td></tr>
   </table>
   </dd>
@@ -244,11 +234,6 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>'false' if n is composite </dd>
 <dd>
 'true' if n is (probably) prime. </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="miller__rabin_8cpp_a6f9c31c1047aa3191676d64571d4c506_cgraph.svg" width="414" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -285,8 +270,8 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>r the modular exponentiation of \(a^{n} \equiv r \mod{m}\) where \(n\) is the base 10 representation of rev_binary_exponent and  \(m = mod
-\) parameter. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>r the modular exponentiation of <picture><source srcset="form_117_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a^{n} \equiv r \mod{m}$" src="form_117.png"/></picture> where <picture><source srcset="form_118_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$n$" src="form_118.png"/></picture> is the base 10 representation of rev_binary_exponent and  <picture><source srcset="form_119_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$m = mod
+$" src="form_119.png"/></picture> parameter. </dd></dl>
 
 </div>
 </div>
@@ -331,11 +316,6 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Functions for testing the <a class="el" href="#a901288288ef5ebe8e97414cc30797cce">miller_rabin_primality_test()</a> function with some assert statements. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="miller__rabin_8cpp_a88ec9ad42717780d6caaff9d3d6977f9_cgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
 
 </div>
 </div>

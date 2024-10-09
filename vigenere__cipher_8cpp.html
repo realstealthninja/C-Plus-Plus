@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -129,7 +118,16 @@ $(function(){initNavTree('vigenere__cipher_8cpp.html',''); initResizable(true); 
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for vigenere_cipher.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="vigenere__cipher_8cpp__incl.svg" width="248" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><img src="vigenere__cipher_8cpp__incl.png" border="0" usemap="#aciphers_2vigenere__cipher_8cpp" alt=""/></div>
+<map name="aciphers_2vigenere__cipher_8cpp" id="aciphers_2vigenere__cipher_8cpp">
+<area shape="rect" title="Implementation of Vigenère cipher algorithm." alt="" coords="36,5,219,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,77,105"/>
+<area shape="poly" title=" " alt="" coords="115,34,69,71,65,67,111,29"/>
+<area shape="rect" title=" " alt="" coords="101,79,154,105"/>
+<area shape="poly" title=" " alt="" coords="130,31,130,63,125,63,125,31"/>
+<area shape="rect" title=" " alt="" coords="178,79,242,105"/>
+<area shape="poly" title=" " alt="" coords="143,30,187,67,183,71,140,34"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -157,17 +155,17 @@ Functions</h2></td></tr>
 <p>The Vigenère cipher is a method of encrypting alphabetic text by using a series of interwoven vigenere ciphers, based on the letters of a keyword. It employs a form of polyalphabetic substitution.</p>
 <h3><a class="anchor" id="autotoc_md2"></a>
 Algorithm</h3>
-<p>The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A → 0, B → 1, ..., Z → 25. Encryption of \(i^{th}\) character in Message M by key K can be described mathematically as,</p>
+<p>The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A → 0, B → 1, ..., Z → 25. Encryption of <picture><source srcset="form_8_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$i^{th}$" src="form_8.png"/></picture> character in Message M by key K can be described mathematically as,</p>
 <p class="formulaDsp">
-\[ E_{K}(M_{i}) = (M_{i} + K_{i})\;\mbox{mod}\; 26\]
+<picture><source srcset="form_9_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ E_{K}(M_{i}) = (M_{i} + K_{i})\;\mbox{mod}\; 26\]" src="form_9.png"/></picture>
 </p>
-<p>while decryption of \(i^{th}\) character in Cipher C by key K can be described mathematically as,</p>
+<p>while decryption of <picture><source srcset="form_8_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$i^{th}$" src="form_8.png"/></picture> character in Cipher C by key K can be described mathematically as,</p>
 <p class="formulaDsp">
-\[ D_{k}(C_{i}) = (C_{i} - K_{i} + 26)\;\mbox{mod}\; 26\]
+<picture><source srcset="form_10_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ D_{k}(C_{i}) = (C_{i} - K_{i} + 26)\;\mbox{mod}\; 26\]" src="form_10.png"/></picture>
 </p>
-<p>Where \(K_{i}\) denotes corresponding character in key. If \(|key| &lt; |text|\) than same key is repeated untill their lengths are equal.</p>
+<p>Where <picture><source srcset="form_11_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_{i}$" src="form_11.png"/></picture> denotes corresponding character in key. If <picture><source srcset="form_12_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|key| &lt; |text|$" src="form_12.png"/></picture> than same key is repeated untill their lengths are equal.</p>
 <p>For Example, If M = "ATTACKATDAWN" and K = "LEMON" than K becomes "LEMONLEMONLE".</p>
-<dl class="section note"><dt>Note</dt><dd>Rather than creating new key of equal length this program does this by using modular index for key (i.e. \((j + 1) \;\mbox{mod}\; |\mbox{key}|\))</dd>
+<dl class="section note"><dt>Note</dt><dd>Rather than creating new key of equal length this program does this by using modular index for key (i.e. <picture><source srcset="form_13_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$(j + 1) \;\mbox{mod}\; |\mbox{key}|$" src="form_13.png"/></picture>)</dd>
 <dd>
 This program implements Vigenère cipher for only uppercase English alphabet characters (i.e. A-Z).</dd></dl>
 <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/imdeep2905">Deep Raval</a> </dd></dl>
@@ -245,11 +243,6 @@ This program implements Vigenère cipher for only uppercase English alphabet cha
       </table>
 </div><div class="memdoc">
 <p>Driver Code </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="vigenere__cipher_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="152" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

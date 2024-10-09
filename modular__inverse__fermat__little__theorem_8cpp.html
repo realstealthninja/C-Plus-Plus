@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -127,7 +116,14 @@ $(function(){initNavTree('modular__inverse__fermat__little__theorem_8cpp.html','
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for modular_inverse_fermat_little_theorem.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="modular__inverse__fermat__little__theorem_8cpp__incl.svg" width="187" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><img src="modular__inverse__fermat__little__theorem_8cpp__incl.png" border="0" usemap="#amath_2modular__inverse__fermat__little__theorem_8cpp" alt=""/></div>
+<map name="amath_2modular__inverse__fermat__little__theorem_8cpp" id="amath_2modular__inverse__fermat__little__theorem_8cpp">
+<area shape="rect" title="C++ Program to find the modular inverse using Fermat&#39;s Little Theorem" alt="" coords="5,5,181,46"/>
+<area shape="rect" title=" " alt="" coords="13,94,85,120"/>
+<area shape="poly" title=" " alt="" coords="84,48,65,82,61,79,80,45"/>
+<area shape="rect" title=" " alt="" coords="108,94,166,120"/>
+<area shape="poly" title=" " alt="" coords="106,45,125,79,121,82,102,48"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -142,33 +138,33 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C++ Program to find the modular inverse using <a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem">Fermat's Little Theorem</a> </p>
 <p>Fermat's Little Theorem state that </p><p class="formulaDsp">
-\[ϕ(m) = m-1\]
+<picture><source srcset="form_124_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ϕ(m) = m-1\]" src="form_124.png"/></picture>
 </p>
-<p> where \(m\) is a prime number.    </p><p class="formulaDsp">
-\begin{eqnarray*}
+<p> where <picture><source srcset="form_125_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$m$" src="form_125.png"/></picture> is a prime number.    </p><p class="formulaDsp">
+<picture><source srcset="form_126_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{eqnarray*}
   a \cdot x &amp;≡&amp; 1 \;\text{mod}\; m\\
   x &amp;≡&amp; a^{-1} \;\text{mod}\; m
- \end{eqnarray*}
+ \end{eqnarray*}" src="form_126.png"/></picture>
 </p>
 <p> Using Euler's theorem we can modify the equation.   </p><p class="formulaDsp">
-\[
+<picture><source srcset="form_127_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
  a^{ϕ(m)} ≡ 1 \;\text{mod}\; m
- \]
+ \]" src="form_127.png"/></picture>
 </p>
 <p> (Where '^' denotes the exponent operator)</p>
 <p>Here 'ϕ' is Euler's Totient Function. For modular inverse existence 'a' and 'm' must be relatively primes numbers. To apply Fermat's Little Theorem is necessary that 'm' must be a prime number. Generally in many competitive programming competitions 'm' is either 1000000007 (1e9+7) or 998244353.</p>
-<p>We considered m as large prime (1e9+7). \(a^{ϕ(m)} ≡ 1 \;\text{mod}\; m\) (Using Euler's Theorem) \(ϕ(m) = m-1\) using Fermat's Little Theorem. \(a^{m-1} ≡ 1 \;\text{mod}\; m\) Now multiplying both side by \(a^{-1}\).    </p><p class="formulaDsp">
-\begin{eqnarray*}
+<p>We considered m as large prime (1e9+7). <picture><source srcset="form_128_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a^{ϕ(m)} ≡ 1 \;\text{mod}\; m$" src="form_128.png"/></picture> (Using Euler's Theorem) <picture><source srcset="form_129_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ϕ(m) = m-1$" src="form_129.png"/></picture> using Fermat's Little Theorem. <picture><source srcset="form_130_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a^{m-1} ≡ 1 \;\text{mod}\; m$" src="form_130.png"/></picture> Now multiplying both side by <picture><source srcset="form_131_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a^{-1}$" src="form_131.png"/></picture>.    </p><p class="formulaDsp">
+<picture><source srcset="form_132_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{eqnarray*}
  a^{m-1} \cdot a^{-1} &amp;≡&amp; a^{-1} \;\text{mod}\; m\\
  a^{m-2} &amp;≡&amp;  a^{-1} \;\text{mod}\; m
- \end{eqnarray*}
+ \end{eqnarray*}" src="form_132.png"/></picture>
 </p>
-<p>We will find the exponent using binary exponentiation. Such that the algorithm works in \(O(\log m)\) time.</p>
+<p>We will find the exponent using binary exponentiation. Such that the algorithm works in <picture><source srcset="form_133_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(\log m)$" src="form_133.png"/></picture> time.</p>
 <p>Examples: -</p><ul>
 <li>a = 3 and m = 7</li>
-<li>\(a^{-1} \;\text{mod}\; m\) is equivalent to \(a^{m-2} \;\text{mod}\; m\)</li>
-<li>\(3^5 \;\text{mod}\; 7 = 243 \;\text{mod}\; 7 = 5\) <br  />
-Hence, \(3^{-1} \;\text{mod}\; 7 = 5\) or \(3 \times 5  \;\text{mod}\; 7 = 1 \;\text{mod}\; 7\) (as \(a\times a^{-1} = 1\)) </li>
+<li><picture><source srcset="form_134_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a^{-1} \;\text{mod}\; m$" src="form_134.png"/></picture> is equivalent to <picture><source srcset="form_135_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a^{m-2} \;\text{mod}\; m$" src="form_135.png"/></picture></li>
+<li><picture><source srcset="form_136_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$3^5 \;\text{mod}\; 7 = 243 \;\text{mod}\; 7 = 5$" src="form_136.png"/></picture> <br  />
+Hence, <picture><source srcset="form_137_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$3^{-1} \;\text{mod}\; 7 = 5$" src="form_137.png"/></picture> or <picture><source srcset="form_138_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$3 \times 5  \;\text{mod}\; 7 = 1 \;\text{mod}\; 7$" src="form_138.png"/></picture> (as <picture><source srcset="form_139_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a\times a^{-1} = 1$" src="form_139.png"/></picture>) </li>
 </ul>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4c6eefd1254eab3e8d34bf02c205e0f4" name="a4c6eefd1254eab3e8d34bf02c205e0f4"></a>
@@ -194,7 +190,7 @@ Hence, \(3^{-1} \;\text{mod}\; 7 = 5\) or \(3 \times 5  \;\text{mod}\; 7 = 1 \;\
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Recursive function to calculate exponent in \(O(\log n)\) using binary exponent. </p>
+<p>Recursive function to calculate exponent in <picture><source srcset="form_19_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(\log n)$" src="form_19.png"/></picture> using binary exponent. </p>
 
 </div>
 </div>
@@ -212,7 +208,7 @@ Hence, \(3^{-1} \;\text{mod}\; 7 = 5\) or \(3 \times 5  \;\text{mod}\; 7 = 1 \;\
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prime check in \(O(\sqrt{m})\) time. </p>
+<p>Prime check in <picture><source srcset="form_140_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(\sqrt{m})$" src="form_140.png"/></picture> time. </p>
 
 </div>
 </div>
@@ -231,11 +227,6 @@ Hence, \(3^{-1} \;\text{mod}\; 7 = 5\) or \(3 \times 5  \;\text{mod}\; 7 = 1 \;\
       </table>
 </div><div class="memdoc">
 <p>Main function </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="modular__inverse__fermat__little__theorem_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="176" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

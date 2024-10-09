@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -128,7 +117,16 @@ $(function(){initNavTree('hamiltons__cycle_8cpp.html',''); initResizable(true); 
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for hamiltons_cycle.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="hamiltons__cycle_8cpp__incl.svg" width="252" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><img src="hamiltons__cycle_8cpp__incl.png" border="0" usemap="#agraph_2hamiltons__cycle_8cpp" alt=""/></div>
+<map name="agraph_2hamiltons__cycle_8cpp" id="agraph_2hamiltons__cycle_8cpp">
+<area shape="rect" title="The implementation of Hamilton&#39;s cycle dynamic solution for vertices number less than 20." alt="" coords="41,5,218,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,70,105"/>
+<area shape="poly" title=" " alt="" coords="116,34,66,72,63,67,112,29"/>
+<area shape="rect" title=" " alt="" coords="94,79,165,105"/>
+<area shape="poly" title=" " alt="" coords="132,31,132,63,127,63,127,31"/>
+<area shape="rect" title=" " alt="" coords="189,79,246,105"/>
+<area shape="poly" title=" " alt="" coords="146,29,193,67,189,71,143,34"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -140,8 +138,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The implementation of <a href="https://en.wikipedia.org/wiki/Hamiltonian_path">Hamilton's cycle</a> dynamic solution for vertices number less than 20. </p>
-<p>I use \(2^n\times n\) matrix and for every \([i, j]\) ( \(i &lt; 2^n\) and \(j &lt; n\)) in the matrix I store <code>true</code> if it is possible to get to all vertices on which position in <code>i</code>'s binary representation is <code>1</code> so as \(j\) would be the last one.</p>
-<p>In the the end if any cell in \((2^n - 1)^{\mbox{th}}\) row is <code>true</code> there exists hamiltonian cycle.</p>
+<p>I use <picture><source srcset="form_21_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^n\times n$" src="form_21.png"/></picture> matrix and for every <picture><source srcset="form_22_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$[i, j]$" src="form_22.png"/></picture> ( <picture><source srcset="form_23_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$i &lt; 2^n$" src="form_23.png"/></picture> and <picture><source srcset="form_24_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$j &lt; n$" src="form_24.png"/></picture>) in the matrix I store <code>true</code> if it is possible to get to all vertices on which position in <code>i</code>'s binary representation is <code>1</code> so as <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$j$" src="form_25.png"/></picture> would be the last one.</p>
+<p>In the the end if any cell in <picture><source srcset="form_26_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$(2^n - 1)^{\mbox{th}}$" src="form_26.png"/></picture> row is <code>true</code> there exists hamiltonian cycle.</p>
 <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/vakhokoto">vakhokoto</a> </dd>
 <dd>
 <a href="https://github.com/kvedala">Krishna Vedala</a> </dd></dl>
@@ -163,18 +161,13 @@ Functions</h2></td></tr>
 <p>The function determines if there is a hamilton's cycle in the graph</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">routes</td><td>nxn boolean matrix of \([i, j]\) where \([i, j]\) is <code>true</code> if there is a road from \(i\) to \(j\) </td></tr>
+    <tr><td class="paramname">routes</td><td>nxn boolean matrix of <picture><source srcset="form_22_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$[i, j]$" src="form_22.png"/></picture> where <picture><source srcset="form_22_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$[i, j]$" src="form_22.png"/></picture> is <code>true</code> if there is a road from <picture><source srcset="form_27_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$i$" src="form_27.png"/></picture> to <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$j$" src="form_25.png"/></picture> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if there is Hamiltonian cycle in the graph </dd>
 <dd>
 <code>false</code> if there is no Hamiltonian cycle in the graph </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="hamiltons__cycle_8cpp_abcf824e347eecfeeb69ea0280f34f3e4_cgraph.svg" width="224" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -204,11 +197,6 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="hamiltons__cycle_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
 
 </div>
 </div>

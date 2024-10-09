@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -168,24 +157,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Compute eigen values using iterative shifted QR decomposition algorithm as follows:</p><ol type="1">
-<li>Use last diagonal element of A as eigen value approximation \(c\)</li>
-<li>Shift diagonals of matrix \(A&#39; = A - cI\)</li>
-<li>Decompose matrix \(A&#39;=QR\)</li>
-<li>Compute next approximation \(A&#39;_1 = RQ \)</li>
-<li>Shift diagonals back \(A_1 = A&#39;_1 + cI\)</li>
+<li>Use last diagonal element of A as eigen value approximation <picture><source srcset="form_214_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c$" src="form_214.png"/></picture></li>
+<li>Shift diagonals of matrix <picture><source srcset="form_215_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A' = A - cI$" src="form_215.png"/></picture></li>
+<li>Decompose matrix <picture><source srcset="form_216_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A'=QR$" src="form_216.png"/></picture></li>
+<li>Compute next approximation <picture><source srcset="form_217_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A'_1 = RQ $" src="form_217.png"/></picture></li>
+<li>Shift diagonals back <picture><source srcset="form_218_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A_1 = A'_1 + cI$" src="form_218.png"/></picture></li>
 <li>Termination condition check: last element below diagonal is almost 0<ol type="a">
-<li>If not 0, go back to step 1 with the new approximation \(A_1\)</li>
+<li>If not 0, go back to step 1 with the new approximation <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A_1$" src="form_219.png"/></picture></li>
 <li>If 0, continue to step 7</li>
 </ol>
 </li>
-<li>Save last known \(c\) as the eigen value.</li>
+<li>Save last known <picture><source srcset="form_214_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c$" src="form_214.png"/></picture> as the eigen value.</li>
 <li>Are all eigen values found?<ol type="a">
-<li>If not, remove last row and column of \(A_1\) and go back to step 1.</li>
+<li>If not, remove last row and column of <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A_1$" src="form_219.png"/></picture> and go back to step 1.</li>
 <li>If yes, stop.</li>
 </ol>
 </li>
 </ol>
-<dl class="section note"><dt>Note</dt><dd>The matrix \(A\) gets modified</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The matrix <picture><source srcset="form_210_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A$" src="form_210.png"/></picture> gets modified</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">A</td><td>matrix to compute eigen values for </td></tr>
@@ -193,11 +182,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceqr__algorithm_a28e2fa3e803abaea6c568dc45d69d8cc_cgraph.svg" width="100%" height="382"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
 
 </div>
 </div>
@@ -274,9 +258,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Decompose matrix \(A\) using <a href="https://en.wikipedia.org/wiki/QR_decomposition">Gram-Schmidt process</a>.</p>
+<p>Decompose matrix <picture><source srcset="form_210_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$A$" src="form_210.png"/></picture> using <a href="https://en.wikipedia.org/wiki/QR_decomposition">Gram-Schmidt process</a>.</p>
 <p class="formulaDsp">
-\begin{eqnarray*}
+<picture><source srcset="form_211_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\begin{eqnarray*}
   \text{given that}\quad A &amp;=&amp;
 *\left[\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_{N-1},\right]\\
   \text{where}\quad\mathbf{a}_i &amp;=&amp;
@@ -295,7 +279,7 @@ template&lt;typename T &gt; </div>
                    0 &amp; 0 &amp; \langle\mathbf{e}_2\,,\mathbf{a}_2\rangle &amp;
   \dots\\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots
        \end{bmatrix}\\
-  \end{eqnarray*}
+  \end{eqnarray*}" src="form_211.png"/></picture>
 </p>
  <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -305,11 +289,6 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceqr__algorithm_a73ce637634fc49e1d10d190eb388ebf1_cgraph.svg" width="622" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -342,8 +321,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Compute dot product of two vectors of equal lengths</p>
-<p>If \(\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]\) and \(\vec{b}=\left[b_0,b_1,b_1,...,b_L\right]\) then \(\vec{a}\cdot\vec{b}=\displaystyle\sum_{i=0}^L a_i\times b_i\)</p>
-<dl class="section return"><dt>Returns</dt><dd>\(\vec{a}\cdot\vec{b}\) </dd></dl>
+<p>If <picture><source srcset="form_201_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]$" src="form_201.png"/></picture> and <picture><source srcset="form_202_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{b}=\left[b_0,b_1,b_1,...,b_L\right]$" src="form_202.png"/></picture> then <picture><source srcset="form_203_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}\cdot\vec{b}=\displaystyle\sum_{i=0}^L a_i\times b_i$" src="form_203.png"/></picture></p>
+<dl class="section return"><dt>Returns</dt><dd><picture><source srcset="form_204_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}\cdot\vec{b}$" src="form_204.png"/></picture> </dd></dl>
 
 </div>
 </div>
@@ -372,13 +351,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Compute magnitude of vector.</p>
-<p>If \(\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]\) then \(\left|\vec{a}\right|=\sqrt{\displaystyle\sum_{i=0}^L a_i^2}\)</p>
-<dl class="section return"><dt>Returns</dt><dd>\(\left|\vec{a}\right|\) </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceqr__algorithm_ad16da2183db22378435042f26af43d5f_cgraph.svg" width="388" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>If <picture><source srcset="form_201_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}=\left[a_0,a_1,a_2,...,a_L\right]$" src="form_201.png"/></picture> then <picture><source srcset="form_205_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\left|\vec{a}\right|=\sqrt{\displaystyle\sum_{i=0}^L a_i^2}$" src="form_205.png"/></picture></p>
+<dl class="section return"><dt>Returns</dt><dd><picture><source srcset="form_206_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\left|\vec{a}\right|$" src="form_206.png"/></picture> </dd></dl>
 
 </div>
 </div>
@@ -402,16 +376,11 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Compute projection of vector \(\vec{a}\) on \(\vec{b}\) defined as </p><p class="formulaDsp">
-\[\text{proj}_\vec{b}\vec{a}=\frac{\vec{a}\cdot\vec{b}}{\left|\vec{b}\right|^2}\vec{b}\]
+<p>Compute projection of vector <picture><source srcset="form_207_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{a}$" src="form_207.png"/></picture> on <picture><source srcset="form_208_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{b}$" src="form_208.png"/></picture> defined as </p><p class="formulaDsp">
+<picture><source srcset="form_209_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[\text{proj}_\vec{b}\vec{a}=\frac{\vec{a}\cdot\vec{b}}{\left|\vec{b}\right|^2}\vec{b}\]" src="form_209.png"/></picture>
 </p>
 <dl class="section return"><dt>Returns</dt><dd>NULL if error, otherwise pointer to output </dd></dl>
 <p>check for division by zero using machine epsilon</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceqr__algorithm_a6d3c7dce1f142141f509d09f6c0e25dc_cgraph.svg" width="384" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

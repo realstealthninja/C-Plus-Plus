@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -128,7 +117,14 @@ $(function(){initNavTree('strand__sort_8cpp.html',''); initResizable(true); });
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for strand_sort.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="strand__sort_8cpp__incl.svg" width="166" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><img src="strand__sort_8cpp__incl.png" border="0" usemap="#asorting_2strand__sort_8cpp" alt=""/></div>
+<map name="asorting_2strand__sort_8cpp" id="asorting_2strand__sort_8cpp">
+<area shape="rect" title="Implementation of Strand Sort algorithm." alt="" coords="5,5,160,31"/>
+<area shape="rect" title=" " alt="" coords="8,79,80,105"/>
+<area shape="poly" title=" " alt="" coords="78,32,60,66,55,64,74,30"/>
+<area shape="rect" title=" " alt="" coords="103,79,142,105"/>
+<area shape="poly" title=" " alt="" coords="91,30,111,64,106,67,87,33"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -152,7 +148,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of <a href="https://en.wikipedia.org/wiki/Strand_sort">Strand Sort</a> algorithm. </p>
-<p>Strand Sort is a sorting algorithm that works in \(O(n)\) time if list is already sorted and works in \(O(n^2)\) in worst case.</p>
+<p>Strand Sort is a sorting algorithm that works in <picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(n)$" src="form_0.png"/></picture> time if list is already sorted and works in <picture><source srcset="form_260_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(n^2)$" src="form_260.png"/></picture> in worst case.</p>
 <p>It is passed over the array to be sorted once and the ascending (sequential) numbers are taken. After the first iteration, the sequential sub-array is put on the empty sorted array. The main sequence is passed over again and a new sub-sequence is created in order. Now that the sorted array is not empty, the newly extracted substring is merged with the sorted array. Repeat types 3 and 4 until the sub-sequence and main sequence are empty.</p>
 <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/mertcandav">Mertcan Davulcu</a> </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -173,11 +169,6 @@ Functions</h2></td></tr>
 
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="strand__sort_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="152" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -212,11 +203,6 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Sorted list&lt;T&gt; instance </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="strand__sort_8cpp_a2bea2fe5dd38ed63610fdeaddf5785cd_cgraph.svg" width="188" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

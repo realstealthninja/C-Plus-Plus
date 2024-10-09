@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.12.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -9,6 +10,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xpack-3rd-party/doxygen-awesome-css@2.2.0-1/doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+</script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,22 +23,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-window.MathJax = {
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/ams']
-  },
-  tex: {
-    macros: {},
-    packages: ['base','configmacros','ams']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -128,7 +117,14 @@ $(function(){initNavTree('eulers__totient__function_8cpp.html',''); initResizabl
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for eulers_totient_function.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="eulers__totient__function_8cpp__incl.svg" width="171" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><img src="eulers__totient__function_8cpp__incl.png" border="0" usemap="#amath_2eulers__totient__function_8cpp" alt=""/></div>
+<map name="amath_2eulers__totient__function_8cpp" id="amath_2eulers__totient__function_8cpp">
+<area shape="rect" title="Implementation of Euler&#39;s Totient @description Euler Totient Function is also known as phi function." alt="" coords="20,5,152,46"/>
+<area shape="rect" title=" " alt="" coords="5,94,77,120"/>
+<area shape="poly" title=" " alt="" coords="77,48,58,82,53,79,73,45"/>
+<area shape="rect" title=" " alt="" coords="101,94,165,120"/>
+<area shape="poly" title=" " alt="" coords="100,45,120,79,116,82,96,48"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -149,25 +145,25 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of <a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function">Euler's Totient</a> @description Euler Totient Function is also known as phi function. </p>
 <p class="formulaDsp">
-\[\phi(n) =
-\phi\left({p_1}^{a_1}\right)\cdot\phi\left({p_2}^{a_2}\right)\ldots\]
+<picture><source srcset="form_85_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[\phi(n) =
+\phi\left({p_1}^{a_1}\right)\cdot\phi\left({p_2}^{a_2}\right)\ldots\]" src="form_85.png"/></picture>
 </p>
-<p> where \(p_1\), \(p_2\), \(\ldots\) are prime factors of n. <br  />
+<p> where <picture><source srcset="form_86_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$p_1$" src="form_86.png"/></picture>, <picture><source srcset="form_87_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$p_2$" src="form_87.png"/></picture>, <picture><source srcset="form_88_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\ldots$" src="form_88.png"/></picture> are prime factors of n. <br  />
 3 Euler's properties:</p><ol type="1">
-<li>\(\phi(n) = n-1\)</li>
-<li>\(\phi(n^k) = n^k - n^{k-1}\)</li>
-<li>\(\phi(a,b) = \phi(a)\cdot\phi(b)\) where a and b are relative primes.</li>
+<li><picture><source srcset="form_89_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi(n) = n-1$" src="form_89.png"/></picture></li>
+<li><picture><source srcset="form_90_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi(n^k) = n^k - n^{k-1}$" src="form_90.png"/></picture></li>
+<li><picture><source srcset="form_91_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi(a,b) = \phi(a)\cdot\phi(b)$" src="form_91.png"/></picture> where a and b are relative primes.</li>
 </ol>
 <p>Applying this 3 properties on the first equation.  </p><p class="formulaDsp">
-\[\phi(n) =
-n\cdot\left(1-\frac{1}{p_1}\right)\cdot\left(1-\frac{1}{p_2}\right)\cdots\]
+<picture><source srcset="form_92_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[\phi(n) =
+n\cdot\left(1-\frac{1}{p_1}\right)\cdot\left(1-\frac{1}{p_2}\right)\cdots\]" src="form_92.png"/></picture>
 </p>
-<p> where \(p_1\), \(p_2\)... are prime factors. Hence Implementation in \(O\left(\sqrt{n}\right)\). <br  />
+<p> where <picture><source srcset="form_86_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$p_1$" src="form_86.png"/></picture>, <picture><source srcset="form_87_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$p_2$" src="form_87.png"/></picture>... are prime factors. Hence Implementation in <picture><source srcset="form_93_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O\left(\sqrt{n}\right)$" src="form_93.png"/></picture>. <br  />
 Some known values are:</p><ul>
-<li>\(\phi(100) = 40\)</li>
-<li>\(\phi(1) = 1\)</li>
-<li>\(\phi(17501) = 15120\)</li>
-<li>\(\phi(1420) = 560\) <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/mann2108">Mann Mehta</a> </dd></dl>
+<li><picture><source srcset="form_94_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi(100) = 40$" src="form_94.png"/></picture></li>
+<li><picture><source srcset="form_95_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi(1) = 1$" src="form_95.png"/></picture></li>
+<li><picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi(17501) = 15120$" src="form_96.png"/></picture></li>
+<li><picture><source srcset="form_97_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi(1420) = 560$" src="form_97.png"/></picture> <dl class="section author"><dt>Author</dt><dd><a href="https://github.com/mann2108">Mann Mehta</a> </dd></dl>
 </li>
 </ul>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -199,11 +195,6 @@ Some known values are:</p><ul>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="eulers__totient__function_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph.svg" width="152" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
