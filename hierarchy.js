@@ -56,6 +56,7 @@ var hierarchy =
     [ "data_structures::list_array::list< N >", "d5/dab/structdata__structures_1_1list__array_1_1list.html", null ],
     [ "list", "d8/d10/structlist.html", null ],
     [ "ListNode", "d7/da4/struct_list_node.html", null ],
+    [ "Longest_Substring", "da/d21/class_longest___substring.html", null ],
     [ "graph::LowestCommonAncestor", "d9/d23/classgraph_1_1_lowest_common_ancestor.html", null ],
     [ "others::lru_cache::LRUCache", "d6/dae/classothers_1_1lru__cache_1_1_l_r_u_cache.html", null ],
     [ "divide_and_conquer::strassens_multiplication::Matrix< T, typename >", "dc/d13/classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix.html", null ],
@@ -117,7 +118,7 @@ var hierarchy =
     [ "Trie", "dd/d2f/class_trie.html", null ],
     [ "data_structures::trie", "d0/d3e/classdata__structures_1_1trie.html", null ],
     [ "Trie::TrieNode", "de/d48/struct_trie_1_1_trie_node.html", null ],
-    [ "std::true_type", null, [
+    [ "std::true_type", "http://en.cppreference.com/w/cpp/types/integral_constant.html", [
       [ "std::is_arithmetic< uint128_t >", "d2/dfc/structstd_1_1is__arithmetic_3_01uint128__t_01_4.html", null ],
       [ "std::is_arithmetic< uint256_t >", "dc/d6d/structstd_1_1is__arithmetic_3_01uint256__t_01_4.html", null ],
       [ "std::is_integral< uint128_t >", "d2/dd4/structstd_1_1is__integral_3_01uint128__t_01_4.html", null ],

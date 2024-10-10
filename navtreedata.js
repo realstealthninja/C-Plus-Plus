@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "TheAlgorithms/C++", "index.html", [
+  [ "Algorithms_in_C++", "index.html", [
     [ "The Algorithms - C++", "index.html", "index" ],
     [ "Contributor Covenant Code of Conduct", "d3/dd7/md__c_o_d_e___o_f___c_o_n_d_u_c_t.html", [
       [ "Our Pledge", "d3/dd7/md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md5", null ],
@@ -137,20 +137,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d83/classuint256__t.html#ac6bdcf64653af8173987bf7217e99056",
-"d2/dc8/classdata__structures_1_1_stack.html#a61dc70e128ee64c9684f03a4c04818b0",
-"d4/d18/composite__simpson__rule_8cpp.html#a2f67508d5f392b0321772169342c98ad",
-"d5/d4c/group__sorting.html#ga0a9a57a1f1bbba3d4822531d002b7e07",
-"d6/d26/classciphers_1_1_hill_cipher.html#a7760f3665651a0a37937c79c62f219c0",
-"d7/d24/nqueen__print__all__solutions_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4",
-"d8/d7c/classoperations__on__datastructures_1_1circular__linked__list_1_1_circular_linked_list.html#a03a896b34d27fda69049827e0c4dab42",
-"d9/d35/classrange__queries_1_1heavy__light__decomposition_1_1_s_g.html#ad3b942be27a1b0fe3cff6cb6edf01294",
-"da/d5a/class_complex.html#a3cfc522c782726f49ee20af17b77f867",
-"db/d9a/classuint128__t.html#a0500a90bcde5a8254750c361eed9bc40",
-"dc/dc5/paranthesis__matching_8cpp.html#a6d25c7dfbfeb52c3cb9d1b56ab49b664",
-"dd/d95/classdata__structures_1_1_segment_tree.html#ad0e78179ab979ae2bc4304bdc181db17",
-"de/dd3/newton__raphson__method_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4",
-"functions_func_p.html"
+"cpp/iterator/distance.html",
+"cpp/thread/lock.html",
+"d1/d83/classuint256__t.html#a9f6f3e39783c893473315bada864a183",
+"d2/dc8/classdata__structures_1_1_stack.html#aa9f9b087e9e7c00628e1289f0f1de3b2",
+"d4/d3e/n__queens_8cpp.html#a5730b6683f6adcf5c5ef75cf53dc7160",
+"d5/d88/md__d_i_r_e_c_t_o_r_y.html#autotoc_md59",
+"d6/d57/array__right__rotation_8cpp.html#a6109193567a5b7e36a27f2b4865fce20",
+"d8/d28/classrange__queries_1_1per_seg_tree.html",
+"d8/dee/avltree_8cpp.html#a473eee1803e4e44a54d685e4b0eef5a6",
+"da/d19/classprobability_1_1geometric__dist_1_1geometric__distribution.html#a41051365f8ac7700f2ed5880a6760413",
+"db/d71/quadratic__probing__hash__table_8cpp.html#a2093d91dd3d377cf0a5c939e45dcefc7",
+"dc/d93/classmachine__learning_1_1neural__network_1_1layers_1_1_dense_layer.html#a11046825be0b6dbb73fbe834aa49200e",
+"dd/d95/classdata__structures_1_1_segment_tree.html#a6d3beccc936af2377c8eeb17067fd141",
+"df/d28/dsu__union__rank_8cpp.html",
+"globals_func_e.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
