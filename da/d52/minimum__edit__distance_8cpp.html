@@ -131,12 +131,13 @@ $(function(){initNavTree('da/d52/minimum__edit__distance_8cpp.html','../../'); i
 <p>Implementation of <a href="https://en.wikipedia.org/wiki/Edit_distance" target="_blank">Minimum Edit Distance</a> using Dynamic Programing.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for minimum_edit_distance.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d3d/minimum__edit__distance_8cpp__incl.svg" width="252" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d3d/minimum__edit__distance_8cpp__incl.svg" width="336" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="../../da/d52/minimum__edit__distance_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -230,34 +231,38 @@ Algorithm</h3>
 <p>If the last character is different, consider all possibilities and find the minimum</p>
 <p>returning the minimum cost of operations needed to convert str1 to str2</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>                                                                            {</div>
-<div class="line"><span class="lineno">   90</span>  std::vector&lt;std::vector&lt;uint64_t&gt;&gt;<a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>(m+1, std::vector&lt;uint64_t&gt;(n+1)); </div>
-<div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   93</span>  <span class="keywordflow">for</span> (uint64_t i = 0; i &lt;= m; i++) {</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">for</span> (uint64_t j = 0; j &lt;= n; j++) {</div>
-<div class="line"><span class="lineno">   97</span>      <span class="keywordflow">if</span> (i == 0) {</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = j; </div>
-<div class="line"><span class="lineno">   99</span>      }</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00092">92</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   93</span>                                {</div>
+<div class="line"><span class="lineno">   95</span>    std::vector&lt;std::vector&lt;uint64_t&gt;&gt; <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>(</div>
+<div class="line"><span class="lineno">   96</span>        m + 1,</div>
+<div class="line"><span class="lineno">   97</span>        std::vector&lt;uint64_t&gt;(</div>
+<div class="line"><span class="lineno">   98</span>            n +</div>
+<div class="line"><span class="lineno">   99</span>            1));  </div>
 <div class="line"><span class="lineno">  100</span> </div>
-<div class="line"><span class="lineno">  103</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (j == 0) {</div>
-<div class="line"><span class="lineno">  104</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = i; </div>
-<div class="line"><span class="lineno">  105</span>      }</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  109</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (str1[i - 1] == str2[j - 1]) {</div>
-<div class="line"><span class="lineno">  110</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j - 1];</div>
-<div class="line"><span class="lineno">  111</span>      }</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  115</span>      <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  116</span>        <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = 1 + min(<a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j - 1],      <span class="comment">// Insert</span></div>
-<div class="line"><span class="lineno">  117</span>                           <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j],      <span class="comment">// Remove</span></div>
-<div class="line"><span class="lineno">  118</span>                           <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j - 1]); <span class="comment">// Replace</span></div>
-<div class="line"><span class="lineno">  119</span>      }</div>
-<div class="line"><span class="lineno">  120</span>    }</div>
-<div class="line"><span class="lineno">  121</span>  }</div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>  <span class="keywordflow">return</span> <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[m][n]; </div>
-<div class="line"><span class="lineno">  124</span>}</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">for</span> (uint64_t i = 0; i &lt;= m; i++) {</div>
+<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">for</span> (uint64_t j = 0; j &lt;= n; j++) {</div>
+<div class="line"><span class="lineno">  106</span>            <span class="keywordflow">if</span> (i == 0) {</div>
+<div class="line"><span class="lineno">  107</span>                <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = j;  </div>
+<div class="line"><span class="lineno">  108</span>            }</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  112</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (j == 0) {</div>
+<div class="line"><span class="lineno">  113</span>                <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = i;  </div>
+<div class="line"><span class="lineno">  114</span>            }</div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  118</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (str1[i - 1] == str2[j - 1]) {</div>
+<div class="line"><span class="lineno">  119</span>                <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j - 1];</div>
+<div class="line"><span class="lineno">  120</span>            }</div>
+<div class="line"><span class="lineno">  121</span> </div>
+<div class="line"><span class="lineno">  124</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  125</span>                <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j] = 1 + min(<a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i][j - 1],       <span class="comment">// Insert</span></div>
+<div class="line"><span class="lineno">  126</span>                                   <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j],       <span class="comment">// Remove</span></div>
+<div class="line"><span class="lineno">  127</span>                                   <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[i - 1][j - 1]);  <span class="comment">// Replace</span></div>
+<div class="line"><span class="lineno">  128</span>            }</div>
+<div class="line"><span class="lineno">  129</span>        }</div>
+<div class="line"><span class="lineno">  130</span>    }</div>
+<div class="line"><span class="lineno">  131</span> </div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">return</span> <a class="code hl_namespace" href="../../df/d88/namespacedp.html">dp</a>[m][n];  </div>
+<div class="line"><span class="lineno">  134</span>}</div>
 <div class="ttc" id="anamespacedp_html"><div class="ttname"><a href="../../df/d88/namespacedp.html">dp</a></div><div class="ttdoc">for std::vector</div><div class="ttdef"><b>Definition</b> <a href="../../de/d8c/partition__problem_8cpp_source.html#l00039">partition_problem.cpp:39</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -291,12 +296,12 @@ Algorithm</h3>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00160">160</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  160</span>                                 {</div>
-<div class="line"><span class="lineno">  161</span>  <a class="code hl_function" href="#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run self-test implementations</span></div>
-<div class="line"><span class="lineno">  162</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  163</span>}</div>
-<div class="ttc" id="aminimum__edit__distance_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00132">minimum_edit_distance.cpp:132</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00173">173</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  173</span>                                 {</div>
+<div class="line"><span class="lineno">  174</span>    <a class="code hl_function" href="#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run self-test implementations</span></div>
+<div class="line"><span class="lineno">  175</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  176</span>}</div>
+<div class="ttc" id="aminimum__edit__distance_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00142">minimum_edit_distance.cpp:142</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -342,18 +347,17 @@ z if <code>z</code> is the minimum value </dd></dl>
 <p>returns y, if y is the minimum value</p>
 <p>returns z if z is the minimum value</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                                                 {</div>
-<div class="line"><span class="lineno">   64</span>  <span class="keywordflow">if</span> (x &lt;= y &amp;&amp; x &lt;= z) {</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> x; </div>
-<div class="line"><span class="lineno">   66</span>  }</div>
-<div class="line"><span class="lineno">   67</span>  <span class="keywordflow">if</span> (y &lt;= x &amp;&amp; y &lt;= z) {</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">return</span> y; </div>
-<div class="line"><span class="lineno">   69</span>  }</div>
-<div class="line"><span class="lineno">   70</span>  <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> z; </div>
-<div class="line"><span class="lineno">   72</span>  }</div>
-<div class="line"><span class="lineno">   73</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                 {</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">if</span> (x &lt;= y &amp;&amp; x &lt;= z) {</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">return</span> x;  </div>
+<div class="line"><span class="lineno">   71</span>    }</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">if</span> (y &lt;= x &amp;&amp; y &lt;= z) {</div>
+<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">return</span> y;  </div>
+<div class="line"><span class="lineno">   74</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">return</span> z;  </div>
+<div class="line"><span class="lineno">   76</span>    }</div>
+<div class="line"><span class="lineno">   77</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -383,29 +387,32 @@ z if <code>z</code> is the minimum value </dd></dl>
 <p>Self-test implementations. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00132">132</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  132</span>                   {</div>
-<div class="line"><span class="lineno">  133</span>  <span class="comment">// 1st test</span></div>
-<div class="line"><span class="lineno">  134</span>  std::string str1 = <span class="stringliteral">&quot;INTENTION&quot;</span>; <span class="comment">// Sample input of 1st string</span></div>
-<div class="line"><span class="lineno">  135</span>  std::string str2 = <span class="stringliteral">&quot;EXECUTION&quot;</span>; <span class="comment">// Sample input of 2nd string</span></div>
-<div class="line"><span class="lineno">  136</span>  uint64_t expected_output1 = 5; <span class="comment">// Expected minimum cost</span></div>
-<div class="line"><span class="lineno">  137</span>  uint64_t output1 = <a class="code hl_function" href="#ade2fcfe0359f3c7691bfaa04b14943e2">dynamic_programming::minimum_edit_distance::editDistDP</a>(</div>
-<div class="line"><span class="lineno">  138</span>      str1, str2, str1.length(), str2.length()); <span class="comment">// calling the editDistDP function and storing the result on output1</span></div>
-<div class="line"><span class="lineno">  139</span>  assert(output1 == expected_output1); <span class="comment">// comparing the output with the expected output</span></div>
-<div class="line"><span class="lineno">  140</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Minimum Number of Operations Required: &quot;</span> &lt;&lt; output1</div>
-<div class="line"><span class="lineno">  141</span>            &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>  <span class="comment">// 2nd test</span></div>
-<div class="line"><span class="lineno">  144</span>  std::string str3 = <span class="stringliteral">&quot;SATURDAY&quot;</span>;</div>
-<div class="line"><span class="lineno">  145</span>  std::string str4 = <span class="stringliteral">&quot;SUNDAY&quot;</span>;</div>
-<div class="line"><span class="lineno">  146</span>  uint64_t expected_output2 = 3;</div>
-<div class="line"><span class="lineno">  147</span>  uint64_t output2 = <a class="code hl_function" href="#ade2fcfe0359f3c7691bfaa04b14943e2">dynamic_programming::minimum_edit_distance::editDistDP</a>(</div>
-<div class="line"><span class="lineno">  148</span>      str3, str4, str3.length(), str4.length());</div>
-<div class="line"><span class="lineno">  149</span>  assert(output2 == expected_output2);</div>
-<div class="line"><span class="lineno">  150</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Minimum Number of Operations Required: &quot;</span> &lt;&lt; output2</div>
-<div class="line"><span class="lineno">  151</span>            &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  152</span>}</div>
-<div class="ttc" id="aminimum__edit__distance_8cpp_html_ade2fcfe0359f3c7691bfaa04b14943e2"><div class="ttname"><a href="#ade2fcfe0359f3c7691bfaa04b14943e2">dynamic_programming::minimum_edit_distance::editDistDP</a></div><div class="ttdeci">uint64_t editDistDP(std::string str1, std::string str2, uint64_t m, uint64_t n)</div><div class="ttdoc">Calculates and stores the result of all the sub-problems, so that we don't have to recur to compute t...</div><div class="ttdef"><b>Definition</b> <a href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00088">minimum_edit_distance.cpp:88</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00142">142</a> of file <a class="el" href="../../da/d52/minimum__edit__distance_8cpp_source.html">minimum_edit_distance.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>                   {</div>
+<div class="line"><span class="lineno">  143</span>    <span class="comment">// 1st test</span></div>
+<div class="line"><span class="lineno">  144</span>    std::string str1 = <span class="stringliteral">&quot;INTENTION&quot;</span>;  <span class="comment">// Sample input of 1st string</span></div>
+<div class="line"><span class="lineno">  145</span>    std::string str2 = <span class="stringliteral">&quot;EXECUTION&quot;</span>;  <span class="comment">// Sample input of 2nd string</span></div>
+<div class="line"><span class="lineno">  146</span>    uint64_t expected_output1 = 5;   <span class="comment">// Expected minimum cost</span></div>
+<div class="line"><span class="lineno">  147</span>    uint64_t output1 = <a class="code hl_function" href="#ade2fcfe0359f3c7691bfaa04b14943e2">dynamic_programming::minimum_edit_distance::editDistDP</a>(</div>
+<div class="line"><span class="lineno">  148</span>        str1, str2, str1.length(),</div>
+<div class="line"><span class="lineno">  149</span>        str2.length());  <span class="comment">// calling the editDistDP function and storing the</span></div>
+<div class="line"><span class="lineno">  150</span>                         <span class="comment">// result on output1</span></div>
+<div class="line"><span class="lineno">  151</span>    assert(output1 ==</div>
+<div class="line"><span class="lineno">  152</span>           expected_output1);  <span class="comment">// comparing the output with the expected output</span></div>
+<div class="line"><span class="lineno">  153</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Minimum Number of Operations Required: &quot;</span> &lt;&lt; output1</div>
+<div class="line"><span class="lineno">  154</span>              &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  155</span> </div>
+<div class="line"><span class="lineno">  156</span>    <span class="comment">// 2nd test</span></div>
+<div class="line"><span class="lineno">  157</span>    std::string str3 = <span class="stringliteral">&quot;SATURDAY&quot;</span>;</div>
+<div class="line"><span class="lineno">  158</span>    std::string str4 = <span class="stringliteral">&quot;SUNDAY&quot;</span>;</div>
+<div class="line"><span class="lineno">  159</span>    uint64_t expected_output2 = 3;</div>
+<div class="line"><span class="lineno">  160</span>    uint64_t output2 = <a class="code hl_function" href="#ade2fcfe0359f3c7691bfaa04b14943e2">dynamic_programming::minimum_edit_distance::editDistDP</a>(</div>
+<div class="line"><span class="lineno">  161</span>        str3, str4, str3.length(), str4.length());</div>
+<div class="line"><span class="lineno">  162</span>    assert(output2 == expected_output2);</div>
+<div class="line"><span class="lineno">  163</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Minimum Number of Operations Required: &quot;</span> &lt;&lt; output2</div>
+<div class="line"><span class="lineno">  164</span>              &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  165</span>}</div>
+<div class="ttc" id="aminimum__edit__distance_8cpp_html_ade2fcfe0359f3c7691bfaa04b14943e2"><div class="ttname"><a href="#ade2fcfe0359f3c7691bfaa04b14943e2">dynamic_programming::minimum_edit_distance::editDistDP</a></div><div class="ttdeci">uint64_t editDistDP(std::string str1, std::string str2, uint64_t m, uint64_t n)</div><div class="ttdoc">Calculates and stores the result of all the sub-problems, so that we don't have to recur to compute t...</div><div class="ttdef"><b>Definition</b> <a href="../../da/d52/minimum__edit__distance_8cpp_source.html#l00092">minimum_edit_distance.cpp:92</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

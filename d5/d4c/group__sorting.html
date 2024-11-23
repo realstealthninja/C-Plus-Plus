@@ -213,23 +213,23 @@ template&lt;typename T &gt; </div>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/db0/_2_users_2runner_2work_2_c-_plus-_plus_2_c-_plus-_plus_2sorting_2wiggle_sort_8cpp-example.html#a1">/Users/runner/work/C-Plus-Plus/C-Plus-Plus/sorting/wiggle_sort.cpp</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html#l00085">85</a> of file <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html">wiggle_sort.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   85</span>                                                     {</div>
-<div class="line"><span class="lineno">   86</span>    uint32_t size = arr.size();</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Sorted elements are as follows: &quot;</span>;</div>
-<div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
-<div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div>
-<div class="line"><span class="lineno">   93</span>        std::cout &lt;&lt; arr[i];</div>
-<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">if</span> (i != size - 1) {</div>
-<div class="line"><span class="lineno">   95</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
-<div class="line"><span class="lineno">   96</span>        }</div>
-<div class="line"><span class="lineno">   97</span>    }</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  100</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html#l00086">86</a> of file <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html">wiggle_sort.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>                                                     {</div>
+<div class="line"><span class="lineno">   87</span>    uint32_t size = arr.size();</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Sorted elements are as follows: &quot;</span>;</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div>
+<div class="line"><span class="lineno">   94</span>        std::cout &lt;&lt; arr[i];</div>
+<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">if</span> (i != size - 1) {</div>
+<div class="line"><span class="lineno">   96</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><span class="lineno">   97</span>        }</div>
+<div class="line"><span class="lineno">   98</span>    }</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  101</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -532,27 +532,27 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Test function </p><dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html#l00106">106</a> of file <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html">wiggle_sort.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>                   {</div>
-<div class="line"><span class="lineno">  107</span>    std::srand(std::time(<span class="keyword">nullptr</span>));  <span class="comment">// initialize random number generator</span></div>
-<div class="line"><span class="lineno">  108</span> </div>
-<div class="line"><span class="lineno">  109</span>    std::vector&lt;float&gt; data1(100);</div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;d : data1) {  <span class="comment">// generate random numbers between -5.0 and 4.99</span></div>
-<div class="line"><span class="lineno">  111</span>        d = float(std::rand() % 1000 - 500) / 100.f;</div>
-<div class="line"><span class="lineno">  112</span>    }</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>    std::vector&lt;float&gt; sorted = sorting::wiggle_sort::wiggleSort&lt;float&gt;(data1);</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>    <a class="code hl_function" href="#ga135e4c638e3bcf548bd122b5f49a3e72">displayElements</a>(sorted);</div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; data1.size(); j += 2) {</div>
-<div class="line"><span class="lineno">  119</span>        assert(data1[j] &lt;= data1[j + 1] &amp;&amp;</div>
-<div class="line"><span class="lineno">  120</span>               data1[j + 1] &gt;= data1[j + 2]);  <span class="comment">// check the validation condition</span></div>
-<div class="line"><span class="lineno">  121</span>    }</div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 1 passed\n&quot;</span>;</div>
-<div class="line"><span class="lineno">  124</span>}</div>
-<div class="ttc" id="agroup__sorting_html_ga135e4c638e3bcf548bd122b5f49a3e72"><div class="ttname"><a href="#ga135e4c638e3bcf548bd122b5f49a3e72">displayElements</a></div><div class="ttdeci">static void displayElements(const std::vector&lt; T &gt; &amp;arr)</div><div class="ttdoc">Utility function used for printing the elements. Prints elements of the array after they're sorted us...</div><div class="ttdef"><b>Definition</b> <a href="../../d1/dcc/wiggle__sort_8cpp_source.html#l00085">wiggle_sort.cpp:85</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html#l00107">107</a> of file <a class="el" href="../../d1/dcc/wiggle__sort_8cpp_source.html">wiggle_sort.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>                   {</div>
+<div class="line"><span class="lineno">  108</span>    std::srand(std::time(<span class="keyword">nullptr</span>));  <span class="comment">// initialize random number generator</span></div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>    std::vector&lt;float&gt; data1(100);</div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;d : data1) {  <span class="comment">// generate random numbers between -5.0 and 4.99</span></div>
+<div class="line"><span class="lineno">  112</span>        d = float(std::rand() % 1000 - 500) / 100.f;</div>
+<div class="line"><span class="lineno">  113</span>    }</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    std::vector&lt;float&gt; sorted = sorting::wiggle_sort::wiggleSort&lt;float&gt;(data1);</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>    <a class="code hl_function" href="#ga135e4c638e3bcf548bd122b5f49a3e72">displayElements</a>(sorted);</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; data1.size(); j += 2) {</div>
+<div class="line"><span class="lineno">  120</span>        assert(data1[j] &lt;= data1[j + 1] &amp;&amp;</div>
+<div class="line"><span class="lineno">  121</span>               data1[j + 1] &gt;= data1[j + 2]);  <span class="comment">// check the validation condition</span></div>
+<div class="line"><span class="lineno">  122</span>    }</div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 1 passed\n&quot;</span>;</div>
+<div class="line"><span class="lineno">  125</span>}</div>
+<div class="ttc" id="agroup__sorting_html_ga135e4c638e3bcf548bd122b5f49a3e72"><div class="ttname"><a href="#ga135e4c638e3bcf548bd122b5f49a3e72">displayElements</a></div><div class="ttdeci">static void displayElements(const std::vector&lt; T &gt; &amp;arr)</div><div class="ttdoc">Utility function used for printing the elements. Prints elements of the array after they're sorted us...</div><div class="ttdef"><b>Definition</b> <a href="../../d1/dcc/wiggle__sort_8cpp_source.html#l00086">wiggle_sort.cpp:86</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

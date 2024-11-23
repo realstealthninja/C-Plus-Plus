@@ -18,7 +18,7 @@ var searchData=
   ['nqueensol_15',['NQueenSol',['../da/dac/n__queens__all__solution__optimised_8cpp.html#a23c0547e4fd1708e6fb643b08327a60f',1,'backtracking::n_queens_optimized::NQueenSol()'],['../d7/d24/nqueen__print__all__solutions_8cpp.html#acc809c055f335011de0d9030034c7108',1,'backtracking::n_queens_all_solutions::NQueenSol()']]],
   ['num_5fdigits_16',['num_digits',['../db/d82/classlarge__number.html#ac09a05ec4aafb4d9e0b4440d6f0e2a93',1,'large_number']]],
   ['number_5fof_5fpositive_5fdivisors_17',['number_of_positive_divisors',['../d0/da2/number__of__positive__divisors_8cpp.html#ad89ccced8504b5116046cfa03066ffeb',1,'number_of_positive_divisors.cpp']]],
-  ['number_5fof_5fsubsets_18',['number_of_subsets',['../d0/dfe/backtracking_2subset__sum_8cpp.html#a7cb50d36a59427a33f64a266dac83d99',1,'backtracking::subset_sum']]],
+  ['number_5fof_5fsubsets_18',['number_of_subsets',['../d2/d5a/subset__sum_8cpp.html#a7cb50d36a59427a33f64a266dac83d99',1,'backtracking::subset_sum']]],
   ['number_5fof_5fvertices_19',['number_of_vertices',['../dc/d61/classgraph_1_1_graph.html#a8930d1470d132b19e430d1c71f94c904',1,'graph::Graph']]],
   ['numberofchildren_20',['numberOfChildren',['../d0/d5f/classoperations__on__datastructures_1_1trie__operations_1_1_tnode.html#afca808362c13273ca8c8ae7d58e8eee0',1,'operations_on_datastructures::trie_operations::Tnode']]],
   ['numberofciphersinfactorialn_21',['numberOfCiphersInFactorialN',['../da/d50/count__of__trailing__ciphers__in__factorial__n_8cpp.html#a0d5e1d651d0d30bd682f176d8f2b83d0',1,'bit_manipulation::count_of_trailing_ciphers_in_factorial_n']]]

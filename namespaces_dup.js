@@ -14,6 +14,7 @@ var namespaces_dup =
       [ "next_higher_number", "d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e", null ]
     ] ],
     [ "boruvkas_minimum_spanning_tree", "d8/d64/namespaceboruvkas__minimum__spanning__tree.html", null ],
+    [ "bubble_sort", "d0/dd5/namespacebubble__sort.html", null ],
     [ "caesar", "dd/d81/namespacecaesar.html", null ],
     [ "ciphers", "d6/d4e/namespaceciphers.html", "d6/d4e/namespaceciphers" ],
     [ "circular_linked_list", "d4/dcd/namespacecircular__linked__list.html", null ],
@@ -37,6 +38,7 @@ var namespaces_dup =
       [ "maxCircularSum", "dd/d24/namespacedynamic__programming.html#a5239174fa0d987f2c67edc1f2af82beb", null ],
       [ "trappedRainwater", "dd/d24/namespacedynamic__programming.html#a066e0e739e7c276eee6e61d5b4d37ce8", null ]
     ] ],
+    [ "exponential_dist", "d1/d35/namespaceexponential__dist.html", null ],
     [ "false_position", "df/dea/namespacefalse__position.html", null ],
     [ "fibonacci", "df/d76/namespacefibonacci.html", null ],
     [ "fibonacci_sum", "d3/dc9/namespacefibonacci__sum.html", null ],
@@ -84,6 +86,7 @@ var namespaces_dup =
     [ "mincoins_topdown", "d5/db8/namespacemincoins__topdown.html", null ],
     [ "Minimum", "d4/d12/namespace_minimum.html", null ],
     [ "modular_division", "d1/d64/namespacemodular__division.html", null ],
+    [ "modular_inverse_fermat", "d7/d50/namespacemodular__inverse__fermat.html", null ],
     [ "monte_carlo", "d0/da4/namespacemonte__carlo.html", null ],
     [ "morse", "d6/d8d/namespacemorse.html", null ],
     [ "n_bonacci", "de/d36/namespacen__bonacci.html", null ],
@@ -129,6 +132,7 @@ var namespaces_dup =
     [ "setKthBit", "d8/d88/namespaceset_kth_bit.html", null ],
     [ "SHA", "de/dd3/namespace_s_h_a.html", null ],
     [ "shortest_common_supersequence", "d3/deb/namespaceshortest__common__supersequence.html", null ],
+    [ "sieve_of_eratosthenes", "d2/db0/namespacesieve__of__eratosthenes.html", null ],
     [ "simpson_method", "d3/d6d/namespacesimpson__method.html", null ],
     [ "sorting", "d5/d91/namespacesorting.html", [
       [ "binary_search", "d5/d91/namespacesorting.html#a034d8b276518a902962e87d3158b64fd", null ],
@@ -188,6 +192,7 @@ var namespaces_dup =
       [ "test5", "d9/df4/namespacetests.html#af7b81d7a1534216af6a36a80135beb86", null ],
       [ "test6", "d9/df4/namespacetests.html#aacafde185abd8670abee51157f273dc2", null ]
     ] ],
+    [ "topological_sort", "d8/d76/namespacetopological__sort.html", null ],
     [ "travellingSalesman_bitmanipulation", "d7/d3f/namespacetravelling_salesman__bitmanipulation.html", null ],
     [ "tree_234", "d6/dab/namespacetree__234.html", null ],
     [ "trie_operations", "df/d8e/namespacetrie__operations.html", null ],

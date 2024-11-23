@@ -11,7 +11,7 @@ var searchData=
   ['binary_5fsearch_5ftree_8',['binary_search_tree',['../d9/dde/classbinary__search__tree.html#aa67321ed575ca313cd71d833d91234a6',1,'binary_search_tree']]],
   ['binarysearch_9',['BinarySearch',['../d5/dab/structdata__structures_1_1list__array_1_1list.html#a412bdb3910181f3c384d86aee7e217cf',1,'data_structures::list_array::list']]],
   ['binarytree_10',['BinaryTree',['../de/dcf/classoperations__on__datastructures_1_1reverse__binary__tree_1_1_binary_tree.html#abcb1cc8da7b6759dc92cbe0254697c56',1,'operations_on_datastructures::reverse_binary_tree::BinaryTree::BinaryTree()'],['../de/dcf/classoperations__on__datastructures_1_1reverse__binary__tree_1_1_binary_tree.html#abb44646a26a446efae7704c80efc011b',1,'operations_on_datastructures::reverse_binary_tree::BinaryTree::BinaryTree(int64_t data)']]],
-  ['binexpo_11',['binExpo',['../de/dcf/binary__exponent_8cpp.html#aeb48dce0725e63d19147944f41843c73',1,'binExpo(int a, int b):&#160;binary_exponent.cpp'],['../d8/d53/modular__inverse__fermat__little__theorem_8cpp.html#a4c6eefd1254eab3e8d34bf02c205e0f4',1,'binExpo(int64_t a, int64_t b, int64_t m):&#160;modular_inverse_fermat_little_theorem.cpp']]],
+  ['binexpo_11',['binExpo',['../de/dcf/binary__exponent_8cpp.html#aeb48dce0725e63d19147944f41843c73',1,'binExpo():&#160;binary_exponent.cpp'],['../d8/d53/modular__inverse__fermat__little__theorem_8cpp.html#a1c62a87e79f29b98d8fe5b12eacdd928',1,'math::modular_inverse_fermat::binExpo()']]],
   ['binexpo_5falt_12',['binExpo_alt',['../de/dcf/binary__exponent_8cpp.html#a31dbf5f7ceb9c9eec831ef9f7782291f',1,'binary_exponent.cpp']]],
   ['binomial_5fexpected_13',['binomial_expected',['../d6/db0/binomial__dist_8cpp.html#a4416a7bc7fa87201883c54cdc4c82813',1,'binomial_dist.cpp']]],
   ['binomial_5frange_5fsuccesses_14',['binomial_range_successes',['../d6/db0/binomial__dist_8cpp.html#a76ed6ce71415fb400b65f0656cef3d25',1,'binomial_dist.cpp']]],
@@ -27,6 +27,6 @@ var searchData=
   ['breadth_5ffirst_5fsearch_24',['breadth_first_search',['../dc/d61/classgraph_1_1_graph.html#a3755ec9e6a842238c7f4aac10b661981',1,'graph::Graph']]],
   ['brute_5fforce_25',['brute_force',['../d9/d03/namespacestring__search.html#aeb2cd81064717aedd62bfb096b1a73d8',1,'string_search']]],
   ['bst_5fnode_26',['bst_node',['../dd/db6/structbinary__search__tree_1_1bst__node.html#a51dd9bd6dd32bce3b74dd64557306778',1,'binary_search_tree::bst_node']]],
-  ['build_27',['build',['../d1/d9e/prefix__sum__array_8cpp.html#ab36151479ad37d53ef9fcb60a274b1d9',1,'range_queries::prefix_sum_array']]],
-  ['buildtable_28',['buildTable',['../d4/d96/range__queries_2sparse__table_8cpp.html#a803a2451e87021d14ae06f148383e6bc',1,'range_queries::sparse_table']]]
+  ['bubble_5fsort_27',['bubble_sort',['../d8/d13/bubble__sort_8cpp.html#af3b12930a83915712461d53fe9659686',1,'sorting::bubble_sort']]],
+  ['build_28',['build',['../d1/d9e/prefix__sum__array_8cpp.html#ab36151479ad37d53ef9fcb60a274b1d9',1,'range_queries::prefix_sum_array']]]
 ];

@@ -129,12 +129,13 @@ $(function(){initNavTree('de/d47/string__fibonacci_8cpp.html','../../'); initRes
 
 <p>This Programme returns the Nth fibonacci as a string.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for string_fibonacci.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/da1/string__fibonacci_8cpp__incl.svg" width="182" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/da1/string__fibonacci_8cpp__incl.svg" width="250" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="../../de/d47/string__fibonacci_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -182,47 +183,47 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sum as a std::string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html">string_fibonacci.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>                                        {</div>
-<div class="line"><span class="lineno">   25</span>    std::string temp = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>    <span class="comment">// carry flag</span></div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordtype">int</span> carry = 0;</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    <span class="comment">// fills up with zeros</span></div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">while</span> (a.length() &lt; b.length()) {</div>
-<div class="line"><span class="lineno">   32</span>        a = <span class="stringliteral">&quot;0&quot;</span> + a;</div>
-<div class="line"><span class="lineno">   33</span>    }</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <span class="comment">// fills up with zeros</span></div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">while</span> (b.length() &lt; a.length()) {</div>
-<div class="line"><span class="lineno">   37</span>        b = <span class="stringliteral">&quot;0&quot;</span> + b;</div>
-<div class="line"><span class="lineno">   38</span>    }</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>    <span class="comment">// adds the numbers a and b</span></div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = a.length() - 1; i &gt;= 0; i--) {</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordtype">char</span> val = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(((a[i] - 48) + (b[i] - 48)) + 48 + carry);</div>
-<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">if</span> (val &gt; 57) {</div>
-<div class="line"><span class="lineno">   44</span>            carry = 1;</div>
-<div class="line"><span class="lineno">   45</span>            val -= 10;</div>
-<div class="line"><span class="lineno">   46</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   47</span>            carry = 0;</div>
-<div class="line"><span class="lineno">   48</span>        }</div>
-<div class="line"><span class="lineno">   49</span>        temp = val + temp;</div>
-<div class="line"><span class="lineno">   50</span>    }</div>
-<div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>    <span class="comment">// processes the carry flag</span></div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (carry == 1) {</div>
-<div class="line"><span class="lineno">   54</span>        temp = <span class="stringliteral">&quot;1&quot;</span> + temp;</div>
-<div class="line"><span class="lineno">   55</span>    }</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>    <span class="comment">// removes leading zeros.</span></div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">while</span> (temp[0] == <span class="charliteral">&#39;0&#39;</span> &amp;&amp; temp.length() &gt; 1) {</div>
-<div class="line"><span class="lineno">   59</span>        temp = temp.substr(1);</div>
-<div class="line"><span class="lineno">   60</span>    }</div>
-<div class="line"><span class="lineno">   61</span> </div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">return</span> temp;</div>
-<div class="line"><span class="lineno">   63</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html">string_fibonacci.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>                                        {</div>
+<div class="line"><span class="lineno">   26</span>    std::string temp = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <span class="comment">// carry flag</span></div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordtype">int</span> carry = 0;</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    <span class="comment">// fills up with zeros</span></div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">while</span> (a.length() &lt; b.length()) {</div>
+<div class="line"><span class="lineno">   33</span>        a = <span class="stringliteral">&quot;0&quot;</span> + a;</div>
+<div class="line"><span class="lineno">   34</span>    }</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>    <span class="comment">// fills up with zeros</span></div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">while</span> (b.length() &lt; a.length()) {</div>
+<div class="line"><span class="lineno">   38</span>        b = <span class="stringliteral">&quot;0&quot;</span> + b;</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="comment">// adds the numbers a and b</span></div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = a.length() - 1; i &gt;= 0; i--) {</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordtype">char</span> val = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(((a[i] - 48) + (b[i] - 48)) + 48 + carry);</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">if</span> (val &gt; 57) {</div>
+<div class="line"><span class="lineno">   45</span>            carry = 1;</div>
+<div class="line"><span class="lineno">   46</span>            val -= 10;</div>
+<div class="line"><span class="lineno">   47</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   48</span>            carry = 0;</div>
+<div class="line"><span class="lineno">   49</span>        }</div>
+<div class="line"><span class="lineno">   50</span>        temp = val + temp;</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>    <span class="comment">// processes the carry flag</span></div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span> (carry == 1) {</div>
+<div class="line"><span class="lineno">   55</span>        temp = <span class="stringliteral">&quot;1&quot;</span> + temp;</div>
+<div class="line"><span class="lineno">   56</span>    }</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>    <span class="comment">// removes leading zeros.</span></div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">while</span> (temp[0] == <span class="charliteral">&#39;0&#39;</span> &amp;&amp; temp.length() &gt; 1) {</div>
+<div class="line"><span class="lineno">   60</span>        temp = temp.substr(1);</div>
+<div class="line"><span class="lineno">   61</span>    }</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">return</span> temp;</div>
+<div class="line"><span class="lineno">   64</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -247,19 +248,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html">string_fibonacci.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>                              {</div>
-<div class="line"><span class="lineno">   69</span>    std::string tmp = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   70</span>    std::string fibMinus1 = <span class="stringliteral">&quot;1&quot;</span>;</div>
-<div class="line"><span class="lineno">   71</span>    std::string fibMinus2 = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; n; i++) {</div>
-<div class="line"><span class="lineno">   73</span>        tmp = <a class="code hl_function" href="#a28052eee05d43c2ebc5147c52bd50c35">add</a>(fibMinus1, fibMinus2);</div>
-<div class="line"><span class="lineno">   74</span>        fibMinus2 = fibMinus1;</div>
-<div class="line"><span class="lineno">   75</span>        fibMinus1 = tmp;</div>
-<div class="line"><span class="lineno">   76</span>    }</div>
-<div class="line"><span class="lineno">   77</span>    std::cout &lt;&lt; fibMinus2;</div>
-<div class="line"><span class="lineno">   78</span>}</div>
-<div class="ttc" id="astring__fibonacci_8cpp_html_a28052eee05d43c2ebc5147c52bd50c35"><div class="ttname"><a href="#a28052eee05d43c2ebc5147c52bd50c35">add</a></div><div class="ttdeci">std::string add(std::string a, std::string b)</div><div class="ttdef"><b>Definition</b> <a href="../../de/d47/string__fibonacci_8cpp_source.html#l00024">string_fibonacci.cpp:24</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html#l00069">69</a> of file <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html">string_fibonacci.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>                              {</div>
+<div class="line"><span class="lineno">   70</span>    std::string tmp = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   71</span>    std::string fibMinus1 = <span class="stringliteral">&quot;1&quot;</span>;</div>
+<div class="line"><span class="lineno">   72</span>    std::string fibMinus2 = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; n; i++) {</div>
+<div class="line"><span class="lineno">   74</span>        tmp = <a class="code hl_function" href="#a28052eee05d43c2ebc5147c52bd50c35">add</a>(fibMinus1, fibMinus2);</div>
+<div class="line"><span class="lineno">   75</span>        fibMinus2 = fibMinus1;</div>
+<div class="line"><span class="lineno">   76</span>        fibMinus1 = tmp;</div>
+<div class="line"><span class="lineno">   77</span>    }</div>
+<div class="line"><span class="lineno">   78</span>    std::cout &lt;&lt; fibMinus2;</div>
+<div class="line"><span class="lineno">   79</span>}</div>
+<div class="ttc" id="astring__fibonacci_8cpp_html_a28052eee05d43c2ebc5147c52bd50c35"><div class="ttname"><a href="#a28052eee05d43c2ebc5147c52bd50c35">add</a></div><div class="ttdeci">std::string add(std::string a, std::string b)</div><div class="ttdef"><b>Definition</b> <a href="../../de/d47/string__fibonacci_8cpp_source.html#l00025">string_fibonacci.cpp:25</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -279,17 +280,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>main function </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html">string_fibonacci.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   81</span>           {</div>
-<div class="line"><span class="lineno">   82</span>    <span class="keywordtype">int</span> n;</div>
-<div class="line"><span class="lineno">   83</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Enter whatever number N you want to find the fibonacci of\n&quot;</span>;</div>
-<div class="line"><span class="lineno">   84</span>    std::cin &gt;&gt; n;</div>
-<div class="line"><span class="lineno">   85</span>    std::cout &lt;&lt; n &lt;&lt; <span class="stringliteral">&quot; th Fibonacci is \n&quot;</span>;</div>
-<div class="line"><span class="lineno">   86</span>    <a class="code hl_function" href="#ad8055ee368a5d5b24de01bdde6bf8fca">fib_Accurate</a>(n);</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   89</span>}</div>
-<div class="ttc" id="astring__fibonacci_8cpp_html_ad8055ee368a5d5b24de01bdde6bf8fca"><div class="ttname"><a href="#ad8055ee368a5d5b24de01bdde6bf8fca">fib_Accurate</a></div><div class="ttdeci">void fib_Accurate(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="../../de/d47/string__fibonacci_8cpp_source.html#l00068">string_fibonacci.cpp:68</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../de/d47/string__fibonacci_8cpp_source.html">string_fibonacci.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>           {</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordtype">int</span> n;</div>
+<div class="line"><span class="lineno">   84</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Enter whatever number N you want to find the fibonacci of\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   85</span>    std::cin &gt;&gt; n;</div>
+<div class="line"><span class="lineno">   86</span>    std::cout &lt;&lt; n &lt;&lt; <span class="stringliteral">&quot; th Fibonacci is \n&quot;</span>;</div>
+<div class="line"><span class="lineno">   87</span>    <a class="code hl_function" href="#ad8055ee368a5d5b24de01bdde6bf8fca">fib_Accurate</a>(n);</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   90</span>}</div>
+<div class="ttc" id="astring__fibonacci_8cpp_html_ad8055ee368a5d5b24de01bdde6bf8fca"><div class="ttname"><a href="#ad8055ee368a5d5b24de01bdde6bf8fca">fib_Accurate</a></div><div class="ttdeci">void fib_Accurate(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="../../de/d47/string__fibonacci_8cpp_source.html#l00069">string_fibonacci.cpp:69</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

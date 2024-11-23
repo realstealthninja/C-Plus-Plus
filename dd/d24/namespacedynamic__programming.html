@@ -152,24 +152,27 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Dynamic Programming algorithms. </p>
 <p>Dynamic programming algorithms.</p>
+<p>Namespace for dynamic programming algorithms.</p>
+<p>For std::vector.</p>
 <p>for std::vector</p>
 <p>Dynamic Programming algorithm.</p>
 <p>for IO operations</p>
 <p>Dynamic Programming Algorithms.</p>
-<p>for <code>assert</code> for IO operations for <code>std::string</code> library for <code>std::vector</code> STL library</p>
+<p>for <code>assert</code> for <code>std::uint32_t</code> for IO operations for <code>std::string</code> library for <code>std::vector</code> STL library</p>
 <p>for assert for std::pow</p>
 <p>Dynamic Programming algorithms</p>
-<p>for assert for std::max for io operations</p>
+<p>for assert for std::max for std::uint32_t for io operations</p>
 <p>Dynamic Programming algorithms</p>
-<p>for assert for std::max for IO operations</p>
+<p>for assert for std::max for std::uint64_t for IO operations</p>
 <p>Dynamic Programming algorithms</p>
 <p>for assert for std::string for std::vector</p>
 <p>for assert for IO operations</p>
 <p>Dynamic Programming algorithms</p>
-<p>for assert for IO operations for std::vector</p>
+<p>for assert for std::uint64_t for IO operations</p>
+<p>Dynamic Programming algorithms</p>
 <p>for std::assert for IO operations for unordered map</p>
 <p>Dynamic Programming algorithms</p>
-<p>For std::min and std::max For assert For std::size_t For integral typedefs For std::vector </p>
+<p>For std::min and std::max For assert For std::size_t </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="af046365a8d77a1267acc082f86135a26" name="af046365a8d77a1267acc082f86135a26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af046365a8d77a1267acc082f86135a26">&#9670;&#160;</a></span>is_armstrong()</h2>
@@ -199,7 +202,7 @@ template&lt;typename T &gt; </div>
 <dd>
 true if the given number IS armstrong </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db7/dynamic__programming_2armstrong__number_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d1/db7/dynamic__programming_2armstrong__number_8cpp_source.html">armstrong_number.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da7/armstrong__number__templated_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d1/da7/armstrong__number__templated_8cpp_source.html">armstrong_number_templated.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   39</span>                                   {</div>
 <div class="line"><span class="lineno">   40</span>    <span class="keywordtype">int</span> count = 0, temp = number, result = 0, rem = 0;</div>
 <div class="line"><span class="lineno">   41</span> </div>
@@ -258,25 +261,25 @@ true if the given number IS armstrong </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the length of the longest increasing subsequence in the <code>a</code> array of size <code>n</code> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d57/longest__increasing__subsequence_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d7/d57/longest__increasing__subsequence_8cpp_source.html">longest_increasing_subsequence.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   39</span>                                                              {</div>
-<div class="line"><span class="lineno">   40</span>    std::vector&lt;int&gt; lis(n);</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) {</div>
-<div class="line"><span class="lineno">   42</span>        lis[i] = 1;</div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) {</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; i; ++j) {</div>
-<div class="line"><span class="lineno">   46</span>            <span class="keywordflow">if</span> (a[i] &gt; a[j] &amp;&amp; lis[i] &lt; lis[j] + 1) {</div>
-<div class="line"><span class="lineno">   47</span>                lis[i] = lis[j] + 1;</div>
-<div class="line"><span class="lineno">   48</span>            }</div>
-<div class="line"><span class="lineno">   49</span>        }</div>
-<div class="line"><span class="lineno">   50</span>    }</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordtype">int</span> res = 0;</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) {</div>
-<div class="line"><span class="lineno">   53</span>        res = std::max(res, lis[i]);</div>
-<div class="line"><span class="lineno">   54</span>    }</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> res;</div>
-<div class="line"><span class="lineno">   56</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d7/d57/longest__increasing__subsequence_8cpp_source.html#l00040">40</a> of file <a class="el" href="../../d7/d57/longest__increasing__subsequence_8cpp_source.html">longest_increasing_subsequence.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>                                                              {</div>
+<div class="line"><span class="lineno">   41</span>    std::vector&lt;int&gt; lis(n);</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) {</div>
+<div class="line"><span class="lineno">   43</span>        lis[i] = 1;</div>
+<div class="line"><span class="lineno">   44</span>    }</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) {</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; i; ++j) {</div>
+<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">if</span> (a[i] &gt; a[j] &amp;&amp; lis[i] &lt; lis[j] + 1) {</div>
+<div class="line"><span class="lineno">   48</span>                lis[i] = lis[j] + 1;</div>
+<div class="line"><span class="lineno">   49</span>            }</div>
+<div class="line"><span class="lineno">   50</span>        }</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordtype">int</span> res = 0;</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) {</div>
+<div class="line"><span class="lineno">   54</span>        res = std::max(res, lis[i]);</div>
+<div class="line"><span class="lineno">   55</span>    }</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><span class="lineno">   57</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

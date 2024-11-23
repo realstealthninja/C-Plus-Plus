@@ -132,13 +132,14 @@ $(function(){initNavTree('de/d88/travelling__salesman__problem_8cpp.html','../..
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for travelling_salesman_problem.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d5c/travelling__salesman__problem_8cpp__incl.svg" width="426" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d5c/travelling__salesman__problem_8cpp__incl.svg" width="510" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="../../de/d88/travelling__salesman__problem_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -186,17 +187,17 @@ Functions</h2></td></tr>
 <p>Main function. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on exit </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00104">104</a> of file <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html">travelling_salesman_problem.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  104</span>           {</div>
-<div class="line"><span class="lineno">  105</span>    <a class="code hl_function" href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>();  <span class="comment">// run self-test implementations</span></div>
-<div class="line"><span class="lineno">  106</span>    std::vector&lt;std::vector&lt;uint32_t&gt;&gt; cities = {</div>
-<div class="line"><span class="lineno">  107</span>        {0, 5, 10, 15}, {5, 0, 20, 30}, {10, 20, 0, 35}, {15, 30, 35, 0}};</div>
-<div class="line"><span class="lineno">  108</span>    uint32_t V = cities.size();</div>
-<div class="line"><span class="lineno">  109</span>    std::cout &lt;&lt; <a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  111</span>}</div>
-<div class="ttc" id="anamespacegraph_html_ab7706341d006e20d1ae58274187a3346"><div class="ttname"><a href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a></div><div class="ttdeci">int TravellingSalesmanProblem(std::vector&lt; std::vector&lt; uint32_t &gt; &gt; *cities, int32_t src, uint32_t V)</div><div class="ttdoc">Function calculates the minimum path distance that will cover all the cities starting from the source...</div><div class="ttdef"><b>Definition</b> <a href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00040">travelling_salesman_problem.cpp:40</a></div></div>
-<div class="ttc" id="atravelling__salesman__problem_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00077">travelling_salesman_problem.cpp:77</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00105">105</a> of file <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html">travelling_salesman_problem.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  105</span>           {</div>
+<div class="line"><span class="lineno">  106</span>    <a class="code hl_function" href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a>();  <span class="comment">// run self-test implementations</span></div>
+<div class="line"><span class="lineno">  107</span>    std::vector&lt;std::vector&lt;uint32_t&gt;&gt; cities = {</div>
+<div class="line"><span class="lineno">  108</span>        {0, 5, 10, 15}, {5, 0, 20, 30}, {10, 20, 0, 35}, {15, 30, 35, 0}};</div>
+<div class="line"><span class="lineno">  109</span>    uint32_t V = cities.size();</div>
+<div class="line"><span class="lineno">  110</span>    std::cout &lt;&lt; <a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  112</span>}</div>
+<div class="ttc" id="anamespacegraph_html_ab7706341d006e20d1ae58274187a3346"><div class="ttname"><a href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a></div><div class="ttdeci">int TravellingSalesmanProblem(std::vector&lt; std::vector&lt; uint32_t &gt; &gt; *cities, int32_t src, uint32_t V)</div><div class="ttdoc">Function calculates the minimum path distance that will cover all the cities starting from the source...</div><div class="ttdef"><b>Definition</b> <a href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00041">travelling_salesman_problem.cpp:41</a></div></div>
+<div class="ttc" id="atravelling__salesman__problem_8cpp_html_a483bb8ccf42aaf7375a83e91490eda1e"><div class="ttname"><a href="#a483bb8ccf42aaf7375a83e91490eda1e">tests</a></div><div class="ttdeci">static void tests()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00078">travelling_salesman_problem.cpp:78</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -226,29 +227,29 @@ Functions</h2></td></tr>
 <p>Self-test implementations. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00077">77</a> of file <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html">travelling_salesman_problem.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>                    {</div>
-<div class="line"><span class="lineno">   78</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiatinig Predefined Tests...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   79</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiating Test 1...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   80</span>    std::vector&lt;std::vector&lt;uint32_t&gt;&gt; cities = {</div>
-<div class="line"><span class="lineno">   81</span>        {0, 20, 42, 35}, {20, 0, 30, 34}, {42, 30, 0, 12}, {35, 34, 12, 0}};</div>
-<div class="line"><span class="lineno">   82</span>    uint32_t V = cities.size();</div>
-<div class="line"><span class="lineno">   83</span>    assert(<a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) == 97);</div>
-<div class="line"><span class="lineno">   84</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;1st test passed...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiating Test 2...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   87</span>    cities = {{0, 5, 10, 15}, {5, 0, 20, 30}, {10, 20, 0, 35}, {15, 30, 35, 0}};</div>
-<div class="line"><span class="lineno">   88</span>    V = cities.size();</div>
-<div class="line"><span class="lineno">   89</span>    assert(<a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) == 75);</div>
-<div class="line"><span class="lineno">   90</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;2nd test passed...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   92</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiating Test 3...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   93</span>    cities = {</div>
-<div class="line"><span class="lineno">   94</span>        {0, 10, 15, 20}, {10, 0, 35, 25}, {15, 35, 0, 30}, {20, 25, 30, 0}};</div>
-<div class="line"><span class="lineno">   95</span>    V = cities.size();</div>
-<div class="line"><span class="lineno">   96</span>    assert(<a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) == 80);</div>
-<div class="line"><span class="lineno">   97</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;3rd test passed...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   98</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00078">78</a> of file <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html">travelling_salesman_problem.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                    {</div>
+<div class="line"><span class="lineno">   79</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiatinig Predefined Tests...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   80</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiating Test 1...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   81</span>    std::vector&lt;std::vector&lt;uint32_t&gt;&gt; cities = {</div>
+<div class="line"><span class="lineno">   82</span>        {0, 20, 42, 35}, {20, 0, 30, 34}, {42, 30, 0, 12}, {35, 34, 12, 0}};</div>
+<div class="line"><span class="lineno">   83</span>    uint32_t V = cities.size();</div>
+<div class="line"><span class="lineno">   84</span>    assert(<a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) == 97);</div>
+<div class="line"><span class="lineno">   85</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;1st test passed...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiating Test 2...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   88</span>    cities = {{0, 5, 10, 15}, {5, 0, 20, 30}, {10, 20, 0, 35}, {15, 30, 35, 0}};</div>
+<div class="line"><span class="lineno">   89</span>    V = cities.size();</div>
+<div class="line"><span class="lineno">   90</span>    assert(<a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) == 75);</div>
+<div class="line"><span class="lineno">   91</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;2nd test passed...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Initiating Test 3...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   94</span>    cities = {</div>
+<div class="line"><span class="lineno">   95</span>        {0, 10, 15, 20}, {10, 0, 35, 25}, {15, 35, 0, 30}, {20, 25, 30, 0}};</div>
+<div class="line"><span class="lineno">   96</span>    V = cities.size();</div>
+<div class="line"><span class="lineno">   97</span>    assert(<a class="code hl_function" href="../../df/dce/namespacegraph.html#ab7706341d006e20d1ae58274187a3346">graph::TravellingSalesmanProblem</a>(&amp;cities, 0, V) == 80);</div>
+<div class="line"><span class="lineno">   98</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;3rd test passed...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   99</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

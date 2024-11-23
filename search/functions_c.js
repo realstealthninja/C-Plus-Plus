@@ -25,10 +25,11 @@ var searchData=
   ['load_5fmodel_22',['load_model',['../d4/df4/classmachine__learning_1_1neural__network_1_1_neural_network.html#a58ed20abf6ce3744535bd8b5bb9e741b',1,'machine_learning::neural_network::NeuralNetwork']]],
   ['log_23',['log',['../d5/d58/class_test_cases.html#aa3aa3d5bf666f327ee8e2d11d397b06e',1,'TestCases::log(T msg)'],['../d5/d58/class_test_cases.html#aa3aa3d5bf666f327ee8e2d11d397b06e',1,'TestCases::log(T msg)'],['../d5/d58/class_test_cases.html#aa3aa3d5bf666f327ee8e2d11d397b06e',1,'TestCases::log(T msg)'],['../d3/db3/lru__cache_8cpp.html#a24d21a345ed06f7fba6919718cf3e058',1,'lru_tests::log()']]],
   ['longest_5fcommon_5fstring_5flength_24',['longest_common_string_length',['../da/d0d/longest__common__string_8cpp.html#aa38b6b17bc5d46ed88acdd8414e18fa5',1,'longest_common_string.cpp']]],
-  ['lower_25',['lower',['../db/d9a/classuint128__t.html#aa69e1064c0b0b1df1c61acd2ea04fabd',1,'uint128_t::lower()'],['../d1/d83/classuint256__t.html#aa4cf08fa6a33f17594b5a842866f39a1',1,'uint256_t::lower()'],['../dc/db5/text__search_8cpp.html#a3f8975d227cd0e58f298b380c5dac0d9',1,'lower():&#160;text_search.cpp']]],
-  ['lowest_5fcommon_5fancestor_26',['lowest_common_ancestor',['../d9/d23/classgraph_1_1_lowest_common_ancestor.html#a60151e19512b48cc0b14ea121df00488',1,'graph::LowestCommonAncestor']]],
-  ['lowestcommonancestor_27',['LowestCommonAncestor',['../d9/d23/classgraph_1_1_lowest_common_ancestor.html#a80825a4fd4c41860b689d253dd2c8e93',1,'graph::LowestCommonAncestor']]],
-  ['lps_28',['lps',['../dd/d24/namespacedynamic__programming.html#afe9f45b6e30ee187509da2d1d0093412',1,'dynamic_programming']]],
-  ['lrucache_29',['LRUCache',['../d6/dae/classothers_1_1lru__cache_1_1_l_r_u_cache.html#a41c9b6f1693b8a316cc4a2d8c9149ba4',1,'others::lru_cache::LRUCache']]],
-  ['lu_5fdecomposition_30',['lu_decomposition',['../d1/dbe/lu__decomposition_8h.html#a75b8a228c6419ecda6077255d6d60509',1,'lu_decomposition.h']]]
+  ['longest_5fincreasing_5fsubsequence_5fusing_5fbinary_5fsearch_25',['longest_increasing_subsequence_using_binary_search',['../d9/d5f/longest__increasing__subsequence__using__binary__search_8cpp.html#a313539d9a97fc6e121ce496873ba892e',1,'longest_increasing_subsequence_using_binary_search.cpp']]],
+  ['lower_26',['lower',['../db/d9a/classuint128__t.html#aa69e1064c0b0b1df1c61acd2ea04fabd',1,'uint128_t::lower()'],['../d1/d83/classuint256__t.html#aa4cf08fa6a33f17594b5a842866f39a1',1,'uint256_t::lower()'],['../dc/db5/text__search_8cpp.html#a3f8975d227cd0e58f298b380c5dac0d9',1,'lower():&#160;text_search.cpp']]],
+  ['lowest_5fcommon_5fancestor_27',['lowest_common_ancestor',['../d9/d23/classgraph_1_1_lowest_common_ancestor.html#a60151e19512b48cc0b14ea121df00488',1,'graph::LowestCommonAncestor']]],
+  ['lowestcommonancestor_28',['LowestCommonAncestor',['../d9/d23/classgraph_1_1_lowest_common_ancestor.html#a80825a4fd4c41860b689d253dd2c8e93',1,'graph::LowestCommonAncestor']]],
+  ['lps_29',['lps',['../dd/d24/namespacedynamic__programming.html#afe9f45b6e30ee187509da2d1d0093412',1,'dynamic_programming']]],
+  ['lrucache_30',['LRUCache',['../d6/dae/classothers_1_1lru__cache_1_1_l_r_u_cache.html#a41c9b6f1693b8a316cc4a2d8c9149ba4',1,'others::lru_cache::LRUCache::LRUCache()'],['../d8/d2e/classothers_1_1_cache_1_1_l_r_u_cache.html#a8980cbbc9cf0a98a9592b40c4d6ec28f',1,'others::Cache::LRUCache::LRUCache()']]],
+  ['lu_5fdecomposition_31',['lu_decomposition',['../d1/dbe/lu__decomposition_8h.html#a75b8a228c6419ecda6077255d6d60509',1,'lu_decomposition.h']]]
 ];

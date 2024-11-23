@@ -181,6 +181,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../dc/d61/classgraph_1_1_graph.html">Graph</a> Algorithms. </p>
+<p>for assert</p>
 <p>Check whether a given graph is bipartite or not.</p>
 <p>for std::vector</p>
 <p><a class="el" href="../../dc/d61/classgraph_1_1_graph.html">Graph</a> algorithms.</p>
@@ -189,7 +190,8 @@ Functions</h2></td></tr>
 <p>A bipartite graph is the one whose nodes can be divided into two disjoint sets in such a way that the nodes in a set are not connected to each other at all, i.e. no intra-set connections. The only connections that exist are that of inter-set, i.e. the nodes from one set are connected to a subset of nodes in the other set. In this implementation, using a graph in the form of adjacency list, check whether the given graph is a bipartite or not.</p>
 <p>References used: <a href="https://www.geeksforgeeks.org/bipartite-graph/" target="_blank">GeeksForGeeks</a> </p><dl class="section author"><dt>Author</dt><dd><a href="https://github.com/tushar2407" target="_blank">tushar2407</a> for assert for IO operations for queue data structure for vector data structure</dd></dl>
 <p>Graphical algorithms</p>
-<p>for std::min for assert for IO operations for limits of integral types for std::vector </p>
+<p>for std::min for IO operations for limits of integral types for std::vector</p>
+<p><a class="el" href="../../dc/d61/classgraph_1_1_graph.html">Graph</a> Algorithms </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a9125ceb66bfbec3093bba64c2c1e99e2" name="a9125ceb66bfbec3093bba64c2c1e99e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9125ceb66bfbec3093bba64c2c1e99e2">&#9670;&#160;</a></span>addEdge() <span class="overload">[1/3]</span></h2>
@@ -320,7 +322,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d1e/graph_2dijkstra_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d7/d1e/graph_2dijkstra_8cpp_source.html">dijkstra.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d68/dijkstra_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d8/d68/dijkstra_8cpp_source.html">dijkstra.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   49</span>                    {</div>
 <div class="line"><span class="lineno">   50</span>    (*adj)[u - 1].push_back(std::make_pair(v - 1, w));</div>
 <div class="line"><span class="lineno">   51</span>    <span class="comment">// (*adj)[v - 1].push_back(std::make_pair(u - 1, w));</span></div>
@@ -372,33 +374,33 @@ Functions</h2></td></tr>
 <p>if both the current node and its neighbour has the same state then it is not a bipartite graph</p>
 <p>return true when all the connected nodes of the current nodes are travelled and satisify all the above conditions</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html">is_graph_bipartite2.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   37</span>                                                                {</div>
-<div class="line"><span class="lineno">   38</span>    std::queue&lt;int64_t&gt; q;  </div>
-<div class="line"><span class="lineno">   40</span>    q.push(index);          </div>
-<div class="line"><span class="lineno">   41</span>    (*visited)[index] = 1;  </div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">while</span> (q.size()) {</div>
-<div class="line"><span class="lineno">   43</span>        int64_t u = q.front();</div>
-<div class="line"><span class="lineno">   44</span>        q.pop();</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>[u].size(); i++) {</div>
-<div class="line"><span class="lineno">   46</span>            int64_t v =</div>
-<div class="line"><span class="lineno">   47</span>                <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>[u][i];     </div>
-<div class="line"><span class="lineno">   48</span>            <span class="keywordflow">if</span> (!(*visited)[v])  </div>
-<div class="line"><span class="lineno">   50</span>            {</div>
-<div class="line"><span class="lineno">   51</span>                (*visited)[v] =</div>
-<div class="line"><span class="lineno">   52</span>                    ((*visited)[u] == 1)</div>
-<div class="line"><span class="lineno">   53</span>                        ? -1</div>
-<div class="line"><span class="lineno">   54</span>                        : 1;  </div>
-<div class="line"><span class="lineno">   56</span>                q.push(v);    </div>
-<div class="line"><span class="lineno">   57</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*visited)[v] ==</div>
-<div class="line"><span class="lineno">   58</span>                       (*visited)[u])  </div>
-<div class="line"><span class="lineno">   61</span>            {</div>
-<div class="line"><span class="lineno">   62</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   63</span>            }</div>
-<div class="line"><span class="lineno">   64</span>        }</div>
-<div class="line"><span class="lineno">   65</span>    }</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;  </div>
-<div class="line"><span class="lineno">   68</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00037">37</a> of file <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html">is_graph_bipartite2.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                                                                {</div>
+<div class="line"><span class="lineno">   39</span>    std::queue&lt;int64_t&gt; q;  </div>
+<div class="line"><span class="lineno">   41</span>    q.push(index);          </div>
+<div class="line"><span class="lineno">   42</span>    (*visited)[index] = 1;  </div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">while</span> (q.size()) {</div>
+<div class="line"><span class="lineno">   44</span>        int64_t u = q.front();</div>
+<div class="line"><span class="lineno">   45</span>        q.pop();</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>[u].size(); i++) {</div>
+<div class="line"><span class="lineno">   47</span>            int64_t v =</div>
+<div class="line"><span class="lineno">   48</span>                <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>[u][i];     </div>
+<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">if</span> (!(*visited)[v])  </div>
+<div class="line"><span class="lineno">   51</span>            {</div>
+<div class="line"><span class="lineno">   52</span>                (*visited)[v] =</div>
+<div class="line"><span class="lineno">   53</span>                    ((*visited)[u] == 1)</div>
+<div class="line"><span class="lineno">   54</span>                        ? -1</div>
+<div class="line"><span class="lineno">   55</span>                        : 1;  </div>
+<div class="line"><span class="lineno">   57</span>                q.push(v);    </div>
+<div class="line"><span class="lineno">   58</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*visited)[v] ==</div>
+<div class="line"><span class="lineno">   59</span>                       (*visited)[u])  </div>
+<div class="line"><span class="lineno">   62</span>            {</div>
+<div class="line"><span class="lineno">   63</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   64</span>            }</div>
+<div class="line"><span class="lineno">   65</span>        }</div>
+<div class="line"><span class="lineno">   66</span>    }</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;  </div>
+<div class="line"><span class="lineno">   69</span>}</div>
 <div class="ttc" id="anamespacegraph_html"><div class="ttname"><a href="../../df/dce/namespacegraph.html">graph</a></div><div class="ttdoc">Graph Algorithms.</div></div>
 </div><!-- fragment -->
 </div>
@@ -486,7 +488,7 @@ Functions</h2></td></tr>
 <p>for all the reachable vertex from the currently exploring vertex we will try to minimize the distance</p>
 <p>minimizing distances</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d1e/graph_2dijkstra_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d7/d1e/graph_2dijkstra_8cpp_source.html">dijkstra.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d68/dijkstra_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d8/d68/dijkstra_8cpp_source.html">dijkstra.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   66</span>                                                                         {</div>
 <div class="line"><span class="lineno">   68</span>    <span class="keywordtype">int</span> n = adj-&gt;size();</div>
 <div class="line"><span class="lineno">   69</span> </div>
@@ -682,22 +684,22 @@ Functions</h2></td></tr>
 <p>&lt; stores boolean values which signify whether that node had been visited or not</p>
 <p>if the current node is not visited then check whether the sub-graph of that node is a bipartite or not</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00075">75</a> of file <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html">is_graph_bipartite2.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   75</span>                                                             {</div>
-<div class="line"><span class="lineno">   76</span>    std::vector&lt;int64_t&gt; visited(</div>
-<div class="line"><span class="lineno">   77</span>        <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>.size());  </div>
-<div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>.size(); i++) {</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">if</span> (!visited[i])  </div>
-<div class="line"><span class="lineno">   85</span>        {</div>
-<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a8e1b547cd407c0774e63f0dc95cda9e7">checkBipartite</a>(<a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>, i, &amp;visited)) {</div>
-<div class="line"><span class="lineno">   87</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   88</span>            }</div>
-<div class="line"><span class="lineno">   89</span>        }</div>
-<div class="line"><span class="lineno">   90</span>    }</div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   92</span>}</div>
-<div class="ttc" id="anamespacegraph_html_a8e1b547cd407c0774e63f0dc95cda9e7"><div class="ttname"><a href="#a8e1b547cd407c0774e63f0dc95cda9e7">graph::checkBipartite</a></div><div class="ttdeci">bool checkBipartite(const std::vector&lt; std::vector&lt; int64_t &gt; &gt; &amp;graph, int64_t index, std::vector&lt; int64_t &gt; *visited)</div><div class="ttdoc">function to check whether the passed graph is bipartite or not</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00036">is_graph_bipartite2.cpp:36</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00076">76</a> of file <a class="el" href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html">is_graph_bipartite2.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   76</span>                                                             {</div>
+<div class="line"><span class="lineno">   77</span>    std::vector&lt;int64_t&gt; visited(</div>
+<div class="line"><span class="lineno">   78</span>        <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>.size());  </div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">for</span> (uint64_t i = 0; i &lt; <a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>.size(); i++) {</div>
+<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">if</span> (!visited[i])  </div>
+<div class="line"><span class="lineno">   86</span>        {</div>
+<div class="line"><span class="lineno">   87</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a8e1b547cd407c0774e63f0dc95cda9e7">checkBipartite</a>(<a class="code hl_namespace" href="../../df/dce/namespacegraph.html">graph</a>, i, &amp;visited)) {</div>
+<div class="line"><span class="lineno">   88</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   89</span>            }</div>
+<div class="line"><span class="lineno">   90</span>        }</div>
+<div class="line"><span class="lineno">   91</span>    }</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   93</span>}</div>
+<div class="ttc" id="anamespacegraph_html_a8e1b547cd407c0774e63f0dc95cda9e7"><div class="ttname"><a href="#a8e1b547cd407c0774e63f0dc95cda9e7">graph::checkBipartite</a></div><div class="ttdeci">bool checkBipartite(const std::vector&lt; std::vector&lt; int64_t &gt; &gt; &amp;graph, int64_t index, std::vector&lt; int64_t &gt; *visited)</div><div class="ttdoc">function to check whether the passed graph is bipartite or not</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc3/is__graph__bipartite2_8cpp_source.html#l00037">is_graph_bipartite2.cpp:37</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -735,32 +737,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00040">40</a> of file <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html">travelling_salesman_problem.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>                                                       {</div>
-<div class="line"><span class="lineno">   43</span>    std::vector&lt;uint32_t&gt; vtx;</div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; V; i++) {</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">if</span> (i != src) {</div>
-<div class="line"><span class="lineno">   46</span>            vtx.push_back(i);</div>
-<div class="line"><span class="lineno">   47</span>        }</div>
-<div class="line"><span class="lineno">   48</span>    }</div>
-<div class="line"><span class="lineno">   49</span> </div>
-<div class="line"><span class="lineno">   51</span>    int32_t min_path = 2147483647;</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">do</span> {</div>
-<div class="line"><span class="lineno">   54</span>        int32_t curr_weight = 0;</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   57</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a> = src;</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i : vtx) {</div>
-<div class="line"><span class="lineno">   59</span>            curr_weight += (*cities)[<a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a>][i];</div>
-<div class="line"><span class="lineno">   60</span>            <a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a> = i;</div>
-<div class="line"><span class="lineno">   61</span>        }</div>
-<div class="line"><span class="lineno">   62</span>        curr_weight += (*cities)[<a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a>][src];</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   65</span>        min_path = std::min(min_path, curr_weight);</div>
-<div class="line"><span class="lineno">   66</span> </div>
-<div class="line"><span class="lineno">   67</span>    } <span class="keywordflow">while</span> (next_permutation(vtx.begin(), vtx.end()));</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> min_path;</div>
-<div class="line"><span class="lineno">   70</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../de/d88/travelling__salesman__problem_8cpp_source.html">travelling_salesman_problem.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>                                                       {</div>
+<div class="line"><span class="lineno">   44</span>    std::vector&lt;uint32_t&gt; vtx;</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; V; i++) {</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span> (i != src) {</div>
+<div class="line"><span class="lineno">   47</span>            vtx.push_back(i);</div>
+<div class="line"><span class="lineno">   48</span>        }</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   52</span>    int32_t min_path = 2147483647;</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">   55</span>        int32_t curr_weight = 0;</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a> = src;</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i : vtx) {</div>
+<div class="line"><span class="lineno">   60</span>            curr_weight += (*cities)[<a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a>][i];</div>
+<div class="line"><span class="lineno">   61</span>            <a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a> = i;</div>
+<div class="line"><span class="lineno">   62</span>        }</div>
+<div class="line"><span class="lineno">   63</span>        curr_weight += (*cities)[<a class="code hl_function" href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">k</a>][src];</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   66</span>        min_path = std::min(min_path, curr_weight);</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>    } <span class="keywordflow">while</span> (next_permutation(vtx.begin(), vtx.end()));</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> min_path;</div>
+<div class="line"><span class="lineno">   71</span>}</div>
 <div class="ttc" id="acomposite__simpson__rule_8cpp_html_a1b74d828b33760094906797042b89442"><div class="ttname"><a href="../../d4/d18/composite__simpson__rule_8cpp.html#a1b74d828b33760094906797042b89442">numerical_methods::simpson_method::k</a></div><div class="ttdeci">double k(double x)</div><div class="ttdoc">Another test function.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d18/composite__simpson__rule_8cpp_source.html#l00117">composite_simpson_rule.cpp:117</a></div></div>
 </div><!-- fragment -->
 </div>

@@ -20,7 +20,7 @@ var searchData=
   ['dequeue_17',['deQueue',['../db/da9/classqueue.html#af27dbb72fb63f58f817a88550d7faa85',1,'queue']]],
   ['dequeue_18',['dequeue',['../d6/d04/classdata__structures_1_1queue__using__array_1_1_queue___array.html#a2aaf88c9954ef3ab686f8e4bfbd87622',1,'data_structures::queue_using_array::Queue_Array']]],
   ['determinant_5flu_19',['determinant_lu',['../d1/dbe/lu__decomposition_8h.html#a3108d43bd32c6fb3b3c158476c51ba7f',1,'lu_decomposition.h']]],
-  ['dfs_20',['dfs',['../d8/d69/classgraph_1_1_h_k_graph.html#ae794950cb3407b6b47d3dc986cf714c0',1,'graph::HKGraph::dfs()'],['../da/d4b/depth__first__search__with__stack_8cpp.html#a5738da9f508f6a9e87f123c9fb6f2ea9',1,'graph::depth_first_search::dfs()']]],
+  ['dfs_20',['dfs',['../d8/d69/classgraph_1_1_h_k_graph.html#ae794950cb3407b6b47d3dc986cf714c0',1,'graph::HKGraph::dfs()'],['../da/d4b/depth__first__search__with__stack_8cpp.html#a5738da9f508f6a9e87f123c9fb6f2ea9',1,'graph::depth_first_search::dfs()'],['../d8/db9/topological__sort_8cpp.html#abcbcaa2bb70af0a11d0c090ea1796aea',1,'graph::topological_sort::dfs()']]],
   ['dfs_5fhc_21',['dfs_hc',['../d2/d8a/classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d.html#af64848d6630c39d0f09ce2359cc7c4f8',1,'range_queries::heavy_light_decomposition::HLD']]],
   ['dfs_5flabels_22',['dfs_labels',['../d2/d8a/classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d.html#a0579062b384e54b611b80c6337c7f2c8',1,'range_queries::heavy_light_decomposition::HLD']]],
   ['dfs_5flca_23',['dfs_lca',['../d1/d51/classrange__queries_1_1heavy__light__decomposition_1_1_tree.html#ae8de7aefcb6635d3dacdd174cd4890c4',1,'range_queries::heavy_light_decomposition::Tree']]],

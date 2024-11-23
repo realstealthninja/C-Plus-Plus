@@ -126,61 +126,62 @@ $(function(){initNavTree('d7/d89/double__factorial_8cpp_source.html','../../'); 
 <div class="contents">
 <a href="../../d7/d89/double__factorial_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">   17</a></span>uint64_t <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">double_factorial_iterative</a>(uint64_t n) {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    uint64_t res = 1;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">for</span> (uint64_t i = n;; i -= 2) {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">if</span> (i == 0 || i == 1)</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        res *= i;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">   18</a></span>uint64_t <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">double_factorial_iterative</a>(uint64_t n) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    uint64_t res = 1;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">for</span> (uint64_t i = n;; i -= 2) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">if</span> (i == 0 || i == 1)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        res *= i;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">   30</a></span>uint64_t <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a>(uint64_t n) {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (n &lt;= 1)</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">return</span> n * <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a>(n - 2);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">   31</a></span>uint64_t <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a>(uint64_t n) {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span> (n &lt;= 1)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> n * <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a>(n - 2);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#abbbcebf3a2d0c67f4c3cfb5511a97981">   42</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(uint64_t n, uint64_t expected) {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    assert(<a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">double_factorial_iterative</a>(n) == expected);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    assert(<a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a>(n) == expected);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#abbbcebf3a2d0c67f4c3cfb5511a97981">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(uint64_t n, uint64_t expected) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    assert(<a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">double_factorial_iterative</a>(n) == expected);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    assert(<a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a>(n) == expected);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
 </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">   50</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>() {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 1:\t n=5\t...&quot;</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(5, 15);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 2:\t n=15\t...&quot;</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(15, 2027025);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 3:\t n=0\t...&quot;</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(0, 1);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">   51</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>() {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 1:\t n=5\t...&quot;</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(5, 15);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 2:\t n=15\t...&quot;</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(15, 2027025);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 3:\t n=0\t...&quot;</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_function" href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>(0, 1);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;passed\n&quot;</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   67</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d7/d89/double__factorial_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   68</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
 </div>
-<div class="ttc" id="adouble__factorial_8cpp_html_a0a3c417360400093891a9ccddaa4be26"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">double_factorial_iterative</a></div><div class="ttdeci">uint64_t double_factorial_iterative(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="#l00017">double_factorial.cpp:17</a></div></div>
-<div class="ttc" id="adouble__factorial_8cpp_html_a68ba20fed2ce427f6469c7689437829d"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a></div><div class="ttdeci">uint64_t double_factorial_recursive(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">double_factorial.cpp:30</a></div></div>
-<div class="ttc" id="adouble__factorial_8cpp_html_a88ec9ad42717780d6caaff9d3d6977f9"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a></div><div class="ttdeci">void tests()</div><div class="ttdef"><b>Definition</b> <a href="#l00050">double_factorial.cpp:50</a></div></div>
-<div class="ttc" id="adouble__factorial_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="#l00067">double_factorial.cpp:67</a></div></div>
+<div class="ttc" id="adouble__factorial_8cpp_html_a0a3c417360400093891a9ccddaa4be26"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#a0a3c417360400093891a9ccddaa4be26">double_factorial_iterative</a></div><div class="ttdeci">uint64_t double_factorial_iterative(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="#l00018">double_factorial.cpp:18</a></div></div>
+<div class="ttc" id="adouble__factorial_8cpp_html_a68ba20fed2ce427f6469c7689437829d"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#a68ba20fed2ce427f6469c7689437829d">double_factorial_recursive</a></div><div class="ttdeci">uint64_t double_factorial_recursive(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="#l00031">double_factorial.cpp:31</a></div></div>
+<div class="ttc" id="adouble__factorial_8cpp_html_a88ec9ad42717780d6caaff9d3d6977f9"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a></div><div class="ttdeci">void tests()</div><div class="ttdef"><b>Definition</b> <a href="#l00051">double_factorial.cpp:51</a></div></div>
+<div class="ttc" id="adouble__factorial_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="../../d7/d89/double__factorial_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="#l00068">double_factorial.cpp:68</a></div></div>
 <div class="ttc" id="agenerate__parentheses_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="../../dd/d1e/generate__parentheses_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d1e/generate__parentheses_8cpp_source.html#l00082">generate_parentheses.cpp:82</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

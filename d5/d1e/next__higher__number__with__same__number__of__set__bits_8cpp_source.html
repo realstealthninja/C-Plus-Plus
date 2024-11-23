@@ -126,81 +126,82 @@ $(function(){initNavTree('d5/d1e/next__higher__number__with__same__number__of__s
 <div class="contents">
 <a href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;cassert&gt;</span>   </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;iostream&gt;</span>  </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d7/d81/namespacebit__manipulation.html">bit_manipulation</a> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">   32</a></span>uint64_t <a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">next_higher_number</a>(uint64_t x) {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    uint64_t rightOne = 0;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    uint64_t nextHigherOneBit = 0;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    uint64_t rightOnesPattern = 0;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    uint64_t next = 0;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span> (x) {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// right most set bit</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        rightOne = x &amp; -<span class="keyword">static_cast&lt;</span><span class="keywordtype">signed</span><span class="keyword">&gt;</span>(x);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment">// reset the pattern and set next higher bit</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">// left part of x will be here</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        nextHigherOneBit = x + rightOne;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// nextHigherOneBit is now part [D] of the above explanation.</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="comment">// isolate the pattern</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        rightOnesPattern = x ^ nextHigherOneBit;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment">// right adjust pattern</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        rightOnesPattern = (rightOnesPattern) / rightOne;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment">// correction factor</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        rightOnesPattern &gt;&gt;= 2;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// rightOnesPattern is now part [A] of the above explanation.</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="comment">// integrate new pattern (Add [D] and [A])</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        next = nextHigherOneBit | rightOnesPattern;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> next;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;iostream&gt;</span>  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d7/d81/namespacebit__manipulation.html">bit_manipulation</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">   33</a></span>uint64_t <a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">next_higher_number</a>(uint64_t x) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    uint64_t rightOne = 0;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    uint64_t nextHigherOneBit = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    uint64_t rightOnesPattern = 0;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    uint64_t next = 0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">if</span> (x) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="comment">// right most set bit</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        rightOne = x &amp; -<span class="keyword">static_cast&lt;</span><span class="keywordtype">signed</span><span class="keyword">&gt;</span>(x);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">// reset the pattern and set next higher bit</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">// left part of x will be here</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        nextHigherOneBit = x + rightOne;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="comment">// nextHigherOneBit is now part [D] of the above explanation.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">// isolate the pattern</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        rightOnesPattern = x ^ nextHigherOneBit;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">// right adjust pattern</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        rightOnesPattern = (rightOnesPattern) / rightOne;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="comment">// correction factor</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        rightOnesPattern &gt;&gt;= 2;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">// rightOnesPattern is now part [A] of the above explanation.</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="comment">// integrate new pattern (Add [D] and [A])</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        next = nextHigherOneBit | rightOnesPattern;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> next;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}  <span class="comment">// namespace bit_manipulation</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">   73</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// x = 4 return 8</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(4) == 8);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment">// x = 6 return 9</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(6) == 9);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">// x = 13 return 14</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(13) == 14);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// x = 64 return 128</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(64) == 128);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// x = 15 return 23</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(15) == 23);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// x= 32 return 64</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(32) == 64);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// x = 97 return 98</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(97) == 98);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// x = 1024 return 2048</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(1024) == 2048);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;All test cases have successfully passed!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}  <span class="comment">// namespace bit_manipulation</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">   74</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>() {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// x = 4 return 8</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(4) == 8);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment">// x = 6 return 9</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(6) == 9);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// x = 13 return 14</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(13) == 14);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// x = 64 return 128</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(64) == 128);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment">// x = 15 return 23</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(15) == 23);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// x= 32 return 64</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(32) == 64);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">// x = 97 return 98</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(97) == 98);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">// x = 1024 return 2048</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    assert(<a class="code hl_function" href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a>(1024) == 2048);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;All test cases have successfully passed!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
 </div>
-<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   97</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_function" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run self-test implementations</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   98</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a>();  <span class="comment">// run self-test implementations</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
 </div>
-<div class="ttc" id="anamespacebit__manipulation_html"><div class="ttname"><a href="../../d7/d81/namespacebit__manipulation.html">bit_manipulation</a></div><div class="ttdoc">for IO operations</div></div>
-<div class="ttc" id="anamespacebit__manipulation_html_a4b76571a2a04fa99c30a96eca9997f0e"><div class="ttname"><a href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a></div><div class="ttdeci">uint64_t next_higher_number(uint64_t x)</div><div class="ttdoc">The main function implements checking the next number.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">next_higher_number_with_same_number_of_set_bits.cpp:32</a></div></div>
-<div class="ttc" id="anext__higher__number__with__same__number__of__set__bits_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">next_higher_number_with_same_number_of_set_bits.cpp:73</a></div></div>
-<div class="ttc" id="anext__higher__number__with__same__number__of__set__bits_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main function.</div><div class="ttdef"><b>Definition</b> <a href="#l00097">next_higher_number_with_same_number_of_set_bits.cpp:97</a></div></div>
+<div class="ttc" id="anamespacebit__manipulation_html"><div class="ttname"><a href="../../d7/d81/namespacebit__manipulation.html">bit_manipulation</a></div><div class="ttdoc">for assert</div></div>
+<div class="ttc" id="anamespacebit__manipulation_html_a4b76571a2a04fa99c30a96eca9997f0e"><div class="ttname"><a href="../../d7/d81/namespacebit__manipulation.html#a4b76571a2a04fa99c30a96eca9997f0e">bit_manipulation::next_higher_number</a></div><div class="ttdeci">uint64_t next_higher_number(uint64_t x)</div><div class="ttdoc">The main function implements checking the next number.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">next_higher_number_with_same_number_of_set_bits.cpp:33</a></div></div>
+<div class="ttc" id="anext__higher__number__with__same__number__of__set__bits_8cpp_html_aa8dca7b867074164d5f45b0f3851269d"><div class="ttname"><a href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#aa8dca7b867074164d5f45b0f3851269d">test</a></div><div class="ttdeci">static void test()</div><div class="ttdoc">Self-test implementations.</div><div class="ttdef"><b>Definition</b> <a href="#l00074">next_higher_number_with_same_number_of_set_bits.cpp:74</a></div></div>
+<div class="ttc" id="anext__higher__number__with__same__number__of__set__bits_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="../../d5/d1e/next__higher__number__with__same__number__of__set__bits_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main function.</div><div class="ttdef"><b>Definition</b> <a href="#l00098">next_higher_number_with_same_number_of_set_bits.cpp:98</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

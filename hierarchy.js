@@ -3,6 +3,7 @@ var hierarchy =
     [ "machine_learning::adaline", "d6/d30/classmachine__learning_1_1adaline.html", null ],
     [ "machine_learning::aystar_search::AyStarSearch< Puzzle >", "da/d02/classmachine__learning_1_1aystar__search_1_1_ay_star_search.html", null ],
     [ "binary_search_tree< T >", "d9/dde/classbinary__search__tree.html", null ],
+    [ "greedy_algorithms::BinaryAddition", "de/df6/classgreedy__algorithms_1_1_binary_addition.html", null ],
     [ "operations_on_datastructures::reverse_binary_tree::BinaryTree", "de/dcf/classoperations__on__datastructures_1_1reverse__binary__tree_1_1_binary_tree.html", null ],
     [ "others::iterative_tree_traversals::BinaryTree", "d9/d12/classothers_1_1iterative__tree__traversals_1_1_binary_tree.html", null ],
     [ "data_structures::Bitset", "d9/dae/classdata__structures_1_1_bitset.html", null ],
@@ -40,6 +41,7 @@ var hierarchy =
       [ "graph::RootedTree", "d0/d58/classgraph_1_1_rooted_tree.html", null ]
     ] ],
     [ "graph::is_graph_bipartite::Graph", "de/d00/classgraph_1_1is__graph__bipartite_1_1_graph.html", null ],
+    [ "graph::topological_sort::Graph", "d5/dec/classgraph_1_1topological__sort_1_1_graph.html", null ],
     [ "greedy_algorithms::dijkstra::Graph", "d2/daa/classgreedy__algorithms_1_1dijkstra_1_1_graph.html", null ],
     [ "hashing::sha256::Hash", "d6/d84/classhashing_1_1sha256_1_1_hash.html", null ],
     [ "hash_chain", "dd/d1c/classhash__chain.html", null ],
@@ -58,6 +60,7 @@ var hierarchy =
     [ "ListNode", "d7/da4/struct_list_node.html", null ],
     [ "Longest_Substring", "da/d21/class_longest___substring.html", null ],
     [ "graph::LowestCommonAncestor", "d9/d23/classgraph_1_1_lowest_common_ancestor.html", null ],
+    [ "others::Cache::LRUCache< K, V >", "d8/d2e/classothers_1_1_cache_1_1_l_r_u_cache.html", null ],
     [ "others::lru_cache::LRUCache", "d6/dae/classothers_1_1lru__cache_1_1_l_r_u_cache.html", null ],
     [ "divide_and_conquer::strassens_multiplication::Matrix< T, typename >", "dc/d13/classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix.html", null ],
     [ "MinHeap", "d2/d05/class_min_heap.html", null ],
@@ -95,6 +98,7 @@ var hierarchy =
     [ "range_queries::heavy_light_decomposition::SG< X >", "d9/d35/classrange__queries_1_1heavy__light__decomposition_1_1_s_g.html", [
       [ "range_queries::heavy_light_decomposition::HLD< X >", "d2/d8a/classrange__queries_1_1heavy__light__decomposition_1_1_h_l_d.html", null ]
     ] ],
+    [ "SJF< S, T, E >", "d7/d9f/class_s_j_f.html", null ],
     [ "data_structures::SkipList", "d4/d90/classdata__structures_1_1_skip_list.html", null ],
     [ "Solution", "dd/d4f/class_solution.html", null ],
     [ "data_structures::sparse_table::Sparse_table", "da/d37/structdata__structures_1_1sparse__table_1_1_sparse__table.html", null ],

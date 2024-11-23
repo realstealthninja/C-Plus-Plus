@@ -220,22 +220,22 @@ Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../de/d75/qr__eigen__values_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../de/d75/qr__eigen__values_8cpp_source.html">qr_eigen_values.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   28</span>                                                        {</div>
 <div class="line"><span class="lineno">   29</span>    <span class="keywordtype">int</span> i, j, tmp, lim2 = <a class="code hl_define" href="#aee57a411f07599034f5ceb8cc7d65b40">LIMS</a> &gt;&gt; 1;</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d6/d42/data__structures_2sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">N</a> = A-&gt;size();</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/dab/sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">N</a> = A-&gt;size();</div>
 <div class="line"><span class="lineno">   31</span> </div>
 <div class="line"><span class="lineno">   32</span><span class="preprocessor">#ifdef _OPENMP</span></div>
 <div class="line"><span class="lineno">   33</span><span class="preprocessor">#pragma omp for</span></div>
 <div class="line"><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="../../d6/d42/data__structures_2sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">N</a>; i++) {</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="../../d8/dab/sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">N</a>; i++) {</div>
 <div class="line"><span class="lineno">   36</span>        A[0][i][i] = (std::rand() % <a class="code hl_define" href="#aee57a411f07599034f5ceb8cc7d65b40">LIMS</a>) - lim2;</div>
-<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">for</span> (j = i + 1; j &lt; <a class="code hl_variable" href="../../d6/d42/data__structures_2sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">N</a>; j++) {</div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">for</span> (j = i + 1; j &lt; <a class="code hl_variable" href="../../d8/dab/sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">N</a>; j++) {</div>
 <div class="line"><span class="lineno">   38</span>            tmp = (std::rand() % <a class="code hl_define" href="#aee57a411f07599034f5ceb8cc7d65b40">LIMS</a>) - lim2;</div>
 <div class="line"><span class="lineno">   39</span>            A[0][i][j] = tmp;  <span class="comment">// summetrically distribute random values</span></div>
 <div class="line"><span class="lineno">   40</span>            A[0][j][i] = tmp;</div>
 <div class="line"><span class="lineno">   41</span>        }</div>
 <div class="line"><span class="lineno">   42</span>    }</div>
 <div class="line"><span class="lineno">   43</span>}</div>
-<div class="ttc" id="adata__structures_2sparse__table_8cpp_html_a10f3ffb3f6f7e1b83d556b9c8de89a5d"><div class="ttname"><a href="../../d6/d42/data__structures_2sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">data_structures::sparse_table::N</a></div><div class="ttdeci">constexpr uint32_t N</div><div class="ttdoc">A struct to represent sparse table for min() as their invariant function, for the given array A....</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d42/data__structures_2sparse__table_8cpp_source.html#l00047">sparse_table.cpp:47</a></div></div>
 <div class="ttc" id="aqr__eigen__values_8cpp_html_aee57a411f07599034f5ceb8cc7d65b40"><div class="ttname"><a href="#aee57a411f07599034f5ceb8cc7d65b40">LIMS</a></div><div class="ttdeci">#define LIMS</div><div class="ttdef"><b>Definition</b> <a href="../../de/d75/qr__eigen__values_8cpp_source.html#l00020">qr_eigen_values.cpp:20</a></div></div>
+<div class="ttc" id="asparse__table_8cpp_html_a10f3ffb3f6f7e1b83d556b9c8de89a5d"><div class="ttname"><a href="../../d8/dab/sparse__table_8cpp.html#a10f3ffb3f6f7e1b83d556b9c8de89a5d">data_structures::sparse_table::N</a></div><div class="ttdeci">constexpr uint32_t N</div><div class="ttdoc">A struct to represent sparse table for min() as their invariant function, for the given array A....</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dab/sparse__table_8cpp_source.html#l00048">sparse_table.cpp:48</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -415,7 +415,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  195</span>    }</div>
 <div class="line"><span class="lineno">  196</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Test 1 Passed\n\n&quot;</span>;</div>
 <div class="line"><span class="lineno">  197</span>}</div>
-<div class="ttc" id="afibonacci__sum_8cpp_html_aadb40ac4c74a7efc0680b83eeee138aa"><div class="ttname"><a href="../../de/dc3/fibonacci__sum_8cpp.html#aadb40ac4c74a7efc0680b83eeee138aa">math::fibonacci_sum::result</a></div><div class="ttdeci">uint64_t result(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc3/fibonacci__sum_8cpp_source.html#l00076">fibonacci_sum.cpp:76</a></div></div>
+<div class="ttc" id="afibonacci__sum_8cpp_html_aadb40ac4c74a7efc0680b83eeee138aa"><div class="ttname"><a href="../../de/dc3/fibonacci__sum_8cpp.html#aadb40ac4c74a7efc0680b83eeee138aa">math::fibonacci_sum::result</a></div><div class="ttdeci">uint64_t result(uint64_t n)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc3/fibonacci__sum_8cpp_source.html#l00077">fibonacci_sum.cpp:77</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -169,58 +169,66 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>matches the stable matching between the two sets </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html#l00042">42</a> of file <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html">gale_shapley.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   42</span>                                                                                                                                                                  {</div>
-<div class="line"><span class="lineno">   43</span>    std::uint32_t num_elements = secondary_preferences.size();</div>
-<div class="line"><span class="lineno">   44</span>    std::vector&lt;std::uint32_t&gt; matches(num_elements, -1);</div>
-<div class="line"><span class="lineno">   45</span>    std::vector&lt;bool&gt; is_free_primary(num_elements, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   46</span>    std::vector&lt;std::uint32_t&gt; proposal_index(num_elements, 0); <span class="comment">// Tracks the next secondary to propose for each primary</span></div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordtype">int</span> free_primary_index = -1;</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>        <span class="comment">// Find the next free primary</span></div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">for</span> (std::uint32_t i = 0; i &lt; num_elements; i++) {</div>
-<div class="line"><span class="lineno">   53</span>            <span class="keywordflow">if</span> (is_free_primary[i]) {</div>
-<div class="line"><span class="lineno">   54</span>                free_primary_index = i;</div>
-<div class="line"><span class="lineno">   55</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   56</span>            }</div>
-<div class="line"><span class="lineno">   57</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../db/d80/gale__shapley_8cpp_source.html">gale_shapley.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                                                                  {</div>
+<div class="line"><span class="lineno">   49</span>    std::uint32_t num_elements = secondary_preferences.size();</div>
+<div class="line"><span class="lineno">   50</span>    std::vector&lt;std::uint32_t&gt; matches(num_elements, -1);</div>
+<div class="line"><span class="lineno">   51</span>    std::vector&lt;bool&gt; is_free_primary(num_elements, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   52</span>    std::vector&lt;std::uint32_t&gt; proposal_index(</div>
+<div class="line"><span class="lineno">   53</span>        num_elements,</div>
+<div class="line"><span class="lineno">   54</span>        0);  <span class="comment">// Tracks the next secondary to propose for each primary</span></div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordtype">int</span> free_primary_index = -1;</div>
 <div class="line"><span class="lineno">   58</span> </div>
-<div class="line"><span class="lineno">   59</span>        <span class="comment">// If no free primary is found, break the loop</span></div>
-<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">if</span> (free_primary_index == -1) <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   61</span> </div>
-<div class="line"><span class="lineno">   62</span>        <span class="comment">// Get the next secondary to propose</span></div>
-<div class="line"><span class="lineno">   63</span>        std::uint32_t secondary_to_propose = primary_preferences[free_primary_index][proposal_index[free_primary_index]];</div>
-<div class="line"><span class="lineno">   64</span>        proposal_index[free_primary_index]++;</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>        <span class="comment">// Get the current match of the secondary</span></div>
-<div class="line"><span class="lineno">   67</span>        std::uint32_t current_match = matches[secondary_to_propose];</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>        <span class="comment">// If the secondary is free, match them</span></div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">if</span> (current_match == -1) {</div>
-<div class="line"><span class="lineno">   71</span>            matches[secondary_to_propose] = free_primary_index;</div>
-<div class="line"><span class="lineno">   72</span>            is_free_primary[free_primary_index] = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   73</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   74</span>            <span class="comment">// Determine if the current match should be replaced</span></div>
-<div class="line"><span class="lineno">   75</span>            <span class="keyword">auto</span> new_proposer_rank = std::find(secondary_preferences[secondary_to_propose].begin(),</div>
-<div class="line"><span class="lineno">   76</span>                                                secondary_preferences[secondary_to_propose].end(),</div>
-<div class="line"><span class="lineno">   77</span>                                                free_primary_index);</div>
-<div class="line"><span class="lineno">   78</span>            <span class="keyword">auto</span> current_match_rank = std::find(secondary_preferences[secondary_to_propose].begin(),</div>
-<div class="line"><span class="lineno">   79</span>                                                 secondary_preferences[secondary_to_propose].end(),</div>
-<div class="line"><span class="lineno">   80</span>                                                 current_match);</div>
-<div class="line"><span class="lineno">   81</span> </div>
-<div class="line"><span class="lineno">   82</span>            <span class="comment">// If the new proposer is preferred over the current match</span></div>
-<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">if</span> (new_proposer_rank &lt; current_match_rank) {</div>
-<div class="line"><span class="lineno">   84</span>                matches[secondary_to_propose] = free_primary_index;</div>
-<div class="line"><span class="lineno">   85</span>                is_free_primary[free_primary_index] = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   86</span>                is_free_primary[current_match] = <span class="keyword">true</span>; <span class="comment">// Current match is now free</span></div>
-<div class="line"><span class="lineno">   87</span>            }</div>
-<div class="line"><span class="lineno">   88</span>        }</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">return</span> matches;</div>
-<div class="line"><span class="lineno">   92</span>}</div>
+<div class="line"><span class="lineno">   59</span>        <span class="comment">// Find the next free primary</span></div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">for</span> (std::uint32_t i = 0; i &lt; num_elements; i++) {</div>
+<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">if</span> (is_free_primary[i]) {</div>
+<div class="line"><span class="lineno">   62</span>                free_primary_index = i;</div>
+<div class="line"><span class="lineno">   63</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   64</span>            }</div>
+<div class="line"><span class="lineno">   65</span>        }</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>        <span class="comment">// If no free primary is found, break the loop</span></div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">if</span> (free_primary_index == -1)</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>        <span class="comment">// Get the next secondary to propose</span></div>
+<div class="line"><span class="lineno">   72</span>        std::uint32_t secondary_to_propose =</div>
+<div class="line"><span class="lineno">   73</span>            primary_preferences[free_primary_index]</div>
+<div class="line"><span class="lineno">   74</span>                               [proposal_index[free_primary_index]];</div>
+<div class="line"><span class="lineno">   75</span>        proposal_index[free_primary_index]++;</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>        <span class="comment">// Get the current match of the secondary</span></div>
+<div class="line"><span class="lineno">   78</span>        std::uint32_t current_match = matches[secondary_to_propose];</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>        <span class="comment">// If the secondary is free, match them</span></div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">if</span> (current_match == -1) {</div>
+<div class="line"><span class="lineno">   82</span>            matches[secondary_to_propose] = free_primary_index;</div>
+<div class="line"><span class="lineno">   83</span>            is_free_primary[free_primary_index] = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   84</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   85</span>            <span class="comment">// Determine if the current match should be replaced</span></div>
+<div class="line"><span class="lineno">   86</span>            <span class="keyword">auto</span> new_proposer_rank =</div>
+<div class="line"><span class="lineno">   87</span>                std::find(secondary_preferences[secondary_to_propose].begin(),</div>
+<div class="line"><span class="lineno">   88</span>                          secondary_preferences[secondary_to_propose].end(),</div>
+<div class="line"><span class="lineno">   89</span>                          free_primary_index);</div>
+<div class="line"><span class="lineno">   90</span>            <span class="keyword">auto</span> current_match_rank =</div>
+<div class="line"><span class="lineno">   91</span>                std::find(secondary_preferences[secondary_to_propose].begin(),</div>
+<div class="line"><span class="lineno">   92</span>                          secondary_preferences[secondary_to_propose].end(),</div>
+<div class="line"><span class="lineno">   93</span>                          current_match);</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>            <span class="comment">// If the new proposer is preferred over the current match</span></div>
+<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">if</span> (new_proposer_rank &lt; current_match_rank) {</div>
+<div class="line"><span class="lineno">   97</span>                matches[secondary_to_propose] = free_primary_index;</div>
+<div class="line"><span class="lineno">   98</span>                is_free_primary[free_primary_index] = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   99</span>                is_free_primary[current_match] =</div>
+<div class="line"><span class="lineno">  100</span>                    <span class="keyword">true</span>;  <span class="comment">// Current match is now free</span></div>
+<div class="line"><span class="lineno">  101</span>            }</div>
+<div class="line"><span class="lineno">  102</span>        }</div>
+<div class="line"><span class="lineno">  103</span>    }</div>
+<div class="line"><span class="lineno">  104</span> </div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">return</span> matches;</div>
+<div class="line"><span class="lineno">  106</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

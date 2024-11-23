@@ -56,11 +56,12 @@ var searchData=
   ['ispossible_53',['isPossible',['../d3/d05/sudoku__solver_8cpp.html#a07dc6acffd0500de9bdbf16b3ade94b0',1,'backtracking::sudoku_solver']]],
   ['ispoweroftwo_54',['isPowerOfTwo',['../d7/d81/namespacebit__manipulation.html#a5032470c9974bbd6ec254bf296530a5f',1,'bit_manipulation']]],
   ['isprime_55',['IsPrime',['../da/d7b/primality__test_8cpp.html#a2bfa6adead2bdcbf1dac94cbe08d7eaf',1,'primality_test.cpp']]],
-  ['isprime_56',['isPrime',['../d8/d53/modular__inverse__fermat__little__theorem_8cpp.html#a09660096b134753128952246f4f4e4bd',1,'modular_inverse_fermat_little_theorem.cpp']]],
+  ['isprime_56',['isPrime',['../d8/d53/modular__inverse__fermat__little__theorem_8cpp.html#aba4929409fee35c3cb559e962a544b3e',1,'math::modular_inverse_fermat']]],
   ['issafe_57',['isSafe',['../d3/d40/graph__coloring_8cpp.html#a976efe049deb042bf1f02612e181ab1d',1,'backtracking::graph_coloring::isSafe()'],['../d4/d3e/n__queens_8cpp.html#a5730b6683f6adcf5c5ef75cf53dc7160',1,'backtracking::n_queens::isSafe()']]],
   ['issafe_58',['issafe',['../d1/d2a/knight__tour_8cpp.html#af27031fbff093ffd625f64010d98aab2',1,'backtracking::knight_tour']]],
   ['issame_59',['isSame',['../dd/d1f/classdsu.html#a64d25c5986742f7c234ed449b2ff7303',1,'dsu::isSame(uint64_t i, uint64_t j)'],['../dd/d1f/classdsu.html#a64d25c5986742f7c234ed449b2ff7303',1,'dsu::isSame(uint64_t i, uint64_t j)']]],
-  ['it_5fternary_5fsearch_60',['it_ternary_search',['../dc/dfe/ternary__search_8cpp.html#ae30dfe2894191bfeffe5b3b1854b95b0',1,'ternary_search.cpp']]],
-  ['iterativefactorial_61',['iterativeFactorial',['../dd/d47/namespacemath.html#a2565c745aac2f9561cc6fd9e56d9b77a',1,'math']]],
-  ['iterativequicksort_62',['iterativeQuickSort',['../d5/d91/namespacesorting.html#a263595fd9a0163b5b997b89fab3a0dc5',1,'sorting']]]
+  ['isvalidbinarystring_60',['isValidBinaryString',['../de/df6/classgreedy__algorithms_1_1_binary_addition.html#a4cfb595ba80795a9efae0e3f6f5c34d2',1,'greedy_algorithms::BinaryAddition']]],
+  ['it_5fternary_5fsearch_61',['it_ternary_search',['../dc/dfe/ternary__search_8cpp.html#ae30dfe2894191bfeffe5b3b1854b95b0',1,'ternary_search.cpp']]],
+  ['iterativefactorial_62',['iterativeFactorial',['../dd/d47/namespacemath.html#a2565c745aac2f9561cc6fd9e56d9b77a',1,'math']]],
+  ['iterativequicksort_63',['iterativeQuickSort',['../d5/d91/namespacesorting.html#a263595fd9a0163b5b997b89fab3a0dc5',1,'sorting']]]
 ];

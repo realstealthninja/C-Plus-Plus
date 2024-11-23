@@ -66,6 +66,9 @@ var annotated_dup =
       [ "is_graph_bipartite", null, [
         [ "Graph", "de/d00/classgraph_1_1is__graph__bipartite_1_1_graph.html", "de/d00/classgraph_1_1is__graph__bipartite_1_1_graph" ]
       ] ],
+      [ "topological_sort", null, [
+        [ "Graph", "d5/dec/classgraph_1_1topological__sort_1_1_graph.html", "d5/dec/classgraph_1_1topological__sort_1_1_graph" ]
+      ] ],
       [ "Graph", "dc/d61/classgraph_1_1_graph.html", "dc/d61/classgraph_1_1_graph" ],
       [ "HKGraph", "d8/d69/classgraph_1_1_h_k_graph.html", "d8/d69/classgraph_1_1_h_k_graph" ],
       [ "LowestCommonAncestor", "d9/d23/classgraph_1_1_lowest_common_ancestor.html", "d9/d23/classgraph_1_1_lowest_common_ancestor" ],
@@ -75,6 +78,7 @@ var annotated_dup =
       [ "dijkstra", "d2/d2f/namespacegreedy__algorithms_1_1dijkstra.html", [
         [ "Graph", "d2/daa/classgreedy__algorithms_1_1dijkstra_1_1_graph.html", "d2/daa/classgreedy__algorithms_1_1dijkstra_1_1_graph" ]
       ] ],
+      [ "BinaryAddition", "de/df6/classgreedy__algorithms_1_1_binary_addition.html", "de/df6/classgreedy__algorithms_1_1_binary_addition" ],
       [ "DigitSeparation", "da/d49/classgreedy__algorithms_1_1_digit_separation.html", "da/d49/classgreedy__algorithms_1_1_digit_separation" ]
     ] ],
     [ "hashing", "d6/d0c/namespacehashing.html", [
@@ -125,7 +129,8 @@ var annotated_dup =
     [ "others", "d0/d6f/namespaceothers.html", [
       [ "Cache", "db/dde/namespaceothers_1_1_cache.html", [
         [ "D_Node", "de/d21/classothers_1_1_cache_1_1_d___node.html", "de/d21/classothers_1_1_cache_1_1_d___node" ],
-        [ "LFUCache", "df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html", "df/d8f/classothers_1_1_cache_1_1_l_f_u_cache" ]
+        [ "LFUCache", "df/d8f/classothers_1_1_cache_1_1_l_f_u_cache.html", "df/d8f/classothers_1_1_cache_1_1_l_f_u_cache" ],
+        [ "LRUCache", "d8/d2e/classothers_1_1_cache_1_1_l_r_u_cache.html", "d8/d2e/classothers_1_1_cache_1_1_l_r_u_cache" ]
       ] ],
       [ "iterative_tree_traversals", null, [
         [ "BinaryTree", "d9/d12/classothers_1_1iterative__tree__traversals_1_1_binary_tree.html", "d9/d12/classothers_1_1iterative__tree__traversals_1_1_binary_tree" ],
@@ -216,6 +221,7 @@ var annotated_dup =
     [ "queue", "db/da9/classqueue.html", "db/da9/classqueue" ],
     [ "RBtree", "d8/d72/class_r_btree.html", null ],
     [ "SegmentIntersection", "d4/db4/struct_segment_intersection.html", "d4/db4/struct_segment_intersection" ],
+    [ "SJF", "d7/d9f/class_s_j_f.html", "d7/d9f/class_s_j_f" ],
     [ "Solution", "dd/d4f/class_solution.html", null ],
     [ "stack", "d1/dc2/classstack.html", "d1/dc2/classstack" ],
     [ "stack_linkedList", "d2/dc4/classstack__linked_list.html", null ],

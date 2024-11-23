@@ -172,7 +172,7 @@ $(function(){initNavTree('d0/d61/knapsack_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n Enter the number of Items : &quot;</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">int</span> n;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    cin &gt;&gt; n;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_struct" href="../../db/d66/struct_item.html">Item</a> itemArray[n];</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_struct" href="../../db/d66/struct_item.html">Item</a> *itemArray = <span class="keyword">new</span> <a class="code hl_struct" href="../../db/d66/struct_item.html">Item</a>[n];</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        cout &lt;&lt; <span class="stringliteral">&quot;\nEnter the weight and profit of item &quot;</span> &lt;&lt; i + 1 &lt;&lt; <span class="stringliteral">&quot; : &quot;</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        cin &gt;&gt; itemArray[i].weight;</div>
@@ -201,7 +201,7 @@ $(function(){initNavTree('d0/d61/knapsack_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    cout &lt;&lt; <span class="stringliteral">&quot;\nMax Profit : &quot;</span> &lt;&lt; maxProfit;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">delete</span>[] itemArray;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
 <div class="ttc" id="agenerate__parentheses_8cpp_html_gae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="../../dd/d1e/generate__parentheses_8cpp.html#gae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main function.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d1e/generate__parentheses_8cpp_source.html#l00110">generate_parentheses.cpp:110</a></div></div>

@@ -18,5 +18,7 @@ var searchData=
   ['word_5fbreak_2ecpp_15',['word_break.cpp',['../d3/d84/word__break_8cpp.html',1,'']]],
   ['word_5fend_16',['word_end',['../d5/d12/structdata__structures_1_1trie__using__hashmap_1_1_trie_1_1_node.html#a3cdb077745d3dc97212d693132371219',1,'data_structures::trie_using_hashmap::Trie::Node']]],
   ['wordbreak_17',['wordBreak',['../d3/d84/word__break_8cpp.html#afe4dcd6fd5282e535685361cba645d7c',1,'dynamic_programming::word_break']]],
-  ['working_18',['Working',['../d5/d45/sublist__search_8cpp.html#autotoc_md108',1,'']]]
+  ['working_18',['Working',['../d5/d45/sublist__search_8cpp.html#autotoc_md109',1,'']]],
+  ['worst_20case_19',['Worst Case',['../d8/d13/bubble__sort_8cpp.html#autotoc_md113',1,'']]],
+  ['worst_20case_20average_20case_20',['Bubble Sort Algorithm Analysis (Best Case - Worst Case - Average Case)',['../d8/d13/bubble__sort_8cpp.html#autotoc_md111',1,'']]]
 ];
