@@ -1,7 +1,7 @@
 var searchData=
 [
   ['m_0',['M',['../d8/dab/sparse__table_8cpp.html#af7db62f21983565c64d5d42d2a49888e',1,'data_structures::sparse_table']]],
-  ['m_1',['m',['../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74',1,'graph::HKGraph']]],
+  ['m_1',['m',['../d8/d69/classgraph_1_1_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74',1,'graph::HKGraph::m'],['../df/dee/class_h_k_graph.html#a3d9101e3b4598159005fd028b9b0ff74',1,'HKGraph::m']]],
   ['machine_20learning_2',['Machine Learning',['../d5/d88/md__d_i_r_e_c_t_o_r_y.html#autotoc_md58',1,'']]],
   ['machine_20learning_20algorithms_3',['Machine Learning Algorithms',['../d9/d66/group__machine__learning.html',1,'']]],
   ['machine_5flearning_4',['machine_learning',['../d8/d77/namespacemachine__learning.html',1,'']]],
@@ -34,7 +34,7 @@ var searchData=
   ['matrix_31',['Matrix',['../dc/d13/classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix.html',1,'divide_and_conquer::strassens_multiplication::Matrix&lt; T, typename &gt;'],['../dc/d13/classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix.html#a01f3a05cf5abdc5d63999ef1bf9f9256',1,'divide_and_conquer::strassens_multiplication::Matrix::Matrix(const Integer size)'],['../dc/d13/classdivide__and__conquer_1_1strassens__multiplication_1_1_matrix.html#a4aa49765cce39ce48b9241e993e0cfb9',1,'divide_and_conquer::strassens_multiplication::Matrix::Matrix(const Integer rows, const Integer cols)']]],
   ['matrix_32',['matrix',['../d1/dbe/lu__decomposition_8h.html#ac029b636b353cefbb18b2fcc71e427e4',1,'lu_decomposition.h']]],
   ['matrix_5fexponentiation_2ecpp_33',['matrix_exponentiation.cpp',['../d7/d35/matrix__exponentiation_8cpp.html',1,'']]],
-  ['max_34',['MAX',['../d4/d32/fibonacci__fast_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;fibonacci_fast.cpp'],['../df/def/power__for__huge__numbers_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;power_for_huge_numbers.cpp'],['../dc/dc5/paranthesis__matching_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;paranthesis_matching.cpp'],['../d1/df3/hash__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;hash_search.cpp'],['../dc/dfe/ternary__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;ternary_search.cpp']]],
+  ['max_34',['MAX',['../df/def/power__for__huge__numbers_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;power_for_huge_numbers.cpp'],['../dc/dc5/paranthesis__matching_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;paranthesis_matching.cpp'],['../d1/df3/hash__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;hash_search.cpp'],['../dc/dfe/ternary__search_8cpp.html#a392fb874e547e582e9c66a08a1f23326',1,'MAX:&#160;ternary_search.cpp'],['../d4/d32/fibonacci__fast_8cpp.html#abebd72fcda852381644b55f9316719a0',1,'MAX:&#160;fibonacci_fast.cpp']]],
   ['max_5fheight_35',['max_height',['../d9/d29/ground__to__ground__projectile__motion_8cpp.html#aa554429def63077ab7a550c0affbfefa',1,'physics::ground_to_ground_projectile_motion']]],
   ['max_5fiter_36',['MAX_ITER',['../d9/d66/group__machine__learning.html#ga5118e5cbc4f0886e27b3a7a2544dded1',1,'adaline_learning.cpp']]],
   ['max_5fiterations_37',['MAX_ITERATIONS',['../d7/d6a/bisection__method_8cpp.html#a0a3abbca80bc98e7abcb3ae73abe0f14',1,'MAX_ITERATIONS:&#160;bisection_method.cpp'],['../de/dd3/newton__raphson__method_8cpp.html#a5c5ff05b9f37ae59dad67e1d4f6cd51d',1,'MAX_ITERATIONS:&#160;newton_raphson_method.cpp']]],
@@ -51,7 +51,7 @@ var searchData=
   ['maxsubarray_48',['maxSubArray',['../d4/da0/kadane_8cpp.html#af3029007a422a914a85c0b0122f1c7b4',1,'dynamic_programming::kadane']]],
   ['md5_49',['MD5',['../dd/d43/namespace_m_d5.html',1,'']]],
   ['md5_2ecpp_50',['md5.cpp',['../d5/d96/md5_8cpp.html',1,'']]],
-  ['mean_51',['mean',['../d7/d7c/classstatistics_1_1stats__computer1.html#a390697dcee210b91823ceff04b25081b',1,'statistics::stats_computer1::mean()'],['../d8/dab/classstatistics_1_1stats__computer2.html#a8290966ad468f2a8c266d008bc60720e',1,'statistics::stats_computer2::mean()']]],
+  ['mean_51',['mean',['../d7/d7c/classstatistics_1_1stats__computer1.html#a390697dcee210b91823ceff04b25081b',1,'statistics::stats_computer1::mean()'],['../d8/dab/classstatistics_1_1stats__computer2.html#a8290966ad468f2a8c266d008bc60720e',1,'statistics::stats_computer2::mean()'],['../d2/d0f/classstats__computer1.html#a390697dcee210b91823ceff04b25081b',1,'stats_computer1::mean()'],['../dc/d02/classstats__computer2.html#a8290966ad468f2a8c266d008bc60720e',1,'stats_computer2::mean()']]],
   ['median_5fof_5fmedians_52',['median_of_medians',['../d9/d69/median__search_8cpp.html#a868847218f694e78bf433a0ff7648bae',1,'search::median_search']]],
   ['median_5fsearch_53',['median_search',['../da/dd4/namespacemedian__search.html',1,'']]],
   ['median_5fsearch_2ecpp_54',['median_search.cpp',['../d9/d69/median__search_8cpp.html',1,'']]],
