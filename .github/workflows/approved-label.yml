@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Add "approved" label when approved
       uses: realstealthninja/label-when-approved@0.4.0
-      env:
+      with:
         requiredApproves: 1
         token: ${{ secrets.GITHUB_TOKEN }}
         label: "approved"
