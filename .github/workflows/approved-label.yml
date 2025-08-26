@@ -5,9 +5,9 @@ jobs:
     name: Add "approved" label when approved
     runs-on: ubuntu-latest
     steps:
-    - name: Add "approved" label when approved
-      uses: realstealthninja/label-when-approved@0.4.2
-      with:
-        requiredApproves: 1
-        secret: ${{ secrets.GITHUB_TOKEN }}
-        label: "approved"
+      - name: Add "approved" label when approved
+        uses: realstealthninja/label-when-approved@latest
+        with:
+          approvals: 1
+          secret: ${{ secrets.GITHUB_TOKEN }}
+          label: "approved"
