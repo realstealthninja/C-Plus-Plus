@@ -319,7 +319,7 @@ class uint256_t {
      * @brief operator -- (post-decrement)
      * @returns decremented value of this
      */
-    inline uint256_t operator--(int) {
+    inline uint256_t operator--(int p) {
         --*this;
         return *this;
     }
