@@ -350,7 +350,7 @@ class uint128_t {
      * @brief operator -- (post-decrement)
      * @returns decremented value of this
      */
-    inline uint128_t operator--(int) {
+    inline uint128_t operator--(int p) {
         --*this;
         return *this;
     }
