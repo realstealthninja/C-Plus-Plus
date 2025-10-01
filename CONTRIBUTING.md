@@ -19,8 +19,7 @@ Being a contributor at The Algorithms, we request you to follow the points menti
 - Your work will be distributed under the [MIT License](https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/LICENSE) once your pull request has been merged.
 - Please follow the repository guidelines and standards mentioned below.
 
-**New implementation** 
-We welcome new implementations!
+**New implementation** New implementations are welcome!
 
 You can add new algorithms or data structures that are **not present in the repository** or that can **improve** the old implementations (**documentation**, **improving test cases**, removing bugs, or in any other reasonable sense)
 
