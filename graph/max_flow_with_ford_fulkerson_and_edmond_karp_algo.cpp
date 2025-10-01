@@ -27,7 +27,8 @@ class Graph {
         visited.reset();
         std::queue<int> q;
         q.push(source);
-        while (q.empty() == false) {
+        bool is_path_found = false;
+        while (q.empty() == false && is_path_found == false) {
             int current_node = q.front();
             visited.set(current_node);
             q.pop();
