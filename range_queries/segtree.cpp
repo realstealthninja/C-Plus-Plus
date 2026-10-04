@@ -167,53 +167,5 @@ static void test() {
  */
 int main() {
     test();  // run self-test implementations
-
-    std::cout << "Enter number of elements: ";
-
-    uint64_t n = 0;
-    std::cin >> n;
-
-    auto max = static_cast<uint64_t>(2 * pow(2, ceil(log2(n))) - 1);
-    std::vector<int64_t> arr(n), lazy(max), segtree(max);
-
-    int choice = 0;
-    std::cout << "\nDo you wish to enter each number?:\n"
-                 "1: Yes\n"
-                 "0: No (default initialize them to 0)\n";
-
-    std::cin >> choice;
-    if (choice == 1) {
-        std::cout << "Enter " << n << " numbers:\n";
-        for (int i = 1; i <= n; i++) {
-            std::cout << i << ": ";
-            std::cin >> arr[i];
-        }
-    }
-
-    ConsTree(arr, &segtree, 0, n - 1, 0);
-
-    do {
-        std::cout << "\nMake your choice:\n"
-                     "1: Range update (input)\n"
-                     "2: Range query (output)\n"
-                     "0: Exit\n";
-        std::cin >> choice;
-
-        if (choice == 1) {
-            std::cout << "Enter 1-indexed lower bound, upper bound & value:\n";
-
-            uint64_t p = 1, q = 1, v = 0;
-            std::cin >> p >> q >> v;
-            update(&segtree, &lazy, p - 1, q - 1, v, 0, n - 1, 0);
-        } else if (choice == 2) {
-            std::cout << "Enter 1-indexed lower bound & upper bound:\n";
-
-            uint64_t p = 1, q = 1;
-            std::cin >> p >> q;
-            std::cout << query(&segtree, &lazy, p - 1, q - 1, 0, n - 1, 0);
-            std::cout << "\n";
-        }
-    } while (choice > 0);
-
     return 0;
 }
